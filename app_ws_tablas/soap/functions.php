@@ -1,5 +1,5 @@
 <?php
-define('HOST', 'www.testsoap.lcl');
+define('HOST', 'www.servicio-tablas.cl');
 define('PROT', 'http://');
 define('DELIMITER_URL1', ';');
 define('DELIMITER_URL2', ';url2');
