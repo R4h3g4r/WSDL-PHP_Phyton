@@ -57,14 +57,15 @@ $server->register(
 function get_url_from_file($word_search)
 {
       $constants =  get_defined_constants(true);
-      if (empty($word_search['codigo'])) {
+      if (empty($word_search['clave'])) {
             return array(
                   'codigo' => '-1',
                   'url' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
       // solo si se encuentra el caracter en el archivo se hace la busqueda
-      $file_path = $constants['user']['PROT'] . $constants['user']['HOST'] . $word_search['file'];
+      $file_path = $constants['user']['PROT'] . $constants['user']['HOST'] . '/' . $word_search['file'];
+      var_dump($file_path);exit();
       try {
             $file = file_get_contents($file_path);
             $find = strpos($file, strval($word_search['codigo']));
