@@ -12,6 +12,7 @@ function get_url_from_file($word_search)
     if (empty($word_search)) {
         return $constants['user']['EMPTY_FIELD_MESSAGE'];
     }
+    // TODO: aqui tenemos que poner la logica del archivo por parametros
     // solo si se encuentra el caracter en el archivo se hace la busqueda
     $file_path = $constants['user']['PROT'].$constants['user']['HOST'].'/PagueDirecto.parametros';
     try {

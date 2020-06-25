@@ -8,6 +8,8 @@ define('HOST', '172.16.98.54/wsdl_tablas');
 define('NOT_FOUND_MESSAGE', 'No fue encontrado.');
 define('PROT', 'http://');
 
+# ejemplo 54311;desc=http://www.afphabitat.cl/cgi-bin/bci/mdpbci.cgi;url2=https://www.afphabitat.cl/abonoWeb/notificacion/bci/notificacion.htm;
+
 $server = new soap_server();
 
 // configuracion del webservice
@@ -23,7 +25,9 @@ $server->wsdl->addComplexType(
       'all',
       '',
       array(
-            'id'   => array('name' => 'id', 'type' => 'xsd:int')
+            'file'   => array('name' => 'file', 'type' => 'xsd:string'), # path del archivo
+            'clave'   => array('name' => 'clave', 'type' => 'xsd:string'), # convenio clave o id
+            // 'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # ??? --> desc o url2
       )
 );
 // Parametros de Salida
@@ -53,25 +57,25 @@ $server->register(
 function get_url_from_file($word_search)
 {
       $constants =  get_defined_constants(true);
-      if (empty($word_search['id'])) {
+      if (empty($word_search['codigo'])) {
             return array(
-                  'id' => '-1',
+                  'codigo' => '-1',
                   'url' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
       // solo si se encuentra el caracter en el archivo se hace la busqueda
-      $file_path = $constants['user']['PROT'] . $constants['user']['HOST'] . '/PagueDirecto.parametros';
+      $file_path = $constants['user']['PROT'] . $constants['user']['HOST'] . $word_search['file'];
       try {
             $file = file_get_contents($file_path);
-            $find = strpos($file, strval($word_search['id']));
+            $find = strpos($file, strval($word_search['codigo']));
            
             if ($find === false) {
                   return array(
-                        'id' => '-' . $word_search['id'],
+                        'codigo' => '-' . $word_search['codigo'],
                         'url' => $constants['user']['NOT_FOUND_MESSAGE']
                   );
             } else {
-                  return search_url($file, $word_search['id']);
+                  return search_url($file, $word_search['codigo']);
             }
       } catch (\Throwable $th) {
             // TODO: mejorar la respuesta del try 
