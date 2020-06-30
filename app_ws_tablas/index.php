@@ -1,12 +1,13 @@
 <?php
 require_once('nusoap-0.9.5/lib/nusoap.php');
 # constantes
-define('DELIMITER_URL1', ';');
+define('DELIMITER_1', ';');
 define('DELIMITER_URL2', ';url2');
 define('EMPTY_FIELD_MESSAGE', 'El campo no puede estar vacio.');
-define('HOST', '172.16.98.54/wsdl_tablas');
-define('NOT_FOUND_MESSAGE', 'No fue encontrado.');
-define('PROT', 'http://');
+define('HOST', 'http://servicio-tablas.cl/');
+define('NOT_FOUND_CLAVE', 'La clave no fue encontrada.');
+define('NOT_FOUND_CODIGO', 'El campo codigo no fue encontrado en la tabla.');
+define('CAMBIAR_LOGICA', "files/");
 
 # ejemplo 54311;desc=http://www.afphabitat.cl/cgi-bin/bci/mdpbci.cgi;url2=https://www.afphabitat.cl/abonoWeb/notificacion/bci/notificacion.htm;
 
@@ -62,18 +63,17 @@ function get_url_from_file($word_search)
             );
       }
       // solo si se encuentra el caracter en el archivo se hace la busqueda
-      $file_path = $constants['user']['PROT'] . $constants['user']['HOST'] . '/' . $word_search['file'];
-      var_dump($file_path);exit();
+      $file_path = $constants['user']['HOST'] . $constants['user']['CAMBIAR_LOGICA'] . $word_search['file'];
       try {
-            $file = file_get_contents($file_path);
-            $find = strpos($file, strval($word_search['codigo']));
-           
+            $file_content = file_get_contents($file_path);
+            // TODO: aqui se debe implementar la logica de busqueda del archivo
+            $find = strpos($file_content, strval($word_search['clave']));
             if ($find === false) {
                   return array(
-                         'parametro' => $constants['user']['NOT_FOUND_MESSAGE']
+                         'parametro' => $constants['user']['NOT_FOUND_CLAVE']
                   );
             } else {
-                  return search_url($file, $word_search['codigo']);
+                  return search_url($file_content, $word_search);
             }
       } catch (\Throwable $th) {
             // TODO: mejorar la respuesta del try 
@@ -81,38 +81,39 @@ function get_url_from_file($word_search)
       }
 }
 
-function search_url($texto_completo, $palabra_buscada)
+function search_url($texto_completo, $data)
 {
-      $palabra_buscada = $palabra_buscada.';';
+      $palabra_buscada = $data['clave'].';'; // WSrecurso
+      $codigo_buscado = $data['codigo'].'='; // valor
+      $largo_palabra_buscada = strlen($palabra_buscada);  
+      $largo_codigo_buscado = strlen($codigo_buscado);
       $constants =  get_defined_constants(true);
-      $return_url = "";
-      $largo_basura = 5; // strlen("desc="), strlen("url2=")
-
-      $palabra_buscada_position = strpos($texto_completo, strval($palabra_buscada));
-      $largo_palabra_buscada = strlen($palabra_buscada);      
-
-      $punto_de_partida = $palabra_buscada_position + $largo_palabra_buscada + 1; // se suma 1 por el caracter ;
-      $punto_de_termino = strpos($texto_completo, $constants['user']['DELIMITER_URL1'], $punto_de_partida);
-      $largo_url = $punto_de_termino - $palabra_buscada_position - $largo_palabra_buscada - 1; // se resta 1 por el caracter ;
-      $url = substr($texto_completo, $punto_de_partida + $largo_basura - 1, $largo_url - $largo_basura + 1);
-
-      $delimitador_url2 = substr($texto_completo, $punto_de_partida + $largo_url, $largo_basura);
-
-
-      if ($delimitador_url2 != $constants['user']['DELIMITER_URL2']) {
-            $return_url = $url;
-      } else {
-            $punto_partida_url2 = $punto_de_partida + $largo_url + 1;
-            $posicion_fin_url2 = strpos($texto_completo, $constants['user']['DELIMITER_URL1'], $punto_partida_url2);
-            $url2 = substr($texto_completo, $punto_partida_url2 + $largo_basura, $posicion_fin_url2 - $punto_partida_url2 - $largo_basura);
-            $return_url = $url2;
+      $palabra_buscada_position = strpos($texto_completo, strval($palabra_buscada)); 
+      $punto_de_partida = $palabra_buscada_position + $largo_palabra_buscada;
+      $posicion_codigo = strpos($texto_completo, $codigo_buscado, $punto_de_partida);
+      if (!$posicion_codigo) {
+            return array(
+                  "parametro" => $constants['user']['NOT_FOUND_CODIGO']
+            );
       }
+      $posicion_inicio_url = $posicion_codigo + $largo_codigo_buscado;
+      $posicion_fin_url = strpos($texto_completo, $constants['user']['DELIMITER_1'], $posicion_inicio_url);
+      $largo_url = $posicion_fin_url - $posicion_inicio_url;
+      $url = substr($texto_completo, $posicion_inicio_url,$largo_url);
 
-      # para debuggear y validar
-      // var_dump($delimitador_url2, $constants['user']['DELIMITER_URL2'], $delimitador_url2 != $constants['user']['DELIMITER_URL2'], $return_url);
-
+      // para debug
+      // var_dump("palabra buscada: ".$palabra_buscada);
+      // var_dump("largo palabra buscada: ".$largo_palabra_buscada);
+      // var_dump("posicion palabra buscada: ".$palabra_buscada_position);
+      // var_dump("clave buscada: ".$codigo_buscado);
+      // var_dump("largo clave buscada: ".$largo_codigo_buscado);
+      // var_dump("posicion clave buscada: ".$posicion_codigo);
+      // var_dump($posicion_codigo);
+      // var_dump("url: ".$url);
+      // die();
+      
       return array(
-            "parametro" => $return_url
+            "parametro" => $url
       );
 }
 
