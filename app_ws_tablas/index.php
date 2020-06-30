@@ -27,7 +27,7 @@ $server->wsdl->addComplexType(
       array(
             'file'   => array('name' => 'file', 'type' => 'xsd:string'), # path del archivo
             'clave'   => array('name' => 'clave', 'type' => 'xsd:string'), # convenio clave o id
-            // 'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # ??? --> desc o url2
+            'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # ??? --> desc o url2
       )
 );
 // Parametros de Salida
@@ -38,8 +38,7 @@ $server->wsdl->addComplexType(
       'all',
       '',
       array(
-            'id'   => array('name' => 'id', 'type' => 'xsd:string'),
-            'url'   => array('name' => 'url', 'type' => 'xsd:string')
+            'parametro'   => array('name' => 'parametro', 'type' => 'xsd:string')
       )
 );
 
@@ -59,8 +58,7 @@ function get_url_from_file($word_search)
       $constants =  get_defined_constants(true);
       if (empty($word_search['clave'])) {
             return array(
-                  'codigo' => '-1',
-                  'url' => $constants['user']['EMPTY_FIELD_MESSAGE']
+                  'parametro' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
       // solo si se encuentra el caracter en el archivo se hace la busqueda
@@ -72,8 +70,7 @@ function get_url_from_file($word_search)
            
             if ($find === false) {
                   return array(
-                        'codigo' => '-' . $word_search['codigo'],
-                        'url' => $constants['user']['NOT_FOUND_MESSAGE']
+                         'parametro' => $constants['user']['NOT_FOUND_MESSAGE']
                   );
             } else {
                   return search_url($file, $word_search['codigo']);
@@ -115,8 +112,7 @@ function search_url($texto_completo, $palabra_buscada)
       // var_dump($delimitador_url2, $constants['user']['DELIMITER_URL2'], $delimitador_url2 != $constants['user']['DELIMITER_URL2'], $return_url);
 
       return array(
-            "id" => str_replace($constants['user']['DELIMITER_URL1'],'',$palabra_buscada),
-            "url" => $return_url
+            "parametro" => $return_url
       );
 }
 
