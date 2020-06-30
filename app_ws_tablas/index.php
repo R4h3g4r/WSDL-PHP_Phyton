@@ -111,7 +111,7 @@ function search_url($texto_completo, $palabra_buscada)
             $return_url = $url2;
       }
 
-      # para debuggear y validar
+      // para debuggear y validar
       // var_dump($delimitador_url2, $constants['user']['DELIMITER_URL2'], $delimitador_url2 != $constants['user']['DELIMITER_URL2'], $return_url);
 
       return array(
