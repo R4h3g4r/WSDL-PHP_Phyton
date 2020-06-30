@@ -27,7 +27,7 @@ $server->wsdl->addComplexType(
       array(
             'file'   => array('name' => 'file', 'type' => 'xsd:string'), # path del archivo
             'clave'   => array('name' => 'clave', 'type' => 'xsd:string'), # convenio clave o id
-            'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # ??? --> desc o url2
+            'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # el campo a traer despues del "="
       )
 );
 // Parametros de Salida
