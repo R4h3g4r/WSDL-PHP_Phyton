@@ -1,8 +1,0 @@
-#####################################################
-#	Jndi para publicar en colas JMS internas BCI.	#
-#####################################################
-
-actualizacionDirecta;jndi_cf=jms.cf.actualizaEstado;jndi_dst=jms.dst.queue.actualizar;
-actualizacionConDependenciaDeEstado;jndi_cf=jms.cf.revActualizaEstado;jndi_dst=jms.dst.queue.revActualizar;
-alertas;jndi_cf=jms.cf.alertas;jndi_dst=jms.dst.queue.alertas;
-

@@ -1,8 +1,0 @@
-TIPO_CARGO;glosa=Cargo a las Cuentas de Cliente;
-GLOSA_FORMA_PAGO;AHO=Abono Cuenta Ahorro Bci;CCT=Abono Cuenta Corriente Bci;EFE=Pago en Efectivo;OTA=Abono Cuenta Ahorro Otro Banco;OTC=Abono Cuenta Corriente Otro Banco;OTB=Abono Otros Bancos;VVC=Vale Vista por Oficina C/Liq;VVD=Vale Vista por Correo Certif. C/Liq;
-GRUPO_FDP;AHO=CTA_BCO;CCT=CTA_BCO;EFE=CTA_BCO;OTA=CTA_OTRO_BCO;OTC=CTA_OTRO_BCO;OTB=CTA_OTRO_BCO;VVC=V_VISTA;VVD=V_VISTA;PEB=CTA_BCO;BAM=BIL;BCA=BIL;BNC=BIL;
-cuadratura;nombreArchivoExcel=Cuadratura de Cierre Pagos Enviados;
-
-agrupacionDetalleCuadratura;defecto=FOL;
-filtroDetalleCuadraturaOTB;defecto=BCO;
-JNDI_SPM;Desc=wcorp.aplicaciones.productos.servicios.pagos.pagosmasivos.ServiciosDePagosMasivos;

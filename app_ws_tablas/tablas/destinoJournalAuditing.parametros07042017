@@ -1,7 +1,0 @@
-
-#identificadorJournal: relacion canal,evento,subevento y producto con adapter(s)
-
-ID_POR_DEFECTO;valor=DEFECTO;
-DEFECTO;batchAdapter=JOURNAL_BD|ENCOLAMIENTO_BCI_EXPRESS|ENCOLAMIENTO_HISTORIAL_CIENTE;
-
-CAJA;batchAdapter=CAJAS_PERSISTENCIA;

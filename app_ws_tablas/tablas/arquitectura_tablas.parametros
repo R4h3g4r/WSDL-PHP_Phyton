@@ -1,5 +1,0 @@
-#
-# Configuracion Arquitectura de Tablas y Parametros
-#
-SERVLET_CONTAINER;TABLECONFIGSERVLET_XML=tableconfigservlet.xml;UPDATETABLESCHEDULERSERVLET_QUARTZ=tablas/updatetableschedulerservlet_quartz.properties;
-EJB_CONTAINER;TABLECONFIG_XML=tableconfig.xml;UPDATETABLESCHEDULER_QUARTZ=tablas/updatetablescheduler_quartz.properties;

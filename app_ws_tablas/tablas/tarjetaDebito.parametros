@@ -1,5 +1,0 @@
-bloqueoTarjeta;glosaBcinet=Bloqueo desde BCINET;codigos=04|33|34;
-codigosTarjetas;despliegueListadoActiva=00|01|02|03|41|42;codigosEstadosBloqueo=02|03|50|51;
-mensajeBloqueo;msjError=No se pudo realizar bloqueo.;msjConsejoBloqueo=<br/> Recomiende al cliente el bloqueo telef&oacutenico en RedBanc <br/> llamando al <font color="#FF0000"> <b>800 206 206</b> </font>;msjCodigoBloqueo=<br/> C&oacutedigo: ;msjExtSoloNexus=Bloqueo exitoso en Nexus solamente.;msjBloqExt=Bloqueo Exitoso.;msjTarjYaBloq=La tarjeta ya se encuentra bloqueada con anterioridad.;
-jndiServicioTarjeta;des=wcorp.serv.tarjetas.ServiciosTarjetas;
-jndiServicioTarjetaBip;des=wcorp.serv.transantiago.ServicioTarjetaBIP;

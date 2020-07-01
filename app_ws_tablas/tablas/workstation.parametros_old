@@ -1,6 +1,0 @@
-#Estados del los mandatos pac que NO son considerados cuando en la vista se selecciona el estado 'Otros'
-PAC_ESTADO_OTROS;Estados=016,025,009,015,002;
-#
-PAC_ESTADO_MANDATOS;Estados=015,Autorizado en Banco|002,Pendiente Validación Banco|016,Anulado en Banco|025,Rechazado en Banco|009,Baja Cambio Identificador|otros,Otros Estados|todos,Todos;
-#
-WS_EPIPHANY_CONTACTOS;nombreSistema=epiphany;url=http://161.131.225.147:7001/WSCliente/wsClienteSvc?wsdl;

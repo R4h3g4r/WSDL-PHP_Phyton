@@ -1,9 +1,0 @@
-
-#Datos para conexion de Informes de Comisiones
-servidor;ip=161.131.232.30;puerto=21;
-acceso;usuario=ftpline;password=ftpmv06;
-
-1; cod=RCOM; path=archivoscomisiones/general/;       Desc=Informe de Comisiones;
-2; cod=PCOM; path=archivoscomisiones/ejecutivos/;   Desc=Informe de Comisiones de Ejecutivos;
-3; cod=PCRG; path=archivoscomisiones/supervisores/; Desc=Informe de Comisiones de Supervisores;
-4; cod=PCRG; path=archivoscomisiones/asignacion/;   Desc=Informe de Comisiones de Asignaci&oacuten;

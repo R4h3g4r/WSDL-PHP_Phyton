@@ -1,8 +1,0 @@
-#Modifica estado de la calve
-#=================================================
-
-inicioTarjeta;valor=000002;Desc=numero con que parte la tarjeta;
-indicador;valor=N;Desc=Indicador;
-estadoBloqueo;valor=01;Desc=Estado de bloqueo;
-motivoBloqueo;valor=01;Desc=Montivo de bloqueo;
-idCanalBloqueo;valor=02,16;Desc=Canales a bloquear;
