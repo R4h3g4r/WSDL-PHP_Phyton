@@ -1,0 +1,19 @@
+# Calificacion no concuerda con PI
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Debe ingresar al Sistema de Calificaciones.;
+GLOSA1;mensaje=2.- Una vez en el Sistema debe escoger la calificación del cliente.;
+GLOSA2;mensaje=3.- Debe elegir los criterios más adecuados para encontrar la calificación en cuestión.;
+GLOSA3;mensaje=4.- Debe revisar paso a paso el motivo por el que la calificación no concuerda con probabilidad de incumplimiento.;
+GLOSA4;mensaje=5.- Debe gestionar esta alerta.;
+
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Debe ingresar al Sistema de Calificaciones.;
+GLOSAPDF1;mensaje=2.- Una vez en el Sistema debe escoger la calificación del cliente.;
+GLOSAPDF2;mensaje=3.- Debe elegir los criterios más adecuados para encontrar la calificación en cuestión.;
+GLOSAPDF3;mensaje=4.- Debe revisar paso a paso el motivo por el que la calificación no concuerda con probabilidad de incumplimiento.;
+GLOSAPDF4;mensaje=5.- Debe gestionar esta alerta.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=Esta alerta se activa cuando la calificación del cliente difiere a la sugerida por el nuevo modelo de cálculo de la probabilidad de incumplimiento.;periodo= 30 días;fuente= Indeterminados;

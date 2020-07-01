@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="sp_CEII_upt_pag_rev">
+	<context>
+		<boolean_false value="1"/>
+	    <boolean_true value="0"/>
+	    <general_exception_codigo value="ESPECIAL"/>
+	    <have_multi_environment value="no"/>
+	    <outputfield_attr value="no"/>
+	    <req_num_param value="no"/>
+	    <translator value="RORPPTPG"/>
+	    <campo_indica_cantidad value=""/>
+	    <status_throw_exception value="yes"/>
+	    <joltpool_name value="wcorp.serv.consultalogs.DummyFacadeImpl" />
+	</context>
+	<input>
+		<field java_name="idReversa" type="String" size="20" middle_name="id_rev" />
+	</input>
+	<output>
+		<struct struct_size="0" class_name="DatosSalidaActualizaReversaVO" var_name="datosSalidaActualizaReversaVO">
+			<field java_name="respuesta" type="String" size="20" middle_name="retorno" />
+		</struct>
+	</output>
+</service>

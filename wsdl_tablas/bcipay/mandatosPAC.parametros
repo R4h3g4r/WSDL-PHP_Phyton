@@ -1,0 +1,24 @@
+PAC_EMPRESAS_LABEL;tipo_administracion=Por Cliente,Masiva;tipo_accion=Administración,Consulta,Migración,Reporte;administracion_proceso=Anulación,Inyección;tipo_migracion=Universo,Identificadores;tipo_reporte=Inyección Masiva PAC Empresas,Anulación Masiva PAC Empresas,Migración Universo,Cambio de Identificadores
+PAC_EMPRESAS_VALUE;tipo_administracion=Por Cliente,Masiva;tipo_accion=Administracion,Consulta,Migracion,Reporte;administracion_proceso=Anulacion,Inyeccion;tipo_migracion=Universo,Identificadores;tipo_reporte=inyeccionMandatosEmpresa,anulacionMandatosEmpresa,migracionUniversoPAC,migracionIdentificadoresEmpresa
+PAC_CONTRIBUCIONES_LABEL;tipo_administracion=Por Cliente,Masiva;tipo_accion=Administración,Consulta,Gestión Universo,Reporte;administracion_proceso=Anulación,Inyección;tipo_migracion=Generación de Universo,Cargar Universo;tipo_reporte=Inyección Masiva Contribuciones,Anulación Masiva Contribuciones,Generación Universo Contribuciones ,Carga Universo Contribuciones
+PAC_CONTRIBUCIONES_VALUE;tipo_administracion=Por Cliente,Masiva;tipo_accion=Administracion,Consulta,Gestion,Reporte;administracion_proceso=Anulacion,Inyeccion;tipo_migracion=Generacion,Cargar;tipo_reporte=inyeccionMandatosContribuciones,anulacionMandatosContribuciones,generacionUniversoContribuciones,cargaUniversoContribuciones
+FiltrosComboLabelEmpresas;estado_mandato=Activos,Anulados,Pendientes,Históricos
+FiltrosComboValueEmpresas;estado_mandato=Activo,Anulado,Pendiente,Historico
+FiltrosComboLabel;estado_mandato=Activos,Anulados,Históricos
+FiltrosComboValue;estado_mandato=Activo,Anulado,Historico
+TIPO_PROCESOMASIVO;inyeccionMandatosEmpresa=InyeccionMasivaPAC;anulacionMandatosEmpresa=AnulacionMasivaPAC;migracionIdentificadoresEmpresa=MigracionIdentificadoresPAC;inyeccionMandatosContribuciones=InyeccionMasivaContribucionesPAC;anulacionMandatosContribuciones=AnulacionMasivaContribucionesPAC;generacionUniversoContribuciones=GeneracionUniversoContribucionesPAC;cargaUniversoContribuciones=CargaUniversoContribucionesPAC;migracionUniversoPAC=MigracionUniversoPAC
+MAXIMO_REGISTROS_ADMINISTRACION;cantidadMaxima=10
+FILTRO_PAGOS_PAC;yearMin=2000
+ARCHIVO_CARGA;size_max=10485760;error_size=El archivo no debe superar los 10 MB.;errorProcesar=Se ha producido un error al procesar su solicitud.
+COD_CONVENIO_CONTRIBUCIONES;codigo=1032
+#PRODUCCION
+#SERVICIO_FTP;host=161.131.232.35;pathEntrada=/sipe/pac/recep;pathReporte=/sipe/pac/reportes;sistemaUyP=spu
+#CERTIFICACION
+SERVICIO_FTP;host=giotto1;pathEntrada=/sipe/pac/recep;pathReporte=/sipe/pac/reportes;sistemaUyP=spu
+#INTEGRACION
+#SERVICIO_FTP;host=giotto3;pathEntrada=/sipe/pac/recep;pathReporte=/sipe/pac/reportes;sistemaUyP=spu
+#DESARROLLO
+#SERVICIO_FTP;host=kanako;pathEntrada=/sipe/pac/recep;pathReporte=/sipe/pac/reportes;sistemaUyP=spu
+#OTRO_PERFIL;permitido=Consulta
+#MAXIMO_REGISTROS_CONSULTA;cantidadMaxima=500
+#ARCHIVO_EXCEL;Empresas=pacEmpresas;Contribuciones=pacContribuciones

@@ -1,0 +1,2184 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="estafin.procedimientosAlmacenados">
+
+    <resultMap id="auditorMap" class="java.util.HashMap">
+        <result column="rut_aud"     property="numRUT"/>
+        <result column="dig_vrf_aud" property="digitoVerificador"/>
+        <result column="nom_aud"     property="nombre"/>
+        <result column="ind_eli"     property="eliminado"/>
+        <result column="usu_cre"     property="usuarioCreador"/>
+        <result column="fec_cre"     property="fechaCreacion"/>
+        <result column="usu_mod"     property="usuarioModificador"/>
+        <result column="fec_mod"     property="fechaModificacion"/>
+    </resultMap>
+    <resultMap id="estadoFinancieroSolicitante" class="java.util.HashMap">
+        <result property="cod_err"                      column="cod_err"/>
+        <result property="des_err"                      column="des_err"/>
+        <result property="numeroBalance"                column="num_bal"/>
+        <result property="tipoBalance"                  column="tipo_bal"/>
+        <result property="periodo"                      column="periodo"/>
+        <result property="patrimonioNeto"               column="pat_neto"/>
+        <result property="pasivoExigible"               column="pas_exig"/>
+        <result property="liquidezCorriente"            column="liq_corriente"/>
+        <result property="permanenciaInventario"        column="perm_invent"/>
+        <result property="permanenciaCredito"           column="perm_credit"/>
+        <result property="leverage"                     column="leverage"/>
+        <result property="totalActivos"                 column="tot_act"/>
+        <result property="totalActivoFiljo"             column="tot_act_fijo"/>
+        <result property="utilidadNeta"                 column="util_neta"/>
+        <result property="utilidadVentaActivoFiljo"     column="util_vent_act_f"/>
+        <result property="ingresoExplotacion"           column="ing_explotacion"/>
+        <result property="activoDisponibleDap"          column="act_disp_dap"/>
+        <result property="ctaDocPorCobrar"              column="cta_doc_cobrar"/>
+        <result property="ctaPorCobrar"                 column="cta_por_cobrar"/>
+        <result property="existencias"                  column="existencia"/>
+        <result property="otrosCirculantes"             column="otro_circ_act"/>
+        <result property="totalCirculante"              column="total_circ_act"/>
+        <result property="inversionesEmpresas"          column="inv_empresas"/>
+        <result property="cuentasPorCobrarLP"           column="cta_por_cobrar_lp"/>
+        <result property="activosLeasing"               column="act_leasing"/>
+        <result property="otrosActivosLP"               column="otro_act_lp"/>
+        <result property="totalOtrosActivos"            column="total_otro_act"/>
+        <result property="deudaCuotaLP"                 column="deuda_cuota_lp"/>
+        <result property="deudaLeasingCP"               column="deuda_leasing_cp"/>
+        <result property="ctaDocPorPagar"               column="cta_doc_por_pagar"/>
+        <result property="ctaPorPagarCP"                column="cta_por_pagar_cp"/>
+        <result property="otrosCirculantesPasivos"      column="otro_circ_pas"/>
+        <result property="totalPasivoCirculante"        column="total_pas_circ"/>
+        <result property="deudaBancoLP"                 column="deuda_banco_lp"/>
+        <result property="deudaLeasingLP"               column="deuda_leasing_lp"/>
+        <result property="ctaPorPagarEmpresasLP"        column="cta_pagar_emp_lp"/>
+        <result property="otrosPasivosLP"               column="otro_pas_lp"/>
+        <result property="totalPasivoLP"                column="total_pas_lp"/>
+        <result property="capitalPagado"                column="cap_pag"/>
+        <result property="otrasCuentasCapital"          column="otra_cta_cap"/>
+        <result property="utilidadPerdidaAcumulada"     column="utl_per_acum"/>
+        <result property="utilidadEjercicio"            column="utl_ejer"/>
+        <result property="totalPasivos"                 column="total_pas"/>
+        <result property="costoVentas"                  column="cost_venta"/>
+        <result property="depreciacion"                 column="depreciacion"/>
+        <result property="resultadoExplotacion"         column="result_expl"/>
+        <result property="gastosAdministracionVentas"   column="gasto_adm_vnt"/>
+        <result property="resultadoOperacional"         column="resul_ope"/>
+        <result property="gastosFinancieros"            column="gast_finan"/>
+        <result property="correcionMonetaria"           column="corr_monetaria"/>
+        <result property="utlPerdEmpRelacionadas"       column="utl_per_emp_rel"/>
+        <result property="otrosIngresosEgresosNetos"    column="otro_ing_egre_neto"/>
+        <result property="resultadoNoOperacional"       column="result_no_ope"/>
+        <result property="impuestoRenta"                column="imp_renta"/>
+        <result property="interesMinoritario"           column="int_minoritario"/>
+        <result property="amortizacionInversion"        column="amort_inver"/>
+        <result property="generacionOperativa"          column="gen_ope"/>
+        <result property="utilidadOperacionalVentas"    column="utl_ope_vta"/>
+        <result property="utilidadVentas"               column="utl_venta"/>
+        <result property="utilidadPatrimonio"           column="utl_patrimonio"/>
+        <result property="liquidezAcida"                column="liq_acida"/>
+        <result property="permanenciaCuentasPorPagar"   column="pert_cta_pagar"/>
+        <result property="resultadoOperacionalGastos"   column="resul_ope_gto"/>
+        <result property="coberturaPasivos"             column="cober_pas"/>
+		<result property="estadoBalance"                column="nom_adt"/>
+</resultMap>
+
+<procedure id="obtenerEstadoFinanciero" parameterClass="java.util.HashMap" resultMap="estadoFinancieroSolicitante">
+        {CALL sp_stafin_cns_est_finan(
+            #rut#,
+            #dv#,
+            <isNull property="tipoBalance">NULL</isNull><isNotNull property="tipoBalance">#tipoBalance#</isNotNull>,
+            <isNull property="numeroBalance">NULL</isNull><isNotNull property="numeroBalance">#numeroBalance#</isNotNull>,
+            #periodo#
+            )}
+    </procedure>
+        <!-- sp_scr_bus_ind_lvr (@cliente char(12) ='') formato de rut '00000000' largo 8-->
+    <procedure id="recuperarLeverage" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_scr_bus_ind_lvr(#cliente#)}
+    </procedure>
+
+    <!--
+        sp_cns_aud(
+            @rut_aud    numeric(10,0),
+            @nom_aud    char(100))
+    -->
+    <procedure id="obtenerAuditores" parameterClass="java.util.HashMap" resultMap="auditorMap">
+        {CALL sp_cns_aud(
+            <isNull property="rut_aud">NULL</isNull><isNotNull property="rut_aud">#rut_aud#</isNotNull>,
+            <isNull property="nom_aud">NULL</isNull><isNotNull property="nom_aud">#nom_aud#</isNotNull>,
+            <isNull property="ind_vig">'N'</isNull><isNotNull property="ind_vig">#ind_vig#</isNotNull>)}
+    </procedure>
+
+
+<!--
+        sp_ins_aud(
+            @rut_aud        numeric(10,0),
+            @dig_vrf_aud    char(1),
+            @nom_aud        char(100),
+            @usu_cre        char(12),
+            @fec_cre        datetime,
+            @usu_mod        char(12),
+            @fec_mod        datetime)
+    -->
+    <procedure id="crearAuditor" parameterClass="java.util.HashMap">
+        {CALL sp_ins_aud(
+            <isNull property="rut_aud">NULL</isNull><isNotNull property="rut_aud">#rut_aud#</isNotNull>,
+            <isNull property="dig_vrf_aud">NULL</isNull><isNotNull property="dig_vrf_aud">#dig_vrf_aud#</isNotNull>,
+            <isNull property="nom_aud">NULL</isNull><isNotNull property="nom_aud">#nom_aud#</isNotNull>,
+            <isNull property="usu_cre">NULL</isNull><isNotNull property="usu_cre">#usu_cre#</isNotNull>,
+            <isNull property="fec_cre">getdate()</isNull><isNotNull property="fec_cre">#fec_cre#</isNotNull>,
+            <isNull property="usu_mod">NULL</isNull><isNotNull property="usu_mod">#usu_mod#</isNotNull>,
+            <isNull property="fec_mod">NULL</isNull><isNotNull property="fec_mod">#fec_mod#</isNotNull> )}
+    </procedure>
+    
+   <!--
+        sp_upd_aud(
+            @rut_aud        numeric(10,0),
+            @dig_vrf_aud    char(1),
+            @nom_aud        char(100),
+            @usu_cre        char(12),
+            @fec_cre        datetime,
+            @usu_mod        char(12),
+            @fec_mod        datetime)
+    -->
+    <procedure id="modificarAuditor" parameterClass="java.util.HashMap">
+        {CALL sp_upd_aud(
+            <isNull property="rut_aud">NULL</isNull><isNotNull property="rut_aud">#rut_aud#</isNotNull>,
+            <isNull property="dig_vrf_aud">NULL</isNull><isNotNull property="dig_vrf_aud">#dig_vrf_aud#</isNotNull>,
+            <isNull property="nom_aud">NULL</isNull><isNotNull property="nom_aud">#nom_aud#</isNotNull>,
+            <isNull property="usu_cre">NULL</isNull><isNotNull property="usu_cre">#usu_cre#</isNotNull>,
+            <isNull property="fec_cre">getdate()</isNull><isNotNull property="fec_cre">#fec_cre#</isNotNull>,
+            <isNull property="usu_mod">NULL</isNull><isNotNull property="usu_mod">#usu_mod#</isNotNull>,
+            <isNull property="fec_mod">getdate()</isNull><isNotNull property="fec_mod">#fec_mod#</isNotNull> )}
+    </procedure>
+
+
+<!--
+        sp_upd_aud(
+            @rut_aud        numeric(10,0))
+    -->
+    <procedure id="eliminarAuditor" parameterClass="java.util.HashMap">
+        {CALL sp_del_aud(
+            <isNull property="rut_aud">NULL</isNull><isNotNull property="rut_aud">#rut_aud#</isNotNull>,
+            <isNull property="usu_mod">NULL</isNull><isNotNull property="usu_mod">#usu_mod#</isNotNull>)}
+    </procedure>
+
+    <resultMap id="insercionClienteGen" class="java.util.HashMap">
+        <result property="mensaje"   column="mensaje"/>
+    </resultMap>
+    
+    <procedure id="insercionClienteGen" parameterClass="java.util.HashMap" resultMap="insercionClienteGen">
+            {CALL sp_ins_cli_emp_gen(#idc#,#cli_vrt#,#cli_cod_acv#,#cli_rso#,#cli_cod_eje#,#cli_cod_eje_adi#,#cli_cod_ofi#) }
+    </procedure>
+    
+    <resultMap id="insercionClienteBan" class="java.util.HashMap">
+        <result property="mensaje"   column="mensaje"/>
+    </resultMap>
+    
+    <procedure id="insercionClienteBan" parameterClass="java.util.HashMap" resultMap="insercionClienteBan">
+            {CALL sp_ins_cli_bco(#idc#,#cli_vrt#,#cli_cod_acv#,#cli_rso#,#cli_cod_eje#,#cli_cod_eje_adi#,#cli_cod_ofi#) }
+    </procedure>
+    
+    <resultMap id="validacionBalance" class="java.util.HashMap">
+        <result property="mensaje"   column="mensaje"/>
+    </resultMap>
+    
+    <procedure id="validarBalance" parameterClass="java.util.HashMap" resultMap="validacionBalance">
+            {CALL sp_validar_balance(#idc#,#cli_vrt#,#gen_num_fcu#,#gen_tip_fcu#,#gen_pdo_fcu#,#gen_est_fcu#) }
+    </procedure>
+    
+    <procedure id="validarBalanceBco" parameterClass="java.util.HashMap" resultMap="validacionBalance">
+            {CALL sp_validar_balance_bco(#idc#,#cli_vrt#,#ban_num_fcu#,#ban_tip_fcu#,#ban_pdo_fcu#,#ban_est_fcu#) }
+    </procedure>
+    
+    <resultMap id="borraCheck" class="java.util.HashMap">
+        <result property="mensaje"   column="mensaje"/>
+    </resultMap>
+    <procedure id="borraBalanceCheck" parameterClass="java.util.HashMap" resultMap="borraCheck">
+        {CALL sp_sel_borra_check (#cli_idc#,#nro_ope#)}
+    </procedure>
+
+    <resultMap id="indices" class="java.util.HashMap">
+        <result property="fbala_bal"   column="fbala_bal"/>
+        <result property="numer_bal"   column="numer_bal"/>
+        <result property="nmese_bal"   column="nmese_bal"/>
+        <result property="naudi_bal"   column="naudi_bal"/>
+        <result property="indice001"   column="indice001"/>
+        <result property="indice002"   column="indice002"/>
+        <result property="indice003"   column="indice003"/>
+        <result property="indice004"   column="indice004"/>
+        <result property="indice005"   column="indice005"/>
+        <result property="indice006"   column="indice006"/>
+        <result property="indice007"   column="indice007"/>
+        <result property="indice008"   column="indice008"/>
+        <result property="indice009"   column="indice009"/>
+        <result property="indice010"   column="indice010"/>
+        <result property="indice011"   column="indice011"/>
+        <result property="indice012"   column="indice012"/>
+        <result property="indice013"   column="indice013"/>
+        <result property="indice014"   column="indice014"/>
+        <result property="indice015"   column="indice015"/>
+        <result property="indice016"   column="indice016"/>
+        <result property="indice017"   column="indice017"/>
+        <result property="indice018"   column="indice018"/>
+        <result property="indice019"   column="indice019"/>
+        <result property="indice020"   column="indice020"/>
+        <result property="indice021"   column="indice021"/>
+        <result property="indice022"   column="indice022"/>
+        <result property="indice023"   column="indice023"/>
+        <result property="indice024"   column="indice024"/>
+        <result property="indice025"   column="indice025"/>
+        <result property="indice026"   column="indice026"/>
+        <result property="indice027"   column="indice027"/>
+        <result property="indice028"   column="indice028"/>
+        <result property="indice029"   column="indice029"/>
+        <result property="indice030"   column="indice030"/>
+        <result property="indice031"   column="indice031"/>
+        <result property="indice032"   column="indice032"/>
+        <result property="indice033"   column="indice033"/>
+        <result property="indice034"   column="indice034"/>
+        <result property="indice035"   column="indice035"/>
+    </resultMap>
+
+    <procedure id="consultarIndices" parameterClass="java.util.HashMap" resultMap="indices">
+            {CALL sp_est_lee_ind(#idc#,#cli_vrt#,#gen_num_fcu#,#gen_tip_fcu#,#gen_pdo_fcu#) }
+    </procedure>
+
+   
+
+
+    
+    <resultMap id="balances" class="java.util.HashMap">
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="tipo_balance"     column="tipo_balance"/>
+        <result property="ejecutivo"		column="ejecutivo"/>
+		<result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="mon_cod"          column="mon_cod"/>
+        <result property="mon_des"          column="mon_des"/>
+        <result property="estado_balance"   column="estado_balance"/>
+        <result property="nro_balance"      column="nro_balance"/>
+        <result property="nro_meses"        column="nro_meses"/>
+        <result property="auditor"          column="auditor"/>
+        <result property="tipo_ifrs"        column="tipo_ifrs"/>
+    </resultMap>
+
+    <procedure id="obtenerBalances" parameterClass="java.util.HashMap" resultMap="balances">
+            {CALL sp_sel_fcu(#idc#)}
+    </procedure>
+
+    
+    <resultMap id="balancesSel" class="java.util.HashMap">
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="tipo_balance"     column="tipo_balance"/>
+        <result property="ejecutivo"		column="ejecutivo"/>
+        <result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="mon_cod"          column="mon_cod"/>
+        <result property="mon_des"          column="mon_des"/>
+        <result property="estado_balance"   column="estado_balance"/>
+        <result property="nro_balance"      column="nro_balance"/>
+        <result property="nro_meses"        column="nro_meses"/>
+        <result property="auditor"          column="auditor"/>
+        <result property="tipo_ifrs"        column="tipo_ifrs"/>
+        <result property="tmp_check"        column="tmp_check"/>
+    </resultMap>
+    <procedure id="obtenerBalancesSel" parameterClass="java.util.HashMap" resultMap="balancesSel">
+            {CALL sp_sel_fcu_check(#idc#,#indicador_cliente#,#nro_ope#,#eje#)}
+    </procedure>
+    
+    
+    <resultMap id="obtenerMonedas" class="java.util.HashMap">
+        <result property="mon_cod"      column="mon_cod"/>
+        <result property="mon_des"      column="mon_des"/>
+    </resultMap>
+    <procedure id="seleccionMonedas" parameterClass="java.util.HashMap" resultMap="obtenerMonedas">
+            {CALL spo_traer_mon()}
+    </procedure>
+
+    <resultMap id="activosGen" class="java.util.HashMap">
+        <result property="cli_idc"      column="cli_idc"/>
+        <result property="cli_vrt"      column="cli_vrt"/>
+        <result property="gen_num_fcu"      column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="gen_dsp"      column="gen_dsp"/>
+        <result property="gen_val_neg"      column="gen_val_neg"/>
+        <result property="dai_otr_act_nfin"      column="dai_otr_act_nfin"/>
+        <result property="dai_deu_com_cpc_cor"      column="dai_deu_com_cpc_cor"/>
+        <result property="gen_cbr_erl_ctp"      column="gen_cbr_erl_ctp"/>
+        <result property="dai_inv"      column="dai_inv"/>
+        <result property="dai_act_bio_cor"      column="dai_act_bio_cor"/>
+        <result property="gen_ipt_rpa"      column="gen_ipt_rpa"/>
+        <result property="cca_des_acv_cir_1"      column="cca_des_acv_cir_1"/>
+        <result property="cca_acv_cir_1"      column="cca_acv_cir_1"/>
+        <result property="cca_des_acv_cir_2"      column="cca_des_acv_cir_2"/>
+        <result property="cca_acv_cir_2"      column="cca_acv_cir_2"/>
+        <result property="cca_des_acv_cir_3"      column="cca_des_acv_cir_3"/>
+        <result property="cca_acv_cir_3"      column="cca_acv_cir_3"/>
+        <result property="dai_tot_act_cor"      column="dai_tot_act_cor"/>
+        <result property="dai_act_ncor_man_vta"      column="dai_act_ncor_man_vta"/>
+        <result property="dai_act_ncor_dis_prop"      column="dai_act_ncor_dis_prop"/>
+        <result property="dai_act_ncor_man_vta_dis_prop"      column="dai_act_ncor_man_vta_dis_prop"/>
+        <result property="gen_tot_acv_cir"      column="gen_tot_acv_cir"/>
+        <result property="dai_inv_dep"      column="dai_inv_dep"/>
+        <result property="dai_otr_act_fin_ncor"      column="dai_otr_act_fin_ncor"/>
+        <result property="dai_otr_act_nfin_ncor"      column="dai_otr_act_nfin_ncor"/>
+        <result property="dai_der_pcob_ncor"      column="dai_der_pcob_ncor"/>
+        <result property="gen_cbr_erl_lgp"      column="gen_cbr_erl_lgp"/>
+        <result property="dai_inv_con"      column="dai_inv_con"/>
+        <result property="gen_itg"      column="gen_itg"/>
+        <result property="gen_men_val_inv"      column="gen_men_val_inv"/>
+        <result property="gen_maq_eqp"      column="gen_maq_eqp"/>
+        <result property="dai_act_bio_ncor"      column="dai_act_bio_ncor"/>
+        <result property="dai_prop_inv"      column="dai_prop_inv"/>
+        <result property="dai_act_imp_dif"      column="dai_act_imp_dif"/>
+        <result property="cca_des_acv_lgp_1"      column="cca_des_acv_lgp_1"/>
+        <result property="cca_acv_lgp_1"      column="cca_acv_lgp_1"/>
+        <result property="cca_des_acv_lgp_2"      column="cca_des_acv_lgp_2"/>
+        <result property="cca_acv_lgp_2"      column="cca_acv_lgp_2"/>
+        <result property="cca_des_acv_lgp_3"      column="cca_des_acv_lgp_3"/>
+        <result property="cca_acv_lgp_3"      column="cca_acv_lgp_3"/>
+        <result property="gen_tot_otr_acv"      column="gen_tot_otr_acv"/>
+        <result property="gen_tot_acv"      column="gen_tot_acv"/>
+    </resultMap>
+    <procedure id="seleccionActivosGen" parameterClass="java.util.HashMap" resultMap="activosGen">
+            {CALL sp_sel_acv_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+
+
+
+    <resultMap id="pasivosGen" class="java.util.HashMap">
+        <result property="cli_idc"              column="cli_idc"/>
+        <result property="cli_vrt"              column="cli_vrt"/>
+        <result property="gen_num_fcu"          column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"          column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"          column="gen_pdo_fcu"/>
+        <result property="dai_otr_pas_fin_cor"  column="dai_otr_pas_fin_cor"/>
+        <result property="dai_cpp_com_otr"      column="dai_cpp_com_otr"/>
+        <result property="gen_pag_erl_ctp"      column="gen_pag_erl_ctp"/>
+        <result property="dai_otr_prov_cp"      column="dai_otr_prov_cp"/>
+        <result property="gen_iar_psv"          column="gen_iar_psv"/>
+        <result property="dai_prov_cor_ben_emp" column="dai_prov_cor_ben_emp"/>
+        <result property="dai_otr_pas_nfin_cor" column="dai_otr_pas_nfin_cor"/>
+        <result property="cca_des_psv_cir_1"    column="cca_des_psv_cir_1"/>
+        <result property="cca_psv_cir_1"        column="cca_psv_cir_1"/>
+        <result property="cca_des_psv_cir_2"    column="cca_des_psv_cir_2"/>
+        <result property="cca_psv_cir_2"        column="cca_psv_cir_2"/>
+        <result property="cca_des_psv_cir_3"    column="cca_des_psv_cir_3"/>
+        <result property="cca_psv_cir_3"        column="cca_psv_cir_3"/>
+        <result property="dai_tot_pas_cor"      column="dai_tot_pas_cor"/>
+        <result property="dai_pas_mnt_vta"      column="dai_pas_mnt_vta"/>
+        <result property="gen_tot_psv_cir"      column="gen_tot_psv_cir"/>
+        <result property="gen_obl_bf"           column="gen_obl_bf"/>
+        <result property="dai_pas_no_cte"       column="dai_pas_no_cte"/>
+        <result property="gen_pag_erl_lgp"      column="gen_pag_erl_lgp"/>
+        <result property="dai_otr_prov_lp"      column="dai_otr_prov_lp"/>
+        <result property="gen_ipt_dfr_psv"      column="gen_ipt_dfr_psv"/>
+        <result property="dai_prv_no_crt_ben_emp"       column="dai_prv_no_crt_ben_emp"/>
+        <result property="dai_otr_no_fin_no_crt"        column="dai_otr_no_fin_no_crt"/>
+        <result property="cca_des_psv_lgp_1"        column="cca_des_psv_lgp_1"/>
+        <result property="cca_psv_lgp_1"            column="cca_psv_lgp_1"/>
+        <result property="cca_des_psv_lgp_2"        column="cca_des_psv_lgp_2"/>
+        <result property="cca_psv_lgp_2"            column="cca_psv_lgp_2"/>
+        <result property="dai_des_pas_ncor_op"      column="dai_des_pas_ncor_op"/>
+        <result property="dai_pas_ncor_op"          column="dai_pas_ncor_op"/>
+        <result property="gen_tot_psv_lgp"          column="gen_tot_psv_lgp"/>
+        <result property="gen_tot_psv"              column="gen_tot_psv"/>
+        <result property="gen_cpi_pag"              column="gen_cpi_pag"/>
+        <result property="gen_psv_res_ejr"          column="gen_psv_res_ejr"/>
+        <result property="gen_sbp_vta_acc"          column="gen_sbp_vta_acc"/>
+        <result property="dai_acc_prop_car"         column="dai_acc_prop_car"/>
+        <result property="dai_otr_par_pat"          column="dai_otr_par_pat"/>
+        <result property="dai_otr_res"              column="dai_otr_res"/>
+        <result property="dai_ptr_prp_ctr"          column="dai_ptr_prp_ctr"/>
+        <result property="gen_int_men_res"          column="gen_int_men_res"/>
+        <result property="gen_tot_ptm"              column="gen_tot_ptm"/>
+        <result property="dai_tot_pat_pas"          column="dai_tot_pat_pas"/>
+    </resultMap>
+    <procedure id="seleccionPasivosGen" parameterClass="java.util.HashMap" resultMap="pasivosGen">
+            {CALL sp_sel_psv_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+
+
+
+    <resultMap id="erfGen" class="java.util.HashMap">
+        <result property="cli_idc"      column="cli_idc"/>
+        <result property="cli_vrt"      column="cli_vrt"/>
+        <result property="gen_num_fcu"      column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="erf_ing_act_ord"      column="erf_ing_act_ord"/>
+        <result property="erf_cto_vta"      column="erf_cto_vta"/>
+        <result property="erf_gan_brt"      column="erf_gan_brt"/>
+        <result property="erf_gan_cta_acv"      column="erf_gan_cta_acv"/>
+        <result property="erf_per_cta_acv"      column="erf_per_cta_acv"/>
+        <result property="erf_otr_ing"      column="erf_otr_ing"/>
+        <result property="erf_cto_dis"      column="erf_cto_dis"/>
+        <result property="erf_gto_adm"      column="erf_gto_adm"/>
+        <result property="erf_otr_gto"      column="erf_otr_gto"/>
+        <result property="erf_otr_gan"      column="erf_otr_gan"/>
+        <result property="erf_ing_fin"      column="erf_ing_fin"/>
+        <result property="erf_cto_fin"      column="erf_cto_fin"/>
+        <result property="erf_par_gan"      column="erf_par_gan"/>
+        <result property="erf_dif_cam"      column="erf_dif_cam"/>
+        <result property="erf_res_uni_raj"      column="erf_res_uni_raj"/>
+        <result property="erf_gan_dif_val"      column="erf_gan_dif_val"/>
+        <result property="erf_gan_ant_imp"      column="erf_gan_ant_imp"/>
+        <result property="erf_gto_imp_gan"      column="erf_gto_imp_gan"/>
+        <result property="erf_gan_ope_cont"      column="erf_gan_ope_cont"/>
+        <result property="erf_gan_ope_dsc"      column="erf_gan_ope_dsc"/>
+        <result property="erf_gan"      column="erf_gan"/>
+        <result property="erf_gan_pro_con"      column="erf_gan_pro_con"/>
+        <result property="erf_gan_par_con"      column="erf_gan_par_con"/>
+        <result property="erf_gan_per"      column="erf_gan_per"/>
+        <result property="erf_gan_ope_con"      column="erf_gan_ope_con"/>
+        <result property="erf_gan_ope_dco"      column="erf_gan_ope_dco"/>
+        <result property="erf_gan_acc_bas"      column="erf_gan_acc_bas"/>
+        <result property="erf_gan_acc_pro_ope_con"      column="erf_gan_acc_pro_ope_con"/>
+        <result property="erf_gan_acc_pro_ope_dco"      column="erf_gan_acc_pro_ope_dco"/>
+        <result property="erf_gan_acc"      column="erf_gan_acc"/>
+    </resultMap>
+    <procedure id="seleccionERFGen" parameterClass="java.util.HashMap" resultMap="erfGen">
+            {CALL sp_sel_erf_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+
+    <resultMap id="ernGen" class="java.util.HashMap">
+        <result property="cli_idc"      column="cli_idc"/>
+        <result property="cli_vrt"      column="cli_vrt"/>
+        <result property="gen_num_fcu"      column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="ern_ing_act_ord"      column="ern_ing_act_ord"/>
+        <result property="ern_gan_cta_acv_fin"      column="ern_gan_cta_acv_fin"/>
+        <result property="ern_per_cta_acv_fin"      column="ern_per_cta_acv_fin"/>
+        <result property="ern_otr_ing"      column="ern_otr_ing"/>
+        <result property="ern_cam_inv_pro"      column="ern_cam_inv_pro"/>
+        <result property="ern_otr_tra_ent_cap"      column="ern_otr_tra_ent_cap"/>
+        <result property="ern_mat_pri_com_utl"      column="ern_mat_pri_com_utl"/>
+        <result property="ern_gto_ben_emp"      column="ern_gto_ben_emp"/>
+        <result property="ern_gto_dep_amo"      column="ern_gto_dep_amo"/>
+        <result property="ern_rev_per_det_val"      column="ern_rev_per_det_val"/>
+        <result property="ern_otr_gto"      column="ern_otr_gto"/>
+        <result property="ern_otr_gan"      column="ern_otr_gan"/>
+        <result property="ern_ing_fin"      column="ern_ing_fin"/>
+        <result property="ern_cto_fin"      column="ern_cto_fin"/>
+        <result property="ern_par_gan"      column="ern_par_gan"/>
+        <result property="ern_dif_cbo"      column="ern_dif_cbo"/>
+        <result property="ern_res_uni_raj"      column="ern_res_uni_raj"/>
+        <result property="ern_gan_dif_val"      column="ern_gan_dif_val"/>
+        <result property="ern_gan_ant_imp"      column="ern_gan_ant_imp"/>
+        <result property="ern_gto_imp_gan"      column="ern_gto_imp_gan"/>
+        <result property="ern_gan_ope_con"      column="ern_gan_ope_con"/>
+        <result property="ern_gan_ope_dis"      column="ern_gan_ope_dis"/>
+        <result property="ern_gan"      column="ern_gan"/>
+        <result property="ern_gan_pro_con"      column="ern_gan_pro_con"/>
+        <result property="ern_gan_par_con"      column="ern_gan_par_con"/>
+        <result property="ern_gan_per"      column="ern_gan_per"/>
+        <result property="ern_gan_acc_bas_ope_con"      column="ern_gan_acc_bas_ope_con"/>
+        <result property="ern_gan_acc_bas_ope_dis"      column="ern_gan_acc_bas_ope_dis"/>
+        <result property="ern_gan_acc_bas"      column="ern_gan_acc_bas"/>
+        <result property="ern_gan_dil_pro_ope_con"      column="ern_gan_dil_pro_ope_con"/>
+        <result property="ern_gan_dil_pro_ope_dis"      column="ern_gan_dil_pro_ope_dis"/>
+        <result property="ern_gan_dil_acc"      column="ern_gan_dil_acc"/>
+    </resultMap>
+    <procedure id="seleccionERNGen" parameterClass="java.util.HashMap" resultMap="ernGen">
+            {CALL sp_sel_ern_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    <resultMap id="odaGen" class="java.util.HashMap">
+        <result property="cli_idc"              column="cli_idc"/>
+        <result property="cli_vrt"              column="cli_vrt"/>
+        <result property="gen_num_fcu"          column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"          column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"          column="gen_pdo_fcu"/>
+        <result property="oda_deu_var"          column="oda_deu_var"/>
+        <result property="oda_doc_cbr"          column="oda_doc_cbr"/>
+        <result property="oda_obl_bf_lgp"       column="oda_obl_bf_lgp"/>
+        <result property="oda_obl_pub"          column="oda_obl_pub"/>
+        <result property="oda_obl_pub_ctp"      column="oda_obl_pub_ctp"/>
+        <result property="oda_obl_lgp_ano"      column="oda_obl_lgp_ano"/>
+        <result property="oda_acr_var"          column="oda_acr_var"/>
+        <result property="oda_obl_lea_ctp"      column="oda_obl_lea_ctp"/>
+        <result property="oda_dep"              column="oda_dep"/>
+        <result property="oda_amt_itg"          column="oda_amt_itg"/>
+        <result property="oda_gto_fin_cap_eje"  column="oda_gto_fin_cap_eje"/>
+        <result property="oda_otr_cpt"          column="oda_otr_cpt"/>
+        <result property="oda_rev_per"          column="oda_rev_per"/>
+        <result property="oda_inc_cbo_pol_con"  column="oda_inc_cbo_pol_con"/>
+        <result property="oda_inc_crr_err"      column="oda_inc_crr_err"/>
+        <result property="oda_otr_res_int"      column="oda_otr_res_int"/>
+        <result property="oda_emi_ptm"          column="oda_emi_ptm"/>
+        <result property="oda_div"              column="oda_div"/>
+        <result property="oda_inc_otr_apo"      column="oda_inc_otr_apo"/>
+        <result property="oda_inc_otr_dis"      column="oda_inc_otr_dis"/>
+        <result property="oda_inc_tra"          column="oda_inc_tra"/>
+        <result property="oda_inc_trn_acc"      column="oda_inc_trn_acc"/>
+        <result property="oda_inc_cbo_par"      column="oda_inc_cbo_par"/>
+        <result property="oda_adq_cmb_neg"      column="oda_adq_cmb_neg"/>
+        <result property="oda_des"              column="oda_des"/>
+        <result property="oda_trf_acv"          column="oda_trf_acv"/>
+        <result property="oda_trf_prp_inv"      column="oda_trf_prp_inv"/>
+        <result property="oda_des_ena_neg"      column="oda_des_ena_neg"/>
+        <result property="oda_ret"              column="oda_ret"/>
+        <result property="oda_inc_rev_ptm_net"  column="oda_inc_rev_ptm_net"/>
+        <result property="oda_per_ptm_net"      column="oda_per_ptm_net"/>
+        <result property="oda_rev_rec_ptm_net"  column="oda_rev_rec_ptm_net"/>
+        <result property="oda_inc_rev_est_res"  column="oda_inc_rev_est_res"/>
+        <result property="oda_per_pla_equ"      column="oda_per_pla_equ"/>
+        <result property="oda_inc_cbo_mon_ext"  column="oda_inc_cbo_mon_ext"/>
+        <result property="oda_otr_inc"          column="oda_otr_inc"/>
+    </resultMap>
+    <procedure id="seleccionODAGen" parameterClass="java.util.HashMap" resultMap="odaGen">
+            {CALL sp_sel_oda_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+    <resultMap id="indGen" class="java.util.HashMap">
+        <result property="cli_idc"              column="cli_idc"/>
+        <result property="cli_vrt"              column="cli_vrt"/>
+        <result property="gen_num_fcu"          column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"          column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"          column="gen_pdo_fcu"/>
+        
+        <result property="ind_lqd_cte"          column="ind_lqd_cte"/>
+        <result property="ind_lqd_aci"          column="ind_lqd_aci"/>
+        <result property="ind_prm_inv"          column="ind_prm_inv"/>
+        <result property="ind_prm_crd"          column="ind_prm_crd"/>
+        <result property="ind_prm_cts_pgr"      column="ind_prm_cts_pgr"/>
+        <result property="ind_crg_fnc1"         column="ind_crg_fnc1"/>
+        <result property="ind_int_cpt1"         column="ind_int_cpt1"/>
+        <result property="ind_crg_fnc2"         column="ind_crg_fnc2"/>
+        <result property="ind_int_cpt2"         column="ind_int_cpt2"/>
+        <result property="flj_cja_dsp"          column="flj_cja_dsp"/>
+        <result property="ebitda"               column="ebitda"/>
+        <result property="ind_opr_vnt"          column="ind_opr_vnt"/>
+        <result property="ind_utl_vnt"          column="ind_utl_vnt"/>
+        <result property="ind_utl_ptr"          column="ind_utl_ptr"/>
+        <result property="ind_utl_ant_CM_vnt"   column="ind_utl_ant_CM_vnt"/>
+        <result property="ind_utl_ant_CM_ptr"   column="ind_utl_ant_CM_ptr"/>
+        <result property="ind_lvr"              column="ind_lvr"/>
+        <result property="ind_dda_fnc_ebt"      column="ind_dda_fnc_ebt"/>
+        <result property="ind_dda_fnc_nta_ebt"  column="ind_dda_fnc_nta_ebt"/>
+        <result property="ind_psv_exg_ebt"      column="ind_psv_exg_ebt"/>
+        <result property="ind_cbr_dda"          column="ind_cbr_dda"/>
+        <result property="ptr_nto"              column="ptr_nto"/>
+        <result property="psv_exg"              column="psv_exg"/>
+        <result property="cpt_trb"              column="cpt_trb"/>
+        <result property="act_no_cte_dsp_vnt"   column="act_no_cte_dsp_vnt"/>
+        <result property="psv_no_cte_dsp_vta"   column="psv_no_cte_dsp_vta"/>
+        <result property="cst_vts"              column="cst_vts"/>
+        <result property="dpr"                  column="dpr"/>
+        <result property="amr_int"              column="amr_int"/>
+        <result property="prd_dtr"              column="prd_dtr"/>
+        <result property="gst_adm_vts"          column="gst_adm_vts"/>
+        <result property="utl_opr"              column="utl_opr"/>
+    <result property="moneda"				column="moneda"/>
+	</resultMap>
+    <procedure id="seleccionIndicadoresGen" parameterClass="java.util.HashMap" resultMap="indGen">
+            {CALL sp_ind_emp_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#,#meses#)}
+    </procedure>
+    
+    
+    <resultMap id="ingreso" class="java.util.HashMap">
+        <result property="mensaje"              column="mensaje"/>
+    </resultMap>
+    <procedure id="insercionActGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_acv_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, 
+                                    #gen_dsp#, #gen_val_neg#, #dai_otr_act_nfin#, #dai_deu_com_cpc_cor#, 
+                                    #gen_cbr_erl_ctp#, #dai_inv#, #dai_act_bio_cor#, #gen_ipt_rpa#, 
+                                    #cca_des_acv_cir_1#, #cca_acv_cir_1#, #cca_des_acv_cir_2#, 
+                                    #cca_acv_cir_2#, #cca_des_acv_cir_3#, #cca_acv_cir_3#, 
+                                    #dai_tot_act_cor#, #dai_act_ncor_man_vta#, #dai_act_ncor_dis_prop#, 
+                                    #dai_act_ncor_man_vta_dis_prop#, #gen_tot_acv_cir#, #dai_inv_dep#, 
+                                    #dai_otr_act_fin_ncor#, #dai_otr_act_nfin_ncor#, #dai_der_pcob_ncor#, 
+                                    #gen_cbr_erl_lgp#, #dai_inv_con#, #gen_itg#, #gen_men_val_inv#, 
+                                    #gen_maq_eqp#, #dai_act_bio_ncor#, #dai_prop_inv#, #dai_act_imp_dif#, 
+                                    #cca_des_acv_lgp_1#, #cca_acv_lgp_1#, #cca_des_acv_lgp_2#, 
+                                    #cca_acv_lgp_2#, #cca_des_acv_lgp_3#, #cca_acv_lgp_3#, #gen_tot_otr_acv#,
+                                    #gen_tot_acv#)}
+    </procedure>
+    <procedure id="insercionActBan" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_acv_emp_bco(#idc#,#cli_vrt#, #bco_num_fcu#, #bco_tip_fcu#, #bco_pdo_fcu#, 
+                                    #bco_gen_efe_dep#,#bco_gen_ope_liq#,#bco_gen_ins_neg#,
+                                    #bco_gen_ctr_rcp_pre_val#,#bco_gen_ctr_der_fin#,#bco_gen_ade_bco#,
+                                    #bco_gen_cre_cta_cob#,#bco_gen_ins_inv_dis_vta#,#bco_gen_ins_inv_vct#,
+                                    #bco_gen_inv_soc#,#bco_gen_int#,#bco_gen_acv_fjo#,
+                                    #bco_gen_ipt_cte_acv#,#bco_gen_ipt_dfr_acv#,#bco_gen_otr_acv#)}
+    </procedure>
+    <procedure id="insercionDGGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_dg_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, 
+                    #gen_num_mes#, #gen_fec_ing#, #gen_val_uf#,#gen_est_fcu#,#gen_nom_adt#, 
+                    #mon_cod#,#gen_tip_cmb#,#gen_cod_eje_icp#,#gen_cod_eje_cpl#)}
+    </procedure>
+    <procedure id="insercionDGBan" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_dg_emp_bco(#idc#,#cli_vrt#, #bco_num_fcu#, #bco_tip_fcu#, #bco_pdo_fcu#, 
+                    #bco_num_mes#, #bco_fec_ing#, #bco_val_uf#,#bco_est_fcu#,#bco_nom_adt#, 
+                    #mon_cod#,#bco_tip_cmb#,#bco_cod_eje_icp#,#bco_cod_eje_cpl#)}
+    </procedure>
+    <procedure id="modificarEstadoBalance" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_upd_est(#cli_idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #gen_est_fcu#)}
+    </procedure>
+    <procedure id="insercionPsvGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_psv_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#
+                                       , #dai_otr_pas_fin_cor#, #dai_cpp_com_otr#, #gen_pag_erl_ctp#
+                                       , #dai_otr_prov_cp#, #gen_iar_psv#, #dai_prov_cor_ben_emp#, #dai_otr_pas_nfin_cor#
+                                       , #cca_des_psv_cir_1#, #cca_psv_cir_1#, #cca_des_psv_cir_2#, #cca_psv_cir_2#
+                                       , #cca_des_psv_cir_3#, #cca_psv_cir_3#, #dai_tot_pas_cor#, #dai_pas_mnt_vta#
+                                       , #gen_tot_psv_cir#, #gen_obl_bf#, #dai_pas_no_cte#, #gen_pag_erl_lgp#
+                                       , #dai_otr_prov_lp#, #gen_ipt_dfr_psv#, #dai_prv_no_crt_ben_emp#, #dai_otr_no_fin_no_crt#
+                                       , #cca_des_psv_lgp_1#, #cca_psv_lgp_1#, #cca_des_psv_lgp_2#, #cca_psv_lgp_2#
+                                       , #dai_des_pas_ncor_op#, #dai_pas_ncor_op#, #gen_tot_psv_lgp#, #gen_tot_psv#
+                                       , #gen_cpi_pag#, #gen_psv_res_ejr#, #gen_sbp_vta_acc#, #dai_acc_prop_car#
+                                       , #dai_otr_par_pat#, #dai_otr_res#, #dai_ptr_prp_ctr#, #gen_int_men_res#
+                                       , #gen_tot_ptm#, #dai_tot_pat_pas#)}
+    </procedure>
+    <procedure id="insercionPsvBan" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_psv_emp_bco(#idc#,#cli_vrt#, #bco_num_fcu#, #bco_tip_fcu#, #bco_pdo_fcu#
+                                       , #bco_gen_dep_otr_obl_vis#,#bco_gen_ope_liq_cur#,#bco_gen_ctr_rcp_ptm_val#
+                                       , #bco_gen_dep_cap_plz#,#bco_gen_der_fin#,#bco_gen_obl_bco#,#bco_gen_ins_dda_emi#
+                                       , #bco_gen_obl_fin#,#bco_gen_ipt_cte_psv#,#bco_gen_ipt_dfr_psv#,#bco_gen_prv#
+                                       , #bco_gen_otr_psv#,#bco_gen_atr_ten_pat_bco#,#bco_gen_cpt#,#bco_gen_rsv#
+                                       , #bco_gen_cta_val#,#bco_gen_utl_ret#,#bco_gen_utl_ret_eje_ant#
+                                       , #bco_gen_utl_eje#,#bco_gen_prv_div_min#,#bco_gen_int_min#)}
+    </procedure>        
+    <procedure id="insercionErNGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_ern_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#
+                                       , #ern_ing_act_ord#, #ern_gan_cta_acv_fin#, #ern_per_cta_acv_fin#
+                                       , #ern_otr_ing#, #ern_cam_inv_pro#, #ern_otr_tra_ent_cap#, #ern_mat_pri_com_utl#
+                                       , #ern_gto_ben_emp#, #ern_gto_dep_amo#, #ern_rev_per_det_val#, #ern_otr_gto#
+                                       , #ern_otr_gan#, #ern_ing_fin#, #ern_cto_fin#, #ern_par_gan#
+                                       , #ern_dif_cbo#, #ern_res_uni_raj#, #ern_gan_dif_val#, #ern_gan_ant_imp#
+                                       , #ern_gto_imp_gan#, #ern_gan_ope_con#, #ern_gan_ope_dis#, #ern_gan#
+                                       , #ern_gan_pro_con#, #ern_gan_par_con#, #ern_gan_per#, #ern_gan_acc_bas_ope_con#
+                                       , #ern_gan_acc_bas_ope_dis#, #ern_gan_acc_bas#, #ern_gan_dil_pro_ope_con#, #ern_gan_dil_pro_ope_dis#
+                                       , #ern_gan_dil_acc#)}
+    </procedure>
+    <procedure id="insercionErFGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_erf_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#
+                                        , #erf_ing_act_ord#, #erf_cto_vta#, #erf_gan_brt#
+                                        , #erf_gan_cta_acv#, #erf_per_cta_acv#, #erf_otr_ing#, #erf_cto_dis#
+                                        , #erf_gto_adm#, #erf_otr_gto#, #erf_otr_gan#, #erf_ing_fin#
+                                        , #erf_cto_fin#, #erf_par_gan#, #erf_dif_cam#, #erf_res_uni_raj#
+                                        , #erf_gan_dif_val#, #erf_gan_ant_imp#, #erf_gto_imp_gan#, #erf_gan_ope_cont#
+                                        , #erf_gan_ope_dsc#, #erf_gan#, #erf_gan_pro_con#, #erf_gan_par_con#
+                                        , #erf_gan_per#, #erf_gan_ope_con#, #erf_gan_ope_dco#, #erf_gan_acc_bas#
+                                        , #erf_gan_acc_pro_ope_con#, #erf_gan_acc_pro_ope_dco#, #erf_gan_acc#)}
+    </procedure>
+    <procedure id="insercionErBan" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL dbo.sp_ins_er_emp_bco(#idc#,#cli_vrt#, #ban_num_fcu#, #ban_tip_fcu#, #ban_pdo_fcu#
+                                    ,#bco_gen_ing_int_rjt#,#bco_gen_gto_int_rjt#,#bco_gen_ing_nto_int_rjt#
+                                    ,#bco_gen_ing_com#,#bco_gen_gto_com#,#bco_gen_ing_nto_com#
+                                    ,#bco_gen_utl_nta_ope_fin#,#bco_gen_utl_cbo_nta#,#bco_gen_otr_ing_ope#
+                                    ,#bco_gen_prv_rie_cre#,#bco_gen_ing_ope_nto#,#bco_gen_rem_gto_prn#
+                                    ,#bco_gen_gto_adm#,#bco_gen_dpr_amt#,#bco_gen_det#
+                                    ,#bco_gen_otr_gto_ope#,#bco_gen_res_inv_soc#,#bco_gen_ipt_rta#)}
+    </procedure>
+    <procedure id="insercionAdicionalesGen" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_oda_emp_gen(#idc#,#cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#
+                                       , #oda_deu_var#, #oda_doc_cbr#, #oda_obl_bf_lgp#
+                                       , #oda_obl_pub#, #oda_obl_pub_ctp#, #oda_obl_lgp_ano#, #oda_acr_var#
+                                       , #oda_obl_lea_ctp#, #oda_dep#, #oda_amt_itg#, #oda_gto_fin_cap_eje#
+                                       , #oda_otr_cpt#, #oda_rev_per#, #oda_inc_cbo_pol_con#, #oda_inc_crr_err#
+                                       , #oda_otr_res_int#, #oda_emi_ptm#, #oda_div#, #oda_inc_otr_apo#
+                                       , #oda_inc_otr_dis#, #oda_inc_tra#, #oda_inc_trn_acc#, #oda_inc_cbo_par#
+                                       , #oda_adq_cmb_neg#, #oda_des#, #oda_trf_acv#, #oda_trf_prp_inv#
+                                       , #oda_des_ena_neg#, #oda_ret#, #oda_inc_rev_ptm_net#, #oda_per_ptm_net#
+                                       , #oda_rev_rec_ptm_net#, #oda_inc_rev_est_res#, #oda_per_pla_equ#, #oda_inc_cbo_mon_ext#
+                                       , #oda_otr_inc#)}
+    </procedure>
+    <procedure id="insercionAdicionalesBan" parameterClass="java.util.HashMap" resultMap="ingreso">
+            {CALL sp_ins_dad_emp_bco(#idc#,#cli_vrt#, #ban_num_fcu#, #ban_tip_fcu#, #ban_pdo_fcu#
+                                       ,#bco_dad_des_bse_ajt_0_30_clp#,#bco_dad_des_bse_ajt_0_90_clp#
+                                       ,#bco_dad_des_bse_ajt_0_90_mx#,#bco_dad_col_ate_prv#,#bco_dad_prv_sbr_col#
+                                       ,#bco_dad_emr_tsa_int_lib_neg#,#bco_dad_emr_mon_lib_neg# 
+                                       ,#bco_dad_emr_mon_lib_bca#,#bco_dad_exp_cto_plz_rie_tsa#
+                                       ,#bco_dad_mng_fin_cto_plz#,#bco_dad_exp_lgo_plz_rie_tsa#,#bco_dad_ptm_efe#
+                                       ,#bco_dad_acv_pon_rie#,#bco_dad_crt_vda#,#bco_dad_col_tot#
+                                       ,#bco_dad_prv#,#bco_dad_crt_det#,#bco_dad_col_com#
+                                       ,#bco_dad_upa_bas#,#bco_dad_upa_dil#)}
+    </procedure>
+    <procedure id="crearBalanceAprocred" parameterClass="java.util.HashMap" resultMap="ingreso">
+        {CALL sp_est_ing_pdo_ifrs(#cli_idc#,#nro_ope#,#tip#,#eje#,
+                    #pdo_1#,#corre_1#,#val_ipc_1#,
+                    #pdo_2#,#corre_2#,#val_ipc_2#,
+                    #pdo_3#,#corre_3#,#val_ipc_3#,
+                    #pdo_4#,#corre_4#,#val_ipc_4#,
+                    #pdo_5#,#corre_5#,#val_ipc_5#,
+                    #ifrs#)}
+    </procedure>
+    <resultMap id="tipoEERR" class="java.util.HashMap">
+        <result property="tipo_er"              column="tipo_er"/>
+    </resultMap>
+    
+    <procedure id="consultaTipoEERR" parameterClass="java.util.HashMap" resultMap="tipoEERR">
+            {CALL sp_sel_tpo_er(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu#,#gen_num_fcu#,#gen_tip_fcu#, #tipo_er#)}
+    </procedure>
+
+    <resultMap id="acvBco" class="java.util.HashMap">
+        <result property="bco_cli_idc"              column="bco_cli_idc"/>
+        <result property="bco_cli_vrt"              column="bco_cli_vrt"/>
+        <result property="bco_gen_num_fcu"          column="bco_gen_num_fcu"/>
+        <result property="bco_gen_tip_fcu"          column="bco_gen_tip_fcu"/>
+        <result property="bco_gen_pdo_fcu"          column="bco_gen_pdo_fcu"/>
+        <result property="bco_gen_efe_dep"          column="bco_gen_efe_dep"/>
+        <result property="bco_gen_ope_liq"          column="bco_gen_ope_liq"/>
+        <result property="bco_gen_ins_neg"          column="bco_gen_ins_neg"/>
+        <result property="bco_gen_ctr_rcp_pre_val"  column="bco_gen_ctr_rcp_pre_val"/>
+        <result property="bco_gen_ctr_der_fin"      column="bco_gen_ctr_der_fin"/>
+        <result property="bco_gen_ade_bco"          column="bco_gen_ade_bco"/>
+        <result property="bco_gen_cre_cta_cob"      column="bco_gen_cre_cta_cob"/>
+        <result property="bco_gen_ins_inv_dis_vta"  column="bco_gen_ins_inv_dis_vta"/>
+        <result property="bco_gen_ins_inv_vct"      column="bco_gen_ins_inv_vct"/>
+        <result property="bco_gen_inv_soc"          column="bco_gen_inv_soc"/>
+        <result property="bco_gen_int"              column="bco_gen_int"/>
+        <result property="bco_gen_acv_fjo"          column="bco_gen_acv_fjo"/>
+        <result property="bco_gen_ipt_cte_acv"      column="bco_gen_ipt_cte_acv"/>
+        <result property="bco_gen_ipt_dfr_acv"      column="bco_gen_ipt_dfr_acv"/>
+        <result property="bco_gen_otr_acv"          column="bco_gen_otr_acv"/>
+    </resultMap>
+     <procedure id="seleccionActivosBco" parameterClass="java.util.HashMap" resultMap="acvBco">
+        {CALL sp_sel_acv_emp_bco(#idc#,#cli_vrt#,
+         #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+         #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+         #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+         #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+         #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    
+        
+    <resultMap id="psvBco" class="java.util.HashMap">
+        <result property="bco_cli_idc"              column="bco_cli_idc"/>
+        <result property="bco_cli_vrt"              column="bco_cli_vrt"/>
+        <result property="bco_gen_num_fcu"          column="bco_gen_num_fcu"/>
+        <result property="bco_gen_tip_fcu"          column="bco_gen_tip_fcu"/>
+        <result property="bco_gen_pdo_fcu"          column="bco_gen_pdo_fcu"/>
+        <result property="bco_gen_dep_otr_obl_vis"  column="bco_gen_dep_otr_obl_vis"/>
+        <result property="bco_gen_ope_liq_cur"      column="bco_gen_ope_liq_cur"/>
+        <result property="bco_gen_ctr_rcp_ptm_val"  column="bco_gen_ctr_rcp_ptm_val"/>
+        <result property="bco_gen_dep_cap_plz"      column="bco_gen_dep_cap_plz"/>
+        <result property="bco_gen_der_fin"          column="bco_gen_der_fin"/>
+        <result property="bco_gen_obl_bco"          column="bco_gen_obl_bco"/>
+        <result property="bco_gen_ins_dda_emi"      column="bco_gen_ins_dda_emi"/>
+        <result property="bco_gen_obl_fin"          column="bco_gen_obl_fin"/>
+        <result property="bco_gen_ipt_cte_psv"      column="bco_gen_ipt_cte_psv"/>
+        <result property="bco_gen_ipt_dfr_psv"      column="bco_gen_ipt_dfr_psv"/>
+        <result property="bco_gen_prv"              column="bco_gen_prv"/>
+        <result property="bco_gen_otr_psv"          column="bco_gen_otr_psv"/>
+        <result property="bco_gen_atr_ten_pat_bco"  column="bco_gen_atr_ten_pat_bco"/>
+        <result property="bco_gen_cpt"              column="bco_gen_cpt"/>
+        <result property="bco_gen_rsv"              column="bco_gen_rsv"/>
+        <result property="bco_gen_cta_val"          column="bco_gen_cta_val"/>
+        <result property="bco_gen_utl_ret"          column="bco_gen_utl_ret"/>
+        <result property="bco_gen_utl_ret_eje_ant"  column="bco_gen_utl_ret_eje_ant"/>
+        <result property="bco_gen_utl_eje"          column="bco_gen_utl_eje"/>
+        <result property="bco_gen_prv_div_min"      column="bco_gen_prv_div_min"/>
+        <result property="bco_gen_int_min"          column="bco_gen_int_min"/>
+
+    </resultMap>
+     <procedure id="seleccionPasivosBco" parameterClass="java.util.HashMap" resultMap="psvBco">
+   {CALL sp_sel_psv_emp_bco(#idc#,#cli_vrt#,
+         #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+         #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+         #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+         #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+         #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    
+    <resultMap id="erBco" class="java.util.HashMap">
+        <result property="bco_cli_idc"              column="bco_cli_idc"/>
+        <result property="bco_cli_vrt"              column="bco_cli_vrt"/>
+        <result property="bco_gen_num_fcu"          column="bco_gen_num_fcu"/>
+        <result property="bco_gen_tip_fcu"          column="bco_gen_tip_fcu"/>
+        <result property="bco_gen_pdo_fcu"          column="bco_gen_pdo_fcu"/>
+        <result property="bco_gen_ing_int_rjt"      column="bco_gen_ing_int_rjt"/>
+        <result property="bco_gen_gto_int_rjt"      column="bco_gen_gto_int_rjt"/>
+        <result property="bco_gen_ing_nto_int_rjt"  column="bco_gen_ing_nto_int_rjt"/>
+        <result property="bco_gen_ing_com"          column="bco_gen_ing_com"/>
+        <result property="bco_gen_gto_com"          column="bco_gen_gto_com"/>
+        <result property="bco_gen_ing_nto_com"      column="bco_gen_ing_nto_com"/>
+        <result property="bco_gen_utl_nta_ope_fin"  column="bco_gen_utl_nta_ope_fin"/>
+        <result property="bco_gen_utl_cbo_nta"      column="bco_gen_utl_cbo_nta"/>
+        <result property="bco_gen_otr_ing_ope"      column="bco_gen_otr_ing_ope"/>
+        <result property="bco_gen_prv_rie_cre"      column="bco_gen_prv_rie_cre"/>
+        <result property="bco_gen_ing_ope_nto"      column="bco_gen_ing_ope_nto"/>
+        <result property="bco_gen_rem_gto_prn"      column="bco_gen_rem_gto_prn"/>
+        <result property="bco_gen_gto_adm"          column="bco_gen_gto_adm"/>
+        <result property="bco_gen_dpr_amt"          column="bco_gen_dpr_amt"/>
+        <result property="bco_gen_det"              column="bco_gen_det"/>
+        <result property="bco_gen_otr_gto_ope"      column="bco_gen_otr_gto_ope"/>
+        <result property="bco_gen_res_inv_soc"      column="bco_gen_res_inv_soc"/>
+        <result property="bco_gen_ipt_rta"          column="bco_gen_ipt_rta"/>
+    </resultMap>    
+     <procedure id="seleccionERBco" parameterClass="java.util.HashMap" resultMap="erBco">
+        {CALL sp_sel_er_emp_bco(#idc#,#cli_vrt#,
+         #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+         #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+         #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+         #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+         #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+ 
+    <resultMap id="daBco" class="java.util.HashMap">
+        <result property="bco_cli_idc"                      column="bco_cli_idc"/>
+        <result property="bco_cli_vrt"                      column="bco_cli_vrt"/>
+        <result property="bco_gen_num_fcu"                  column="bco_gen_num_fcu"/>
+        <result property="bco_gen_tip_fcu"                  column="bco_gen_tip_fcu"/>
+        <result property="bco_gen_pdo_fcu"                  column="bco_gen_pdo_fcu"/>
+        <result property="bco_dad_des_bse_ajt_0_30_clp"     column="bco_dad_des_bse_ajt_0_30_clp"/>
+        <result property="bco_dad_des_bse_ajt_0_90_clp"     column="bco_dad_des_bse_ajt_0_90_clp"/>
+        <result property="bco_dad_des_bse_ajt_0_90_mx"      column="bco_dad_des_bse_ajt_0_90_mx"/>
+        <result property="bco_dad_col_ate_prv"              column="bco_dad_col_ate_prv"/>
+        <result property="bco_dad_prv_sbr_col"              column="bco_dad_prv_sbr_col"/>
+        <result property="bco_dad_emr_tsa_int_lib_neg"      column="bco_dad_emr_tsa_int_lib_neg"/>
+        <result property="bco_dad_emr_mon_lib_neg"          column="bco_dad_emr_mon_lib_neg"/>
+        <result property="bco_dad_emr_mon_lib_bca"          column="bco_dad_emr_mon_lib_bca"/>
+        <result property="bco_dad_exp_cto_plz_rie_tsa_in"   column="bco_dad_exp_cto_plz_rie_tsa_in"/>
+        <result property="bco_dad_mng_fin_cto_plz"          column="bco_dad_mng_fin_cto_plz"/>
+        <result property="bco_dad_exp_lgo_plz_rie_tsa_in"   column="bco_dad_exp_lgo_plz_rie_tsa_in"/>
+        <result property="bco_dad_ptm_efe"                  column="bco_dad_ptm_efe"/>
+        <result property="bco_dad_acv_pon_rie"              column="bco_dad_acv_pon_rie"/>
+        <result property="bco_dad_crt_vda"                  column="bco_dad_crt_vda"/>
+        <result property="bco_dad_col_tot"                  column="bco_dad_col_tot"/>
+        <result property="bco_dad_prv"                      column="bco_dad_prv"/>
+        <result property="bco_dad_crt_det"                  column="bco_dad_crt_det"/>
+        <result property="bco_dad_col_com"                  column="bco_dad_col_com"/>
+        <result property="bco_dad_upa_bas"                  column="bco_dad_upa_bas"/>
+        <result property="bco_dad_upa_dil"                  column="bco_dad_upa_dil"/>      
+    </resultMap>
+    
+    <procedure id="seleccionDatAdicBco" parameterClass="java.util.HashMap" resultMap="daBco">
+        {CALL sp_sel_dad_emp_bco (#idc#,#cli_vrt#,
+         #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+         #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+         #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+         #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+         #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+    <resultMap id="erGen" class="java.util.HashMap">
+        <result property="cli_idc"      column="cli_idc"/>
+        <result property="cli_vrt"      column="cli_vrt"/>
+        <result property="gen_num_fcu"      column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"      column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"      column="gen_pdo_fcu"/>
+        <result property="ing_exp"      column="ing_exp"/>
+        <result property="cst_exp"      column="cst_exp"/>
+        <result property="gen_dpn"      column="gen_dpn"/>
+        <result property="mrg_exp"      column="mrg_exp"/>
+        <result property="gst_adm"      column="gst_adm"/>
+        <result property="rsl_opr"      column="rsl_opr"/>
+        <result property="gen_ing_fin"      column="gen_ing_fin"/>
+        <result property="erf_par_gan"      column="erf_par_gan"/>
+        <result property="otr_ing"      column="otr_ing"/>
+        <result property="prd_emp_rlc"      column="prd_emp_rlc"/>      
+        <result property="gen_amo_men_val"  column="gen_amo_men_val"/>
+        <result property="gen_gto_fin"      column="gen_gto_fin"/>
+        <result property="otr_egr"          column="otr_egr"/>
+        <result property="gen_cmt"          column="gen_cmt"/>
+        <result property="dif_cam"          column="dif_cam"/>      
+        <result property="rsl_no_opr"     column="rsl_no_opr"/>
+        <result property="rsl_ant_imp"      column="rsl_ant_imp"/>
+        <result property="imp_gnc"      column="imp_gnc"/>
+        <result property="utl"      column="utl"/>
+        <result property="utl_lqd"      column="utl_lqd"/>
+        <result property="amt_myr_vlr"      column="amt_myr_vlr"/>
+        <result property="utl_ejr"      column="utl_ejr"/>
+    </resultMap>
+    <procedure id="seleccionERGen" parameterClass="java.util.HashMap" resultMap="erGen">
+            {CALL sp_rpr_est_rst_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    
+    <resultMap id="indBco" class="java.util.HashMap">
+        <result property="cli_idc"                      column="cli_idc"/>
+        <result property="cli_vrt"                      column="cli_vrt"/>
+        <result property="gen_num_fcu"                  column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"                  column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"                  column="gen_pdo_fcu"/>
+        <result property="ind_dsc_bse_30_cpt_bsc"       column="ind_dsc_bse_30_cpt_bsc"/>
+        <result property="ind_dsc_bse_90_cpt_bsc"       column="ind_dsc_bse_90_cpt_bsc"/>
+        <result property="ind_dsc_bse_30_MX_cpt_bsc"    column="ind_dsc_bse_30_MX_cpt_bsc"/>
+        <result property="ind_dps_vst_clc"              column="ind_dps_vst_clc"/>
+        <result property="ind_dps_vst_plz_clc"          column="ind_dps_vst_plz_clc"/>
+        <result property="ind_efc_opr_ins_psv_exg"      column="ind_efc_opr_ins_psv_exg"/>
+        <result property="ind_erm_3_cpt_bsc"            column="ind_erm_3_cpt_bsc"/>
+        <result property="ind_x1_mrg_crt_plz"           column="ind_x1_mrg_crt_plz"/>
+        <result property="ind_x2_ptr_efc"               column="ind_x2_ptr_efc"/>
+        <result property="ind_ptr_efc_act_pnd"          column="ind_ptr_efc_act_pnd"/>
+        <result property="ind_cpt_bsc_act_pnd"          column="ind_cpt_bsc_act_pnd"/>
+        <result property="ind_crt_vnc_clc_ttl"          column="ind_crt_vnc_clc_ttl"/>
+        <result property="ind_prv_clc_ttl"              column="ind_prv_clc_ttl"/>
+        <result property="ind_crt_dtr_clc_cmr"          column="ind_crt_dtr_clc_cmr"/>
+        <result property="ind_rnt_ptr"                  column="ind_rnt_ptr"/>
+        <result property="ind_rnt_act"                  column="ind_rnt_act"/>
+        <result property="ind_mob_ap"                   column="ind_mob_ap"/>
+        <result property="ind_tgo_ion"                  column="ind_tgo_ion"/>
+        <result property="ind_mf_mo"                    column="ind_mf_mo"/>
+        <result property="ind_dps_psv_ptr"              column="ind_dps_psv_ptr"/>      
+        <result property="ind_clc_ta"                   column="ind_clc_ta"/>
+        <result property="act_lqd_ta"                   column="act_lqd_ta"/>               
+        <result property="ind_lvr"                      column="ind_lvr"/>
+        <result property="ind_lvr_pe"                   column="ind_lvr_pe"/>
+        <result property="ind_cmv_cv"                   column="ind_cmv_cv"/>
+        <result property="ind_prv_cmv"                  column="ind_prv_cmv"/>
+        <result property="ind_cms_go"                   column="ind_cms_go"/>
+        <result property="ind_upa_bsc"                  column="ind_upa_bsc"/>
+        <result property="ind_upa_dld"                  column="ind_upa_dld"/>
+    <result property="moneda"						column="moneda"/>
+	</resultMap>    
+    <procedure id="seleccionIndicadoresBan" parameterClass="java.util.HashMap" resultMap="indBco">
+            {CALL sp_ind_emp_bco(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    
+    <resultMap id="repRcnActGen" class="java.util.HashMap">
+        <result property="cli_idc"                  column="cli_idc"/>
+        <result property="cli_vrt"                  column="cli_vrt"/>
+        <result property="gen_num_fcu"              column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"              column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"              column="gen_pdo_fcu"/>
+        <result property="sld_inc_ppe"              column="sld_inc_ppe"/>
+        <result property="dpr_ejr"                  column="dpr_ejr"/>
+        <result property="adq_cmb_neg"              column="adq_cmb_neg"/>
+        <result property="oda_des"                  column="oda_des"/>
+        <result property="otr_inc"                  column="otr_inc"/>
+        <result property="des_ena_neg"              column="des_ena_neg"/>
+        <result property="ret"                      column="ret"/>
+        <result property="ttl_vrc_flj_cja"          column="ttl_vrc_flj_cja"/>
+        <result property="oda_inc_rev_ptm_net"      column="oda_inc_rev_ptm_net"/>
+        <result property="per_ptm_net"              column="per_ptm_net"/>
+        <result property="rev_rec_ptm_net"          column="rev_rec_ptm_net"/>
+        <result property="inc_rev_est_res"          column="inc_rev_est_res"/>
+        <result property="per_pla_equ"              column="per_pla_equ"/>
+        <result property="inc_cbo_mon_ext"          column="inc_cbo_mon_ext"/>
+        <result property="trf_acv"                  column="trf_acv"/>
+        <result property="trf_prp_inv"              column="trf_prp_inv"/>
+        <result property="ttl_vrc_no_cja"           column="ttl_vrc_no_cja"/>
+        <result property="ttl_vrc_ppe"              column="ttl_vrc_ppe"/>
+        <result property="sld_fnl_ppe"              column="sld_fnl_ppe"/>
+        <result property="cmp_ppe"                  column="cmp_ppe"/>  
+    </resultMap>    
+    <procedure id="seleccionRepRcnActGen" parameterClass="java.util.HashMap" resultMap="repRcnActGen">
+            {CALL sp_rpr_rcn_act_gen(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+    
+    
+    <resultMap id="repRcnPatGen" class="java.util.HashMap"> 
+        <result property="cli_idc"                  column="cli_idc"/>
+        <result property="cli_vrt"                  column="cli_vrt"/>
+        <result property="gen_num_fcu"              column="gen_num_fcu"/>
+        <result property="gen_tip_fcu"              column="gen_tip_fcu"/>
+        <result property="gen_pdo_fcu"              column="gen_pdo_fcu"/>
+        <result property="sld_inc_ptr"              column="sld_inc_ptr"/>
+        <result property="utl_nta"                  column="utl_nta"/>              
+        <result property="ems_ptr"                  column="ems_ptr"/>
+        <result property="dvd"                      column="dvd"/>
+        <result property="otr_apr_prp"              column="otr_apr_prp"/>      
+        <result property="otr_dst_prp"              column="otr_dst_prp"/>
+        <result property="trn_acc_crt"              column="trn_acc_crt"/>
+        <result property="ttl_vrc_flj"              column="ttl_vrc_flj"/>
+        <result property="cmb_prt_sbs"              column="cmb_prt_sbs"/>
+        <result property="cmb_plt_cnt"              column="cmb_plt_cnt"/>
+        <result property="crr_err"                  column="crr_err"/>      
+        <result property="otr_rsl_int"              column="otr_rsl_int"/>
+        <result property="trn_otr_cmb"              column="trn_otr_cmb"/>
+        <result property="ttl_vrc_no_flj"           column="ttl_vrc_no_flj"/>
+        <result property="ttl_vrc_ptr"              column="ttl_vrc_ptr"/>
+        <result property="otr_vrc_ptr"              column="otr_vrc_ptr"/>
+        <result property="sld_fnl_ptr"              column="sld_fnl_ptr"/>
+    </resultMap>
+        
+    <procedure id="seleccionRepRcnPatGen" parameterClass="java.util.HashMap" resultMap="repRcnPatGen">
+            {CALL sp_rpr_rcn_pat(#idc#,#cli_vrt#,
+                                    #gen_pdo_fcu1#,#gen_num_fcu1#,#gen_tip_fcu1#,#gen_fac_fcu1#,
+                                    #gen_pdo_fcu2#,#gen_num_fcu2#,#gen_tip_fcu2#,#gen_fac_fcu2#,
+                                    #gen_pdo_fcu3#,#gen_num_fcu3#,#gen_tip_fcu3#,#gen_fac_fcu3#,
+                                    #gen_pdo_fcu4#,#gen_num_fcu4#,#gen_tip_fcu4#,#gen_fac_fcu4#,
+                                    #gen_pdo_fcu5#,#gen_num_fcu5#,#gen_tip_fcu5#,#gen_fac_fcu5#)}
+    </procedure>
+
+    <procedure id="obtenerParametrosPeriodos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obtener_parametros_periodo(#rutCliente#)}
+	</procedure>
+	
+	<procedure id="obtenerPeriodosDeVenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obtener_periodos_venta(#rutCliente#, #periodoInicial#)}
+	</procedure>
+	
+	<procedure id="obtenerVentas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obtener_ventas(#rutCliente#, #periodo#)}
+	</procedure>
+	
+	<procedure id="obtenerComparacionVentas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obtener_comparacion_ventas(#rutCliente#, #periodoComparacion1#, #periodoComparacion2#, #periodoComparacion3#, #mes#)}
+	</procedure>
+
+<!-- Consulta total ventas clientes -->
+    
+    <resultMap id="ventasPyme"  class="java.util.HashMap">
+            <result property="Ventas"       column="Ventas"/>
+
+    </resultMap>
+
+    <procedure id="obtenerVentasPyme" parameterClass="java.util.HashMap" resultMap="ventasPyme">
+        {CALL sp_cns_ventas_pyme( #rutCliente#, #dvCliente# )}
+    </procedure>
+    
+    <procedure id="registrarEnBitacora" parameterClass="java.util.HashMap">
+        {CALL sp_ing_reg_bitacora(#rut#,#dv#, #tipoSolicitudId#, #periodo#, #ejecutivo#, #fechaSolicitud#, #estadoSolicitudId#, #descripcion#, #fecha#, #estadoId#, #versionSolicitud#)}
+    </procedure>
+    
+    <resultMap      id="cnsSolicitudInfFinMap"      class="java.util.HashMap">
+        <result     column="Sif_Rut"             property="rut"/>
+        <result     column="Sif_Fec_Periodo"             property="periodo"/>
+        <result     column="Sif_Id_TipoSolicitud"             property="tipoSolicitudId"/>
+        <result     column="Sif_Nom_Ejecutivo"             property="ejecutivo"/>
+        <result     column="Sif_FechaSolicitud"             property="fechaSolicitud"/>
+        <result     column="Sif_Cod_EstadoSolicitudId"             property="estadoSolicitudId"/>
+        <result     column="Sif_Num_VersionSolicitud"             property="versionSolicitud"/>
+        <result     column="Rif_Nom_NombreArchivo"             property="nombreArchivo"/>
+        <result     column="Rif_Fec_FechaRecepcion"             property="fechaRecepcion"/>
+        <result     column="Rif_Id_EstadoArchivo"             property="estadoArchivoId"/>
+        <result     column="Rif_Des_Observacion"             property="observacion"/>
+        <result     column="Dif_Id_TipoInfFinanciera"             property="tipoInformacionFinancieraId"/>
+        <result     column="Dif_Id_EstadoInformacion"             property="estadoInformacionId"/>
+        <result     column="Rif_Ind_Existencia"             property="existencia"/>
+        <result     column="Rif_Glo_Ruta"             property="ruta"/>
+      </resultMap>
+    
+    <procedure id="consultarSolicitudInformacionFinanciera" parameterClass="java.util.HashMap" resultMap="cnsSolicitudInfFinMap">
+            {CALL sp_cns_sol_inf_fin(#rut#, #tipoSolicitudId#, #periodo#)}
+    </procedure>
+    
+    <procedure      id="registrarSolicitudDeInformacion"      parameterClass="java.util.HashMap">
+        {CALL sp_ing_sol_inf_fin(#rut#,#dv#, #tipoSolicitudId#, #periodo#, #ejecutivo#, #fechaSolicitud#, #estadoSolicitudId#, #descripcion#, #fecha#, #estadoId#, #uuid#)}
+    </procedure>
+    
+    <resultMap        id="cnsErrorArchivo"        class="java.util.HashMap">
+                <result            column="Rif_Des_Observacion"             property="observacion"/>
+    </resultMap>
+    
+    <procedure       id="consultarErrorArchivo"       parameterClass="java.util.HashMap"       resultMap="cnsErrorArchivo">
+            {CALL sp_cns_error_archivo(#nombreArchivo#)}
+    </procedure>
+    
+    <resultMap      id="cnsSolicitudPendienteMap"      class="java.util.HashMap">
+        <result     column="Sif_Rut"             property="rut"/>
+        <result     column="Sif_Fec_Periodo"             property="periodo"/>
+        <result     column="Sif_Id_TipoSolicitud"             property="tipoSolicitudId"/>
+        <result     column="Sif_Nom_Ejecutivo"             property="ejecutivo"/>
+        <result     column="Sif_FechaSolicitud"             property="fechaSolicitud"/>
+        <result     column="Sif_Cod_EstadoSolicitudId"             property="estadoSolicitudId"/>
+      </resultMap>
+    
+    <procedure id="consultarSolicitudesPendientes" parameterClass="java.util.HashMap" resultMap="cnsSolicitudPendienteMap">
+            {CALL sp_cns_sol_inf_pnd(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsInfoComplementariaMap"      class="java.util.HashMap">
+        <result     column="Icc_Rut_Cliente"             property="rut"/>
+        <result     column="Icc_Dv_Cliente"             property="dv"/>
+        <result     column="Icc_Nom_RazonSocial"             property="razonSocial"/>
+        <result     column="Icc_Fec_Actualizacion"             property="fechaActualizacion"/>
+        <result     column="Icc_Ind_InicioActividades"             property="indInicioActividad"/>
+        <result     column="Icc_Fec_InicioActividades"             property="fechaInicioActividad"/>
+        <result     column="Icc_Ind_PagoMonedaExtranjera"             property="indMonedaExtranjera"/>
+      </resultMap>
+    
+    <procedure id="consultarInformacionComplementaria" parameterClass="java.util.HashMap" resultMap="cnsInfoComplementariaMap">
+            {CALL sp_cns_inf_cmp_cli(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsRepresentantesMap"      class="java.util.HashMap">
+        <result     column="Rpl_Rut_Representante"             property="rut"/>
+        <result     column="Rpl_Nom_RazonSocial"             property="razonSocial"/>
+        <result     column="Rpl_Fec_Incorporacion"             property="fechaIncorporacion"/>
+      </resultMap>
+    
+    <procedure id="consultarRepresentantesLegales" parameterClass="java.util.HashMap" resultMap="cnsRepresentantesMap">
+            {CALL sp_cns_rep_leg(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsSociosMap"      class="java.util.HashMap">
+        <result     column="Sco_Rut_Socio"             property="rut"/>
+        <result     column="Sco_Nom_RazonSocial"             property="razonSocial"/>
+        <result     column="Sco_Fec_Incorporacion"             property="fechaIncorporacion"/>
+      </resultMap>
+    
+    <procedure id="consultarSocios" parameterClass="java.util.HashMap" resultMap="cnsSociosMap">
+            {CALL sp_cns_soc_cli(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsActividadEconomicaMap"      class="java.util.HashMap">
+        <result     column="Ace_Cod_Actividad"             property="codigo"/>
+        <result     column="Ace_Cod_Antiguo"             property="codigoAntiguo"/>
+        <result     column="Ace_Glo_Actividad"             property="actividad"/>
+        <result     column="Ace_Des_Categoria"             property="categoria"/>
+        <result     column="Ace_Des_AfectoIVA"             property="afectoIva"/>
+        <result     column="Ace_Des_SubsectorEconomico"             property="subsector"/>
+        <result     column="Ace_Des_SectorEconomico"             property="sector"/>
+      </resultMap>
+    
+    <procedure id="consultarActividadEconomica" parameterClass="java.util.HashMap" resultMap="cnsActividadEconomicaMap">
+            {CALL sp_cns_act_eco(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsBienRaizMap"      class="java.util.HashMap">
+        <result     column="Brc_Nom_Comuna"             property="comuna"/>
+        <result     column="Brc_Nom_Rol"             property="rol"/>
+        <result     column="Brc_Des_Direccion"             property="direccion"/>
+        <result     column="Brc_Des_Destino"             property="destino"/>
+        <result     column="Brc_Mto_AvaluoFiscal"             property="avaluoFiscal"/>
+        <result     column="Brc_Cnt_CuotasVencidasPorPagar"             property="cuotasVencidas"/>
+        <result     column="Brc_Cnt_CuotasVigentesPorPagar"             property="cuotasVigentes"/>
+        <result     column="Brc_Des_Condicion"             property="condicion"/>
+      </resultMap>
+    
+    <procedure id="consultarBienesRaices" parameterClass="java.util.HashMap" resultMap="cnsBienRaizMap">
+            {CALL sp_cns_bie_rai(#rut#)}
+    </procedure>
+    
+    <resultMap      id="cnsSociedadMap"      class="java.util.HashMap">
+        <result     column="Svg_Rut_Sociedad"             property="rut"/>
+        <result     column="Svg_Nom_RazonSocial"             property="razonSocial"/>
+        <result     column="Svg_Fec_Incorporacion"             property="fechaIncorporacion"/>
+      </resultMap>
+    
+    <procedure id="consultarSociedad" parameterClass="java.util.HashMap" resultMap="cnsSociedadMap">
+            {CALL sp_cns_soc_vig(#rut#)}
+    </procedure>
+    
+    <resultMap id="resultBalanceClonado"  class="java.util.HashMap">
+            <result property="numero_balance"       column="numero_balance"/>
+    </resultMap>
+    
+    <procedure id="clonarBalanceIFRS" parameterClass="java.util.HashMap" resultMap="resultBalanceClonado">
+            {CALL sp_ins_copia_balance_ifrs(#cli_idc#, #cli_vrt#, #gen_pdo_fcu#, #gen_num_fcu#, #gen_tip_fcu#, #gen_tip_ifrs#, #gen_tip_er#)}
+    </procedure>
+    
+    <procedure id="updateEstadoBalance" parameterClass="java.util.HashMap">
+            {CALL sp_upd_estado(#cli_idc#, #cli_vrt#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+<procedure id="guardarCapitalDeTrabajo" parameterClass="java.util.HashMap">
+        {CALL sp_ins_capital_trabajo(#rutCliente#,#dvCliente#, #fecIngreso#, #fecPeriodo#, #usrEjecutivo#, #mtoCostoVenta#, #mtoCuentasPagar#, #mtoDeudores#, #mtoIngresos#, #mtoInventarios#, #mtoNecesidad#, #mtoPermanenciaCxC#, #mtoPermanenciaCxP#, #mtoPerInventario#)}
+    </procedure>
+	
+	<procedure id="guardarFlujoDeCaja" parameterClass="java.util.HashMap">
+        {CALL sp_ins_flujo_caja(#rutCliente#,#dvCliente#, #fecIngreso#, #fecPeriodo#, #usrEjecutivo#, #mtoAmortizacion#, #mtoCapex#, #mtoDividendos#, #mtoGastoFinanciero#,#mtoImpuestoRenta#, #mtoIngresosVenta#, #mtoEbitda#, #mtoMargenEbitda#, #mtoNecesidadKdeT#, #mtoOtrosEgresos#, #mtoOtrosIngresos#, #mtoTotalCaja#, #mtoTotalLibre#)}
+    </procedure>
+    
+    <resultMap id="cnsCapital" class="java.util.HashMap">
+        <result column="mtoCostoVenta"      property="mtoCostoVenta"/>
+        <result column="mtoCuentasPagar"    property="mtoCuentasPagar"/>
+        <result column="mtoDeudores"        property="mtoDeudores"/>
+        <result column="mtoIngresos"        property="mtoIngresos"/>
+        <result column="mtoInventarios"     property="mtoInventarios"/>
+        <result column="mtoPermanenciaCxC"  property="mtoPermanenciaCxC"/>
+        <result column="mtoPermanenciaCxP"  property="mtoPermanenciaCxP"/>
+        <result column="mtoPerInventario"   property="mtoPerInventario"/>
+        </resultMap>
+    <procedure id="consultarCapitalDeTrabajo" parameterClass="java.util.HashMap" resultMap="cnsCapital">
+        {CALL sp_cns_capital_trabajo(#rutCliente#, #dvCliente#, #fecBalance#, #numBalance#,  #tipoBalance#, #tipoEERR#)}
+    </procedure>
+    
+    <resultMap id="cnsFlujo" class="java.util.HashMap">
+        <result column="ebitda"          property="ebitda"/>
+        <result column="margenEbitda"    property="margenEbitda"/>
+        <result column="gastoFinanciero" property="gastoFinanciero"/>
+        <result column="mtoIngresos"     property="mtoIngresos"/>
+
+    </resultMap>
+    <procedure id="consultarFlujoDeCaja" parameterClass="java.util.HashMap" resultMap="cnsFlujo">
+        {CALL sp_cns_flujo_caja(#rutCliente#, #dvCliente#, #fecBalance#, #numBalance#, #tipoBalance#, #tipoEERR#)}
+    </procedure>
+    
+	<resultMap id="estadoFinancieroSolicitudCredito" class="java.util.HashMap">
+        <result property="cod_err"                      column="cod_err" />
+        <result property="des_err"                      column="des_err" />
+        <result property="num_bal"                		column="num_bal" />
+        <result property="tipo_bal"                  	column="tipo_bal" />
+        <result property="periodo"                      column="periodo" />
+		<result property="nom_adt"                      column="nom_adt" />
+		<result property="acv_dsp_dap"                  column="acv_dsp_dap" />
+		<result property="acv_cta_dto_cob"              column="acv_cta_dto_cob" />
+		<result property="acv_cta_cob_emp_rel"          column="acv_cta_cob_emp_rel" />
+		<result property="acv_exi"                      column="acv_exi" />
+		<result property="acv_otr_cir"                  column="acv_otr_cir" />
+		<result property="acv_tot_cir"                  column="acv_tot_cir" />
+		<result property="acv_tot_fij"                  column="acv_tot_fij" />
+		<result property="acv_inv_emp_rel"              column="acv_inv_emp_rel" />
+		<result property="acv_cta_cob_emp_rel_lpz"      column="acv_cta_cob_emp_rel_lpz" />
+		<result property="acv_lsg"                      column="acv_lsg" />
+		<result property="acv_otr_acv_lpz"              column="acv_otr_acv_lpz" />
+		<result property="acv_tot_otr_acv"              column="acv_tot_otr_acv" />
+		<result property="acv_tot_acv"                  column="acv_tot_acv" />
+		<result property="psv_deu_bco_cpz_cuo_bco_lpz"  column="psv_deu_bco_cpz_cuo_bco_lpz" />
+		<result property="psv_deu_lsg_cpz"              column="psv_deu_lsg_cpz" />
+		<result property="psv_cta_dto_pag"              column="psv_cta_dto_pag" />
+		<result property="psv_cta_pag_emp_rel_cpz"      column="psv_cta_pag_emp_rel_cpz" />
+		<result property="psv_otr_cir"                  column="psv_otr_cir" />
+		<result property="psv_tot_psv_cir"              column="psv_tot_psv_cir" />
+		<result property="psv_deu_bco_lpz"              column="psv_deu_bco_lpz" />
+		<result property="psv_deu_lsg_lpz"              column="psv_deu_lsg_lpz" />
+		<result property="psv_cta_pag_emp_rel_lpz"      column="psv_cta_pag_emp_rel_lpz" />
+		<result property="psv_otr_psv_lpz"              column="psv_otr_psv_lpz" />
+		<result property="psv_tot_psv_lpz"              column="psv_tot_psv_lpz" />
+		<result property="psv_tot_psv_exi"              column="psv_tot_psv_exi" />
+		<result property="psv_cap_pag"                  column="psv_cap_pag" />
+		<result property="psv_otr_cta_cap"              column="psv_otr_cta_cap" />
+		<result property="psv_utl_per_acm"              column="psv_utl_per_acm" />
+		<result property="psv_utl_eje"                  column="psv_utl_eje" />
+		<result property="psv_tot_psv_no_exi"           column="psv_tot_psv_no_exi" />
+		<result property="psv_tot_psv"                  column="psv_tot_psv" />
+		<result property="est_ing"                      column="est_ing" />
+		<result property="est_cto_vta"                  column="est_cto_vta" />
+		<result property="est_dep"                      column="est_dep" />
+		<result property="est_res_exp"                  column="est_res_exp" />
+		<result property="est_gto_adm_vta"              column="est_gto_adm_vta" />
+		<result property="est_res_ope"                  column="est_res_ope" />
+		<result property="est_gto_fin"                  column="est_gto_fin" />
+		<result property="est_cor_mon"                  column="est_cor_mon" />
+		<result property="est_utl_per_emp_rel"          column="est_utl_per_emp_rel" />
+		<result property="est_otr_ing_egr_net"          column="est_otr_ing_egr_net" />
+		<result property="est_res_no_ope"               column="est_res_no_ope" />
+		<result property="est_imp_ren"                  column="est_imp_ren" />
+		<result property="est_int_min"                  column="est_int_min" />
+		<result property="est_amr_may_val_inv"          column="est_amr_may_val_inv" />
+		<result property="est_res_fin"                  column="est_res_fin" />
+		<result property="ind_gob"                      column="ind_gob" />
+		<result property="ind_utl_ope_vta"              column="ind_utl_ope_vta" />
+		<result property="ind_utl_vta"                  column="ind_utl_vta" />
+		<result property="ind_utl_pat"                  column="ind_utl_pat" />
+		<result property="ind_liq_cor"                  column="ind_liq_cor" />
+		<result property="ind_liq_aci"                  column="ind_liq_aci" />
+		<result property="ind_prm_inv"                  column="ind_prm_inv" />
+		<result property="ind_prm_crd"                  column="ind_prm_crd" />
+		<result property="ind_prm_cta_pag"              column="ind_prm_cta_pag" />
+		<result property="ind_res_ope_gto_fin"          column="ind_res_ope_gto_fin" />
+		<result property="ind_cob_psv"                  column="ind_cob_psv" />
+		<result property="ind_lvg"						column="ind_lvg" />
+	<result property="pat_neto"						column="pat_neto" />
+	<result property="cca_retiros"                  column="cca_retiros" />
+	</resultMap>
+
+	<procedure id="obtenerEstadoFinancieroParaSuc" parameterClass="java.util.HashMap" resultMap="estadoFinancieroSolicitudCredito">
+        {CALL sp_cns_est_fin_suc(
+            #rut#,
+            #dv#,
+            #periodo#
+            )}
+    </procedure>
+
+<procedure id="insertarRegistroError" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_ins_aler_err_eeff(#ejecutivo#, #sucursal#, #rut#, #dv#, #periodo#, #folio#, #adicional#, #tipo#, #tipoConsulta#, #origen#, #codigo#, #texto#, #mensaje#)}
+       </procedure>  
+
+<resultMap id="resultBalancesNormaChilena" class="java.util.HashMap">
+    	<result column="tmp_gen_pdo_fcu"      property="gen_pdo_fcu"/>
+    	<result column="tmp_gen_eje"          property="gen_eje"/>
+    	<result column="tmp_gen_tip_bal"      property="gen_tip_bal"/>
+    	<result column="tmp_tab_gls_desc1"    property="tab_gls_desc1"/>
+    	<result column="tmp_gen_num_fcu"      property="gen_num_fcu"/>
+    	<result column="tmp_gen_tip_fcu"      property="gen_tip_fcu"/>
+    	<result column="tmp_tab_gls_desc2"    property="tab_gls_desc2"/>
+    	<result column="tmp_mon_cod"          property="mon_cod"/>
+    	<result column="tmp_tab_gls_desc3"    property="tab_gls_desc3"/>
+    	<result column="tmp_gen_est_fcu"      property="gen_est_fcu"/>
+    	<result column="tmp_tab_gls_desc4"    property="tab_gls_desc4"/>
+    	<result column="tmp_gen_num_mes"      property="gen_num_mes"/>
+    	<result column="tmp_gen_nom_adt"      property="gen_nom_adt"/>
+    </resultMap>
+    <procedure id="consultarBalancesClienteNormaChilena" parameterClass="java.util.HashMap" resultMap="resultBalancesNormaChilena">
+        {CALL sp_cns_est_fin_nch(#rut_cliente#)}
+    </procedure>
+    
+    <resultMap id="resultActivosBalanceNormaChilena" class="java.util.HashMap">
+    	<result column="fbala_bal"      	property="fecha"/>
+		<result column="numer_bal"      	property="numActiv"/>
+		<result column="gen_tipo_bal"      	property="montoNominal1"/>
+		<result column="gen_tipo_fcu"      	property="cobertura"/>
+		<result column="nmese_bal"      	property="mes"/>
+		<result column="naudi_bal"      	property="nombreAutoriza"/>
+		<result column="activo001"      	property="disponible"/>
+		<result column="activo002"      	property="depositoDia"/>
+		<result column="activo003"      	property="montoNegociado"/>
+		<result column="activo004"      	property="ventaActual"/>
+		<result column="activo005"      	property="documento"/>
+		<result column="activo006"      	property="montoUtilizado"/>
+		<result column="activo007"      	property="montoUtilizado2"/>
+		<result column="activo008"      	property="montoTotal"/>
+		<result column="activo009"      	property="tasaImpuesto"/>
+		<result column="activo010"      	property="gastoCedente"/>
+		<result column="activo011"      	property="impuesto"/>
+		<result column="activo012"      	property="activoNeto"/>
+		<result column="activo013"      	property="activoNetoAnoAnt"/>
+		<result column="activo014"      	property="monto"/>
+		<result column="activo015"      	property="monto1"/>
+		<result column="activo016"      	property="monto2"/>
+		<result column="activo017"      	property="numeroFactura"/>
+		<result column="activo018"      	property="numeroGiros"/>
+		<result column="activo019"      	property="otrosCargos"/>
+		<result column="activo020"      	property="monto3"/>
+		<result column="activo021"      	property="monto4"/>
+		<result column="activo022"      	property="saldoUltimaCart"/>
+		<result column="activo023"      	property="montoTotalInvers"/>
+		<result column="activo024"      	property="participaSociedad"/>
+		<result column="activo025"      	property="monto5"/>
+		<result column="activo026"      	property="montoAbonado"/>
+		<result column="activo027"      	property="montoAccAbieAnoAnt"/>
+		<result column="activo028"      	property="montoAccAbieMesAnt"/>
+		<result column="activo029"      	property="montoAdr"/>
+		<result column="activo030"      	property="amortizacion"/>
+		<result column="activo031"      	property="activoTotalMesAnt"/>
+		<result column="activo032"      	property="activoTotalAnoAnt"/>
+		<result column="activo033"      	property="activoTotal"/>
+		<result column="activo034"      	property="activos"/>
+		<result column="activo035"      	property="descripcion"/>
+		<result column="activo036"      	property="saldoAnterior"/>
+    	<result column="activo037"			property="descripcion10"/>
+    	<result column="activo038"      	property="saldoAvance"/>
+    	<result column="activo039"    		property="descripcion2"/>
+    	<result column="activo040"    		property="saldoCapitalPeso"/>
+    	<result column="activo041"    		property="descripcion3"/>
+    	<result column="activo042"      	property="saldoCapitalUF"/>
+    	<result column="activo043"      	property="descripcion4"/>
+    	<result column="activo044"      	property="saldoContable"/>
+    	<result column="activo045"      	property="descripcion5"/>
+    	<result column="activo046"      	property="saldoCredito"/>
+    </resultMap>
+    <procedure id="consultarActivosBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultActivosBalanceNormaChilena">
+        {CALL sp_est_lee_fcu_act(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultPasivosBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="fbala_bal"		property="fecha"/>
+    	<result column="numer_bal"		property="numActiv"/>
+    	<result column="nmese_bal"		property="mes"/>
+    	<result column="naudi_bal"		property="nombreAutoriza"/>
+    	<result column="pasivo001"		property="montoAccAbierta"/>
+    	<result column="pasivo002"		property="montoAccCerrada"/>
+    	<result column="pasivo003"		property="capitalOrig"/>
+    	<result column="pasivo004"		property="montoAccCerrMesAnt"/>
+    	<result column="pasivo005"		property="montoActDividPag"/>
+    	<result column="pasivo006"		property="montoAdrAnoAnt"/>
+    	<result column="pasivo007"		property="montoAdrMesAnt"/>
+    	<result column="pasivo008"		property="montoApertura"/>
+    	<result column="pasivo009"		property="montoaSegDesgrav"/>
+		<result column="pasivo010"		property="montoaSegIncendio"/>
+		<result column="pasivo011"		property="montoAvaluo"/>
+		<result column="pasivo012"		property="montoAvaluo2"/>
+		<result column="pasivo013"		property="montoAvaluo3"/>
+		<result column="pasivo014"		property="montoAvaluo4"/>
+		<result column="pasivo015"		property="montoAvance"/>
+		<result column="pasivo016"		property="montoBienesRaices"/>
+		<result column="pasivo017"		property="tipoPasivo3"/>
+		<result column="pasivo018"		property="montoCaptacionPes"/>
+		<result column="pasivo019"		property="montoCargado"/>
+		<result column="pasivo020"		property="montoCobranza"/>
+		<result column="pasivo021"		property="montoCobroTx"/>
+		<result column="pasivo022"		property="montoComAplic"/>
+		<result column="pasivo023"		property="montoComision"/>
+		<result column="pasivo024"		property="otrosPasivos"/>
+		<result column="pasivo025"		property="pasivos"/>
+		<result column="pasivo026"		property="cantidadPasivos"/>
+		<result column="pasivo027"		property="valorCapital"/>
+		<result column="pasivo028"		property="saldoValorCapital"/>
+		<result column="pasivo029"		property="montoCredito"/>
+		<result column="pasivo030"		property="tipoPasivo"/>
+		<result column="pasivo031"		property="montoCuota"/>
+		<result column="pasivo032"		property="montoDivImpagoPeso"/>
+		<result column="pasivo033"		property="montoDivImpagoUF"/>
+		<result column="pasivo034"		property="montoDocum"/>
+		<result column="pasivo035"		property="montoDolar"/>
+		<result column="pasivo036"		property="montoEvento"/>
+		<result column="pasivo037"		property="montoFlete"/>
+		<result column="pasivo038"		property="montoFondo"/>
+		<result column="pasivo039"		property="montoFondoAnoAnt"/>
+		<result column="pasivo040"		property="tipoPasivo2"/>
+		<result column="pasivo041"		property="numPasivo"/>
+		<result column="pasivo042"		property="cantVehiculos"/>
+		<result column="pasivo043"		property="saldo"/>
+		<result column="pasivo044"		property="descripcion6"/>
+		<result column="pasivo045"		property="saldoCuotas"/>
+		<result column="pasivo046"		property="descripcion7"/>
+		<result column="pasivo047"		property="saldoDisponible"/>
+		<result column="pasivo048"		property="descripcion8"/>
+		<result column="pasivo049"		property="saldoInsolMora"/>
+		<result column="pasivo050"		property="descripcion9"/>
+		<result column="pasivo051"		property="saldoInsoluto"/>
+		<result column="pasivo052"		property="descripcionCra"/>
+		<result column="pasivo053"		property="saldoLibAhorro"/>
+		<result column="pasivo054"		property="descripCiudad"/>
+		<result column="pasivo055"		property="saldoMax"/>
+		<result column="pasivo056"		property="descripEstadoDet"/>
+		<result column="pasivo057"		property="saldoMin"/>
+		<result column="pasivo058"		property="impuestoDifLP"/>
+    </resultMap>
+    <procedure id="consultarPasivosBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultPasivosBalanceNormaChilena">
+        {CALL sp_cns_psv_nch(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultEstadoResultadoBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="fbala_bal"		property="fecha"/>
+		<result column="numer_bal"		property="numActiv"/>
+		<result column="nmese_bal"		property="mes"/>
+		<result column="naudi_bal"		property="nombreAutoriza"/>
+		<result column="result001"		property="montoFondoMesAnt"/>
+		<result column="result002"		property="montoInvers"/>
+		<result column="result003"		property="montoLineaSob"/>
+		<result column="result004"		property="montoMaxAut"/>
+		<result column="result005"		property="montoMaxFactorVar"/>
+		<result column="result006"		property="montoMaxTransfer"/>
+		<result column="result007"		property="montoMaxTransfer2"/>
+		<result column="result008"		property="montoMaxTransfer3"/>
+		<result column="result009"		property="montoMaxTransfer4"/>
+		<result column="result010"		property="montoMaxTransfer5"/>
+		<result column="result011"		property="montoMaxVencim"/>
+		<result column="result012"		property="montoMinFactorVar"/>
+		<result column="result013"		property="montoMinimoInvers"/>
+		<result column="result014"		property="montoMonedaNac"/>
+		<result column="result015"		property="montoMonedaOrigen"/>
+		<result column="result016"		property="montoMonex"/>
+		<result column="result017"		property="montoMonex2"/>
+		<result column="result018"		property="capitalPagado"/>
+		<result column="result019"		property="montoNeto"/>
+		<result column="result020"		property="montoNeto1"/>
+		<result column="result021"		property="montoNomDividPag"/>
+		<result column="result022"		property="valorComercial"/>
+		<result column="result023"		property="saldoMinutos"/>
+		<result column="result024"		property="descripEstadoMan"/>
+		<result column="result025"		property="saldoPesos"/>
+		<result column="result026"		property="descripGarantia"/>
+		<result column="result027"		property="diferenciaCambio"/>
+    </resultMap>
+    <procedure id="consultarEstadoResultadoBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultEstadoResultadoBalanceNormaChilena">
+        {CALL sp_cns_est_rsult(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultCorreccionMonetariaBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="gen_pdo_fcu"		property="fecha"/>
+		<result column="gen_num_fcu"		property="numActiv"/>
+		<result column="gen_num_mes"		property="mes"/>
+		<result column="gen_nom_adt"		property="nombreAutoriza"/>
+		<result column="cmt_dsp"			property="montoNominal10"/>
+		<result column="cmt_dep"			property="montoNominal11"/>
+		<result column="cmt_val_neg"		property="montoNominal12"/>
+		<result column="cmt_deu_vta"		property="montoNominal2"/>
+		<result column="cmt_doc_cbr"		property="montoNominal3"/>
+		<result column="cmt_deu_vas"		property="montoNominal4"/>
+		<result column="cmt_cbr_erl_ctp"	property="montoNominal5"/>
+		<result column="cmt_exi"			property="montoNominal6"/>
+		<result column="cmt_ipt_rpa"		property="montoNominal7"/>
+		<result column="cmt_ipt_dfr"		property="montoNominal8"/>
+		<result column="cmt_gto_pag_atp"	property="montoNominal9"/>
+		<result column="cmt_otr_acv_cir"	property="montoNoNegociado"/>
+		<result column="cmt_tot_acv_fjo"	property="montoOperacion"/>
+		<result column="cmt_inv_erl"		property="montoOperacion2"/>
+		<result column="cmt_inv_otr_soc"	property="montoOperDolar"/>
+		<result column="cmt_men_val_inv"	property="montoPagar"/>
+		<result column="cmt_may_val_inv"	property="montoPasivo"/>
+		<result column="cmt_acv_lsg"		property="montoPasivo2"/>
+		<result column="cmt_cbr_erl_lgp"	property="montoPasivo3"/>
+		<result column="cmt_acv_itg"		property="montoPasivo4"/>
+		<result column="cmt_otr_acv_lgp"	property="montoPesos"/>
+		<result column="cmt_tot_abn"		property="montoPrepago"/>
+		<result column="cmt_rsv_rvl_cpi"	property="montoProtesto"/>
+		<result column="cmt_deu_bco_ctp"	property="montoRemesado"/>
+		<result column="cmt_obl_pub_ctp"	property="montoRenFijaAnoAnt"/>
+		<result column="cmt_obl_lsg_ctp"	property="montoRenFijaMesAnt"/>
+		<result column="cmt_div_pag"		property="montoRentaFija"/>
+		<result column="cmt_cta_pag"		property="montoSeguro"/>
+		<result column="cmt_doc_pag"		property="montoSigCuota"/>
+		<result column="cmt_acr_vas_ctp"	property="montoTarjetaCred"/>
+		<result column="cmt_pag_erl_ctp"	property="saldoValorFinal"/>
+		<result column="cmt_prv_ctp"		property="montoTotal1"/>
+		<result column="cmt_ret"			property="capitalFinal"/>
+		<result column="cmt_ipt_dfr_ctp"	property="montoTransfer"/>
+		<result column="cmt_iar"			property="montoTransferDia"/>
+		<result column="cmt_ing_adl"		property="montoTraspaso"/>
+		<result column="cmt_otr_psv_cir"	property="montoUF"/>
+		<result column="cmt_deu_bco_lgp"	property="montoUsadoCuotas"/>
+		<result column="cmt_obl_pub_lgp"	property="capitalDolar"/>
+		<result column="cmt_doc_pag_lgp"	property="saldoSonrisas"/>
+		<result column="cmt_acr_vas_lgp"	property="montoVig"/>
+		<result column="cmt_pag_erl_lgp"	property="valor"/>
+		<result column="cmt_prv_idn"		property="valorAccion"/>
+		<result column="cmt_prv_lgp"		property="valorActual"/>
+		<result column="cmt_obl_lsg_lgp"	property="valorAfectoIVA"/>
+		<result column="cmt_int_men"		property="valorAmortizado"/>
+		<result column="cmt_tot_dbt"		property="valorBloqueo"/>
+		<result column="cmt_est_res"		property="valorCambio"/>
+		<result column="cmt_res_cmt"		property="valorCierre"/>
+		<result column="cmt_otr_psv_lgp"	property="valorCierreAyer"/>
+    </resultMap>
+    <procedure id="consultarCorreccionMonetariaBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultCorreccionMonetariaBalanceNormaChilena">
+        {CALL sp_est_lee_fcu_cor(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultDatosAdicionalesBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="fbala_bal"		property="fecha"/>
+		<result column="numer_bal"		property="numActiv"/>
+		<result column="nmese_bal"		property="mes"/>
+		<result column="naudi_bal"		property="nombreAutoriza"/>
+		<result column="datoad001"		property="valorComerPeso"/>
+		<result column="datoad002"		property="valorCorte1"/>
+		<result column="datoad003"		property="valorCorte2"/>
+		<result column="datoad004"		property="valorCuota"/>
+		<result column="datoad005"		property="valorCuotaAnoAnt"/>
+		<result column="datoad006"		property="valorCuotaMesAnt"/>
+		<result column="datoad007"		property="valorDolar"/>
+		<result column="datoad008"		property="valorExcentoIVA"/>
+		<result column="datoad009"		property="valorFinal"/>
+		<result column="datoad010"		property="valorFinalMonOrig"/>
+		<result column="datoad011"		property="valorGasto"/>
+		<result column="datoad012"		property="valorInfoCredito"/>
+		<result column="datoad013"		property="valorInicial"/>
+		<result column="datoad014"		property="valorIPC"/>
+		<result column="datoad015"		property="valorLiquidacion"/>
+		<result column="datoad016"		property="valorLiquidPeso"/>
+		<result column="datoad017"		property="valorMaximo"/>
+		<result column="datoad018"		property="valorMinimo"/>
+		<result column="datoad019"		property="valorMora"/>
+		<result column="datoad020"		property="valorRenovado"/>
+		<result column="datoad021"		property="valorSeguro"/>
+		<result column="datoad022"		property="valorTipRelCliente"/>
+		<result column="datoad023"		property="valorTotal"/>
+		<result column="datoad024"		property="valorUltimo"/>
+		<result column="datoad025"		property="valorUTM"/>
+		<result column="datoad026"		property="valorVencimiento"/>
+		<result column="datoad027"		property="retencionBCI"/>
+		<result column="datoad028"		property="cantidad2"/>
+		<result column="datoad029"		property="cantidad3"/>
+		<result column="datoad030"		property="cantidad4"/>
+		<result column="datoad031"		property="cantidadActivos"/>
+		<result column="datoad032"		property="cantidadCuotas"/>
+		<result column="datoad033"		property="cantidadMov"/>
+		<result column="datoad034"		property="cantidadOperaciones"/>
+		<result column="datoad035"		property="cantInstFinan"/>
+		<result column="datoad036"		property="cantMaxVencim"/>
+		<result column="datoad037"		property="cantMinVencim"/>
+		<result column="datoad038"		property="cantOtros"/>
+		<result column="datoad039"		property="cantPagados"/>
+		<result column="datoad040"		property="cantPago"/>
+		<result column="datoad041"		property="cantProducto"/>
+		<result column="datoad042"		property="cantProtestos"/>
+		<result column="datoad043"		property="cantPublicados"/>
+		<result column="datoad044"		property="cantResumen"/>
+		<result column="datoad045"		property="indFeriado"/>
+    </resultMap>
+    <procedure id="consultarDatosAdicionalesBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultDatosAdicionalesBalanceNormaChilena">
+        {CALL sp_est_lee_fcu_dad(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultReconciliacionesBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="pdo_fcu_tmp"		property="fechaBL"/>
+		<result column="num_fcu_tmp"		property="numeroBL"/>
+		<result column="num_mes_tmp"		property="mes"/>
+		<result column="nom_adt_tmp"		property="nombreAutoriza"/>
+		<result column="campo_tot1"			property="cartaCredExpConDis"/>
+		<result column="campo_tot2"			property="cartaCredExpNeg"/>
+		<result column="campo_tot3"			property="cartaCredExpNegPla"/>
+		<result column="campo_tot4"			property="cartaCredExpSinNeg"/>
+		<result column="campo_tot5"			property="cartaCredImpConDis"/>
+		<result column="campo_tot6"			property="cartaCredImpNeg"/>
+		<result column="campo_tot7"			property="cartaCredImpNegPla"/>
+		<result column="campo_tot8"			property="cartaCredImpSinNeg"/>
+		<result column="campo_tot9"			property="carteraVencida"/>
+		<result column="campo_tot10"		property="ciudadAntigua"/>
+		<result column="campo_tot11"		property="ciudadBenef"/>
+		<result column="campo_tot12"		property="ciudadCliente"/>
+		<result column="campo_tot13"		property="ciudadContacto"/>
+		<result column="campo_tot14"		property="totalTxLiberadas"/>
+		<result column="campo_tot15"		property="dividendoPagar"/>
+		<result column="campo_tot16"		property="dividPagarMesAnt"/>
+		<result column="campo_tot17"		property="totalTxOcupadas"/>
+		<result column="campo_tot18"		property="total"/>
+		<result column="campo_tot19"		property="totalMinutos"/>
+    </resultMap>
+    <procedure id="consultarReconciliacionesBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultReconciliacionesBalanceNormaChilena">
+        {CALL sp_est_lee_rec(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultUsosYFuentesBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="fbala_bal"	property="fecha"/>
+		<result column="numer_bal"	property="numActiv"/>
+		<result column="gob01"		property="pdtTip1"/>
+		<result column="gob02"		property="pdtTip2"/>
+		<result column="gob03"		property="pdtTip3"/>
+		<result column="gob04"		property="pdtTip4"/>
+		<result column="gob05"		property="pdtTip5"/>
+		<result column="gob06"		property="pdtTip6"/>
+		<result column="gob07"		property="pdtTip7"/>
+		<result column="gob08"		property="pdtTip8"/>
+		<result column="uso001"		property="cuotasPagadas1"/>
+		<result column="uso002"		property="cuotasPagadas10"/>
+		<result column="uso003"		property="cuotasPagadas11"/>
+		<result column="uso004"		property="cuotasPagadas12"/>
+		<result column="uso005"		property="cuotasPagadas2"/>
+		<result column="uso006"		property="cuotasPagadas3"/>
+		<result column="uso007"		property="cuotasPagadas4"/>
+		<result column="uso008"		property="cuotasPagadas5"/>
+		<result column="uso009"		property="cuotasPagadas6"/>
+		<result column="uso010"		property="cuotasPagadas7"/>
+		<result column="uso011"		property="cuotasPagadas8"/>
+		<result column="uso012"		property="cuotasPagadas9"/>
+		<result column="uso013"		property="cuotasPagAtras1"/>
+		<result column="uso014"		property="cuotasPagAtras10"/>
+		<result column="uso015"		property="cuotasPagAtras11"/>
+		<result column="uso016"		property="cuotasPagAtras12"/>
+		<result column="uso017"		property="cuotasPagAtras2"/>
+		<result column="uso018"		property="cuotasPagAtras3"/>
+		<result column="uso019"		property="cuotasPagAtras4"/>
+		<result column="uso020"		property="cuotasPagAtras5"/>
+		<result column="uso021"		property="cuotasPagAtras6"/>
+		<result column="uso022"		property="cuotasPagAtras7"/>
+		<result column="uso023"		property="cuotasPagAtras8"/>
+		<result column="uso024"		property="cuotasPagAtras9"/>
+		<result column="uso025"		property="factorActualiz1"/>
+		<result column="uso026"		property="factorActualiz10"/>
+		<result column="uso027"		property="factorActualiz11"/>
+		<result column="uso028"		property="factorActualiz12"/>
+		<result column="uso029"		property="factorActualiz2"/>
+		<result column="uso030"		property="factorActualiz3"/>
+		<result column="uso031"		property="factorActualiz4"/>
+		<result column="uso032"		property="factorActualiz5"/>
+		<result column="uso033"		property="factorActualiz6"/>
+		<result column="uso034"		property="factorActualiz7"/>
+		<result column="uso035"		property="factorActualiz8"/>
+		<result column="uso036"		property="factorActualiz9"/>
+		<result column="uso037"		property="intActualiz1"/>
+		<result column="uso038"		property="intActualiz10"/>
+		<result column="uso039"		property="intActualiz11"/>
+		<result column="uso040"		property="intActualiz12"/>
+		<result column="uso041"		property="intActualiz2"/>
+		<result column="uso042"		property="intActualiz3"/>
+		<result column="uso043"		property="intActualiz4"/>
+		<result column="uso044"		property="intActualiz5"/>
+		<result column="uso045"		property="intActualiz6"/>
+		<result column="uso046"		property="intActualiz7"/>
+		<result column="uso047"		property="intActualiz8"/>
+		<result column="uso048"		property="intActualiz9"/>
+		<result column="uso049"		property="intPagado2"/>
+		<result column="uso050"		property="intPagado3"/>
+		<result column="uso051"		property="intPagado4"/>
+		<result column="uso052"		property="intPagado5"/>
+		<result column="uso053"		property="intPagado6"/>
+		<result column="uso054"		property="intPagado7"/>
+		<result column="uso055"		property="intPagado8"/>
+		<result column="uso056"		property="intPagado9"/>
+		<result column="uso057"		property="monto3"/>
+		<result column="uso058"		property="monto4"/>
+		<result column="uso059"		property="saldoUltimaCart"/>
+		<result column="uso060"		property="montoTotalInvers"/>
+		<result column="uso061"		property="participaSociedad"/>
+		<result column="uso062"		property="monto5"/>
+		<result column="uso063"		property="montoAbonado"/>
+		<result column="uso064"		property="montoAccAbieAnoAnt"/>
+		<result column="uso065"		property="montoAccAbieMesAnt"/>
+		<result column="uso066"		property="montoAdr"/>
+		<result column="uso067"		property="amortizacion"/>
+		<result column="uso068"		property="activoTotalMesAnt"/>
+		<result column="uso069"		property="activos"/>
+		<result column="uso070"		property="activoTotalAnoAnt"/>
+		<result column="uso071"		property="activoTotal"/>
+		<result column="uso072"		property="montoAccAbierta"/>
+		<result column="uso073"		property="montoAccCerrada"/>
+		<result column="uso074"		property="capitalOrig"/>
+		<result column="uso075"		property="montoAccCerrMesAnt"/>
+		<result column="uso076"		property="montoActDividPag"/>
+		<result column="uso077"		property="montoAdrAnoAnt"/>
+		<result column="uso078"		property="montoAdrMesAnt"/>
+		<result column="uso079"		property="montoApertura"/>
+		<result column="uso080"		property="montoaSegDesgrav"/>
+		<result column="uso081"		property="montoaSegIncendio"/>
+		<result column="uso082"		property="montoAvaluo"/>
+		<result column="uso083"		property="montoAvaluo2"/>
+		<result column="uso084"		property="montoAvaluo3"/>
+		<result column="uso085"		property="montoAvaluo4"/>
+		<result column="uso086"		property="montoAvance"/>
+		<result column="uso087"		property="montoBienesRaices"/>
+		<result column="uso088"		property="tipoPasivo3"/>
+		<result column="uso089"		property="montoCaptacionPes"/>
+		<result column="uso090"		property="montoCargado"/>
+		<result column="uso091"		property="montoCobranza"/>
+		<result column="uso092"		property="montoCobroTx"/>
+		<result column="uso093"		property="montoComAplic"/>
+		<result column="uso094"		property="montoComision"/>
+		<result column="uso095"		property="otrosPasivos"/>
+		<result column="uso096"		property="pasivos"/>
+		<result column="uso097"		property="numPasivo"/>
+		<result column="uso098"		property="cantidadPasivos"/>
+		<result column="uso099"		property="valorCapital"/>
+		<result column="uso100"		property="saldoValorCapital"/>
+		<result column="uso101"		property="montoCredito"/>
+		<result column="uso102"		property="tipoPasivo"/>
+		<result column="uso103"		property="montoCuota"/>
+		<result column="uso104"		property="montoDivImpagoPeso"/>
+		<result column="uso105"		property="montoDivImpagoUF"/>
+		<result column="uso106"		property="montoDocum"/>
+		<result column="uso107"		property="montoDolar"/>
+		<result column="uso108"		property="montoEvento"/>
+		<result column="uso109"		property="montoFlete"/>
+		<result column="uso110"		property="montoFondo"/>
+		<result column="uso111"		property="montoFondoAnoAnt"/>
+		<result column="uso112"		property="tipoPasivo2"/>
+		<result column="uso113"		property="montoFondoMesAnt"/>
+		<result column="uso114"		property="montoInvers"/>
+		<result column="uso115"		property="montoLineaSob"/>
+		<result column="uso116"		property="montoMaxAut"/>
+		<result column="uso117"		property="montoMaxFactorVar"/>
+		<result column="uso118"		property="montoMaxTransfer"/>
+		<result column="uso119"		property="montoMaxTransfer2"/>
+    </resultMap>
+    <procedure id="consultarUsosYFuentesBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultUsosYFuentesBalanceNormaChilena">
+        {CALL sp_est_lee_uso(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+    <resultMap id="resultIndicesBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="fbala_bal"		property="fechaIngreso"/>
+		<result column="numer_bal"		property="codigoUnidad"/>
+		<result column="nmese_bal"		property="mes"/>
+		<result column="naudi_bal"		property="nombreAutoriza"/>
+		<result column="indice001"		property="indCargo"/>
+		<result column="indice002"		property="indFrecMensual"/>
+		<result column="indice003"		property="indAbonoAutoCta"/>
+		<result column="indice004"		property="indFallecido"/>
+		<result column="indice005"		property="indActualiza"/>
+		<result column="indice006"		property="indAladi"/>
+		<result column="indice007"		property="indAval"/>
+		<result column="indice008"		property="indBajoSaldo"/>
+		<result column="indice009"		property="indCambioClave"/>
+		<result column="indice010"		property="indConvenio"/>
+		<result column="indice011"		property="indCuentaCte"/>
+		<result column="indice012"		property="indCumplimiento"/>
+		<result column="indice013"		property="indCambioFase"/>
+		<result column="indice014"		property="indDespacho"/>
+		<result column="indice015"		property="indEndoso"/>
+		<result column="indice016"		property="indEstadoCobranza"/>
+		<result column="indice017"		property="indExclusion"/>
+		<result column="indice018"		property="indCliEsp"/>
+		<result column="indice019"		property="indFrecDiaria"/>
+		<result column="indice020"		property="indClaveTransit"/>
+		<result column="indice021"		property="indFeriado"/>
+		<result column="indice022"		property="indCasa"/>
+		<result column="indice023"		property="indCastigada"/>
+		<result column="indice024"		property="indClasificRiesgo"/>
+		<result column="indice025"		property="indCliNue"/>
+		<result column="indice026"		property="indCobroComs"/>
+		<result column="indice027"		property="indCompromiso"/>
+		<result column="indice028"		property="indConfirmacion"/>
+		<result column="indice029"		property="indVariacionVenta"/>
+		<result column="indice030"		property="indVariacionUtil"/>
+		<result column="indice031"		property="indPatIntangible"/>
+		<result column="indice032"		property="indCobPasCir"/>
+		<result column="indice033"		property="indRotacionActCir"/>
+		<result column="indice034"		property="indVarPasExigible"/>
+		<result column="indice035"		property="indVarDeudaBan"/>
+    </resultMap>
+    <procedure id="consultarIndicesBalanceNormaChilena" parameterClass="java.util.HashMap" resultMap="resultIndicesBalanceNormaChilena">
+        {CALL sp_cns_ind_nch(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#)}
+    </procedure>
+    
+<resultMap id="cnsCapitalNormaChilena" class="java.util.HashMap">
+        <result column="mtoCostoVenta"      property="mtoCostoVenta"/>
+        <result column="mtoCuentasPagar"    property="mtoCuentasPagar"/>
+        <result column="mtoDeudores"        property="mtoDeudores"/>
+        <result column="mtoIngresos"        property="mtoIngresos"/>
+        <result column="mtoInventarios"     property="mtoInventarios"/>
+        <result column="mtoPermanenciaCxC"  property="mtoPermanenciaCxC"/>
+        <result column="mtoPermanenciaCxP"  property="mtoPermanenciaCxP"/>
+        <result column="mtoPerInventario"   property="mtoPerInventario"/>
+        </resultMap>
+    <procedure id="consultarCapitalDeTrabajoNCH" parameterClass="java.util.HashMap" resultMap="cnsCapitalNormaChilena">
+        {CALL sp_cns_capital_trabajo_nch(#rutCliente#, #dvCliente#, #fecBalance#, #numBalance#,  #tipoBalance#)}
+    </procedure>
+    
+        <resultMap id="cnsFlujoNormaChilena" class="java.util.HashMap">
+        <result column="ebitda"          property="ebitda"/>
+        <result column="margenEbitda"    property="margenEbitda"/>
+        <result column="gastoFinanciero" property="gastoFinanciero"/>
+        <result column="mtoIngresos"     property="mtoIngresos"/>
+
+        </resultMap>
+    <procedure id="consultarFlujoDeCajaNCH" parameterClass="java.util.HashMap" resultMap="cnsFlujoNormaChilena">
+        {CALL sp_cns_flujo_caja_nch(#rutCliente#, #dvCliente#, #fecBalance#, #numBalance#, #tipoBalance#)}
+    </procedure>
+    <resultMap id="resultGuardarBalanceNormaChilena" class="java.util.HashMap">
+  		<result column="gen_num_fcu"		property="numeroBalance"/>
+    </resultMap>
+    <parameterMap id="setGuardarBalanceNormaChilena" class="java.util.HashMap">
+		<parameter property="rut_cliente"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="digito_cliente"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_num_fcu"			jdbcType="INTEGER"  javaType="Integer" />
+		<parameter property="gen_tip_fcu"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_pdo_fcu"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_num_mes"			jdbcType="INTEGER"  javaType="Integer" />
+		<parameter property="gen_fec_ing"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_val_uf"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_est_fcu"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_nom_adt"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_mon_cod"			jdbcType="INTEGER"  javaType="Integer" />
+		<parameter property="gen_tip_cmb"			jdbcType="FLOAT"  	javaType="Long" />
+		<parameter property="gen_cod_eje_icp"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_cod_eje_cpl"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gen_dsp"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_dep"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_val_neg"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_deu_vta"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_doc_cbr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_deu_vas"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cbr_erl_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_exi"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ipt_rpa"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_gto_pag_atp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ipt_dfr_acv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_acv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_acv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_trr"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cem_obr_ifa"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_maq_eqp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_rts_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_dpn"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_inv_erl"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_inv_otr_soc"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_men_val_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_may_val_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ddr_lar_pla"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cbr_erl_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_itg"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_amo"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_acv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_otr_acv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_acv"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_bf_ctp"        jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_bf_lgp"        jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_pub"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_pub_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_lgp_ano"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_div_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cta_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_doc_pag_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_acr_vas_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_pag_erl_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_prv_ctp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ret"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_iar_psv"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ing_adl"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ipt_dfr_psv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_psv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_psv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_bf"            jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_obl_pub_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_doc_pag_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_acr_vas_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_pag_erl_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_prv_lgp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_psv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_psv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_int_men"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cpi_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_rsv_rvl_cpi"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_sbp_vta_acc"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_rsv_rvl_acv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_rsv"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_dfc_acm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_utl_ret"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_rsv_div"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_utl_acm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_pra_acm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_psv_res_ejr"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_div_pov"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_ptm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tot_psv"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ing_ept"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cto_ept"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_mgn_ept"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_gto_adm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_ope"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_ing_fin"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_utl_inv_erl"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_ing_fra"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_pra_inv_erl"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_amo_men_val"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_gto_fin"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_otr_egr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_cmt"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_no_ope"        jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_ant_ipt"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_iar_res"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_cda"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_int_men_res"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_liq"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_amo_may_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_res_ejr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_tip_bal"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cmt_dsp"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_dep"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_val_neg"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_deu_vta"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_doc_cbr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_deu_vas"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_cbr_erl_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_exi"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_ipt_rpa"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_ipt_dfr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_gto_pag_atp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_otr_acv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_tot_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_inv_erl"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_inv_otr_soc"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_men_val_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_may_val_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_acv_lsg"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_cbr_erl_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_acv_itg"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_otr_acv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_tot_abn"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_rsv_rvl_cpi"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_deu_bco_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_obl_pub_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_obl_lsg_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_div_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_cta_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_doc_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_acr_vas_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_pag_erl_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_prv_ctp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_ret"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_ipt_dfr_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_iar"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_ing_adl"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_otr_psv_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_deu_bco_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_obl_pub_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_doc_pag_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_acr_vas_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_pag_erl_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_prv_idn"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_prv_lgp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_obl_lsg_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_int_men"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_tot_dbt"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_est_res"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_res_cmt"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cmt_otr_psv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_dpn_ejr"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_emi_acc"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_otr_aum_ptm"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_div_pag"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_div_pcb"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_otr_dio_ptm"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_vta_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_utl_vta_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_dep_plz"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_val_neg"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_deu_vta"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_doc_cbr"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_deu_vas"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_cbr_erl_1"     jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_exi"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_ipt_rpa"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_gto_atp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_otr_cir"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_inv_erl"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_inv_soc"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_men_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_may_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_acv_lsg"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_cbr_erl_2"     jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_acv_itg"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_acv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_bco_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_pub_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_erl_ctp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_prv"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_bco_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_pub_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_erl_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_otr_psv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_prv_lgp"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_csg_ptm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_prv_idm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_rvl_acv_fjo"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_rvl_inv_erl"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_rvl_ptm"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_rvl_exi"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_rit_deu_bco"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_utl_vta_inv"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="dad_div_pcb_erl"       jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="lsg_acv"               jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="lsg_psv_ctp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="lsg_psv_lgp"           jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_acv_cir_1"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_cir_1"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_acv_cir_2"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_cir_2"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_acv_cir_3"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_cir_3"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_acv_lgp_1"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_lgp_1"		jdbcType="CHAR"  	javaType="String" />	
+		<parameter property="cca_acv_lgp_2"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_lgp_2"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_acv_lgp_3"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_acv_lgp_3"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="cca_psv_cir_1"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_psv_cir_1"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_psv_cir_2"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_psv_cir_2"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_psv_cir_3"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_psv_cir_3"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_psv_lgp_1"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_psv_lgp_1"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_psv_lgp_2"			jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_psv_lgp_2"		jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_ptm_1"				jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_ptm_1"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_ptm_2"				jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_ptm_2"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_res_1"				jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_res_1"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="cca_res_2"				jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="cca_des_res_2"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="gob"					jdbcType="FLOAT"  	javaType="Double" />
+		<parameter property="gen_imp_dif_lpz"		jdbcType="NUMERIC"  javaType="Double" />
+		<parameter property="gen_dif_cmb"			jdbcType="NUMERIC"  javaType="Double" />
+		<parameter property="numeroBalance_0"		jdbcType="INTEGER"  javaType="Integer" />
+		<parameter property="cobertura_0"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="periodo_0"				jdbcType="CHAR"  	javaType="String" />
+		<parameter property="numeroBalance_1"		jdbcType="INTEGER"  javaType="Integer" />
+		<parameter property="cobertura_1"			jdbcType="CHAR"  	javaType="String" />
+		<parameter property="periodo_1"				jdbcType="CHAR"  	javaType="String" />
+	</parameterMap>
+    <procedure id="guardarBalanceNormaChilena" parameterMap="setGuardarBalanceNormaChilena" resultMap="resultGuardarBalanceNormaChilena">
+        { CALL sp_ing_bcl_nrm_chi(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 
+        	?, ?, ?, ?, ?)}
+    </procedure>
+
+    
+    <procedure id="guardarTerrenoNormaChilena" parameterClass="java.util.HashMap">
+        {CALL sp_est_ing_ter(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #ter_ubicacion#, #ter_rol#, #ter_ano#, #ter_valor_comer#, #ter_superficie#)}
+    </procedure>
+    
+    <procedure id="guardarAnimalesNormaChilena" parameterClass="java.util.HashMap">
+        {CALL sp_est_ing_ani(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #ani_tip_ganado#, #ani_cantidad#, #ani_valor_comer#)}
+    </procedure>
+    
+    <procedure id="guardarPlantacionesNormaChilena" parameterClass="java.util.HashMap">
+        {CALL sp_est_ing_pla(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #pla_tip_agricola#, #pla_especie#, #pla_variedad#, #pla_edad#, #pla_superficie#, #pla_valor_comer#)}
+    </procedure>
+    
+    <procedure id="guardarOtrosActivosNormaChilena" parameterClass="java.util.HashMap">
+        {CALL sp_est_ing_act(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #otr_tip_veh#, #otr_marca#, #otr_modelo#, #otr_ano#, #otr_patente#, #otr_valor_comer#)}
+    </procedure>
+    
+    <procedure id="guardarMaquinariaNormaChilena" parameterClass="java.util.HashMap">
+        {CALL sp_est_ing_maq(#rut_cliente#, #digito_cliente#, #gen_num_fcu#, #gen_tip_fcu#, #gen_pdo_fcu#, #maq_tip_veh#, #maq_marca#, #maq_modelo#, #maq_ano#, #maq_patente#, #maq_valor_comer#)}
+    </procedure>
+    
+    <resultMap id="resultConsulta" class="java.util.HashMap" >
+        <result property="inf_nom_archivo" column="inf_nom_archivo" jdbcType="CHAR"    javaType="String" />
+        <result property="inf_usuario"  column="inf_usuario"  jdbcType="CHAR" javaType="String" />
+		<result property="inf_fecha_carga" column="inf_fec_prc" jdbcType="DATE"   javaType="String" />
+        <result property="est_descripcion"  column="est_descripcion"  jdbcType="varchar" javaType="String" />
+    </resultMap>
+	
+	<procedure id="consultaArchivo" parameterClass="java.util.HashMap" resultMap="resultConsulta">
+        {CALL sp_cns_archivo_sii()}
+    </procedure>
+	
+	<procedure id="ingresarArchivo" parameterClass="java.util.HashMap" resultClass="int">
+        {CALL sp_ins_archivo_sii(#inf_nom_archivo#,#inf_usuario#,#inf_fecha_carga#,#est_codigo#)}
+    </procedure>	
+	
+	<resultMap id="resultCertificado" class="java.util.HashMap" >
+        <result property="cert_rut_cliente" 	column="cert_rut_cliente" 		jdbcType="varchar"    	javaType="String" />
+        <result property="cert_fecha_emision"  	column="cert_fecha_emision"  	jdbcType="DATE" 		javaType="String" />
+		<result property="cert_nom_razon" 		column="cert_nom_razon" 		jdbcType="varchar"   	javaType="String" />
+        <result property="cert_periodo_sol"  	column="cert_periodo_sol"  		jdbcType="varchar" 		javaType="String" />
+		<result property="cert_estado" 			column="cert_estado" 			jdbcType="NUMERIC"   	javaType="String" />
+    </resultMap>
+	
+
+<procedure id="consultaSolicitud" parameterClass="java.util.HashMap" resultMap="resultCertificado">
+        {CALL sp_cns_solicitud()}
+    </procedure>
+
+
+<parameterMap id="setInsertarNotificacionDeCargaCTE" class="java.util.HashMap">
+        <parameter property="identificadorCTE"      jdbcType="VARCHAR"  javaType="String" /> 
+        <parameter property="rutEmpresa"            jdbcType="INT"      javaType="Long" />
+        <parameter property="dvEmpresa"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="rutUsuario"            jdbcType="INT"      javaType="Long" />
+        <parameter property="dvUsuario"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="numeroConvenio"        jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="mailUsuario"           jdbcType="VARCHAR"  javaType="String" /> 
+        <parameter property="fechaSolicitud"        jdbcType="DATETIME" javaType="String" /> 
+        <parameter property="estadoNotificacion"    jdbcType="VARCHAR"  javaType="String" /> 
+        <parameter property="nombreEmpresa"         jdbcType="VARCHAR"  javaType="String" /> 
+    </parameterMap>
+    <procedure id="insertarNotificacionDeCargaCTE" parameterMap="setInsertarNotificacionDeCargaCTE" resultClass="Integer">
+        {CALL sp_ins_ntf_crg_cte ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )}
+    </procedure>  
+    
+    <procedure id="consultaVentasPorRango" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_vta_cli(#rutCliente#, #anoDesde#, #mesDesde#, #anoHasta#, #mesHasta#)}
+	</procedure>
+
+  <procedure id="consultarRentaDAI" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_renta(#rutCliente#, #periodo#)}
+    </procedure>    
+</sqlMap>

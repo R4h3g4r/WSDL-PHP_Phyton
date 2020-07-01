@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2007 sp1 (http://www.altova.com) by javalos (EMBRACE) -->
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_tot_per_lc">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field java_name="mes" type="int" size="0" middle_name="mes"/>
+		<field java_name="anyo" type="int" size="0" middle_name="ano"/>
+		<field java_name="factorProporcionalidad" type="double" size="0" middle_name="fac_pro"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="ConsultaTotalesPeriodoLibro" var_name="totales">
+			<field java_name="cantidad" type="int" size="0" middle_name="can"/>
+			<field java_name="tipo" type="int" size="0" middle_name="tpo_doc"/>
+			<field java_name="cantidadDocumentosAnulado" type="int" size="0" middle_name="can_anu"/>
+			<field java_name="cantidadDocumentosExento" type="int" size="0" middle_name="can_exe"/>
+			<field java_name="montoNeto" type="double" size="0" middle_name="net"/>
+			<field java_name="montoExento" type="double" size="0" middle_name="exe"/>
+			<field java_name="montoIVA" type="double" size="0" middle_name="iva"/>
+			<field java_name="montoTotal" type="double" size="0" middle_name="tot"/>
+			<field java_name="cantidadDocumentosIVARecuperable" type="int" size="0" middle_name="can_iva_rec"/>
+			<field java_name="cantidadDocumentosNetoActivoFijo" type="int" size="0" middle_name="can_net_act_fij"/>
+			<field java_name="montoNetoActivoFijo" type="double" size="0" middle_name="net_act_fij"/>			
+			<field java_name="montoIVAActivoFijo" type="double" size="0" middle_name="iva_act_fij"/>
+			<field java_name="cantidadDocumentosIVANoRecuperable" type="int" size="0" middle_name="can_iva_no_rec"/>
+			<field java_name="cantidadDocumentosIVAUsoComun" type="int" size="0" middle_name="can_iva_uc"/>
+			<field java_name="montoIVAUsoComun" type="double" size="0" middle_name="iva_uc"/>
+			<field java_name="montoCreditoIVAUsoComun" type="double" size="0" middle_name="cre_iva_uc"/>		
+		</struct>
+	</output>
+</service>

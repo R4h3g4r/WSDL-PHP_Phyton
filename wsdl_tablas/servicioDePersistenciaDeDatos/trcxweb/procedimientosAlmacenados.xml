@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="trcxweb.procedimientosAlmacenados">
+    
+	<!-- Datos para consulta de Cliente Banca Twitter -->
+	<parameterMap id="setConsultaClienteBancaTwitter" class="java.util.HashMap">
+		<parameter property="usuarioTwitter"	 jdbcType="VARCHAR" 		javaType="String"/>
+	</parameterMap>
+   
+	<!-- Datos para retorno de la consulta de Cliente Banca Twitter -->
+	<resultMap id="getConsultaClienteBancaTwitter" class="java.util.HashMap">
+		<result property="bcatwt_rut_cli"			column="bcatwt_rut_cli"		jdbcType="NUMERIC" javaType="long"/>
+	  	<result property="bcatwt_dv_cli"			column="bcatwt_dv_cli"		jdbcType="VARCHAR" javaType="String"/>
+		<result property="bcatwt_estado"			column="bcatwt_estado"		jdbcType="NUMERIC" javaType="int"/>
+		<result property="bcatwt_email"				column="bcatwt_email"		jdbcType="VARCHAR" javaType="String"/>
+		<result property="bcatwt_ctacte"			column="bcatwt_ctacte"		jdbcType="VARCHAR" javaType="String"/>
+		<result property="bcatwt_codrrss"			column="bcatwt_codrrss"		jdbcType="VARCHAR" javaType="String"/>
+		<result property="bcatwt_fallos"			column="bcatwt_fallos"		jdbcType="NUMERIC" javaType="int"/>
+	</resultMap>
+
+  <resultMap	id="resultadoRegistroBloqueo"	class="java.util.HashMap">
+    <result	property="blq_id"							column="blq_id"						javaType="String"  />
+	</resultMap>	
+
+	<!-- Procedimiento para consultar la informacion del cliente en base a un nombre de usuario Twitter -->
+	<procedure id="consultaClienteBancaTwitter" parameterMap="setConsultaClienteBancaTwitter" resultMap="getConsultaClienteBancaTwitter">
+		{CALL sp_cons_cliente_twitter(?)}	
+	</procedure>
+		
+	<!-- Datos para la creacion o modificacion de una nueva cuenta Twitter -->
+	<parameterMap id="setCreaCuentaBancaTwitter" class="java.util.HashMap">
+		<parameter property="usuarioTwitter"		jdbcType="VARCHAR" 			javaType="String"/>
+		<parameter property="rutCliente"			jdbcType="NUMERIC" 			javaType="long"/>
+		<parameter property="dvCliente"	 			jdbcType="VARCHAR" 			javaType="String"/>
+		<parameter property="estado"	 			jdbcType="NUMERIC" 			javaType="int"/>
+		<parameter property="email"					jdbcType="VARCHAR"			javaType="String"/>
+		<parameter property="ctacte"				jdbcType="VARCHAR"			javaType="String"/>
+		<parameter property="codrrss"				jdbcType="VARCHAR"			javaType="String"/>
+	</parameterMap>
+	
+	<!-- Procedimiento para almacenar una nueva cuenta Twitter -->
+	<procedure id="creaCuentaBancaTwitter" parameterMap="setCreaCuentaBancaTwitter" >
+		{CALL sp_crea_cliente_twitter(?,?,?,?,?,?,?)}
+	</procedure>	
+	
+	<!-- Procedimiento para actualizar los datos de una cuenta Twitter -->
+	<procedure id="modificaCuentaBancaTwitter" parameterMap="setCreaCuentaBancaTwitter" >
+		{CALL sp_modifica_cliente_twitter(?,?,?,?,?,?,?)}
+	</procedure>
+
+	<!-- Datos de entrada para consultar la cuenta Twitter de un usuario en base a su Rut -->
+	<parameterMap id="setConsultaRutBancaTwitter" class="java.util.HashMap">
+	    <parameter property="rutCliente"	 	jdbcType="NUMERIC" 			javaType="long"/>
+	    <parameter property="dvCliente"	 		jdbcType="VARCHAR" 			javaType="String"/>
+	</parameterMap>
+   
+	<!-- Datos de respuesta ante la consulta de una cuenta Twitter en base al rut del cliente -->
+	<resultMap id="getConsultaRutBancaTwitter" class="java.util.HashMap">
+		<result property="bcatwt_twitter"	   	column="bcatwt_twitter"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="bcatwt_estado"	   	column="bcatwt_estado" 		jdbcType="NUMERIC" 	javaType="int"/>
+		<result property="bcatwt_email"			column="bcatwt_email"		jdbcType="VARCHAR"	javaType="String"/>
+		<result property="bcatwt_ctacte"		column="bcatwt_ctacte"		jdbcType="VARCHAR"	javaType="String"/>
+		<result property="bcatwt_codrrss"		column="bcatwt_codrrss"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="bcatwt_fallos"		column="bcatwt_fallos"		jdbcType="NUMERIC" 	javaType="int"/>
+	</resultMap>
+
+	<!-- Consulta del usuario Twitter de un cliente en base a su rut -->
+	<procedure id="consultaRutBancaTwitter" parameterMap="setConsultaRutBancaTwitter" resultMap="getConsultaRutBancaTwitter">
+		{CALL sp_cons_rut_twitter(?,?)}	
+	</procedure>
+
+	<!-- Definición del número de intentos fallidos para una cuenta Twitter por Rut -->
+	<parameterMap id="setDefineFallosTwitter" class="java.util.HashMap">
+		<parameter property="rutCliente"		jdbcType="NUMERIC"			javaType="long"/>
+		<parameter property="fallos"			jdbcType="NUMERIC"			javaType="int"/>
+	</parameterMap>
+	
+	<procedure id="defineFallosTwitter"  parameterMap="setDefineFallosTwitter">
+		{CALL sp_set_fallos_twitter(?,?)}
+	</procedure> 
+	
+<procedure id="registrarBloqueoTarjetaDeCredito" resultMap="resultadoRegistroBloqueo" parameterClass="java.util.HashMap">
+        {CALL sp_ins_reg_TCB(
+							<isNotNull property="blq_id">#blq_id#</isNotNull><isNull property="blq_id">NULL</isNull>,
+							<isNotNull property="rut">#rut#</isNotNull><isNull property="rut">NULL</isNull>,
+							<isNotNull property="dv">#dv#</isNotNull><isNull property="dv">NULL</isNull>,
+							<isNotNull property="cod_canal">#cod_canal#</isNotNull><isNull property="cod_canal">NULL</isNull>,
+							<isNotNull property="nombre">#nombre#</isNotNull><isNull property="nombre">NULL</isNull>,
+							<isNotNull property="num_tarjeta">#num_tarjeta#</isNotNull><isNull property="num_tarjeta">NULL</isNull>,
+							<isNotNull property="nombre_tarjeta">#nombre_tarjeta#</isNotNull><isNull property="nombre_tarjeta">NULL</isNull>,
+							<isNotNull property="nombre_producto">#nombre_producto#</isNotNull><isNull property="nombre_producto">NULL</isNull>,
+							<isNotNull property="tipo_tarjeta">#tipo_tarjeta#</isNotNull><isNull property="tipo_tarjeta">NULL</isNull>,
+							<isNotNull property="cod_bloqueo_nexus">#cod_bloqueo_nexus#</isNotNull><isNull property="cod_bloqueo_nexus">NULL</isNull>,
+							<isNotNull property="fec_bloqueo_bci">#fec_bloqueo_bci#</isNotNull><isNull property="fec_bloqueo_bci">NULL</isNull>,
+							<isNotNull property="fec_bloqueo_nexus">#fec_bloqueo_nexus#</isNotNull><isNull property="fec_bloqueo_nexus">NULL</isNull>,
+                            <isNotNull property="cod_tipo_bloqueo">#cod_tipo_bloqueo#</isNotNull><isNull property="cod_tipo_bloqueo">NULL</isNull>,
+							<isNotNull property="fono_fijo">#fono_fijo#</isNotNull><isNull property="fono_fijo">NULL</isNull>,
+							<isNotNull property="fono_movil">#fono_movil#</isNotNull><isNull property="fono_movil">NULL</isNull>,
+                            <isNotNull property="email">#email#</isNotNull><isNull property="email">NULL</isNull>,
+                            <isNotNull property="dir_despacho">#dir_despacho#</isNotNull><isNull property="dir_despacho">NULL</isNull>,
+                            <isNotNull property="horario_entrega">#horario_entrega#</isNotNull><isNull property="horario_entrega">NULL</isNull>,
+                            <isNotNull property="ent_tercero">#ent_tercero#</isNotNull><isNull property="ent_tercero">NULL</isNull>,
+							<isNotNull property="nombre_tercero">#nombre_tercero#</isNotNull><isNull property="nombre_tercero">NULL</isNull>,
+							<isNotNull property="rut_tercero">#rut_tercero#</isNotNull><isNull property="rut_tercero">NULL</isNull>,
+							<isNotNull property="fecha_tercero">#fecha_tercero#</isNotNull><isNull property="fecha_tercero">NULL</isNull>                            
+							)}
+    </procedure>
+
+	
+<!-- Consultar la existencia de Cuoteo para un Cliente -->
+	<procedure id="consultaCuoteoClientes"  resultClass="java.util.HashMap" parameterClass="java.util.HashMap">
+            {CALL sp_cns_cuoteo_clientes(#indCanal#, #rutCliente#, #numCuenta#, #numTarjeta#)}
+    </procedure>
+
+	<!-- Actualizar el estado del Cuoteo para un Cliente -->
+	<procedure id="actualizaCuoteoClientes"  resultClass="java.util.HashMap" parameterClass="java.util.HashMap">
+            {CALL sp_act_cuoteo_clientes(#indCanal#, #rutCliente#, #numCuenta#, #numTarjeta#)}
+    </procedure>
+	
+</sqlMap>    

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Document xsi:schemaLocation="urn:iso:std:iso:20022:tech:xsd:pain.007.001.02 pain.007.001.02.chile.xsd" xmlns="urn:iso:std:iso:20022:tech:xsd:pain.007.001.02" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<CstmrPmtRvsl>
+		<GrpHdr>
+			<MsgId>${msg_id}</MsgId>
+			<CreDtTm>${msg_fec}</CreDtTm>
+			<NbOfTxs>${cant_tx}</NbOfTxs>
+			<CtrlSum>${mto_tx}</CtrlSum>
+			<GrpRvsl>false</GrpRvsl>
+			<InitgPty>
+				<Nm>${nom_emp}</Nm>
+				<Id>
+					<OrgId>
+						<Othr>
+							<Id>${rut_emp}</Id>
+							<Dv>${dv_emp}</Dv>
+						</Othr>
+					</OrgId>
+				</Id>
+			</InitgPty>
+		</GrpHdr>
+		<OrgnlGrpInf>
+			<OrgnlMsgId>${num_fol}</OrgnlMsgId>
+			<OrgnlMsgNmId>${msg_id}</OrgnlMsgNmId>
+		</OrgnlGrpInf>
+		<OrgnlPmtInfAndRvsl>
+			<RvslPmtInfId>${id_rev}</RvslPmtInfId>
+			<OrgnlPmtInfId>${num_fol}</OrgnlPmtInfId>
+			<PmtInfRvsl>false</PmtInfRvsl>
+			${ini_iterator_pagos}
+			<TxInf>
+				<RvslId>${id_rev_lin}</RvslId>
+				<OrgnlEndToEndId>${num_lin}</OrgnlEndToEndId>
+			</TxInf>
+			${fin_iterator_pagos}
+		</OrgnlPmtInfAndRvsl>
+	</CstmrPmtRvsl>
+</Document>

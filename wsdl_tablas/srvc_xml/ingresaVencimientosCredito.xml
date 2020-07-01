@@ -1,0 +1,79 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CU_ingr_venc_cred"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idCarreraEstudiante"
+          type = "long"
+          size = "10"
+          sign = "no"
+          integers = "10"
+          decimals = "0"
+          middle_name = "identificador"
+        />
+
+        <field
+          java_name = "codigoVencimiento"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "codigo7"
+        />
+
+        <field
+          java_name = "montoVencimiento"
+          type = "double"
+          size = "26"
+          sign = "no"
+          integers = "18"
+          decimals = "4"
+          middle_name = "monto2"
+        />
+
+        <field
+          java_name = "fechaVencimiento"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha6"
+          middle_date_format = "ddMMyyyy"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

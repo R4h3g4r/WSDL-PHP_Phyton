@@ -1,0 +1,19 @@
+leenumerofilas;filas=12;
+MaximoRut;maximo=1000;
+
+##Opciones combo-box tipo relacion.
+TipoRelacion;total=3;c1=A;c2=CD;c3=DC;
+A;des=Ambos;
+CD;des=Complementario De (Socios);
+DC;des=Deudor Complementario (Particip. en otras Empresas);
+RutFicticio;valor=88888882;
+DigitoVerificador;idcDv=9;idc=1;
+CodigoDeRelacion;valor=RG;
+fechaTerminoPorDefecto;valor=;
+
+## filtro de tabla relacion
+filtrotabla;codigos=CT,TC;filtrotablavigente=S;
+
+
+## jndi
+appRelacionEntreClientes;jndi=wcorp.aplicaciones.clientes.relacionentreclientes.administracion.implementation.RelacionEntreClientes;

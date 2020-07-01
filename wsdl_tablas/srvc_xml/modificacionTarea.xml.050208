@@ -1,0 +1,126 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_mod_tar"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="output_param" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idTarea"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "idTarea"
+        />
+
+        <field
+          java_name = "idSolicitud"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "identificador"
+        />
+
+        <field
+          java_name = "idRol"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "identificador2"
+        />
+
+        <field
+          java_name = "estado"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "estado"
+        />
+
+        <field
+          java_name = "aprueba"
+          type = "char"
+          size = "1"
+          middle_name = "indicadorAprobacion"
+        />
+        
+        <field
+          java_name = "usuarioFacultador"
+          type = "String"
+          size = "10"
+          middle_name = "usuFacultador"
+        />
+
+        <field
+          java_name = "comentario"
+          type = "String"
+          size = "225"
+          middle_name = "comentario"
+        />
+
+        <field
+          java_name = "fechaEjecucion"
+          type = "Date"
+          size = "20"
+          middle_name = "fechaEvento"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "fechaIngreso"
+          type = "Date"
+          size = "20"
+          middle_name = "fechaIngreso"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

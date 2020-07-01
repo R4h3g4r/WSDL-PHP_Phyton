@@ -1,0 +1,148 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "p_CEII_pac_sel_det_formato"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "ptpInd"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "indAval"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerificador"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionDespliegaDetallePlanilla" var_name = "detallePlanilla" >
+
+          <field
+            java_name = "ptpInd"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "indAval"
+          />
+
+          <field
+            java_name = "rutEmpresa"
+            type = "String"
+            size = "12"
+            middle_name = "rutEmpresa"
+          />
+
+          <field
+            java_name = "divEmpresa"
+            type = "char"
+            size = "1"
+            middle_name = "digitoVerificador"
+          />
+
+          <field
+            java_name = "numConvenio"
+            type = "String"
+            size = "10"
+            middle_name = "numConvenio"
+          />
+
+          <field
+            java_name = "nombreCampo"
+            type = "String"
+            size = "12"
+            middle_name = "nombreAgt"
+          />
+
+          <field
+            java_name = "maximo"
+            type = "String"
+            size = "12"
+            middle_name = "cupoMaximo"
+          />
+
+          <field
+            java_name = "posicionIni"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "valorInicial"
+          />
+
+          <field
+            java_name = "largoCampo"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "codLugar"
+          />
+
+          <field
+            java_name = "valorDefinido"
+            type = "String"
+            size = "50"
+            middle_name = "valor"
+          />
+
+          <field
+            java_name = "correlativo"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "correlativo"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

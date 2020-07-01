@@ -1,0 +1,28 @@
+Esta tabla contiene especificamente los parametros utilizados en los mensajes de errores de boleta de garantia.
+
+- La llave "JAVALANGNULLPOINTEREXCEPTION" indica "+Estimado Cliente, vuelva a intentar en unos minutos. Gracias;+".
+- La llave "FECHAINICIOFECHANOESHABIL" indica "+Estimadö Cliente, la fecha inicial no es un dia habil, por favor vuelva a intetar. Gracias;+".
+- La llave "NRONOEXISTEREGISTROREQUERIDO" indica "+Estimado Cliente, por favor vuelva a consultar la operacion. Gracias;+".
+- La llave "JAVALANGNUMBERFORMATEXCEPTIONNULL" indica "+Estimado Cliente, el monto ingresado no es valido, por favor vuelva a intentar. Gracias;+".
+- La llave "ESTIMADOCLIENTENOSEPUDOOBTENERLACUENTADECOMISIONPORFAVORINTENTARMASTARDE" indica "+Estimado Cliente, no se pudo obtener la cuenta de comision, por favor intentar.Gracias;+".
+- La llave "NOEXISTENRELACIONESPARASELECCION" indica "+Estimado Cliente, no se encuentra definido en nuestros sistemas las tarifas asociadas, por favor vuelva a intentar. Gracias;+".
+- La llave "COULDNTLOADCLASSWCORPBPROCESSCREDITOSGLOBALESCREDITOSGLOBALESBEAN_AT2CN0_HOMEIMPLONTHISSERVER" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "CAMEURONEXMENSAJEINEXISTENTE2007101820071018114" indica "+Estimado Cliente, no se encuentra definido en nuestros sistemas el valor de tipo de cambio para la moneda y fecha seleccionado, por favor comunicarse con MABEL. Gracias;+".
+- La llave "9" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "TPCALLGATEWAYTRANLEGACYPROCESATRANSACCIONTPENOENTNOENTRYFOUND" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "CAINROOPERACIONNOEXISTEREGISTROREQUERIDO" indica "+Estimado Cliente, El numero de operacion que intenta consultar no se encuentra registrado, por favor vuelva a intentar. Gracias;+".
+- La llave "CONNECTASINCRONOCONEXIONINICIOCONEXIONCONNECTIONREFUSED" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "PROBLEMASDECONECCIONAJOLT" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "TPRECVREVENTTPEV_SVCFAILTRANLEGACYLLAMA_TRANSACCION" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "TPETIMETIMEOUTOCCURED" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "SENDCONEXIONENVIAMENSAJEBROKENPIPE" indica "+Estimado Cliente, por motivos tecnicos en nuestros sistemas le pedimos que vuelva a intentar en unos minutos. Gracias;+".
+- La llave "CAMDOLANEXMENSAJEINEXISTENTE2007111920071119101" indica "+Estimado Cliente, el valor de cambio del Dolar no existe para la fecha solicitada, Por favor intentar otra fecha. Gracias;+".
+- La llave "TIMEOUTENELSELECTCONEXIONRECIBERESPUESTA" indica "+Estimado Cliente, tiempo de espera superado, por favor volver a intentar. Gracias;+".
+- La llave "ESTIMADOCLIENTEELSERICIOSOLICITADONOSEENCUENTRADISPONIBLEPORFAVORINTENTELOMASTARDE" indica "+Estimado Cliente, el sericio solicitado no se encuentra disponible, porfavor intentelo mas tarde.Gracias;+".
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 29/11/2007 Carlos Cubas (BEE): versión inicial (considera los canales +portal+,+BCIExpress+).
+
+==========================================

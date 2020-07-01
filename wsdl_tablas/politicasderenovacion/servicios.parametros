@@ -1,0 +1,11 @@
+#
+# Valores parámetricos para los servicios de BGL
+#
+consultaDatosPolizaPorEstadoPol          ;estadoPoliza=01;resSeguro=02     ;usuarioVerif=;ejecutivo=;numeroClaveGarantiaMas=;claveGarantiaMas=0;indicadorRetiro=0;fechaInicio=;fechaTermino=3,w;
+modificacionDetalleDatosPoliza           ;estadoPoliza=11;
+consultaTasacionesPorEstadoQts           ;codPoliza=11;numeroClaveGarantiaMas=;claveGarantiaMas=0;indicadorRetiro=0;fechaInicio=;fechaTermino=3,w;
+ingresoGslGso                            ;origen=M;cargoTramite=;numeroCargo=;tipoSolicitud=R;tipoProceso=S;contacto=ASISTENTE GARANTIAS;telefonoContacto=5888;observaciones1=;observaciones2=;
+modificacionTasacionesTas                ;codPoliza=09   ;
+consultaMasivaDeDetallesDeSegurosPorFecha;fechaInicio=-1,d;fechaTermino=1,d;
+consultaMasivaDeDetalleTasacionesPorFecha;fechaInicio=-1,d;fechaTermino=1,d;
+mail_template;seguros=revalorizacion_seg;tasaciones=revalorizacion_tas;

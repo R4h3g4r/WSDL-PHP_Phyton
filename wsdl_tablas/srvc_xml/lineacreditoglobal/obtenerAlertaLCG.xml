@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_alr_lcg">
+	<context>
+		<es_funcion value="select"/>
+	</context>
+	<input>
+		<field type="String" middle_name="lcg_bca" size="1" java_name="tipoBanca"/>
+		<field type="String" middle_name="lcg_rol" size="3" java_name="tipoColaborador"/>
+		<field type="String" middle_name="lcg_eje" size="12" java_name="codigoEjecutivo"/>
+		<field type="String" middle_name="lcg_ofi" size="3" java_name="codigoOficina"/>
+	</input>
+	<output>
+		<field type="String" middle_name="lcg_tip_alr" size="1" java_name="tipoAlerta"/>
+	</output>
+</service>

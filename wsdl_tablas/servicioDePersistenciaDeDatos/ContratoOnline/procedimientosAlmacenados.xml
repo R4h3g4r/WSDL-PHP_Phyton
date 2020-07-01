@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="ContratoOnline.procedimientosAlmacenados">
+	<parameterMap id="setRegistraFirma" class="java.util.HashMap">
+		<parameter property="rut"             jdbcType="NUMERIC"  javaType="Long" />
+		<parameter property="dv"              jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="cuenta"          jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="version"         jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="fechaFirma"      jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="documento"       jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="canal"           jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="producto"        jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="subProducto"       jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="tipoDocumento"   jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="firmaDocumento"  jdbcType="INTEGER"  javaType="int" />
+		<parameter property="firmaOpcMultipass" jdbcType="INTEGER"  javaType="int" />		
+	</parameterMap>
+
+	<statement id="registraFirma" parameterMap="setRegistraFirma" resultClass="int">
+			INSERT INTO Registro_Firma_Doc_Multipass (reg_cli_rut, reg_cli_dv, reg_fdm_cuentas, reg_fdm_ver, reg_fdm_fec, reg_fdm_xml, reg_fdm_canal, desc_prod_id, desc_sub_prod_id, reg_fdm_tip_doc, reg_fdm_firma, reg_fdm_opc_multipass)
+			VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+      		SELECT @@ERROR as value
+	</statement>
+	
+	
+	<parameterMap id="setConsultaDocumentosPorProducto" class="java.util.HashMap">
+        <parameter property="rut"             jdbcType="NUMERIC"  javaType="Long" />
+        <parameter property="dv"              jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="producto"        jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaDocumentosPorProducto" class="java.util.HashMap">
+        <result property="rut"            		column="reg_cli_rut"      		jdbcType="NUMERIC"  javaType="long" />
+        <result property="dv"             		column="reg_cli_dv"       		jdbcType="VARCHAR"  javaType="String" />
+        <result property="cuenta"         		column="reg_fdm_cuentas"  		jdbcType="VARCHAR"  javaType="String" />
+        <result property="version"        		column="reg_fdm_ver"      		jdbcType="VARCHAR"  javaType="String" />
+        <result property="fechaFirma"     		column="reg_fdm_fec"      		jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+        <result property="documento"      		column="reg_fdm_xml"      		jdbcType="VARCHAR"  javaType="String" />
+        <result property="canal"          		column="reg_fdm_canal"    		jdbcType="VARCHAR"  javaType="String" />
+        <result property="tipoDocumento"  		column="reg_fdm_tip_doc"  		jdbcType="VARCHAR"  javaType="String" />
+        <result property="firmaDocumento" 		column="reg_fdm_firma"    		jdbcType="INTEGER"  javaType="int" />
+        <result property="firmaOpcMultipass" 	column="reg_fdm_opc_multipass"  jdbcType="INTEGER"  javaType="int" />
+        <result property="producto"       		column="desc_prod_id"     		jdbcType="VARCHAR"  javaType="String" />
+        <result property="subProducto"       	column="desc_sub_prod_id"		jdbcType="VARCHAR"  javaType="String" />
+        <result property="descProducto"       	column="desc_prod"     			jdbcType="VARCHAR"  javaType="String" />
+        <result property="descSubProducto"      column="desc_sub_prod"     		jdbcType="VARCHAR"  javaType="String" />              
+    </resultMap>
+
+    <statement id="consultaDocumentosPorProducto" parameterMap="setConsultaDocumentosPorProducto"  resultMap="getConsultaDocumentosPorProducto" >
+        SELECT rfdm.reg_cli_rut, rfdm.reg_cli_dv, rfdm.reg_fdm_cuentas, rfdm.reg_fdm_ver, rfdm.reg_fdm_fec, rfdm.reg_fdm_xml, 
+        			rfdm.reg_fdm_canal, rfdm.reg_fdm_tip_doc, rfdm.reg_fdm_firma, rfdm.reg_fdm_opc_multipass, 
+                    rfdm.desc_prod_id, rfdm.desc_sub_prod_id, dpfm.desc_prod, dspfm.desc_sub_prod
+        FROM Registro_Firma_Doc_Multipass rfdm, Desc_Prod_Firma_Multipass dpfm, Desc_Sub_Prod_Firma_Multipass dspfm
+        WHERE rfdm.reg_cli_rut = ? 
+        AND rfdm.reg_cli_dv = ? 
+        AND rfdm.desc_prod_id = ?
+        AND rtrim(ltrim(rfdm.desc_prod_id)) = rtrim(ltrim(dpfm.desc_prod_id))
+        AND rtrim(ltrim(rfdm.desc_sub_prod_id)) = rtrim(ltrim(dspfm.desc_sub_prod_id))
+    </statement>
+    
+    
+    
+    
+    
+    <parameterMap id="setConsultaDocumentosProdExcluido" class="java.util.HashMap">
+        <parameter property="rut"             	jdbcType="NUMERIC"  javaType="Long" />
+        <parameter property="dv"              	jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="prodExcluido"		jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaDocumentosProdExcluido" class="java.util.HashMap">
+        <result property="rut"            column="reg_cli_rut"      jdbcType="NUMERIC"  javaType="long" />
+        <result property="dv"             column="reg_cli_dv"       jdbcType="VARCHAR"  javaType="String" />
+        <result property="cuenta"         column="reg_fdm_cuentas"  jdbcType="VARCHAR"  javaType="String" />
+        <result property="version"        column="reg_fdm_ver"      jdbcType="VARCHAR"  javaType="String" />
+        <result property="fechaFirma"     column="reg_fdm_fec"      jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+        <result property="documento"      column="reg_fdm_xml"      jdbcType="VARCHAR"  javaType="String" />
+        <result property="canal"          column="reg_fdm_canal"    jdbcType="VARCHAR"  javaType="String" />
+        <result property="tipoDocumento"  column="reg_fdm_tip_doc"  jdbcType="VARCHAR"  javaType="String" />
+        <result property="firmaDocumento" column="reg_fdm_firma"    jdbcType="INTEGER"  javaType="int" />
+        
+<result property="firmaOpcMultipass" 	column="reg_fdm_opc_multipass"  jdbcType="INTEGER"  javaType="int" />
+    <result property="producto"       		column="desc_prod_id"     		jdbcType="VARCHAR"  javaType="String" />
+        <result property="subProducto"       	column="desc_sub_prod_id"		jdbcType="VARCHAR"  javaType="String" />
+    <result property="descProducto"       	column="desc_prod"		jdbcType="VARCHAR"  javaType="String" />
+        <result property="descSubProducto"      column="desc_sub_prod"	jdbcType="VARCHAR"  javaType="String" />
+    </resultMap>
+    
+    <statement id="consultaDocumentosProdExcluido" parameterMap="setConsultaDocumentosProdExcluido"  resultMap="getConsultaDocumentosProdExcluido" >
+	<![CDATA[
+	        SELECT rfdm.reg_cli_rut, rfdm.reg_cli_dv, rfdm.reg_fdm_cuentas, rfdm.reg_fdm_ver, rfdm.reg_fdm_fec, 
+	        		rfdm.reg_fdm_xml, rfdm.reg_fdm_canal, rfdm.reg_fdm_tip_doc, rfdm.reg_fdm_firma, rfdm.reg_fdm_opc_multipass, 
+	        		rfdm.desc_prod_id, rfdm.desc_sub_prod_id, dpfm.desc_prod, dspfm.desc_sub_prod 
+	        FROM Registro_Firma_Doc_Multipass rfdm, Desc_Prod_Firma_Multipass dpfm, Desc_Sub_Prod_Firma_Multipass dspfm 
+	        WHERE rfdm.reg_cli_rut = ?
+	        AND rfdm.reg_cli_dv = ?
+	        AND rtrim(ltrim(rfdm.desc_prod_id)) <> ?
+	        AND rtrim(ltrim(rfdm.desc_prod_id)) = rtrim(ltrim(dpfm.desc_prod_id)) 
+	        AND rtrim(ltrim(rfdm.desc_sub_prod_id)) = rtrim(ltrim(dspfm.desc_sub_prod_id))
+	    ]]>
+    </statement>
+    
+	<parameterMap id="parameterConsultaContratoActivacion" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="Long" />
+		<parameter property="dv" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tipoProducto" jdbcType="VARCHAR" javaType="String"/>		
+	</parameterMap>
+	<resultMap id="resultConsultaContratoActivacion" class="java.util.HashMap">
+		<result property="rut" column="reg_cli_rut" jdbcType="NUMERIC" javaType="long" />
+		<result property="dv" column="reg_cli_dv" jdbcType="VARCHAR" javaType="String" />
+		<result property="tipo" column="reg_fdm_tip_doc" jdbcType="VARCHAR" javaType="String" />
+		<result property="descripcionTipoDocumento" column="descTipoDocumento" jdbcType="VARCHAR" javaType="String" />
+		<result property="numeroCuenta" column="reg_fdm_cuentas" jdbcType="VARCHAR" javaType="String" />
+		<result property="firmaDocumento" column="reg_fdm_firma" jdbcType="INTEGER" javaType="int" />
+		<result property="fechaFirma" column="reg_fdm_fec" jdbcType="DATETIME" javaType="java.util.Calendar"
+			typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="canal" column="reg_fdm_canal" jdbcType="VARCHAR" javaType="String" />
+		<result property="documento" column="reg_fdm_xml" jdbcType="VARCHAR" javaType="String" />
+		<result property="producto" column="desc_prod_id" jdbcType="VARCHAR" javaType="String" />
+		<result property="subProducto" column="desc_sub_prod_id" jdbcType="VARCHAR" javaType="String" />
+		<result property="version" column="reg_fdm_ver" jdbcType="VARCHAR" javaType="String" />					
+	</resultMap>
+	<statement id="consultaContratoActivacion" parameterMap="parameterConsultaContratoActivacion"
+		resultMap="resultConsultaContratoActivacion">
+	<![CDATA[
+	        SELECT 
+			  rfdm.reg_cli_rut
+			, rfdm.reg_cli_dv
+			, rfdm.reg_fdm_tip_doc
+			, (case when reg_fdm_tip_doc = 'C' then 'Anexo Contrato BCI'
+			when reg_fdm_tip_doc = 'H' then 'Hoja Resumen BCI'  else 'Desconocido' end) as descTipoDocumento 
+			, rfdm.reg_fdm_cuentas
+			, rfdm.reg_fdm_firma
+			, rfdm.reg_fdm_fec
+			, rfdm.reg_fdm_canal
+			, rfdm.reg_fdm_xml
+			, rfdm.desc_prod_id
+			, rfdm.desc_sub_prod_id
+			, rfdm.reg_fdm_ver
+			FROM Registro_Firma_Doc_Multipass rfdm
+			WHERE  
+			  rfdm.reg_cli_rut = ?
+			  AND rfdm.reg_cli_dv = ?
+			  AND rfdm.desc_prod_id = ?
+			  AND rfdm.desc_sub_prod_id in ('ACTV', 'RENOV')
+			  AND rfdm.reg_fdm_tip_doc IN ('C', 'H')
+	    ]]>
+	</statement>
+	
+	<parameterMap id="setObtenerPlantilla" class="java.util.HashMap">
+        <parameter property="producto"		jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="subProducto"	jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="version"		jdbcType="DECIMAL"  javaType="java.math.BigDecimal" />
+        <parameter property="canal"			jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getObtenerPlantilla" class="java.util.HashMap">
+        <result property="nombreDocumento"	column="REG_PLT_NOM_DOC"  jdbcType="VARCHAR"	javaType="String" />
+        <result property="plantillaXsl"     column="REG_PLT_XSL"      jdbcType="image"	javaType="[B" />
+    </resultMap>
+    
+    <statement id="obtenerPlantilla" parameterMap="setObtenerPlantilla"  resultMap="getObtenerPlantilla" >
+	<![CDATA[
+	        SELECT REG_PLT_NOM_DOC, REG_PLT_XSL
+	        FROM REGISTRO_PLANTILLAS
+	        WHERE PROD_PLT_COD = ?
+	        AND SUB_PROD_PLT_COD = ?
+	        AND REG_PLT_VER = ?
+	        AND REG_PLT_CANAL = ?
+	    ]]>
+    </statement>
+        <parameterMap id="setRegistraPlantilla" class="java.util.HashMap">
+        <parameter property="subProducto"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="producto"              jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="version"               jdbcType="DECIMAL"  javaType="java.math.BigDecimal" />
+        <parameter property="fechaCreacion"         jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+        <parameter property="fechaModificacion"     jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+        <parameter property="canal"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="plantillaXsl"          jdbcType="image" javaType="[B" />
+        <parameter property="nombreDocumento"       jdbcType="VARCHAR"  javaType="String" />
+    
+    </parameterMap>
+    <statement id="registraPlantilla" parameterMap="setRegistraPlantilla" resultClass="int">
+    <![CDATA[
+            INSERT INTO dbo.REGISTRO_PLANTILLAS (
+			    SUB_PROD_PLT_COD,
+			    PROD_PLT_COD,
+			    REG_PLT_VER,
+			    REG_PLT_FEC_CRE,
+			    REG_PLT_FEC_MOD,
+			    REG_PLT_CANAL,
+			    REG_PLT_XSL,
+			    REG_PLT_NOM_DOC )
+            VALUES (?,?,?,?,?,?,?,?)
+            SELECT @@ERROR as value
+	]]>
+    </statement>
+    
+    <procedure id="consultaproductosPendienteFirma" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+      { CALL sp_obt_prod_pendiente_firma(#rut#) }
+   </procedure>
+   
+   <parameterMap class="java.util.HashMap" id="setCnsProdCliPendFirma">
+   		<parameter property="rut"           jdbcType="INTEGER"  javaType="int" />
+   		<parameter property="prodId"        jdbcType="VARCHAR"  javaType="String" />
+   </parameterMap>
+   
+   <procedure id="consultaProductoClientePendienteFirma" parameterMap="setCnsProdCliPendFirma" resultClass="java.util.HashMap">
+      { CALL sp_obt_prod_cli_pendiente(?,?) }
+   </procedure>
+   
+   
+   <parameterMap class="java.util.HashMap" id="setActRegistroDoc">
+   		<parameter property="idRegistroDocumento"   jdbcType="INTEGER"  javaType="int" />
+   		<parameter property="xml"        			jdbcType="VARCHAR"  javaType="String" />
+   </parameterMap>
+      
+   <procedure id="actualizaDatosContacto" parameterMap="setActRegistroDoc" resultClass="java.util.HashMap">
+      { CALL sp_obt_prod_cli_pendiente(?,?) }
+   </procedure>
+   
+   
+   <parameterMap class="java.util.HashMap" id="setFirmaManualmenteRechazo">
+   		<parameter property="idProdCli"   jdbcType="INTEGER"  javaType="int" />
+   		<parameter property="sucursal"    jdbcType="VARCHAR"  javaType="String" />
+   		<parameter property="canal"       jdbcType="VARCHAR"  javaType="String" />
+   		<parameter property="tipoFirma"   jdbcType="VARCHAR"  javaType="String" />
+   </parameterMap>
+      
+   <procedure id="firmaManualmenteRechazo" parameterMap="setFirmaManualmenteRechazo" resultClass="java.util.HashMap">
+      { CALL sp_registra_rechazo(?,?,?,?) }
+   </procedure>
+   
+   
+   <parameterMap class="java.util.HashMap" id="setFirmaManualmenteContrato">
+   		<parameter property="idProdCli"   jdbcType="INTEGER"  javaType="int" />
+   		<parameter property="sucursal"    jdbcType="VARCHAR"  javaType="String" />
+   		<parameter property="canal"       jdbcType="VARCHAR"  javaType="String" />
+   		<parameter property="tipoFirma"   jdbcType="VARCHAR"  javaType="String" />
+   </parameterMap>
+      
+   <procedure id="firmaManualmenteContrato" parameterMap="setFirmaManualmenteContrato" resultClass="java.util.HashMap">
+      { CALL sp_registra_firma(?,?,?,?) }
+   </procedure>
+    
+   <procedure id="consultaDocumentoPendienteFirma" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_cliente_sinFirma(#rut#)}
+   </procedure>
+
+	
+	<resultMap id="getObtienePlantillasXsl" class="java.util.HashMap">
+		<result property="doc_id"	column="doc_id"  jdbcType="VARCHAR"	javaType="String" />
+        <result property="REG_PLT_XSL"     column="REG_PLT_XSL"      jdbcType="image"	javaType="[B" />
+        <result property="REG_PLT_NOM_DOC"	column="REG_PLT_NOM_DOC"  jdbcType="VARCHAR"	javaType="String" />
+    </resultMap>
+
+	<procedure id="obtienePlantillasXsl" parameterClass="java.util.HashMap" resultMap="getObtienePlantillasXsl">
+		{CALL sp_obt_dat_plan(#id#, #canal#)}
+	</procedure>   
+	
+	<procedure id="actualizaXmlRegistroDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_act_xml_registro_documento(#pcRutCliente#, #pcNumCuenta#, #doId#, #xmlDatos#)}
+	</procedure>   
+
+</sqlMap>    

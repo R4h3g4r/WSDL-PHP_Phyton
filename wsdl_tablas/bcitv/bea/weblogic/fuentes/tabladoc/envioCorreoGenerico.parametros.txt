@@ -1,0 +1,19 @@
+Esta tabla permite obtener los parametros que deben ser rescatados del request,
+dependiendo del nombre del formulario de origen. Además, contiene las etiquetas 
+adecuadas para cada dato obtenido, con el fin de enviar esta información via email.
+
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 09/07/2007 Pedro Carmona (SEnTRA): Versión Inicial.
+
+. 05/10/2007 Pedro Carmona (SEnTRA): Se modifica el nombre del formulario 'plan_universitario_bci' y se agrega el
+									formulario 'financiamiento_duoc_banconova'.
+
+. 10/03/2008 Pedro Carmona (SEnTRA): Se agregan las líneas necesarias para trabajar con los formularios
+										'formulario_empresario_mes' y 'formulario_intranet'
+
+. 10/09/2009 Liliana Jara (Imagemaker IT): Se agregan llaves y claves para el formulario 'formulario_contacto_tranquilidad_eco_banconova',
+					   del sitio web activo tranquilidad económica.
+==========================================

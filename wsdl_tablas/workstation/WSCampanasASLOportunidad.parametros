@@ -1,0 +1,65 @@
+#
+# Configuracion de Webservice Epiphany Oportunidad
+#
+#
+CONECCIONWS;user=epiporta;password=epi54por;urlWebService=http://alsb.bci.cl/servicios/atencioncliente/venta/CrearOportunidadService;urlWSDL=?wsdl;
+#
+#Codigos de Error del WebServices
+#
+#
+0;Desc=No se pudo inyectar oportunidad. Favor ingresar oportunidad manualmente en ASL (1);
+2;Desc=El cliente gestionado ya tiene una oportunidad activa en ASL para producto seleccionado.;
+3;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (2);
+4;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (3);
+5;Desc=El producto gestionado no existe en ASL. Favor ingresar oportunidad manualmente en ASL.;
+6;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(1);
+7;Desc=Falta completar datos obligatorios.Favor ingresar oportunidad manualmente en ASL.;
+8;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(2);
+9;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (4);
+10;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (5);
+11;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (6);
+12;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (7);
+13;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (8);
+14;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (9);
+15;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (10);
+16;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (11);
+17;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (12);
+18;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (13);
+19;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (14);
+20;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (15);
+21;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (16);
+22;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (17);
+24;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(3);
+25;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(4);
+26;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(5);
+27;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (18);
+28;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (19);
+29;Desc=Oportunidad no pudo ser inyectada, Cliente no existe en SGC y ASL.;
+30;Desc=El responsable asignado no existe en ASL. Favor comunicarse con ALO Everest para solicitar su creacion, ingresar oportunidad manualmente en ASL(6);
+999;Desc=No se pudo inyectar oportunidad. Favor ingresar manualmente en ASL (19);
+#
+#ubicación de codigos de error
+#
+#
+ERREPI;valor=999;
+SERVND;valor=3;
+#
+#Nombre y etapa de la oportunidad
+#
+#
+NOMBRE;valor=Inyección Campaña ETE;
+ETAPA;valor=Activa;
+#
+# Texto de insercion al crear la oferta.
+#
+TEXTO_CREACION;Desc=Creación de Oportunidad en ASL # @ en estado @.;
+STRING_SEPARADOR;Desc=@;
+#
+#
+#
+#
+#
+#
+#CLAVE AUTENTICACION WS EPIPHANY
+#
+CLAVE_UYP_WS_EPIPHANY;Clave=epiphany;

@@ -1,0 +1,14 @@
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=<li><b>1.-</b> Contactar a Cliente.</li>;
+GLOSA1;mensaje=<li><b>2.-</b> Solicitar pago de deuda castigada.</li>;
+GLOSA2;mensaje=<li><b>3.-</b> Estructurar forma de pago.</li>;
+GLOSA3;mensaje=<li><b>4.-</b> Solicitar certificado de pago.</li>;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=<li><b>1.-</b> Contactar a Cliente.</li>;
+GLOSAPDF1;mensaje=<li><b>2.-</b> Solicitar pago de deuda castigada.</li>;
+GLOSAPDF2;mensaje=<li><b>3.-</b> Estructurar forma de pago.</li>;
+GLOSAPDF3;mensaje=<li><b>4.-</b> Solicitar certificado de pago.</li>;
+
+#flag desactivacion
+DESACTIVAR;FLAG=1;

@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="dgc.procedimientosAlmacenados">
+
+  <procedure id="consultarInformacionClienteInversiones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cli_inv(#rutCli#)}
+  </procedure>
+  
+  <procedure id="consultaDatosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL busca_cli_rut(#rutCliente#)}
+  </procedure>
+  
+   <procedure id="consultaDirecciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_consulta_dir_cli(#cic#)}
+  </procedure>
+ 
+  
+  <parameterMap id="setIngresaCalculoRenta" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="CHAR"		javaType="String" />
+		<parameter property="digitoVerificador"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="secuencia"				jdbcType="INTEGER" 	javaType="Integer" />
+		<parameter property="rentaLiquida"		jdbcType="FLOAT" 	javaType="Float" />
+		<parameter property="rentaVariable"		jdbcType="FLOAT" 	javaType="Float" />
+		<parameter property="hombreSeparado"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="trabajaConyuge"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="numHijo"			jdbcType="INTEGER" 	javaType="Integer" />
+		<parameter property="fuerzasArmada"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="grado"				jdbcType="CHAR" 	javaType="String" />
+		<parameter property="origen"			jdbcType="CHAR" 	javaType="String" />
+		<parameter property="periodoDai"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="periodoLiq"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="periodoBol"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="ejecutivoIngreso"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="fechaIngreso"		jdbcType="date" javaType="Date"/>	
+		<parameter property="canal"				jdbcType="CHAR" 	javaType="String" />
+	
+  </parameterMap>
+  
+  <procedure id="ingresaCalculoRenta" parameterMap="setIngresaCalculoRenta" resultClass="int">
+		{CALL sp_ing_act_rta(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+  </procedure>
+  
+     <!-- Consulta Informacion DAI-->  
+	<resultMap id="resultado"	class="java.util.HashMap">
+			<result property="rentaSocio"	    column="rentaSocio"/>
+			<result property="codigo104"	    column="codigo104"/>
+			<result property="codigo110"	    column="codigo110"/>
+			<result property="codigo161"	    column="codigo161"/>
+	</resultMap>
+
+    <procedure id="consultarInformacionDai" parameterClass="java.util.HashMap" resultMap="resultado">
+        {CALL sp_cns_cod_dai( #rutCliente# )}
+    </procedure>
+     <!-- Consulta Informacion DAI-->  
+  
+	<resultMap id="resultadoConsultaNombreClientes"	class="java.util.HashMap">
+			<result property="nombre_cli"	column="nombre_cli"/>
+			<result property="rut_cli"	    column="rut_cli"/>
+	</resultMap>
+
+    <procedure id="consultaNombreClientes" parameterClass="java.util.HashMap" resultMap="resultadoConsultaNombreClientes">
+        {CALL sp_cns_nom_cli( #ruts# )}
+    </procedure>
+ 
+	<parameterMap id="consultarDetalleBienRaizCliente"	class="java.util.HashMap">
+			<parameter property="rut"	    			jdbcType="CHAR"		javaType="String"/>
+			<parameter property="secuencia"	    		jdbcType="INTEGER"	javaType="Integer"/>
+			<parameter property="codigo"	    		jdbcType="CHAR"		javaType="String"/>
+	</parameterMap>
+	<resultMap id="resultadoConsultarDetalleBienRaiz"	class="java.util.HashMap">
+			<result property="montoArriendo"	    column="montoArriendo"/>
+			<result property="avaluoFiscal"	    	column="avaluoFiscal"/>
+			<result property="rolPropiedad"	    	column="rolPropiedad"/>
+			<result property="rutArrendatario"	    column="rutArrendatario"/>
+	</resultMap>
+
+    <procedure id="consultarDetalleBienRaiz" parameterMap="consultarDetalleBienRaizCliente" resultMap="resultadoConsultarDetalleBienRaiz">
+        {CALL sp_cns_det_bien_raiz(?,?,?)}
+    </procedure>	
+	
+	<parameterMap id="ingresaDetalleBienRaizParametros"	class="java.util.HashMap">
+			<parameter property="rut"	    			jdbcType="CHAR"		javaType="String"/>
+			<parameter property="dv"	    			jdbcType="CHAR"		javaType="String"/>
+			<parameter property="secuencia"	    		jdbcType="INTEGER"	javaType="Integer"/>
+			<parameter property="codigo"	    		jdbcType="CHAR"		javaType="String"/>
+			<parameter property="montoArriendo"	    	jdbcType="Double"	javaType="Double"/>
+			<parameter property="avaluoFiscal"	    	jdbcType="INTEGER"	javaType="Integer"/>
+			<parameter property="rolBienRaiz"	    	jdbcType="CHAR"		javaType="String"/>
+			<parameter property="rutArrendatario"	    jdbcType="VARCHAR"	javaType="String"/>
+	</parameterMap>
+
+    <procedure id="ingresaDetalleBienRaiz" parameterMap="ingresaDetalleBienRaizParametros">
+        {CALL sp_ing_det_bien_raiz( ?,?,?,?,?,?,?,?)}
+    </procedure>
+
+    <parameterMap id="setEliminarBorradorRenta" class="java.util.HashMap">
+        <parameter property="rutCli"       jdbcType="CHAR"    javaType="String" />
+        <parameter property="rtaSec"       jdbcType="INT"     javaType="Integer" />
+    </parameterMap>
+    <procedure id="eliminarBorradorRenta" parameterMap="setEliminarBorradorRenta" >
+        {CALL sp_eli_bor_rta(?,?)}
+    </procedure>	
+    
+    <parameterMap id="setEliminaDetalleBienRaiz" class="java.util.HashMap">
+        <parameter property="rutCli"       jdbcType="CHAR"    javaType="String" />
+        <parameter property="rtaSec"       jdbcType="INT"     javaType="Integer" />
+    </parameterMap>
+    <procedure id="eliminaDetalleBienRaiz" parameterMap="setEliminaDetalleBienRaiz" >
+        {CALL sp_eli_det_bien_raiz(?,?)}
+    </procedure>
+ 
+ <parameterMap id="setIngresoRegistroRTA" class="java.util.HashMap">
+	<parameter property="rut" 	                jdbcType="CHAR" 	javaType="String" />
+	<parameter property="digitoVerif" 	        jdbcType="CHAR"		javaType="String" />
+	<parameter property="canal" 	            jdbcType="CHAR"		javaType="String" />
+	<parameter property="origen" 	            jdbcType="CHAR"		javaType="String" />
+	<parameter property="usuarioIngreso" 	    jdbcType="CHAR"		javaType="String" />
+	<parameter property="usuarioAct" 	        jdbcType="CHAR"		javaType="String" />
+	<parameter property="rentaFijaCalculada" 	            jdbcType="FLOAT"	javaType="Double" />
+	<parameter property="rentaVariableCalculada" 	        jdbcType="FLOAT"	javaType="Double" />
+	<parameter property="ultimoPeriodo" 	       		    jdbcType="CHAR"		javaType="String" />
+	
+ </parameterMap>
+ <procedure id="ingresoRegistroRTA" parameterMap="setIngresoRegistroRTA" resultClass="int">
+	{ CALL sp_ing_usu_rta( ?,?,?,?,?,?,?,?,?) }
+ </procedure>
+
+   <!-- Inicio Automatizacion -->
+    
+     <parameterMap id="setGrabaEncabezadoCalculoAutomatico" class="java.util.HashMap">
+            <parameter property="secuencia"         jdbcType="Integer" javaType="Integer" />
+            <parameter property="fechaRegistro"     jdbcType="DATE"    javaType="java.util.Date" />
+            <parameter property="fechaCertificado"  jdbcType="DATE"    javaType="java.util.Date" />
+            <parameter property="codigoCertificado" jdbcType="CHAR"    javaType="String" />
+            <parameter property="rutCertificado"    jdbcType="Long"    javaType="Long" />
+            <parameter property="dvCertificado"     jdbcType="CHAR"    javaType="String" />
+            <parameter property="usuarioRegistro"   jdbcType="CHAR"    javaType="String" />
+            <parameter property="afp"               jdbcType="CHAR"    javaType="String" />
+            
+     </parameterMap>
+
+     <procedure id="grabaEncabezadoCalculoAutomatico" parameterMap="setGrabaEncabezadoCalculoAutomatico" resultClass="int">
+         { CALL sp_ins_inf_cca ( ?,?,?,?,?,?,?,? ) }
+     </procedure>
+     
+     
+     <parameterMap id="setGrabaDetallesCalculoAutomatico" class="java.util.HashMap">
+            <parameter property="secuencia"             jdbcType="Integer" javaType="Integer" />
+            <parameter property="periodoCotizado"       jdbcType="CHAR"    javaType="String" />
+            <parameter property="rutEmpleador"          jdbcType="Long" javaType="java.lang.Long" />
+            <parameter property="dvEmpleador"           jdbcType="CHAR"    javaType="String" />
+            <parameter property="montoCotizado"         jdbcType="money"   javaType="java.math.BigDecimal" />
+            <parameter property="fechaPagoCotizacion"   jdbcType="DATE"    javaType="java.util.Date" />
+     </parameterMap>
+
+     <procedure id="grabaDetallesCalculoAutomatico" parameterMap="setGrabaDetallesCalculoAutomatico" resultClass="int">
+         { CALL sp_ins_det_dca ( ?,?,?,?,?,? ) }
+     </procedure>
+     
+     
+
+    <parameterMap id="setConsultaEncabezadoCalculoAutomatico" class="java.util.HashMap">
+        <parameter property="secuencia" javaType="Integer"/>
+        
+    </parameterMap>
+    
+    <resultMap id="getConsultaEncabezadoCalculoAutomatico" class="java.util.HashMap">
+        <result property="secuencia" jdbcType="Integer" javaType="Integer" />
+        <result property="fechaRegistro" jdbcType="Date" javaType="java.util.Date" />
+        <result property="fechaCertificado" jdbcType="Date" javaType="java.util.Date" />
+        <result property="codigoCertificado" jdbcType="String" javaType="String" />
+        <result property="rutCertificado" jdbcType="Long" javaType="java.lang.Long" />
+        <result property="dvCertificado" jdbcType="String" javaType="String" />
+        <result property="usuarioRegistrado" jdbcType="String" javaType="String" />
+        <result property="certificadoAFP" jdbcType="String" javaType="String" />
+     </resultMap>
+    
+    <procedure id="consultaEncabezadoCalculoAutomatico" parameterMap="setConsultaEncabezadoCalculoAutomatico" resultMap="getConsultaEncabezadoCalculoAutomatico">
+        { CALL sp_cns_inf_cca(?) }
+    </procedure>
+    
+    <parameterMap id="setConsultaDetallesCalculoAutomatico" class="java.util.HashMap">
+        <parameter property="secuencia"  javaType="Integer" />
+     </parameterMap>
+
+    <resultMap id="getConsultaDetallesCalculoAutomatico" class="java.util.HashMap">
+        <result property="secuenciaDCA" jdbcType="Integer" javaType="Integer" />
+        <result property="secuenciaCCA" jdbcType="Integer" javaType="Integer" />
+        <result property="periodoCotizado" jdbcType="String" javaType="String" />
+        <result property="rutEmpleador" jdbcType="Long" javaType="Long" />
+        <result property="dvEmpleador" jdbcType="String" javaType="String" />
+        <result property="montoCotizado" jdbcType="Double" javaType="Double" />
+        <result property="fechaPago" jdbcType="Date" javaType="java.util.Date" />
+    </resultMap>
+    
+    <procedure id="consultaDetallesCalculoAutomatico" parameterMap="setConsultaDetallesCalculoAutomatico" resultMap="getConsultaDetallesCalculoAutomatico">
+        { CALL sp_cns_det_dca(?) }
+    </procedure>
+    
+    
+<!-- Fin Automatizacion -->
+
+	<parameterMap id="setObtieneUsuarioModificacion" class="java.util.HashMap">
+        <parameter property="rut"       jdbcType="CHAR"      javaType="String" />
+    <parameter property="dv"       jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+		<resultMap id="getObtieneUsuarioModificacion"	class="java.util.HashMap">
+			<result property="usuario"	    	column="usuario" javaType="String" />
+	</resultMap>
+    <procedure id="obtieneUsuarioModificacion" parameterMap="setObtieneUsuarioModificacion" resultMap="getObtieneUsuarioModificacion" >
+        {CALL sp_cns_usr_mod_aep(?,?)}
+    </procedure>	
+    
+    <parameterMap id="setObtieneFactorRebajaImpuestoGlobalComplementario" class="java.util.HashMap">
+        <parameter property="rentaBoletasAnual"       jdbcType="Double"      javaType="Double" />
+	</parameterMap>
+	<resultMap id="getObtieneFactorRebajaImpuestoGlobalComplementario"	class="java.util.HashMap">
+		<result property="factor"	 jdbcType="Double" javaType="Double" />
+		<result property="rebaja"	 jdbcType="Double" javaType="Double" />
+	</resultMap>
+    <procedure id="obtieneFactorRebajaImpuestoGlobalComplementario" parameterMap="setObtieneFactorRebajaImpuestoGlobalComplementario" resultMap="getObtieneFactorRebajaImpuestoGlobalComplementario" >
+        {CALL sp_obt_fac_reb_igc(?)}
+    </procedure>
+       	 
+</sqlMap>

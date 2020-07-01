@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatosXMLService.xsd"
+	name="sp_mod_edn_cli_bp">
+	<context>
+		<es_funcion value="no" />
+	</context>
+	<input>
+		<field type="long" middle_name="edn_crr" size="0" java_name="id"/>
+		<field type="long" middle_name="cbp_rut" size="0" java_name="rutClienteBancaPrivada"/>
+		<field type="String" middle_name="edn_des_prd" size="0" java_name="glosaProducto"/>
+		<field type="String" middle_name="edn_eje" size="0" java_name="nombreEspecialista"/>
+		<field type="String" middle_name="edn_tip_eje" size="0" java_name="glosaTipoEjecutivo"/>
+		<field type="String" middle_name="edn_usr_act" size="0" java_name="usuarioActualizacion"/>
+		<field type="String" middle_name="edn_pgm_act" size="0" java_name="programaActualizacion"/>
+		<field type="String" middle_name="edn_cnl_act" size="0" java_name="canalActualizacion"/>
+	</input>
+	<output/>
+</service>

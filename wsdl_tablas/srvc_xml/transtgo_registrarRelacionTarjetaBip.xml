@@ -1,0 +1,90 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * SP para registrar la relacion de una tarjeta bip con un cliente
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 06/12/2006 Felipe Concha. - Versión inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : transtgo
+ * @Felipe C.M. <B>Neoris Chile Ltda.</B>
+ * @version 1.0
+ */
+-->
+
+
+<service name = "sp_ins_relacionTarjeta">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.transantiago.ServicioTarjetaBIPBean" />
+
+  </context>
+  <input>
+  		<field
+          java_name = "numeroTarjeta"
+          type = "Long"
+          size = "24"
+          middle_name = "numExternoTarjeta"
+        />
+		<field
+          java_name = "rut"
+          type = "String"
+          size = "10"
+          middle_name = "rutCliente"
+        />
+		<field
+          java_name = "digitoVerificador"
+          type = "char"
+          size = "1"
+          middle_name = "dvCliente"
+        />
+		<field
+          java_name = "alias"
+          type = "String"
+          size = "25"
+          middle_name = "codAlias"
+        />
+		<field
+          java_name = "fechaCreacionRelacion"
+          type = "String"
+          size = "25"
+          middle_name = "fechaCreacionRel"
+        />
+		<field
+          java_name = "estadoRelacion"
+          type = "String"
+          size = "3"
+          middle_name = "estadoRel"
+        />
+		<field
+          java_name = "mail"
+          type = "String"
+          size = "50"
+          middle_name = "mailAlias"
+        />
+  </input>
+
+  <output/>      
+
+</service>

@@ -1,0 +1,24 @@
+#Listado de Instituciones o casas Comerciales
+INSTITUCIONES;1|BCI=Bci/Tbanc/Bci Nova;2|BCH=Banco Chile;3|BESTADO=Banco Estado;4|BSCO=Scotiabank;5|BBICE=Banco Bice;6|BCITY=Citibank;7|BSTGO=Banco Santander Santiago;8|BITAU=Banco Itau;9|BAA=Abn Amro Bank;10|BSEC=Banco Security;11|BBVA=BBVA;12|BDES=Banco Del Desarrollo;13|BFALL=Banco Falabella;14|BRIPLEY=Banco Ripley;15|BPARIS=Banco Paris;16|TCREDITO=Tarjeta de Credito;17|CCOMERCIALES=Casas Comerciales;18|OTRO=Otro;
+
+#Anyos Nacimiento
+ANYOS;INICIO=1900;FIN=1990;
+
+#Anyo Actual
+ANYO;ACTUAL=2008;
+
+#Dias del mes
+DIA;INICIO=1;FIN=31;
+
+#Parametros Simulador Nova
+codigoCanal;value=800;
+marca;value=BCI;
+poc;value=CCN405;
+moneda;value=0999;
+HoraLimite;value=20;
+cantidadCuotas;value=48;
+
+#Parametros de Ambiente
+usuario;value=WEBBCS;
+banco;value=BCI;
+cartera;value=BEE;

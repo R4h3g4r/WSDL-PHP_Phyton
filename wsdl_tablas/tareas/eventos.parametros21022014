@@ -1,0 +1,307 @@
+seguro110;area=WBC;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;
+seguro800;area=WNO;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;
+seguro230;area=WBE;rol=D37;tipo=101;subproducto=193|194|315;ejecutivo=WEBBCI;
+seguro130;area=WBE;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;
+seguro131;area=WBE;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;
+seguro117;area=WBC;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;
+noseguro110;area=WBC;rol=D38;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;canal=110;rut=Rut Cliente;
+noseguro800;area=WNO;rol=D38;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;canal=800;rut=Rut Cliente;
+noseguro230;area=WBE;rol=D38;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;canal=230;rut=Rut Cliente;
+noseguro117;area=WBC;rol=D38;tipo=101;subproducto=193|194;ejecutivo=WEBBCI;canal=117;rut=Rut Cliente;
+
+eventoPedido;StrTaskTypeCode=101;StrSubTaskTypeCode=280;StrRoleCode=C03;StrSubTaskTypeDescription=Pedidos;
+eventoReclamo;StrTaskTypeCode=101;StrSubTaskTypeCode=279;StrRoleCode=C03;StrSubTaskTypeDescription=Reclamo;
+
+seguroTBanc;area=WTB;rol=D37;tipo=101;subproducto=193|194;ejecutivo=WEBTBANC;
+noseguroTBanc;area=WTB;rol=D38;tipo=101;subproducto=193|194;ejecutivo=WEBTBANC;canal=100;rut=Rut Cliente;
+accion;codigo=UPD;
+tipoLista;codigo=TP2;
+
+eventoSinNivelSeguro110;eventoF=EHT;tiempoF=1;eventoS=EHS;tiempoS=2;eventoD=850;tiempoD=5;
+eventoSinNivelSeguro100;eventoF=EHT;tiempoF=1;eventoS=EHS;tiempoS=2;eventoD=850;tiempoD=5;
+eventoSinNivelSeguro800;eventoF=FK8;tiempoF=1;eventoS=FKA;tiempoS=2;eventoD=850;tiempoD=5;
+eventoSinNivelSeguro230;eventoF=FJQ;tiempoF=1;eventoS=FJS;tiempoS=2;eventoD=850;tiempoD=5;
+eventoSinNivelSeguro117;eventoF=EHT;tiempoF=1;eventoS=EHS;tiempoS=2;eventoD=850;tiempoD=5;
+eventoSinNivelNoSeguro110;eventoF=EHV;tiempoF=1;eventoS=EHU;tiempoS=2;
+eventoSinNivelNoSeguro800;eventoF=FK7;tiempoF=1;eventoS=FK9;tiempoS=2;
+eventoSinNivelNoSeguro230;eventoF=FJP;tiempoF=1;eventoS=FJR;tiempoS=2;
+eventoSinNivelNoSeguro117;eventoF=EHV;tiempoF=1;eventoS=EHU;tiempoS=2;
+
+eventoSinNivel;nivel01=101;nivel02=280;nivel04=194;glosa=Soporte Postventa/Pedidos/Servicios;areaDestino=C3M;rolDestino=D34;
+email;fromNombre=BANCO DE CREDITO E INVERSIONES;fromDireccion=TCANAL@bci.cl;
+eventoDirecciones;nivel01=101;nivel02=280;nivel04=194;glosa=Soporte Postventa/Pedidos/Servicios;areaDestino=LPV;rolDestino=D40;nombreEvento=Solicitud de Domicilio Principal;
+eventoFirmas;nivel01=101;nivel02=280;nivel04=194;glosa=Soporte Postventa/Pedidos/Servicios;areaDestino=C1M;rolDestino=D34;nombreEvento=Actualizacion Firma Clientes;codigoEvento=E8A;tpoSolucion=20;
+direccionRemitente;avisoCierre=Bci_Servicio_Post_Venta@bci.cl;eventoCorreo=Bci_Servicio_Post_Venta@bci.cl;
+nombreRemitente;avisoCierre=Soporte Post Venta Bci;eventoCorreo=;
+cuerpo;avisoCierre=Estimado(a) Ejecutivo(a): Con fecha [FECHACORREO], se le informa que se ha registrado un cierre de evento, cuyo Número es: [NUMEROPEDIDO], datos Cliente: Rut Cliente: [RUTCLIENTE].;eventoCorreo=Estimado(a) Cliente: ;
+asunto;avisoCierre=Cierre Evento SPV;eventoCorreo=Respuesta a su requerimiento Numero;
+fechaCorreo;desc=[FECHACORREO];
+numeroPedido;desc=[NUMEROPEDIDO];
+rutCliente;desc=[RUTCLIENTE];
+campoIndicadorAvisoCierre;desc=Aviso De Cierre;
+areaDestinoCorreoCliente;desc=C1M|C2M|C3M|C4M|C5M|C9M|S1M|S2M|BEL|LPV|SE1|UPE|PAC|SE3|SE5|URT|S5M|SPV|PVL|CRN|CYC|A06|A05|C6M|S1T|A19|ACA|CMX|CUR|UCE|S4M|CTX;
+nombreDeCampoResumenEjecutivo;desc=Resumen Ejecutivo;
+correoEjecutivoCabecera;desc=NO;
+glosaOrigenEvento;800=Web Nova;110=Web Personas;230=Web Empresas;117=Web Banca Privada;
+atributoCampoOrigen;request=Origen Transmision;
+#Parametros para ingreso de eventos Banca Empresa
+
+configuracionBancaEmpresa;nivel01=101-Soporte Postventa;nivel02=280-Pedidos;nivel04=194-Servicios;areaOrigen=BEM;rolOrigen=A96;ejecutivoOrigen=USUEEMP;
+eventosBancaEmpresa;codEventos=ENN-EK5-EJL;
+ENN;descripcion=Solicitud de Documentos Física;campoObligatorio=direccion;areaDestino=SE3;rolDestino=ES3;tiempoSolucion=2;
+EK5;descripcion=Solicitud de documentos Electrónica;campoObligatorio=email;areaDestino=SE3;rolDestino=ES3;tiempoSolucion=5;
+EJL;descripcion=No entrega de productos/correspondencia;areaDestino=SE3;rolDestino=ES3;tiempoSolucion=1;
+
+#Roles de Ejecutivos que pueden ingresar nuevos Eventos.
+
+rol;Desc=C36;
+
+#Areas de Ejecutivos que pueden ingresar nuevos Eventos.
+
+area;Desc=BEM;
+
+#Valores por defecto para el ingreso de eventos Atención Punta.
+codTipoEventoDef;Desc=103;
+codProductoDef;Desc=297;
+codSubProductoDef;Desc=225;
+mensajeAvisoEjecutivoArchivo;desc=Estimado Ejecutivo: Recuerde registrar el archivo adjunto en la sección documentos adjuntos del evento respectivo.;
+tamanoMaximoArchivo;desc=10485760;
+#Valores para la journalizacion
+codProducto;eventoGeneral=EVENTOS;eventosVigentes=EVTVIG;eventosCerrados=EVTCER;
+codEvento;consulta=CNS;ingreso=ING;
+codSubEvento;vistaCliente=CLI;vistaEjecutivo=EJE;
+
+#Campos Dinámicos relacionados al cobro de servicio en Post venta.
+montoACobrar;Desc=Monto a Cobrar;Desc2=Monto de pago;
+tipoDeDocumento;Desc=Tipo de Documento;Desc2=Detalle Pedido;Desc3=Tipo pedido;
+rutEmpresa;Desc=Rut Empresa;Desc2=Rut beneficiario;
+cuentaDeCargo;Desc=Cuenta de cargo;
+formaAutorizacion;Desc=Forma de Autorizar;
+nombreCliente;Desc=Nombre Cliente;
+mailContacto;Desc=Mail Contacto Cliente;
+numeroConvenio;Desc=Numero de convenio;
+rutUsuario;Desc=Rut Cliente;
+codigoMail;cod=EMA;
+
+#llaves, nemónicos y transacción para cobro de servicios en Post-Venta.
+TD001;nemonico=1170;transaccion=V0670;
+TD002;nemonico=1170;transaccion=V0670;
+TD003;nemonico=1170;transaccion=V0670;
+TD004;nemonico=1170;transaccion=V0670;
+TD005;nemonico=1170;transaccion=V0670;
+TD006;nemonico=1170;transaccion=V0670;
+TD007;nemonico=1170;transaccion=V0670;
+TD008;nemonico=1170;transaccion=V0670;
+TD009;nemonico=1170;transaccion=V0670;
+TD010;nemonico=1170;transaccion=V0670;
+TD011;nemonico=1170;transaccion=V0670;
+TP002;nemonico=803;transaccion=B0675;
+TP003;nemonico=803;transaccion=B0675;
+TP004;nemonico=1171;transaccion=V0670;
+TP005;nemonico=1171;transaccion=V0670;
+TP006;nemonico=1171;transaccion=V0670;
+TP007;nemonico=1169;transaccion=V0670;
+TP008;nemonico=1171;transaccion=V0670;
+TP009;nemonico=1171;transaccion=V0670;
+TP010;nemonico=1171;transaccion=V0670;
+TP011;nemonico=1171;transaccion=V0670;
+TP012;nemonico=1171;transaccion=V0670;
+TP013;nemonico=1171;transaccion=V0670;
+TP014;nemonico=923;transaccion=V0670;
+TP015;nemonico=1170;transaccion=V0670;
+TP016;nemonico=1171;transaccion=V0670;
+TP017;nemonico=923;transaccion=V0670;
+TP018;nemonico=1171;transaccion=V0670;
+TP019;nemonico=1171;transaccion=V0670;
+DP001;nemonico=1170;transaccion=V0670;
+DP002;nemonico=1170;transaccion=V0670;
+DP003;nemonico=1171;transaccion=V0670;
+DP004;nemonico=1171;transaccion=V0670;
+DP005;nemonico=1171;transaccion=V0670;
+DP006;nemonico=1171;transaccion=V0670;
+DP007;nemonico=1171;transaccion=V0670;
+DP008;nemonico=1171;transaccion=V0670;
+DP009;nemonico=1171;transaccion=V0670;
+DP010;nemonico=1171;transaccion=V0670;
+DP011;nemonico=1171;transaccion=V0670;
+DT002;nemonico=1169;transaccion=V0670;
+DT003;nemonico=803;transaccion=B0675;
+DT004;nemonico=803;transaccion=B0675;
+DT005;nemonico=1171;transaccion=V0670;
+DT006;nemonico=1171;transaccion=V0670;
+DT007;nemonico=1171;transaccion=V0670;
+DT008;nemonico=1171;transaccion=V0670;
+DT009;nemonico=1171;transaccion=V0670;
+DT010;nemonico=1171;transaccion=V0670;
+
+#cantidad de registros por página para consulta de cobros
+cantidadRegistros;Desc=10;
+
+#clave y conjunto de eventos.
+SCC;Desc=G8V/G8U/G8S/G8R/G8T/FZD/;
+SDE;Desc=FZC/G8M/G8N/G8O/G8P/G8Q/H5N/HCR/HMK/HFB/K88/K87/K86/K8Y/HE7/HFN/;
+SDF;Desc=FP1/FOX/FOY/FOZ/FP0/FP2/HCS/;
+SDI;Desc=FZ8/;
+
+#INFORMACIÓN AUTORIZACIÓN DE COBROS
+INFO-AUT-001;Desc= Cobro autorizado y efectuado exitosamente.;
+INFO-AUT-002;Desc= Cargo pendiente por falta de firmas en la autorización.;
+INFO-AUT-003;Desc= Su firma no está ingresada como apoderado de la cuenta.;
+INFO-AUT-004;Desc= El apoderado ya ha firmado la autorización de cargo.;
+INFO-AUT-005;Desc= Existe un problema con la conexión, por favor intente en un momento.;
+
+#claves formato archivo consulta en Excel
+nombreArchivoExcel;desc=Detalle cobro Comisiones.xls;
+tituloHojaExcel_;COBEFE=Detalle Cobros Efectuados;
+nombreHojaExcel;COBEFE=Detalle Cobros;
+cantidadColumnas;cantidad=11;
+anchoColumna;ancho_0=4000;ancho_1=15000;ancho_2=10000;ancho_3=4000;ancho_4=5500;ancho_5=10000;ancho_6=7000;ancho_7=7000;ancho_8=7000;ancho_9=6500;ancho_10=10000;
+#tituloDetCobros;cantidad=11;
+tituloDetCobros;titulo_0=Rut Empresa;titulo_1=Nombre Empresa;titulo_2=Nombre Documento;titulo_3=Monto cobrado;titulo_4=Número del evento asociado;titulo_5=Nombre tipo de evento;titulo_6=Fecha ingreso cargo;titulo_7=Fecha autorización;titulo_8=Fecha ejecución cargo;titulo_9=Cuenta Corriente Cargada;titulo_10=Resolutor del cobro;cantidad=11;
+tamanoFuente;Desc=15;
+fuente;Desc=Tahoma;
+
+#mensaje Eventos No autorizados
+MSJ-NOAUT;cliente=Estimado cliente. El evento nº <EVENTO> no ha podido ser autorizado por el siguiente motivo: <MOTIVO>;ejecutivo=El evento nº <EVENTO> no ha podido ser autorizado por el siguiente motivo: <MOTIVO>;
+EVT-ENCABEZADO;bciex=Estimado cliente, ;colaborador=Estimado colaborador, ;
+rangoFecha;Desc=-1;
+
+#mensajes correos
+mailContactoBCI;empresas=apoyoempresa@bci.cl;empresarios=apoyoempresarios@bci.cl;
+TEL-APOYO;Desc=600 224 3300;
+BANCA;empresas=EG/EX/EM/EMQ/EGM/EQ;empresarios=PM/PMN/PMR;
+cuerpoAutorizacion;bciex=Estimado(a) <NOMBRE>\n\n Junto con saludarle, le notificamos que con fecha <FECHA> usted ha autorizado a traves del sitio\nweb, un pago asociado a su pedido Nº <NUMPEDIDO>, de la empresa <NOMEMPRESA>\n\nPor concepto del serivcio Pedidos/Solicitud de Documentos se ha generado un cobro por un monto de $<MONTO>, el cual ha sido cargado en su cuenta numero <NUMCUENTA>.\n<CONTACTO>\n\nSe despide atentamente, <BANCA>\n\nInformese sobre la garantia estatal de los depositos de su banco o en www.sbif.cl\n\nNotas:\nEste email es generado de manera automatica, por favor no responda a este mensaje.\nNo obstante lo anterior, si no desea recibir este tipo de emails, responda este mail con el asunto 'Remover'.;ejecutivo=Se notifica que el pago asociado al pedido Nro. <NUMEVENTO> ha sido autorizado y pagado exitosamente.\n\nMonto Cargo: $<MONTO>\nCuenta Cargo: $<CTACARGO>\nNombre Cliente: $ <NOMCLIENTE>\n\n<BANCA>\n\n\nSaludos.\n\nBCI\n\n(Este mail es enviado por un proceso automatico, por favor no responder a esta casilla)\n\n(Los acentos se omiten deliberadamente para evitar problemas de codificacion en la lectura);
+from;bciex=apoyoempresarios@bci.cl;ejecutivo=apoyoempresarios@bci.cl;
+desde;bciex=apoyoempresarios;ejecutivo=apoyoempresarios;
+asuntoCorreo;bciex=Ingreso de pedido Bci Nro: <NUMEVENTO> Solicitud Certificados;ejecutivo=Evento Pagado Web Nro: <NUMEVENTO> Solicitud Certificados;
+bancaCliente;empresa=Bci Empresas;empresarios=Bci Empresarios;Desc=BCI;
+contacto;Desc=Por cualquier duda al respecto de este correo, por favor escribanos a <MAIL> o llamenos al fono <TELEFONO>.;Desc2= ;
+imagenesBCI;empresa=http://www.bci.cl/medios/BCI2/art/mailing/logo_bci_empresas.jpg;empresarios=http://www.bci.cl/medios/BCI2/art/mailing/logo_bci_empresarios.gif;Desc=http://www.bci.cl/medios/BCI2/art/mailing/tj_009.gif;
+generaCorreo;Desc=/belwls/cobros/xsl/cuerpoCorreo.xsl;workstationwls=/workstationwls/comisiones/cobroComisiones/xsl/cuerpoCorreo.xsl;portalwls=/portalwls/comisiones/cobroComisiones/xsl/cuerpoCorreo.xsl;colaborador=/comisiones/cobroComisiones/xsl/cuerpoCorreo.xsl;
+sincobrar;Desc=no existe documento;
+
+#mensajes al cliente.
+EVT-MSJ-COB;Desc= en estos momentos el cobro no puede ser efectuado, por favor, intente más tarde.;
+EVT-MSJ-SlDO-INSFCIENTE;Desc=el monto a cobrar es mayor que el saldo total de la cuenta.;
+EVT-MSJ-NO-CON;Desc= el cargo no ha podido ser efectuado debido a un fallo en la cosulta, por favor, intente más tarde.;
+EVT-MSJ-CTACTE;Desc=la cuenta ingresada no es una cuenta corriente.;
+EVT-MSJ-OBT-CON;Desc= en estos momentos no se ha podido realizar la consulta, por favor, intente más tarde.;
+EVT-MSJ-CER-DIG;Desc=se ha producido un error al verificar su forma de firmar.;
+EVT-MSJ-TOK-USU;Desc=el token utilizado no pertenece al usuario.;
+EVT-MSJ-VAL-TOK;Desc= se ha producido un fallo al verificar el dispositivo, por favor, intente más tarde.;
+EVT-MSJ-MULT;Desc=clave Multipass incorrecta. Si sigue presentando este problema comuníquese con nuestra Asistencia bci.cl y una ejecutiva lo atenderá.;
+EVT-MSJ-TIP-APO;Desc=se ha producido un error al consultar el tipo de apoderado.;
+EVT-MSJ-NO-AUT;Desc= existen problemas de conexión, por favor, intente más tarde.;
+EVT-MSJ-AUT-COB;Desc= en estos momentos no es posible autorizar sus cobros, por favor, intente más tarde.;
+EVT-MSJ-EXCEL;Desc= se ha producido un error al generar el archivo excel, por favor, intente más tarde.;
+EVT-MSJ-MAIL;cliente=El correo no ha podido ser enviado al cliente;ejecutivo=El correo no ha podido ser enviado al ejecutivo;
+EVT-MSJ-MOD-COB;Desc= el cobro no ha podido ser modificado, por favor, intente más tarde.;
+EVT-MSJ-NO-PRODUCTO;Desc= no posee permisos para acceder a este producto.;
+EVT-MSJ-NOCTACTE;Desc1=La cuenta no es cuenta corriente;Desc2=Cuenta no existe;
+EVT-MSJ-UCE-NOAPO;Desc=esta acción solo puede ser ejecutada por Apoderados Autorizados.;
+
+#Descripciones para la apliacion de Ingreso y Seguimientos de Pedidos en la web empresas y Empresarios.
+
+H61;glosaH61=Solicitar Certificados aclaratorios, cartas de autorización, certificados de saldos o deudas vigentes, etc. Solicitar este servicio puede generar un cargo en su cuenta el cual le será comunicado oportunamente. Por favor notar que hay certificados que están disponibles online en la opción 'Certificados' del menú de 'Administración';
+H62;glosaH62=Solicitar el pago de cuotas de crédito, tarjeta de crédito, pagar línea de sobregiro, dividendos hipotecarios, etc. que no se pueda realizar desde el sitio web.;
+H63;glosaH63=Informe aquí sus reclamos por algún problema con la atención de sus pedidos;
+H64;glosaH64=Solicitar aclarar movimientos no reconocidos en la cartola de cuenta corriente;
+H65;glosaH65=Consultar por entrega de productos solicitados al banco como por ejemplo talonarios, tarjetas, cheques continuos, mandatos PAC, mandatos de recaudación, etc.;
+H66;glosaH66=Informe aquí problemas con los servicios y productos del banco;
+H67;glosaH67=Solicitar Copias de Cheques, Cartolas, Facturas, Otros documentos que no estén disponibles en la consulta de documentos, recuerde que estos aparecen 48 horas después del ingreso del movimiento, curse o transacción. Solicitar este servicio puede generar un cargo en su cuenta el cual le será comunicado oportunamente;
+H68;glosaH68=Solicitar información por rendiciones, cuadraturas de movimientos, archivos de cartolas electrónicas, calendarios de pago, cálculos y liquidaciones de créditos;
+
+#Descripciones para la apliacion de Ingreso y Seguimientos de Pedidos Nuevos en la web empresas y Empresarios.
+LRJ;glosaLRJ=Solicitar Apertura de cuenta prima, favor indicar en los comentarios la dirección de entrega de tarjetas. Para Aperturas de Cuentas Primas se debe adjuntar archivo Planilla Emisión Cuentas Primas.xls. Nuestros horarios de recepción de archivos, sólo días hábiles, de lunes a jueves desde 09:00 Hrs. hasta 19:30 Hrs. y viernes hasta las 16:00 Hrs.;
+LRK;glosaLRK=Favor indicar en comentarios si la operación trata de vinculación o desvinculación de cuenta prima. Para Vincular/desvincular Cuentas Primas se debe adjuntar archivo Asociacion - desasociacion de ctas.xls. Nuestros horarios de recepción de archivos, sólo días hábiles, de lunes a jueves desde  09:00 Hrs. hasta 19:30 Hrs y viernes hasta las 16:00 Hrs.;
+LRL;glosaLRL=Solicitud de envío de remesa al extranjero, horario de recepción instrucciones sólo días hábiles, de lunes a viernes desde  09:00 Hrs. hasta 14:00 Hrs. Todas las instrucciones recibidas después de las 14:00 hrs tendrán fecha de curse día hábil siguiente. Las Órdenes de Pago serán cursadas sólo con carta instrucción adjunta.;
+LRM;glosaLRM=Solicitud de Transferencia de fondos y pagos horario de recepción instrucciones sólo días hábiles, de lunes a jueves desde  09:00 Hrs. hasta 17:00 Hrs. Viernes de 09:00 Hrs. hasta 16:30 Hrs Transferencias de fondo LBTR  horario de recepción instrucciones sólo días hábiles, de lunes a viernes desde  09:00 Hrs hasta 14:00 hrs. Las Transferencias de Fondos y Pagos  serán cursadas sólo con carta instrucción adjunta.;
+
+#Descripciones para la apliacion de Ingreso y Seguimientos de Excepcioness en la web empresas y Empresarios.
+LRN;glosaLRN=Nuestros horarios de recepción de archivos, sólo días hábiles,  de lunes a viernes desde  09:00 Hrs. hasta 15:50 Hrs. Las excepciones serán cursadas contar carta instrucción adjunta. Solicitar Apertura DKT, Autorización de pago, Cambio fecha folio, Envío manual de pagos.;
+LRO;glosaLRO=Nuestros horarios de recepción de archivos, sólo días hábiles,  de lunes a viernes desde  09:00 Hrs. hasta 15:00 Hrs. Eliminación de registros BCI hasta las 14:00 hrs, registros otros bancos hasta las 12:00 hrs. Las excepciones serán cursadas contar carta instrucción adjunta. Solicitar Apertura DKT, Autorización de pago, Cambio fecha folio, Envío manual de pagos.;
+LRP;glosaLRP=Las excepciones serán cursadas contar carta instrucción adjunta.;
+LRQ;glosaLRQ=Las excepciones serán cursadas contar carta instrucción adjunta.;
+LRR;glosaLRR=Las excepciones serán cursadas contar carta instrucción adjunta.;
+
+
+campoBuscado;campoCorreo=CORREO CONTACTO;campoNombreContacto=Nombre Contacto Cliente;campoTelefonoContacto=Teléfono Contacto 1;
+canales;canalWebBci=Web Bci;canalDesconocido=Otro Canal;
+operacion;pedidoAnulado=Pedido Anulado Nº;pedidoComentario=Se ha ingresado un comentario al Pedido Nº;pedidoConsultado=Pedido Consultado Nº;pedidoIngresado=Pedido Ingresado Nº;
+comentario;pieComentario=Comentario agregado por:;comentarioAnular=Pedido Anulado por:;
+
+tiempoEsperaServidor;Desc=5000;
+
+tamanioMaximoDelArchivo;Desc=5000000;
+extensionesPermitidas;Desc=pdf,doc,xls,jpg;
+
+IP_Maquina_Subida;Desc=161.131.194.19;
+puertoMaquina_Subida;Desc=80;
+direccionPaginaWeb;Desc=http://161.131.194.19/bcieventos/IngresoEventos/doUploadEventos.asp;
+
+##--< Bajar archivos a Microsystem.>---
+
+headerUtilizado;Desc=Mozilla/4.0 (compatible; MSIE 6.0; Windows 2000);
+IP_Maquina_Bajada;Desc=161.131.194.20;
+
+puertoMaquina_Bajada;Desc=80;
+juegoDeCaracteres;Desc=ISO-8859-1;
+
+BuscarPorGlosaTipoEvento;Desc=TIPO EVENTO;
+BuscarPorGlosaValorEvento;Desc=BCIEXPRESS;
+
+##--<  FTP archivos a Microsystem. >---
+
+FTP_HOST;Desc=161.131.184.80;
+FTP_USUARIO;Desc=pedidos;
+FTP_PASSWORD;Desc=pedidos01 ;
+FTP_PWD;Desc=/seguimiento_pedidos;
+
+# Parámetros asociados a eventos del tipo Problemas
+productoProblema;codigoSubProducto=193;
+largoEveProblema;Desc=3;
+codEve0;codigoEvento=H63;
+codEve1;codigoEvento=H64;
+codEve2;codigoEvento=H66;
+
+# Parámetros asociados a eventos del tipo Pedidos
+productoProblemaNuevo;codigoSubProducto=194;
+largoEveProblemaNuevo;Desc=4;
+codEveNuevo0;codigoEvento=LRJ;
+codEveNuevo1;codigoEvento=LRK;
+codEveNuevo2;codigoEvento=LRL;
+codEveNuevo3;codigoEvento=LRM;
+
+# Parámetros asociados a eventos del tipo Excepciones
+productoExcepcion;codigoSubProducto=315;
+largoEveExcepcion;Desc=5;
+codEveExcepcion0;codigoEvento=LRN;
+codEveExcepcion1;codigoEvento=LRO;
+codEveExcepcion2;codigoEvento=LRP;
+codEveExcepcion3;codigoEvento=LRQ;
+codEveExcepcion4;codigoEvento=LRR;
+
+# Mimes permitidos para enviar por correo
+mime; application/pdf=OK;application/x-pdf=OK;application/acrobat=OK;applications/vnd.pdf=OK;text/pdf=OK;text/x-pdf=OK;application/zip=OK;application/x-zip=OK;application/x-zip-compressed=OK;application/octet-stream=OK;application/x-compress=OK;application/x-compressed=OK;multipart/x-zip=OK;application/vnd.openxmlformats-officedocument.wordprocessingml.document=OK;application/msword=OK;application/doc=OK;appl/text=OK;application/vnd.msword=OK;application/vnd.ms-word=OK;application/winword=OK;application/word=OK;application/x-msw6=OK;application/x-msword=OK;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=OK;application/vnd.ms-excel=OK;application/msexcel=OK;application/x-msexcel=OK;application/x-ms-excel=OK;application/vnd.ms-excel=OK;application/x-excel=OK;application/x-dos_ms_excel=OK;application/xls=OK;image/tif=OK;image/x-tif=OK;image/tiff=OK;image/x-tiff=OK;application/tif=OK;application/x-tif=OK;application/tiff=OK;application/x-tiff=OK;application/x-rar-compressed=OK;application/rar=OK,application/x-rar=OK;application/x-rar-compressed=OK;text/plain=OK;application/txt=OK;browser/internal=OK;text/anytext=OK;widetext/plain=OK;widetext/paragraph=OK;
+# Extensiones permitidas para archivos adjuntos en envio de correos Sistema de Eventos
+extensionesPermitidas;desc=.pdf,.rar,.zip,.tif, .tiff,.xls,.xlsx,.doc,.docx,.txt
+
+# eventos bci=901 tbanc =905
+901;ReqNumber=-1;StatusTypeCode=ING;TaskTypeCode=101;SubTaskTypeCode=280;TaskCode=KA7;SubProducto=193;PromiseDtMarker=2;Glosa=Soporte Postventa/Pedidos/Servicios/Pedido de Condiciones y productos Movil;AreaDestiny=C1M;RoleCode=D34;AreaSource=WBC;OrgRoleCode=D37;ExecutiveEntered=WEBBCI;
+905;ReqNumber=-1;StatusTypeCode=ING;TaskTypeCode=101;SubTaskTypeCode=280;TaskCode=KA8;SubProducto=193;PromiseDtMarker=2;Glosa=Soporte Postventa/Pedidos/Servicios/Pedido de Condiciones y productos Movil;AreaDestiny=C1M;RoleCode=D34;AreaSource=WTB;OrgRoleCode=D37;ExecutiveEntered=WEBBCI;
+
+URL-SUCURSALES;desc=http://www.bci.cl/personas/sucursales/index.html;
+URL-VIDEO;desc=http://www.bci.cl/personas/transparencia/index.html;
+URL-PREGUNTAS;desc=http://www.bci.cl/personas/preguntasfrecuentes.html;
+
+EVT-TUP;codigos=EG3,LJY,EG2,EG6,H3A,EG7,EG4;
+EVT-MDP;codigos=K7A,EG5;
+
+tipoEvento;asignado=A;prorrogado=P;cerrado=C;
+avisoPorCorreo;nombreCampo=¿Como quiere que le alertemos?;respuestaPositiva=E-MAIL;
+
+
+#Eventos asociados a campañas:
+eventoCampanas_multilinea;codEvento=LNQ;nivel=;glosa=Banco/Pedidos/Producto Web;nombreEvento=Campaña Multilinea;areaOrigen=WBE;areaDestino=BEL;rolOrigen=D37;rolDestino=C54;subProducto=313;nombreCmp=Campaña Multilinea;ejecutivo=BCELIS;
+eventoCampanas_CVD;nivel=;codEvento=LNS;glosa=Banco/Pedidos/Producto Web;nombreEvento=Campaña Compra Venta de Divisas;areaOrigen=WBE;areaDestino=BEL;rolOrigen=D37;rolDestino=C54;subProducto=313;nombreCmp=Campaña Compra Venta de Divisas;ejecutivo=BCELIS;
+eventoCampanas_PNL;nivel=;codEvento=LNR;glosa=Banco/Pedidos/Producto Web;nombreEvento=Campaña Pago de Nómina en Linea;areaOrigen=WBE;areaDestino=BEL;rolOrigen=D37;rolDestino=C54;subProducto=313;nombreCmp=Campaña Pago de Nómina en Linea;ejecutivo=BCELIS;

@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="bciComexRipple.procedimientosAlmacenados">
+
+
+<!-- obtener Nodos Ripple disponibles -->
+<resultMap id="getObtenerNodosRippleDisp" class="java.util.HashMap">
+<result property="indicadorResultado" column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"   column="wss_result_msg"  javaType="String"/>
+<result property="bicBanco"           column="fld_rpp_bic_bco" javaType="String"/>
+<result property="nombreBanco"        column="fld_rpp_nam_bco" javaType="String"/>
+</resultMap>
+<procedure id="obtenerNodosRippleDisp" resultMap="getObtenerNodosRippleDisp">
+{ CALL FBPsrv_shw_avl_nod () }
+</procedure>
+
+<!-- obtener monedas permitidas-->
+<parameterMap id="setObtenerMonedasPermitidas" class="java.util.HashMap">
+<parameter property="fld_rpp_bic_bco" jdbcType="CHAR" javaType="String"/>
+</parameterMap>
+<resultMap id="getObtenerMonedasPermitidas" class="java.util.HashMap">
+<result property="indicadorResultado" column="wss_result_sw"  javaType="java.lang.Integer"/>
+<result property="mensajeResultado"   column="wss_result_msg" javaType="String"/>
+<result property="codigoIso"          column="COD_MDANDP"     javaType="String"/>
+<result property="nombreMoneda"       column="GLO_MDANDP"     javaType="String"/>
+<result property="mtoMaximo"          column="MTO_MAXIMO"     javaType="java.math.BigDecimal"/>
+</resultMap>
+<procedure id="obtenerMonedasPermitidas" parameterMap="setObtenerMonedasPermitidas" resultMap="getObtenerMonedasPermitidas">
+{ CALL FBPsrv_shw_cur_rpp (?) }
+</procedure>
+
+<!-- obtener beneficiarios-->
+<parameterMap id="setObtenerBeneficiariosAutorizadosRipple" class="java.util.HashMap">
+<parameter property="fld_cln_rut_emp" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_ben_mda_cta" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_rpp_bic_bco" jdbcType="CHAR"    javaType="String"/>
+</parameterMap>
+<resultMap id="getObtenerBeneficiariosAutorizadosRipple" class="java.util.HashMap">
+<result property="indicadorResultado" column="wss_result_sw"      javaType="java.lang.Integer"/>
+<result property="mensajeResultado"   column="wss_result_msg"     javaType="String"/>
+<result property="identificacion"     column="fld_fbpben_ide_ben" javaType="String"/>
+<result property="nombre"             column="fld_fbpben_nbn_ln1" javaType="String"/>
+<result property="ctaCorriente"       column="fld_fbpben_num_cta" javaType="String"/>
+<result property="bicBanco"           column="fld_fbpben_bco_bbn" javaType="String"/>
+<result property="paisBanco"          column="fld_fbpben_ctr_ben" javaType="String"/>
+</resultMap>
+<procedure id="obtenerBeneficiariosAutorizadosRipple" parameterMap="setObtenerBeneficiariosAutorizadosRipple" resultMap="getObtenerBeneficiariosAutorizadosRipple">
+{ CALL FBPsrv_shw_csb_rpp (?,?,?) }
+</procedure>
+
+
+<!-- obtener Detalle Beneficiario Ripple-->
+<parameterMap id="setObtenerDetalleBeneficiarioRipple" class="java.util.HashMap">
+<parameter property="fld_cln_rut_emp" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_ben_ide_ben" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_ben_mda_cta" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_ben_ctr_ben" jdbcType="CHAR"    javaType="String"/>
+</parameterMap>
+<resultMap id="getObtenerDetalleBeneficiarioRipple" class="java.util.HashMap">
+<result property="indicadorResultado" column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"   column="wss_result_msg"  javaType="String"/>
+<result property="nombre"             column="fld_ben_nam_pri" javaType="String"/>
+<result property="nombreCont" 	      column="fld_ben_nam_nex" javaType="String"/>
+<result property="direccion"          column="fld_ben_dir_pri" javaType="String"/>
+<result property="direccionCont"      column="fld_ben_dir_nex" javaType="String"/>
+<result property="paisResidencia"     column="fld_ben_ctr_res" javaType="String"/>
+<result property="nombrePaisRes"      column="fld_ben_nam_crs" javaType="String"/>
+<result property="infoAdicional"      column="fld_ben_iad_pri" javaType="String"/>
+<result property="infoAdicionalCont"  column="fld_ben_iad_nex" javaType="String"/>
+<result property="ctaCorriente"       column="fld_ben_num_cta" javaType="String"/>
+<result property="banco"              column="fld_ben_bco_bbn" javaType="String"/>
+<result property="nombreBanco"        column="fld_ben_nam_bbn" javaType="String"/>
+<result property="direccionBanco"     column="fld_ben_dir_bbn" javaType="String"/>
+<result property="email"              column="fld_ben_eml_dr1" javaType="String"/>
+<result property="nombrePaisBco"      column="fld_nam_ctr_ben" javaType="String"/>
+<result property="ctaCorrienteBenef"  column="fld_trd_m_59"    javaType="String"/>
+<result property="nombreLineaUno"     column="fld_trd_m_59_1"  javaType="String"/>
+<result property="nombreLineaDos"     column="fld_trd_m_59_2"  javaType="String"/>
+<result property="nombreLineaTres"    column="fld_trd_m_59_3"  javaType="String"/>
+<result property="nombreLineaCuatro"  column="fld_trd_m_59_4"  javaType="String"/>
+</resultMap>
+<procedure id="obtenerDetalleBeneficiarioRipple" parameterMap="setObtenerDetalleBeneficiarioRipple" resultMap="getObtenerDetalleBeneficiarioRipple">
+{ CALL FBPsrv_shw_dbn_rpp (?,?,?,?) }
+</procedure>
+
+<!-- obtener comision-->
+<parameterMap id="setObtenerComisiones" class="java.util.HashMap">
+<parameter property="fld_cln_rut_emp" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_hdr_mda_itf" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_mto_pag" jdbcType="NUMBER"  javaType="java.math.BigDecimal"/>
+<parameter property="fld_rpp_bic_bco" jdbcType="CHAR"    javaType="String"/>
+</parameterMap>
+<resultMap id="getObtenerComisiones" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+<result property="codigoIso"           column="fld_cln_mda_cta" javaType="String"/>
+<result property="ctaDebitoComisiones" column="fld_cln_cta_cte" javaType="String"/>
+<result property="comisionEnvio"       column="fld_cyg_mto_uni" javaType="java.math.BigDecimal"/>
+<result property="tipoComision"        column="fld_cyg_ind_all" javaType="java.lang.Integer"/>
+<result property="descTipoComision"    column="fld_cyg_rty_des" javaType="String"/>
+<result property="tipoTarifa"          column="fld_cyg_rat_typ" javaType="String"/>
+<result property="key"                 column="fld_cyg_rat_key" javaType="String"/>
+</resultMap>
+<procedure id="obtenerComisiones" parameterMap="setObtenerComisiones" resultMap="getObtenerComisiones">
+{ CALL FBPsrv_shw_cyg_rpp (?,?,?,?) }
+</procedure>
+
+<!-- Registrar Transferencia-->
+<parameterMap id="setRegistrarTransferencia" class="java.util.HashMap">
+<parameter property="fld_hdr_rut_ord" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_hdr_nom_ord" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_hdr_mda_itf" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_hdr_cta_orf" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_mto_pag" jdbcType="NUMBER"  javaType="java.math.BigDecimal"/>
+<parameter property="fld_det_inf_rem" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_cyg_mda_cta" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_cyg_cta_cte" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_cod_ben" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_ctr_ben" jdbcType="CHAR"    javaType="String"/>
+<parameter property="fld_det_cod_cmb" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_hrp_itf" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_cyg_rat_key" jdbcType="CHAR"    javaType="String"/>
+<parameter property="fld_det_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+<resultMap id="getRegistrarTransferencia" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+<result property="numeroCorrelativo"   column="fld_hdr_sys_num" javaType="java.lang.Integer"/>
+<result property="systimestamp"        column="fld_det_SysTms"  javaType="String"/>
+</resultMap>
+<procedure id="registrarTransferencia" parameterMap="setRegistrarTransferencia" resultMap="getRegistrarTransferencia">
+{ CALL FBPsrv_reg_itf_rpp (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+</procedure>
+
+<!-- consultar Limite Horario Ingreso -->
+<resultMap id="getConsultarLimiteHorarioIngreso" class="java.util.HashMap">
+<result property="indicadorResultado" column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"   column="wss_result_msg"  javaType="String"/>
+</resultMap>
+<procedure id="consultarLimiteHorarioIngreso" resultMap="getConsultarLimiteHorarioIngreso">
+{ CALL FBPsrv_jct_trp_lim () }
+</procedure>
+
+<!-- firmar o eliminar Transferencia Ripple-->
+<parameterMap id="setFirmarOEliminarTransferenciaRipple" class="java.util.HashMap">
+<parameter property="fld_rpp_tip_acc" jdbcType="CHAR" javaType="String"/>
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+<parameter property="fld_det_SysTms"  jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_det_hrp_itf"  jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_fbp_usr_eve"  jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_fbp_nip_usr"  jdbcType="VARCHAR" javaType="String"/>
+<parameter property="fld_fbp_txt_eve"  jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+<resultMap id="getFirmarOEliminarTransferenciaRipple" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+</resultMap>
+<procedure id="firmarOEliminarTransferenciaRipple" parameterMap="setFirmarOEliminarTransferenciaRipple" resultMap="getFirmarOEliminarTransferenciaRipple">
+{ CALL FBPsrv_apr_itf_rpp (?,?,?,?,?,?,?) }
+</procedure>
+
+<!-- debitar cuenta corriente MX-->
+<parameterMap id="setDebitarCuentaCorrienteMX" class="java.util.HashMap">
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+</parameterMap>
+<resultMap id="getDebitarCuentaCorrienteMX" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+</resultMap>
+<procedure id="debitarCuentaCorrienteMX" parameterMap="setDebitarCuentaCorrienteMX" resultMap="getDebitarCuentaCorrienteMX">
+{ CALL FBPsrv_edb_cct_mmx (?) }
+</procedure>
+
+<!-- consultar datos a enviar a xCurrent-->
+<parameterMap id="setConsultarDatosAXCurrent" class="java.util.HashMap">
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+</parameterMap>
+<resultMap id="getConsultarDatosAXCurrent" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+<result property="numCtaOrdenante"     column="fld_rpo_cct_ord" javaType="String"/>
+<result property="nombreOrdenante"     column="fld_rpo_nam_ord" javaType="String"/>
+<result property="direccionOrdenante"  column="fld_rpo_dir_ord" javaType="String"/>
+<result property="residenciaOrdenante" column="fld_rpo_rsd_ord" javaType="String"/>
+<result property="rutOrdenante"        column="fld_rpo_rut_ord" javaType="String"/>
+<result property="paisOrdenante"       column="fld_rpo_crs_ord" javaType="String"/>
+<result property="trn"    			   column="fld_rpo_trn_msg" javaType="String"/>
+<result property="numCtaBenef"    	   column="fld_rpo_cct_bnf" javaType="String"/>
+<result property="nombreBenef"    	   column="fld_rpo_nam_bnf" javaType="String"/>
+<result property="direccionBenefL1"    column="fld_rpo_dbn_ln1" javaType="String"/>
+<result property="direccionBenefL2"    column="fld_rpo_dbn_ln2" javaType="String"/>
+<result property="paisBenef"    	   column="fld_rpo_crs_bnf" javaType="String"/>
+<result property="monedaTransf"    	   column="fld_rpo_mda_itf" javaType="String"/>
+<result property="montoTransf"    	   column="fld_rpo_mto_pag" javaType="java.math.BigDecimal"/>
+<result property="montoComision"       column="fld_rpo_mto_cyg" javaType="java.math.BigDecimal"/>
+<result property="remesa"    		   column="fld_rpo_inf_rem" javaType="String"/>
+<result property="bancoBenef"    	   column="fld_rpo_bco_bbn" javaType="String"/>
+</resultMap>
+<procedure id="consultarDatosAXCurrent" parameterMap="setConsultarDatosAXCurrent" resultMap="getConsultarDatosAXCurrent">
+{ CALL FBPsrv_sdt_snd_xcr (?) }
+</procedure>
+
+<!-- Registrar resultado reportado por xCurrent--> 
+<parameterMap id="setRegistrarResultadoxCurrent" class="java.util.HashMap">
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+<parameter property="fld_rpp_rst_pro" jdbcType="CHAR" javaType="String"/>
+<parameter property="fld_rpp_iuu_cod"  jdbcType="CHAR" javaType="String"/>
+<parameter property="fld_fbp_txt_eve"  jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+<resultMap id="getRegistrarResultadoxCurrent" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+</resultMap>
+<procedure id="registrarResultadoxCurrent" parameterMap="setRegistrarResultadoxCurrent" resultMap="getRegistrarResultadoxCurrent">
+{ CALL FBPsrv_rcd_rpo_xcr (?,?,?,?) }
+</procedure>
+
+<!-- Registrar resultado verificacion Compliance--> 
+<parameterMap id="setRegistrarResultadoCompliance" class="java.util.HashMap">
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+<parameter property="fld_rpp_rst_pro" jdbcType="CHAR" javaType="String"/>
+<parameter property="fld_fbp_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+<resultMap id="getRegistrarResultadoCompliance" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  javaType="String"/>
+</resultMap>
+<procedure id="registrarResultadoCompliance" parameterMap="setRegistrarResultadoCompliance" resultMap="getRegistrarResultadoCompliance">
+{ CALL FBPsrv_rcd_ofc_ver (?,?,?) }
+</procedure>
+
+<!-- Recabar informacion para Compliance--> 
+<parameterMap id="setRecabarInformacionCompliance" class="java.util.HashMap">
+<parameter property="fld_hdr_sys_num" jdbcType="NUMBER" javaType="java.lang.Integer"/>
+</parameterMap>
+<resultMap id="getRecabarInformacionCompliance" class="java.util.HashMap">
+<result property="indicadorResultado"  column="wss_result_sw"   	javaType="java.lang.Integer"/>
+<result property="mensajeResultado"    column="wss_result_msg"  	javaType="String"/>
+<result property="dbkey"  			   column="DBKEY"   			javaType="String"/>
+<result property="direccion"    	   column="DIRECCION"  			javaType="String"/>
+<result property="tipo"  			   column="TIPO"   				javaType="String"/>
+<result property="referencia"    	   column="REFERENCIA"  		javaType="String"/>
+<result property="secuencia"  		   column="SECUENCIA"   		javaType="String"/>
+<result property="campoOrdenante"      column="CAMPO_ORDENANTE"  	javaType="String"/>
+<result property="valorOrdenante"      column="VALOR_ORDENANTE"   	javaType="String"/>
+<result property="campoBeneficiario"   column="CAMPO_BENEFICIARIO"  javaType="String"/>
+<result property="valorBeneficiario"   column="VALOR_BENEFICIARIO"	javaType="String"/>
+<result property="campoPaisOrd"    	   column="CAMPO_PAIS_ORD"  	javaType="String"/>
+<result property="valorPaisOrd"  	   column="VALOR_PAIS_ORD"   	javaType="String"/>
+<result property="campoPaisBenef"      column="CAMPO_PAIS_BENF"  	javaType="String"/>
+<result property="valorPaisBenef"  	   column="VALOR_PAIS_BENF"   	javaType="String"/>
+<result property="campoLibre"    	   column="CAMPO_LIBRE"  		javaType="String"/>
+<result property="valorLibre"  		   column="VALOR_LIBRE"   		javaType="String"/>
+<result property="campoBancoOrd"       column="CAMPO_BCO_ORD"  		javaType="String"/>
+<result property="valorBancoOrd"  	   column="VALOR_BCO_ORD"   	javaType="String"/>
+<result property="campoBancoBen"       column="CAMPO_BCO_BEN"  		javaType="String"/>
+<result property="valorBancoBen"       column="VALOR_BCO_BEN"  		javaType="String"/>
+</resultMap>
+<procedure id="recabarInformacionCompliance" parameterMap="setRecabarInformacionCompliance" resultMap="getRecabarInformacionCompliance">
+{ CALL FBPsrv_clt_for_ofc (?) }
+</procedure>
+</sqlMap>

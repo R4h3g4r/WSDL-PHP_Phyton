@@ -1,0 +1,49 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-CUNTA-PRIMA;
+
+################################################################################
+# Definicion del menú MENU-CUENTA-PRIMA.
+################################################################################
+MENU-CUNTA-PRIMA;tipoNodo=MENU;nombre=Cuenta Prima;nodosMenu=OPCION-MINICARTOLA,OPCION-CARTOLA-HISTORICA,OPCION-CARTOLAS-EMITIDAS,OPCION-BLOQUEO,OPCION-REPOSICION,OPCION-TRASPASO-TRANSFERENCIA,OPCION-RETENCIONES-DEVOLUCIONES;
+
+# Definicion de opción "MINICARTOLA".
+OPCION-MINICARTOLA;tipoNodo=OPCION;nombre=Minicartola;url=/cuentaswls/DetalleCtaCte?paso=0&objeto=;opcionesPopUp=;nombrePopUp=NO;
+
+# Definicion de opción "CARTOLA HISTORICA".
+OPCION-CARTOLA-HISTORICA;tipoNodo=OPCION;nombre=Cartola Histórica;url=/workstationwls/cuentas/HdrcartolaHistorica.jsp?nroCuenta=;opcionesPopUp=si;nombrePopUp=NO;
+
+# Definicion de opción "TIPOS DE CARTOLAS EMITIDAS".
+OPCION-CARTOLAS-EMITIDAS;tipoNodo=OPCION;nombre=Tipos de cartolas Emitidas;url=;opcionesPopUp=si;nombrePopUp=SI;
+
+# Definicion de opción "Bloqueo".
+OPCION-BLOQUEO;tipoNodo=OPCION;nombre=Bloqueos;url=;opcionesPopUp=si;nombrePopUp=SI;
+
+# Definicion de opción "Reposicion".
+OPCION-REPOSICION;tipoNodo=OPCION;nombre=Reposicion;url=;opcionesPopUp=si;nombrePopUp=SI;
+
+# Definicion de opción "Traspaso y Transferencia".
+OPCION-TRASPASO-TRANSFERENCIA;tipoNodo=OPCION;nombre=Traspaso y Transferencia;url=;opcionesPopUp=si;nombrePopUp=SI;
+
+# Definicion de opción "Tretenciones y Revoluciones".
+OPCION-RETENCIONES-DEVOLUCIONES;tipoNodo=OPCION;nombre=Retenciones y Devoluciones;url=/workstationwls/cuentas/Documentos.jsp;opcionesPopUp=si;nombrePopUp=SI;

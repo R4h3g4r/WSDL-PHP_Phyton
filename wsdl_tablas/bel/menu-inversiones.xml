@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!--
+ Archivo de Configuracion del Menu de Inversiones
+ 
+ Forma general de un menu:
+ 
+<application-menu>
+   ...  [Elementos necesarios para formar el prefijo modulo Struts]
+            <option [id=""] [secureid=""] [visible="true/false"] [messagekey=""] [label=""] [url=""]>   [Elemento raíz del menu]
+            
+               <option [id=""] [secureid=""] [visible="true/false"] [messagekey=""] [label=""] [url=""]> [Elemento grupo de menu]
+
+                 <option id="" [checkgranted="true/false"] [secureid=""] [visible="true/false"] [messagekey=""] label="" url=""  [target=""]/>
+                 <option id="" [checkgranted="true/false"] [secureid=""] [visible="true/false"] [messagekey=""] label="" url=""  [target=""]/>
+                 ...
+               </option>
+               ...
+            </option>
+   ...
+</application-menu>
+
+En que los atributos entre [ ] son opcionales para cada opción, y corresponden a:
+
+  id:           Identifiacdor de la opción. Debe ser un código único en el menú
+  visible:      Flag que indica si se debe incluir (si se muestra o no) la opción en el menú. Default: true.
+  checkgranted: Flag que determina si se validará la autorización del usuario para mostrae la opción (si tiene rol de seguridad JAAS). Default: false.
+  secureid:     En caso de validarla autorización, Rol de seguridad JAAS (uno de ellos) a validar para presentar la opción en el menú
+  messagekey:   Llave del message resource a utilizar para obtener el label de la opcion, prevalece a la definición del atributo "label" 
+  label:        Leyenda asociada de la opcion, alternativa a cuando no se desea uasr un message resource
+  url:          URL a invocar cuando se seleccione la opción
+  target:       Target que se utilizará al activar la opción
+  
+-->
+ 
+<application-menu>
+   <belwls>
+      <inversiones>
+         <option id="menuInversiones" description="Menu Inversiones en Sitio Empresas" visible="false">
+	         <option id="grupoConsultas" label="Inversiones" description="Grupo Consultas de Inversiones">
+	            <option id="consulta_resumen" label="Resumen de Carteras"
+	               url="/belwls/inversiones/resumenCarteras.proxy.do?optionId=consulta_resumen" />
+	            <option id="consulta_balanceDetalle" label="Cartola de Inversiones"
+	               url="/belwls/inversiones/productos/cartera/balanceDetalle.proxy.do?accion=consulta" />
+	
+	            <option id="cartola_banca_privada" label="Cartola Banca Privada"
+	               url="/belwls/inversiones/cartolaprivada/inicioCartolas.proxy.do" />
+	
+	            <option id="consulta_cartolas" label="Cartolas Fondos Mutuos"
+	               url="/belwls/inversiones/productos/cartolas/SeleccionCartola.proxy.do?accion=consulta" />
+	
+	            <option id="consulta_dap" label="Depósitos a Plazo"
+	               url="/belwls/inversiones/productos/dap/consultaDapDelCliente.proxy.do" />
+	
+	            <option id="consulta_fondosMutuos" label="Fondos Mutuos"
+	               url="/belwls/inversiones/productos/fmutuos/cartolaFondosMutuos.proxy.do" />
+	               
+	            <option id="consulta_acciones" label="Acciones"
+	               url="/belwls/inversiones/productos/acciones/custodiaAcciones.proxy.do" />
+	               
+	            <option id="consulta_rentafija" label="Renta Fija"
+	               url="/belwls/inversiones/productos/rentafija/ConsultaDetalleRentaFija.proxy.do" />
+	
+	            <option id="consulta_pactos" label="Pactos"
+	               url="/belwls/inversiones/productos/pactos/ConsultaDetallePactos.proxy.do" />
+	
+	            <option id="consulta_simultaneas" label="Simultáneas"
+	               url="/belwls/inversiones/productos/simultaneas/ConsultaDetalleSimultaneas.proxy.do" />
+	
+	            <option id="consulta_finversion" label="Fondos de Inversión"
+	               url="/belwls/inversiones/productos/finversion/ConsultaResumenFInversion.proxy.do" />
+
+                <option id="consulta_vencimientos" label="Vencimientos"
+                   url="/belwls/inversiones/vencimientos/init.proxy.do" />
+				   
+	         </option>
+	         
+         </option>
+      </inversiones>
+
+   </belwls>
+   
+</application-menu>

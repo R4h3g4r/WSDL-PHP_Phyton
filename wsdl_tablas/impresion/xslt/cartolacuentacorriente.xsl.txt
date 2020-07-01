@@ -1,0 +1,19 @@
+Plantilla para la generación de la cartola de una cuenta corriente del cliente
+en formato PDF. La generación se invoca desde la página de despliegue de la
+cartola de una cuenta corriente del cliente en Workstation. Se basa en la
+plantilla de impresión de la cartola de la cuenta prima del cliente. Se 
+independiza de la plantilla base para permitir potenciales diferencias
+en el documento generado en el futuro.
+
+La clase que genera el XML para la transformación a PDF es 
+link:/InformacionParaDesarrollo/javadocumentacion/wcorp/util/workstation/impresion/cartolactaprima/GenerarXMLCartolaCtaPrima.html[GenerarXMLCartolaCtaPrima.java]: 
+Clase que genera el documento XML asociado a la impresion de la cartola de
+la cuenta prima y de la cuenta corriente del cliente.
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 23/11/2007 Roberto San Martín (TINet): Versión inicial.
+
+==========================================
+

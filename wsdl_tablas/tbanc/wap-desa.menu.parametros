@@ -1,0 +1,6 @@
+SaldoCtaCte;                  Desc=Saldo;                  Grupos=CuentaCorriente;            Servicio=/cuentaswls-desa/SaldoCtaCte;
+UltMovCtaCte;                 Desc=Ult. Movimientos;       Grupos=CuentaCorriente;            Servicio=/cuentaswls-desa/UltMovCtaCte;
+AbonoLineaSobregiro;          Desc=Pago Línea Sobregiro;   Grupos=Transferencias;             Servicio=/cuentaswls-desa/AbonoLineaSobregiro;         param1=objeto;
+SaldoCtaCred;                 Desc=Saldos;                 Grupos=TarjetasCredito;            Servicio=/cuentaswls-desa/SaldoCtaCred;
+TransferenciaTerceros;        Desc=Transf. Terceros;       Grupos=Transferencias;             Servicio=/cuentaswls-desa/TransferenciaTerceros;
+#PagoVisaConCuentaCte.;Desc=Pago Visa;Grupos=Cuenta Visa;Servicio=/tbancwls-wap/cuentas/PagoVisaCtaCte.jsp;

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="megamktoto.procedimientosAlmacenados">
+
+	<resultMap id="cargarOferta" class="java.util.HashMap">
+        <result property="codigo" column="cod"/>
+        <result property="descripcion" column="des"/>
+    </resultMap>
+
+	<resultMap id="consultarOferta" class="java.util.HashMap">
+        <result property="id" column="id"/>
+		<result property="codigo" column="ofe_cod"/>
+        <result property="fechaInicio" column="ofe_fec_ini"/>
+		<result property="descripcion" column="ofe_des"/>
+        <result property="codigoEstado" column="eof_cod"/>
+		<result property="descEstado" column="eof_des"/>
+        <result property="fechaTermino" column="ofe_fec_ter"/>
+		<result property="prioridad" column="ofe_prd"/>
+        <result property="codigoTipo" column="ofe_tip"/>
+		<result property="descrTipo" column="gto_des"/>
+		<result property="totalOfertas" column="total_ofe"/>
+		<result property="pagina" column="pag"/>
+    </resultMap>
+
+	<resultMap id="paginacionOferta" class="java.util.HashMap">
+        <result property="codigo" column="ofe_cod"/>
+        <result property="fechaInicio" column="ofe_fec_ini"/>
+		<result property="descripcion" column="ofe_des"/>
+        <result property="codigoEstado" column="eof_cod"/>
+		<result property="descEstado" column="eof_des"/>
+        <result property="fechaTermino" column="ofe_fec_ter"/>
+		<result property="prioridad" column="ofe_prd"/>
+        <result property="codigoTipo" column="ofe_tip"/>
+		<result property="descrTipo" column="gto_des"/>
+    </resultMap>
+
+	<resultMap id="consultarEstadistica" class="java.util.HashMap">
+        <result property="ofe_tip" column="ofe_tip"/>
+        <result property="clientesCargados" column="clientesCargados"/>
+		<result property="clientesBloqueados" column="clientesBloqueados"/>
+        <result property="clientesClickOferta" column="clientesClickOferta"/>
+    </resultMap>
+
+	<resultMap id="clientesBloqueados" class="java.util.HashMap">
+        <result property="rutCliente" column="cli_rut"/>
+		<result property="estadoCliente" column="blq_des"/>
+    </resultMap>
+
+	<resultMap id="cargarOfertaModificar" class="java.util.HashMap">
+        <result property="codigo" column="codigoOferta"/>
+        <result property="fechaInicio" column="fechaInicio"/>
+		<result property="descripcion" column="descripcionOferta"/>
+        <result property="codigoEstado" column="codigoEstado"/>
+		<result property="descEstado" column="descripcionEstado"/>
+        <result property="codigoTipo" column="codigoTipoOferta"/>
+        <result property="descrTipo" column="descripcionTipoOferta"/>
+        <result property="fechaTermino" column="fechaTermino"/>
+		<result property="prioridad" column="prioridad"/>
+        <result property="nombreUrlDeServicio" column="nombreUrlDeServicio"/>
+        <result property="urlCampoDeAccion" column="urlCampoDeAccion"/>
+        <result property="codigoCampoAccion" column="codigoCampoAccion"/>
+        <result property="textoVariable" column="textoVariable"/>
+        <result property="codigoTextoVariable" column="codigoTextoVariable"/>
+        <result property="recursoWEB" column="recursoWEB"/>
+        <result property="frasePagina" column="frasePagina"/>
+        <result property="codigoURLServicio" column="codigoURLServicio"/>
+        <result property="codigoTipoProducto" column="tpo_cod"/>
+        <result property="codigoSubTipoProducto" column="sub_tpo_cod"/>
+    </resultMap>
+    
+    <resultMap id="conjuntoLinkServicio" class="java.util.HashMap">
+        <result property="codigo_Link" column="url_cod"/>
+        <result property="descripcion_Link" column="url_dsc"/>
+    </resultMap>
+    
+	<resultMap id="resultadoInsercionOferta" class="java.util.HashMap">
+        <result property="codigoOferta" column="codigoOferta"/>
+		<result property="codigoUrl" column="codigoUrl"/>
+		<result property="codigoPlantilla" column="codigoPlantilla"/>
+		<result property="codigoTextoVariable" column="codigoTextoVariable"/>
+    </resultMap>
+    
+    <resultMap id="plantilla" class="java.util.HashMap">
+        <result property="plantillaHtml" column="pag_htm"/>
+    </resultMap>
+	
+	 <resultMap id="parametrosTextoVariable" class="java.util.HashMap">
+        <result property="codigoParametros" column="codigoParametros"/>
+        <result property="descripcionParametros" column="descripcionParametros"/>
+    </resultMap>
+    
+    <resultMap id="paginaPublicitaria" class="java.util.HashMap">
+        <result property="codigoOferta" column="ofe_cod"/>
+        <result property="tipoOferta" column="ofe_tip"/>
+        <result property="urlRecurso" column="url_pp_desc"/>
+        <result property="textoVariable" column="txt_des"/>
+        <result property="urlDeServicio" column="url_arc"/>
+        <result property="nombreUrlServ" column="txt_nom"/>
+        <result property="urlCampoAccion" column="url_acc"/>
+    </resultMap>
+
+    <resultMap id="paginaPublicitariaADesplegar" class="java.util.HashMap">
+        <result property="codigoOferta" column="COD_OFERTA"/>
+        <result property="plantilla" column="PLANTILLA_PAGINA_PUBLICITARIA"/>
+        <result property="textoVariable" column="TEXTO_VARIABLE"/>
+        <result property="tipoOferta" column="TIPO_PP"/>
+        <result property="urlServicio" column="URL_LINK_DE_SERVICIO"/>
+        <result property="nombreUrlServicio" column="NOMBRE_URL_DE_SERVICIO"/>
+        <result property="urlRecurso" column="URL_RECURSO"/>
+        <result property="urlCampoAccion" column="URL_CAMPO_ACCION"/>
+        <result property="URL_CLICK_CAMPO_ACCION" column="URL_CLICK_CAMPO_ACCION"/>
+    </resultMap>
+
+    <resultMap id="obtenerCamposDeAccion" class="java.util.HashMap">
+        <result property="cantidad" column="cantidad"/>
+        <result property="codigo" column="codigo"/>
+        <result property="nombre" column="nombre"/>
+        <result property="url" column="url"/>
+        <result property="cli" column="cli"/>
+    </resultMap>
+
+    <resultMap id="verificacionDeClientes" class="java.util.HashMap">
+        <result property="cantidad" column="cantidad"/>
+    </resultMap>
+    
+    <resultMap id="TipoProducto" class="java.util.HashMap">
+        <result property="codigoProducto" column="tpo_cod"/>
+        <result property="detalleProducto" column="tpo_des"/>
+    </resultMap>
+    
+    <resultMap id="SubTipoProducto" class="java.util.HashMap">
+        <result property="codigoSubProducto" column="sub_tpo_cod"/>
+        <result property="descripcionSubProducto" column="sub_tpo_des"/>
+    </resultMap>
+    
+    <procedure id="obtenerOfertaADesplegar" resultMap="paginaPublicitariaADesplegar" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_ofe_cli(#cli_rut#,#canal#,#prod#)}
+    </procedure>
+
+    <procedure id="ingresarDatosDespliegueOferta" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_ins_tdesp(#rut#,#codigoOferta#,#respuestaCliente#)}
+   </procedure>
+
+    <procedure id="ingresarEstadisticaRespuestaClietne" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_ins_est_respcli(#rutCliente#,#digitoVerificador#,#codigoOferta#,#urlRedireccion#)}
+   </procedure>
+
+	<procedure id="cargarOferta" resultMap="cargarOferta" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_crg_ofe(#tpo_cns#)}
+    </procedure>
+
+	<procedure id="consultarOferta" resultMap="consultarOferta" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_ofe(#canal_ofe#, #estado_ofe#, #tipo_ofe#, #cantidad#, #paginasolicitada#)}
+    </procedure>
+
+	<procedure id="consultarEstadistica" resultMap="consultarEstadistica" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_est()}
+    </procedure>
+
+	<procedure id="obtieneClientesBloqueados" resultMap="clientesBloqueados" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_blq_cli(#rutCliente#)}
+	</procedure>
+
+	<procedure id="bloquearCliente"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_blq_cli(#rutCliente#)}
+	</procedure>
+
+	<procedure id="desBloquearCliente"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_des_blq_cli(#rutCliente#)}
+	</procedure>
+
+	<procedure id="finalizarOferta"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_fin_ofe(#codOferta#)}
+	</procedure>
+
+	<procedure id="obtenerLinkServicio"  resultMap="conjuntoLinkServicio"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_lnk_srv}
+	</procedure>
+
+	<procedure id="insertarOferta"  resultMap="resultadoInsercionOferta" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_ins_ofe(#nombrePP#,#nombreImagen#,#nombreTextoVariable#,#tipoPP#,#responsable#,#url_desc#,#url_arc#,#plt_cod#,#ele_url#,#url_cod#,#nombreArchivoPP#,
+		#textoVariable#,#cod_txt_var#,#campoAccion#, #codigoTipoProducto#, #codigoSubTipoProducto#)}
+	</procedure>
+	
+	<procedure id="obtenerPlantilla"  resultMap="plantilla" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_plt(#codigoCanal#, #tipoPlantilla#)}
+	</procedure>
+
+	<procedure id="obtenerParametros"  resultMap="parametrosTextoVariable" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_par()}
+	</procedure>
+
+	<procedure id="obtenerPaginaPublicitaria"  resultMap="paginaPublicitaria" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_pre_vis_pps(#codigoOferta#)}
+	</procedure>
+
+	<procedure id="publicarOferta"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_pub_ofe(#canal#, #codigo#, #fechaCreacion#, #fechaTermino#, #prioridad#)}
+	</procedure>
+	
+	<procedure id="republicarOferta"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_upd_est_ofe(#codigo#, #fechaCreacion#, #fechaTermino#, #prioridad#)}
+	</procedure>
+
+	<procedure id="eliminarOferta"  parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_eli_ofe(#codOferta#, #tipoOferta#)}
+	</procedure>
+    
+	<procedure id="cargarOfertaModificar" resultMap="cargarOfertaModificar" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_crg_ofe_mod(#codigo#)}
+    </procedure>
+
+	<procedure id="obtenerCamposDeAccion" resultMap="obtenerCamposDeAccion" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_cns_acc(#accion#,#codigo#,#nombre#,#url#, #cli#)}
+	</procedure>
+
+	<procedure id="verificacionDeClientes" resultMap="verificacionDeClientes" parameterClass="java.util.HashMap">
+		{CALL sp_mmkt_ver_cli(#codigoOferta#)}
+	</procedure>
+	
+	<procedure id="modificarOferta" parameterClass="java.util.HashMap">
+           {CALL sp_mmkt_upd_ofe (#codigoOferta#, #descripcionOferta#, #recursoWEB#, #codigoCampoAccion#, #textoVariable#, #frasePagina#, #codigolinkDeServicio#, #urlLinkServicio#, #nombreLinkServicio#, #codigoTipoProducto#, #codigoSubTipoProducto#)}
+    </procedure>
+    
+    <procedure id="obtenerParametrosDeOferta"  resultMap="parametrosTextoVariable" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_nom_par_ofe(#codigoOferta#)}
+    </procedure>
+    
+    <procedure id="obtenerTipoProducto"  resultMap="TipoProducto" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_tpo()}
+    </procedure>
+    
+    <procedure id="obtenerSubTipoProducto"  resultMap="SubTipoProducto" parameterClass="java.util.HashMap">
+        {CALL sp_mmkt_cns_sub_tpo(#codigoProducto#)}
+    </procedure>
+    
+</sqlMap>    
+	

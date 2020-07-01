@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- <== version: 2011/07/18 12:00 ==>-->
+<xsl:stylesheet version="1.1" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" exclude-result-prefixes="fo">
+    <xsl:output method="xml" version="1.0" omit-xml-declaration="no" indent="yes"/>
+    <xsl:decimal-format name="decimal" decimal-separator=',' grouping-separator='.' />
+    <xsl:decimal-format name="rut" grouping-separator='.' />
+    <!-- <xsl:param name="IMG_URL"/>-->
+    <xsl:template match="impresionCotizacionSimulacion">
+        <fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
+        
+            <fo:layout-master-set>
+                <fo:simple-page-master master-name="cotizacion" page-height="279.4mm" page-width="215.9mm" margin-top="20.000px" margin-bottom="20.000px" margin-right="10.000px" margin-left="10.000px">
+                    <fo:region-before region-name="xsl-region-before" display-align="after" extent="20mm" padding-top="6.000pt" padding-left="0.700in" padding-right="2.700in" padding-bottom="6.000pt" border-style="none" border-width="0.000px"  background-repeat="no-repeat" background-position-horizontal="0.000px" background-position-vertical="0.000px" reference-orientation="0"/>
+                    <fo:region-after region-name="xsl-region-after" display-align="before" extent="17.78mm" padding-top="6.000pt" padding-left="0.700in" padding-right="2.700in" padding-bottom="6.000pt" border-style="none" border-width="0.000px"  background-repeat="no-repeat" background-position-horizontal="0.000px" background-position-vertical="0.000px" reference-orientation="0"/>
+                    <fo:region-body margin-top="20mm" margin-bottom="10mm"/>
+                </fo:simple-page-master>
+            </fo:layout-master-set>
+            
+            <fo:page-sequence master-reference="cotizacion" font-size="9pt" font-family="Helvetica">
+            
+                <fo:static-content flow-name="xsl-region-before">
+                    <fo:block>
+                        <fo:external-graphic vertical-align="middle">
+                            <xsl:attribute name="src">
+                                <xsl:value-of select="rutaImagen"/>
+                            </xsl:attribute>
+                        </fo:external-graphic> 
+                    </fo:block>
+                </fo:static-content>    
+                
+                <fo:static-content flow-name="xsl-region-after" padding-top="2pt" border-top-style="solid" border-top-width="1pt" border-top-color="rgb(192,192,192)" font-size="10pt" font-family="Helvetica">
+                    <fo:table table-layout="fixed" width="100%">
+                        <fo:table-column column-width="proportional-column-width(4)"/>
+                        <fo:table-column column-width="proportional-column-width(1)"/>
+                        <fo:table-body>
+                            <fo:table-row>
+                                <fo:table-cell>
+                                    <fo:block color="rgb(105,105,105)"></fo:block>
+                                </fo:table-cell>
+                            </fo:table-row>
+                        </fo:table-body>
+                    </fo:table>
+                </fo:static-content>
+                
+                <fo:flow flow-name="xsl-region-body" font-size="10pt" font-family="Helvetica">
+
+					<fo:block>
+                        <fo:table>
+                            <fo:table-column column-width="100%"/>
+                            <fo:table-body>
+                                <fo:table-row display-align="auto" border-left-style="solid" border-left-width="2px" border-left-color="rgb(5,7,242)" border-top-left-radius="20px 20px" border-right-style="solid" border-right-width="2px" border-right-color="rgb(5,7,242)" border-bottom-right-radius="20px 20px" border-top-style="solid" border-top-width="0px" border-top-color="rgb(5,7,242)" border-top-right-radius="20px 20px" border-bottom-style="solid" border-bottom-width="0px" border-bottom-color="rgb(5,7,242)" border-bottom-left-radius="20px 20px" background-color="rgb(248,250,246)">
+                                    <fo:table-cell text-align="center" padding-top="5pt" padding-left="15pt" padding-right="10pt" padding-bottom="15pt">
+                                        <fo:block>
+
+											<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+												<fo:table-column column-width="100%" column-number="1"/>
+												<fo:table-body>
+													<fo:table-row>
+														<fo:table-cell>
+	
+														</fo:table-cell>
+													</fo:table-row>
+													<fo:table-row>
+														<fo:table-cell color="rgb(119,169,212)" font-weight="bold" font-size="15pt">
+															<fo:block space-before="3mm" text-align="left" border-bottom-style="solid" border-bottom-width="1px">
+																<xsl:value-of select="tituloDocumento"/>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>                                    
+												</fo:table-body>
+											</fo:table>                                        
+
+											<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+												<fo:table-column column-width="100%" column-number="1"/>
+												<fo:table-body>
+													<fo:table-row>
+														<fo:table-cell>
+															<fo:block text-align="center" space-before="5mm">
+
+																	  
+																<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+																	<fo:table-column column-width="proportional-column-width(45)" column-number="1"/>
+																	<fo:table-column column-width="proportional-column-width(10)" column-number="2"/>
+																	<fo:table-column column-width="proportional-column-width(45)" column-number="3"/>
+																	<fo:table-body>
+																		<fo:table-row>
+																			<fo:table-cell>
+																					<fo:block font-weight="bold" text-align="left">
+																						Datos Cliente
+																					</fo:block>
+																					<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																						<fo:table-column column-width="proportional-column-width(35)" column-number="1"/>
+																						<fo:table-column column-width="proportional-column-width(65)" column-number="2"/>
+																						<fo:table-body>
+																						    <xsl:if test="nombreCliente != 'NO_CLIENTE'">
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Nombre :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="nombreCliente"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							</xsl:if>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										RUT :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="rutCliente"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																						    <xsl:if test="nombreCliente = 'NO_CLIENTE'">
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Rango de Renta :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="glosaTramoRenta"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							</xsl:if>																							
+																						</fo:table-body>
+																					</fo:table>	
+																			</fo:table-cell>
+																			<fo:table-cell>
+																				<fo:block text-align="left"> 
+																					  
+																				</fo:block>
+																			</fo:table-cell>															
+																			<fo:table-cell>
+
+																				<fo:table>																	
+																					<fo:table-column column-width="proportional-column-width(100)" column-number="1"/>
+																					<fo:table-body>
+																						<fo:table-row>
+																							<fo:table-cell font-weight="bold" text-align="left">	
+																								<fo:block>
+																									Datos Ejecutivo BCI
+																								</fo:block>
+																							</fo:table-cell>																				
+																						</fo:table-row>
+																					</fo:table-body>
+																				</fo:table>																				
+
+																				<fo:block text-align="left">
+																					<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																						<fo:table-column column-width="proportional-column-width(35)" column-number="1"/>
+																						<fo:table-column column-width="proportional-column-width(65)" column-number="2"/>
+																						<fo:table-body>
+																							<fo:table-row>
+																								<fo:table-cell space-before="5mm" border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Oficina :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="oficina"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Ejecutivo :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="ejecutivo"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>																			
+																						</fo:table-body>
+																					</fo:table>																
+																				</fo:block>
+																			</fo:table-cell>
+																		</fo:table-row>
+																	</fo:table-body>
+																</fo:table>													  
+																	  
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>                               
+												</fo:table-body>
+											</fo:table>                                          
+                                        
+                                        
+                                        
+											<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+												<fo:table-column column-width="100%" column-number="1"/>
+												<fo:table-body>
+													<fo:table-row>
+														<fo:table-cell>
+															<fo:block text-align="center" space-before="5mm">
+
+																	  
+																<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+																	<fo:table-column column-width="proportional-column-width(45)" column-number="1"/>
+																	<fo:table-column column-width="proportional-column-width(10)" column-number="2"/>
+																	<fo:table-column column-width="proportional-column-width(45)" column-number="3"/>
+																	<fo:table-body>
+																		<fo:table-row>
+																			<fo:table-cell>
+																				<fo:block text-align="left">
+																					<fo:block font-weight="bold" text-align="left">
+																						Datos Crédito
+																					</fo:block>																		
+																					<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																						<fo:table-column column-width="proportional-column-width(50)" column-number="1"/>
+																						<fo:table-column column-width="proportional-column-width(50)" column-number="2"/>
+																						<fo:table-body>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Fecha de Simulación :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="fechaCotizacion"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>			
+																							<xsl:value-of select="producto"/>																				
+																							<xsl:if test="producto = 'CON500'">
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Producto :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										Crédito Universal
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							</xsl:if>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Monto del crédito a cursar :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="montoCursado"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																																										<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Monto Líquido :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="montoCredito"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Meses de No Pago :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="mesesNoPago"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>																				
+																						</fo:table-body>
+																					</fo:table>																		
+																				</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell>
+																				<fo:block text-align="left"> 
+																					  
+																				</fo:block>
+																			</fo:table-cell>															
+																			<fo:table-cell>
+																				<fo:block text-align="left"> 
+																					<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																						<fo:table-column column-width="proportional-column-width(50)" column-number="1"/>
+																						<fo:table-column column-width="proportional-column-width(50)" column-number="2"/>
+																						<fo:table-body>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Plazo :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="plazoEnMeses"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Tasa de Interés Mensual :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="tasaCreditoSolicitada"/>%
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Tasa de Interés Anual :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="tasaFinalCredito"/>%
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Fecha 1 er Vencimiento :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="fechaPrimerVencimiento"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										N° Cuenta Cargo :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="cuentaCargo"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>		
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										Valor Cuota :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="proximaCuotaPagar"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>																				
+																						</fo:table-body>
+																					</fo:table>																	
+																				</fo:block>
+																			</fo:table-cell>
+																		</fo:table-row>
+																	</fo:table-body>
+																</fo:table>													  
+																	  
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>                               
+												</fo:table-body>
+											</fo:table>                                        
+											
+											<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+												<fo:table-column column-width="100%" column-number="1"/>
+												<fo:table-body>
+													<fo:table-row>
+														<fo:table-cell>
+															<fo:block text-align="center" space-before="5mm">
+
+																<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																	<fo:table-column column-width="proportional-column-width(30)" column-number="1"/>
+																	<fo:table-column column-width="proportional-column-width(70)" column-number="2"/>
+																	<fo:table-body>
+																		<fo:table-row>
+																			<fo:table-cell border-top-style="solid" border-top-width="1px"
+																						  border-bottom-style="solid" border-bottom-width="1px"
+																						  border-left-style="solid" border-left-width="1px"
+																						  border-right-style="solid" border-right-width="1px">	
+																				<fo:block text-align="left">
+																					Costo Total del Crédito :
+																				</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell border-top-style="solid" border-top-width="1px"
+																						  border-bottom-style="solid" border-bottom-width="1px"
+																						  border-left-style="solid" border-left-width="1px"
+																						  border-right-style="solid" border-right-width="1px">	
+																				<fo:block text-align="right"> 
+																					<xsl:value-of select="montoTotalCredito"/>
+																				</fo:block>
+																			</fo:table-cell>
+																		</fo:table-row>
+																		<fo:table-row>
+																			<fo:table-cell border-top-style="solid" border-top-width="1px"
+																						  border-bottom-style="solid" border-bottom-width="1px"
+																						  border-left-style="solid" border-left-width="1px"
+																						  border-right-style="solid" border-right-width="1px">	
+																				<fo:block text-align="left">
+																					CAE :
+																				</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell border-top-style="solid" border-top-width="1px"
+																						  border-bottom-style="solid" border-bottom-width="1px"
+																						  border-left-style="solid" border-left-width="1px"
+																						  border-right-style="solid" border-right-width="1px">	
+																				<fo:block text-align="right"> 
+																					<xsl:value-of select="indicadorCAE"/>
+																				</fo:block>
+																			</fo:table-cell>
+																		</fo:table-row>																			
+																	</fo:table-body>
+																</fo:table>	
+
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>                               
+												</fo:table-body>
+											</fo:table>	
+
+											<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+												<fo:table-column column-width="100%" column-number="1"/>
+												<fo:table-body>
+													<fo:table-row>
+														<fo:table-cell>
+															<fo:block text-align="center" space-before="5mm">
+
+																	  
+																<fo:table table-layout="fixed" width="100%" border-collapse="collapse">
+																	<fo:table-column column-width="proportional-column-width(55)" column-number="1"/>
+																	<fo:table-column column-width="proportional-column-width(45)" column-number="2"/>
+																	<fo:table-body>
+																		<fo:table-row>
+																			<fo:table-cell>
+																					<fo:block font-weight="bold" text-align="left">
+																						Gastos Asociados al Curse de Crédito
+																					</fo:block>
+																					<fo:table space-before="5mm" space-after="5mm" table-layout="fixed" width="100%" border-collapse="collapse">																	
+																						<fo:table-column column-width="proportional-column-width(60)" column-number="1"/>
+																						<fo:table-column column-width="proportional-column-width(40)" column-number="2"/>
+																						<fo:table-body>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										1) Impuesto D.L. 3475 :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="montoImpuesto"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										2) Gastos Notariales :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-bottom-style="solid" border-bottom-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="gastosNotariales"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>	
+																							<fo:table-row>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left">
+																										3) Total Seguros Asociados :
+																									</fo:block>
+																								</fo:table-cell>
+																								<fo:table-cell border-top-style="solid" border-top-width="1px"
+																											  border-left-style="solid" border-left-width="1px"
+																											  border-right-style="solid" border-right-width="1px">	
+																									<fo:block text-align="left"> 
+																										<xsl:value-of select="montoTotalSeguros"/>
+																									</fo:block>
+																								</fo:table-cell>
+																							</fo:table-row>
+
+																							<xsl:for-each select="seguros/element">
+																							<fo:table-row>    
+																								<fo:table-cell border-right-style="solid" border-right-width="1px">
+																									<fo:block text-align="left">
+																										<xsl:value-of select="descripcionSeguro"/>
+																									</fo:block>
+																								</fo:table-cell>                                                        
+																								<fo:table-cell margin-left="2mm" border-right-style="solid" border-right-width="1px">
+																									<fo:block text-align="left">
+																										<xsl:value-of select="montoSeguros"/>
+																									</fo:block>
+																								</fo:table-cell>                                                        
+																							</fo:table-row>                                                        
+																							</xsl:for-each>	
+
+																							<fo:table-row>    
+																								<fo:table-cell border-top-style="solid" border-top-width="1px">
+																									<fo:block text-align="left"></fo:block>
+																								</fo:table-cell>                                                        
+																								<fo:table-cell border-top-style="solid" border-top-width="1px">
+																									<fo:block text-align="left"></fo:block>
+																								</fo:table-cell>                                                        
+																							</fo:table-row>  																								
+																							
+																						</fo:table-body>
+																					</fo:table>	
+																			</fo:table-cell>
+																			<fo:table-cell>
+																				<fo:block text-align="left"> 
+																					  
+																				</fo:block>
+																			</fo:table-cell>															
+																		</fo:table-row>
+																	</fo:table-body>
+																</fo:table>													  
+																	  
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>                               
+												</fo:table-body>
+											</fo:table>	
+											
+											
+											
+						<fo:table space-before="5mm" width="100%">
+							<fo:table-column column-width="100%" column-number="1"/>
+							<fo:table-body>
+								<fo:table-row>
+									<fo:table-cell>
+										<fo:block text-align="center">
+
+											<fo:block text-align="left" font-weight="bold">
+												Calendario de Pago
+											</fo:block>				
+							
+											<fo:table>
+												<fo:table-column/>
+												<fo:table-body>
+													<fo:table-row display-align="auto" border-left-style="solid" border-left-width="2px" border-right-style="solid" border-right-width="2px" border-top-style="solid" border-top-width="0px" border-bottom-style="solid" border-bottom-width="0px">
+														<fo:table-cell text-align="center">
+															<fo:block space-before="5mm" space-after="5mm">
+																<fo:table>
+																	<fo:table-column column-width="2cm" column-number="1"/>
+																	<fo:table-column column-width="4cm" column-number="2"/>
+																	<fo:table-column column-width="3cm" column-number="3"/>
+																	<fo:table-column column-width="3cm" column-number="4"/>
+																	<fo:table-column column-width="3cm" column-number="5"/>
+																	<fo:table-column column-width="3cm" column-number="6"/>
+																	<fo:table-header>
+																		<fo:table-row text-align="center" border-top-style="solid" border-top-width="2px">
+																			<fo:table-cell text-align="center" font-weight="bold"																					   
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Cuota</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell text-align="center" font-weight="bold"
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Fecha de Vencimiento</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell text-align="center" font-weight="bold"
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Amortización (<xsl:if test="monedaCredito = '0999'">$</xsl:if><xsl:if test="monedaCredito = '0998'">UF</xsl:if>)</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell text-align="center" font-weight="bold"
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Interés (<xsl:if test="monedaCredito = '0999'">$</xsl:if><xsl:if test="monedaCredito = '0998'">UF</xsl:if>)</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell text-align="center" font-weight="bold"
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Comisión (<xsl:if test="monedaCredito = '0999'">$</xsl:if><xsl:if test="monedaCredito = '0998'">UF</xsl:if>)</fo:block>
+																			</fo:table-cell>
+																			<fo:table-cell text-align="center" font-weight="bold"
+																						   border-left-style="solid" border-left-width="1px" 
+																						   border-right-style="solid" border-right-width="1px" 
+																						   border-top-style="solid" border-top-width="1px" 
+																						   border-bottom-style="solid" border-bottom-width="1px" 
+																						   padding-top="2px" padding-left="2px" padding-right="2px" padding-bottom="2px">
+																				<fo:block>Valor Cuota <xsl:value-of select="numeroCuotas"/>(<xsl:if test="monedaCredito = '0999'">$</xsl:if><xsl:if test="monedaCredito = '0998'">UF</xsl:if>)</fo:block>
+																			</fo:table-cell>
+																		</fo:table-row>
+																	</fo:table-header>
+																	<xsl:for-each select="calendarioPago/element">
+																		<fo:table-body>
+																			<fo:table-row border-top-style="solid" border-top-width="2px">
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="cuota"/>/
+																							<xsl:value-of select="numeroCuotas"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="fechaVencimiento"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="amortizacion"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="interes"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="comision"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																				<fo:table-cell text-align="center"
+																							   border-left-style="solid" border-left-width="1px" 
+																							   border-right-style="solid" border-right-width="1px" 
+																							   border-top-style="solid" border-top-width="1px" 
+																							   border-bottom-style="solid" border-bottom-width="1px" 
+																							   padding-top="1px" padding-left="5pt" padding-right="5px" padding-bottom="1px">
+																					<fo:block>
+																						<fo:inline>
+																							<xsl:value-of select="proximaCuotaPagarCalendario"/>
+																						</fo:inline>
+																					</fo:block>
+																				</fo:table-cell>
+																			</fo:table-row>
+																		</fo:table-body>
+																	</xsl:for-each>
+																</fo:table>
+															</fo:block>
+														</fo:table-cell>
+													</fo:table-row>
+												</fo:table-body>
+											</fo:table>			
+											
+										</fo:block>
+									</fo:table-cell>
+								</fo:table-row>                               
+							</fo:table-body>
+						</fo:table>      							
+
+                                        </fo:block>
+                                    </fo:table-cell>
+                                </fo:table-row>
+                            </fo:table-body>
+                        </fo:table>
+                    </fo:block>				
+				
+					<fo:block margin-left="15px" margin-right="15px" font-size="9pt" font-family="Helvetica" text-align="left">
+						<fo:block> </fo:block>
+							<fo:inline>Notas Importantes:</fo:inline>                            
+						<fo:block> </fo:block>
+							<fo:inline>o	Los valores indicados en la presente simulación de crédito, son sólo referenciales, el valor definitivo de la cuota quedará informado al otorgamiento del crédito.</fo:inline>
+						<fo:block> </fo:block>
+							<fo:inline>o	La entrega de una cotización, queda sujeta a que el Banco evalúe previamente el riesgo comercial,  y se aprueben las condiciones para el otorgamiento.</fo:inline>
+						<fo:block> </fo:block>                            
+							<fo:inline>o	La aprobación y condiciones definitivas de un crédito simulado y/o solicitado están sujetas a confirmación de antecedentes financieros y comerciales al momento de la evaluación para el curse definitivo del crédito, el que puede ser aprobado o rechazado.</fo:inline>
+						<fo:block> </fo:block>
+							<fo:inline>o	Los seguros contratados, son cubiertos por  BCI Seguros Generales S.A y BCI Seguros Vida S.A.</fo:inline>                            
+						<fo:block> </fo:block>
+							<fo:inline>o	Los gastos notariales corresponden a una estimación para una operación de crédito de consumo en Santiago, pudiendo variar para operaciones de regiones cuyos aranceles dependerán de la localidad que se realice la operación.</fo:inline>                                                        
+						<fo:block> </fo:block>
+							<fo:inline>o	CAE (Carga Anual Equivalente): Es el indicador que, expresado en forma de porcentaje, revela el costo de un crédito en período anual, cualquiera que sea el plazo pactado para el pago de la obligación. La CAE contempla el tipo de interés, todos los gastos asociados al crédito y el plazo de la operación; y se calcula sobre base anual.</fo:inline>
+						<fo:block> </fo:block>
+							<fo:inline>o	CTC (Costo Total del Crédito): Es el indicador que, expresado en una suma de dinero, da cuenta del monto total a pagar por el crédito solicitado. Se calcula sumando el monto del crédito, lo adeudado por tasa de interés y los gastos asociados al crédito.</fo:inline>
+						<fo:block> </fo:block>
+							<fo:inline>o	CAE y el CTC, se calcula  de acuerdo a las fórmulas indicadas en el Decreto N°43 del Ministerio de Economía Fomento y Turismo que aprobó el reglamento sobre información al Consumidor de Créditos de Consumo.</fo:inline>
+						<fo:block> </fo:block>
+						<xsl:if test="producto = 'CON500'">
+							<fo:inline>o	Los Créditos Universales de consumo son créditos a tasa fija denominados en pesos, otorgados a personas naturales, que no requieren garantías reales.</fo:inline>                                                        
+						<fo:block> </fo:block>
+						</xsl:if>
+						<fo:block> </fo:block>
+							<fo:inline>Si desea solicitar su crédito de consumo debe llamar a BCI DIRECTO al 600 6928000.</fo:inline>                            
+						<fo:block> </fo:block>						
+					</fo:block>									
+                    <fo:block id="theEnd"/>
+                </fo:flow>
+            </fo:page-sequence>
+        </fo:root>
+    </xsl:template>
+</xsl:stylesheet>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Trxpend.procedimientosAlmacenados">
+    <parameterMap id="setRegistraTransaccionesPendientes" class="java.util.HashMap">
+        <parameter property="rut"           jdbcType="INTEGER"  javaType="integer" />
+        <parameter property="dv"            jdbcType="CHAR"     javaType="String" />
+        <parameter property="canal"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="convenio"      jdbcType="CHAR"     javaType="String" />
+        <parameter property="producto"      jdbcType="CHAR"     javaType="String" />
+        <parameter property="adicional1"    jdbcType="CHAR"     javaType="String" />
+        <parameter property="adicional2"    jdbcType="CHAR"     javaType="String" />
+        <parameter property="adicional3"    jdbcType="CHAR"     javaType="String" />
+        <parameter property="trx"            jdbcType="CHAR"    javaType="String" />
+        <parameter property="param1"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="param2"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="param3"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="param4"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="param5"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="param6"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="intentos"      jdbcType="INTEGER"  javaType="integer" />
+        <parameter property="estado"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="xfml"          jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+
+    <procedure id="registraTransaccionesPendientes" parameterMap="setRegistraTransaccionesPendientes" resultClass="int">
+            INSERT INTO trp
+                (trp_rut,
+                trp_dv,
+                trp_fecha_ingreso,
+                trp_fecha_modificacion,
+                trp_canal,
+                trp_convenio,
+                trp_producto,
+                trp_dato_adicional1,
+                trp_dato_adicional2,
+                trp_dato_adicional3,
+                trp_trx,
+                trp_param1,
+                trp_param2,
+                trp_param3,
+                trp_param4,
+                trp_param5,
+                trp_param6,
+                trp_int,
+                trp_est,
+                trp_sal,
+                trp_xfml)
+            VALUES(?, ?, getdate(), getdate(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, null, ?)
+
+            IF (@@error != 0)
+                  Begin
+                    Rollback Transaction         
+                    SELECT 1 as codigoRetorno
+                 End  
+               ELSE
+                   Begin
+                    Commit Transaction
+                    SELECT 0 as codigoRetorno
+                End
+    </procedure>
+
+    <parameterMap class="java.util.HashMap" id="paramRegTrxPendSpWs">
+        <parameter property="rut" jdbcType="INT" javaType="Long" />
+        <parameter property="dv" jdbcType="CHAR" javaType="String" />
+        <parameter property="canal" jdbcType="CHAR" javaType="String" />
+        <parameter property="convenio" jdbcType="CHAR" javaType="String" />
+        <parameter property="producto" jdbcType="CHAR" javaType="String" />
+        <parameter property="numeroIntentos" jdbcType="INT" javaType="Integer" />
+        <parameter property="input" jdbcType="VARCHAR" javaType="String" />
+        <parameter property="sistemaUyP" jdbcType="CHAR" javaType="String" />
+        <parameter property="predecesor" jdbcType="NUMERIC" javaType="Integer" />
+    </parameterMap>
+
+    <resultMap class="java.util.HashMap" id="resultRegTrxPendSpWs">
+        <result property="codigoRetorno" javaType="Integer" column="codigoRetorno" jdbcType="INT" />
+        <result property="trpId" javaType="Integer" column="TRP_ID" jdbcType="INT" />
+    </resultMap>
+
+    <procedure id="regTrxPendSpWs" parameterMap="paramRegTrxPendSpWs" resultMap="resultRegTrxPendSpWs">
+        { CALL sp_ins_trn_pen_generica(?,?,?,?,?,?,?,?,?) }
+    </procedure>
+
+</sqlMap>

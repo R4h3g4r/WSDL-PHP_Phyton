@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_mto_dep">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+	  <es_funcion value="select" />
+      <joltpool_name value="" />
+   </context>
+   <input>
+      <field
+         java_name = "codigoDeposito"
+         type = "long"
+         size = "9"
+         middle_name = "dep_idd_dep"
+      />
+   </input>
+   
+   <output>
+         <field
+            java_name = "montoDeDeposito"
+            type = "Double"
+            size = "8"
+            middle_name = "dep_mon"
+         />
+   </output>
+</service>

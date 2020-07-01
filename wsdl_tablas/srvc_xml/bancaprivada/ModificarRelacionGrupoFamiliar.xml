@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatosXMLService.xsd"
+	name="sp_mod_rhh">
+	<context>
+		<es_funcion value="no" />
+	</context>
+	<input>
+		<field type="long" middle_name="cbp_rut" size="0" java_name="rutClienteBancaPrivada" />
+		<field type="long" middle_name="rhh_rut" size="0" java_name="rutPersonaGrupoFamiliar" />
+		<field type="int" middle_name="rhh_tip_cod" size="0" java_name="codigoTipoRelacion" />
+		<field type="String" middle_name="rhh_des_rhh" size="0" java_name="otroTipoRelacion" />
+		<field type="String" middle_name="usr_ing" size="0" java_name="usuarioActualizacion" />
+		<field type="String" middle_name="pgm" size="0" java_name="programaActualizacion" />
+		<field type="String" middle_name="cnl" size="0" java_name="canalActualizacion" />
+	</input>
+	<output />
+</service>

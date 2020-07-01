@@ -1,0 +1,356 @@
+<?xml version="1.0"?>
+<!DOCTYPE jasperReport PUBLIC "-//JasperReports//DTD Report Design//EN" "http://jasperreports.sourceforge.net/dtds/jasperreport.dtd">
+
+<jasperReport
+		name="DataSourceReport"
+		pageWidth="800"
+		pageHeight="842"
+		columnWidth="100"
+		columnSpacing="5"
+		leftMargin="40"
+		rightMargin="40"
+		topMargin="50"
+		bottomMargin="50">
+	<reportFont name="Arial_Normal" isDefault="true" fontName="Arial" size="12" pdfFontName="Helvetica" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_Bold" isDefault="false" fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica-Bold" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<reportFont name="Arial_Italic" isDefault="false" fontName="Arial" size="12" isItalic="true" pdfFontName="Helvetica-Oblique" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="DataFile" class="java.lang.String"/>
+    <parameter name="WebContext" class="java.lang.String"/>
+	<field name="strName" class="java.lang.String"/>
+	<field name="strId" class="java.lang.String"/>
+	<field name="fltAsBCK" class="java.lang.Float"/>
+	<field name="fltAsCCE" class="java.lang.Float"/>
+	<field name="fltAsFVT" class="java.lang.Float"/>
+	<field name="fltAsMRK" class="java.lang.Float"/>
+	<field name="fltAsRGO" class="java.lang.Float"/>
+	<field name="fltAsTEC" class="java.lang.Float"/>
+	<field name="fltTotal" class="java.lang.Float"/>
+        <variable name="fltAsBCKSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+           <variableExpression>
+                 $F{fltAsBCK}
+         </variableExpression>
+       </variable>
+       <variable name="fltAsCCESumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsCCE}
+         </variableExpression>
+      </variable>
+      <variable name="fltAsFVTSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsFVT}
+         </variableExpression>
+      </variable>
+     <variable name="fltAsMRKSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsMRK}
+         </variableExpression>
+     </variable>
+     <variable name="fltAsRGOSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsRGO}
+         </variableExpression>
+     </variable>
+     <variable name="fltAsTECSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsTEC}
+         </variableExpression>
+     </variable>
+     <variable name="fltAsUASSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsUAS}
+         </variableExpression>
+     </variable>
+     <variable name="fltAsBOTSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltAsBOT}
+         </variableExpression>
+     </variable>
+     <variable name="fltAreaSrcSumColumn" class="java.lang.Float" resetType="Page" calculation="Sum">
+         <variableExpression>
+                 $F{fltTotal}
+         </variableExpression>
+     </variable>
+
+	<title>
+		<band height="140">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="10" width="800" height="30"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font reportFont="Arial_Normal" size="22"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">$P{ReportTitle}</textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="40" width="800" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font reportFont="Arial_Normal" size="14"/>
+				</textElement>
+				<textFieldExpression class="java.lang.String">$P{DataFile}</textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40">
+		        <rectangle>
+				<reportElement x="0" y="5" width="800" height="15" forecolor="#333333" backcolor="#333333"/>
+				<graphicElement stretchType="NoStretch"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="5" width="100" height="30" forecolor="#000000" backcolor="#000000" mode="Opaque"/>
+				<textElement textAlignment="Center">
+					<font reportFont="Arial_Normal"/>
+				</textElement>
+				<text></text>
+			</staticText>
+
+                         <textField hyperlinkType="Reference">
+                             <reportElement x="100" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                             <textFieldExpression class="java.lang.String">
+                                 new String("Back Office")
+                             </textFieldExpression>
+                             <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=BCK"</hyperlinkReferenceExpression>
+                         </textField>
+                        <textField hyperlinkType="Reference">
+                            <reportElement x="200" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                            <textFieldExpression class="java.lang.String">
+                                new String("Call Center")
+                            </textFieldExpression>
+                            <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=CCE"</hyperlinkReferenceExpression>
+                         </textField>
+                        <textField hyperlinkType="Reference">
+                           <reportElement x="300" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                            <textFieldExpression class="java.lang.String">
+                              new String("Fuerza Venta")
+                            </textFieldExpression>
+                            <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=FVT"</hyperlinkReferenceExpression>
+                         </textField>
+                          <textField hyperlinkType="Reference">
+                              <reportElement x="400" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+			      <textFieldExpression class="java.lang.String">
+                                  new String("..Marketing")
+                              </textFieldExpression>
+                              <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=MRK"</hyperlinkReferenceExpression>
+                         </textField>
+                          <textField hyperlinkType="Reference">
+                                <reportElement x="500" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                                <textFieldExpression class="java.lang.String">
+                                        new String("...Riesgo")
+                               </textFieldExpression>
+                               <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=RGO"</hyperlinkReferenceExpression>
+                         </textField>
+                         <textField hyperlinkType="Reference">
+				<reportElement x="600" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                                <textFieldExpression class="java.lang.String">
+                                        new String("Tecnologia")
+                               </textFieldExpression>
+                             <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=TEC"</hyperlinkReferenceExpression>
+                         </textField>
+                         
+                         <textField hyperlinkType="Reference">
+				<reportElement x="600" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                                <textFieldExpression class="java.lang.String">
+                                        new String("UAS")
+                               </textFieldExpression>
+                             <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=UAS"</hyperlinkReferenceExpression>
+                         </textField>
+                         
+                         <textField hyperlinkType="Reference">
+				<reportElement x="600" y="5" width="100" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right">
+                                <font isUnderline="true"/>
+                                </textElement>
+                                <textFieldExpression class="java.lang.String">
+                                        new String("BCK Telemarketing")
+                               </textFieldExpression>
+                             <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo/Area&#32;call&#32;center&#40;Envia&#41;&#38;typeCode=BOT"</hyperlinkReferenceExpression>
+                         </textField>
+                         
+                            <staticText>
+     				<reportElement x="700" y="5" width="50" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right"/>
+                               <text>......Total</text>
+		            </staticText>
+
+        	</band>
+	</pageHeader>
+	<detail>
+		<band height="40">
+			<textField hyperlinkType="Reference">
+				<reportElement x="0" y="5" width="100" height="30"  backcolor="#C0C0C0" mode="Opaque"/>
+                                <textElement textAlignment="Center">
+                                <font isUnderline="true"/>
+                                </textElement>
+				<textFieldExpression class="java.lang.String">
+					$F{strName}
+				</textFieldExpression>
+                                <hyperlinkReferenceExpression>$P{WebContext} + "ReportServlet?reportName=Ejecutivo&#32;call&#32;center&#40;Envia&#41;&#38;typeCode="+$F{strId}</hyperlinkReferenceExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="100" y="5" width="100" height="30" />
+                                <textElement textAlignment="Right"/>
+				<textFieldExpression class="java.lang.Float">
+					$F{fltAsBCK}
+				</textFieldExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="200" y="5" width="100" height="30" />
+                                <textElement textAlignment="Right"/>
+                                <textFieldExpression class="java.lang.Float">
+					$F{fltAsCCE}
+				</textFieldExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="300" y="5" width="100" height="30" />
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsFVT}
+				</textFieldExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="400" y="5" width="100" height="30" />
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsMRK}
+				</textFieldExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="500" y="5" width="100" height="30" />
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsRGO}
+				</textFieldExpression>
+			</textField>
+			<textField pattern="0">
+				<reportElement x="600" y="5" width="100" height="30"/>
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsTEC}
+				</textFieldExpression>
+			</textField>
+			
+			<textField pattern="0">
+				<reportElement x="600" y="5" width="100" height="30"/>
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsUAS}
+				</textFieldExpression>
+			</textField>
+			
+			<textField pattern="0">
+				<reportElement x="600" y="5" width="100" height="30"/>
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltAsBOT}
+				</textFieldExpression>
+			</textField>
+			
+			<textField pattern="0">
+				<reportElement x="700" y="5" width="50" height="30" backcolor="#C0C0C0" mode="Opaque"/>
+                               <textElement textAlignment="Right"/>
+ 				<textFieldExpression class="java.lang.Float">
+					$F{fltTotal}
+				</textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	
+	<summary>
+          <band height="60">
+          <staticText>
+                  <reportElement x="0" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Center" lineSpacing="Single"/>
+                  <text>Total </text>
+          </staticText>
+
+          <textField pattern="0">
+                  <reportElement x="100" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsBCKSumColumn}
+                  </textFieldExpression>
+          </textField>
+          <textField pattern="0">
+                  <reportElement x="200" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsCCESumColumn}
+                  </textFieldExpression>
+          </textField>
+          <textField pattern="0">
+                  <reportElement x="300" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsFVTSumColumn}
+                  </textFieldExpression>
+          </textField>
+          <textField pattern="0">
+                  <reportElement x="400" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsMRKSumColumn}
+                  </textFieldExpression>
+          </textField>
+          <textField pattern="0">
+                  <reportElement x="500" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsRGOSumColumn}
+                  </textFieldExpression>
+          </textField>
+          <textField pattern="0">
+                  <reportElement x="600" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsTECSumColumn}
+                  </textFieldExpression>
+          </textField>
+          
+          <textField pattern="0">
+                  <reportElement x="600" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsUASSumColumn}
+                  </textFieldExpression>
+          </textField>
+          
+          <textField pattern="0">
+                  <reportElement x="600" y="5" width="100" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAsBOTSumColumn}
+                  </textFieldExpression>
+          </textField>
+          
+          <textField pattern="0">
+                  <reportElement x="700" y="5" width="50" height="25" backcolor="#C0C0C0" mode="Opaque"/>
+                  <textElement textAlignment="Right"/>
+                  <textFieldExpression class="java.lang.Float">
+                          $V{fltAreaSrcSumColumn}
+                  </textFieldExpression>
+          </textField>
+
+         </band>
+	</summary>
+</jasperReport>

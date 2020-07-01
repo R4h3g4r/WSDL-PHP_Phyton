@@ -1,0 +1,94 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_vvd">
+   <context>
+      
+   </context>
+
+   <input>
+      <field
+         java_name = "numeroDeSistema"
+         type = "String"
+         size = "4"
+         middle_name = "numeroDeSistema"
+      />
+      <field
+         java_name = "correlativo"
+         type = "String"
+         size = "8"
+         middle_name = "correlativo"
+      />
+      
+   </input>
+
+   
+   <output>
+      <field
+            java_name = "numeroDeSistema"
+            type = "String"
+            size = "4"
+            middle_name = "vvi_num_sis"
+         />
+         <field
+            java_name = "correlativo"
+            type = "String"
+            size = "8"
+            middle_name = "vvi_cod_crr"
+         />
+         <field
+            java_name = "fechaDeGrabacion"
+            type = "Date"
+            size = "4"
+            middle_name = "vvd_fec_grb"
+         />
+         <field
+            java_name = "motivoDePago"
+            type = "String"
+            size = "30"
+            middle_name = "vvd_mot_pag"
+         />
+         <field
+            java_name = "numeroDeOrdenDePago"
+            type = "String"
+            size = "12"
+            middle_name = "vvd_num_ord_pag"
+         />
+         <field
+            java_name = "numeroDeDocumento"
+            type = "String"
+            size = "12"
+            middle_name = "vvd_num_doc"
+         />
+         <field
+            java_name = "numeroDeOrdenDeCompra"
+            type = "String"
+            size = "10"
+            middle_name = "vvd_num_ord_cpr"
+         />
+         <field
+            java_name = "valorBruto"
+            type = "double"
+            size = "8"
+            middle_name = "vvd_val_bru"
+         />
+         <field
+            java_name = "valorDescuento"
+            type = "double"
+            size = "8"
+            middle_name = "vvd_val_dsc"
+         />
+         <field
+            java_name = "monto"
+            type = "double"
+            size = "8"
+            middle_name = "vvd_val"
+         />
+         <field
+            java_name = "numeroDeLiquidacion"
+            type = "int"
+            size = "4"
+            middle_name = "vvd_num_liq"
+         />
+         
+   </output>
+</service>

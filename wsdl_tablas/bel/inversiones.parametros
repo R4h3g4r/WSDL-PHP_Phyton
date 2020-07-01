@@ -1,0 +1,17 @@
+# Permisos definidos para las opciones del Menu de Inversiones en Empresas
+
+archivo_menu;              nombre=tablas/bel/menu-inversiones.xml;
+codigo_producto;           express=Prod01;    epyme=Prod21;
+
+consulta_resumen;          servicio=INV01;
+consulta_balanceDetalle;   servicio=INV02;
+consulta_dap;              servicio=x12ope;
+consulta_fondosMutuos;     servicio=X13OPE;
+consulta_acciones;         servicio=INV04;
+consulta_rentafija;        servicio=INV05;
+consulta_pactos;           servicio=INV06;
+consulta_simultaneas;      servicio=INV07;
+consulta_finversion;       servicio=INV08;
+consulta_vencimientos;     servicio=INV09;
+consulta_cartolas;         servicio=INV02;
+cartola_banca_privada;     servicio=INV10;

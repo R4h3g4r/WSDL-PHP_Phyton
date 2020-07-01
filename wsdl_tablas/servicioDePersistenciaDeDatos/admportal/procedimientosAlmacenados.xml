@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="admportal.procedimientosAlmacenados">
+
+
+	<!--Obtiene las preferencias de acuerdo a un idUsuario y una llave dada -->
+	<parameterMap id="setObtenerPreferencias" class="java.util.HashMap">
+		<parameter property="idUsuario" 	jdbcType="CHAR" 	javaType="String"/>
+		<parameter property="canalPref" 	jdbcType="CHAR" 	javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerPreferencias" class="java.util.HashMap">
+		<result property="preferencia" 			column="prf_usu_prf" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="llavePrefer" 			column="prf_usu_key" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="fechaUltMod" 			column="prf_usu_fec_mod" 	jdbcType="DATETIME" 	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerPreferencias" parameterMap="setObtenerPreferencias" resultMap="getObtenerPreferencias">
+		{ CALL sp_cns_prf_usu_001 ( ?, ? ) }
+	</procedure>
+	
+		
+	<!--Actualizar las preferencias de acuerdo a un idUsuario y una llave dada -->
+	<parameterMap id="setActualizaPreferencias" class="java.util.HashMap">
+		<parameter property="idUsuario" 	jdbcType="CHAR" 	javaType="String"/>
+		<parameter property="canalPref" 	jdbcType="CHAR" 	javaType="String"/>
+		<parameter property="llavePref" 	jdbcType="CHAR" 	javaType="String"/>
+		<parameter property="preferencia" 	jdbcType="CHAR" 	javaType="String" />
+	</parameterMap>
+	<procedure id="actualizaPreferencias" parameterMap="setActualizaPreferencias" resultClass="String">
+		{CALL sp_ing_upd_prf_usu (?, ?, ?, ?)}
+	</procedure>
+	
+	<!--Limpia las preferencias de acuerdo a un idUsuario y un canal dado -->
+	<parameterMap id="setLimpiaPreferencias" class="java.util.HashMap">
+		<parameter property="idUsuario" 	jdbcType="CHAR" 	javaType="String"/>
+		<parameter property="canalPref" 	jdbcType="CHAR" 	javaType="String"/>
+	</parameterMap>
+	<procedure id="limpiaPreferencias" parameterMap="setLimpiaPreferencias" resultClass="String">
+		{CALL sp_del_prf_usu (?, ?)}
+	</procedure>
+	
+	<!-- Buscar journalizaciones para aplicacion Portal -->
+	<procedure id="traerJenPortal" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	        {CALL sp_cns_traer_jen_portal()}
+        </procedure>
+
+</sqlMap>

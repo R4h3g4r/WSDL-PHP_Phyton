@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="comtbanc.procedimientosAlmacenados">
+
+ 
+
+<resultMap id="cartolaComisionesMapResultado" class="java.util.HashMap">
+    	<result property="fechaCartola" column="fechaCartola" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		   <result property="nroCuenta" column="nroCuenta" jdbcType="CHAR" javaType="String" />
+		<result property="nroCartola" column="nroCartola" jdbcType="INT" javaType="int" />
+ </resultMap>
+
+
+
+<procedure id="procCartolaComisiones" parameterClass="java.util.HashMap"  resultMap="cartolaComisionesMapResultado">
+		{ CALL sp_cns_cartola(#rutCliente#,	<isNull property="nroCuenta">NULL</isNull><isNotNull property="nroCuenta">#nroCuenta#</isNotNull>
+		,	<isNull property="anyo">NULL</isNull><isNotNull property="anyo">#anyo#</isNotNull>) }
+ </procedure>
+
+<resultMap id="cartolaDetalleMapResultado" class="java.util.HashMap">
+		<result property="nroCartola" column="nroCartola" jdbcType="INT" javaType="int" />
+      <result property="montoComision" 	javaType="Double" 	column="montoComision" 	jdbcType="decimal"/>
+    	<result property="fechaCargo" column="fechaCargo" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		   <result property="glosaDetalle" column="glosaDetalle" jdbcType="CHAR" javaType="String" />
+ </resultMap>
+
+<procedure id="procCartolaDetalle" parameterClass="java.util.HashMap" resultMap="cartolaDetalleMapResultado">
+		{ CALL sp_cns_detalle_cartola(#nroCartola#) }
+ </procedure>
+ 
+
+
+
+
+</sqlMap>    

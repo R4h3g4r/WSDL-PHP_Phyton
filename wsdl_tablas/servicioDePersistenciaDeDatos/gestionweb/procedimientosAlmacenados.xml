@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="gestionweb.procedimientosAlmacenados">	
+
+    <!-- Parametros de entrada -->
+    <parameterMap id="setDatosactualizaInserta" class="java.util.HashMap">
+		<parameter property="p_cmt_rut_rut"        jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="p_cmt_dv_digito"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="p_cmt_nom_nombre"     jdbcType="VARCHAR" javaType="String" />
+		<parameter property="p_cmt_mto_promedio"   jdbcType="DOUBLE" javaType="double"/>
+		<parameter property="p_cmt_mto_meta1"	   jdbcType="DOUBLE" javaType="double" />
+		<parameter property="p_cmt_mto_meta2"	   jdbcType="DOUBLE" javaType="double" />
+		<parameter property="p_cmt_mto_meta3"      jdbcType="DOUBLE" javaType="double" />
+        <parameter property="p_cmt_mto_meta4"      jdbcType="DOUBLE" javaType="double" />
+		<parameter property="p_cmt_mto_meta5"      jdbcType="DOUBLE" javaType="double" />
+        <parameter property="p_cmt_mto_meta6"	   jdbcType="DOUBLE" javaType="double"/>
+		<parameter property="p_cmt_txt_correo"     jdbcType="VARCHAR" javaType="String" />
+		<parameter property="p_cmt_ind_flag"       jdbcType="VARCHAR" javaType="String" />
+		<parameter property="p_cmt_fec_actualiza"  jdbcType="DATE"    javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="p_cmt_nom_usuario"    jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+
+    <resultMap id="getDatosactualizaInserta" class="java.util.HashMap">
+	    <result	 property="resultado"   jdbcType="NUMERIC"  javaType="integer" />
+	</resultMap> 	
+	<!-- sp_cmt_insert_update (@p_cmt_rut_rut int, @p_cmt_dv_digito char(1), @p_cmt_nom_nombre varchar(100),
+                               @p_cmt_mto_promedio decimal(18,4), @p_cmt_mto_meta1 decimal(18,4), @p_cmt_mto_meta2 decimal(18,4),
+                               @p_cmt_mto_meta3 decimal(18,4), @p_cmt_mto_meta4 decimal(18,4), @p_cmt_mto_meta5 decimal(18,4),
+                               @p_cmt_mto_meta6 decimal(18,4), @p_cmt_txt_correo varchar(50), @p_cmt_ind_flag char(1),
+                               @p_cmt_fec_actualiza smalldatetime, @p_cmt_nom_usuario varchar(50))  
+	-->
+	<procedure id="actualizaInserta" parameterMap="setDatosactualizaInserta" resultMap="getDatosactualizaInserta">
+	   {CALL sp_cmt_insert_update( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+    <parameterMap id="setDatosConsulta" class="java.util.HashMap">
+		<parameter property="p_cmt_rut_rut"        jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="p_cmt_dv_digito"      jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+
+    <resultMap id="getDatosConsulta" class="java.util.HashMap">
+	    <result property="cmt_rut_rut"        jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<result property="cmt_dv_digito"      jdbcType="VARCHAR" javaType="String" />
+        <result property="cmt_nom_nombre"     jdbcType="VARCHAR" javaType="String" />
+		<result property="cmt_mto_promedio"   jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+		<result property="cmt_mto_meta1"	   jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="cmt_mto_meta2"	   jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="cmt_mto_meta3"      jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+        <result property="cmt_mto_meta4"      jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="cmt_mto_meta5"      jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+        <result property="cmt_mto_meta6"	   jdbcType="DECIMAL" javaType="java.math.BigDecimal"/>
+		<result property="cmt_txt_correo"     jdbcType="VARCHAR" javaType="String" />
+		<result property="cmt_ind_flag"       jdbcType="VARCHAR" javaType="String" />
+		<result property="cmt_fec_actualiza"  jdbcType="DATE"    javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+        <result property="cmt_nom_usuario"    jdbcType="VARCHAR" javaType="String" />
+	</resultMap> 
+	<procedure id="consulta" parameterMap="setDatosConsulta" resultMap="getDatosConsulta">
+	   {CALL sp_cmt_select_row( ?, ?)}
+	</procedure>
+
+	
+	<parameterMap id="setObtieneMargen" class="java.util.HashMap">
+		<parameter property="rutCliente"      jdbcType="CHAR" javaType="String" />
+    </parameterMap>
+	<procedure id="obtieneMargen" parameterMap="setObtieneMargen" resultClass="java.lang.Double">
+	   {CALL sp_cns_cmo(?)}
+	</procedure>
+	
+	<parameterMap id="setConsultaCredito" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="java.lang.Long" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>    
+    <resultMap id="getConsultaCredito" class="java.util.HashMap">
+	    <result property="dsp_rut_cli" jdbcType="INTEGER" javaType="java.lang.Long" />
+	    <result property="dsp_dv_cli" jdbcType="CHAR" javaType="String" />
+	    <result property="dsp_fec_reg" jdbcType="DATETIME" javaType="java.util.Date" />
+	    <result property="dsp_dsp_cons" jdbcType="NUMERIC" javaType="java.lang.Double" />
+	    <result property="dsp_ind_vig" jdbcType="CHAR" javaType="String" />
+	    <result property="dsp_cnl" jdbcType="CHAR" javaType="String" />
+	</resultMap>
+	
+	<procedure id="consultarOfertaCredito" parameterMap="setConsultaCredito" resultMap="getConsultaCredito">
+	  {call sp_cns_ofe_web(?, ?)}
+	</procedure>
+	<procedure id="eliminaOfertaCredito" parameterMap="setConsultaCredito">
+	  {call sp_eli_ofe_web(?, ?)}
+	</procedure>
+	
+
+	<!-- Parametros de entrada ingresar avance -->
+    <parameterMap id="setIngresarAvance"     class="java.util.HashMap">
+		<parameter property="rut"            jdbcType="CHAR" javaType="String" />
+		<parameter property="fecha"		     jdbcType="DATETIME"    	javaType="java.util.Date" />
+		<parameter property="montoAvance"    jdbcType="DOUBLE" javaType="double"/>
+	</parameterMap>
+
+	<procedure id="ingresarAvance" parameterMap="setIngresarAvance" resultClass="java.lang.Integer">
+	   {CALL sp_ins_ava( ?, ?, ?)}
+	</procedure>	
+
+	<procedure id="consultarMontoTotalAvances" parameterClass="java.util.HashMap" resultClass="java.lang.Double">
+        {CALL sp_cns_tot_avances(#rut#, #fecha#)}
+    </procedure>
+	
+
+	 <parameterMap id="setRegistrarAvanceVV"     class="java.util.HashMap">
+	 	<parameter property="fecha"		     jdbcType="DATETIME" javaType="java.util.Date" />
+		<parameter property="folio"          jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="rutCliente"     jdbcType="INT"  javaType="java.lang.Long" />
+		<parameter property="dvCliente"      jdbcType="CHAR"     javaType="String" />
+		<parameter property="nomCliente"     jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="idEjecutivo"    jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="mtoAvance"      jdbcType="NUMERIC"  javaType="Long" />
+		<parameter property="mtoCuota"       jdbcType="NUMERIC"  javaType="Long" />
+		<parameter property="mtoCae"         jdbcType="NUMERIC"  javaType="Double" />
+		<parameter property="mtoCtc"         jdbcType="NUMERIC"  javaType="Long" />
+		<parameter property="cuotas"         jdbcType="INT"  javaType="Integer" />
+		<parameter property="tasa"           jdbcType="NUMERIC"  javaType="Double" />
+		<parameter property="comision"       jdbcType="NUMERIC"  javaType="Double" />
+		<parameter property="tdc"            jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="canal"          jdbcType="VARCHAR"  javaType="String" />
+	</parameterMap>
+
+	<procedure id="registrarAvanceVV" parameterMap="setRegistrarAvanceVV" resultClass="java.lang.Integer">
+	   {CALL sp_ing_reg_vv_avances_modificacion_para_pruebas( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>	
+</sqlMap>	
+
+

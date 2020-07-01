@@ -1,0 +1,13 @@
+ValidadorWAP;                  Desc=Validador WAP;            Objetos=CCT&CPR&CCT_CCC;
+TransferenciaTerceros;         Desc=Transf. Terc.;            Objetos=CCT&CPR;
+SaldoCtaCte;                   Desc=Saldo;                    Objetos=CCT&CPR;
+UltMovCtaCte;                  Desc=Ult. Movimientos;         Objetos=CCT&CPR;
+SaldoCtaCred;                  Desc=Saldo;                    Objetos=TDC;
+AbonoLineaSobregiro;           Desc=Pago Línea Sobregiro;     Objetos=CCT_CCC;       Restriccion=SI;
+# Grupos
+CuentaCorriente;               Desc=Grupo Cuentas Corriente;  GruposTitulo=Cuentas Corriente;         Objetos=CCT&CPR;
+TarjetasCredito;               Desc=Grupo Tarjetas Crédito;   GruposTitulo=Tarjetas Crédito;          Objetos=TDC;
+Transferencias;                Desc=Grupo Cuentas Corriente;  GruposTitulo=Transf. de Fondos;         Objetos=CCT&CPR;
+
+
+#PagoVisaConCuentaCte.;Desc=Pago Visa;Objetos=TDC;Restriccion=SI;

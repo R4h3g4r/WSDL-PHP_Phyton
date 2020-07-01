@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_per_for">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input/>
+	<output>
+		<struct struct_size="0" class_name="ConsultaCodigoGlosaTO" var_name="codigoGlosa">
+			<field type="Integer" middle_name="codigoPerfil" size="0" java_name="codigo"/>
+			<field type="String" middle_name="glosaPerfil" size="0" java_name="glosa"/>
+		</struct>
+	</output>
+</service>

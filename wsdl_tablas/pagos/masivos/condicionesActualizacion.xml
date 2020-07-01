@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<condiciones>
+    <ENVIO_PROCESO_CCT>
+         <actualizacion estado="1200" estadoActual="0"/>
+    </ENVIO_PROCESO_CCT>
+    <TRX_ACEPTADAS_CCT>
+         <actualizacion estado="0000" modulo="3" estadoActual="0000" moduloActual="2"/>
+    </TRX_ACEPTADAS_CCT>
+    <TRX_RECHAZADAS_CCT>
+         <actualizacion iniRangoEstado="0001" finRangoEstado="4999" modulo="3" estadoActual="0000" moduloActual="2"/>
+         <actualizacion iniRangoEstado="5501" finRangoEstado="9999" modulo="3" estadoActual="0000" moduloActual="2"/>
+    </TRX_RECHAZADAS_CCT>    
+	<ENVIO_PROCESO_VVI>
+         <actualizacion estado="-1300" estadoActual="0"/>
+    </ENVIO_PROCESO_VVI>   
+    <TRX_GENERADAS_VVI>
+         <actualizacion estado="5110" modulo="4" estadoActual="0000" moduloActual="2"/>
+    </TRX_GENERADAS_VVI>   
+    <TRX_RECHAZADAS_VVI>
+         <actualizacion iniRangoEstado="0001" finRangoEstado="4999" modulo="4" estadoActual="0000" moduloActual="2"/>
+         <actualizacion iniRangoEstado="5501" finRangoEstado="9999" modulo="4" estadoActual="0000" moduloActual="2"/>
+    </TRX_RECHAZADAS_VVI>    
+    <TRX_ACTUALIZADAS_VVI>
+         <actualizacion iniRangoEstado="0001" finRangoEstado="4999" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion iniRangoEstado="0001" finRangoEstado="4999" modulo="4" estadoActual="5115" moduloActual="4"/>
+         <actualizacion iniRangoEstado="5501" finRangoEstado="9999" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion iniRangoEstado="5501" finRangoEstado="9999" modulo="4" estadoActual="5115" moduloActual="4"/>
+         <actualizacion estado="5120" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion estado="5120" modulo="4" estadoActual="5115" moduloActual="4"/>
+         <actualizacion estado="5120" modulo="4" estadoActual="5120" moduloActual="4"/>
+         <actualizacion estado="5125" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion estado="5125" modulo="4" estadoActual="5115" moduloActual="4"/>
+		 <actualizacion estado="5135" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion estado="5135" modulo="4" estadoActual="5115" moduloActual="4"/>
+		 <actualizacion estado="5145" modulo="4" estadoActual="5110" moduloActual="4"/>
+         <actualizacion estado="5145" modulo="4" estadoActual="5115" moduloActual="4"/>         
+    </TRX_ACTUALIZADAS_VVI>    
+    <TRX_RECHAZADAS_CCA>
+         <actualizacion estado="0020" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="5525" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="5555" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6040" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6050" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6190" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6230" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6240" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6310" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6400" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6503" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6525" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6600" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6610" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6620" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6630" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6640" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6660" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6670" estadoActual="0000" moduloActual="2"/>
+         <actualizacion estado="6680" estadoActual="0000" moduloActual="2"/>
+    </TRX_RECHAZADAS_CCA>        
+    <TRX_PAGADAS_SVP>
+         <actualizacion estado="0000" estadoActual="5371" moduloActual="3"/>
+         <actualizacion estado="0000" estadoActual="5370" moduloActual="3"/>
+         <actualizacion estado="0000" estadoActual="5371" moduloActual="3"/>
+         <actualizacion estado="6400" estadoActual="5370" moduloActual="3"/>
+	 <actualizacion estado="6400" estadoActual="5371" moduloActual="3"/>
+         <actualizacion estado="6999" estadoActual="5370" moduloActual="3"/>         
+    </TRX_PAGADAS_SVP>
+    <TRX_RECHAZADA_ENRT>
+         <actualizacion estado="6203" modulo="3" estadoActual="0000" moduloActual="2"/>
+    </TRX_RECHAZADA_ENRT>
+</condiciones>

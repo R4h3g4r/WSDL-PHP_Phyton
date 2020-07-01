@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://ejb.netimex" xmlns:impl="http://ejb.netimex" xmlns:intf="http://ejb.netimex" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://ejb.netimex" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://ejb.netimex" xmlns:intf="http://ejb.netimex" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <element name="sendNotification">
+    <complexType>
+     <sequence>
+      <element name="requester" nillable="true" type="xsd:string"/>
+      <element name="entity" nillable="true" type="xsd:string"/>
+      <element name="user_id" nillable="true" type="xsd:string"/>
+      <element name="customer_id" nillable="true" type="xsd:string"/>
+      <element name="reference_no" nillable="true" type="xsd:string"/>
+      <element name="deal_type" nillable="true" type="xsd:string"/>
+      <element name="transaction_type" nillable="true" type="xsd:string"/>
+      <element name="transaction_no" nillable="true" type="xsd:string"/>
+      <element name="deal_no" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="sendNotificationResponse">
+    <complexType>
+     <sequence>
+      <element name="sendNotificationReturn" nillable="true" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="sendNotificationResponse">
+
+      <wsdl:part element="intf:sendNotificationResponse" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="sendNotificationRequest">
+
+      <wsdl:part element="intf:sendNotification" name="parameters"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Notification">
+
+      <wsdl:operation name="sendNotification">
+
+         <wsdl:input message="intf:sendNotificationRequest" name="sendNotificationRequest"/>
+
+         <wsdl:output message="intf:sendNotificationResponse" name="sendNotificationResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="NotificationSoapBinding" type="intf:Notification">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="sendNotification">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="sendNotificationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="sendNotificationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="NotificationService">
+
+      <wsdl:port binding="intf:NotificationSoapBinding" name="Notification">
+
+         <wsdlsoap:address location="http://localhost:9080/NetImexWeb/services/Notification"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

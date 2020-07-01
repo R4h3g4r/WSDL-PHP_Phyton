@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<webappext:WebAppExtension xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:webappext="webappext.xmi" xmi:id="WebApp_ID_Ext" reloadInterval="30" reloadingEnabled="true" fileServingEnabled="true" directoryBrowsingEnabled="false" serveServletsByClassnameEnabled="false" preCompileJSPs="true">
+  <webApp href="WEB-INF/web.xml#WebApp_ID"/>
+  <extendedServlets xmi:id="ServletExtension_1">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_1"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_2">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_2"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_3">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_3"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_4">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_4"/>
+  </extendedServlets>
+  <extendedServlets xmi:id="ServletExtension_5">
+    <extendedServlet href="WEB-INF/web.xml#Servlet_5"/>
+  </extendedServlets>
+</webappext:WebAppExtension>

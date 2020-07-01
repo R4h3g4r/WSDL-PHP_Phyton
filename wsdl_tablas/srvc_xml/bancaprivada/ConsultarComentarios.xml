@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_cmt_for">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="Integer" middle_name="id" size="0" java_name="idFormulario"/>
+	</input>
+
+	<output>
+		<struct struct_size="0" class_name="ConsultaComentarios" var_name="comentario">
+			<field type="String" middle_name="comentario" size="0" java_name="comentario"/>
+			<field type="String" middle_name="usuarioComentario" size="0" java_name="usuarioComentario"/>
+			<field type="Date" middle_name="fechaComentario" size="0" java_name="fechaComentario"/>
+		</struct>
+	</output>
+</service>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<database>
+	<server>161.131.215.62</server>
+	<name>bci/calcliev25.nsf</name>
+	<query>
+		<view>QryCal</view>
+		<key>Id Solicitud</key>
+	</query>
+	<document>		 
+	 <!-- el objeto que contiene la lista de datos a insertar debe ir con los valores de objetos correspondientes-->	   
+	  <items java_name="setString">estado$Aprobador</items>	
+	  <items java_name="setDate">FechaAprob</items>	      
+	  <items java_name="setInteger"></items>	 
+	  
+	  <!-- Solo los valores de retorno deben ir con Sus respectivos objetos -->
+	  <items java_name="getString">estado$dplNotaDeudor</items>
+	  <items java_name="getInteger">NotaDeudor</items>	  		
+	</document>
+</database>

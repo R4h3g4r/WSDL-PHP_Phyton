@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<root>
+
+	<Admin>
+		<from>WebAprocred@bci.cl</from>
+		<name>WebAprocred</name>
+	</Admin>
+
+	<role id="ACAdministrador">
+		<!--<Subject>-WebAprocred- Error en solicitud @sol</Subject>-->
+		<Subject>[WebAprocred] [Error] @sol</Subject>
+		<Content>Ha Ocurrido el siguiente problema: @error</Content>
+		<Signature>
+			Atte Sistema Aprobación de Créditos -WebAprocred-
+		</Signature>
+	</role>
+
+	<role id="ACComInt">
+		<Subject>
+			-WebAprocred-Solicitud N°: @sol del cliente Rut: @rut
+		</Subject>
+		<Content>
+			Se le informa que se ha enviado una nueva solicitud de aprobación de créditos,en la cual debe participar
+		</Content>
+		<Signature>
+			Atte Sistema Aprobación de Créditos -WebAprocred-
+		</Signature>
+	</role>
+
+	<role id="ACRespLDC">
+		<Subject>
+			-WebAprocred- Solicitud N°: @sol del cliente Rut: @rut, fue aprobada con cambios.
+		</Subject>
+		<Content>
+			Reflejar los cambios correspondientes, en el sistema de líneas de créditos, a través de APR.
+		</Content>
+		<Signature>
+			Atte Sistema Aprobación de Créditos -WebAprocred-
+		</Signature>
+	</role> 
+ 
+ 	<roles id="Empresa">
+		'ACEjCom','ACIngFT','ACJOF'
+	</roles>
+	<roles id="Corporativa">
+		'ACEjCorp','ACIngFT','ACGPlataf'
+	</roles> 
+	<roles id="G.Empresas">
+		'ACEjCom','ACJOF'
+	</roles> 	
+	<roles id="CCEE">
+		'ACEjCCEE','ACJPlataf'
+	</roles> 
+	<roles id="Div. Internacional">
+		'ACOfExt','ACJPlataf'
+	</roles> 
+	<roles id="Factoring">
+		'ACEjFact','ACJPFact'
+	</roles> 
+	<roles id="Inmobiliaria">
+		'ACEjInmob','ACIngFT','ACJOF'
+	</roles> 
+	<roles id="Leasing">
+		'ACEjLeas','ACIngFT','ACJPLeas'
+	</roles> 
+	<roles id="Mesa de Dinero">
+		'ACOpMesa'
+	</roles> 
+	<roles id="Privada">
+		'ACBanquero'
+	</roles> 	
+	
+	<instance id="End">		
+		<Subject>
+			-WebAprocred- REVISAR posible modificación de detalles @state de la Solicitud N°: @sol del cliente Rut: @rut.
+		</Subject>
+		<Content>
+			Se le informa que deben REVISAR posibles modificaciones en los detalles @state, con fecha @now de la solicitud  @sol  del cliente Rut: @rut.\\n\\nPara más información ingrese a la siguiente dirección\\nhttp://aprocred
+		</Content>
+		<Signature>
+			Atte Sistema Aprobación de Créditos -WebAprocred-
+		</Signature>
+	</instance>
+
+
+</root>

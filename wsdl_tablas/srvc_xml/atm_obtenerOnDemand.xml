@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * Obtener los registros para reporte on-demand
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 01/06/2007 Rodrigo Rodriguez H. - Version inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : pagosatm
+ * DataSource: DSPagosATM
+ */
+-->
+<service name = "sp_AtmPsExtraeOnDemand">
+
+  <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <have_multi_environment value="no" />
+    <outputfield_attr value="no" />
+    <req_num_param value="no" />
+    <translator value="RORPPTPG" />
+    <campo_indica_cantidad value="" />
+    <status_throw_exception value="yes" />
+    <joltpool_name value="wcorp.serv.atm.pagodeservicios.ATMPagoDeServiciosBean" />
+  </context>
+  
+  <input>
+  </input> 
+   	
+  <output> 
+		<struct struct_size="0" class_name="RegistroCuadraturaVO" var_name="cuadraturas"> 	
+			<field java_name = "numeroCuenta" 				type = "String"		size ="20"  middle_name = "NumeroCuenta"/>
+			<field java_name = "serial" 							type = "Long"  		size ="24"  middle_name = "Serial"/>
+			<field java_name = "montoTotal" 					type = "Long"  		size ="38"  middle_name = "MontoTotal"/>
+			<field java_name = "fechaCargoEnTandem"	  type = "Date"  		size ="30"  middle_name = "FechaCargoEnTandem"/>
+			<field java_name = "nemonicoCargo" 				type = "Integer" 	size ="5"   middle_name = "NemonicoCargo"/>
+			<field java_name = "estado" 							type = "String"  	size ="8"   middle_name = "Estado"/>
+		</struct>
+  </output>
+</service>

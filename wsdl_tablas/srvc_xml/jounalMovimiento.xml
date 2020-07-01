@@ -1,0 +1,136 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!--
+/**
+ * SP para el insertar en el Jornal de Movimientos de recarga
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 09/05/2006 Gonzalo Silva. - Versión inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : reccel
+ 
+ * @Gonzalo Silva P. <B>Neoris Chile Ltda.</B>
+ * @version 1.0
+ */
+-->
+
+
+<service name = "sp_ins_JounalMovimiento">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.recargacelulares.ServiciosRecargaCelularesBean" />
+
+    <es_funcion value="output_param" />
+
+  </context>
+  <input>
+		<field
+          java_name = "rutCliente"
+          type = "String"
+          size = "10"
+          middle_name = "rutCliente"
+        />
+     <field
+          java_name = "nroCuentaCliente"
+          type = "String"
+          size = "250"
+          middle_name = "nroCuentaCliente"
+        />
+     <field
+          java_name = "idOperadora"
+          type = "Integer"
+          size = "250"
+          middle_name = "idOperadora"
+        />   
+     <field
+          java_name = "idCaja"
+          type = "Integer"
+          size = "250"
+          middle_name = "idCaja"
+        />   
+     <field
+          java_name = "monto"
+          type = "Double"
+          size = "250"
+          middle_name = "monto"
+        />      
+     <field
+          java_name = "nroCelularCliente"
+          type = "String"
+          size = "250"
+          middle_name = "nroCelularCliente"
+        />         
+     <field
+          java_name = "fecMov"
+          type = "Date"
+          size = "250"
+          middle_name = "fecMov"
+        />    
+     <field
+          java_name = "txIdTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "txIdTranstel"
+        />
+     <field
+          java_name = "fechaMovTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "fechaMovTranstel"
+        />
+        <field
+          java_name = "horaMovTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "horaMovTranstel"
+        />
+        <field
+          java_name = "numeroCajaTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "numeroCajaTranstel"
+        />      
+	 <field
+          java_name = "tipoMovimiento"
+          type = "Integer"
+          size = "250"
+          middle_name = "tipoMovimiento"
+        />      	
+  		<field
+          java_name = "idTransaccion"
+          type = "Integer"
+          size = "10"
+          middle_name = "idTransaccion"
+        />
+
+  </input>
+  <output>   
+  	   <field
+          java_name = "idTransaccion"
+          type = "Integer"
+          size = "250"
+          middle_name = "idTransaccion"
+        />
+    </output>      
+
+</service>

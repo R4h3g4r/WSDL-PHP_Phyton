@@ -1,0 +1,22 @@
+# Direccion Desactualizada                          
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar con cliente si la información actual de Dirección, teléfonos, Fax y Mail:;
+GLOSA1;mensaje=Si se mantienen las mismas, grabar cada una  para que todos queden con la misma fecha de vencimiento.;
+GLOSA2;mensaje=Si cambia alguna de ellas que no sea la dirección y teléfono principal, proceder al cambio  grabando todos para que queden con la misma fecha.;
+GLOSA3;mensaje=Si cambia Dirección y teléfono principal  los pasos a seguir son:;
+GLOSA4;mensaje=a.- Entregar el "Formulario de cambio de direcciones" para ratificar cambio domicilio y guardar en carpeta de cliente.;
+GLOSA5;mensaje=b.- En caso de que se requiera actualizar la dirección principal se debe enviar a comprobar el domicilio previamente según Normativa.;
+GLOSA6;mensaje=c.- Acceder a la Pantalla de Direcciones del cliente y actualizar los datos verificando todos los demás ítem de contactibilidad de cliente.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Verificar con cliente si la información actual de Dirección, teléfonos, Fax y Mail:;
+GLOSAPDF1;mensaje=Si se mantienen las mismas, grabar cada una  para que todos queden con la misma fecha de vencimiento.;
+GLOSAPDF2;mensaje=Si cambia alguna de ellas que no sea la dirección y teléfono principal, proceder al cambio  grabando todos para que queden con la misma fecha.;
+GLOSAPDF3;mensaje=Si cambia Dirección y teléfono principal  los pasos a seguir son:;
+GLOSAPDF4;mensaje=a.- Entregar el "Formulario de cambio de direcciones" para ratificar cambio domicilio y guardar en carpeta de cliente.;
+GLOSAPDF5;mensaje=b.- En caso de que se requiera actualizar la dirección principal se debe enviar a comprobar el domicilio previamente según Normativa.;
+GLOSAPDF6;mensaje=c.- Acceder a la Pantalla de Direcciones del cliente y actualizar los datos verificando todos los demás ítem de contactibilidad de cliente.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliegan clientes con correspondencia devuelta y/o cuya última actualización de estos datos fue hace 24 meses.;periodo= Última actualización hace 24 meses.;fuente= Direcciones e ingreso de correspondencia devuelta;

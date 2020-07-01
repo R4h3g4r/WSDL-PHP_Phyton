@@ -1,0 +1,67 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * SP para registrar un proceso de prepago 
+ * que fallo al ser procesado en la recarga programada
+ *
+ * Registro de versiones:<ul>
+ * <li>1.0 06/12/2006 Felipe Concha. - Versión inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : transtgo
+  * @Felipe C.M. <B>Neoris Chile Ltda.</B>
+ * @version 1.0
+ */
+-->
+
+
+<service name = "sp_registrar_proceso_fallido">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.transantiago.ServicioTarjetaBIPBean" />
+
+  </context>
+  <input>
+  		<field
+          java_name = "numeroTarjeta"
+          type = "String"
+          size = "10"
+          middle_name = "num_tarjeta"
+        />
+		<field
+          java_name = "rutCliente"
+          type = "String"
+          size = "10"
+          middle_name = "rut_cliente"
+        />
+		<field
+          java_name = "fechaOperacion"
+          type = "String"
+          size = "25"
+          middle_name = "fec_op"
+        />		
+  </input>
+
+  <output/>      
+
+</service>

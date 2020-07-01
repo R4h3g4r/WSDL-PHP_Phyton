@@ -1,0 +1,95 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_det_cja">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+   
+   <input>
+       <field
+	    java_name = "fechaProcesoConciliacion"
+	    type = "Date"
+	    size = "4"
+	    middle_name = "cpc_fec_cnc"
+       />
+       <field
+       	    java_name = "codigoTransaccionAbono"
+       	    type = "String"
+       	    size = "5"
+       	    middle_name = "codigoTrxAbono"
+       />
+       <field
+            java_name = "codigoTransaccionCargo"
+            type = "String"
+            size = "5"
+            middle_name = "codigoTrxCargo"
+       />
+       <field
+       	    java_name = "nemonicoEnvio"
+       	    type = "String"
+       	    size = "4"
+       	    middle_name = "nemonicoEnvio"
+       />
+       <field
+       	    java_name = "nemonicoRetiro"
+       	    type = "String"
+       	    size = "4"
+       	    middle_name = "nemonicoRetiro"
+       />
+   </input>
+   <output>
+	<struct struct_size="0" class_name="DetalleCuadraturaCajaDTO" var_name="detalleCuadraturaCajaDTO">
+		    <field
+		    	java_name ="fechaProceso"
+		    	type= "Date"
+		    	size= "4"
+		    	middle_name="JNL_FEC_PRC"
+		    />
+		    <field
+		    	java_name ="horaProceso"
+		    	type= "String"
+		    	size= "7"
+		    	middle_name="JNL_HOR_INI_PRC"
+		    />
+		    <field
+		    	java_name ="codigoTransaccion"
+		    	type= "String"
+		    	size= "5"
+		    	middle_name="JNL_COD_TRN"
+		    />
+		    <field
+		    	java_name ="oficina"
+		    	type= "String"
+		    	size= "3"
+		    	middle_name="JNL_COD_OFI_DST"
+		    />
+		    <field
+		    	java_name ="cuenta"
+		    	type= "String"
+		    	size= "12"
+		    	middle_name="JNL_COP"
+		    />
+		    <field
+		    	java_name ="monto"
+		    	type= "long"
+		    	size= "4"
+		    	middle_name="JNL_CPO_4"
+		    />
+		    <field
+		    	java_name ="nemonico"
+		    	type= "String"
+		    	size= "4"
+		    	middle_name="JNL_MNM"
+    		    />
+	</struct>        
+   </output>   
+</service>

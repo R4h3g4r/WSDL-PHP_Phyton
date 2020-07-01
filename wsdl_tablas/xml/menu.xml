@@ -1,0 +1,760 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<!DOCTYPE Menu SYSTEM "file:///export/weblogic/bea/wlsplatform/tablas/bcinet/xml/dtd/menu.dtd">
+
+
+<Menu>
+	<MenuItem mostrar="" key="1">
+		<NombreServicio>MarketingOfertas</NombreServicio>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="2">
+		<NombreServicio>CerrarSesion</NombreServicio>
+		<Descripcion>Cerrar Sesión</Descripcion>
+		<Servicio>/seguridadwls/CerrarSesion</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="3">
+		<NombreServicio>GeneracionMenu</NombreServicio>
+		<Descripcion>Generacion de Menu BciNet</Descripcion>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="4">
+		<NombreServicio>EnviaMail</NombreServicio>
+		<Descripcion>Envia Mail Genérico</Descripcion>
+		<Servicio>/commonwls/EnviaMail</Servicio>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Super Cartola -->	
+  <!-- # ============= -->	
+	<MenuItem mostrar="OBJ" key="5">
+		<NombreServicio>SuperCartola</NombreServicio>
+		<Descripcion>Super Cartola</Descripcion>
+		<Servicio>/cuentaswls/SuperCartola</Servicio>		
+	</MenuItem>
+		
+	<!-- # -->
+	<!-- MultiCredito -->
+	<!-- # ================= -->	
+	<MenuItem mostrar="OBJ" key="6">
+		<NombreServicio>Inscripcion</NombreServicio>
+		<Descripcion>Inscripción (sólo una vez)</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=multicredito@inscripcion</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="7">
+		<NombreServicio>MultiCreditoAvanceCartola</NombreServicio>
+		<Descripcion>Simule y Solicite su Crédito</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=MultiCreditoSimule&amp;canal=110</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="80">
+		<NombreServicio>MultiCreditoAvanceCartola</NombreServicio>
+		<Descripcion>Avance BciMulticrédito</Descripcion>
+		<Servicio>/bcinetwls/common/enespera.jsp?path=/creditoswls&amp;servlet=MultiCredito&amp;paso=2</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="8">
+		<NombreServicio>MultiCreditoAvanceCartola</NombreServicio>
+		<Descripcion>Cartola BciMulticrédito</Descripcion>
+		<Servicio>/bcinetwls/common/enespera.jsp?path=/creditoswls&amp;servlet=MultiCredito&amp;paso=0</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="9">
+		<NombreServicio>MultiCreditoAvanceCartola</NombreServicio>
+		<Descripcion>Aumento de Cupo</Descripcion>
+		<Servicio>/creditoswls/MultiCredito?paso=6</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>	
+	
+	<!-- # -->	
+  <!-- # Cuentas Corrientes/Prima -->	
+  <!-- # ======================== -->	
+
+	<MenuItem mostrar="OBJ" key="10">
+		<NombreServicio>CartolaLinea</NombreServicio>
+		<Descripcion>Cartola</Descripcion>
+		<Servicio>/cuentaswls/CartolaEnLinea</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="11">
+		<NombreServicio>MiniCartolaCtaCte</NombreServicio>
+		<Descripcion>Minicartola</Descripcion>
+		<Servicio>/cuentaswls/MiniCartolaCtaCte</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="12">
+		<NombreServicio>SaldoCtaCte</NombreServicio>
+		<Descripcion>Saldo</Descripcion>
+		<Servicio>/cuentaswls/SaldoCtaCte</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="13">
+		<NombreServicio>CartolaHistorica</NombreServicio>
+		<Descripcion>Cartola Histórica</Descripcion>
+		<Servicio>/cuentaswls/FoliosCartolaHistorica</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="14">
+		<NombreServicio>ChequesCobrados</NombreServicio>
+		<Descripcion>Consulta Cheques Cobrados</Descripcion>
+		<Servicio>/cuentaswls/Cheques</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	
+		<MenuItem mostrar="OBJ" key="15">
+		<NombreServicio>SolicitudTalonario</NombreServicio>
+		<Descripcion>Talonario a Domicilio</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=ctacte@solicitudtalonario</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="16">
+    <NombreServicio>VistaCheques</NombreServicio>
+    <Descripcion>Imágenes de Cheques</Descripcion>
+    <Servicio>/visualdocswls/Cheques</Servicio>
+    <Parametros>
+      <Parametro>objeto</Parametro>
+    </Parametros>
+  </MenuItem>
+  
+  <MenuItem mostrar="OBJ" key="76">
+		<NombreServicio>CartolaEmail</NombreServicio>
+		<Descripcion>Bcimail</Descripcion>
+		<Servicio>/cuentaswls/email/Email</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+        <MenuItem mostrar="OBJ" key="77">
+		<NombreServicio>InteresesCtaCte</NombreServicio>
+		<Descripcion>Intereses Pagados</Descripcion>
+		<Servicio>/cuentaswls/InteresesCtaCte?paso=0</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="78">
+		<NombreServicio>ServiciosUtilizados</NombreServicio>
+		<Descripcion>Servicios Utilizados</Descripcion>
+		<Servicio>/cobroswls/Comisiones?paso=0</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<!-- # -->
+  <!-- # Línea de Sobregiro -->	
+  <!-- # ================== -->	
+	<MenuItem mostrar="OBJ" key="17">
+		<NombreServicio>CartolaLineaSobregiro</NombreServicio>
+		<Descripcion>Cartola Línea de Sobregiro</Descripcion>
+		<Servicio>/cuentaswls/CartolaLineaSobregiro</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	
+        <MenuItem mostrar="OBJ" key="18">
+                <NombreServicio>SaldoLineaSobregiro</NombreServicio>
+                <Descripcion>Saldo</Descripcion>
+                <Servicio>/cuentaswls/SaldoLineaSobregiro</Servicio>
+                <Parametros>
+                        <Parametro>objeto</Parametro>
+                </Parametros>
+        </MenuItem>
+
+	<MenuItem mostrar="OBJ" key="19">
+		<NombreServicio>AbonoLineaSobregiro</NombreServicio>
+		<Descripcion>Abono a Línea de Sobregiro</Descripcion>
+		<Servicio>/cuentaswls/AbonoLineaSobregiro</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="20">
+		<NombreServicio>AumentoCupoLinea</NombreServicio>
+		<Descripcion>Aumento de Cupo</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=SolAumentoCupoLinea&amp;canal=110</Servicio>		
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Tarjetas de Crédito -->	
+  <!-- # =================== -->	
+	<MenuItem mostrar="OBJ" key="21">
+		<NombreServicio>SaldoCtaCred</NombreServicio>
+		<Descripcion>Saldo</Descripcion>
+		<Servicio>/cuentaswls/SaldoCtaCred</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="22">
+		<NombreServicio>EstadoNacional</NombreServicio>
+		<Descripcion>Estado de Cuenta Nacional</Descripcion>
+		<Servicio>/tarjetaswls/EstadoCuenta?paso=1&amp;tipoestado=N</Servicio>
+		<Parametros>
+			<Parametro>objetos</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="23">
+		<NombreServicio>EstadoInternacional</NombreServicio>
+		<Descripcion>Estado de Cuenta Internacional</Descripcion>
+		<Servicio>/tarjetaswls/EstadoCuenta?paso=1&amp;tipoestado=I</Servicio>
+		<Parametros>
+			<Parametro>objetos</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="24">
+		<NombreServicio>ComprasNoFacturadasNac</NombreServicio>
+		<Descripcion>Últimas Compras Nacional</Descripcion>
+		<Servicio>/tarjetaswls/TrxNoFacturadas?paso=1&amp;tipoestado=N</Servicio>
+		<Parametros>
+			<Parametro>objetos</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="86">
+		<NombreServicio>ComprasNoFacturadasInt</NombreServicio>
+		<Descripcion>Últimas Compras Internacional</Descripcion>
+		<Servicio>/tarjetaswls/TrxNoFacturadas?paso=1&amp;tipoestado=I</Servicio>
+		<Parametros>
+			<Parametro>objetos</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="25">
+		<NombreServicio>PagoCtaCred</NombreServicio>
+		<Descripcion>Pago Tarjeta Crédito</Descripcion>
+		<Servicio>/tarjetaswls/PagoDeudaNac</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="26">
+		<NombreServicio>AvanceCtaCred</NombreServicio>
+		<Descripcion>Avance a Cuenta Corriente</Descripcion>
+		<Servicio>/tarjetaswls/AvanceNac</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="27">
+		<NombreServicio>PagoDeudaDolares</NombreServicio>
+		<Descripcion>Pago Deuda Internacional</Descripcion>
+		<Servicio>/tarjetaswls/PagoDeudaDolares</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="28">
+		<NombreServicio>ConsultaBloqueoTarjeta</NombreServicio>
+		<Descripcion>Consulta Bloqueo Tarjetas</Descripcion>
+		<Servicio>/tarjetaswls/Bloqueo?titulo=Consulta%20Estado%20Bloqueo%20Tarjetas&amp;opcion=Consulta</Servicio>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="29">
+		<NombreServicio>BloqueoTarjeta</NombreServicio>
+		<Descripcion>Bloqueo de Tarjetas</Descripcion>
+		<Servicio>/tarjetaswls/Bloqueo?titulo=Bloqueo%20Tarjetas&amp;opcion=Bloqueo</Servicio>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="30">
+		<NombreServicio>SolAumentoCupoVisa</NombreServicio>
+		<Descripcion>Aumento Cupo</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=SolAumentoCupoTC&amp;canal=110</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	
+    <MenuItem mostrar="OBJ" key="31">
+        <NombreServicio>SolTarjetaAdicional</NombreServicio>
+        <Descripcion>Solicitud Tarjeta Adicional</Descripcion>
+        <Servicio>/seguridadwls/CheckSession?servicio=SolTarjetaAdicional&amp;canal=110</Servicio>
+        <Parametros>
+            <Parametro>objeto</Parametro>
+        </Parametros>
+    </MenuItem>
+	
+    <MenuItem mostrar="OBJ" key="32">
+        <NombreServicio>SolReposicion</NombreServicio>
+        <Descripcion>Solicitud Reposición</Descripcion>
+        <Servicio>/seguridadwls/CheckSession?servicio=SolReposicion&amp;canal=110</Servicio>
+        <Parametros>
+            <Parametro>objeto</Parametro>
+        </Parametros>
+    </MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="33">
+		<NombreServicio>SolTarjeta</NombreServicio>
+		<Descripcion>Solicitud Tarjeta</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=SolTarMenu&amp;canal=110</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="34">
+		<NombreServicio>CatalogoSonrisas</NombreServicio>
+		<Descripcion>Catálogo Sonrisas</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=tarjetacredito@catalogosonrisas</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="35">
+		<NombreServicio>PesosSonrisas</NombreServicio>
+		<Descripcion>Consulta Pesos$onrisas</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=tarjetacredito@pesossonrisas</Servicio>
+	</MenuItem>
+
+	<!-- # -->	
+  <!-- # Transferencias a Terceros -->	
+  <!-- # ========================= -->	
+	<MenuItem mostrar="OBJ" key="36">
+		<NombreServicio>TransferenciaOtrosBancos</NombreServicio>
+		<Descripcion>A Otros Bancos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="37">
+		<NombreServicio>TransferenciaTerceros</NombreServicio>
+		<Descripcion>A Cuentas de Terceros Bci</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="38">
+		<NombreServicio>TransferenciaTercerosAhorro</NombreServicio>
+		<Descripcion>A Cuentas de Ahorro de Terceros</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=transferencia&amp;urlPopup=si</Servicio>		
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="39">
+		<NombreServicio>TrfCuentas</NombreServicio>
+		<Descripcion>Entre Ctas. Ctes. y Ctas. primas</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Bci Pago  -->	
+  <!-- # ========= -->	
+	<MenuItem mostrar="OBJ" key="40">
+		<NombreServicio>PortalPagos</NombreServicio>
+		<Descripcion>Cartola de Pagos &lt;FONT color=#ff0000&gt;&lt;small&gt;&lt;b&gt;nuevo&lt;/b&gt;&lt;/small&gt;&lt;/FONT&gt;</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=cartola&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Pagos en Línea  -->	
+  <!-- # ============== -->	
+	<MenuItem mostrar="OBJ" key="41">
+		<NombreServicio>EfectuarPagos</NombreServicio>
+		<Descripcion>Realizar Pagos en Línea</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=pagoEnLinea&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<!-- # -->	
+  <!-- # Bci Pagos Automático en Cuentas -->	
+  <!-- # =============================== -->	
+	<MenuItem mostrar="OBJ" key="42">
+		<NombreServicio>BciPagoInscribirCuenta</NombreServicio>
+    <Descripcion>Inscribir Pagos Automáticos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=inscribirPagosAutomaticos&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="43">
+		<NombreServicio>BciPagoProximosPagos</NombreServicio>
+		<Descripcion>Revisar/Detener Pagos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=revisarDetenerPagos&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="44">
+		<NombreServicio>BciPagoCuentasInscritas</NombreServicio>
+		<Descripcion>Revisar/Cambiar Pagos Inscritos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=revisarCambiarPagosInscritos&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Bci Pagos Automático en Tarjeta  -->	
+  <!-- # ================================ -->	
+	<MenuItem mostrar="OBJ" key="45">
+		<NombreServicio>PagosPat</NombreServicio>
+		<Descripcion>Automático en Tarjeta de Crédito</Descripcion>
+		<Servicio>/pagoswls/PagosPat?usuario=CLIENTE</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # SPCHogar  -->	
+  <!-- # ========  -->	
+	<MenuItem mostrar="OBJ" key="46">
+		<NombreServicio>SPCHogarPagos</NombreServicio>
+		<Descripcion>Bienvenidos</Descripcion>
+		<Servicio>/cotizacionwls/CotizacionHogar?paso=0</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="47">
+		<NombreServicio>SPCHogarPagos</NombreServicio>
+		<Descripcion>Condiciones del Servicio</Descripcion>
+		<Servicio>/cotizacionwls/CotizacionHogar?paso=1</Servicio>
+               <Parametros>
+                    <Parametro>objeto</Parametro>
+                </Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="48">
+                <NombreServicio>SPCHogarPagos</NombreServicio>
+                <Descripcion>Administración de Pagos</Descripcion>
+                <Servicio>/cotizacionwls/CotizacionHogar?paso=2</Servicio>
+                 <Parametros>
+                    <Parametro>objeto</Parametro>
+                </Parametros>
+                <TipoCliente>P</TipoCliente>
+                <TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="49">
+		<NombreServicio>SPCHogarPagos</NombreServicio>
+		<Descripcion>Consulta de Pagos</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=spchogar@pagos</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="50">
+		<NombreServicio>SPCHogarIngreso</NombreServicio>
+		<Descripcion>Ingreso</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=spchogar@ingreso</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="51">
+		<NombreServicio>SPCHogarConsulta</NombreServicio>
+		<Descripcion>Consulta</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=spchogar@consulta</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>	
+	
+	<MenuItem mostrar="" key="52">
+		<NombreServicio>SPCHogarEliminacion</NombreServicio>
+		<Descripcion>Eliminación</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=spchogar@eliminar</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>	
+
+	<MenuItem mostrar="" key="53">
+		<NombreServicio>SPCHogarLicyAus</NombreServicio>
+		<Descripcion>Licencias y Ausentismos</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=spchogar@licyaus</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>	
+	
+	<!-- # -->	
+  <!-- # Cuenta de Ahorro -->	
+  <!-- # ================ -->	
+	<MenuItem mostrar="" key="54">
+		<NombreServicio>MinicartolaAhorro</NombreServicio>
+		<Descripcion>Minicartola</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/GoCartola&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="55">
+		<NombreServicio>SaldoAhorro</NombreServicio>
+		<Descripcion>Saldo Ahorro</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/GoSaldo&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="56">
+		<NombreServicio>ConsultaGirosAhorros</NombreServicio>
+		<Descripcion>Consulta de Giros Ahorro</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/GoSaldo&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+
+	<MenuItem mostrar="" key="57">
+		<NombreServicio>GiroAhorro</NombreServicio>
+		<Descripcion>De Ctas. de Ahorro a Cta. Cte. o Prima</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/Giro&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="58">
+		<NombreServicio>DepositoAhorro</NombreServicio>
+		<Descripcion>De Cta. Cte. o Prima a Ctas. de Ahorro</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/Deposito&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>	
+
+	<MenuItem mostrar="" key="59">
+		<NombreServicio>ReposicionAhorro</NombreServicio>
+		<Descripcion>Reposición Tarjeta de Ahorro</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/TarjetaReposicion&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>		
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="60">
+		<NombreServicio>AhorroProgramado</NombreServicio>
+		<Descripcion>Ahorro Programado</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=110&amp;tipoPagina=3&amp;srcMenu=%2Fbcinetwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=%2Finversioneswls%2Fahorro%2FAhorroProg&amp;nameServicio=cuerpo&amp;srcTop=%2Fbcinetwls%2Fcommon%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>		
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>		                             
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Consulta Créditos -->	
+  <!-- # ================= -->	
+	<MenuItem mostrar="OBJ" key="63">
+		<NombreServicio>ConsultaCreditos</NombreServicio>
+		<Descripcion>Consulta Créditos</Descripcion>
+		<Servicio>/creditoswls/CreditosConsultar</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+	<!-- # -->	
+  <!-- # Agenda -->	
+  <!-- # ================= -->	
+	<MenuItem mostrar="" key="64">
+		<NombreServicio>Agenda</NombreServicio>
+		<Descripcion>Agenda</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@agenda</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="65">
+		<NombreServicio>Catalogo</NombreServicio>
+		<Descripcion>Catalogo</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=tarjetacredito@catalogosonrisas</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="66">
+		<NombreServicio>LoginAhorroHijo</NombreServicio>
+		<Descripcion>Solicitud Ahorro Hijo</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@lahorrohijo</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="67">
+		<NombreServicio>LoginAhorroCliente</NombreServicio>
+		<Descripcion>Solicitud Ahorro Cliente</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@lahorrocliente</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="68">
+		<NombreServicio>BordingPass</NombreServicio>
+		<Descripcion>BordingPass</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@bordingpass</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="69">
+		<NombreServicio>CreditoPC</NombreServicio>
+		<Descripcion>Solicitud Credito PC</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@creditopc</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="70">
+		<NombreServicio>Fiera</NombreServicio>
+		<Descripcion>Fiera</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@fiera</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="71">
+		<NombreServicio>Help</NombreServicio>
+		<Descripcion>Help</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@help</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="72">
+		<NombreServicio>Saint</NombreServicio>
+		<Descripcion>Saint</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@saint</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<MenuItem mostrar="" key="73">
+		<NombreServicio>Remate</NombreServicio>
+		<Descripcion>Remates</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@remate</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+	<!-- # -->
+	<!-- Clase Ejecutiva -->
+	<!-- # ================= -->	
+	<MenuItem mostrar="" key="74">
+		<NombreServicio>PUC</NombreServicio>
+		<Descripcion>Clase Ejecutiva</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=servicio@puc</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<Destino>top</Destino>
+	</MenuItem>
+	
+  <!-- # -->
+	<!-- Suscripción Banca Móvil -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="" key="75">
+		<NombreServicio>SubscripcionBancaMovil</NombreServicio>
+		<Descripcion>Subscripcion Banca Movil</Descripcion>
+		<Servicio>https://mopa.bci.cl/switchwls/switchwls.htm?grupo=servicio@celular</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<Destino>top</Destino>
+	</MenuItem>	
+  <!-- # -->
+	<!-- Factoring -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="" key="79">
+		<NombreServicio>CarteraClientesFac</NombreServicio>
+		<Descripcion>Cartera de Clientes Factoring</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=factoring@carteracli</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+  <!-- # -->
+	<!-- Otros Canales -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="SI" key="81">
+		<NombreServicio>SubscripcionBancaMovil</NombreServicio>
+		<Descripcion>SMS Entel PCS</Descripcion>
+		<Servicio>/bancamovilwls/SubscripcionBancaMovil?paso=0</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>	
+
+  <!-- # -->
+	<!-- Pago automatico con tarjeta de credito -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="OBJ" key="82">
+		<NombreServicio>PagosPat</NombreServicio>
+		<Descripcion>Pagos con Tarjeta de Crédito</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=110&amp;param=pagosConTarjetaDeCredito&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino> 
+	</MenuItem>	
+	
+	<!-- # -->
+	<!-- Comex -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="OBJ" key="83">
+		<NombreServicio>Minicartolacomex</NombreServicio>
+		<Descripcion>Minicartola</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=comex@minicartola</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>	
+
+	<MenuItem mostrar="OBJ" key="84">
+		<NombreServicio>Saldocomex</NombreServicio>
+		<Descripcion>Saldo</Descripcion>
+		<Servicio>https://mopa.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=comex@saldo</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>	
+	
+	<MenuItem mostrar="SI" key="85">
+		<NombreServicio>ServicioTarjetaAmarilla</NombreServicio>
+		<Descripcion>Consultar Protestos y Morosidad</Descripcion>
+		<Servicio>/bcinetwls/common/TarjetaAmarilla.jsp</Servicio>
+	</MenuItem>	
+</Menu>

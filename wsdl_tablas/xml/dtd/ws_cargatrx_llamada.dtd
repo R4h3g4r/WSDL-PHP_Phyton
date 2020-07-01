@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ELEMENT Mensaje (RutEmpresa,RutUsuario?,Convenio,Pin?,Archivo)> 
+<!ELEMENT RutEmpresa (Numero,Digito)>
+<!ELEMENT RutUsuario (Numero,Digito)>
+<!ELEMENT Archivo (Registro*,Cuerpo?)>
+<!ELEMENT Registro (TipoOperacion,Moneda,FechaEmision,FechaVencimiento,Identificador1,Identificador2?,Recaudacion+,MontoTotal,Descripcion?,CodigoPago?,MontoMora?)>
+<!ELEMENT Recaudacion (Convenio,Monto)>
+<!ELEMENT Numero (#PCDATA)>
+<!ELEMENT Digito (#PCDATA)>
+<!ELEMENT Convenio (#PCDATA)>
+<!ELEMENT Pin (#PCDATA)>
+<!ELEMENT TipoOperacion (#PCDATA)>
+<!ELEMENT Moneda (#PCDATA)>
+<!ELEMENT FechaEmision (#PCDATA)>
+<!ELEMENT FechaVencimiento (#PCDATA)>
+<!ELEMENT Identificador1 (#PCDATA)>
+<!ELEMENT Identificador2 (#PCDATA)>
+<!ELEMENT Monto (#PCDATA)>
+<!ELEMENT MontoTotal (#PCDATA)>
+<!ELEMENT Descripcion (#PCDATA)>
+<!ELEMENT CodigoPago (#PCDATA)>
+<!ELEMENT MontoMora (#PCDATA)>
+<!ELEMENT Cuerpo (#PCDATA)>
+

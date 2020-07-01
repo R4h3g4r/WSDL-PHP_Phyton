@@ -1,0 +1,70 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_obtieneIndicadorPoder"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "prodCod"
+          type = "String"
+          size = "3"
+          middle_name = "producto"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionObtieneIndPoderes" var_name = "obtieneIndPoder" >
+
+          <field
+            java_name = "indPoder"
+            type = "char"
+            size = "1"
+            middle_name = "indicadorPAC"
+          />
+
+          <field
+            java_name = "tipoConvenio"
+            type = "String"
+            size = "3"
+            middle_name = "tipoConvenio"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

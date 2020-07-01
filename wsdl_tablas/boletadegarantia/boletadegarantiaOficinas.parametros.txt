@@ -1,0 +1,19 @@
+Esta tabla contiene los datos de las oficinas en las cuales es posible retirar el documento generado de boletas.
+
+Generales
+~~~~~~~~~
+
+- Cada línea  contiene un código de oficina de tres digitos como nombre de línea y cada campo en esa línea  
+presenta información referente a dicho codigo
+
+- El campo +Desc+ contendrá en nombre de la sucursal u oficina .
+- El campo +Direc+ contendrá la dirección de dicha oficina.
+- El campo +Reg+  solo podrá tener dos posibles valores "+región+" que se refiere a cualquier región de Chile
+  diferente de Santiago y el valor "+stgo+" que se refiere a Santiago.
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 04/08/2009 Isabel Manyoma  (BEE): versión inicial .
+
+==========================================

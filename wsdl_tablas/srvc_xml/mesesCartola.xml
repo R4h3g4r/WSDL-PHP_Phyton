@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<service name = "sp_obtieneMeseseDelAno">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.recargacelulares.ServiciosRecargaCelularesBean" />
+
+  </context>
+  <input>
+  <field
+          java_name = "rutCliente"
+          type = "String"
+          size = "10"
+          middle_name = "rutCliente"
+        />
+  </input>
+
+  <output>
+  <struct struct_size="0" class_name="MesDelAnoDTO" var_name="meses"> 
+     <field
+          java_name = "mesCodigo"
+          type = "Integer"
+          size = "15"
+          middle_name = "mesCodigo"
+        />
+
+     <field
+          java_name = "mesDescripcion"
+          type = "String"
+          size = "250"
+          middle_name = "mesDescripcion"
+        />
+     <field
+          java_name = "anoCodigo"
+          type = "Integer"
+          size = "250"
+          middle_name = "anoCodigo"
+        />   
+    </struct>
+  </output>
+</service>
+

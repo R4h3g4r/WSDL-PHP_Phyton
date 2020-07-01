@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="adcontweb.procedimientosAlmacenados">
+
+  <procedure id="consultaDocumentos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_con_documentos(#uni_cod#, #vigencia:BOOLEAN#)}
+  </procedure>
+
+  <procedure id="ingresaDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_ins_documento(#cat_cod#, #sca_cod:NUMERIC#, #doc_nom:VARCHAR#, #doc_des:VARCHAR#, #doc_fec_publ:DATE#, #doc_fec_exp:DATE#, #doc_nom_file:VARCHAR#, #doc_usr_ingreso:VARCHAR#, #doc_cnl_ingreso:VARCHAR#)}
+  </procedure>
+
+  <procedure id="modificaDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_act_documento(#doc_cod#, #doc_nom:VARCHAR#, #doc_des:VARCHAR#, #doc_fec_exp:DATE#, #doc_nom_file:VARCHAR#, #doc_fec_publ:DATE#, #doc_fec_act:DATE#, #doc_usr_act:VARCHAR#, #doc_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="eliminaDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_del_documento(#doc_cod#)}
+  </procedure>
+
+  <procedure id="consultaRutaRaiz" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_con_parametro()}
+  </procedure>
+
+  <procedure id="consultaEstructuraDocumentos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_adc_con_estructura(#uni_cod#)}
+  </procedure>
+
+</sqlMap>

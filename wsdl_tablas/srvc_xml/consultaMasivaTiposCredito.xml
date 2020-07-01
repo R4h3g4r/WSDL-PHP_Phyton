@@ -1,0 +1,62 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CU_cons_tipo_cred"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "codigoTipoCredito"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "codigo6"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "0" class_name = "IteracionConsultaMasivaTiposCredito" var_name = "iteracionConsultaMasivaTiposCredito" >
+
+          <field
+            java_name = "codigoTipoCredito"
+            type = "int"
+            size = "5"
+            sign = "no"
+            integers = "5"
+            decimals = "0"
+            middle_name = "codigo6"
+          />
+
+          <field
+            java_name = "descripcionTipoCredito"
+            type = "String"
+            size = "50"
+            middle_name = "descripcion"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

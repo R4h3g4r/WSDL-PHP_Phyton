@@ -1,0 +1,132 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<service name = "sp_obtieneCartolaMensual">
+  <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <have_multi_environment value="no" />
+    <outputfield_attr value="no" />
+    <req_num_param value="no" />
+    <translator value="RORPPTPG" />
+    <campo_indica_cantidad value="" />
+    <status_throw_exception value="yes" />
+    <joltpool_name value="wcorp.serv.recargacelulares.ServiciosRecargaCelularesBean" />
+  </context>
+  <input>
+   <field
+          java_name = "rutCliente"
+          type = "String"
+          size = "250"
+          middle_name = "rutCliente"
+        />
+     <field
+          java_name = "mes"
+          type = "Integer"
+          size = "2"
+          middle_name = "mes"
+        />	
+      <field
+          java_name = "ano"
+          type = "Integer"
+          size = "2"
+          middle_name = "ano"
+        />		
+  </input>
+
+  <output>
+  <struct struct_size="0" class_name="RecargaCartolaDTO" var_name="movimientosCartola"> 
+    <field
+          java_name = "idTransaccion"
+          type = "Integer"
+          size = "15"
+          middle_name = "idTransaccion"
+        />
+
+     <field
+          java_name = "nroCuentaCliente"
+          type = "String"
+          size = "250"
+          middle_name = "nroCuentaCliente"
+        />
+     <field
+          java_name = "idOperadora"
+          type = "Integer"
+          size = "250"
+          middle_name = "idOperadora"
+        />   
+     <field
+          java_name = "idCaja"
+          type = "Integer"
+          size = "250"
+          middle_name = "idCaja"
+        />      
+     <field
+          java_name = "monto"
+          type = "Double"
+          size = "250"
+          middle_name = "monto"
+        />         
+     <field
+          java_name = "nroCelularCliente"
+          type = "String"
+          size = "250"
+          middle_name = "nroCelularCliente"
+        />      
+     <field
+          java_name = "fecMov"
+          type = "Date"
+          size = "250"
+          middle_name = "fecMov"
+        />   
+  <field
+          java_name = "txIdTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "txIdTranstel"
+        />   
+      <field
+          java_name = "fechaMovTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "fechaMovTranstel"
+        /> 
+	<field
+          java_name = "horaMovTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "horaMovTranstel"
+        />   
+		 <field
+          java_name = "numeroCajaTranstel"
+          type = "String"
+          size = "250"
+          middle_name = "numeroCajaTranstel"
+        />   
+		 <field
+          java_name = "fechaTx"
+          type = "Date"
+          size = "250"
+          middle_name = "fechaTx"
+        />   
+		 <field
+          java_name = "estado"
+          type = "String"
+          size = "250"
+          middle_name = "estado"
+        />   
+	<field
+          java_name = "tipoMovimiento"
+          type = "Integer"
+          size = "250"
+          middle_name = "tipoMovimiento"
+        />  
+		<field
+          java_name = "descripcionOperadora"
+          type = "String"
+          size = "250"
+          middle_name = "descripcionOperadora"
+        />    
+  </struct>
+  </output>
+
+</service>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!ELEMENT Mensaje (Registro*)>
+<!ELEMENT Registro (Identificador1, Identificador2?, CodRet)>
+<!ELEMENT Identificador1 (#PCDATA)>
+<!ELEMENT Identificador2 (#PCDATA)>
+<!ELEMENT CodRet (#PCDATA)>
+
+

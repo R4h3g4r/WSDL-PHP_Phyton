@@ -1,0 +1,16 @@
+# Sobregiro no Pactado      
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Determinar si esta situación es puntual o reiterativa. Ver si cliente debe ser ingresado a LOB en el caso de Banca Empresa y Empresarios.;
+GLOSA1;mensaje=2.- Verificar visación de cliente y líneas disponibles. Evaluar alternativa de financiamiento, actualizando información.;
+GLOSA2;mensaje=3.- Contactar a cliente para que cubra sobregiro o bien firme documentos para cursar un crédito. Comprometer fecha de regularización.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=1.- Determinar si esta situación es puntual o reiterativa. Ver si cliente debe ser ingresado a LOB en el caso de Banca Empresa y Empresarios.;
+GLOSAPDF1;mensaje=2.- Verificar visación de cliente y líneas disponibles. Evaluar alternativa de financiamiento, actualizando información.;
+GLOSAPDF2;mensaje=3.- Contactar a cliente para que cubra sobregiro o bien firme documentos para cursar un crédito. Comprometer fecha de regularización.;
+
+#flag desactivacion
+#DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=Para que exista Sobregiro No Pactado, el monto utilizado y valor autorizado de la línea de sobregiro debe ser igual, es decir, el saldo disponible en la línea de sobregiro debe ser igual a cero (Si posee linea de Sobregiro). Adicionalmente, el saldo disponible en la Cuenta Corriente debe ser negativo.;periodo= por el lapso de tiempo que se calcula;fuente= de donde se sacaron los datos que disparan la alerta;

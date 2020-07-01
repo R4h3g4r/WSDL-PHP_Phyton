@@ -1,0 +1,437 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="bcaprivada.procedimientosAlmacenados">
+
+  <procedure id="consultarConyugeClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cny_ban_priv(#rut#)}
+  </procedure>
+
+  <procedure id="guardarInformacionDelConyuge" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cyg_cli_bp(#cbp_rut#, #cyg_rut#, #cyg_dv:CHAR#, #cyg_ape_pat:VARCHAR#, #cyg_ape_mat:VARCHAR#, #cyg_nom:VARCHAR#, #cyg_cnt_car#, #cyg_rel_cod:CHAR#, #cyg_fec_nac:DATE#, #cyg_usr_ing:VARCHAR#, #cyg_usr_act:VARCHAR#, #cyg_pgm_act:VARCHAR#, #cyg_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarActividadesLaborales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_alb_ban_priv()}
+  </procedure>
+
+  <procedure id="consultarRepresentanteLegalClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rlg_cli_bp(#rut#)}
+  </procedure>
+
+  <procedure id="guardarRepresentanteLegalClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_rlg_cli_bp(#cbp_rut#, #rlg_rut#, #rlg_dv:CHAR#, #rlg_ape_pat:VARCHAR#, #rlg_ape_mat:VARCHAR#, #rlg_nom:VARCHAR#, #rlg_rel_cod#, #rlg_usr_ing:VARCHAR#, #rlg_usr_act:VARCHAR#, #rlg_pgm_act:VARCHAR#, #rlg_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="cosultarAntecedentesAdicionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_aad_ban_priv(#rut#, #null:CHAR#)}
+  </procedure>
+
+  <procedure id="consultarGrupoFamiliar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_hh(#cbp_rut#)}
+  </procedure>
+
+  <procedure id="ingresarRelacionGrupoFamiliar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_rhh(#cbp_rut#, #rhh_rut#, #rhh_tip_cod#, #rhh_des_rhh:VARCHAR#, #usr_ing:VARCHAR#, #pgm:VARCHAR#, #cnl:VARCHAR#)}
+  </procedure>
+
+  <procedure id="guardarAntecedentesAdicionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_aad_cli_bp(#cbp_rut#, #aad_rel_cod:CHAR#, #aad_rel_crr#, #aad_ins:VARCHAR#, #aad_crg:VARCHAR#, #aad_fec_srv:DATE#, #aad_nom:VARCHAR#, #aad_rel_fam:VARCHAR#, #aad_usr_ing:VARCHAR#, #aad_usr_act:VARCHAR#, #add_pgm_act:VARCHAR#, #aad_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="borrarAntecedentesAdicionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_del_aad_ban_priv(#rut#)}
+  </procedure>
+
+  <procedure id="borrarPreferencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_del_pcl_ban_priv(#rut#)}
+  </procedure>
+
+  <procedure id="guardarPreferencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_pcl_cli_bp(#cbp_rut#, #pcl_txt:VARCHAR#, #pre_tip_cod#, #pcl_usr_ing:VARCHAR#, #pcl_usr_act:VARCHAR#, #pcl_pgm_act:VARCHAR#, #pcl_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarRelacionGrupoFamiliar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rhh_cbp(#cbp_rut#, #rhh_rut#)}
+  </procedure>
+
+  <procedure id="consultarRelacionGrupoFamiliarPorTipoRelacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rhh_rhh_tip(#cbp_rut#, #rhh_tip_cod#)}
+  </procedure>
+
+  <procedure id="modificarRelacionGrupoFamiliar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_rhh(#cbp_rut#, #rhh_rut#, #rhh_tip_cod#, #rhh_des_rhh:VARCHAR#, #usr_ing:VARCHAR#, #pgm:VARCHAR#, #cnl:VARCHAR#)}
+  </procedure>
+
+  <procedure id="esClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ind_cbp(#cbp_rut#)}
+  </procedure>
+
+  <procedure id="modificarSubsegmentoBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_sub_seg(#rut#, #ssg_cod#, #des_ssg:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarTodasLasPreferencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cod_prf(#code#)}
+  </procedure>
+
+  <procedure id="consultarPreferencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_pcl_ban_priv(#rut#, #null:CHAR#)}
+  </procedure>
+
+  <procedure id="consultarInfoAdicionalClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_inf_add_cli_bp(#rut#)}
+  </procedure>
+
+  <procedure id="consultarCodigoGlosa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cod_des(#tipoTabla:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cli_ban_priv(#rut#)}
+  </procedure>
+
+  <procedure id="consultarCarteraCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ctr_cbp(#ejecutivo:VARCHAR#, #acceso:CHAR#, #codigo_estado#, #codigo_enrolamiento#)}
+  </procedure>
+
+  <procedure id="consultarRelacionadosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rel_cbp(#rut#, #acceso:CHAR#)}
+  </procedure>
+
+  <procedure id="actualizarClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cbp_pot(#rut#, #tip_cli#, #eec_crr#, #usr_ing:VARCHAR#, #pgm_ing:VARCHAR#, #cnl_ing:VARCHAR#)}
+  </procedure>
+
+  <procedure id="daoConsultarAntecedentesLaboralesDependiente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ald_ban_priv(#rut#, #estado:CHAR#)}
+  </procedure>
+
+  <procedure id="daoConsultarAntecedentesLaboralesIndependiente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ali_ban_priv(#rut#, #estado:CHAR#)}
+  </procedure>
+
+  <procedure id="guardarAntecedentesLaboralesDependiente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_ald_cli_bp(#cbp_rut#, #cbp_alb_cod#, #ald_emp_rut#, #ald_emp_dv:CHAR#, #ald_emp_nom:VARCHAR#, #ald_emp_gir:VARCHAR#, #ald_ubi_fon:VARCHAR#, #ald_ubi_dir:VARCHAR#, #ald_ubi_com:VARCHAR#, #ald_ubi_ciu:VARCHAR#, #ald_ubi_reg:VARCHAR#, #ald_emp_crg:VARCHAR#, #ald_fec_ini:DATE#, #ald_emp_pcj#, #ald_usr_ing:VARCHAR#, #ald_usr_act:VARCHAR#, #ald_pgm_act:VARCHAR#, #ald_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="guardarAntecedentesLaboralesIndependiente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_ali_cli_bp(#cbp_rut#, #cbp_alb_cod#, #ali_acv:VARCHAR#, #ali_ubi_dir:VARCHAR#, #ali_ubi_com:VARCHAR#, #ali_ubi_ciu:VARCHAR#, #ali_ubi_reg:VARCHAR#, #ali_ubi_fon:VARCHAR#, #ali_ubi_fax:VARCHAR#, #ali_ubi_eml:VARCHAR#, #ali_usr_ing:VARCHAR#, #ali_usr_act:VARCHAR#, #ali_pgm_act:VARCHAR#, #ali_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="ingresarClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_cbp(#rut#, #dv:CHAR#, #ape_pat:VARCHAR#, #ape_mat:VARCHAR#, #nom:VARCHAR#, #eje_inv:VARCHAR#, #tip_cli#, #ssg_cod#, #des_ssg:VARCHAR#, #ind_cli:VARCHAR#, #ubi_eml:VARCHAR#, #ubi_cda:VARCHAR#, #ubi_fon:VARCHAR#, #usr_ing:VARCHAR#, #pgm_ing:VARCHAR#, #cnl_ing:VARCHAR#, #eco_crr#, #eec_crr#, #cbp_cla:VARCHAR#, #cbp_tit:CHAR#, #cbp_cmt:VARCHAR#, #cbp_rzn_soc:VARCHAR#, #cbp_nom_fan:VARCHAR#, #cbp_ins_fin:CHAR#, #rhh_par#, #cbp_tip_emp:VARCHAR#, #cbp_rut#, #rhh_tip_cod#)}
+  </procedure>
+
+  <procedure id="modificarClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cbp(#rut#, #dv:CHAR#, #ape_pat:VARCHAR#, #ape_mat:VARCHAR#, #nom:VARCHAR#, #eje_inv:VARCHAR#, #tip_cli#, #ssg_cod#, #des_ssg:VARCHAR#, #ind_cli:VARCHAR#, #ubi_eml:VARCHAR#, #ubi_cda:VARCHAR#, #ubi_fon:VARCHAR#, #usr_ing:VARCHAR#, #pgm_ing:VARCHAR#, #cnl_ing:VARCHAR#, #eco_crr#, #eec_crr#, #cbp_cla:VARCHAR#, #cbp_tit:CHAR#, #cbp_cmt:VARCHAR#, #cbp_rzn_soc:VARCHAR#, #cbp_nom_fan:VARCHAR#, #cbp_ins_fin:CHAR#, #rhh_par#, #cbp_tip_emp:VARCHAR#, #paso#)}
+  </procedure>
+
+  <procedure id="eliminaRespuestaEncuestaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_rec(#cod_epf#)}
+  </procedure>
+
+  <procedure id="eliminaInformacionNietosEncuesta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_ine(#epf_crr#)}
+  </procedure>
+
+  <procedure id="eliminaComentariosEncuestaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_cec(#epf_crr#)}
+  </procedure>
+
+  <procedure id="ingresarEncuestaPlanFidelizacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_epf(#rut#, #cls:VARCHAR#, #cnt_hij#, #cnt_nie#, #reg_esp:VARCHAR#)}
+  </procedure>
+
+  <procedure id="ingresarRespuestaEncuestaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_rec(#pre_tip#, #epf_crr#, #rsp:VARCHAR#)}
+  </procedure>
+
+  <procedure id="ingresarInformacionNietosEncuesta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_ine(#epf_crr#, #nmb:VARCHAR#, #fec_nac:DATE#)}
+  </procedure>
+
+  <procedure id="ingresarComentariosEncuestaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_cec(#rut#, #epf_crr#, #cec_txt:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultaSecciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_sce_crr()}
+  </procedure>
+
+  <procedure id="consultaCategorias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_pre_ctg()}
+  </procedure>
+
+  <procedure id="consultaEncuestaPlanFidelizacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_epf(#rut#)}
+  </procedure>
+
+  <procedure id="consultaInformacionNietosEncuesta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ine(#idn_eta#)}
+  </procedure>
+
+  <procedure id="consultaElementoCategoria" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_pre_tip_rec(#idn_eta#)}
+  </procedure>
+
+  <procedure id="consultaTipoRelacionado" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rel_by_tipo(#rut#, #tip#)}
+  </procedure>
+
+  <procedure id="consultaComentariosEncuestaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cse_cec(#idn_eta#)}
+  </procedure>
+
+  <procedure id="consultaClientesBancaPrivadaExcel" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cbp_for_exp()}
+  </procedure>
+
+  <procedure id="actualizarClienteBancaPrivadaRepositorio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cbp_rep(#rut#, #nom:VARCHAR#, #tip_cod#, #ejecutivo:VARCHAR#, #razon_social:VARCHAR#, #nombre_fantasia:VARCHAR#, #usr_ing:VARCHAR#, #pgm_ing:VARCHAR#, #cnl_ing:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarPorcentajeParticipacionEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rhh_par(#titular#, #relacionado#)}
+  </procedure>
+
+  <procedure id="actualizarPorcentajeParticipacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_rhh_par(#titular#, #relacionado#, #porcentaje#, #usuario:VARCHAR#, #programa:VARCHAR#, #canal:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarCabecerasFormularios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_per_inv(#tipo_formulario#, #rut_cliente#)}
+  </procedure>
+
+  <procedure id="consultarCabeceraFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cbr_frm(#id_formulario#, #rut_cliente#, #tipo_formulario#)}
+  </procedure>
+
+  <procedure id="consultarCabeceraFormularioPorId" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cbr_frm(#id_formulario#)}
+  </procedure>
+
+  <procedure id="ingresarCabeceraFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_cbr_frm(#cbp_rut#, #frm_cod#, #rcb_eje_nom:VARCHAR#, #frm_rsl_cod#, #rcb_pje#, #usr_ing:VARCHAR#, #pgm:VARCHAR#, #cnl:VARCHAR#)}
+  </procedure>
+
+  <procedure id="modificarCabeceraFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cbr_for(#id_formulario#, #nombre_ejecutivo:VARCHAR#, #codigo_resultado#, #puntaje#, #usuario_actualizacion:VARCHAR#, #prog_actualizacion:VARCHAR#, #canal_actualizacion:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarRespuestasFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rsp_opc(#rcb_id#)}
+  </procedure>
+
+  <procedure id="ingresarRespuestaFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_rsp_frm(#rcb_id#, #rsp_prg#, #rsp_spr#, #tip_rsp#, #rsp_txt:VARCHAR#, #rsp_opc:VARCHAR#, #rsp_cop_val#, #rsp_cop_txt:VARCHAR#)}
+  </procedure>
+
+  <procedure id="borrarRespuestasFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_rsp_frm(#rcb_id#)}
+  </procedure>
+
+  <procedure id="consultarComentarios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cmt_for(#id#)}
+  </procedure>
+
+  <procedure id="ingresarComentarioFormulario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_agr_cmt_for(#id_formulario#, #comentario_usuario:VARCHAR#, #comentario:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarPerfilesInversionista" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_per_for()}
+  </procedure>
+
+  <procedure id="consultaPatrimonioCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_pat(#id_formulario#)}
+  </procedure>
+
+  <procedure id="consultaIngresosEgresosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_iec(#id_formulario#)}
+  </procedure>
+
+  <procedure id="ingresarPatrimonioCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_pat(#id_formulario#, #activos_deposito_plazo#, #activos_acciones_bonos#, #activos_fondos_mutuos#, #activos_leasing#, #activos_bienes_raices#, #activos_vehiculos#, #activos_participacion#, #activos_otros#, #activos_totales#, #pasivos_deudas_comercio#, #pasivos_deudas_bancos#, #pasivos_deudas_hipotecarias#, #pasivos_deudas_leasing#, #pasivos_otras_deudas#, #total_pasivos#)}
+  </procedure>
+
+  <procedure id="ingresarIngresosEgresosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_iec(#id_formulario#, #ing_renta_fija#, #ing_renta_variable#, #ing_renta_conyuge#, #ing_retiros#, #ing_otr#, #ing_tot#, #egr_div_arr#, #egr_cas_com#, #egr_edu#, #egr_ret#, #egr_otr#, #egr_tot#, #ing_liq#)}
+  </procedure>
+
+  <procedure id="ingresarComentarioAprobacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_cmt_apb(#estado_aprobacion:VARCHAR#, #codigo_aprobacion#, #comentario:VARCHAR#, #usuario:VARCHAR#, #tipo_aprobacion:VARCHAR#)}
+  </procedure>
+
+  <procedure id="guardarRelacionClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_rel_bp(#rutCliente#, #rutEmpresa#, #paso:VARCHAR#)}
+  </procedure>
+
+  <procedure id="mostrarRelacionClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mt_rel_bp(#rut_cliente#, #rut_empresa#, #relacion:VARCHAR#)}
+  </procedure>
+
+  <procedure id="buscarRelacionClienteBancaPrivadaEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_bs_amb_rel(#rut_cliente#, #cod_ambito#)}
+  </procedure>
+
+  <procedure id="eliminarAprobacionBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_apb_bp(#rut_cliente#, #id_Aprobacion#, #paso:VARCHAR#)}
+  </procedure>
+
+  <procedure id="modificarAprobacionBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_apb(#rut_cliente#, #id_aprobacion#, #codigo_ejecutivo:VARCHAR#, #estado_aprobacion#, #comentario:VARCHAR#, #tipo_aprobacion:VARCHAR#, #usuario_actualizacion:VARCHAR#, #programa_actualizacion:VARCHAR#, #canal_actualizacion:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarEspecialistasNegocio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_edl_ban_priv(#cbp_rut#)}
+  </procedure>
+
+  <procedure id="guardarEspecialistaNegocio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_edn_cli_bp(#edn_crr#, #cbp_rut#, #edn_des_prd:VARCHAR#, #edn_eje:VARCHAR#, #edn_tip_eje:VARCHAR#, #edn_usr_act:VARCHAR#, #edn_pgm_act:VARCHAR#, #edn_cnl_act:VARCHAR#)}
+  </procedure>
+
+  <procedure id="eliminarEspecialistaNegocio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_edn_bp(#edn_crr#)}
+  </procedure>
+
+  <procedure id="guardarVisita" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_idv_cli_bp(#cbp_rut#, #idv_fec_vst:DATE#, #idv_ubi_dir:VARCHAR#, #idv_txt_obj:VARCHAR#, #idv_txt_cmp:VARCHAR#, #idv_neg:VARCHAR#, #idv_txt_cmt:VARCHAR#, #idv_usr_ing:VARCHAR#, #idv_usr_act:VARCHAR#, #idv_pgm_act:VARCHAR#, #idv_cnl_act:VARCHAR#, #idv_crr#)}
+  </procedure>
+
+  <procedure id="eliminarVisita" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_idv_bp(#idv_crr#)}
+  </procedure>
+
+  <procedure id="eliminarCarpetaOperativaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_coc(#rut#)}
+  </procedure>
+
+  <procedure id="ingresarCarpetaOperativaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_coc(#rut#, #cod_crr#, #respuesta:VARCHAR#, #fecha_respuesta:DATE#, #glosa_respuesta:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultaCarpetaOperativaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_coc_cod(#rut#)}
+  </procedure>
+
+  <procedure id="consultaEstadoCarpetaOperativa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_eco()}
+  </procedure>
+
+  <procedure id="daoConsultaComentariosAprobacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_cmt_abp(#codigo_aprobacion#, #tipo_aprobacion:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarRelacionClienteBancaPrivadaEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rel_bp(#rut_cliente#, #relacion_bp:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarRelacionClienteBancaPrivadaEmpresaPorAmbitoDeRelacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_amb_rel(#rut_cliente#, #relacion_bp:VARCHAR#)}
+  </procedure>
+
+  <procedure id="buscarRelacionClienteBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_bs_rel_bp(#rut_cliente#, #rut_empresa#, #paso:VARCHAR#)}
+  </procedure>
+
+  <procedure id="ingresarAmbitoDeRelacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_agr_amb_rel(#rut_cliente#, #cod_ambito#, #descripcion_ambito:VARCHAR#, #usuario:VARCHAR#, #programa:VARCHAR#, #canal:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarAprobacionBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_apb_bp(#rut_cliente#, #paso:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarAprobacionComercialCumplimiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_apb(#rut_cliente#, #estado_aprobacion_com#, #estado_aprobacion_cum#, #perfil:VARCHAR#, #usuario_solicitante:VARCHAR#, #rut_cliente_titular#, #fecha_inicio:DATE#, #fecha_fin:DATE#)}
+  </procedure>
+
+  <procedure id="ingresarAprobacionBancaPrivada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_apb(#rut_cliente#, #estado_aprobacion_com#, #estado_aprobacion_cum#, #rut_titular#, #usario_ingreso:VARCHAR#, #usario_actualizacion:VARCHAR#, #programa_actualizacion:VARCHAR#, #canal_actualizacion:VARCHAR#, #comentario:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultarInformeVisitas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_idv_ban_priv(#rut#, #fechaFin:VARCHAR#, #fechaInicio:VARCHAR#)}
+  </procedure>
+
+  <procedure id="modificarAmbitoDeRelacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_amb_rel(#rut_cliente#, #cod_ambito#, #codigo#, #descripcion_ambito:VARCHAR#, #usuario:VARCHAR#, #programa:VARCHAR#, #canal:VARCHAR#)}
+  </procedure>
+
+  <procedure id="eliminarAmbitoDeRelacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_mpr(#rut#)}
+  </procedure>
+
+  <procedure id="actualizarCarpetaOperativaCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_mod_cbp_eco (#rut#, #estado#, #usr_ing:VARCHAR#, #pgm_ing:VARCHAR#, #cnl_ing:VARCHAR#)}
+  </procedure>
+
+  <procedure id="eliminarAprobacionBancaPrivadaComercialCumplimiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_apb(#rut_cliente#, #id_aprobacion#)}
+  </procedure>
+
+  <procedure id="ingresarRepresentanteLegalEmpresaInfoAdicional" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_rle(#rut#, #ape_pat:VARCHAR#, #ape_mat:VARCHAR#, #ape_nom:VARCHAR#, #cli_bci:CHAR#, #oficina:VARCHAR#, #email:VARCHAR#, #fecha_nacimiento:DATE#, #nacionalidad:VARCHAR#, #cargo:VARCHAR#, #pais:VARCHAR#, #nombre_contacto:VARCHAR#, #email_contacto:VARCHAR#, #fono_contacto:VARCHAR#, #cel_contacto:VARCHAR#, #fax_contacto:VARCHAR#, #cant_emp#, #cotiza:CHAR#, #donde:VARCHAR#, #canalActualizacion:VARCHAR#, #programaActualizacion:VARCHAR#, #usuarioActualizacion:VARCHAR#, #usuarioIngreso:VARCHAR#, #rutRepresentante#, #dvRepresentante:CHAR#)}
+  </procedure>
+
+  <procedure id="consultarRepresentanteLegalEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_rle(#rut#)}
+  </procedure>
+
+  <procedure id="ingresarApoderadoGerenteEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_age(#nombre:VARCHAR#, #rut#, #dv:CHAR#, #fecha:DATE#, #nacionalidad:VARCHAR#, #rut_empresa#)}
+  </procedure>
+
+  <procedure id="consultarApoderadoGerenteEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_age(#rut_empresa#)}
+  </procedure>
+
+  <procedure id="eliminarApoderadoGerenteEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_age(#rut_empresa#)}
+  </procedure>
+
+  <procedure id="ingresarAntecedentesSociedadEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_ase(#razon_social:VARCHAR#, #rut#, #dv:CHAR#, #por_part#, #actividad:VARCHAR#, #rut_empresa#)}
+  </procedure>
+
+  <procedure id="consultarAntecedentesSociedad" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ase(#rut_empresa#)}
+  </procedure>
+
+  <procedure id="eliminarAntecedentesSociedad" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_ase(#rut_empresa#)}
+  </procedure>
+
+  <procedure id="ingresarSociedadSociaEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_sse(#nombre:VARCHAR#, #direccion:VARCHAR#, #fono:VARCHAR#, #pais:VARCHAR#, #rut_empresa#)}
+  </procedure>
+
+  <procedure id="consultarSociedadSociaEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_sse(#rut_empresa#)}
+  </procedure>
+
+  <procedure id="ingresarSocioEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_soe(#id_sociedad#, #nombre:VARCHAR#, #rut#, #dv:CHAR#)}
+  </procedure>
+
+  <procedure id="consultarSociosEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_soe(#id_sociedad#)}
+  </procedure>
+
+  <procedure id="eliminarSocioEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_elim_soe(#id_socio#)}
+  </procedure>
+
+  <procedure id="ingresarAntecedentesAdicionalesEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_ing_aae(#pagina_web:VARCHAR#, #fax:VARCHAR#, #fecha:DATE#, #notaria:VARCHAR#, #comentario:VARCHAR#, #rut_empresa#)}
+  </procedure>
+
+  <procedure id="consultarAntecedentesAdicionalesEmpresa" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_aae(#rut_empresa#)}
+  </procedure>
+
+</sqlMap>

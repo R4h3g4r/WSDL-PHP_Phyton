@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_rhh_cbp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="long" middle_name="cbp_rut" size="0" java_name="rut"/>
+		<field type="long" middle_name="rhh_rut" size="0" java_name="rutSecundario"/>
+	</input>
+	<output>
+		<field type="long" middle_name="cbp_rut" size="0" java_name="rut"/>
+		<field type="char" middle_name="cbp_dv" size="0" java_name="digitoVerificador"/>
+		<field type="String" middle_name="cbp_nom" size="0" java_name="nombres"/>
+		<field type="String" middle_name="cbp_ape_mat" size="0" java_name="apellidoMaterno"/>
+		<field type="String" middle_name="cbp_ape_pat" size="0" java_name="apellidoPaterno"/>
+		<field type="int" middle_name="rhh_tip_cod" size="0" java_name="codigoTipoRelacion"/>
+		<field type="String" middle_name="rhh_tip_gls" size="0" java_name="glosaTipoRelacion"/>
+		<field type="String" middle_name="rhh_des_rhh" size="0" java_name="otroTipoRelacion"/>
+	</output>
+</service>

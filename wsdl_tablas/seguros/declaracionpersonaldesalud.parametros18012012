@@ -1,0 +1,19 @@
+codigoEntidad;valor=DPS;
+codigoSubEntidad;valor=DBC;
+rutContratante;idc=97006000;dig=6;
+timeout;valor=4;
+glosaAceptacionCondiciones;desc=Confirmo la exactitud de esta Declaración Personal de Salud y declaro conocer y aceptar las condiciones allí expuestas;
+aliasUyP;valor=wlsalsb;
+codigosJournal;evento=ACTUALIZA;subEvento=DPS;producto=SEG;
+###################################
+# Aqualogic Certificacion         #
+###################################
+#urlDps;valor=http://alsbcert.bci.cl/servicios/productos/seguros/ventas/DpsService?wsdl
+###################################
+# Aqualogic Desarrollo            #
+###################################
+urlDps;valor=http://161.131.184.71/servicios/productos/seguros/ventas/DpsService?wsdl
+###################################
+# Flag que indica si se usa UYP   #
+###################################
+UYP;usar=false;

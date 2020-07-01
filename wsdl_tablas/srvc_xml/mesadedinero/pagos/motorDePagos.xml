@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- 
+**
+ * SP para ingresar un pago en Motor de Pagos.
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 28/02/2008 Judith Angulo Gómez - Version inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : lbtr
+ * DataSource: ds/lbtr
+ */
+-->
+<service name = "MDPsrv_sol_ing_mesa_WLS">
+
+  <context>
+
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+
+    <joltpool_name value="wcorp.bprocess.mesadedinero.ruteadorpagos.DummyFacadeImpl" />
+
+  </context>
+  <input>
+	  <field
+		java_name = "codigoProducto"
+		type = "String"
+		size = "03"
+		middle_name = "fld_int_cod_pro"
+	  />
+	  <field
+        java_name = "numeroOperacion"
+		type = "int" 
+		size = "10"
+		middle_name = "fld_int_num_ope"
+      />
+	  <field
+		java_name = "tipoOperacion"
+		type = "String"
+		size = "08"
+		middle_name = "fld_int_tip_ope"
+      />	
+	  <field
+		java_name = "indicadorAccion"
+		type = "String"
+		size = "01"
+		middle_name = "fld_int_ind_cov"
+      />	
+	  <field
+		java_name = "fechaOperacion"
+		type = "String"
+		size = "10"
+		middle_name = "fld_int_fec_ope"
+      />	
+	  <field
+		java_name = "codigoEjecutivo"
+		type = "String"
+		size = "12"
+		middle_name = "fld_int_cod_eje"
+      />	
+	  <field
+        java_name = "monedaPagoCobro"
+		type = "String"
+		size = "03"
+		middle_name = "fld_int_cod_mon"
+      />	
+	  <field
+        java_name = "numeroRut"
+		type = "int"
+		size = "10"
+		middle_name = "fld_int_rut_cli"
+      />
+	  <field
+        java_name = "sucursal"
+		type = "int"
+		size = "4" 
+		middle_name = "fld_int_suc_rut"
+      />
+	   <field
+        java_name = "montoPago"
+		type = "double"
+		size = "250" 
+		middle_name = "fld_int_mto_ope"
+      />	
+	  <field
+        java_name = "formaPagoCobro"
+		type = "String"
+		size = "05"
+		middle_name = "fld_int_fpg_ml"
+      />
+	  <field
+         java_name = "codigoValuta"
+ 		 type = "String"
+		 size = "05"
+		 middle_name = "fld_int_cod_val"
+      />
+	  <field
+        java_name = "nombreCliente"
+		type = "String"
+		size = "35"
+		middle_name = "fld_int_nom_cli"
+      />
+	  <field
+         java_name = "bancoBeneficiario"
+ 		 type = "String"
+		 size = "04"
+		 middle_name = "fld_int_bco_ben"
+      />
+	  <field
+         java_name = "cuentaCorrienteBeneficiario"
+		 type = "String"
+		 size = "15"
+		 middle_name = "fld_int_cct_ben"
+      />
+	  <field
+		  java_name = "claveAbif"
+			type = "String"
+			size = "08"
+			middle_name = "fld_int_kwd_abif"
+      />
+	  <field
+		   java_name = "cuentaCorrienteComprador"
+			type = "String"
+			size = "15"
+			middle_name = "fld_int_cct_buy"
+      />
+      <field
+			java_name = "codigoDcvComprador"
+			type = "String"
+			size = "05"
+			middle_name = "fld_int_buy_cod"
+      />
+      <field
+			java_name ="cuentaCorrienteVendedor"
+			type = "String"
+			size = "15"
+			middle_name = "fld_int_cct_sel"
+
+      />
+      <field
+	        java_name = "codigoDcvVendedor"
+			type = "String"
+			size = "05"
+			middle_name = "fld_int_sel_cod"
+      />
+ 	  <field
+		    java_name = "montoOriginal"
+			type = "double"
+			size = "250"     
+			middle_name = "fld_int_mto_ori"
+      />
+	  <field
+		    java_name = "fechaInicio"
+			type = "String"
+			size = "10"
+			middle_name = "fld_int_fec_ini"
+      />
+	  <field
+			java_name = "tasaInteres"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_tas_int"
+      />
+	  <field
+			java_name = "montoInteres"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_mto_int"
+      />
+	  <field
+	        java_name = "montoVencimiento"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_mto_ven"
+      />	
+	  <field
+			java_name = "fechaVencimiento"
+			type = "String"
+			size = "10"
+			middle_name = "fld_int_fec_ven"
+      />
+	  <field
+		    java_name = "tipoReajustabilidad"
+			type = "String"
+			size = "15"
+			middle_name = "fld_int_tip_res"
+      />
+	  <field
+		    java_name = "tasaPacto"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_tas_pac"
+      />
+	  <field
+	        java_name = "montoFinal"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_mto_fin"
+      />
+	  <field
+	        java_name = "montoNominal"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_mto_nom"
+      />
+	  <field
+			java_name = "tasaDescuento"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_tas_des"
+      />	
+	  <field
+			java_name = "valorTasaDescuento"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_val_tds"
+      />	
+	  <field
+	        java_name = "custodia"
+			type = "String"
+			size = "35"
+			middle_name = "fld_int_nom_cus"
+      />	
+	  <field
+	        java_name = "numeroInstrumentosTransados"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_num_doc"
+      />	
+	  <field
+	        java_name = "montoTotalTransado"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_mto_tot"
+      />	
+	  <field
+			java_name = "codigoMndaFx"
+			type = "String"
+			size = "03"
+			middle_name = "fld_int_cod_mfx"
+      />
+      <field
+	        java_name = "montoFx"
+			type = "double"
+			size = "250"  
+			middle_name = "fld_int_mto_mx"
+      />
+	  <field
+	        java_name = "tasaCambio"
+			type = "double"
+			size = "250"
+			middle_name = "fld_int_tip_cam"
+      />
+	  <field
+			java_name = "fechaValorMx"
+			type = "String"
+			size = "10"
+			middle_name = "fld_int_fvl_mx"
+      />
+	  <field
+			java_name = "formaPagoNegocio"
+			type = "String"
+			size = "35"
+			middle_name = "fld_int_fpg_neg"
+      />	
+   </input>   
+   <output>	
+   	<struct struct_size="0" class_name="ResultadoIngresoPago" var_name="resultadoIngresoPago"> 
+   		<field
+            java_name = "indicadorResultadoOperacion"
+            type = "int"
+			size = "10"
+            middle_name = "fld_result_sw"
+         />
+         <field
+            java_name = "mensajeResultadoOperacion"
+            type = "String"
+            size = "254"
+            middle_name = "fld_result_msg"
+         />	
+		  <field
+            java_name = "numeroTransaccionPago"
+            type = "int"
+			size = "10"
+            middle_name = "fld_result_iop"
+         />	
+	</struct> 
+    </output> 	
+</service>

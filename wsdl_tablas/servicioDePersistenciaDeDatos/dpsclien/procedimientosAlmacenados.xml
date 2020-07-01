@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="segvta.procedimientosAlmacenados">
+
+   
+    
+
+    
+  <procedure id="buscaDPSRangoFecha" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_dps_list_rango_fecha(#fecha_inicio#, #fecha_fin#, #tipo_fecha#,#estado#,#tipo_credito#,#tipo_seguro#,#sucursal#)}
+  </procedure>  
+    
+  <procedure id="buscaDPSOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_dps_list_operacion(#num_operacion#, #rut_cliente#, #estado#,#tipo_credito#,#tipo_seguro#,#sucursal#)}
+  </procedure>  
+    
+  <procedure id="getFolioNuevaDPS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_dps_get_folio()}
+  </procedure> 
+  
+	
+   <procedure id="actualizaArchivoSubido" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+   {call sp_dps_reg_archivo(#num_dps#)}
+   </procedure> 
+   
+   <procedure id="insertaDPS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+   {call sp_dps_ins_dps(#numeroDPS#,#rutCliente#,#dvCliente#,#tipoDeudor#,#nombreContacto#,#telefonoContacto#,#codTipoCredito#,#montoAsegurado#,#plazoOperacion#,#optima#,#codTipoSeguro#,#nombreCompaniaReceptora#,#correoReceptorCorredora#,#correoCompaniaReceptora#,#nombreEjecutivoIngresoDPS#,#usuarioEjecutivo# ,#correoEjecutivoIngresoDPS#,#codigoSucursal#,#nombreSucursal#, #fechaNacimiento#, #estadoSistema#)}
+   </procedure> 
+   
+   
+   <procedure id="getDPS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+   {call sp_dps_get_dps(#numeroDPS#)}
+   </procedure> 
+      
+   
+   <procedure id="getBitacoraDPS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+   {call sp_dps_get_bitacora(#numeroDPS#)}
+   </procedure>
+   
+   <procedure id="actualizarEstadoInternoDPS" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+   {call sp_dps_upd_est(#numeroDPS#, #estado#)}
+   </procedure> 
+   
+   	
+	
+    
+</sqlMap>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="comisiones.procedimientosAlmacenados">
+	<parameterMap id="setGrabaComisiones" class="java.util.HashMap">
+		<parameter property="rutCliente"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="digitoVer"		 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="nombreCliente"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="codigoProducto" jdbcType="CHAR" 	javaType="String" />
+		<parameter property="cuentaCargo"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="montoComision"	 jdbcType="Double"	javaType="java.lang.Double" numericScale="4" />
+		<parameter property="estado"		 jdbcType="CHAR"	javaType="String" />
+	</parameterMap>
+
+	<procedure id="grabaComisiones" parameterMap="setGrabaComisiones" resultClass="int">
+		{ CALL sp_ins_cob_cms( ?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<parameterMap id="setRegistroParaCobroMensual" class="java.util.HashMap">
+		<parameter property="rutCliente"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="digitoVer"		 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="nombreCliente"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="tipoSolicitud"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="codigoProducto" jdbcType="CHAR" 	javaType="String" />
+		<parameter property="numConvenio"    jdbcType="CHAR" 	javaType="String" />
+		<parameter property="cuentaCargo"    jdbcType="CHAR" 	javaType="String" />
+		<parameter property="afectoCobro"	 jdbcType="CHAR"	javaType="String" />
+		<parameter property="estadoMult"	 jdbcType="CHAR"	javaType="String" />
+		<parameter property="serialMult"	 jdbcType="CHAR"	javaType="String" />
+	</parameterMap>
+	
+	<procedure id="registroParaCobroMensual" parameterMap="setRegistroParaCobroMensual" resultClass="int">
+		{ CALL sp_reg_cob_cmm( ?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<parameterMap id="setConsultaFechaActivacion" class="java.util.HashMap">
+		<parameter property="rutCliente"	 jdbcType="CHAR" 	javaType="String" />
+		<parameter property="numeroSerial"	 jdbcType="CHAR" 	javaType="String" />
+	</parameterMap>
+
+	<resultMap id="getConsultaFechaActivacion" class="java.util.HashMap">
+	
+		<result property="fechaActivacion"   column="fechaActivacion" javaType="String" />
+		
+	</resultMap>
+	
+	<procedure id="consultaFechaActivacion" parameterMap="setConsultaFechaActivacion" resultMap="getConsultaFechaActivacion">
+		{ CALL sp_cns_fec_act( ?,? ) }
+	</procedure>
+
+	<parameterMap id="setConsultaCuentaCargo" class="java.util.HashMap">
+		<parameter property="rutCliente"	 jdbcType="CHAR" 	javaType="String" />
+	</parameterMap>
+
+	<resultMap id="getConsultaCuentaCargo" class="java.util.HashMap">
+	
+		<result property="cuentaCargo"   column="cuentaCargo" javaType="String" />
+		
+	</resultMap>
+	
+	<procedure id="consultaCuentaCargo" parameterMap="setConsultaCuentaCargo" resultMap="getConsultaCuentaCargo">
+		{ CALL sp_cns_cta_car( ? ) }
+	</procedure>	
+
+	<parameterMap id="setRegistraRechazoCondicionesSobregiro" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="CHAR" javaType="String" />
+		<parameter property="dv" jdbcType="CHAR" javaType="String" />
+		<parameter property="cuenta" jdbcType="CHAR" javaType="String" />
+		<parameter property="estado" jdbcType="CHAR" javaType="String" />
+		<parameter property="canal" jdbcType="CHAR" javaType="String" />
+		<parameter property="fechaIngreso" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />		
+		<parameter property="fechaModificacion" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />		
+	</parameterMap>
+	<procedure id="registraRechazoCondicionesSobregiro" parameterMap="setRegistraRechazoCondicionesSobregiro" resultClass="int">
+		{ CALL sp_ins_est_sub( ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setModificarRegistro" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="CHAR" javaType="String" />
+		<parameter property="cuenta" jdbcType="CHAR" javaType="String" />
+		<parameter property="estado" jdbcType="CHAR" javaType="String" />
+		<parameter property="fechaModificacion" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />		
+	</parameterMap>
+	<procedure id="modificarRegistro" parameterMap="setModificarRegistro" resultClass="int">
+		{ CALL sp_mod_est_sub( ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtenerRegistro" class="java.util.HashMap">
+		<parameter property="rut"	 jdbcType="CHAR" 	javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerRegistro" class="java.util.HashMap">
+		<result property="rut" column="rut" jdbcType="CHAR" javaType="String" />
+		<result property="dv" column="dv" jdbcType="CHAR" javaType="String" />
+		<result property="cuenta" column="cuenta" jdbcType="CHAR" javaType="String" />
+		<result property="estado" column="estado" jdbcType="CHAR" javaType="String" />
+		<result property="canal" column="canal" jdbcType="CHAR" javaType="String" />
+		<result property="fechaIngreso" column="fechaIngreso" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="fechaModificacion" column="fechaModificacion" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	</resultMap>
+	<procedure id="obtieneEstadoRegistros" parameterMap="setObtenerRegistro" resultMap="getObtenerRegistro">
+		{ CALL sp_cns_est_sub( ? ) }
+	</procedure>
+	
+	<resultMap id="getAtributos" class="java.util.HashMap">
+		<result property= "tar_rut_cliente" 			jdbcType= "INTEGER" 	javaType="Long"  />
+		<result property= "tar_dv_cliente" 				jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_indsobregiro" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_indtarjcredito" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_indtarjdebito" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_cnt_sobregiro" 			jdbcType= "INTEGER" 	javaType="Integer"  />
+		<result property= "tar_cnt_mora" 				jdbcType= "INTEGER" 	javaType="Integer"  />
+		<result property= "tar_cnt_protestos" 			jdbcType= "INTEGER" 	javaType="Integer"  />
+		<result property= "tar_cnt_pagoautotarj" 		jdbcType= "INTEGER" 	javaType="Integer"  />
+		<result property= "tar_cnt_pagoautocuenta" 		jdbcType= "INTEGER" 	javaType="Integer"  />
+		<result property= "tar_des_indremunera" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_rut_empresaremun" 		jdbcType= "INTEGER" 	javaType="Long"  />
+		<result property= "tar_dv_empresaremun" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_fec_settarifacep" 		jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_cod_segmento" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_cod_convplanes" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_ingconvplanes" 		jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_rut_emprconvplan" 		jdbcType= "INTEGER" 	javaType="Long"  />
+		<result property= "tar_dv_emprconvplan" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_cod_convret" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_ingconvret" 			jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_cod_plan" 				jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_cod_nueplanapl" 			jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_cod_convapl" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_valortarifainfo" 	jdbcType= "FLOAT" 		javaType="Double"  />
+		<result property= "tar_cod_monvalortarinfo" 	jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_valortarifacalc" 	jdbcType= "FLOAT" 		javaType="Double"  />
+		<result property= "tar_cod_monvalortarifcalc" 	jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_exptarfcalculada" 	jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_cod_contextoutil" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_contextoutil" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_cod_plantcomisionutil" 	jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_plantcomisonutil" 	jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_ejecucion" 			jdbcType= "DATETIME"	javaType="java.util.Date"  />
+		<result property= "tar_fec_proceso" 			jdbcType= "DATETIME"	javaType="java.util.Date"  />
+		<result property= "tar_des_indreasigplan" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_indlicmedapli" 		jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_nomconvreten" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_nomsegmento" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_nomconvplanes" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_indconvact" 			jdbcType= "CHAR" 		javaType="String"  />
+		<result property= "tar_des_clicic" 				jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_operplan" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_valactplan" 			jdbcType= "FLOAT" 		javaType="Double"  />
+		<result property= "tar_des_valoractconv" 		jdbcType= "FLOAT" 		javaType="Double"  />
+		<result property= "tar_des_ctacargo" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_numctacorriente" 	jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_aperctacorr" 		jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_des_nomplan" 			jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_ofctacorrvig" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_numsobregiro" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_apersobregiro" 		jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_des_numtarjcredito" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_apertarjcredito" 	jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_des_numtarjdebito" 		jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_fec_apertarjdebito" 		jdbcType= "DATETIME" 	javaType="java.util.Date"  />
+		<result property= "tar_des_banca" 				jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_des_filler" 				jdbcType= "VARCHAR" 	javaType="String"  />
+		<result property= "tar_com_plantcomisionutil" 	jdbcType= "VARCHAR" 	javaType="String"  />
+	<result property= "tar_des_indcredconsumo" 	    column="tar_des_indcredconsumo"/>
+		<result property= "tar_cnt_credconsumo" 	    column="tar_cnt_credconsumo"/>
+		<result property= "tar_des_valcredconsumo" 	    column="tar_des_valcredconsumo"/>			
+	</resultMap>
+	
+	<parameterMap id="setAtributos" class="java.util.HashMap">
+		<parameter property="rut"			jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+
+    <procedure id="tarificacionCliente" parameterMap="setAtributos" resultMap="getAtributos">
+		{CALL sp_cns_tar_cli (?)}
+	</procedure>
+	
+	<resultMap id="getObtieneCobroCliente" class="java.util.HashMap">	
+		<result property="com_dv_cliente" jdbcType= "CHAR" 		javaType="String" />
+		<result property="com_cta_cargo"  jdbcType= "VARCHAR" 	javaType="String" />
+		<result property="com_fec_cobro"  jdbcType= "DATETIME" 	javaType="String" />
+		<result property="com_mon_cobro"  jdbcType= "FLOAT" 	javaType="String" />
+		<result property="com_per_cobro"  jdbcType= "CHAR" 	javaType="String" />
+	</resultMap>
+	
+	<parameterMap id="setObtieneCobroCliente" class="java.util.HashMap">
+		<parameter property="rut"			jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+
+    <procedure id="cobroCliente" parameterMap="setObtieneCobroCliente" resultClass="java.util.HashMap">
+		{CALL sp_cns_cob_com (?)}
+	</procedure>
+	
+	<procedure id="consultaTarificacionPbe" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+               {CALL sp_cns_ret_cli(#cliRut#)}
+    </procedure>
+</sqlMap>	

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DB>
+ <SPECIAL str="0" typeId="" template=""></SPECIAL>
+ <QRY NTx="AdmRelRls" LBL="N">
+   <ATTRIB ATTR1="identificador" ATTR2="R" ATTR3="" ATTR4=""></ATTRIB>
+   <INPUT>
+      <field FF="columna1" LF="1" POS="" COD="" TD="" PREF="" CW="type">identificador</field>
+      <field FF="columna2" LF="20" POS="" COD="" TD="" PREF="" CW="orgId">categoria</field>
+      <field FF="columna3" LF="20"  POS="" COD="" TD="" PREF="" CW="">subCategoria</field>
+      <field FF="columna4" LF="20"  POS="" COD="" TD="" PREF="" CW="">parametro1</field>
+      <field FF="columna5" LF="20"  POS="" COD="" TD="" PREF="" CW="">parametro2</field>
+      <field FF="columna6" LF="3"  POS="" COD="" TD="" PREF="" CW="">tipoRelCliente</field>
+      <field FF="columna7"  LF="20" POS="" COD="" TD="" PREF="" CW="">campoVariable</field>
+      <field FF="columna8" LF="20" POS="" COD="" TD="" PREF="" CW="">parametro3</field>
+      <field FF="columna9" LF="20" POS="" COD="" TD="" PREF="" CW="">parametro4</field>
+    </INPUT>
+    <OUTPUT>
+      <field FF="dominio" LF="50" POS="" COD="" TD="" PREF="">respuesta1</field>
+      <field FF="sdominio" LF="50" POS="" COD="" TD="" PREF="">respuesta2</field>
+      <field FF="rolei" LF="50" POS="" COD="" TD="" PREF="">respuesta3</field>
+      <field FF="rolef" LF="50" POS="" COD="" TD="" PREF="">respuesta4</field>
+      <field FF="typeRel" LF="50" POS="" COD="" TD="" PREF="">respuesta5</field>
+    </OUTPUT>
+ </QRY>
+</DB>

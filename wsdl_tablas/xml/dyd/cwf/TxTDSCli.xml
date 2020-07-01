@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Vista ID="TDSCli" glosa="Solicitudes Cliente" border="1" rules="cols" width="100%" cellpadding="2" cellspacing="0" ordercol="3">
+  <Cabecera>
+   <Col1 Align="Center" bgcolor="#E1E1E1" Width="4%" Type="im" css="textos" Img="Imagenes/WADone.gif"></Col1>
+    <Col2 Align="Center" bgcolor="#E1E1E1" Width="30%" Type="tx" css="textos" Img="">Origen</Col2>
+    <Col3 Align="Center" bgcolor="#E1E1E1" Width="5%" Type="tx" css="textos" Img="">Nro.Solicitud</Col3>
+    <Col4 Align="Center" bgcolor="#E1E1E1" Width="12%" Type="n" css="textos" Img="">Fecha</Col4>
+    <Col5 Align="Center" bgcolor="#E1E1E1" Width="10%" Type="n" css="textos" Img="">C.Máximo</Col5>
+    <Col6 Align="Center" bgcolor="#E1E1E1" Width="10%" Type="n" css="textos" Img="">Vigencia</Col6>
+    <Col7 Align="Center" bgcolor="#E1E1E1" Width="15%" Type="tx" css="textos" Img="">Estado</Col7>
+    <Col8 Align="Center" bgcolor="#E1E1E1" Width="10%" Type="tx" css="textos" Img="">Sub Dominio</Col8>
+  </Cabecera>
+  <Contenido Highlight="#E1E1E1" Pagina="Acciones.jsp">
+    <sp>misPendientes</sp>
+    <where>condiciones</where>
+    <link></link>
+    <Col1></Col1>
+    <Col2></Col2>
+    <Col3></Col3>
+    <Col4></Col4>
+    <Col5></Col5>
+    <Col6></Col6>
+    <Col7></Col7>
+    <Col8></Col8>
+  </Contenido>  
+  <query>
+  	exec sp_viewCliente_v0101 '{1}'
+  </query>
+  <params>wo</params>
+  <datasource>CwTx_DataSource</datasource>
+</Vista>

@@ -1,0 +1,93 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "proc_elim_doc_validacion_sipe"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>				
+				
+  <input>
+
+        <field
+          java_name = "rutUsuarioLog"
+          type = "String"
+          size = "12"
+          middle_name = "rutUsuarioLog"
+        />
+
+        <field
+          java_name = "digitoUsuario"
+          type = "String"
+          size = "1"
+          middle_name = "digitoUsuario"
+        />
+
+        <field
+          java_name = "rutEmpresaLog"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresaLog"
+        />
+
+        <field
+          java_name = "digitoEmpresa"
+          type = "String"
+          size = "1"
+          middle_name = "digitoEmpresa"
+        />
+
+        <field
+          java_name = "folioE"
+          type = "String"
+          size = "12"
+          middle_name = "folioE"
+        />
+
+        <field
+          java_name = "docRelacionadoE"
+          type = "String"
+          size = "7"
+          middle_name = "docRelacionadoE"
+        />
+
+        <field
+          java_name = "numDocumentoE"
+          type = "String"
+          size = "7"
+          middle_name = "numDocumentoE"
+        />
+	
+		<field
+          java_name = "fecha_pago"
+          type = "String"
+          size = "8"
+          middle_name = "fecha_pago"
+        />
+  </input>
+
+  <output>
+
+        <field
+          java_name = "retorno"
+          type = "String"
+          size = "10"
+          middle_name = "retorno"
+        />
+
+  </output>
+
+</service>

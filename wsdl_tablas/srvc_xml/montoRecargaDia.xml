@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!--
+author Copyright (c) 2005 by BEE S.A. All Rights Reserved.
+revision TestingDAO@1.22/Ror-002@
+-->
+
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+
+<service name = "sp_obtieneMontoDiario">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.recargacelulares.ServiciosRecargaCelularesBean" />
+
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutCliente"
+          type = "String"
+          size = "12"
+          middle_name = "rutCliente"
+        />
+  </input>
+
+  <output>
+
+        <field
+          jjava_name = "estado"
+          type = "Integer"
+          size = "250"
+          middle_name = "estado"
+        />
+
+  </output>
+
+</service>

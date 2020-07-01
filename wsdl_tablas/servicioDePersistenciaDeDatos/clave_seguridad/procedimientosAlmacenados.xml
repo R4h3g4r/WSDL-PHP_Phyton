@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="clave_seguridad.procedimientosAlmacenados">
+
+	<parameterMap id="setDesplegarDispositivosActivos" class="java.util.HashMap">
+	    <parameter property="rutCliente"	 jdbcType="NUMERIC" javaType="long"/>
+	    <parameter property="numCtaCte"      jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+   
+	<resultMap id="getDesplegarDispositivosActivos" class="java.util.HashMap">
+		<result property="rutCliente"	   column="mpcl_rut_cli"   jdbcType="NUMERIC" javaType="long"/>
+	    <result property="dvCliente"       column="mpcl_dv_cli"    jdbcType="VARCHAR" javaType="String"/>
+		<result property="numCtaCte"       column="mpcl_cta_cte"   jdbcType="VARCHAR" javaType="String"/>		
+		<result property="tipoMovil"	   column="mpcl_tip_movil" jdbcType="NUMERIC" javaType="int"/>
+		<result property="numeroMovil"	   column="mpcl_fono"	   jdbcType="NUMERIC" javaType="int"/>
+		<result property="serialSem"	   column="mpcl_cod_sem"   jdbcType="VARCHAR"  javaType="String"/>
+		<result property="estadoToken"	   column="mpcl_est_movil" jdbcType="NUMERIC"  javaType="int"/>
+		<result property="fechaIni"		   column="mpcl_fecha_ini" jdbcType="DATETIME" javaType="Date"/>
+		<result property="fechaMod"		   column="mpcl_fecha_mod" jdbcType="DATETIME" javaType="Date"/>
+		<result property="email"		   column="mpcl_email"	   jdbcType="VARCHAR" javaType="String"/>
+		<result property="estadoCobro"	   column="mpcl_est_cobro" jdbcType="NUMERIC" javaType="int"/>
+	</resultMap>
+
+	<procedure id="desplegarDispositivosActivos" parameterMap="setDesplegarDispositivosActivos"  resultMap="getDesplegarDispositivosActivos">
+		{ CALL sp_cons_disp_reg( ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setAsignarSemilla" class="java.util.HashMap">
+	    <parameter property="rutCliente"  jdbcType="NUMERIC" javaType="long"/>
+		<parameter property="dvCliente"	  jdbcType="CHAR"	 javaType="String"/>
+		<parameter property="numCtaCte"	  jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="tipoMovil"	  jdbcType="NUMERIC" javaType="int"/>
+		<parameter property="numeroMovil" jdbcType="NUMERIC" javaType="int"/>
+		<parameter property="serialSem"	  jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="mail"		  jdbcType="VARCHAR" javaType="String"/>		
+	</parameterMap>
+	
+	<procedure id="asignarSemilla" parameterMap="setAsignarSemilla" resultClass="int">
+		{ CALL sp_ins_reg_mpv( ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+	<parameterMap id="setBloquearSoftToken" class="java.util.HashMap">
+	    <parameter property="rutCliente"		jdbcType="NUMERIC" javaType="long"/>
+	    <parameter property="numeroMovil"		jdbcType="NUMERIC" javaType="int"/>
+	</parameterMap>
+	
+	<procedure id="bloquearSoftToken" parameterMap="setBloquearSoftToken" resultClass="int">
+		{ CALL sp_eli_reg_mpv( ?, ? ) }
+	</procedure>
+
+</sqlMap>
+

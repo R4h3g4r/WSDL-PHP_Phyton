@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="autoservicios.procedimientosAlmacenados">
+
+	<parameterMap id="setRegistrarUUID" class="java.util.HashMap">
+		<parameter property="uuid"  					jdbcType="int" javaType="String" />
+		<parameter property="rutClienteConfirmacion" 	jdbcType="int" javaType="Long" />
+		<parameter property="fechaExpiracion" 	  		jdbcType="date" javaType="Date" />
+		<parameter property="contexto" 	  				jdbcType="char" javaType="String" />
+	</parameterMap>
+	<procedure id="registrarUUID" parameterMap="setRegistrarUUID" resultClass="int">
+		{ CALL sp_ins_casillero(?,?,?,?) }
+	</procedure>
+	
+	
+	<parameterMap id="setObtenerUUID" class="java.util.HashMap">
+		<parameter property="rutCliente" 	jdbcType="int" javaType="Long" />
+	</parameterMap>
+
+	
+
+	<procedure id="obtenerUUID" parameterMap="setObtenerUUID" resultClass="String">
+		{ CALL sp_cns_cas( ?) }
+	</procedure>
+	
+	<parameterMap id="setEliminarRegistroUUID" class="java.util.HashMap">
+		<parameter property="eliminarRegistroUUID" 	jdbcType="int" javaType="Long" />
+	</parameterMap>
+	<procedure id="eliminarRegistroUUID" parameterMap="setEliminarRegistroUUID" resultClass="int">
+		{ CALL sp_del_cas( ? ) }
+	</procedure>
+
+	<!-- Declaración parametros de entrada -->
+    <parameterMap id="datosInsersion" class="java.util.HashMap">
+		<parameter property="txf_med"        jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_rut"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_cta"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_mto"      jdbcType="NUMERIC" javaType="long" />
+		<parameter property="txf_id_maq"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_suc"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_id_tx"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_id_opr"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_fech_tx"      jdbcType="DATETIME" javaType="java.util.Date" />
+		<parameter property="txf_resul"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_cod_err"      jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_desc_err"      jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+
+	<resultMap id="datosTransaccion" class="java.util.HashMap">
+		<result property="txf_med"        jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_rut"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_cta"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_mto"      jdbcType="NUMERIC" javaType="long" />
+		<result property="txf_id_maq"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_suc"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_id_tx"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_id_opr"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_fech_tx"      jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="txf_resul"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_cod_err"      jdbcType="VARCHAR" javaType="String" />
+		<result property="txf_desc_err"      jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+    
+	<!-- sp_ins_tx_fall((@txf_med char(8),@txf_rut char(9),@txf_cta char(8),@txf_mto numeric(15),@txf_id_maq char(20),
+    @txf_suc char(5),@txf_id_tx char(30),@txf_id_opr char(10),@txf_fech_tx datetime,@txf_resul char(4))), 
+    @txf_cod_err varchar(20), @txf_desc_err varchar(255)-->
+    <procedure id="insertaTransaccion" parameterMap="datosInsersion" resultClass="java.lang.Integer">
+        {CALL sp_ins_tx_fall(?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+
+    <parameterMap id="parametrosConsulta" class="java.util.HashMap">
+		<parameter property="txf_suc"        jdbcType="VARCHAR" javaType="String" />
+		<parameter property="txf_fech_tx_desde"      jdbcType="DATE" javaType="java.util.Date" />
+		<parameter property="txf_fech_tx_hasta"      jdbcType="DATE" javaType="java.util.Date" />
+		<parameter property="txf_resul"      jdbcType="VARCHAR" javaType="String" />		
+    </parameterMap>  
+	
+	<!-- sp_cns_tx_fall(@txf_suc VARCHAR(5) , @txf_fech_tx_desde datetime , @txf_fech_tx_hasta datetime , @txf_resul VARCHAR(4))-->
+	<procedure id="consultaTransacciones" parameterMap="parametrosConsulta" resultMap="datosTransaccion">
+        {CALL sp_cns_tx_fall(?,?,?,?)}
+    </procedure>     
+</sqlMap>

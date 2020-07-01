@@ -1,0 +1,14 @@
+# Disminucion de Colocaciones BCI mayores a 25%     
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Contactar a cliente.;
+GLOSA1;mensaje=2.- Detectar motivo disminución de las colocaciones.;
+GLOSA2;mensaje=3.- Buscar opciones de solución: Ofrecer nuevos productos.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Contactar a cliente.;
+GLOSAPDF1;mensaje=2.- Detectar motivo disminución de las colocaciones.;
+GLOSAPDF2;mensaje=3.- Buscar opciones de solución: Ofrecer nuevos productos.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=La disminución de las colocaciones sobre el 25% se calcula tomando dos últimos meses del "Saldo Promedio Colocaciones Totales %"., contenido en la aplicación Saldos Promedios en la Estación de Trabajo Everest.;periodo= Dos Meses ;fuente= Indeterminada;

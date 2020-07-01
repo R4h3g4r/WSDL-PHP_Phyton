@@ -1,0 +1,1506 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="testing.procedimientosAlmacenados">
+<!-- Mantenedor Covenants -->
+	<resultMap id="listadoCovenants" class="java.util.HashMap">
+        <result property="idTipoCovenant" javaType="long" column="id_tipo_covenant"/>
+		<result property="idClasificacionCovenant" javaType="int" column="id_clasificacion_covenant"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+        <result property="nombreClasificacion" javaType="String" column="nombre_clasificacion"/>
+    </resultMap>
+	
+	<procedure id="insertarCovenants" parameterClass="java.util.HashMap">
+		{CALL sp_ins_covenant(#idClasificacionCovenant#,#nombre#)}
+	</procedure>
+	
+	<procedure id="consultarCovenants" parameterClass="java.util.HashMap" resultMap="listadoCovenants">
+        {CALL sp_cons_covenant(#idClasificacionCovenant#,#nombre#)}
+    </procedure>
+	
+	<resultMap id="listadoCovenantsEliminar" class="java.util.HashMap">
+        <result property="Covenants" javaType="long" column="covenants"/>
+    </resultMap>
+    
+	<procedure id="eliminarCovenant" parameterClass="java.util.HashMap" resultMap="listadoCovenantsEliminar">
+        {CALL sp_del_covenant(#idTipoCovenant#)}
+    </procedure>
+	
+	<procedure id="actualizarCovenant" parameterClass="java.util.HashMap">
+        {CALL sp_upd_covenant(#idTipoCovenant#,#idClasificacionCovenant#,#nombre#)}
+    </procedure>
+<!-- Fin Mantenedor Covenants -->
+
+<!-- Mantenedor Alertas -->
+	<resultMap id="listadoAlertas" class="java.util.HashMap">
+        <result property="idAlerta" javaType="long" column="id_alerta"/>
+        <result property="idSeguimientoTabla" javaType="long" column="id_seguimiento_tabla"/>
+        <result property="nombreSeguimiento" javaType="String" column="nombre_clausula"/>
+		<result property="periodoDias" javaType="int" column="periodo_dias"/>
+    </resultMap>
+	
+	<resultMap id="listadoSeguimientoAlerta" class="java.util.HashMap">
+        <result property="idSeguimientoAlerta" javaType="long" column="id_seguimiento_tabla"/>
+        <result property="nombreClausula" javaType="String" column="nombre_clausula"/>
+    </resultMap>
+	
+	<procedure id="insertarAlerta" parameterClass="java.util.HashMap">
+		{CALL sp_ins_alertas(#idSeguimientoTabla#,#periodoDias#)}
+	</procedure>
+	
+	<procedure id="consultarAlerta" parameterClass="java.util.HashMap" resultMap="listadoAlertas">
+        {CALL sp_cons_alertas(#idSeguimientoTabla#,#periodoDias#)}
+    </procedure>
+	
+	<procedure id="eliminarAlerta" parameterClass="java.util.HashMap">
+        {CALL sp_del_alertas(#idAlerta#)}
+    </procedure>
+	
+	<procedure id="actualizarAlerta" parameterClass="java.util.HashMap">
+        {CALL sp_upd_alertas(#idAlerta#,#idSeguimientoTabla#,#periodoDias#)}
+    </procedure>
+	
+	<procedure id="consultarSeguimientoAlerta" parameterClass="java.util.HashMap" resultMap="listadoSeguimientoAlerta">
+        {CALL sp_cons_seguimientoAlerta}
+    </procedure>
+<!-- Fin Mantenedor Alertas -->	
+
+
+<!-- Mantenedor TipoDeLinea -->
+	<resultMap id="listadoTipoDeLinea" class="java.util.HashMap">
+        <result property="idTipoDeLinea" javaType="long" column="id_tipo_linea"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+    </resultMap>
+	
+	<procedure id="consultarTipoDeLinea" parameterClass="java.util.HashMap" resultMap="listadoTipoDeLinea">
+        {CALL sp_cons_tipoLinea(#descripcion#)}
+    </procedure>
+	
+	<procedure id="insertarTipoDeLinea" parameterClass="java.util.HashMap">
+		{CALL sp_ins_tipoLinea(#descripcion#)}
+	</procedure>
+	
+	<procedure id="actualizarTipoDeLinea" parameterClass="java.util.HashMap">
+        {CALL sp_upd_tipoLinea(#idTipoDeLinea#,#descripcion#)}
+    </procedure>
+	
+	<resultMap id="listadoTipoLineaEliminar" class="java.util.HashMap">
+        <result property="idDestinoFondo" javaType="long" column="destino_fondo"/>
+    </resultMap>
+    
+	<procedure id="eliminarTipoDeLinea" parameterClass="java.util.HashMap" resultMap="listadoTipoLineaEliminar">
+        {CALL sp_del_tipoLinea(#idTipoDeLinea#)}
+    </procedure>
+<!-- Fin Mantenedor TipoDeLinea -->
+
+<!-- Mantenedor TipoContrato -->
+	<resultMap id="listadoTipoContrato" class="java.util.HashMap">
+        <result property="idTipoContrato" javaType="long" column="id_tipo_contrato"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+		<result property="tipo" javaType="int" column="tipo"/>
+    </resultMap>
+	
+	<procedure id="consultarTipoContrato" parameterClass="java.util.HashMap" resultMap="listadoTipoContrato">
+        {CALL sp_cons_tipoContrato(#nombre#,#tipo#)}
+    </procedure>
+	
+	<procedure id="insertarTipoContrato" parameterClass="java.util.HashMap">
+		{CALL sp_ins_tipoContrato(#nombre#,#tipo#)}
+	</procedure>
+	
+	<procedure id="actualizarTipoContrato" parameterClass="java.util.HashMap">
+        {CALL sp_upd_tipoContrato(#idTipoContrato#,#nombre#,#tipo#)}
+    </procedure>
+	
+	<procedure id="eliminarTipoContrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_tipoContrato(#idTipoContrato#)}
+    </procedure>
+<!-- Fin Mantenedor TipoContrato -->
+
+<!-- Mantenedor Gerente Banquero -->
+
+    <resultMap id="resultado_buscar_gerente_banquero" class="java.util.HashMap">
+        <result property="id"       javaType="long"     column="id_gerente"/>
+        <result property="rut" 		javaType="Integer"     column="rut"/>
+        <result property="dv_rut"   javaType="String"   column="dv_rut"/>
+        <result property="nombre"   javaType="String"   column="nombre"/>
+        <result property="usuario"  javaType="String"   column="usuario"/>
+        <result property="id_banca"  javaType="long"   column="id_banca"/>
+        <result property="nombre_banca"  javaType="String"   column="codigo_banca"/>
+    </resultMap>
+
+    <procedure id="buscar_gerente_banquero" parameterClass="java.util.HashMap" resultMap="resultado_buscar_gerente_banquero">
+        {CALL sp_cons_gerentebanquero(#rut#,#nombre#,#usuario#,#id_banca#)}
+    </procedure>
+
+    <procedure id="agregar_gerente_banquero" parameterClass="java.util.HashMap">
+        {CALL sp_ins_gerentebanquero(#rut#,#dv_rut#,#nombre#,#usuario#,#id_banca#)}
+    </procedure>
+
+    <procedure id="modificar_gerente_banquero" parameterClass="java.util.HashMap">
+        {CALL sp_upd_gerentebanquero(#identificador#,#rut#,#dv#,#nombre#,#usuario#,#id_banca#)}
+    </procedure>
+    
+    <resultMap id="resultado_eliminar_gerente_banquero" class="java.util.HashMap">
+        <result property="id"       javaType="long"     column="id_gerente"/>
+    </resultMap>
+    
+    <procedure id="eliminar_gerente_banquero" parameterClass="java.util.HashMap" resultMap="resultado_eliminar_gerente_banquero">
+        {CALL sp_del_gerentebanquero(#identificador#)}
+    </procedure>
+
+
+<!-- Fin Mantenedor Gerente Banquero -->
+
+<!-- Mantenedor Banquero -->
+
+    <resultMap id="resultado_buscar_banquero" class="java.util.HashMap">
+        <result property="id"                       javaType="Long"     column="id_banquero"/>
+        <result property="rut"                      javaType="Integer"  column="rut"/>
+        <result property="dv_rut"                   javaType="String"   column="dv_rut"/>
+        <result property="nombre"                   javaType="String"   column="nombre"/>
+        <result property="usuario"                  javaType="String"   column="usuario"/>
+        <result property="id_banca" 	            javaType="Long"  	column="id_banca"/>
+        <result property="nombre_banca"             javaType="String"   column="nombre_banca"/>
+    </resultMap>
+
+    <procedure id="buscar_banquero" parameterClass="java.util.HashMap" resultMap="resultado_buscar_banquero">
+        {CALL sp_cons_banquero(#rut_banquero#,#id_banca#,#nombre_banquero#,#usuario_banquero#)}
+    </procedure>
+
+    <procedure id="agregar_banquero" parameterClass="java.util.HashMap">
+        {CALL sp_ins_banquero(#rut_banquero#,#dv_rut#,#nombre_banquero#,#usuario_banquero#,#id_banca#)}
+    </procedure>
+
+    <procedure id="modificar_banquero" parameterClass="java.util.HashMap">
+        {CALL sp_upd_banquero(#id_banquero#,#rut#,#dv#,#nombre_banquero#,#usuario_banquero#,#id_banca#)}
+    </procedure>
+
+	<resultMap id="resultado_eliminar_banquero" class="java.util.HashMap">
+        <result property="id"                       javaType="Long"     column="id_banquero"/>
+    </resultMap>
+    
+    <procedure id="eliminar_banquero" parameterClass="java.util.HashMap" resultMap="resultado_eliminar_banquero">
+        {CALL sp_del_banquero(#id_banquero#)}
+    </procedure>
+<!-- Fin Mantenedor Banquero -->
+
+<!-- Mantenedor Cliente -->
+
+    <resultMap class="java.util.HashMap" id="buscar_parametro_cliente">
+        <result property="identificador" javaType="long" column="identificador"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+    </resultMap>
+
+    <procedure id="buscar_tipo_cliente" parameterClass="java.util.HashMap" resultMap="buscar_parametro_cliente">
+        {CALL sp_cons_tipocliente()}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_cliente">
+        <result property="id" javaType="long" column="id_cliente"/>
+        <result property="rut" javaType="Integer" column="rut"/>
+        <result property="dv_rut" javaType="String" column="dv"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+        <result property="tipo_cliente" javaType="long" column="tipo_cliente"/>
+        <result property="descripcion_tipo_cliente" javaType="String" column="descripcion_tipo"/>
+        <result property="grupo_economico" javaType="String" column="grupo_economico"/>
+        <result property="tipo_banca" javaType="long" column="tipo_banca"/>
+        <result property="banca" javaType="String" column="banca"/>
+        <result property="tipo_banca_final" javaType="long" column="tipo_banca_final"/>
+        <result property="banca_final" javaType="String" column="banca_final"/>
+    </resultMap>
+
+    <procedure id="buscar_cliente" parameterClass="java.util.HashMap" resultMap="resultado_buscar_cliente">
+        {CALL sp_cons_cliente(#rut_cliente#,#nombre_cliente#,#tipo_cliente#,#grupo_economico#,#tipo_banca#,#tipo_banca_final#)}
+    </procedure>
+    
+    <procedure id="agregar_cliente" parameterClass="java.util.HashMap">
+        {CALL sp_ins_cliente(#rut_cliente#,#dv_rut#,#nombre_cliente#,#tipo_cliente#,#grupo_economico#,#tipo_banca#)}
+    </procedure>
+
+    <procedure id="modificar_cliente" parameterClass="java.util.HashMap">
+        {CALL sp_upd_cliente(#id_cliente#,#nombre_cliente#,#tipo_cliente#,#grupo_economico#,#tipo_banca#)}
+    </procedure>
+
+	<resultMap class="java.util.HashMap" id="resultado_eliminar_cliente">
+        <result property="id" javaType="long" column="id_cliente"/>
+    </resultMap>
+
+    <procedure id="eliminar_cliente" parameterClass="java.util.HashMap" resultMap="resultado_eliminar_cliente">
+        {CALL sp_del_cliente(#id_cliente#)}
+    </procedure>
+
+<!-- Fin Mantenedor Cliente -->
+
+<!-- Mantenedor Abogado -->
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_abogado">
+        <result property="id" javaType="long" column="id_abogado"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+        <result property="rut" javaType="Integer" column="rut"/>
+        <result property="dv_rut" javaType="String" column="dv_rut"/>
+        <result property="direccion" javaType="String" column="direccion"/>
+        <result property="telefono" javaType="long" column="telefono"/>
+        <result property="email" javaType="String" column="email"/>
+    </resultMap>
+
+    <procedure id="buscar_abogado" parameterClass="java.util.HashMap" resultMap="resultado_buscar_abogado">
+        {CALL sp_cons_abogado(#rut_abogado#,#nombre_abogado#,#direccion#,#telefono#,#email#)}
+    </procedure>
+
+    <procedure id="agregar_abogado" parameterClass="java.util.HashMap">
+        {CALL sp_ins_abogado(#rut_abogado#,#dv_abogado#,#nombre_abogado#,#direccion#,#telefono#,#email#,#interno#)}
+    </procedure>
+
+    <procedure id="modificar_abogado" parameterClass="java.util.HashMap">
+        {CALL sp_upd_abogado(#id_abogado#,#nombre_abogado#,#direccion#,#telefono#,#email#)}
+    </procedure>
+
+	<resultMap class="java.util.HashMap" id="resultado_eliminar_abogado">
+        <result property="id" javaType="long" column="id_abogado"/>
+    </resultMap>
+    
+    <procedure id="eliminar_abogado" parameterClass="java.util.HashMap" resultMap="resultado_eliminar_abogado">
+        {CALL sp_del_abogado(#id_abogado#)}
+    </procedure>
+
+<!-- Fin Mantenedor Abogado -->
+
+<!-- Bancos -->
+	<resultMap class="java.util.HashMap" id="listadoBancos">
+        <result property="idBanco" 				javaType="Long" 	column="ID_BANCO"/>
+        <result property="nombreBanco" 			javaType="String" 	column="NOMBRE"/>
+        <result property="rutBanco" 			javaType="Long" 	column="RUT_BANCO"/>
+        <result property="dvBanco"              javaType="String" 	column="DV"/>
+    </resultMap>
+
+	<resultMap class="java.util.HashMap" id="listadoTipoBanco">
+        <result property="idTipoBanco" javaType="int" column="id_tipo_banco"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="listadoCargos">
+        <result property="idCargo" javaType="long" column="id_cargo"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="listadoResponsables">
+        <result property="idResponsable" javaType="long" column="id_responsable"/>
+        <result property="idBanco" javaType="long" column="id_banco"/>
+        <result property="nombre" javaType="String" column="nombre"/>
+        <result property="fono" javaType="long" column="telefono"/>
+        <result property="email" javaType="String" column="email"/> 
+    </resultMap>
+    
+    <procedure id="consultarBancos" parameterClass="java.util.HashMap" resultMap="listadoBancos">
+        {CALL sp_cons_banco(#rutBanco#,#nombreBanco#)}
+    </procedure>
+	
+	<procedure id="consultarTipoBanco" parameterClass="java.util.HashMap" resultMap="listadoTipoBanco">
+        {CALL sp_cons_tipoBanco}
+    </procedure>
+    
+    <procedure id="consultarCargo" parameterClass="java.util.HashMap" resultMap="listadoCargos">
+        {CALL sp_cons_cargo_banco(#idBanco#)}
+    </procedure>
+    
+    <procedure id="consultarResponsable" parameterClass="java.util.HashMap" resultMap="listadoResponsables">
+        {CALL sp_cons_responsable_cargo(#idCargo#, #idBanco#)}
+    </procedure>
+	
+<!--Bancos -->
+
+<!--  Pestana Obligaciones-->
+    <resultMap class="java.util.HashMap" id="resultado_buscar_obligacion">
+        <result property="id"           javaType="long"     column="id"/>
+        <result property="id_contrato"  javaType="long"     column="id_contrato"/>
+        <result property="descripcion"  javaType="String"   column="descripcion"/>
+        <result property="estado"       javaType="Integer"  column="estado"/>
+        <result property="tipo"         javaType="Integer"  column="tipo"/>
+        <result property="observacion"  javaType="String"   column="observacion"/>
+    </resultMap>
+
+    <procedure id="buscar_obligacion" parameterClass="java.util.HashMap" resultMap="resultado_buscar_obligacion">
+        {CALL sp_cons_obligacion(#id_contrato#)}
+    </procedure>
+
+    <procedure id="actualizar_obligacion" parameterClass="java.util.HashMap">
+        {CALL sp_upd_obligacion(#id_contrato#,#id_obligacion#,#estado#,#observacion#)}
+    </procedure>
+
+    <procedure id="ingresar_obligacion_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_ins_obligacion_contrato(#id_contrato#)}
+    </procedure>
+
+<!--  Fin Pestana Obligaciones-->
+
+<!--  Pestana Abono-->
+
+    <resultMap class="java.util.HashMap" id="resultado_parametro_abono">
+        <result property="id" javaType="long" column="id" />
+        <result property="descripcion" javaType="String" column="descripcion" />
+    </resultMap>
+
+    <procedure id="buscar_tipo_accion" resultMap="resultado_parametro_abono" parameterClass="java.util.HashMap">
+        {CALL sp_cons_tipoaccion()}
+    </procedure>
+
+	<procedure id="buscar_notaria" resultMap="resultado_parametro_abono"
+		parameterClass="java.util.HashMap">
+		{CALL sp_cons_notaria(#consulta#)}
+    </procedure>
+
+	<procedure id="agregar_notaria" parameterClass="java.util.HashMap">
+		{CALL
+		sp_ins_notaria(#descripcion#)}
+	</procedure>
+	<procedure id="actualizar_notaria" parameterClass="java.util.HashMap">
+		{CALL
+		sp_upd_notaria(#id#,#descripcion#)}
+	</procedure>
+	<procedure id="eliminar_notaria" parameterClass="java.util.HashMap">
+		{CALL
+		sp_del_notaria(#id#)}
+	</procedure>
+	<resultMap class="java.util.HashMap" id="resultado_tipo_moneda">
+        <result property="id"      javaType="long"     column="id"/>
+        <result property="descripcion"         javaType="String"     column="descripcion"/>
+        <result property="cantDecimales"            javaType="int"     column="cant_decimales"/>
+    </resultMap>
+	<procedure id="buscar_tipo_moneda" resultMap="resultado_tipo_moneda"
+		parameterClass="java.util.HashMap">
+		{CALL sp_cons_tipo_moneda(#consulta#)}
+    </procedure>
+
+	<procedure id="agregar_tipo_moneda" parameterClass="java.util.HashMap">
+		{CALL
+		sp_ins_tipo_moneda(#descripcion#,#cantDecimales#)}
+	</procedure>
+	
+	<procedure id="actualizar_tipo_moneda" parameterClass="java.util.HashMap">
+		{CALL
+		sp_upd_tipo_moneda(#id#,#descripcion#,#cantDecimales#)}
+	</procedure>
+	
+	<resultMap id="result_eliminar_tipo_moneda" class="java.util.HashMap">
+		<result property="id" javaType="Long" column="id_tipo_moneda"/>
+	</resultMap>
+	<procedure id="eliminar_tipo_moneda" parameterClass="java.util.HashMap" resultMap="result_eliminar_tipo_moneda">
+		{CALL sp_del_tipo_moneda(#id#)}
+	</procedure>
+	
+    <procedure id="agregar_abono" parameterClass="java.util.HashMap">
+        {CALL sp_ins_abono_contrato(#id_contrato#,#fecha#,#tipo_accion#,#tipo_moneda#,#monto#,#saldo#,#descripcion#,#id_tramo#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_abono">
+        <result property="id_contrato"      javaType="long"     column="id_contrato"/>
+        <result property="id_abono"         javaType="long"     column="id_abono"/>
+        <result property="fecha"            javaType="Date"     column="fecha"/>
+        <result property="tipo_accion"      javaType="long"     column="tipo_accion"/>
+        <result property="tipo_moneda"      javaType="long"     column="tipo_moneda"/>
+        <result property="monto"            javaType="double"   column="monto"/>
+        <result property="saldo"            javaType="double"   column="saldo"/>
+        <result property="descripcion"      javaType="String"   column="descripcion"/>
+        <result property="nombre_accion"    javaType="String"   column="nombre_accion"/>
+        <result property="nombre_moneda"    javaType="String"   column="nombre_moneda"/>
+        <result property="id_tramo"         javaType="long"     column="id_tramo"/>
+    </resultMap>
+
+    <procedure id="buscar_abono" parameterClass="java.util.HashMap" resultMap="resultado_buscar_abono">
+        {CALL sp_cons_abono_contrato(#id_contrato#,#id_tramo#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_total_abono">
+        <result property="id_tramo"         javaType="long"         column="id_tramo"/>
+        <result property="descripcion"      javaType="String"       column="descripcion"/>
+        <result property="id_contrato"      javaType="long"         column="id_contrato"/>
+        <result property="total_abono"      javaType="double"       column="total_abono"/>
+        <result property="total_curse"      javaType="double"       column="total_curse"/>
+        <result property="saldo"            javaType="double"       column="saldo"/>
+    </resultMap>
+
+    <procedure id="buscar_total_abono" parameterClass="java.util.HashMap" resultMap="resultado_buscar_total_abono">
+        {CALL sp_cons_total_abono_contrato(#id_contrato#,#id_tramo#)}
+    </procedure>
+
+	<!--  Fin Pestana Abono-->
+	
+	<!-- Pestaña contrato -->
+		
+	<resultMap class="java.util.HashMap" id="resultCargarDatosCliente">
+        <result property="ID_CLIENTE" 			javaType="Long" 	column="ID_CLIENTE" />
+        <result property="GRUPO_ECONOMICO"		javaType="String" 	column="GRUPO_ECONOMICO" />
+        <result property="ID_TIPO_CLIENTE" 		javaType="Long" 	column="ID_TIPO_CLIENTE" />
+        <result property="TIPO_CLIENTE" 		javaType="String"	column="TIPO_CLIENTE" />
+        <result property="RUT" 					javaType="Integer" 	column="RUT" />
+        <result property="DV_RUT" 				javaType="String" 	column="DIGITO_VERIFICADOR" />
+        <result property="NOMBRE_CLIENTE"		javaType="String"	column="NOMBRE_CLIENTE" />
+        <result property="ID_BANCA"				javaType="long"		column="ID_BANCA" />
+        <result property="BANCA"				javaType="String"		column="BANCA" />
+    </resultMap>
+	
+	<procedure id="cargarDatosCliente" parameterClass="java.util.HashMap" resultMap="resultCargarDatosCliente">
+        {CALL sp_cns_datos_cliente(#rut#)}
+    </procedure>
+	
+	<resultMap class="java.util.HashMap" id="resultcargarDatosAbogadoExterno">
+        <result property="ID_ABOGADO" 	javaType="Long" 	column="ID_ABOGADO" />
+        <result property="NOMBRE"		javaType="String" 	column="NOMBRE" />
+        <result property="EMAIL" 		javaType="String"	column="EMAIL" />
+        <result property="RUT" 			javaType="Integer" 	column="RUT" />
+        <result property="DV_RUT"		javaType="String" 	column="DV_RUT" />
+        <result property="DIRECCION"	javaType="String"	column="DIRECCION" />
+        <result property="TELEFONO"		javaType="String"	column="TELEFONO" />
+    </resultMap>
+	
+	<procedure id="cargarDatosAbogadoExterno" parameterClass="java.util.HashMap" resultMap="resultcargarDatosAbogadoExterno">
+        {CALL sp_cns_abogado_externo(#nombre#,#id_abogado#)}
+    </procedure>
+	
+	<resultMap class="java.util.HashMap" id="resultguardarAbogadoExterno">
+        <result property="ID_ABOGADO" 	javaType="Long" column="ID_ABOGADO" />
+    </resultMap>
+	
+	<procedure id="guardarAbogadoExterno" parameterClass="java.util.HashMap" resultMap="resultguardarAbogadoExterno">
+        {CALL sp_ins_abogado_externo(#nombre#,#telefono#,#direccion#,#email#,#interno#,#rut#,#dv_rut#)}
+    </procedure>
+    
+    <procedure id="actualizarBancaCliente" parameterClass="java.util.HashMap">
+        {CALL sp_upd_banca_cliente(#id_cliente#,#banca#)}
+    </procedure>
+    
+    <procedure id="guardaListadoTramo" parameterClass="java.util.HashMap">
+        {CALL sp_ins_tramo(#id_tipo_moneda#,#id_destino_fondo#,#id_contrato#,#tramo#,#monto#)}
+    </procedure>
+    
+    <procedure id="actualizaDatosResponsableBanco" parameterClass="java.util.HashMap">
+        {CALL sp_upd_responsables(#id_responsable#,#fono#,#email#)}
+    </procedure>
+    
+    <procedure id="guardarListadoDetalleTramoContrato" parameterClass="java.util.HashMap">
+        {CALL sp_ins_detalle_tramo(#id_banco#,#id_responsable#,#id_cargo#,#id_rol#,#id_tipo_moneda#,#porcentaje#,#monto#,#id_contrato#,#nombre_tramo#)}
+    </procedure>
+    
+    <procedure id="guardaAbogadosContrato" parameterClass="java.util.HashMap">
+        {CALL sp_ins_contrato_abogado(#idContrato#,#idInterno#,#idExterno#,#idNotaria#,#repertorio#)}
+    </procedure>
+
+
+    <procedure id="guardarBitacora" parameterClass="java.util.HashMap">
+        {CALL sp_ins_reg_bitacora(#id_tipo_evento#,#id_contrato#,#id_usuario#,#observaciones#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultguardarContrato">
+        <result property="ID_CONTRATO" 	javaType="Long" column="ID_CONTRATO" />
+    </resultMap>
+    
+    <procedure id="guardarContrato" parameterClass="java.util.HashMap" resultMap="resultguardarContrato">
+	{CALL sp_ins_contrato(#id_cliente#,#id_tipo_contrato#,#id_ejecutivo#,#fecha_firma_contrato#,#fecha_vencimiento_contrato#,#monto_global_financiamiento#,
+	 #monto_financiamiento_bci#,#garantia#,#covenants#,#objeto_financiamiento#,#plazo_financiamiento#,#contrato_bajo_ley#,#id_gerente#,#id_contrato#,#activo#,#id_tipo_moneda#,
+	 #id_usuario#,#fecha#)}
+    </procedure>
+    
+    <procedure id="realizaRollBackContrato" parameterClass="java.util.HashMap">
+        {CALL sp_rollback_contrato(#id_contrato#)}
+    </procedure>
+    
+    <procedure id="limpiaContrato" parameterClass="java.util.HashMap">
+        {CALL sp_limpia_contrato(#id_contrato#)}
+    </procedure>
+            
+	<!-- Fin pestaña contrato -->
+	
+	<!-- Pestana Comision -->
+
+    <resultMap class="java.util.HashMap" id="resultado_parametro">
+        <result property="id" javaType="int" column="id" />
+        <result property="descripcion" javaType="String" column="descripcion" />
+    </resultMap>
+
+    <procedure id="buscar_periodo_comision" resultMap="resultado_parametro" parameterClass="java.util.HashMap">
+        {CALL sp_cons_periodo_comision()}
+    </procedure>
+
+    <procedure id="buscar_tipo_comision" resultMap="resultado_parametro" parameterClass="java.util.HashMap">
+        {CALL sp_cons_tipo_comision()}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_agregar_comision">
+        <result property="id" javaType="long" column="id"/>
+    </resultMap>
+
+    <procedure id="agregar_comision" parameterClass="java.util.HashMap" resultMap="resultado_agregar_comision">
+        {CALL sp_ins_comision_contrato(#id_contrato#,#tipo_moneda#,#tipo_comision#,#periodo#,#fecha_cobro#,#monto#,#cantidad#,#observacion#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_comision">
+        <result property="id_contrato"          javaType="long"     column="id_contrato"/>
+        <result property="id_comision"          javaType="long"     column="id_comision"/>
+        <result property="tipo_moneda"          javaType="Integer"  column="tipo_moneda"/>
+        <result property="descripcion_moneda"   javaType="String"   column="descripcion_moneda"/>
+        <result property="tipo_comision"        javaType="Integer"  column="tipo_comision"/>
+        <result property="descripcion_comision" javaType="String"   column="descripcion_comision"/>
+        <result property="periodo"              javaType="Integer"  column="periodo"/>
+        <result property="fecha_cobro"          javaType="Date"     column="fecha_cobro"/>
+        <result property="monto"                javaType="double"   column="monto"/>
+        <result property="cantidad"             javaType="Integer"  column="cantidad"/>
+        <result property="observacion"          javaType="String"   column="observacion"/>
+        <result property="cobrado"              javaType="Integer"  column="cobrado"/>
+    </resultMap>
+
+    <procedure id="buscar_comision" parameterClass="java.util.HashMap" resultMap="resultado_buscar_comision">
+        {CALL sp_cons_comision_contrato(#id_contrato#)}
+    </procedure>
+
+    <procedure id="actualizar_comision" parameterClass="java.util.HashMap">
+        {CALL sp_upd_comision_contrato(#id_comision#,#tipo_moneda#,#fecha_cobro#,#monto#,#cantidad#,#observacion#,#cobrado#)}
+    </procedure>
+
+    <procedure id="eliminar_comision" parameterClass="java.util.HashMap">
+        {CALL sp_del_comision_contrato(#id_comision#)}
+    </procedure>
+
+    <procedure id="agregar_detalle_comision" parameterClass="java.util.HashMap">
+        {CALL sp_ins_detalle_comision(#id_comision#,#monto#,#fecha_cobro#)}
+    </procedure>
+
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_detalle_comision">
+        <result property="id_comision" javaType="long" column="id_comision"/>
+        <result property="id_detalle" javaType="long" column="id_detalle"/>
+        <result property="fecha" javaType="Date" column="fecha"/>
+        <result property="monto" javaType="double" column="monto"/>
+    </resultMap>
+
+    <procedure id="buscar_detalle_comision" parameterClass="java.util.HashMap" resultMap="resultado_buscar_detalle_comision">
+        {CALL sp_cons_detalle_comision(#id_comision#)}
+    </procedure>
+
+    <procedure id="actualizar_detalle_comision" parameterClass="java.util.HashMap">
+        {CALL sp_upd_detalle_comision(#id_comision#,#id_detalle#,#monto#,#fecha_cobro#)}
+    </procedure>
+
+    <procedure id="eliminar_detalle_comision" parameterClass="java.util.HashMap">
+        {CALL sp_del_detalle_comision(#id_comision#)}
+    </procedure>
+
+<!-- Fin Pestana Comision -->
+
+<!-- Pestana Covenants -->
+
+    <resultMap class="java.util.HashMap" id="resultado_agregar_covenant_contrato">
+        <result property="id" javaType="long" column="id"/>
+    </resultMap>
+
+    <procedure id="agregar_covenant_contrato" parameterClass="java.util.HashMap" resultMap="resultado_agregar_covenant_contrato">
+        {CALL sp_ins_covenant_contrato(#id_contrato#,#tipo_covenant#,#nombre#,#fecha_primera_medicion#,#periodo#)}
+    </procedure>
+
+    <procedure id="agregar_detalle_covenant" parameterClass="java.util.HashMap">
+        {CALL sp_ins_detalle_covenant(#id_covenant#,#fecha_vencimiento#,#fecha_revision#,#valor_real#,#valor_esperado#,#cumplimiento#,#observacion#,#condicion#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_covenant_contrato">
+        <result property="id_contrato" javaType="long" column="id_contrato"/>
+        <result property="id_covenant" javaType="long" column="id_covenant"/>
+        <result property="tipo_covenant" javaType="Integer" column="tipo_covenant"/>
+        <result property="nombre_covenant" javaType="String" column="nombre_covenant"/>
+        <result property="fecha_primera_medicion" javaType="Date" column="fecha_primera_medicion"/>
+        <result property="periodo" javaType="Integer" column="periodo"/>
+    </resultMap>
+
+    <procedure id="buscar_covenant_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_covenant_contrato">
+        {CALL sp_cons_covenant_contrato(#id_contrato#)}
+    </procedure>
+
+    <procedure id="buscar_clasificacion_covenant" parameterClass="java.util.HashMap" resultMap="resultado_parametro">
+        {CALL sp_cons_clasificacion_covenant()}
+    </procedure>
+
+    <procedure id="actualizar_covenant_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_upd_covenant_contrato(#id_covenant#,#id_tipo_covenant#,#nombre_covenant#,#fecha_medicion#)}
+    </procedure>
+
+    <procedure id="eliminar_covenant_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_covenant_contrato(#id_covenant#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_detalle_covenant">
+        <result property="id_covenant" javaType="long" column="id_covenant"/>
+        <result property="id_detalle" javaType="long" column="id_detalle"/>
+        <result property="fecha_vencimiento" javaType="Date" column="fecha_vencimiento"/>
+        <result property="fecha_revision" javaType="Date" column="fecha_revision"/>
+        <result property="valor_real" javaType="Double" column="valor_real"/>
+        <result property="valor_esperado" javaType="Double" column="valor_esperado"/>
+        <result property="cumplimiento" javaType="Integer" column="cumplimiento"/>
+        <result property="observacion" javaType="String" column="observacion"/>
+        <result property="condicion" javaType="Integer" column="condicion"/>
+    </resultMap>
+
+    <procedure id="buscar_detalle_covenant" parameterClass="java.util.HashMap" resultMap="resultado_buscar_detalle_covenant">
+        {CALL sp_cons_detalle_covenant(#id_covenant#)}
+    </procedure>
+
+    <procedure id="actualizar_detalle_covenant" parameterClass="java.util.HashMap">
+        {CALL sp_upd_detalle_covenant(#id_covenant#,#id_detalle#,#fecha_revision#,#valor_real#,#valor_esperado#,#cumplimiento#,#observacion#,#condicion#)}
+    </procedure>
+
+    <procedure id="eliminar_detalle_covenant" parameterClass="java.util.HashMap">
+        {CALL sp_del_detalle_covenant(#id_covenant#)}
+    </procedure>
+
+
+<!-- Fin Pestana Covenants -->
+
+<!-- Pestana Poliza -->
+
+    <resultMap class="java.util.HashMap" id="resultado_agregar_poliza_contrato">
+        <result property="id_poliza" javaType="long" column="id_poliza"/>
+    </resultMap>
+
+    <procedure id="agregar_poliza_contrato" parameterClass="java.util.HashMap" resultMap="resultado_agregar_poliza_contrato">
+        {CALL sp_ins_poliza_contrato(#id_contrato#,#numero_poliza#,#fecha_emision#,#fecha_vencimiento#,#endoso#,#numero_tarjeta#,#compania_emisora#,#observacion#)}
+    </procedure>
+
+    <procedure id="agregar_beneficiario_poliza" parameterClass="java.util.HashMap">
+        {CALL sp_ins_beneficiario_poliza(#id_poliza#,#participacion#,#nota#,#id_banco#,#numero_poliza#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_poliza_contrato">
+        <result property="id_poliza"            javaType="long"     column="id_poliza"/>
+        <result property="id_contrato"          javaType="long"     column="id_contrato"/>
+        <result property="numero_poliza"        javaType="long"     column="numero_poliza"/>
+        <result property="fecha_emision"        javaType="Date"     column="fecha_emision"/>
+        <result property="fecha_vencimiento"    javaType="Date"     column="fecha_vencimiento"/>
+        <result property="endoso"               javaType="Integer"  column="endoso"/>
+        <result property="numero_tarjeta"       javaType="String"     column="numero_tarjeta"/>
+        <result property="compania_emisora"     javaType="String"   column="compania_emisora"/>
+        <result property="observacion"          javaType="String"     column="observacion"/>
+    </resultMap>
+
+    <procedure id="buscar_poliza_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_poliza_contrato">
+        {CALL sp_cons_poliza_contrato(#id_contrato#)}
+    </procedure>
+
+    <procedure id="actualizar_poliza_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_upd_poliza_contrato(#id_contrato#,#id_poliza#,#fecha_emision#,#fecha_vencimiento#,#numero_tarjeta#,#endoso#,#compania_emisora#,#observacion#)}
+    </procedure>
+
+    <procedure id="eliminar_poliza_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_poliza_contrato(#id_poliza#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_beneficiario_poliza" >
+        <result property="id_beneficiario" javaType="long" column="id_beneficiario"/>
+        <result property="id_poliza" javaType="long" column="id_poliza"/>
+        <result property="participacion" javaType="double" column="participacion"/>
+        <result property="nota" javaType="String" column="nota"/>
+        <result property="id_banco" javaType="Integer" column="id_banco"/>
+        <result property="nombre_banco" javaType="String" column="nombre_banco"/>
+        <result property="numero_poliza" javaType="long" column="numero_poliza"/>
+    </resultMap>
+
+    <procedure id="buscar_beneficiario_poliza" parameterClass="java.util.HashMap" resultMap="resultado_buscar_beneficiario_poliza">
+        {CALL sp_cons_beneficiario_poliza(#id_poliza#)}
+    </procedure>
+
+    <procedure id="eliminar_beneficiario_poliza" parameterClass="java.util.HashMap">
+        {CALL sp_del_beneficiario_poliza(#id_poliza#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_numerotarjeta_contrato">
+        <result property="numero_tarjeta" javaType="String" column="numero_tarjeta"/>
+    </resultMap>
+
+    <procedure id="buscar_numerotarjeta_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_numerotarjeta_contrato">
+        {CALL sp_cns_numerotarjeta_contrato(#id_contrato#)}
+    </procedure>
+
+<!-- FinPestana Poliza -->
+
+<!-- Pestana Garantia -->
+
+    <procedure id="buscar_tipo_garantia" parameterClass="java.util.HashMap" resultMap="resultado_parametro">
+        {CALL sp_cons_tipo_garantia()}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_agregar_garantia_contrato">
+        <result property="id" javaType="long" column="id"/>
+    </resultMap>
+
+    <procedure id="agregar_garantia_contrato" parameterClass="java.util.HashMap" resultMap="resultado_agregar_garantia_contrato">
+		{CALL sp_ins_garantia_contrato(#id_contrato#,#tipo_moneda#,#tipo_garantia#,#observacion#,#numero_tarjeta#,#valor_comercial#,#valor_liquidacion#,#fecha_constitucion#,#estado#,#tasacion#,#fecha_vencimiento#,#id_notaria#,#repertorio_notaria#)}
+    </procedure>
+
+    <procedure id="actualizar_garantia_contrato" parameterClass="java.util.HashMap">
+		{CALL sp_upd_garantia_contrato(#id_garantia#,#tipo_moneda#,#tipo_garantia#,#numero#,#observacion#,#numero_tarjeta#,#valor_comercial#,#valor_liquidacion#,#fecha_constitucion#,#estado#,#tasacion#,#fecha_vencimiento#,#id_notaria#,#repertorio_notaria#)}
+    </procedure>
+
+    <procedure id="ingresar_tasacion_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_ins_tasacion_contrato(#id_garantia#,#valor_tasacion#,#fecha_tasacion#,#nombre_tasador#)}
+    </procedure>
+
+    <procedure id="eliminar_tasacion_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_tasacion_contrato(#id_tasacion#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_tasacion_contrato">
+        <result property="id_tasacion" javaType="long" column="id_tasacion"/>
+        <result property="id_garantia" javaType="long" column="id_garantia"/>
+        <result property="valor_tasacion" javaType="Double" column="valor_tasacion"/>
+        <result property="fecha_tasacion" javaType="Date" column="fecha_tasacion"/>
+        <result property="numero_tarjeta" javaType="String" column="numero_tarjeta"/>
+        <result property="nombre_tasador" javaType="String" column="nombre_tasador"/>
+    </resultMap>
+
+    <procedure id="buscar_tasacion_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_tasacion_contrato">
+        {CALL sp_cons_tasacion_contrato(#id_garantia#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_garantia_contrato">
+        <result property="id_contrato" javaType="long" column="id_contrato" />
+        <result property="id_garantia" javaType="long" column="id_garantia" />
+        <result property="tipo_moneda" javaType="Integer" column="tipo_moneda" />
+        <result property="descripcion_moneda" javaType="String" column="descripcion_moneda" />
+        <result property="tipo_garantia" javaType="Integer" column="tipo_garantia" />
+        <result property="descripcion_garantia" javaType="String" column="descripcion_garantia" />
+        <result property="observacion" javaType="String" column="observacion" />
+        <result property="numero_tarjeta" javaType="String" column="numero_tarjeta" />
+        <result property="valor_comercial" javaType="Double" column="valor_comercial" />
+        <result property="valor_liquidacion" javaType="Double" column="valor_liquidacion" />
+        <result property="fecha_constitucion" javaType="Date" column="fecha_constitucion" />
+        <result property="estado" javaType="String" column="estado" />
+        <result property="tasacion" javaType="Integer" column="tasacion" />
+        <result property="fecha_vencimiento" javaType="Date" column="fecha_vencimiento"/>
+	<result property="id_notaria" javaType="long" column="id_notaria" />
+	<result property="descripcion_notaria" javaType="String" column="descripcion_notaria" />
+	<result property="repertorio_notaria" javaType="String" column="repertorio_notaria" />
+    </resultMap>
+
+    <procedure id="buscar_garantia_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_garantia_contrato">
+        {CALL sp_cons_garantia_contrato(#id_contrato#)}
+    </procedure>
+
+    <procedure id="eliminar_garantia_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_garantia_contrato(#id_garantia#)}
+    </procedure>
+
+<!-- Fin Pestana Garantia -->
+
+<!-- Pestana Estructura de Pago -->
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_banco_tramo">
+        <result property="id_banco" javaType="long" column="id_banco"/>
+        <result property="descripcion_banco" javaType="String" column="descripcion_banco"/>
+    </resultMap>
+
+    <procedure id="buscar_banco_tramo" parameterClass="java.util.HashMap" resultMap="resultado_buscar_banco_tramo">
+        {CALL sp_cns_banco_tramo(#id_tramo#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_ingresar_pago_contrato">
+        <result property="id" javaType="long" column="id"/>
+    </resultMap>
+
+    <procedure id="ingresar_pago_contrato" parameterClass="java.util.HashMap" resultMap="resultado_ingresar_pago_contrato">
+        {CALL sp_ins_estrucpago_contrato(#id_tramo#,#id_banco#,#id_detalle_tramo#,#cuotas#,#observacion#)}
+    </procedure>
+
+    <procedure id="ingresar_detalle_pago" parameterClass="java.util.HashMap">
+        {CALL sp_ins_detalle_estrucpago(#id_pago#,#fecha_pago#,#amortizacion#,#interes#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_pago_tramo">
+        <result property="id_pago" javaType="long" column="id_pago"/>
+        <result property="id_tramo" javaType="long" column="id_tramo"/>
+        <result property="id_banco" javaType="Integer" column="id_banco"/>
+        <result property="descripcion_banco" javaType="String" column="descripcion_banco"/>
+        <result property="cuotas" javaType="Integer" column="cuotas"/>
+        <result property="observaciones" javaType="String" column="observaciones"/>
+        <result property="fecha" javaType="Date" column="fecha"/>
+        <result property="valor_pago" javaType="long" column="valor_pago"/>
+    </resultMap>
+
+    <procedure id="buscar_pago_tramo" parameterClass="java.util.HashMap" resultMap="resultado_buscar_pago_tramo">
+        {CALL sp_cns_estrucpago_contrato(#id_tramo#)}
+    </procedure>
+
+    <procedure id="actualizar_pago_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_upd_estrucpago_contrato(#id_pago#,#cuotas#,#observaciones#,#fecha_pago#)}
+    </procedure>
+
+    <procedure id="eliminar_pago_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_estrucpago_contrato(#id_pago#)}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_detalle_pago">
+        <result property="id_detalle"   javaType="long"     column="id_detalle"/>
+        <result property="id_pago"      javaType="long"     column="id_pago"/>
+        <result property="fecha_pago"   javaType="Date"     column="fecha_pago"/>
+        <result property="amortizacion" javaType="Double"   column="amortizacion"/>
+        <result property="intereses"    javaType="Integer"  column="intereses"/>
+        <result property="fecha"        javaType="Date"     column="fecha"/>
+    </resultMap>
+
+    <procedure id="buscar_detalle_pago" parameterClass="java.util.HashMap" resultMap="resultado_buscar_detalle_pago">
+        {CALL sp_cns_detalle_pago(#id_pago#)}
+    </procedure>
+
+    <procedure id="actualizar_detalle_pago"  parameterClass="java.util.HashMap">
+        {CALL sp_upd_detalle_pago(#id_detalle#,#fecha_pago#,#amortizacion#,#intereses#)}
+    </procedure>
+
+    <procedure id="eliminar_detalle_pago" parameterClass="java.util.HashMap">
+        {CALL sp_del_detalle_pago(#id_pago#, #id_detalle#) }
+    </procedure>
+
+<!-- Fin Pestana Estructura de Pago -->
+
+<!-- Busqueda de contratos -->
+ 	<resultMap class="java.util.HashMap" id="buscarContratosResultado">
+        <result property="RUT_CLIENTE"          javaType="String"    column="RUT_CLIENTE" />
+        <result property="DIGITO_VERIFICADOR"   javaType="String"    column="DIGITO_VERIFICADOR" />
+        <result property="NOMBRE_CLIENTE"       javaType="String"    column="NOMBRE_CLIENTE" />
+        <result property="GRUPO_ECONOMICO"      javaType="String"    column="GRUPO_ECONOMICO" />
+        <result property="NUMERO_CONTRATO"      javaType="long"      column="NUMERO_CONTRATO" />
+        <result property="BANQUERO"             javaType="String"    column="BANQUERO" />
+        <result property="TIPO_CONTRATO"        javaType="String"    column="TIPO_CONTRATO" />
+        <result property="NOMBRE_GERENTE"       javaType="String"    column="NOMBRE_GERENTE" />
+        <result property="FECHA_FIRMA_CONTRATO" javaType="Date"      column="FECHA_FIRMA_CONTRATO" />
+        <result property="FECHA_VENCIMIENTO"    javaType="Date"      column="FECHA_VENCIMIENTO" />
+        <result property="BANCA"                javaType="String"    column="BANCA" />
+        <result property="BANCA_FINAL"          javaType="String"    column="BANCA_FINAL" />
+        <result property="FECHA_DESARCHIVADO"    javaType="Date"     column="FECHA_DESARCHIVAR_CONTRATO" />
+    </resultMap>
+
+    <procedure id="buscarContratos" parameterClass="java.util.HashMap" resultMap="buscarContratosResultado">
+        {CALL sp_cns_contrato(#grupo_economico#,#nombre_cliente#,#fecha_contrato#,#rut_cliente#,
+        					  #tipo_contrato#,#id_banquero#,#id_gerente#,#numero_contrato#,#flag_historico#,#banca#,#banca_final#,#fecha_desarchivado#,#id_usuario#,#is_creador#)}
+    </procedure>
+    
+     <procedure id="desarchivarContrato" parameterClass="java.util.HashMap" resultMap="buscarContratosResultado">
+        {CALL sp_desarchiva_contrato(#id_contrato#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="obtenerContratoResultado">
+        <result property="RUT_CLIENTE"	 	javaType="String"	 column="RUT_CLIENTE" />
+        <result property="NOMBRE_CLIENTE" 	javaType="String"    column="NOMBRE_CLIENTE" />
+        <result property="NUMERO_CONTRATO"	javaType="long" 	 column="NUMERO_CONTRATO" />
+        <result property="BANQUERO" 		javaType="String"	 column="BANQUERO" />
+        <result property="TIPO_CONTRATO" 	javaType="String"	 column="TIPO_CONTRATO" />
+    </resultMap>
+
+    <procedure id="obtenerContrato" parameterClass="java.util.HashMap" resultMap="obtenerContratoResultado">
+        {CALL sp_obtenerContrato(#id_contrato#)}
+    </procedure>
+    
+     <resultMap class="java.util.HashMap" id="conseguirContratoResultado">
+      	<result property="ID_TIPO_CONTRATO"				javaType="Integer"	 column="ID_TIPO_CONTRATO" />
+        <result property="TIPO_CONTRATO"				javaType="String"	 column="TIPO_CONTRATO" />
+        <result property="FECHA_FIRMA_CONTRATO" 		javaType="Date"  	 column="FECHA_FIRMA_CONTRATO" />
+        <result property="MONTO_FINANCIAMIENTO_BCI" 	javaType="Double"    column="MONTO_FINANCIAMIENTO_BCI" />
+		<result property="MONTO_GLOBAL_FINANCIAMIENTO" 	javaType="Double"    column="MONTO_GLOBAL_FINANCIAMIENTO" />
+        <result property="PLAZO_FINANCIAMIENTO" 		javaType="Long"	     column="PLAZO_FINANCIAMIENTO" />
+        <result property="RUT" 							javaType="Integer"   column="RUT" />
+        <result property="DV_RUT" 						javaType="String"	 column="DV_RUT" />
+        <result property="GRUPO_ECONOMICO"	 			javaType="String"	 column="GRUPO_ECONOMICO" />
+        <result property="NOMBRE_CLIENTE" 				javaType="String"    column="NOMBRE_CLIENTE" />
+        <result property="ID_BANCA" 					javaType="Long"		 column="ID_BANCA" />
+        <result property="BANCA"						javaType="String" 	 column="BANCA" />
+        <result property="BANQUERO" 					javaType="String"	 column="BANQUERO" />
+        <result property="GERENTE" 						javaType="String"	 column="GERENTE" />
+        <result property="RESPONSABLE_BCI" 				javaType="String"	 column="RESPONSABLE_BCI" />
+        <result property="NOMBRE_EXTERNO" 				javaType="String"	 column="NOMBRE_EXTERNO" />
+        <result property="RUT_EXTERNO" 					javaType="Integer"   column="RUT_EXTERNO" />
+        <result property="DV_EXTERNO" 					javaType="String"	 column="DV_EXTERNO" />
+        <result property="OFICINA_EXTERNO" 				javaType="String"	 column="OFICINA_EXTERNO" />
+        <result property="TELEFONO_EXTERNO" 			javaType="String"	 column="TELEFONO_EXTERNO" />
+        <result property="EMAIL_EXTERNO" 				javaType="String"	 column="EMAIL_EXTERNO" />
+        <result property="ACTIVO"		 				javaType="Integer"	 column="ACTIVO" />
+        <result property="GARANTIA"		 				javaType="Integer"	 column="GARANTIA" />
+        <result property="COVENANT"		 			    javaType="Integer"	 column="COVENANT" />
+        <result property="ID_GERENTE"		 			javaType="Long"		 column="ID_GERENTE" />
+        <result property="ID_EJECUTIVO"		 			javaType="Long"	 	 column="ID_EJECUTIVO" />
+        <result property="ID_RESPONSABLE"		 		javaType="Long"	 	 column="ID_RESPONSABLE" />
+        <result property="ID_CLIENTE"		 			javaType="Long"	 	 column="ID_CLIENTE" />
+        <result property="OBJETO_FINANCIAMIENTO"		javaType="String" 	 column="OBJETO_FINANCIAMIENTO" />
+        <result property="FECHA_VENCIMIENTO"            javaType="Date"      column="FECHA_VENCIMIENTO" />
+        <result property="TIPO_BASE"                    javaType="Integer"   column="TIPO_BASE" />
+        <result property="FECHA_DESARCHIVAR_CONTRATO"   javaType="Date"      column="FECHA_DESARCHIVAR_CONTRATO" />
+        <result property="CONTRATO_BAJO_LEY"            javaType="String"    column="CONTRATO_BAJO_LEY" />
+        <result property="ID_TIPO_MONEDA"            	javaType="Long"    	 column="ID_TIPO_MONEDA" />
+        <result property="ID_NOTARIA"            		javaType="Long"    	 column="ID_NOTARIA" />
+        <result property="DSC_NOTARIA"            		javaType="String"    column="DSC_NOTARIA" />
+        <result property="REPERTORIO_NOTARIA"           javaType="String"    column="REPERTORIO_NOTARIA" />
+    </resultMap>
+
+    <procedure id="conseguirContrato" parameterClass="java.util.HashMap" resultMap="conseguirContratoResultado">
+        {CALL sp_cns_informacion_contrato(#id_contrato#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="buscarDetalleCovenantContratoResult">
+      	<result property="TIPO"						javaType="String"	 column="TIPO" />
+        <result property="COVENANT"					javaType="String"	 column="COVENANT" />
+        <result property="FECHA_PRIMERA_MEDICION" 	javaType="Date"  	 column="FECHA_PRIMERA_MEDICION" />
+        <result property="FECHA_VENCIMIENTO"		javaType="Date" 	 column="FECHA_VENCIMIENTO" />
+        <result property="VALOR_REAL" 				javaType="Long"	 	 column="VALOR_REAL" />
+        <result property="CUMPLIMIENTO" 			javaType="Integer"	 column="CUMPLIMIENTO" />
+        <result property="FECHA_REVISION"	 		javaType="Date"	 	 column="FECHA_REVISION" />
+        <result property="OBSERVACION" 				javaType="String"    column="OBSERVACION" />
+    </resultMap>
+
+    <procedure id="buscarDetalleCovenantContrato" parameterClass="java.util.HashMap" resultMap="buscarDetalleCovenantContratoResult">
+        {CALL sp_cns_covenants_contrato(#id_contrato#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="cargarTramosContratoResult">
+      	<result property="ID_TRAMO"				javaType="Long"	 	 column="ID_TRAMO" />
+        <result property="TRAMO"				javaType="String"	 column="TRAMO" />
+        <result property="ID_DESTINO_FONDO" 	javaType="Long"  	 column="ID_DESTINO_FONDO" />
+        <result property="TIPO_LINEA"			javaType="String" 	 column="TIPO_LINEA" />
+        <result property="ID_TIPO_MONEDA" 		javaType="Integer"	 column="ID_TIPO_MONEDA" />
+        <result property="TIPO_MONEDA" 			javaType="String"	 column="TIPO_MONEDA" />
+        <result property="MONTO"	 			javaType="Double"	 column="MONTO" />
+        <result property="CANT_DEC"	 			javaType="Integer"	 column="CANT_DEC" />
+    </resultMap>
+
+    <procedure id="cargarTramosContrato" parameterClass="java.util.HashMap" resultMap="cargarTramosContratoResult">
+        {CALL sp_cons_tramo_contrato(#id_contrato#)}
+    </procedure>
+    
+        <resultMap class="java.util.HashMap" id="completaDetalleTramoResult">
+      	<result property="ID_BANCO"			javaType="Long"	 	 column="ID_BANCO" />
+        <result property="NOMBRE"			javaType="String"	 column="NOMBRE" />
+        <result property="PORCENTAJE" 		javaType="Double"   	 column="PORCENTAJE" />
+        <result property="MONTO"			javaType="Double" 	 column="MONTO" />
+        <result property="ID"               javaType="Long"      column="ID" />
+        <result property="ID_TRAMO"         javaType="Long"      column="ID_TRAMO" />
+        <result property="ID_MONEDA"        javaType="Long"      column="ID_MONEDA" />
+        <result property="MONEDA"           javaType="String"      column="MONEDA" />
+        <result property="ID_CARGO"           javaType="Long"      column="ID_CARGO" />
+        <result property="ID_RESPONSABLE"           javaType="Long"      column="ID_RESPONSABLE" />
+    </resultMap>
+
+    <procedure id="completaDetalleTramo" parameterClass="java.util.HashMap" resultMap="completaDetalleTramoResult">
+        {CALL sp_cons_detalle_tramo_contrato(#id_tramo#)}
+    </procedure>
+    
+    
+    <resultMap class="java.util.HashMap" id="cargarBancosContratoResult">
+        <result property="ID_BANCO"	 		javaType="Long"	 	 column="ID_BANCO" />
+        <result property="BANCO" 			javaType="String"    column="BANCO" />
+        <result property="ID_ROL"       	javaType="Long" 	 column="ID_ROL" />
+        <result property="NOMBRE_ROL" 		javaType="String"	 column="NOMBRE_ROL" />
+        <result property="ID_CARGO" 		javaType="Long"	 	 column="ID_CARGO" />
+        <result property="CARGO"	 		javaType="String"	 column="CARGO" />
+        <result property="ID_RESPONSABLE" 	javaType="Long"    	 column="ID_RESPONSABLE" />
+        <result property="RESPONSABLE"		javaType="String" 	 column="RESPONSABLE" />
+        <result property="FONO"				javaType="String" 	 column="TELEFONO" />
+        <result property="EMAIL"			javaType="String" 	 column="EMAIL" />
+    </resultMap>
+
+    <procedure id="cargarBancosContrato" parameterClass="java.util.HashMap" resultMap="cargarBancosContratoResult">
+        {CALL sp_cons_bancos_contrato(#id_contrato#)}
+    </procedure>
+    
+    <resultMap id="listadoUsuarioContrato" class="java.util.HashMap">
+        <result property="idUsuarioContrato" javaType="Long" column="id_usuario"/>
+        <result property="nombreUsuario" javaType="String" column="nombre_usuario"/>
+    </resultMap>
+	
+    <procedure id="consultarUsuarioContrato" parameterClass="java.util.HashMap" resultMap="listadoUsuarioContrato">
+        {CALL sp_cons_usuarioContrato(#id_usuario#)}
+    </procedure>
+
+<!-- Fin busqueda contratos -->
+
+<!-- Alertas -->
+    <resultMap class="java.util.HashMap" id="resultado_buscar_estado_alerta">
+        <result property="id_cliente" javaType="long" column="id_cliente"/>
+        <result property="rut_cliente" javaType="Integer" column="rut_cliente"/>
+        <result property="dv" javaType="String" column="dv"/>
+        <result property="nombre_cliente" javaType="String" column="nombre_cliente"/>
+        <result property="id_contrato" javaType="long" column="id_contrato"/>
+        <result property="id_banquero" javaType="long" column="id_banquero"/>
+        <result property="nombre_banquero" javaType="String" column="nombre_banquero"/>
+        <result property="tipo_contrato" javaType="Integer" column="tipo_contrato"/>
+        <result property="nombre_contrato" javaType="String" column="nombre_contrato"/>
+        <result property="id_seguimiento" javaType="Integer" column="id_seguimiento"/>
+        <result property="nombre_seguimiento" javaType="String" column="nombre_seguimiento"/>
+        <result property="periodo" javaType="Integer" column="periodo"/>
+        <result property="fecha" javaType="Date" column="fecha"/>
+        <result property="estado" javaType="Integer" column="estado"/>
+    </resultMap>
+
+    <procedure id="buscar_estado_alerta" parameterClass="java.util.HashMap" resultMap="resultado_buscar_estado_alerta">
+        {CALL sp_cons_alertas_estados()}
+    </procedure>
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_alertas_contrato">
+        <result property="id"                   javaType="long"     column="id"/>
+        <result property="id_cliente"           javaType="long"     column="id_cliente"/>
+        <result property="rut_cliente"          javaType="Integer"  column="rut_cliente"/>
+        <result property="dv" 					javaType="String" 	column="dv"/>
+        <result property="nombre_cliente"       javaType="String"   column="nombre_cliente"/>
+        <result property="id_contrato"          javaType="long"     column="id_contrato"/>
+        <result property="id_banquero"          javaType="long"     column="id_banquero"/>
+        <result property="nombre_banquero"      javaType="String"   column="nombre_banquero"/>
+        <result property="tipo_contrato"        javaType="Integer"  column="tipo_contrato"/>
+        <result property="nombre_contrato"      javaType="String"   column="nombre_contrato"/>
+        <result property="id_seguimiento"       javaType="Integer"  column="id_seguimiento"/>
+        <result property="nombre_seguimiento"   javaType="String"   column="nombre_seguimiento"/>
+        <result property="periodo"              javaType="Integer"  column="periodo"/>
+        <result property="fecha"                javaType="Date"     column="fecha"/>
+    </resultMap>
+
+    <procedure id="buscar_alertas_contrato" parameterClass="java.util.HashMap" resultMap="resultado_buscar_alertas_contrato">
+        {CALL sp_cons_alertas_contrato(#rut_cliente#,#nombre_cliente#,#seguimiento#,#periodo#,#banquero#)}
+    </procedure>
+
+<!-- Fin Alertas -->
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_banca">
+        <result property="identificador" javaType="long" column="identificador"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+        <result property="banca_final" javaType="long" column="banca_final"/>
+    </resultMap>
+
+    <procedure id="buscar_banca" parameterClass="java.util.HashMap" resultMap="resultado_buscar_banca">
+        {CALL sp_cons_tipobanca(#id_banca_final#,#codigo_usuario#,#codigo_rol#)}
+    </procedure>
+    
+     <resultMap class="java.util.HashMap" id="resultado_buscar_banca_final">
+        <result property="identificador" javaType="long" column="identificador"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+    </resultMap>
+
+    <procedure id="buscar_banca_final" parameterClass="java.util.HashMap" resultMap="resultado_buscar_banca_final">
+        {CALL sp_cons_tipobancafinal(#id_banca_final#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="banqueroChangeListenerResult">
+        <result property="id_banquero" 		javaType="long"		 column="ID_BANQUERO"/>
+        <result property="codigo_usuario" 	javaType="String" 	 column="CODIGO_USUARIO"/>
+        <result property="nombre_banquero" 	javaType="String"	 column="NOMBRE"/>
+    </resultMap>
+
+    <procedure id="banqueroChangeListener" parameterClass="java.util.HashMap" resultMap="banqueroChangeListenerResult">
+        {CALL sp_cns_banquero_change(#id_banca#,#id_gerente#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="gerenteChangeListenerResult">
+        <result property="id_gerente" 		javaType="long" 	column="ID_GERENTE"/>        
+        <result property="codigo_usuario" 	javaType="String" 	column="CODIGO_USUARIO"/>
+        <result property="nombre_gerente" 	javaType="String" 	column="NOMBRE"/>
+    </resultMap>
+
+    <procedure id="gerenteChangeListener" parameterClass="java.util.HashMap" resultMap="gerenteChangeListenerResult">
+        {CALL sp_cns_gerente_change(#id_banca#,#id_banquero#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="validaCodigoBancaGerenteResult">
+        <result property="id_gerente" 		javaType="long" 	column="id_gerente"/>
+        <result property="nombre_gerente" 	javaType="String" 	column="nombre_gerente"/>
+    </resultMap>
+
+    <procedure id="validaCodigoBancaGerente" parameterClass="java.util.HashMap" resultMap="validaCodigoBancaGerenteResult">
+        {CALL sp_valida_banca_gerente(#id_banca#)}
+    </procedure>
+
+    <procedure id="modificar_tramo_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_upd_tramo_contrato(#id_tramo#,#id_tipo_moneda#,#id_destino_fondo#,#id_contrato#,#tramo#,#monto#)}
+    </procedure>
+
+    <procedure id="eliminar_tramo_contrato" parameterClass="java.util.HashMap">
+        {CALL sp_del_tramo_contrato(#id_tramo#)}
+    </procedure>
+
+    <procedure id="modificar_detalle_tramo" parameterClass="java.util.HashMap">
+        {CALL sp_upd_detalle_tramo_contrato(#id_detalle#,#id_tramo#,#id_banco#,#id_responsable#,#id_cargo#,#id_tipo_moneda#,#porcentaje#,#monto#)}
+    </procedure>
+
+    <procedure id="eliminar_detalle_tramo" parameterClass="java.util.HashMap">
+        {CALL sp_del_detalle_tramo_contrato(#id_detalle#)}
+    </procedure>
+    
+    <!-- SABANAS DE DATOS INICIO -->
+    
+    <!-- SABANA ADMIN CONTRATO -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_admin_contrato">
+        <result property="idContrato" 		 			 javaType="long" 	column="id_contrato"/>
+        <result property="rutCliente" 	      			 javaType="long" 	column="rut_cliente"/>
+        <result property="dvCliente" 	     			 javaType="String" 	column="dv_cliente"/>
+        <result property="nombreCliente"       			 javaType="String"   column="nombre_cliente"/>
+        <result property="nombreGrupoEconomico"			 javaType="String"   column="grupo_economico"/>
+        <result property="nombreBanquero"      			 javaType="String"   column="nombre_banquero"/>
+        <result property="banca"             			 javaType="String"   column="banca"/>
+        <result property="gerente"					     javaType="String"   column="nombre_gerente"/>
+        <result property="tipoContrato"        			 javaType="String"   column="tipo_contrato"/>
+        <result property="montoFinanciamientoBci"  		 javaType="Double"   column="MONTO_FINANCIAMIENTO_BCI"/>
+        <result property="montoGlobalFinanciamiento"  	 javaType="Double"   column="MONTO_GLOBAL_CREDITO"/>
+        <result property="fechaContrato"       			 javaType="Date"     column="fecha_contrato"/>
+        <result property="plazoFinanciamiento"			 javaType="int"      column="plazo_financiamiento"/>
+        <result property="leyContrato"       			 javaType="String"   column="ley_contrato"/>
+        <result property="nombreAbogado"      			 javaType="String"   column="nombre_abogado"/>
+        <result property="abogadoExterno"     			 javaType="String"   column="nombre_abogado_externo"/>
+		<result property="garantia"						 javaType="String"   column="garantia"/>
+        <result property="covenant"          			 javaType="String"   column="covenant"/>
+        <result property="objetoFinanciamiento"          javaType="String"   column="objeto_financiamiento"/>
+    </resultMap>
+	
+	<procedure id="cons_sabana_admin_contrato" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_admin_contrato">
+        {CALL sp_cons_sabana_admin_contrato(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+	
+	<!-- SABANA TRAMOS -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_tramos">
+        <result property="idContrato" 		      javaType="long" 	   column="id_contrato"/>
+        <result property="rutCliente" 	          javaType="long"      column="rut_cliente"/>
+        <result property="dvCliente" 	          javaType="String"    column="dv_cliente"/>
+        <result property="nombrecliente"          javaType="String"    column="nombre_cliente"/>
+        <result property="nombreTramo"            javaType="String"    column="nombre_tramo"/>
+        <result property="rutBanco"               javaType="long"      column="rut_banco"/>
+        <result property="dvBanco"                javaType="String"    column="dv_banco"/>
+        <result property="nombreBanco"            javaType="String"    column="nombre_banco"/>
+        <result property="tipoLinea"              javaType="String"    column="tipo_linea"/>
+        <result property="codigoMoneda"           javaType="String"    column="codigo_moneda"/>
+        <result property="montoTramo"             javaType="long"      column="monto_tramo"/>
+        <result property="porcentajeTramo"        javaType="double"    column="porcentaje_tramo"/>
+        <result property="montoTramoParticipante" javaType="long"      column="monto_tramo_participante"/>
+    </resultMap>
+    
+    <procedure id="cons_sabana_tramos" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_tramos">
+        {CALL sp_cons_sabana_tramos(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+	
+	<!-- SABANA MOV TRAMOS -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_mov_tramos">
+        <result property="idContrato" 		        javaType="long" 	column="id_contrato"/>
+        <result property="rutCliente" 	            javaType="long" 	column="rut_cliente"/>
+        <result property="dvCliente" 	            javaType="String" 	column="dv_cliente"/>
+        <result property="nombreTramo"              javaType="String"   column="nombre_tramo"/>
+        <result property="rutBanco"                 javaType="long"     column="rut_banco"/>
+        <result property="dvBanco"                  javaType="String"   column="dv_banco"/>
+        <result property="tipoLinea"                javaType="String"   column="tipo_linea"/>
+        <result property="codigoMoneda"             javaType="String"   column="tipo_moneda"/>
+        <result property="fechaMovimiento"          javaType="Date"     column="fecha_movimiento"/>
+        <result property="totalDisponibleInicio"    javaType="double"   column="monto_tramo"/>
+        <result property="tipoMovimiento"           javaType="String"   column="tipo_movimiento"/>
+        <result property="montoMovimiento"          javaType="double"   column="monto_movimiento"/>
+        <result property="totalPostMovimiento"      javaType="double"   column="total_pos_movimiento"/>
+        <result property="totalAbonoPostMovimiento" javaType="double"   column="total_abo_pos_mov"/>
+        <result property="totalCursePostMovimiento" javaType="double"   column="total_cur_pos_mov"/>
+        <result property="totalDisponibleLinea"     javaType="double"   column="total_disp_linea"/>
+        <result property="descripcion"              javaType="String"   column="descripcion"/>
+    </resultMap>
+    
+    <procedure id="cons_sabana_mov_tramos" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_mov_tramos">
+        {CALL sp_cons_sabana_mov_tramos(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+	
+	<!-- SABANA COVENANT -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_covenant">
+        <result property="idContrato" 		    javaType="long" 	column="id_contrato"/>
+        <result property="rutCliente" 	        javaType="long" 	column="rut_cliente"/>
+        <result property="dvCliente" 	        javaType="String" 	column="dv_cliente"/>
+        <result property="tipoCovenant"         javaType="String"   column="tipo_covenant"/>
+        <result property="covenant"             javaType="String"   column="covenant"/>
+        <result property="periodoCovenant"      javaType="String"   column="periodo_covenant"/>
+        <result property="fechaPrimeraMedicion" javaType="Date"     column="fecha_revision"/>
+        <result property="fechaVencimiento"     javaType="Date"     column="fecha_vencimiento"/>
+        <result property="valorEsperado"        javaType="double"   column="valor_esperado"/>
+        <result property="valorReal"            javaType="double"   column="valor_real"/>
+        <result property="cumplimiento"         javaType="String"   column="cumplimiento"/>
+        <result property="observacion"          javaType="String"   column="observacion"/>
+    </resultMap>
+    
+    <procedure id="cons_sabana_covenants" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_covenant">
+        {CALL sp_cons_sabana_covenant(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+    
+	<!-- SABANA GARANTIA -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_garantia">
+        <result property="idContrato" 		      javaType="long" 	        column="ID_CONTRATO"/>
+        <result property="rutCliente" 	          javaType="long" 	        column="rut_cliente"/>
+		<result property="dvCliente"              javaType="String"         column="dv_cliente"/>
+        <result property="nombreCliente"          javaType="String"         column="nombre_cliente"/>
+        <result property="fechaConstitucion"      javaType="Date"           column="fecha_constitucion"/>
+        <result property="numeroControl"          javaType="String"           column="numero_tarjeta"/>
+        <result property="valorComercial"         javaType="long"           column="valor_comercial"/>
+        <result property="codigoMoneda"           javaType="String"         column="descripcion_tipo_moneda"/>
+        <result property="tasacion"               javaType="String"         column="tasacion"/>
+        <result property="valorTasacion"          javaType="long"           column="valor_tasacion"/>
+        <result property="numeroPoliza"           javaType="long"           column="numero_poliza"/>
+        <result property="fechaEmisionPoliza"     javaType="Date"           column="fecha_emision_poliza"/>
+        <result property="fechaVencimientoPoliza" javaType="Date"           column="fecha_vencimiento_poliza"/>
+        <result property="endosoPoliza"           javaType="String"         column="endoso_poliza"/>
+    </resultMap>
+    
+    <procedure id="cons_sabana_garantia" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_garantia">
+        {CALL sp_cons_sabana_garantia(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+	
+	<!-- SABANA MOV PAGOS -->
+    <resultMap class="java.util.HashMap" id="result_cons_sabana_mov_pagos">
+        <result property="idContrato" 	  javaType="long" 	        column="id_contrato"/>
+        <result property="rutCliente" 	  javaType="long" 	        column="rut_cliente"/>
+        <result property="dvCliente" 	  javaType="String" 	    column="dv_cliente"/>
+        <result property="codigoMoneda"   javaType="String"         column="tipo_moneda"/>
+        <result property="nombreTramo"    javaType="String"         column="nombre_tramo"/>
+        <result property="numeroCuotas"   javaType="int"            column="numero_cuotas"/>
+        <result property="fechaPago"      javaType="Date"           column="fecha_pago"/>
+        <result property="amortizacion"   javaType="long"           column="monto_amortizacion"/>
+        <result property="intereses"      javaType="String"         column="intereses"/>
+        <result property="valorIntereses" javaType="long"           column="valor_intereses"/>
+        <result property="spreadFlujo"    javaType="String"         column="spread_flujo"/>
+        <result property="observacion"    javaType="String"         column="observaciones_pago"/>
+    </resultMap>
+    
+    <procedure id="cons_sabana_mov_pagos" parameterClass="java.util.HashMap" resultMap="result_cons_sabana_mov_pagos">
+        {CALL sp_cons_sabana_mov_pagos(#fecha_inicio#,#fecha_termino#)}
+    </procedure>
+    <!-- SABANAS DE DATOS FIN -->
+    
+    <!-- Mantenedor Banco -->
+  	<procedure id="agregar_banco" parameterClass="java.util.HashMap">
+        {CALL sp_ins_banco(#rut_banco#,#dv_rut#,#nombre_banco#)}
+    </procedure>
+
+    <procedure id="modificar_banco" parameterClass="java.util.HashMap">
+        {CALL sp_upd_banco(#id_banco#,#rut#,#dv#,#nombre_banco#)}
+    </procedure>
+
+	<resultMap class="java.util.HashMap" id="result_eliminar_banco">
+        <result property="id" javaType="long" column="id_banco"/>
+    </resultMap>
+    <procedure id="eliminar_banco" parameterClass="java.util.HashMap" resultMap="result_eliminar_banco">
+        {CALL sp_del_banco(#id_banco#)}
+    </procedure>
+    <!-- FIN Mantenedor Banco -->
+    
+    <!-- Mantenedor Cargo -->
+	<resultMap id="listadoCargo" class="java.util.HashMap">
+        <result property="idCargo" javaType="long" column="id_cargo"/>
+        <result property="descripcion" javaType="String" column="descripcion"/>
+    </resultMap>
+	
+	<procedure id="buscarCargo" parameterClass="java.util.HashMap" resultMap="listadoCargo">
+        {CALL sp_cons_cargo(#descripcion#)}
+    </procedure>
+	
+	<procedure id="agregarCargo" parameterClass="java.util.HashMap">
+		{CALL sp_ins_cargo(#descripcion#)}
+	</procedure>
+	
+	<procedure id="actualizarCargo" parameterClass="java.util.HashMap">
+        {CALL sp_upd_cargo(#idCargo#,#descripcion#)}
+    </procedure>
+	
+	<resultMap id="listadoCargoEliminar" class="java.util.HashMap">
+        <result property="idCargo" javaType="long" column="id_cargo"/>
+    </resultMap>
+    
+	<procedure id="eliminarCargo" parameterClass="java.util.HashMap" resultMap="listadoCargoEliminar">
+        {CALL sp_del_cargo(#idCargo#)}
+    </procedure>
+    <!-- Fin Mantenedor Cargo -->
+    
+    <!-- Mantenedor Responsable -->
+
+    <resultMap class="java.util.HashMap" id="resultado_buscar_responsable">
+        <result property="id"           javaType="long"     column="id_responsable"/>
+        <result property="nombre"       javaType="String"   column="nombre_responsable"/>
+        <result property="telefono"     javaType="long"     column="telefono"/>
+        <result property="email"        javaType="String"   column="email"/>
+        <result property="id_banco"     javaType="long"     column="id_banco"/>
+        <result property="nombre_banco" javaType="String"   column="nombre_banco"/>
+        <result property="id_cargo"     javaType="long"     column="id_cargo"/>
+        <result property="nombre_cargo" javaType="String"   column="nombre_cargo"/>
+    </resultMap>
+
+    <procedure id="buscar_responsable" parameterClass="java.util.HashMap" resultMap="resultado_buscar_responsable">
+        {CALL sp_cons_responsable(#nombre_responsable#,#tel_responsable#,#email_responsable#,#id_banco#,#id_cargo#)}
+    </procedure>
+    
+    <procedure id="agregar_responsable" parameterClass="java.util.HashMap">
+        {CALL sp_ins_responsable(#nombre_responsable#,#tel_responsable#,#email_responsable#,#id_banco#,#id_cargo#)}
+    </procedure>
+
+    <procedure id="modificar_responsable" parameterClass="java.util.HashMap">
+        {CALL sp_upd_responsable(#id_responsable#,#nombre_responsable#,#tel_responsable#,#email_responsable#,#id_banco#,#id_cargo#)}
+    </procedure>
+
+	<resultMap class="java.util.HashMap" id="resultado_eliminar_responsable">
+        <result property="id" javaType="long" column="id_responsable"/>
+    </resultMap>
+
+    <procedure id="eliminar_responsable" parameterClass="java.util.HashMap" resultMap="resultado_eliminar_responsable">
+        {CALL sp_del_responsable(#id_responsable#)}
+    </procedure>
+
+    <!-- Fin Mantenedor Responsable -->
+    
+    <!-- MANTENEDOR ROLES -->
+	<procedure id="insertarRol" parameterClass="java.util.HashMap">
+		{CALL sp_ins_rol(#nombre#)}
+	</procedure>
+	
+	<procedure id="actualizarRol" parameterClass="java.util.HashMap">
+        {CALL sp_upd_rol(#idRol#,#nombre#)}
+    </procedure>
+
+    <resultMap id="delRoles" class="java.util.HashMap">
+        <result property="cantRoles" javaType="long" column="rol"/>
+    </resultMap>
+    
+	<procedure id="eliminarRol" parameterClass="java.util.HashMap" resultMap="delRoles">
+        {CALL sp_del_rol(#idRol#)}
+    </procedure>
+    
+	<resultMap id="listadoRoles" class="java.util.HashMap">
+        <result property="idRol" javaType="long" column="id_rol"/>
+        <result property="nombre" javaType="String" column="descripcion_rol"/>
+    </resultMap>
+    
+	<procedure id="consultarRoles" parameterClass="java.util.HashMap" resultMap="listadoRoles">
+        {CALL sp_cons_roles(#nombre#)}
+    </procedure>
+<!-- MANTENEDOR ROLES FIN -->
+
+	<procedure id="actualizar_abono" parameterClass="java.util.HashMap">
+        {CALL sp_upd_abono(#id_abono#,#fecha#,#monto#,#descripcion#,#saldo_disponible#)}
+    </procedure>
+
+	<procedure id="eliminar_abono" parameterClass="java.util.HashMap">
+        {CALL sp_del_abono(#id_abono#)}
+    </procedure>
+
+	<resultMap class="java.util.HashMap" id="resultObtenerContratoXml">
+        <result property="DOC_XML" 	javaType="String" column="DOC_XML" />
+    </resultMap>
+	
+	<procedure id="obtenerContratoXml" parameterClass="java.util.HashMap" resultMap="resultObtenerContratoXml">
+        {CALL sp_cons_contrato_xml(#numero_contrato#,#contratoview#,#financiamientoview#,#tramosview#,#estructuraview#,#garantiasview#,#tasacionesview#,#polizasview#,#covenantsview#,#comisionesview#,#abonosview#,#obligacionesview#)}
+    </procedure>
+    
+    <resultMap id="listadoBitacoras" class="java.util.HashMap">
+        <result property="usuario" javaType="String" column="USUARIO"/>
+        <result property="fechaIngreso" javaType="Date" column="FECHA_INGRESO"/>
+        <result property="evento" javaType="String" column="EVENTO"/>
+        <result property="observaciones" javaType="String" column="OBSERVACIONES"/>
+        <result property="idBitacora" javaType="long" column="ID_BITACORA"/>
+        <result property="idContrato" javaType="long" column="ID_CONTRATO"/>
+    </resultMap>
+    
+    
+    <procedure id="buscarBitacora" parameterClass="java.util.HashMap" resultMap="listadoBitacoras">
+        {CALL sp_cons_bitacora(#codigo_tipo_evento#,#id_tipo_evento#,#id_contrato#,#id_usuario#,#fecha_desde#,#fecha_hasta#)}
+    </procedure>
+    
+    <resultMap id="listadoTipoEventoBitacora" class="java.util.HashMap">
+        <result property="idTipoEvento" javaType="long" column="ID_TIPO_EVENTO"/>
+        <result property="descripcion" javaType="String" column="DESCRIPCION"/>
+        <result property="codigoTipoEvento" javaType="long" column="CODIGO_TIPO_EVENTO"/>
+    </resultMap>
+    
+    <procedure id="buscarTipoEventoBitacora" parameterClass="java.util.HashMap" resultMap="listadoTipoEventoBitacora">
+        {CALL sp_cons_tipo_evento_bitacora}
+    </procedure>
+    
+    <!-- Manejo de Perfiles -->
+    	<resultMap class="java.util.HashMap" id="resultMantenerUsuario">
+        <result property="id_usuario"		javaType="long"		column="id_usuario"/>
+        <result property="resultado"		javaType="String"	column="resultado"/>
+    </resultMap>
+    
+    <procedure id="mantenerUsuario" parameterClass="java.util.HashMap" resultMap="resultMantenerUsuario">
+        {CALL sp_mant_usuario(#tipo_accion#,#id_usuario#,#codigo_usuario#,#nombre_usuario#)}
+    </procedure>
+    
+	<resultMap class="java.util.HashMap" id="resultConsultarRolesSistema">
+        <result property="id_rol"			javaType="long"		column="id_rol"/>
+        <result property="codigo_rol"		javaType="String"	column="codigo_rol"/>
+        <result property="nombre_rol"		javaType="String"	column="nombre_rol"/>
+    </resultMap>
+	
+	<procedure id="consultarRolesSistema" parameterClass="java.util.HashMap" resultMap="resultConsultarRolesSistema">
+        {CALL sp_cns_rol_sistema(#id_rol#,#codigo_rol#,#nombre_rol#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultConsultarUsuarioRol">
+    	<result property="id_usuario_rol"	javaType="long"		column="id_usuario_rol"/>
+        <result property="id_usuario"		javaType="long"		column="id_usuario"/>
+        <result property="rut"				javaType="long"		column="rut"/>
+        <result property="dv_usuario"		javaType="String"	column="dv_usuario"/>
+        <result property="codigo_usuario"	javaType="String"	column="codigo_usuario"/>
+        <result property="nombre_usuario"	javaType="String"	column="nombre_usuario"/>
+        <result property="id_rol"			javaType="long"		column="id_rol"/>
+        <result property="codigo_rol"		javaType="String"	column="codigo_rol"/>
+        <result property="nombre_rol"		javaType="String"	column="nombre_rol"/>
+    </resultMap>
+	
+	<procedure id="consultarUsuarioRol" parameterClass="java.util.HashMap" resultMap="resultConsultarUsuarioRol">
+        {CALL sp_cns_usuario_rol(#codigo_usuario#,#nombre_usuario#,#id_rol#,#codigo_rol#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultMantenerUsuarioRol">
+        <result property="resultado"		javaType="String"		column="resultado"/>
+    </resultMap>
+	
+	<procedure id="mantenerUsuarioRol" parameterClass="java.util.HashMap" resultMap="resultMantenerUsuarioRol">
+        {CALL sp_mant_usuario_rol(#tipo_accion#,#id_usuario_rol#,#id_usuario#,#id_rol#,#id_usuario_mant#,#fecha_hora_mant#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultConsultarAccesosRol">
+        <result property="id_acceso"			javaType="long"		column="id_acceso"/>
+        <result property="id_acceso_padre"		javaType="long"		column="id_acceso_padre"/>
+        <result property="id_acceso_permiso"	javaType="long"		column="id_acceso_permiso"/>
+        <result property="orden"				javaType="long"		column="orden"/>
+        <result property="enlace"				javaType="String"	column="enlace"/>
+        <result property="titulo"				javaType="String"	column="titulo"/>
+        <result property="descripcion"			javaType="String"	column="descripcion"/>
+        <result property="es_url"				javaType="Integer"	column="es_url"/>
+        <result property="es_permiso"			javaType="Integer"	column="es_permiso"/>
+        <result property="seleccionado"			javaType="Integer"	column="seleccionado"/>
+    </resultMap>
+	
+	<procedure id="consultarAccesosRol" parameterClass="java.util.HashMap" resultMap="resultConsultarAccesosRol">
+        {CALL sp_cns_accesos_rol(#tipo_consulta#,#id_rol#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultConfiguraAccesoRol">
+        <result property="resultado"		javaType="String"		column="resultado"/>
+    </resultMap>
+	
+	<procedure id="configuraAccesoRol" parameterClass="java.util.HashMap" resultMap="resultConfiguraAccesoRol">
+        {CALL sp_conf_acceso_rol(#id_acceso#,#id_rol#,#seleccionado#,#id_usuario_mant#,#fecha_hora_mant#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultConsultarCartera">
+    	<result property="id_gerente"			javaType="long"		column="id_gerente"/>
+    	<result property="codigo_gerente"		javaType="String"	column="codigo_gerente"/>
+    	<result property="nombre_gerente"		javaType="String"	column="nombre_gerente"/>
+    	<result property="id_banquero"			javaType="long"		column="id_banquero"/>
+    	<result property="codigo_banquero"		javaType="String"	column="codigo_banquero"/>
+    	<result property="nombre_banquero"		javaType="String"	column="codigo_banquero"/>
+    	<result property="id_cliente"			javaType="long"		column="id_cliente"/>
+    	<result property="rut_cliente"			javaType="String"	column="rut_cliente"/>
+    	<result property="nombre_cliente"		javaType="String"	column="nombre_cliente"/>
+    </resultMap>
+    
+    <procedure id="consultarCartera" parameterClass="java.util.HashMap" resultMap="resultConsultarCartera">
+    	{CALL sp_cons_cartera(#tipo_consulta#,#id_banca#,#id_gerente#,#id_banquero#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="resultReasignaCartera">
+        <result property="resultado"		javaType="String"		column="resultado"/>
+    </resultMap>
+	
+	<procedure id="reasignaCartera" parameterClass="java.util.HashMap" resultMap="resultReasignaCartera">
+        {CALL sp_upd_cartera_contrato(#tipo_consulta#,#id_gerente#,#id_banquero#,#id_cliente#,#id_banca_origen#,#id_gerente_origen#,#id_banquero_origen#,
+        								#dsc_banca_origen#,#dsc_gerente_origen#,#dsc_banquero_origen#,#id_banca_destino#,#id_gerente_destino#,#id_banquero_destino#,
+        								#dsc_banca_destino#,#dsc_gerente_destino#,#dsc_banquero_destino#,#id_usuario#)}
+    </procedure>
+</sqlMap>

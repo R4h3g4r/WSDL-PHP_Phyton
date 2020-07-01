@@ -1,0 +1,130 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2EliConCom">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.comisiones.ComisionesBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "codComisionCai"
+          type = "String"
+          size = "4"
+          middle_name = "codComision"
+          middle_name_secondary = "abonoDia"
+        />
+
+        <field
+          java_name = "codComisionIic"
+          type = "String"
+          size = "8"
+          middle_name = "comisionAdmin"
+          middle_name_secondary = "actividad"
+        />
+
+        <field
+          java_name = "codSistema"
+          type = "String"
+          size = "3"
+          middle_name = "codSistema"
+          middle_name_secondary = "abonos"
+        />
+
+        <field
+          java_name = "codEvento"
+          type = "String"
+          size = "3"
+          middle_name = "codEventoPrimNivel"
+          middle_name_secondary = "abonoMes"
+        />
+
+        <field
+          java_name = "tipo"
+          type = "char"
+          size = "1"
+          middle_name = "tipo"
+          middle_name_secondary = "activoNetoAnoAnt"
+        />
+
+        <field
+          java_name = "fechaInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fechaInicio"
+          middle_name_secondary = "accion"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "horaInicio"
+          type = "String"
+          size = "6"
+          middle_name = "horaInicio"
+          middle_name_secondary = "acog57bis"
+        />
+
+        <field
+          java_name = "codMoneda"
+          type = "String"
+          size = "6"
+          middle_name = "moneda"
+          middle_name_secondary = "accesoPOS"
+        />
+
+        <field
+          java_name = "numero"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "aprobAjustLinea"
+        />
+
+        <field
+          java_name = "cicComision"
+          type = "String"
+          size = "12"
+          middle_name = "cic"
+          middle_name_secondary = "abonoDolar"
+        />
+
+        <field
+          java_name = "siguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indAval"
+          middle_name_secondary = "boleta"
+        />
+
+  </input>
+
+  <output>
+
+  </output>
+
+</service>

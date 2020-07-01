@@ -1,0 +1,174 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd">
+<service name = "sp_cns_vvi_bnf_all">
+    <context></context>
+    <input>
+        <field
+            java_name = "rutDelBeneficiario"
+            type = "String"
+            size = "8"
+            middle_name = "rutDelBeneficiario"/>
+        <field
+            java_name = "fechaDeEntrega"
+            type = "Date"
+            size = "4"
+            middle_name = "fechaDeEntrega"/>
+    </input>
+    <output>
+        <struct
+            struct_size = "0"
+            class_name = "SalidaTraerPorBeneficiarioDTOGenerico"
+            var_name = "salidaTraerPorBeneficiarioDTOGenerico">
+            <field
+                java_name = "numeroDeSistema"
+                type = "String"
+                size = "4"
+                middle_name = "vvi_num_sis"/>
+            <field
+                java_name = "correlativo"
+                type = "String"
+                size = "8"
+                middle_name = "vvi_cod_crr"/>
+			<field
+                java_name = "serial"
+                type = "String"
+                size = "12"
+                middle_name = "vvi_srl"/>
+			<field
+                java_name = "tipoDeOperacion"
+                type = "String"
+                size = "3"
+                middle_name = "vvi_tip_ope"/>
+            <field
+                java_name = "estado"
+                type = "String"
+                size = "2"
+                middle_name = "vvi_est_vvi"/>
+            <field
+                java_name = "numeroDeDetalle"
+                type = "int"
+                size = "4"
+                middle_name = "vvi_num_det"/>
+            <field
+                java_name = "codigoDeOficinaDeImpresion"
+                type = "String"
+                size = "3"
+                middle_name = "oim_cod_ofi_ipr"/>
+            <field
+                java_name = "rutDelBeneficiario"
+                type = "String"
+                size = "8"
+                middle_name = "vvi_rut_bnf"/>
+            <field
+                java_name = "nombreDelBeneficiario"
+                type = "String"
+                size = "25"
+                middle_name = "vvi_nom_bnf"/>
+            <field
+                java_name = "apellidoPaternoDelBeneficiario"
+                type = "String"
+                size = "25"
+                middle_name = "vvi_ape_ptn_bnf"/>
+            <field
+                java_name = "apellidoMaternoDelBeneficiario"
+                type = "String"
+                size = "25"
+                middle_name = "vvi_ape_mtn_bnf"/>
+            <field
+                java_name = "rutDelCliente"
+                type = "String"
+                size = "8"
+                middle_name = "vvi_rut_cli"/>
+            <field
+                java_name = "nombreDelCliente"
+                type = "String"
+                size = "75"
+                middle_name = "vvi_nom_cli"/>
+            <field
+                java_name = "monto"
+                type = "double"
+                size = "8"
+                middle_name = "vvi_val_vvi"/>
+            <field
+                java_name = "fechaDeEntrega"
+                type = "Date"
+                size = "4"
+                middle_name = "vvi_fec_ent"/>
+            <field
+                java_name = "codigoDeOficinaDeEntrega"
+                type = "String"
+                size = "3"
+                middle_name = "vvi_cod_ofi_ent"/>
+            <field
+                java_name = "nombreDeOficinaDeEntrega"
+                type = "String"
+                size = "28"
+                middle_name = "vvi_nom_ofi_ent"/>
+            <field
+                java_name = "rutDelPrimerRetirador"
+                type = "String"
+                size = "8"
+                middle_name = "vvi_rut_rt1"/>
+            <field
+                java_name = "digitoVerificadorDelPrimerRetirador"
+                type = "String"
+                size = "1"
+                middle_name = "vvi_vrf_rt1"/>
+            <field
+                java_name = "nombreDelPrimerRetirador"
+                type = "String"
+                size = "45"
+                middle_name = "vvi_nom_rt1"/>
+            <field
+                java_name = "rutDelSegundoRetirador"
+                type = "String"
+                size = "8"
+                middle_name = "vvi_rut_rt2"/>
+            <field
+                java_name = "digitoVerificadorDelSegundoRetirador"
+                type = "String"
+                size = "1"
+                middle_name = "vvi_vrf_rt2"/>
+            <field
+                java_name = "nombreDelSegundoRetirador"
+                type = "String"
+                size = "45"
+                middle_name = "vvi_nom_rt2"/>
+			<field
+                java_name = "codigoDeOficinaDeReferencia"
+                type = "String"
+                size = "3"
+                middle_name = "vvi_cod_ofi_ref"/>
+			<field
+                java_name = "nombreDeOficinaDeReferencia"
+                type = "String"
+                size = "38"
+                middle_name = "vvi_nom_ofi_ref"/>
+			<field
+                java_name = "plazaDeOficinaDeReferencia"
+                type = "String"
+                size = "4"
+                middle_name = "vvi_plz_ofi_ref"/>
+			<field
+                java_name = "codigoDeOficinaDeCabecera"
+                type = "String"
+                size = "3"
+                middle_name = "vvi_cod_ofi_cab"/>
+			<field
+                java_name = "direccionDelBeneficiario"
+                type = "String"
+                size = "70"
+                middle_name = "vvi_dir_bnf"/>
+			<field
+                java_name = "ciudadDelBeneficiario"
+                type = "String"
+                size = "20"
+                middle_name = "vvi_ciu_bnf"/>
+			<field
+                java_name = "comunaDelBeneficiario"
+                type = "String"
+                size = "20"
+                middle_name = "vvi_cmn_bnf"/>
+        </struct>
+    </output>
+</service>

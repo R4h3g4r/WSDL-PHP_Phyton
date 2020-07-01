@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="clientes.procedimientosAlmacenados">	
+
+
+	<parameterMap id="setObtenerCliDir" class="java.util.HashMap">
+		<parameter property="idcliente" 				  jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerCliDir" class="java.util.HashMap">
+		<result  property="rut" 									jdbcType="CHAR"  javaType="String" />
+		<result  property="dv" 										jdbcType="CHAR"  javaType="String" />
+		<result  property="apellidoPaterno" 			jdbcType="CHAR"  javaType="String" />
+		<result  property="apellidoMaterno" 			jdbcType="CHAR"  javaType="String" />
+		<result  property="nombre" 								jdbcType="CHAR"  javaType="String" />
+		<result  property="numeroDireccion" 			jdbcType="INT"   javaType="java.lang.Integer" />
+		<result  property="direccion" 						jdbcType="CHAR"  javaType="String" />
+		<result  property="telefono" 							jdbcType="CHAR"  javaType="String" />
+		<result  property="tipoDireccion" 				jdbcType="CHAR"  javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerCliDir" parameterMap="setObtenerCliDir" resultMap="getObtenerCliDir">
+		{CALL sp_buscar_cli_dir (?)}
+	</procedure>
+
+</sqlMap>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<XML>
+<AU NTx="AprCreCrcLCr">  
+     <I>
+        <!--<campo FF="keywf" LF="30"> 	numWf		 		</campo>	  -->
+        <campo FF="numSol" LF="16">numSolicitud</campo>
+		<campo FF="ldcCredMax" LF="20">cupoMaximo</campo>
+        <campo FF="ldcMoneda" LF="10">moneda</campo>
+        <campo FF="ldcPerRev" LF="6">revision</campo>
+        <campo FF="ldcPerVig" LF="6">vigencia</campo>
+        <campo FF="ldcUndRev" LF="5">unidadRevision</campo>						
+        <campo FF="ldcUndVig" LF="5">unidadVigencia</campo>						
+        <campo FF="ldcFecVenc" LF="10">fecha</campo>						
+        <campo FF="ldcFecApr" LF="10">fecha2</campo>						
+        <campo FF="ldcType" LF="30">tipoLinea</campo>						
+        <campo FF="ldcStatus" LF="30">estado</campo>						
+     <!--   <campo FF="" LF="20">capital</campo>						
+        <campo FF="" LF="20">finanLP</campo>						
+        <campo FF="" LF="1">situacionDetalle</campo>      -->						
+        <campo FF="fecUltRev"  LF="10">fechaUltRev</campo>
+        <campo FF="ctaCargo"   LF="10">ctaCargo</campo>
+    </I> 
+</AU>
+<C NTx="AprCreConEncLCr">  
+     <I>
+        <!--<campo FF="keywf" LF="30"> 	numWf		 		</campo>	 	 -->
+        <campo FF="numSol" LF="16">numSolicitud</campo>
+    </I> 
+    <O>
+        <campo FF="ldcCreMax" LF="20">cupoMaximo</campo>
+        <campo FF="ldcMoneda" LF="10">moneda</campo>																						
+        <campo FF="ldcPerRev" LF="6">revision</campo>																						
+        <campo FF="ldcPerVig" LF="6">vigencia</campo>																						
+        <campo FF="ldcUndRev" LF="5">unidadRevision</campo>																						
+        <campo FF="ldcUndVig" LF="5">unidadVigencia</campo>																						
+        <campo FF="ldcfecVenc" LF="10">fecha</campo>																						
+        <campo FF="ldcFecApr" LF="10">fecha2</campo>																						
+		<campo FF="ldcType" LF="30">tipoLinea</campo>	
+        <campo FF="ldcStatus" LF="30">estado</campo>																						
+    <!--    <campo FF="" LF="20">capital</campo>																						
+        <campo FF="" LF="20">finanLP</campo>																								
+        <campo FF="" LF="1">situacionDetalle</campo>		-->																				
+      <campo FF="fecUltRev"  LF="10">fechaUltRev</campo>
+      <campo FF="ctaCargo"  LF="10">ctaCargo</campo>
+    </O> 	
+</C>
+</XML>
+<!-- Creation date: 24-10-2003 -->

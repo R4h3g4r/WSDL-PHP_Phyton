@@ -1,0 +1,196 @@
+bloqueoExcepcion;codigoEstado=0004;modulo=4;
+
+estadosRetener;cantidad=6;
+estadosRetener_1;estado=5000;modulo=2;
+estadosRetener_2;estado=6440;modulo=1;
+estadosRetener_3;estado=0020;modulo=3;estadoProcesoConsulta=1000;
+estadosRetener_4;estado=0020;modulo=4;
+estadosRetener_5;estado=6420;modulo=3;
+estadosRetener_6;estado=6420;modulo=4;
+
+
+
+flujoEstadoRetener;cantidad=10;
+flujoEstadoRetener_1;estadoRczOrigen=5000;moduloOrigen=2;estadoRczProcesoOrigen=5000;moduloProcesoOrigen=2;estadoProcesoOrigen=;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=0002;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+flujoEstadoRetener_2;estadoRczOrigen=5000;moduloOrigen=2;estadoRczProcesoOrigen=5000;moduloProcesoOrigen=2;estadoProcesoOrigen=;realizaAccion=FALSE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=3;estadoProcesoNuevo=1000;
+flujoEstadoRetener_3;estadoRczOrigen=6440;moduloOrigen=1;estadoRczProcesoOrigen=6440;moduloProcesoOrigen=1;estadoProcesoOrigen=;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=0002;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+flujoEstadoRetener_4;estadoRczOrigen=6440;moduloOrigen=1;estadoRczProcesoOrigen=6440;moduloProcesoOrigen=1;estadoProcesoOrigen=;realizaAccion=FALSE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=3;estadoProcesoNuevo=1000;
+flujoEstadoRetener_5;estadoRczOrigen=0020;moduloOrigen=3;estadoRczProcesoOrigen=0020;moduloProcesoOrigen=3;estadoProcesoOrigen=1000;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=0002;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+flujoEstadoRetener_6;estadoRczOrigen=0020;moduloOrigen=3;estadoRczProcesoOrigen=0020;moduloProcesoOrigen=4;estadoProcesoOrigen=;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=5000;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+flujoEstadoRetener_7;estadoRczOrigen=6420;moduloOrigen=3;estadoRczProcesoOrigen=6420;moduloProcesoOrigen=3;estadoProcesoOrigen=;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=0002;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+flujoEstadoRetener_8;estadoRczOrigen=6420;moduloOrigen=3;estadoRczProcesoOrigen=6420;moduloProcesoOrigen=3;estadoProcesoOrigen=;realizaAccion=FALSE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=3;estadoProcesoNuevo=1000;
+flujoEstadoRetener_9;estadoRczOrigen=6420;moduloOrigen=3;estadoRczProcesoOrigen=6420;moduloProcesoOrigen=4;estadoProcesoOrigen=;realizaAccion=TRUE;estadoRczNuevo=5000;moduloNuevo=3;estadoRczProcesoNuevo=5000;moduloProcesoNuevo=3;estadoProcesoNuevo=1000;
+flujoEstadoRetener_10;estadoRczOrigen=6420;moduloOrigen=3;estadoRczProcesoOrigen=6420;moduloProcesoOrigen=4;estadoProcesoOrigen=;realizaAccion=FALSE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=4;estadoProcesoNuevo=1000;
+
+
+retencionFondos;numeroSerie=411;linea=6666666;tx=L0680;idOperadorFechaPago=2697;idOperadorSiguienteFechaPago=0521;tipoCta=CCT;tablaAuditoria=odp;glosaAuditoria=Consultar Fondos;tipoAccionBitacora=COFN;
+
+moduloProcesoLiberar;estadoOdp=3;estadoPrc=4;estadoProceso=5000;
+
+flujoEstadoLiberar;cantidad=2;
+flujoEstadoLiberar_1;estadoRczOrigen=5000;moduloOrigen=3;estadoRczProcesoOrigen=5000;moduloProcesoOrigen=3;realizaAccion=TRUE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=3;estadoProcesoOrigen=;estadoProcesoNuevo=1000;
+flujoEstadoLiberar_2;estadoRczOrigen=5000;moduloOrigen=3;estadoRczProcesoOrigen=5000;moduloProcesoOrigen=4;realizaAccion=TRUE;estadoRczNuevo=0020;moduloNuevo=3;estadoRczProcesoNuevo=0020;moduloProcesoNuevo=3;estadoProcesoOrigen=;estadoProcesoNuevo=1000;
+
+liberacionFondos;numeroSerie=411;linea=6666666;tx=L0682;tipoAccionBitacora=LBFN;tablaAuditoria=odp;glosaAuditoria=Liberar Fondos;
+
+
+erroresRetencionFondos;cantidad=2;
+erroresRetencionFondos_1;errorTx=0020;errorApp=PMB2014;
+erroresRetencionFondos_2;errorTx=0007;errorApp=PMB2015;
+
+erroresLiberacionFondos;cantidad=2;
+erroresLiberacionFondos_1;errorTx=0020;errorApp=PMB2014;
+erroresLiberacionFondos_2;errorTx=0007;errorApp=PMB2015;
+
+
+
+codigosJournal;codigoEventoContingencia=EJECUTA;subCodigoEventoContingencia=NOMINA;codigoEventoFirmar=FIRMA;subCodigoEventoFirmar=NOMINA;codigoEventoAutorizar=AUTORIZA;subCodigoEventoAutorizar=NOMINA;codigoEventoLiberar=LIBERA;subCodigoEventoLiberar=FONDOS;codigoEventoRetener=CNS;subCodigoEventoRetener=FONDOS;idProducto=PAGOSM;estadoEventoOk=P;estadoEventoNOk=A;codigoEventoEjecutar=EJNOM;subCodigoEventoEjecutar=EJNOM;codigoEventoModFec=MODIFICA;subCodigoEventoModFec=NOMINA;codigoEventoModifPago=MODIFICA;subCodigoEventoModifPago=PAGOS;codigoEventoNoCli=CARGAR;subCodigoEventoNoCli=NOMINA;codigoEventoEliminarNomina=ELIMINA;codigoEventoEliminarPagoFormaPago=MODIFICA;subcodigoEventoEliminarPago=NOMINA;
+
+estadosEjecutarNomina;cantidad=2;
+estadosEjecutarNomina_1;estado=0020;modulo=3;estadoProcesoConsulta=1000;
+estadosEjecutarNomina_2;estado=0020;modulo=4;
+
+flujoEstadosEjecutarNomina;cantidad=2;
+flujoEstadosEjecutarNomina_1;estadoRczProcesoOrigen=0020;moduloProcesoOrigen=3;realizaAccion=TRUE;estadoRczNuevo=5301;moduloNuevo=3;estadoRczProcesoNuevo=0002;moduloProcesoNuevo=4;estadoProcesoOrigen=1000;
+flujoEstadosEjecutarNomina_2;estadoRczProcesoOrigen=0020;moduloProcesoOrigen=4;realizaAccion=TRUE;estadoRczNuevo=5301;moduloNuevo=3;estadoRczProcesoNuevo=5301;moduloProcesoNuevo=4;estadoProcesoOrigen=;
+
+ejecutarNominas;tablaAuditoria=odp;glosaAuditoria=Ejecución de Nómina;tipoAccionBitacora=EJEC;
+cargoForzado;codigoMovimiento=811;tx=L0670;codCajeroFechaPagoActual=2697;codCajeroFechaPagoDiaSiguiente=0521;idCajero=A;idSupervisor=1;modoEntren=0;modoEntrada=0;
+modificaFechas;tablaAuditoria=odp;glosaAuditoriaFechaPago=Modificación Fecha de Pago Nómina;glosaAuditoriaFechaIniEfe=Modificación Fecha Inicio Efectivo;tipoAccionBitacora=MODI;comBitacoraModFec=Modificación Fecha de Pago Nómina;comBitacoraModIniEfe=Modificación Fecha Inicio Pagos en Efectivo;
+modificaFechaPago;desc=NOM;
+modificaFechaInicioEfectivo;desc=DET;
+moduloNominaEnOpf;desc=4;
+modFechaDatosDetencion;tipoDetencion=NOM;origen=PAY;
+estEnvioOpf;estado=0002;modulo=4;
+
+estParaReincorporar;estadosAceptados=64203|64401|69202;
+modFechaPagoDetencion;estadosAceptados=50003|53013|64223|00203;
+modFechaPagoEst;estadosAceptados=50002|64203|69202|64401;
+modFechaIniDetencion;estadosAceptados=50003|53013|64223|00203;
+modFechaIniEst;estadosAceptados=50002;
+
+autorizarNomina;origen=PAY;productoProveedor=Prod12;productoTransfer=Prod02;key=marcaCnvFactoring;estadoFinalProveedor=6911;estadoFinalTransfer=6910;modulo=2;tipoAccionBitacora=AUTS;tablaAuditoria=odp;glosaAuditoria=Autorizada;
+firmarNomina;modulo=2;tipoAccionBitacora=FIRM;tablaAuditoria=odp;glosaAuditoria=Firmada;
+
+contingenciaCCA;codCondicionIntercambio=CCAREG;primerAdicional=false;segundoAdicional=;tipoConexion=ejecutarContingencia;folioDefecto=000000000000;tablaAcc=OPF;glosaAcc=Ejecución Contingencia CCA;horaInicio=1630;horaFin=2300;
+ejecutarContingencia;jndi_cf=jms.bci.cf.opf;jndi_dst=jms.bci.queue.BCISubmissionQ;JMSReply=jms.bci.queue.ReplySubmissionQ;tipoAccion=CONTING;origen=WEB;origenBash=BASH;
+
+respuestaContingencia;jndi_cf=jms.bci.cf.opf;jndi_dst=jms.bci.queue.ReplySubmissionQ;
+
+bancoBCI;idBanco=BCI;nombreBanco=Banco de Credito e Inversiones;
+
+bilateral;tipoConexion=ejecutarBilateral;folioDefecto=000000000000;tablaAcc=OPF;tipoAccion=BILATER;origen=WEB;
+ejBilateralNoCCA;glosaAcc=Ejecución Bilateral NO CCA;
+ejBilateralCCA;glosaAcc=Ejecución Bilateral CCA;
+ejBilateralAltosMontos;glosaAcc=Ejecución Bilateral Altos Montos;
+
+ejecutarBilateral;jndi_cf=jms.bci.cf.opf;jndi_dst=jms.bci.queue.SubmissionQ;JMSReply=jms.bci.queue.ScheduledJobReplyQ;
+
+BilateralNoCCA;cantidad=9;
+BilateralNoCCA_1;idCondIntercambio=NOCCA017;primerAdicional=false;
+BilateralNoCCA_2;idCondIntercambio=NOCCA043;primerAdicional=false;
+BilateralNoCCA_3;idCondIntercambio=NOCCA045;primerAdicional=false;
+BilateralNoCCA_4;idCondIntercambio=NOCCA046;primerAdicional=false;
+BilateralNoCCA_5;idCondIntercambio=NOCCA052;primerAdicional=false;
+BilateralNoCCA_6;idCondIntercambio=NOCCA053;primerAdicional=false;
+BilateralNoCCA_7;idCondIntercambio=NOCCA054;primerAdicional=false;
+BilateralNoCCA_8;idCondIntercambio=NOCCA056;primerAdicional=false;
+BilateralNoCCA_9;idCondIntercambio=NOCCA266;primerAdicional=false;
+
+
+BilateralAltosMontos;cantidad=17;
+BilateralAltosMontos_1;idCondIntercambio=CCA-AV-001;primerAdicional=false;
+BilateralAltosMontos_2;idCondIntercambio=CCA-AV-009;primerAdicional=false;
+BilateralAltosMontos_3;idCondIntercambio=CCA-AV-012;primerAdicional=false;
+BilateralAltosMontos_4;idCondIntercambio=CCA-AV-014;primerAdicional=false;
+BilateralAltosMontos_5;idCondIntercambio=CCA-AV-027;primerAdicional=false;
+BilateralAltosMontos_6;idCondIntercambio=CCA-AV-028;primerAdicional=false;
+BilateralAltosMontos_7;idCondIntercambio=CCA-AV-031;primerAdicional=false;
+BilateralAltosMontos_8;idCondIntercambio=CCA-AV-033;primerAdicional=false;
+BilateralAltosMontos_9;idCondIntercambio=CCA-AV-037;primerAdicional=false;
+BilateralAltosMontos_10;idCondIntercambio=CCA-AV-039;primerAdicional=false;
+BilateralAltosMontos_11;idCondIntercambio=CCA-AV-049;primerAdicional=false;
+BilateralAltosMontos_12;idCondIntercambio=CCA-AV-051;primerAdicional=false;
+BilateralAltosMontos_13;idCondIntercambio=CCA-AV-057;primerAdicional=false;
+BilateralAltosMontos_14;idCondIntercambio=CCA-AV-504;primerAdicional=false;
+BilateralAltosMontos_15;idCondIntercambio=CCA-AV-507;primerAdicional=false;
+BilateralAltosMontos_16;idCondIntercambio=CCA-AV-672;primerAdicional=false;
+BilateralAltosMontos_17;idCondIntercambio=CCA-AV-055;primerAdicional=false;
+
+BilateralCCA;cantidad=17;
+BilateralCCA_1;idCondIntercambio=CCA-BILATERAL-001;primerAdicional=false;
+BilateralCCA_2;idCondIntercambio=CCA-BILATERAL-009;primerAdicional=false;
+BilateralCCA_3;idCondIntercambio=CCA-BILATERAL-012;primerAdicional=false;
+BilateralCCA_4;idCondIntercambio=CCA-BILATERAL-014;primerAdicional=false;
+BilateralCCA_5;idCondIntercambio=CCA-BILATERAL-027;primerAdicional=false;
+BilateralCCA_6;idCondIntercambio=CCA-BILATERAL-028;primerAdicional=false;
+BilateralCCA_7;idCondIntercambio=CCA-BILATERAL-031;primerAdicional=false;
+BilateralCCA_8;idCondIntercambio=CCA-BILATERAL-033;primerAdicional=false;
+BilateralCCA_9;idCondIntercambio=CCA-BILATERAL-037;primerAdicional=false;
+BilateralCCA_10;idCondIntercambio=CCA-BILATERAL-039;primerAdicional=false;
+BilateralCCA_11;idCondIntercambio=CCA-BILATERAL-049;primerAdicional=false;
+BilateralCCA_12;idCondIntercambio=CCA-BILATERAL-051;primerAdicional=false;
+BilateralCCA_13;idCondIntercambio=CCA-BILATERAL-057;primerAdicional=false;
+BilateralCCA_14;idCondIntercambio=CCA-BILATERAL-504;primerAdicional=false;
+BilateralCCA_15;idCondIntercambio=CCA-BILATERAL-507;primerAdicional=false;
+BilateralCCA_16;idCondIntercambio=CCA-BILATERAL-672;primerAdicional=false;
+BilateralCCA_17;idCondIntercambio=CCA-BILATERAL-055;primerAdicional=false;
+
+
+tiposDePagosCargaNoCli;tiposAceptados=PPR|REM|DIV|PEN|OTR;
+maximoArchivoNoCli;valor=5242880;
+cargaNoCli;tablaAuditoria=odp;glosaAuditoria=Carga Nomina No cliente;tipoAccionBitacora=CARG;comBitacora=Carga Nomina No cliente;
+nombreNominaNoCli;desc=Nomina No Cliente;
+plantillaNominaNoCli;desc=999999999;
+
+cnvPago_codigoOficina;valor=090;
+cnvPago_codigoEjecutivo;valor=CMIRALL;
+cnvPago_razonSocialAbreviada;valor=NO CLIENTE;
+cnvPago_diasVencimiento;valor=15;
+cnvPago_tipoProducto;valor=01;
+cnvPago_cuentaCargo;valor=000010362878;
+cnvPago_cuentaConvenio;valor=000010362878;
+cnvPago_viaRendicion;valor=TRF;
+cnvPago_indicadorBeneficiario;valor=0;
+cnvPago_indicadorPoderes;valor=0;
+cnvPago_cuentaComision;valor=000010362878;
+cnvPago_condicionHorariaConvenio;valor=0;
+cnvPago_tipoRendicion;valor=00;
+cnvPago_indicadorCuentaCorriente;valor=1;
+cnvPago_clasificacionEmpresa;valor=1;
+cnvPago_liquidacionCuentaCorriente;valor=0;
+cnvPago_liquidacionOtrasCuentas;valor=0;
+cnvPago_indicadorVigenciaValesVistas;valor=0;
+cnvPago_diasVigenciaValeVista;valor=30;
+
+cnvBel_cicCliente;valor=000000000000;
+cnvBel_codigoEstado;valor=VIG;
+cnvBel_tipoConvenio;valor=EXT;
+cnvBel_indicadorDireccion;valor=1;
+cnvBel_diasVencimiento;valor=15;
+cnvBel_codigoOficina;valor=090;
+cnvBel_codigoMoneda;valor=0999;
+cnvBel_periodoCobro;valor=MEN;
+cnvBel_tipoFacturacion;valor=PDT;
+cnvBel_operadorAsignado;valor=N;
+cnvBel_codigo;valor= ;
+cnvBel_cuentaComision;valor=000010362878;
+cnvBel_cpe_ara_dat_pdt;valor=            000000000000SDKTBASEN                 S N   03NNN       N N  S    SN;
+
+flujoEstadosModificarEstadoPago;cantidad=5;
+flujoEstadosModificarEstadoPago_1;formaPago=EFE;estadoRczOrigen=;moduloOrigen=;estadoRczNuevo=6406;moduloNuevo=3;glosaEstadoNuevo=Pago Reversado;
+flujoEstadosModificarEstadoPago_2;formaPago=OTC;estadoRczOrigen=5230;moduloOrigen=3;estadoRczNuevo=6406;moduloNuevo=3;glosaEstadoNuevo=Pago Reversado;
+flujoEstadosModificarEstadoPago_3;formaPago=OTA;estadoRczOrigen=5230;moduloOrigen=3;estadoRczNuevo=6406;moduloNuevo=3;glosaEstadoNuevo=Pago Reversado;
+flujoEstadosModificarEstadoPago_4;formaPago=OTC;estadoRczOrigen=;moduloOrigen=;estadoRczNuevo=6406;moduloNuevo=3;glosaEstadoNuevo=Pago Reversado;
+flujoEstadosModificarEstadoPago_5;formaPago=OTA;estadoRczOrigen=;moduloOrigen=;estadoRczNuevo=6406;moduloNuevo=3;glosaEstadoNuevo=Pago Reversado;
+
+modificarEstadoPago;tablaAuditoria=dop;glosaAuditoria=L:[num_lin],Old:[mdl_org][est_org],New:[mdl_nvo][est_nvo];tipoAccionBitacora=MODI;comentarioBitacora=Pago [num_lin] [gls_est] Rut:[rut_benef];tipoConexion=reversaPago;
+reversaPago;jndi_cf=jms.bci.cf.opf;jndi_dst=jms.bci.queue.InterchangeLoaderQ;codCondicionIntercambio=PAGOS_MASIVOS;ruta=/sipe/p2xml/integracion/reversas;rutaRespaldo=/sipe/p2xml/integracion/reversas/backup;
+#desarrollo
+#ftpModificarEstadoPago;servidor=161.131.184.81;directorio=/sipe/p2xml/integracion/reversas;sistema=ftpsip;
+#certificacion
+ftpModificarEstadoPago;servidor=161.131.232.180;directorio=/sipe/p2xml/integracion/reversas;sistema=ftpsip;
+#produccion
+#ftpModificarEstadoPago;servidor=161.131.232.30;directorio=/sipe/p2xml/integracion/reversas;sistema=ftpsip;
+cargaNominaCliente;tablaAuditoriaTransfer=NMN;tablaAuditoriaProveedores=npr;glosaAuditoria=Nomina Cliente cargada por Archivo;
+eliminarPago;tipoAccionBitacora=ELIM;comentarioBitacora=Eliminación pago;tablaAuditoria=odp;glosaAuditoria=Eliminación Nómina;comentarioBitacoraPago=Pago Eliminado. Rut:[rut_benef];glosaAuditoriaPago=N° Linea:[nro_linea] Rut:[rut_benef];

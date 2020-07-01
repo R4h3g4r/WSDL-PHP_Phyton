@@ -1,0 +1,27 @@
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=Este cliente pertenece al grupo de los clientes que la mayoría de las veces califica a su ejecutivo con una nota aceptable cercana a la excelencia, de igual forma la relación de cercanía del cliente con el ejecutivo es mejorable y en vías de la excelencia. Además este tipo de cliente no manifiesta en todas sus declaraciones la seguridad de volver a comprar con nosotros.;
+GLOSA1;mensaje=Algunas preguntas que debes realizar tú como su ejecutivo cuando lo contactes son:;
+GLOSA2;mensaje=<b>a) </b>Que tan satisfecho se encuentra usted con el servicio que le he brindado. (Puedes pedirle que te califique en una escala de 1 a 7 e indagar el por qué).;
+GLOSA3;mensaje=<b>b) </b>Que puedo mejorar yo como su ejecutivo en el servicio que le otorgo. (Aquí es critico escuchar al cliente y no defenderse).;
+GLOSA4;mensaje=<b>c) </b>De mi gestión como su ejecutivo ¿Que puedo continuar haciendo para lograr entregarle un servicio de excelencia a su persona?.;
+GLOSA5;mensaje=<b>d) </b>Tiene usted actualmente algún problema o problema pasado que yo no haya resuelto y esta sea la oportunidad para que me diga y me ocupe del problema o en caso contrario no vuelva a ocurrir. (Aquí se recomienda no responsabilizar a otros o culpar al resto de las áreas internas del banco).;
+GLOSA6;mensaje=Es crítico escuchar, pedir las disculpas correspondientes y tomar nota para resolver el problema pendiente o en caso contrario ocuparse de que no vuelva a suceder. En caso que debas solucionar el problema asegúrate de cerrar el círculo y llamarlo de vuelta el mismo día para informar que está resuelto).;
+GLOSA7;mensaje=Es importante que recuerdes que si el cliente menciona que tiene algún problema con el Bci o pedido pendiente, debes apropiarte de el no culpando al Banco u otra  área. Recuerda escuchar al cliente y facilitarle la vida para ser más cercano, más ágil y más confiable.;
+GLOSA8;mensaje=Recuerda que debes registrar en el historial del cliente todos aquellos aspecto relacionales importantes rescatados durante la conversación con el cliente.;
+
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=Este cliente pertenece al grupo de los clientes que la mayoría de las veces califica a su ejecutivo con una nota aceptable cercana a la excelencia, de igual forma la relación de cercanía del cliente con el ejecutivo es mejorable y en vías de la excelencia. Además este tipo de cliente no manifiesta en todas sus declaraciones la seguridad de volver a comprar con nosotros.;
+GLOSAPDF1;mensaje=Algunas preguntas que debes realizar tú como su ejecutivo cuando lo contactes son: ;
+GLOSAPDF2;mensaje=a) Que tan satisfecho se encuentra usted con el servicio que le he brindado. (Puedes pedirle que te califique en una escala de 1 a 7 e indagar el por qué).;
+GLOSAPDF3;mensaje=b) Que puedo mejorar yo como su ejecutivo en el servicio que le otorgo. (Aquí es critico escuchar al cliente y no defenderse).;
+GLOSAPDF4;mensaje=c) De mi gestión como su ejecutivo ¿Que puedo continuar haciendo para lograr entregarle un servicio de excelencia a su persona?.;
+GLOSAPDF5;mensaje=d) Tiene usted actualmente algún problema o problema pasado que yo no haya resuelto y esta sea la oportunidad para que me diga y me ocupe del problema o en caso contrario no vuelva a ocurrir. (aquí se recomienda no responsabilizar a otros o culpar al resto de las áreas internas del banco.;
+GLOSAPDF6;mensaje=Es crítico escuchar, pedir las disculpas correspondientes y tomar nota para resolver el problema pendiente o en caso contrario ocuparse de que no vuelva a suceder. En caso que debas solucionar el problema asegúrate de cerrar el círculo y llamarlo de vuelta el mismo día para informar que está resuelto).;
+GLOSAPDF7;mensaje=Es importante que recuerdes que si el cliente menciona que tiene alún problema con el Bci o pedido pendiente, debes apropiarte de el no culpando al Banco u otra área. Recuerda escuchar al cliente y facilitarle la vida para ser más cercano, más ágil y más confiable.;
+GLOSAPDF8;mensaje=Recuerda que debes registrar en el historial del cliente todos aquellos aspecto relacionales importantes rescatados durante la conversación con el cliente.;
+GLOSAPDF7;mensaje=8.- Los clientes contenidos en esta lista se actualizan cada 15 días.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=Encuestas realizada en el 2008 y 2009, donde las variables contempladas para definir los cluster son: a.Nota con que calificó al ejecutivo b.Tasa de Problemas (si/no) c.Recompra (Definitivamente y Probablemente/ Podría o no, Probablemente no y Definitivamente no).;periodo=Anual;fuente=Encuestas 2008 y 2009;

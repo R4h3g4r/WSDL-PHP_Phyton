@@ -1,0 +1,52 @@
+OPCIONES_DIA_PAGO;DIA_PAGO=diaPago;ANTERIOR_PAGO=anteriorPago;POST_PAGO=postPago;
+DIAS_BUSQUEDA;cantidad_dias=4;
+
+FoliosSinFondo;Estado_nomina=FSF;diaDeBusqueda=diaPago;acciones=ConsultarFondos,EliminarNomina,ModificarFechaPago;
+FoliosEnProcesoAbono;Estado_nomina=FEPA;diaDeBusqueda=diaPago;
+FoliosDetenidos;Estado_nomina=FD;diaDeBusqueda=diaPago;
+FoliosEfectuadosSinFondo;Estado_nomina=FESF;diaDeBusqueda=diaPago;
+FoliosEfectuados;Estado_nomina=FE;diaDeBusqueda=diaPago;
+FoliosEfectuadosEntrantes;Estado_nomina=FE;diaDeBusqueda=diaPago;
+FoliosSinFondoRojasAP;Estado_nomina=FSFR;diaDeBusqueda=anteriorPago;acciones=ConsultarFondos,EliminarNomina,ModificarFechaPago;
+FoliosSinFondoVerdeAP;Estado_nomina=FSFV;diaDeBusqueda=anteriorPago;acciones=ConsultarFondos,EliminarNomina,ModificarFechaPago;
+FoliosEnProcesoAbonoAP;Estado_nomina=FEPA;diaDeBusqueda=anteriorPago;
+FoliosEnProcesoAbonoIntradia;Estado_nomina=FEPA;diaDeBusqueda=diaPago;
+FoliosPorFirmarAP;Estado_nomina=FPF;diaDeBusqueda=anteriorPago;acciones=Firmar;
+FoliosDetenidosAP;Estado_nomina=FD;diaDeBusqueda=anteriorPago;
+FoliosEfectuadosAP;Estado_nomina=FE;diaDeBusqueda=anteriorPago;
+FoliosEfectuadosSinFondoPP;Estado_nomina=FESF;diaDeBusqueda=PostPago;
+FoliosEfectuadosPP;Estado_nomina=FE;diaDeBusqueda=PostPago;
+FoliosContingenciaCCA;Estado_nomina=FCTG;diaDeBusqueda=diaPago;
+FoliosEfectuadosDiaAnterior;Estado_nomina=FE;diaDeBusqueda=anteriorPago;
+
+ACCIONES;CONSULTAR_FONDOS=ConsultarFondos;ELIMINAR_NOMINA=EliminarNomina;MODIFICAR_FECHA_PAGO=ModificarFechaPago;FIRMAR=Firmar;
+GLOSAS_CONSULTA_FONDOS;0=Sin Iniciar;1710=Sin Iniciar;1810=Sin Iniciar;1100=En Proceso;1300=En Proceso;1700=En Proceso;1000=Finalizado;
+GLOSAS_CCA;-1=-;0=Por Generar;1300=Enviados;1000=Finalizado;
+GLOSAS_CCT;-1=-;0=Por Generar;1200=Listo para envío;1400=Realizados;1000=Finalizado;
+GLOSAS_SVP;-1=-;0=Por Generar;1300=Enviados;1000=Finalizado;
+GLOSAS_VV;-1=-;0=Por Generar;-1300=Listo para envío;1300=Generados;1000=Finalizado;
+
+tipoConsultaNomina;Desc=NOM;
+
+#ConsultasPNOL
+
+canalesConsulta;pay=PAY;
+tipoTransferencia;ntl=NTL;enLinea=NTL;pnol=PNOL;
+NominasConProblemas;Estado_nomina=REC;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_con_problemas;cantidadRegistosExportados=2000;
+NominasEnProcesoPago;Estado_nomina=NENP;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_en_proceso_pago;cantidadRegistosExportados=2000;
+NominasListasParaPagos;Estado_nomina=LPP;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_listas_para_pagos;cantidadRegistosExportados=2000;
+NominasPendienteFirma;Estado_nomina=PEN;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_pendientes_firma;cantidadRegistosExportados=2000;
+NominasProcesadas;Estado_nomina=PRO;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_procesadas;cantidadRegistosExportados=2000;
+NominasSinFondos;Estado_nomina=SFD;diaDeBusqueda=diaPago;nombreArchivoExcel=nominas_sin_fondo;cantidadRegistosExportados=2000;
+documentosPNOL;nombreExcelListaPagos=DetallePagos;
+cantidadDiasDesde;cantidad=0;
+cantidadDeRegistrosListaPrincipal;cantidad=15;
+cantidadDeRegistrosListaDetalle;cantidad=15;cantidadRegistosExportados=600;
+canalPnol;Desc=OPF;
+canalesPnol;opf=OPF;erpNube=ERPNUBE;todos=OPF,ERPNUBE;agrupacion=PNOL;
+productoPago;pnol=PNOL;
+indicadorModulo;desc=10;
+rangoNominaConProblema;rangoFirmada=5;rangoEnProceso=5;rangoBloqueada=5;
+listaResumen;PEN=Pendiente de Firma;LPP=Lista para Pago;ENP=En Proceso Pago;PRO=Procesadas;SFD=Sin Fondos;FCP=Con Problemas;
+tiposDePagos;desc=TOP,OTA,OTC,EFE,VVC,VVD,AHO,CCT;separador=,;
+errorSistema;error=Estimado Colaborador, Este servicio no se encuentra disponible en este momento. Por favor, inténtelo más tarde.;

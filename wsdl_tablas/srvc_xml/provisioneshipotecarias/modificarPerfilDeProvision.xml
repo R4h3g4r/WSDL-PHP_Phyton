@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_mod_per_prov">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="String" middle_name="gls_cod" size="0" java_name="codGlosa"/>
+		<field type="Integer" middle_name="prp_cod" size="0" java_name="codPerfil"/>
+		<field type="Integer" middle_name="prp_scr_min" size="0" java_name="valorMinimo"/>
+		<field type="Integer" middle_name="prp_scr_max" size="0" java_name="valorMaximo"/>
+		<field type="String" middle_name="gls_des" size="0" java_name="descripcionGlosa"/>
+		<field type="String" middle_name="sub_gls_cod" size="0" java_name="subCodGlosa"/>
+	</input>
+	<output/>
+</service>
+
+	

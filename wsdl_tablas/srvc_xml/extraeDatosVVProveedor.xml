@@ -1,0 +1,218 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Pr_CEII_Spe20080_InfoDetOp_w2"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "numFolio"
+          type = "String"
+          size = "12"
+          middle_name = "numFolio"
+        />
+
+        <field
+          java_name = "numLinea"
+          type = "String"
+          size = "7"
+          middle_name = "numeroLinea"
+        />
+
+        <field
+          java_name = "pagTipo"
+          type = "String"
+          size = "3"
+          middle_name = "ptr_fmt"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionExtraeDatosVVProveedor" var_name = "iteracionextraedatosvvproveedor" >
+
+          <field
+            java_name = "numFolio"
+            type = "String"
+            size = "12"
+            middle_name = "numFolio"
+          />
+
+          <field
+            java_name = "numLinea"
+            type = "String"
+            size = "7"
+            middle_name = "numeroLinea"
+          />
+
+          <field
+            java_name = "nomOficina"
+            type = "String"
+            size = "75"
+            middle_name = "oficina"
+          />
+
+          <field
+            java_name = "benefRut"
+            type = "String"
+            size = "12"
+            middle_name = "rutCliente"
+          />
+
+          <field
+            java_name = "benefDiv"
+            type = "char"
+            size = "1"
+            middle_name = "cicCliente"
+          />
+
+          <field
+            java_name = "dirBenef"
+            type = "String"
+            size = "60"
+            middle_name = "direccion"
+          />
+
+          <field
+            java_name = "nomComuna"
+            type = "String"
+            size = "35"
+            middle_name = "comuna"
+          />
+
+          <field
+            java_name = "rutReiterador1"
+            type = "String"
+            size = "12"
+            middle_name = "rut3"
+          />
+
+          <field
+            java_name = "ret1Div"
+            type = "char"
+            size = "1"
+            middle_name = "digVerAdicional"
+          />
+
+          <field
+            java_name = "apePatReiterador1"
+            type = "String"
+            size = "25"
+            middle_name = "apellidoConyuge"
+          />
+
+          <field
+            java_name = "apeMatReiterador1"
+            type = "String"
+            size = "25"
+            middle_name = "attNombre"
+          />
+
+          <field
+            java_name = "nomReiterador1"
+            type = "String"
+            size = "25"
+            middle_name = "nombre"
+          />
+
+          <field
+            java_name = "rutReiterador2"
+            type = "String"
+            size = "12"
+            middle_name = "rut4"
+          />
+
+          <field
+            java_name = "ret2Div"
+            type = "char"
+            size = "1"
+            middle_name = "digVerCliRel"
+          />
+
+          <field
+            java_name = "apePatReiterador2"
+            type = "String"
+            size = "25"
+            middle_name = "anticipado"
+          />
+
+          <field
+            java_name = "apeMatReiterador2"
+            type = "String"
+            size = "25"
+            middle_name = "antiguedad"
+          />
+
+          <field
+            java_name = "nomReiterador2"
+            type = "String"
+            size = "25"
+            middle_name = "nombreCot"
+          />
+
+          <field
+            java_name = "pagFecha"
+            type = "Date"
+            size = "20"
+            middle_name = "fechaPago"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+    <field
+            java_name = "cuentaAbono"
+            type = "String"
+            size = "18"
+            middle_name = "cuentaAbono"
+          />
+          
+          <field
+            java_name = "codigoMoneda"
+            type = "String"
+            size = "6"
+            middle_name = "codigoMoneda"
+          />
+          
+          <field
+            java_name = "numeroDocumento"
+            type = "String"
+            size = "25"
+            middle_name = "numeroDocumento"
+          />
+          
+          <field
+            java_name = "codigoOficina"
+            type = "String"
+            size = "3"
+            middle_name = "codigoOficina"
+          />
+          
+          <field
+            java_name = "codigoComuna"
+            type = "String"
+            size = "4"
+            middle_name = "codigoComuna"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

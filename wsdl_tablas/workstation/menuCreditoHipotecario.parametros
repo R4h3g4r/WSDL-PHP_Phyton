@@ -1,0 +1,34 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-CREDITO-HIPOTECARIO;
+
+################################################################################
+# Definicion del menú MENU-CREDITO-HIPOTECARIO.
+################################################################################
+MENU-CREDITO-HIPOTECARIO;tipoNodo=MENU;nombre=Créditos Hipotecarios;nodosMenu=OPCION-DETALLE-CRED-HIPO,OPCION-SEGUROS-ASOC;
+
+# Definicion de opción "Detalle Créditos Hipotecarios".
+OPCION-DETALLE-CRED-HIPO;tipoNodo=OPCION;nombre=Detalle Créditos Hipotecarios;url=/hipotecarioswls/CreditoHipotecario?numOperacion=;opcionesPopUp=;nombrePopUp=;
+
+# Definicion de opción "Seguros Asociados".
+OPCION-SEGUROS-ASOC;tipoNodo=OPCION;nombre=Seguros Asociados;url=/workstationwls/hipotecarios/DetalleSegurosAsociados.jsp?numOperacion=;opcionesPopUp=;nombrePopUp=;

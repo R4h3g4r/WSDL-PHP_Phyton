@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="journal.procedimientosAlmacenados">
+
+<parameterMap id="setInsertarEventoJournal" class="java.util.HashMap">
+	<parameter property="jen_ope_evt" jdbcType="VARCHAR" javaType="String" />
+	<parameter property="jen_fec_evt_neg" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<parameter property="jen_fec_ctb_evt" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<parameter property="jen_rut_cli" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_vrf_cli" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_rut_emp" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_vrf_emp" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_cnl" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_est_cnl" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_suc_ori" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_med" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_med" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_tip_opr_bci" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_opr" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_mod_tar" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_fra_lin" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_ara_cua" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_svs" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_est_evt_neg" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_pdt" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_evt" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_id_sub_evt" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_clv_ppl" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_mto" jdbcType="NUMERIC" javaType="Double"/>
+	<parameter property="jen_clv_sgd" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="jen_cpo_var" jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+
+<resultMap id="getInsertarEventoJournal" class="java.util.HashMap">
+	<result property="Error" column="Error" javaType="String" />
+</resultMap>
+	
+<procedure id="insertarEventoJournal" parameterMap="setInsertarEventoJournal" resultMap="getInsertarEventoJournal">	
+	{ CALL sp_guardaJEN(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }	
+</procedure>
+		
+<parameterMap id="setInsertarAtributoJournal" class="java.util.HashMap">
+	<parameter property="jen_num_ope_evt" jdbcType="VARCHAR" javaType="String" />
+	<parameter property="ajn_nom_atr_evt" jdbcType="VARCHAR" javaType="String"/>
+	<parameter property="ajn_dat_atr_evt" jdbcType="VARCHAR" javaType="String"/>
+</parameterMap>
+
+<resultMap id="getInsertarAtributoJournal" class="java.util.HashMap">
+	<result property="respuesta" column="respuesta" javaType="int" />
+</resultMap>
+
+<procedure id="insertarAtributoJournal" parameterMap="setInsertarAtributoJournal" resultMap="getInsertarAtributoJournal">	
+	{ CALL sp_guardaAJN(?,?,?) }	
+</procedure>
+
+</sqlMap>

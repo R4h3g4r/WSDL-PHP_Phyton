@@ -1,0 +1,195 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = ""><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerifEmp"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "rutUsuario"
+          type = "String"
+          size = "12"
+          middle_name = "rutUsuario"
+        />
+
+        <field
+          java_name = "divUsuario"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerifUsu"
+        />
+
+        <field
+          java_name = "canal"
+          type = "String"
+          size = "10"
+          middle_name = "canal"
+        />
+
+        <field
+          java_name = "clave"
+          type = "String"
+          size = "3"
+          middle_name = "clave"
+        />
+
+        <field
+          java_name = "porFirmar"
+          type = "String"
+          size = "200"
+          middle_name = "indConfirmacion"
+        />
+
+        <field
+          java_name = "autoTransac"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "autorTransac"
+        />
+
+        <field
+          java_name = "fecExpiracion"
+          type = "String"
+          size = "10"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "modulo"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "modulo"
+        />
+
+        <field
+          java_name = "codEstado"
+          type = "String"
+          size = "4"
+          middle_name = "codEstado"
+        />
+
+        <field
+          java_name = "tipoUsu"
+          type = "String"
+          size = "3"
+          middle_name = "tipoUsuario"
+        />
+
+        <field
+          java_name = "ip"
+          type = "String"
+          size = "17"
+          middle_name = "pin"
+        />
+
+        <field
+          java_name = "pagFecCreacion"
+          type = "Date"
+          size = "20"
+          middle_name = "fecCreacion"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "indApoderado"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "indicadorAplic"
+        />
+
+        <field
+          java_name = "tipoConvenio"
+          type = "String"
+          size = "3"
+          middle_name = "tipoConvenio"
+        />
+
+        <field
+          java_name = "codFirma"
+          type = "String"
+          size = "3"
+          middle_name = "codigo7"
+        />
+
+        <field
+          java_name = "tipoValidacion"
+          type = "String"
+          size = "3"
+          middle_name = "tipoEstado"
+        />
+
+        <field
+          java_name = "dataSignature"
+          type = "String"
+          size = "255"
+          middle_name = "dap"
+        />
+
+        <field
+          java_name = "dataToSign"
+          type = "String"
+          size = "255"
+          middle_name = "deducible"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "retorno"
+          type = "String"
+          size = "6"
+          middle_name = "codRetorno"
+        />
+
+  </output>
+
+</service>

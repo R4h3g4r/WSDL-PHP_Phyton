@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="sol.procedimientosAlmacenados">
+
+	<parameterMap id="setAgendarRetiro" class="java.util.HashMap">
+		<parameter property="rutCliente"		jdbcType="integer"	javaType="java.lang.Long" />
+		<parameter property="digitoVerificador"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="nombreCliente"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="numeroCuenta"		jdbcType="CHAR" 	javaType="String" />
+		<parameter property="fechaSolicitud"	jdbcType="DATE"    	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<parameter property="fechaRetiro"		jdbcType="DATE"    	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<parameter property="sucursalRetiro"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="nombreSucursal"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="estado"			jdbcType="CHAR" 	javaType="String" />
+		<parameter property="ipCliente"			jdbcType="CHAR" 	javaType="String" />		
+		<parameter property="canal"				jdbcType="CHAR" 	javaType="String" />
+		<parameter property="codigoEjecutivo"	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="fechaActualizacion"	jdbcType="DATE"    		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		
+	</parameterMap>
+
+	<procedure id="agendarRetiro" parameterMap="setAgendarRetiro" resultClass="int">
+        	{ CALL sp_ins_age_ret_tal( ?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<parameterMap id="setRecuperaAgendamiento" class="java.util.HashMap">
+	    <parameter property="rutCliente"		jdbcType="integer"	javaType="java.lang.Long" />
+		<parameter property="cuentaCliente"		jdbcType="CHAR"		javaType="java.lang.String" />
+	</parameterMap>
+
+
+	<resultMap id="getRecuperaAgendamiento" class="java.util.HashMap">
+		<result property="rutCliente"			column="rutCliente" 		javaType="long" />
+		<result property="digitoVerificador"	column="digitoVerificador"	javaType="String" />
+		<result property="nombreCliente"		column="nombreCliente"		javaType="String" />
+		<result property="numeroCuenta"			column="numeroCuenta"		javaType="String" />
+		<result property="fechaSolicitud"		column="fechaSolicitud"	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<result property="fechaRetiro"			column="fechaRetiro"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<result property="numeroComprobante" 	column="numeroComprobante"	javaType="int" />
+		<result property="sucursalRetiro"		column="sucursalRetiro"	javaType="String" />
+		<result property="nombreSucursal"		column="nombreSucursal"	javaType="String" />
+		<result property="estado"				column="estado" 			javaType="String" />
+		<result property="ipCliente"			column="ipCliente" 			javaType="String" />
+		<result property="canal"				column="canal"			javaType="String" />
+		<result property="codigoEjecutivo"		column="codigoEjecutivo"	javaType="String" />
+		<result property="fechaActualizacion" 	column="fechaActualizacion"	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+	</resultMap>
+
+	<procedure id="recuperaAgendamiento" parameterMap="setRecuperaAgendamiento" resultMap="getRecuperaAgendamiento" >
+        	{ CALL sp_rec_age_cli( ?, ? ) }
+	</procedure>
+	
+	<parameterMap id="setCambioEstado" class="java.util.HashMap">
+	    <parameter property="numeroDeComprobante" jdbcType="integer" javaType="Integer" />
+		<parameter property="estado" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="cambioEstado" parameterMap="setCambioEstado" resultClass="int">
+        	{ CALL spCamEstAgeCli( ?, ? ) }
+	</procedure>
+	
+	<parameterMap id="setConsultaAgendamientos" class="java.util.HashMap">
+	    <parameter property="fechaIni" jdbcType="CHAR" javaType="String" />
+		<parameter property="fechaFin" jdbcType="CHAR" javaType="String" />
+		<parameter property="sucursal" jdbcType="CHAR" javaType="String" />
+		<parameter property="cuenta" jdbcType="CHAR" javaType="String" />
+		<parameter property="rutCliente" jdbcType="int" javaType="java.lang.Long" />		
+		<parameter property="canal" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaAgendamientos" class="java.util.HashMap">
+		<result property="fechaSolicitud" column="fechaSolicitud" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="fechaRetiro" column="fechaRetiro" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="codigoSucursal" column="sucursalRetiro" javaType="String" />
+		<result property="descripcionSucursal" column="descripcionSucursal" javaType="String" />
+		<result property="numeroDeComprobante" column="numComprobante" javaType="int" />
+		<result property="numeroCuenta" column="numCuenta" javaType="String" />
+		<result property="rutCliente" column="rutCliente" javaType="String" />
+		<result property="dvCliente" column="dvCliente" javaType="String" />
+		<result property="nombreCliente" column="nombreCliente" javaType="String" />
+		<result property="canal" column="canal" javaType="String" />
+	</resultMap>	
+	<procedure id="consultaAgendamientos" parameterMap="setConsultaAgendamientos" resultMap="getConsultaAgendamientos">
+     { CALL spConAgeTal( ?, ?, ?, ?, ?, ?) }
+	</procedure>
+
+        
+      <parameterMap id="setEventoCliente" class="java.util.HashMap">
+		<parameter property="query_type"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tsl_sol_cod"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="est_num_sol" jdbcType="NUMERIC" javaType="Integer"  />
+		<parameter property="est_cod_est"   jdbcType="CHAR"   javaType="String" />
+		<parameter property="est_usu_cmb_est"   jdbcType="CHAR"   javaType="String" />
+		<parameter property="est_com"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="sol_sta_cod"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="est_col_num"   jdbcType="INTEGER"    javaType="java.lang.Integer"/>
+		<parameter property="sol_com_tipo"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="baco_tipo"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario1"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario2"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario3"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario4"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario5"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario6"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario7"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario8"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="comentario9"  jdbcType="VARCHAR" javaType="String" />
+		<parameter property="est_rut_usr"  jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>	
+	
+	<procedure id="insertaEventoCliente" parameterMap="setEventoCliente" resultClass="int">
+		{ CALL sp_ins_est_eve_cli (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+
+	<procedure id="consultaComentariosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_est_eve_cli(#est_num_sol#,#query_type#)}
+    </procedure>
+	
+	<parameterMap id="setRegistroSolicitudCredito" class="java.util.HashMap">
+		<parameter property="rut"	      	                jdbcType="int"	    javaType="java.lang.Long"/>
+		<parameter property="dv"	                        jdbcType="char" 	javaType="String"  />
+		<parameter property="apellidoPaterno"	            jdbcType="char" 	javaType="String"  />
+		<parameter property="apellidoMaterno"		        jdbcType="char" 	javaType="String"  />
+		<parameter property="nombres"	                    jdbcType="char"     javaType="String"  />
+		<parameter property="codigoOficina"		            jdbcType="char"  	javaType="String" />
+		<parameter property="segmento"	                    jdbcType="char" 	javaType="String"  />
+		<parameter property="producto"	                    jdbcType="char" 	javaType="String"  />
+		<parameter property="fechaActualizacionRenta"	    jdbcType="Date" 	javaType="java.util.Date" />
+		<parameter property="fechaIngresoSolicitud"         jdbcType="Date" 	javaType="java.util.Date" />
+		<parameter property="edad"			                jdbcType="int"    	javaType="Integer" />		
+		<parameter property="ofertaLibreDisponibilidad"   jdbcType="int" 		javaType="Integer" />
+		<parameter property="codigoAreaParticular"	    jdbcType="int" 		javaType="Integer" />
+		<parameter property="numeroParticular"             jdbcType="int"   	javaType="Integer" />
+		<parameter property="numeroCelular"                jdbcType="int"   	javaType="Integer" />
+		<parameter property="observacion"                   jdbcType="char"     javaType="String" />
+		<parameter property="caracteristicaDelCliente"    jdbcType="char"   	javaType="String" />
+		<parameter property="banca"                         jdbcType="char"   	javaType="String" />
+	    <parameter property="rentaLiquida"                 jdbcType="int"      javaType="Integer" />
+		<parameter property="idSolicitud"                  jdbcType="char"      javaType="String" />
+		<parameter property="idCanal"                      jdbcType="char"     javaType="String" />
+	</parameterMap>
+
+	<procedure id="registroSolicitudCredito" parameterMap="setRegistroSolicitudCredito" resultClass="int">
+        	{ CALL sp_reg_dat_sol( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+
+    <parameterMap id="setRegistrarAlerta" class="java.util.HashMap">
+        <parameter property="idEvento"      jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="tipoEvento"    jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="nombreEvento"  jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaCompromiso" jdbcType="DATE" javaType="Date" />
+        <parameter property="mailCliente"   jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaEnvio"    jdbcType="DATE"  javaType="Date" />
+        <parameter property="fechaProrroga" jdbcType="DATE" javaType="Date" />
+        <parameter property="nomCliente"    jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="idEjecutivo"    jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+	<procedure id="registrarAlerta" parameterMap="setRegistrarAlerta" resultClass="int">
+    	{CALL sp_sol_ing_ale(?,?,?,?,?,?,?,?,?)}
+	</procedure>
+	
+    <parameterMap id="setRegistrarCotizacionSeguro" class="java.util.HashMap">
+        <parameter property="rut"                     jdbcType="int"      javaType="Integer" />
+        <parameter property="dv"                      jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="apellidoPaterno"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="apellidoMaterno"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="nombre"                  jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codOfincina"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="seguroCliente"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="tipoProducto"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaActualizacionRenta" jdbcType="DATE"     javaType="Date" />
+        <parameter property="fechaIngresoSolicitud"   jdbcType="DATE"     javaType="Date" />
+        <parameter property="edadCliente"             jdbcType="int"      javaType="Integer" />
+        <parameter property="montoSolicitado"         jdbcType="int"      javaType="Integer" />
+        <parameter property="codFono"                 jdbcType="int"      javaType="Integer" />
+        <parameter property="numFono"                 jdbcType="int"      javaType="Integer" />
+        <parameter property="numCelular"              jdbcType="int"      javaType="Integer" />
+        <parameter property="tipoCampana"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="tipoSolicitante"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="banca"                   jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="rentaCliente"            jdbcType="int"      javaType="Integer" />
+        <parameter property="idSolicitud"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="idCanal"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="estado"                  jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fonoComercial"           jdbcType="int"      javaType="Integer" />
+        <parameter property="rutEmpresa"              jdbcType="int"      javaType="Integer" />
+        <parameter property="dvEmpresa"               jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="convenio"                jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="marcaVehiculo"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="modeloVehiculo"          jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="anioVehiculo"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="edadAsegurado"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="esTitular"               jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="registrarCotizacionSeguro" parameterMap="setRegistrarCotizacionSeguro" resultClass="int">
+        {CALL sp_ins_lead(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setEliminarCotizacionSeguro" class="java.util.HashMap">
+        <parameter property="idSolicitud"           jdbcType="String"      javaType="String" />
+    </parameterMap>
+    
+    <procedure id="eliminarCotizacionSeguro" parameterMap="setEliminarCotizacionSeguro" resultClass="int">
+        {CALL sp_eliminar_lead(?)}
+    </procedure>
+    
+    
+<parameterMap id="setIngresarLeadGenerico" class="java.util.HashMap">
+        <parameter property="rut"                     jdbcType="int"      javaType="Integer" />
+        <parameter property="dv"                      jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="apellidoPaterno"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="apellidoMaterno"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="nombre"                  jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codOfincina"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="seguroCliente"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="tipoProducto"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaActualizacionRenta" jdbcType="DATE"     javaType="Date" />
+        <parameter property="fechaIngresoSolicitud"   jdbcType="DATE"     javaType="Date" />
+        <parameter property="edadCliente"             jdbcType="int"      javaType="Integer" />
+        <parameter property="montoSolicitado"         jdbcType="int"      javaType="Integer" />
+        <parameter property="codFono"                 jdbcType="int"      javaType="Integer" />
+        <parameter property="numFono"                 jdbcType="int"      javaType="Integer" />
+        <parameter property="numCelular"              jdbcType="int"      javaType="Integer" />
+        <parameter property="tipoCampana"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="tipoSolicitante"         jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="banca"                   jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="rentaCliente"            jdbcType="int"      javaType="Integer" />
+        <parameter property="idSolicitud"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="idCanal"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="estado"                  jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fonoComercial"           jdbcType="int"      javaType="Integer" />
+        <parameter property="rutEmpresa"              jdbcType="int"      javaType="Integer" />
+        <parameter property="dvEmpresa"               jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="convenio"                jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar1"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar2"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar3"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar4"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar5"                 jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="ingresarLeadGenerico" parameterMap="setIngresarLeadGenerico" resultClass="int">
+        {CALL sp_ins_lead_gen(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setActualizarLeadGenerico" class="java.util.HashMap">
+        <parameter property="idSolicitud"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar1"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar2"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar3"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar4"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="solVar5"                 jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="actualizarLeadGenerico" parameterMap="setActualizarLeadGenerico" resultClass="int">
+        {CALL sp_mod_lead_var(?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setEliminarLeadGenerico" class="java.util.HashMap">
+        <parameter property="idSolicitud"           jdbcType="String"      javaType="String" />
+        <parameter property="rutCliente"            jdbcType="int"       javaType="Integer" />
+        <parameter property="tipoProducto"          jdbcType="CHAR"      javaType="String" />
+    </parameterMap>
+    
+    <procedure id="eliminarLeadGenerico" parameterMap="setEliminarLeadGenerico" resultClass="int">
+        {CALL sp_eliminar_lead_gen(?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setActualizarLeadFono" class="java.util.HashMap">
+        <parameter property="idSolicitud"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="sol_Num_Celular"         jdbcType="int"  javaType="Integer" />
+        <parameter property="sol_Num_Fono"            jdbcType="int"  javaType="Integer" />
+        <parameter property="sol_FonoComercial"       jdbcType="int"  javaType="Integer" />
+    </parameterMap>
+    
+    <procedure id="actualizarLeadFono" parameterMap="setActualizarLeadFono" resultClass="int">
+        {CALL sp_mod_lead_fono(?,?,?,?)}
+    </procedure>
+    
+</sqlMap>

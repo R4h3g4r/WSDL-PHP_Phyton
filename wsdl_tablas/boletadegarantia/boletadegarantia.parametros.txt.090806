@@ -1,0 +1,440 @@
+Esta tabla contiene  los parametros utilizados en Boletas de Garantia de BCI Express y los utilizados en el LOG para
+Boletas de Garantia de Express y Portal.
+
+Generales
+~~~~~~~~~
+
+- La línea +codEvento+ es usada para definir la accion asociada al proceso de una colocacion tipo bge con el valor 
+  "+CUR+" de curse.
+- La línea +comision+  es usada para definir el codigo con el valor "+CCM+" para lo conceptos asociados de MC2
+
+- La línea +numcomisiones+ define la cantidad de comisiones que tiene el producto BGE en sistema MC2 el cual contiene 
+  dos llaves una es +texto+ para definir glosa y  la llave +valor+ que contiene el numero de comisiones.
+
+- La línea +glosacomwarn+ se utiliza para glosa descriptiva es por esto que en la llave +texto+ se define mensaje para
+  cliente.
+- La línea +glosacom+ se utiliza para glosa descriptiva es por esto que en la llave +texto+ se define mensaje para
+  cliente.
+- La línea +glosausomail+ se utiliza para glosas es por esto que en la llave +texto+ se define mensaje para cliente
+  de uso de email.
+
+- La línea +maxlengthglosabg+ define en la llave +valor+ la cantidad maxima de caracteres que podrá contener la glosa
+  de una boleta, +longitud1+, +longitud2+, y +maxglosabgROR+ para manejo parametrico del largo de campos
+
+- La línea +numtipobg+ permite parametrizar el numero de tipos de boletas  que permitira manejar la
+  aplicación de Boletas de Garantías en el Express, en este caso el valor es "+2+"  que se refiere a los dos tipos de
+  boletas del producto.
+
+- La línea +tipobg1+ contiene en la llave +texto+ el valor "+BEX+" que será el utilizado en un combo para Boletas de 
+  tipo Exentas.
+- La línea +tipobg2+ contiene en la llave +texto+ el valor "+BGT+" que será el utilizado en un combo para Boletas de
+  Garantia.
+
+- La línea +codigotipopersona+ contiene en la llave +valor+ con la clave indicativo de tipo de cliente persona "+P+" 
+  ,+codigo+ y +glosa+ que indica el cóodigo y glosa de un tipo de cliente.
+
+- La línea +numtipomoneda+ contiene la llave +texto+ que es la descripcion explicativa de la llave +valor+, que es
+  cantidad de tipos de moneda disponibles en la aplicación.
+  
+- La línea +tipomoneda1+ define la llave +valor+, que indica el valor codigo utilizado para la moneda en pesos y la 
+  llave +texto+ será la descripción de la misma.
+
+- La línea +tipomoneda2+ define la llave +valor+, que indica el valor codigo utilizado para la moneda en ufs y la 
+  llave +texto+ será la descripción de la misma.
+   
+- La línea +mindiasbg+  indica el numero de dias minimo para filtros de busqueda de informacion.
+
+- La línea +maxdiasbg+  indica el numero de dias maximo para filtros de busqueda de informacion.
+
+- La línea +maxdiasbgcmb+  indica el numero de dias maximo para filtros de busqueda de informacion masiva.
+
+
+Value vacio para todos los bancos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+- La línea +bancofiltroofi+ indica la marca de banco para la cual esta habilitado el producto +valor+ BCI.
+
+Boleta de Garantia
+~~~~~~~~~~~~~~~~~~
+- La línea +uf+ se refiere a los valores de la UF, donde la llave +Moneda+ contendrá el valor codigo utilizado
+  actualmente en el IBM3270 que es "+0998+", donde la llave +activado+ tiene el valor "+false+" indicando que no esta
+  habilitado la llave +simbolo+ que contendrá el valor "+UF+" que es el simbolo que representa a esta moneda.
+- La línea +pesos+ se refiere a los valores  de los pesos , donde la llave +Moneda+ contendrá el valor codigo utilizado
+  actualmente en el IBM3270 que es "+0999+",  donde la llave +activado+ tiene el valor "+false+" indicando que no esta
+  habilitado la llave +simbolo+ que contendrá el valor "+$+" que es el simbolo que representa a esta moneda.
+- La línea +dolar+ se refiere a los valores del dolar, donde la llave +Moneda+ contendrá el valor codigo utilizado
+  actualmente en el IBM3270 que es "+0999+"
+- La línea +0999+ se refiere al valor de la moneda en pesos, donde la llave +genero+ tiene el valor "+2+" indicando que es masculino, 
+  +tabcam+ corresponde al valor de cambio para obtener costo de fondo.
+- La línea +0998+ se refiere al valor de la moneda en UF, donde la llave +genero+ tiene el valor "+3+" indicando que es femenino
+  +tabcam+ corresponde al valor de cambio para obtener costo de fondo.
+
+- La línea +mandato+ se utiliza para definir los codigos de mandatos con mandato se codifica con el valor "+S+" y sin
+  mandato se codifica con el valor "+N+"
+- La línea posicion con valor "+65+" indica la posicion de la cual se debe obtener el dato.
+- La línea producto se utiliza para los distintos productos que tiene el BCIExpress "+Prod01+" Epyme "+Prod21+"
+- La línea posicionCampo con valor "+33+" indica la posicion de la cual se debe obtener el dato.
+- La línea autoTran con valor "+8+" indica el valor para el proceso de firma.
+
+- La linea +emisor+ y +beneficiario+ contienen la llave el valor y el tipo de relacion definido para grabar el registro 
+  en entidad ROR.
+  Dependiendo del tipo de cliente se utilizara el valor asociado tal como se muestra en la cita del codigo siguiente:
+   ---------------------------------------------
+      if (tipoCliente.equalsIgnoreCase(TablaValores.getValor(archivo_parametros, "beneficiario", "valor"))){
+        tipoRelacion  = TablaValores.getValor(archivo_parametros, "beneficiario", "tipoRelacion");
+      }
+      else if (tipoCliente.equalsIgnoreCase(TablaValores.getValor(archivo_parametros, "emisor", "valor"))){
+        tipoRelacion    = TablaValores.getValor(archivo_parametros, "emisor", "tipoRelacion");
+      }
+   ---------------------------------------------
+  El valor "+EMI+" es para emisor.
+  El valor "+BNF+" es para beneficiario.
+  
+
+- Las lineas que comienzan con la palabra +sort_+ son el sufijo que implican el orden a mostrar la informacion
+  La llave +sort_vencimiento+ sera para vencimiento
+  La llave +sort_monto+ será para monto.
+  La llave +sort_nombre+ será para nombre.
+  La llave +sort_moneda+ será para moneda.
+
+- La línea +tipoOperacion+ se refiere al producto de Boleta Garantia.
+- La línea +tipoClienteBeneficiario+ se refiere a la definicion de un beneficiario que presenta la condición de no ser
+  cliente del banco, tiene una sola llave que será +valorNoCliente+ con el valor "+NC+". Cuando un beneficiario es 
+  consultado en la base de datos y no es encontrado, presentará ésta condición.
+  
+
+Tipos de Boletas
+////////////////////////////////////////////////////////
+- La Linea "+PRV0999+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX308+".
+- La Linea "+PUB0999+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX321+".
+- La Linea "+PUB0998+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX406+".
+- La Linea "+PRV0998+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX419+".
+- La Linea "+PER0999+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX308+"
+- La Linea "+PER0998+" es el codigo para una boleta privada en pesos cuyo codigo es el valor "+BEX419+"
+
+- La Linea "+BEX308+" indica los valores asociados al producto para el proceso de generar la boleta.
+  codigoAuxiliar "+308+" boleta privada que se encuentra en activado "+true+" para la moneda "+0999+" pesos sin porcentajeAjuste "+0+".
+- La Linea "+BEX321+" indica los valores asociados al producto para el proceso de generar la boleta.
+  codigoAuxiliar "+321+" boleta publica que se encuentra en activado "+true+" para la moneda "+0999+" pesos sin porcentajeAjuste "+0+".
+- La Linea "+BEX406+" indica los valores asociados al producto para el proceso de generar la boleta.
+  codigoAuxiliar "+406+" boleta privada que se encuentra en activado "+true+" para la moneda "+0998+" uf sin porcentajeAjuste "+0+".
+- La Linea "+BEX419+" indica los valores asociados al producto para el proceso de generar la boleta.
+  codigoAuxiliar "+419+" boleta publica que se encuentra en activado "+true+" para la moneda "+0998+" uf sin porcentajeAjuste "+0+".
+
+
+- La línea +lineaBoleta+ es el codigo asociado al tipo de linea del producto.
+- La línea +margen+ es el codigo para validar el margen asociado y que se encuentre "+A+" activado
+
+ROR
+~~~
+En esta sección se definen todos aquellos parametros utilizados al manejar hacer alguna transaccion con la tabla ROR
+del 3270 IBM.
+- La línea +tipoCliente+ indica el tipo de cliente asociado al producto "+E+" empresa o "+C+" cliente natural.
+- La línea +tipodireccion+ indica el codigo del email "+7+"
+- La línea +glosaror+ indica la glosa de la boleta.
+- La línea +direccionprueba+ se refiere a al valor defautl para grabar un registro cuando no existe la direccion.
+- La línea +glosaTipoCliente+ se refiere a una "+P+" persona o "+E+" empresa.
+
+index
+~~~~~
+- En la línea +estadosBex+ se definen dos llaves que representan dos estados de una boleta estos son +vigente+ con el
+  valor +VIG+ y +pendiente+ con el valor +PEN+ .
+- La línea +etapasBex+ define cuatro estapas que puede tener una boleta y estos son:
+    No autorizado parametro +noAutorizado+ con el valor "+NOA+"
+    Por autorizar parametro +porAutorizar+ con el valor "+PEN+"
+    Por emitir parametro   +pem+ con el valor "+PEM+"
+    Emitida parametro +emitida+ con el valor "+EMT+"
+    ReEmitida +reemitida+ con el valor "+EMR+".
+- En la línea +estadosProcFirma+ se definen los codigos de los estados de las firma que podrian tener en una 
+  boleta los cuales son utilizados entre otros para hacer el Log de la firma.
+  El valor "+FDF+" se refiere a una boleta que no ha pasado aun por el proceso de la Firma.
+  El valor "+FIR+" se refiere a una boleta que fue firmada satisfactoriamente.
+  El valor "+FAC+" se refiere a una boleta que fue firmada satisfactoriamente y ademas Activada.
+  El valor "+FAD+" se refiere a una boleta que fue firmada satisfactoriamente, Activada y registrada en la Tabla DLC.
+- La línea +idEPyme+ esta asociada a producto Epyme.
+- La línea +indEstado+ con valor "+1+" indica que es un estado valido dentro del proceso.
+- En la línea +estadosOpe+ se define el estado de una operacion activada aprobada cona la llave +activado+ con el valor
+  codigo "+ACA+" así como la llave +liquidado+ tendra la clave "+LIQ+".
+
+Consulta masiva
+~~~~~~~~~~~~~~~
+- La línea indicadorSig se parametriza para continuar las busquedas masivas cuando hay mas informacion que mostrar.
+
+ingresoBoletaGarantia
+~~~~~~~~~~~~~~~~~~~~~
+En esta sección se parametrizan todos aquellos valores utilizados ya sea como data por defecto, o datos iniciales
+en el ingreso de la boleta.
+
+Mensajes de error
+~~~~~~~~~~~~~~~~~
+Esta sección define mensajes de retorno de algun operacion no realizada, la linea que los identifica 
+es +mensajeError+ dependiendo del caso la llave sera :
++valor+ en caso de que algun servicio no se ejecute normalmente.
++boletaNoEncontrada+ en caso de que la boleta no exista.
++noEmisor+ en caso de que el RUT del emisor sea inconsistente.
++noFirma+ en caso de que no ha podido firmar correctamente
++noCamEst+ en caso de que no se logro cambiar de estado a BGE
++noAct+ en caso de que no se logro activar la BGE.
++sinMargen+ en caso de no dispone de margen disponible.
++sinMargenActivo+ en caso que no posee margen activo.
++sinMargenAlDia+ en caso de que no posee margen al día.
++sinLcr+ en caso de que no posee LCR.
++sinLcrVigente+ en caso de que no posee LCR vigente.
++sinLcrAlDia+ en caso de que no posee LCR al día.
++sinMargenMonto+ en caso de que no posee margen monto.
++sinLcrMonto+ en caso de que no posee LCR monto.
++usuarioFirmo+ en caso de que ya firmo antes la BGE.
++lineaBoletaGarantiaError+ en caso de que ocurrio un error al validar la Linea de Boleta de Garantia.
++sinLcrMaximo_ini+ en caso de monto de credito solicitado este disponible.
++sinLcrMino+ en caso de que credito solicitado es menor monto minimo definido en POC.
++sinLcrMaximo_fin+ en caso de monto de credito solicitado este disponible.
++sinLcrMino_fin+ en caso de que el monto sea menor al disponible definido en POC.
++mntMyrMxm=+ en caso de que el monto ingresado para la botela sea mayor al permitido.
++mntMnrMnm=+ en caso de que el monto ingresado para la botela sea menor al permitido.
++noActualizado+ en caso que no se pueda actualizar una operacion.
++ERRORGENERALFECHAINGRESODISTINTAFECHACOLOCACION+ en caso que la boleta no sea actualizada el mismo dia que fueron creadas
+
+
+Envio de e-mail 
+~~~~~~~~~~~~~~~
+En esta sección se especifican todos los valores por defecto y etiquetas referentes al envío de mail cada vez que
+una boleta es firmada y activada, este mail estará dirigido al beneficiario de la boleta.
+Cada una de las líneas esta con el prefijo +email+ y el resto refiere a al nombre según su uso.
+- La línea +emailFromNombre+ es el nombre que aparecerá la etiqueta de la "+Mesa de ayuda Banca Electrónica+"
+- La línea +emailFromDireccion+ es el from que aparecerá como enviando el mail el cual será "+mabel@bci.cl+"
+- La línea +emailTo+ es el to o a  al que se le enviará el mail en caso de que al enviar no exista un receptor lo
+  cual es altamente improbable.
+- La línea +emailSubject+ contendrá el valor del subject o titulo del mail que en este caso será "+Bci - BGE+".
+- Las líneas +emailReplyTo+, +emailCc+,+emailBcc+ se definen por si fueran requeridas mas adelante.
+- La línea +emailSignature+ posee la despedida del mail, cada una de las llaves contiene una linea diferente de este.
+  La llave +valor+ es la despedida formal y las demas  llaves que poseen identificación del banco.
+  Ejemplo:
+  +pie1+ es el canal.
+  +pie2+ es el nombre del banco BCI.
+  +pie3+ es el telefono de la mesa de ayuda.
+- Las líneas que comienzan por +emailBenef+ se utilizan para definir llaves que contienen las frases que formaran el 
+  cuerpo del mail cuya variante será el tipo de cliente.
+  La llave +emailBenefNoClienteCuerpos+ contiene las frases para el cuerpo del mail del beneficiario de la boleta que
+  no es cliente del Banco. Adicionalmente a estas frases designadas con las llaves +cuerpo1+,+cuerpo2+ y +cuerpo3+ se 
+  tiene una llave +urlConsulta+ que se refiere a la url donde el beneficiario podrá consultar su boleta.
+  La llave +emailBenefClienteCuerpos+ contiene las frases para el cuerpo del mail del beneficiario de la boleta que
+  si es cliente del Banco.
+  Como se muestra en el siguiente ejemplo dependiendo de la condicion del beneficiario utilizará uno u otro cuerpo
+  del mail.
+  -------------------------------------------------
+     if ( bnfTipoCliente.equals(TablaValores.getValor(archivo_parametros , "tipoClienteBeneficiario", "valorNoCliente")) ){
+          cuerpo =  TablaValores.getValor(archivo_parametros ,"emailBenefNoClienteCuerpos" , "cuerpo1") + " "+ cliente + " "
+                  + TablaValores.getValor(archivo_parametros ,"emailBenefNoClienteCuerpos" , "cuerpo2") + " "
+                  + TablaValores.getValor(archivo_parametros ,"emailBenefNoClienteCuerpos" , "urlConsulta") + " "
+                  + TablaValores.getValor(archivo_parametros ,"emailBenefNoClienteCuerpos" , "cuerpo3")+ " " + numOperacion + numBoleta;
+        }
+     else
+        {
+         cuerpo=  TablaValores.getValor(archivo_parametros ,"emailBenefClienteCuerpos" , "cuerpo1") + " "+ cliente + " "
+                  + TablaValores.getValor(archivo_parametros ,"emailBenefClienteCuerpos" , "cuerpo2");
+        }
+  -------------------------------------------------
+
+Mensajes Excepciones Erorres
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+- La línea +VENCIMIENTOS_INDEFINIDOS+ sirve para la glosa a mostrar en web.
+- La línea +MONTO_ERRONEO+ se define a fin de tener un mensaje de respuesta cuando el cliente sobrepasa el monto 
+  disponble a solicitar y se realiza en la llave +glosa+.
+
+Valores default
+~~~~~~~~~~~~~~~
+En esta sección se definen varios valores iniciales o por defecto que se utilizaran en los actions de busqueda de 
+boletas y para los action que derivan en los detalles de consulta.
+- La línea +comuna_defa+ contiene la llave +valor+ con "+000+" que sera el valor de vacio del codigo de la comuna.
+- La línea +busqueda_tipo_fecha+ utiliza la llave +valor+ con "+BPF+" a objeto del codigo a asociar para la consulta.
+- La línea +busqueda_fecha_emision+ utiliza la llave +valor+ con "+EMI+"  a objeto del codigo a asociar para la consulta.
+- La línea +busqueda_fecha_vencimiento+ utiliza la llave +valor+ con "+VEN+"  a objeto del codigo a asociar para la consulta.
+- La línea +busqueda_boleta+ utiliza la llave +valor+ con "+BPB+"  a objeto del codigo a asociar para la consulta.
+- La línea +busqueda_beneficiario+ utiliza la llave +valor+ con "+BPBF+"  a objeto del codigo a asociar para la consulta.
+- La línea +cliente_beneficiario+ utiliza la llave +valor+ con "+BNF+"  a objeto del codigo a asociar para la consulta.
+- La línea +cliente_emisor+ utiliza la llave +valor+ con "+EMI+"  a objeto del codigo a asociar para la consulta.
+- La línea +DISABLED+ utiliza la llave +valor+ con "+disabled+"  a objeto del codigo a asociar para la consulta.
+- La línea +fecha_defa+ utiliza la llave +valor+ con "+01/01/1900+"  a objeto de tener fecha default para busquedas.
+- La línea +largoConvenio+ utiliza la llave +valor+ con "+10+" que se hace para el largo del dato de los covenios.
+- La línea +glosaOficina+ utiliza la llave +valor+ con "+No Registrada+" que se hace para glosa default.
+- La línea +glosaComuna+ utiliza la llave +valor+ con "+No Registrada+" que se hace para glosa default.
+
+Log - BLO
+~~~~~~~~~
+En esta sección se establecen los parametros necesarios a fin de registrar en la tabla BLO todos los eventos
+definidos como loggeables en la aplicacion de boletas.
+- La línea +canal+ se establecen todos los posibles canales desde donde se hará registro del Log en la Banele, en la tabla BLO 
+ o del Journal estos serán :
+ +canalBciExp+ para BCI Express I con el valor "+130+"
+ +canalWebBEL+ para BCI Express II con el valor "+131+"
+ +canalPortal+ para Portal con el valor "+150+"
+- En la línea +nombresParametrosEnSession+ se definen los nombres los cuales permitiran obtener los valores de la 
+  sesion.
+  Ejemplo :
+    
+  ------------------------------------------- 
+    convenio    = ((String)sessionBCI.getAttrib( TablaValores.getValor( nombreTablaValores , "nombresParametrosEnSession", "convenio") ) );
+  --------------------------------------------
+    Los campos que se utilizarían son:
+    La llave +convenio+ para obtener codigo de convenio.
+    La llave +rutEmpresa+ para obtener rut de la empresa o cliente
+    La llave +dv_Empresa+ para obtener digito verificador de la empresa o cliente
+    La llave +rutUsuario+ para obtener rut del usuario u operador
+    La llave +dv_Usuario+ para obtener digito verificador del usuario u operador
+  
+  - En la línea +valoresSessionNulos+ se definen los valores a enviar en los VO tanto de Log y Journal los cuales 
+    evitaran enviar nulos en los valores necesarios ingresar como valores de session.
+    Ejemplo:   
+    
+  --------------------------------------------
+   numConvenioLog = ((String)logBoletaGarantiaVO.getSession().getAttrib( numConvenioLogNulo ));
+  ---------------------------------------------      
+   Los campos que se utilizarían son:
+    La llave +convenio+ para el convenio con el valor "+no_cnv+"
+    La llave +rutEmpresa+ para el rut de la empresa o cliente con el valor "+0+"
+    La llave +dv_Empresa+ para el digito verificador de la empresa o cliente con el valor "+-+"
+    La llave +rutUsuario+ para el rut del usuario u operador con el valor "+0+"
+    La llave +dv_Usuario+ para el digito verificador del usuario u operador  con el valor "+-+"
+    
+ - En la línea +prefijosLog+ se define el prefijo utilizado para hacer distinción de los nombres  de la clave de los 
+   log de los procesos en la tabla BLO y los nombres de la clave de los Log de los procesos para el registro de 
+   Journal.
+   Por ejemplo, el nombre de la clave de la consulta del detalle de la boleta  para el Log de la tabla BLO será:
+   +LogDetalleBoletasActionEMI+ mientras la clave de la consulta del detalle de la boleta  para el journal será:
+   +DetalleBoletasActionEMI+.
+    
+- Las líneas tales como +LogDetalleBoletasActionEMI+ todas con el prefijo Log, son la clave  para registrar cada uno 
+  de las operaciones loggeadas en la tabla BLO. Estas contienen las siguientes llaves.
+  +evento+ contendrá la código del evento.
+  +subEvento+ contendrá código del sub del evento si existiese.
+  +producto+ contendrá código del producto.
+  +descripcion1+ glosa identificativa del evento
+  +descripcion2+ nombre de la clase que lo origina el envento para el Log.
+  +codServicio+ código de servicio .
+  Los eventos que son resgistrados como Log serán:
+  +LogDetalleBoletasActionEMI+ derivado del detalle de la consulta de un boleta por emisor.
+  +LogDetalleBoletasActionBNF+ derivado del detalle de la consulta de un boleta por beneficiario.
+  +LogIngresoSolicitudAction+ derivado del ingreso de una boleta.
+  +LogIngresoSolicitudAction+ derivado de la consulta de una boleta desde las página principal.
+  +LogGeneraPDFBoletaGarantiaAction0999EMI+ derivado la generación de del PDF de la boleta emitida en pesos.
+  +LogGeneraPDFBoletaGarantiaAction0998EMI+ derivado la generación de del PDF de la boleta emitida en UFs.
+  +LogGeneraPDFBoletaGarantiaAction0999REMI+ derivado la generación de del PDF de la boleta emitida reimpresa en pesos.
+  +LogGeneraPDFBoletaGarantiaAction0998REMI+ derivado la generación de del PDF de la boleta emitida reimpresa en UFs.
+  +LogFirmarBoletaDeGarantiaAction+ derivado de la firma para activación de una boleta.
+  +LogIngresoSolicitudActionGLO+  donde se  consulta glosa boleta en log.
+  
+
+Journalizar 
+~~~~~~~~~~~
+- La línea +journal+ define parametros por defecto que deben ser ingresados al journal.
+journal;tipoLog=C;fueraLinea=N;modo=N;estadoEventoNegocio=P; 
+- La línea +nombresParametrosEnJournal+ se definen los nombres utilizado en el log de la banele que sale  del  servicio
+  del journal, y contara
+  con:
+  La llave +convenio+ para setear codigo de convenio 
+  La llave +codProducto+ para setear el codigo del  producto. 
+  La llave +glosa+ para setear la glosa.
+  La llave +codServicio+ para setear el código de servicio.
+
+- La línea +nombresParametrosEnRequest+ se definen los nombres los cuales permitiran obtener los valores del request. 
+  Las llaves serán : 
+  +cuentaSeleccionada+ para obtener código de cuenta seleccionada.
+  +codigoProducto+ para obtener código de producto.
+  +codigoServicio+ para obtener código de servicio.
+  +codigoProductoCanalNewExp+ para obtener código de canal.
+  +codigoServicioCanalNewExp+ para obtener código de servicio del canal.
+  +request+  para obtener código de request.
+  +session+  para obtener código de ssssion.
+  +sessionbci+
+
+ClasesyEventosaJournalizar
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Se definen todos los eventos que son necesarios Journalizar tanto en canal Express como en portal. Cada línea contendrá
+la llave de :
+ +evento+ según la transacción se predefinio un codigo para registrar en el journal.Entre ellos estan:
+   "+CEM+" Consulta de boletas por emisor.
+   "+CBN+" Consulta de boletas por beneficiario.
+   "+ING+" Ingreso de boleta.
+   "+FIR+" Firma de boleta.
+   "+IMP+" Imprimir boleta.
+ +subEvento+ en caso de que existiese un subevento se regiatra en esta llave.
+ +producto+ contiene el código del producto que genera el evento.
+ +glosa+ se define la glosa que descrivira brevemente el evento que se registra.
+ +codServicio+ se define un código de acuerdo al tipo de servicio registrado. Entre estos están:
+   "+XBGE001+" Ingreso de boletas
+   "+XBGE002+" Consulta de boletas por emisor
+   "+XBGE003+" Consulta de boletas por beneficiario
+   "+XBGE004+" Firma de boletas
+   "+XBGE005+" Imprimir boletas en pesos
+   "+XBGE006+" Imprimir boletas en UFs
+ 
+canalExpress
+~~~~~~~~~~~~
+En esta sección están definidos los eventos de la aplicación de boletas de garantías en el canal de BCI Express.
+- La línea +DetalleBoletasActionEMI+ se definen las llaves correspondiente para registro de Consulta de Boleta por Emisor
+- La línea +DetalleBoletasActionBNF+ se definen las llaves correspondiente para registro de Consulta de Boleta por Beneficiario
+- La línea +IngresoSolicitudAction+ se definen las llaves correspondiente para registro de Ingreso de Solicitud de Boleta
+- La línea +DetalleBoletasPrincipalActionEMI+ se definen las llaves correspondiente para registro de Consulta de Boleta por
+  Emisor derivados desde la pantalla principal
+- La línea +FirmarBoletaDeGarantiaAction+ se definen las llaves correspondiente para registro de Firma de boletas.
+
+canalPortal
+~~~~~~~~~~~
+En esta sección están definidos los eventos de la aplicación de boletas de garantías en el canal de Portal.
+- La línea +GeneraPDFBoletaGarantiaAction0999EMI+ se definen las llaves correspondiente para registro Generar para imprimir
+  PDF de Boleta de Garantia en Pesos
+- La línea +GeneraPDFBoletaGarantiaAction0998EMI+ se definen las llaves correspondiente para registro Generar para imprimir 
+  PDF de Boleta de Garantia en UFs
+- La línea +GeneraPDFBoletaGarantiaAction0999REMI+ se definen las llaves correspondiente para registro Generar para Re-imprimir
+  PDF de Boleta de Garantia en Pesos
+- La línea +GeneraPDFBoletaGarantiaAction0998REMI+ se definen las llaves correspondiente para registro Generar para Re-imprimir
+  PDF de Boleta de Garantia en UFs
+
+paginaDestino
+~~~~~~~~~~~~~~
+En esta sección se definen los parametros que serviran para invocar diferentes paginas seguna alguna condicion dentro
+de un mismo action.
+pagExptHpg;valor="+EXPHPG+" Pagina Express Home Page.
+pagExptFrm;valor="+EXPFRM+" Pagina Express Frame.
+
+NoCliente
+~~~~~~~~~
+En esta sección se definen los parametros para la Consulta de BGE para los no Clientes.
+- La línea +noCliente+ esta compuesta de :
+  - +tituloNoCliente+ : Titulo a mostrar en la pagina resultante de la consulta.
+  - +pagina+          : Pagina a mostrar como respuesta de la consulta.
+  - +Formato_RUT+     : Formato para el RUT del No Cliente.
+
+RequestController
+~~~~~~~~~~~~~~~~~
+En esta sección se definen las paginas para el control de la sesion y seguridad.
+- La línea +requestController+ esta compuesta de :
+  - +common_error+     : pagina en caso se error de sesion.
+  - +no_session_error+ : pagina en caso de no sesion.
+  - +error+            : pagina en caso de error.
+  - +common_errorRedir+: pagina a redireccionar.
+  - +noValidar+        : action de exclusion al cual no hay que validar.
+
+Garantia
+~~~~~~~~~
+En esta sección se define la condicion a validar para las lineas de garantia asociada al producto.
+- La línea +condicionGarantia+ esta compueta de :
+  - +valor+ : condicion a validar.
+  - +tipo+  : condicion de tipo no valido "+0+"
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 29/11/2007 Carlos Cubas  (BEE): versión inicial (considera los canales +portal+,+BCIExpress+).
+. 07/06/2008 Eduardo Oñate (BEE): Se Cambian en maxlengthglosabg "valor" por 255 caracteres, tambien se agrega maxglosabgROR con 60 caracteres.
+. 07/06/2008 Eduardo Oñate (BEE): En codigotipopersona se agrega codigo=PER  y glosa=PERSONA.
+. 07/06/2008 Eduardo Oñate (BEE): Se agrega a Género del tipo de moneda "tabcam=UFP" que corresponde al valor de cambio para obtener costo de fondo.
+. 07/06/2008 Eduardo Oñate (BEE): Se crea en Tipos de Boletas:PER0999 para una boleta privada en pesos con codigo BEX308
+							       y  PER0998 para una boleta privada en pesos con codigo BEX419.
+. 07/06/2008 Eduardo Oñate (BEE): Se modifica en direccionprueba "valor" de S/N (Sin Número) por S/D (Sin Dirección).
+. 07/06/2008 Eduardo Oñate (BEE): En mensajeError se agregan : mntMyrMxm, mntMnrMnm, noActualizado, ERRORGENERALFECHAINGRESODISTINTAFECHACOLOCACION
+							      sinLcrMaximo_ini, sinLcrMaximo_fin, sinLcrMino_ini y sinLcrMino_fin. 
+. 07/06/2008 Eduardo Oñate (BEE): Se agrega LogIngresoSolicitudActionGLO donde se  consulta glosa boleta en log.
+. 07/06/2008 Eduardo Oñate (BEE): Se agrega en condicionGarantia el campo tipo que valida el tipo de garantia asociada el producto.
+							      
+==========================================

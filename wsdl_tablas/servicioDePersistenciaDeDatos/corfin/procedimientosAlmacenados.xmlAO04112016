@@ -1,0 +1,1080 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="corfin.procedimientosAlmacenados">
+	<resultMap id="resultadoRealizarSimulacionDeAnticipo" class="java.util.HashMap">
+	  <result property="rutProveedor"     	column="Rut_proveedor"  	jdbcType="CHAR"   javaType="long" />
+	  <result property="numeroDeSolicitud"  column="Nro_solicitud"  	jdbcType="CHAR"   javaType="String" />
+	  <result property="nomina"   			column="Nro_Nomina_bco" 	jdbcType="CHAR"   javaType="String"/>
+	  <result property="grupo"				column="ID_Grupo"			jdbcType="CHAR"   javaType="String"/>
+	  <result property="montoSolicitado"	column="Monto_Solicitado"	jdbcType="CHAR"   javaType="double"/>
+	  <result property="montoAFinanciar"   	column="Monto_a_Financiar" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="interes"   			column="Monto_Interes" 		jdbcType="CHAR"   javaType="double"/>
+	  <result property="comision"   		column="Monto_Comision" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="iva"   				column="Monto_Iva" 			jdbcType="CHAR"   javaType="double"/>
+	  <result property="gastos"   			column="Monto_Gastos" 		jdbcType="CHAR"   javaType="double"/>
+	  <result property="montoDisponible"   	column="Monto_Disponible" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="montoAGirar"   		column="Monto_Girar" 		jdbcType="CHAR"   javaType="double"/>
+	  <result property="montoUtilizado"   	column="Monto_Utilizado" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalUtilizado"   	column="Total_Solicitado" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalAFinanciar"   	column="Total_a_Financiar" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalInteres"   	column="Total_Interes" 		jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalComision"   	column="Total_Comision" 	jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalIva"   		column="Total_Iva" 			jdbcType="CHAR"   javaType="double"/>
+	  <result property="totalGastos"   		column="Total_Gastos" 		jdbcType="CHAR"   javaType="double"/>
+	  <result property="estado"   			column="Estado" 			jdbcType="CHAR"   javaType="String"/>
+	  <result property="glosa"   										jdbcType="CHAR"   javaType="String"/>
+	  <result property="tasaDeNegocio"   	column="Tasa_Negocio" 		jdbcType="CHAR"   javaType="double"/>   	
+	<result property="comisionFormaPago"  column="Comision_Forma_Pago" jdbcType="CHAR"   javaType="double"/>
+	  <result property="ivaComisionFormaPago" column="Iva_Comision_Forma_Pago" jdbcType="CHAR"   javaType="double"/>
+	</resultMap>
+
+	<resultMap id="resultadoRealizarFinanciamiento" class="java.util.HashMap">
+	  <result property="estado"   	column="Estado" 		jdbcType="CHAR"   javaType="String"/>
+	  <result property="glosa"   	column="Glosa_Estado"	jdbcType="CHAR"   javaType="String"/>
+	</resultMap>
+
+	<resultMap id="resultadoRealizarFinanciamiento" class="java.util.HashMap">
+	  <result property="estado"   	column="Estado" 		jdbcType="CHAR"   javaType="String"/>
+	  <result property="glosa"   	column="Glosa_Estado"	jdbcType="CHAR"   javaType="String"/>
+	</resultMap>
+
+    <resultMap id="informacionCuentaProveedorTO" class="java.util.HashMap">
+	  <result property="fechaDeProceso"   					column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+	  <result property="rutHolding"							column="iRutHolding"					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorHolding"   		column="cDVHolding" 					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="razonSocialHolding"   				column="cRazonSocialHolding" 			jdbcType="CHAR"   	javaType="String"/>
+	  <result property="rutEmpresaPagadora"   				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorEmpresaPagadora"  	column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="razonSocialPagador"   				column="cRazonSocialPagador" 			jdbcType="CHAR"   	javaType="String"/>
+	  <result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorProveedor"   		column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="identificadorCuentaProveedor"   	column="cCuentaProveedorPagador" 		jdbcType="CHAR"   	javaType="String"/>
+	  <result property="montoTotalCuenta"   				column="nMontoTotal" 					jdbcType="NUMERIC"  javaType="double"/>
+	  <result property="montoTotalDebe"   					column="nMontoTotalDebe" 				jdbcType="NUMERIC"  javaType="double"/>
+	  <result property="montoTotalHaber"   					column="nMontoTotalHaber" 				jdbcType="NUMERIC"  javaType="double"/>
+	  <result property="cantidadTotalDocumentosCargados"   	column="iCantidadTotalDocumentos" 		jdbcType="INT"   	javaType="int"/>
+	  <result property="cantidadDocumentosBloqueados"   	column="iCantidadDocumentosBloqueados" 	jdbcType="INT"   	javaType="int"/>
+	  <result property="cantidadDocumentosErroneos"   		column="iCantidadDocumentosErroneos" 	jdbcType="INT"   	javaType="int"/>
+	  <result property="cantidadDocumentosDisponibles"   	column="iCantidadDocumentosDisponibles" jdbcType="INT"   	javaType="int"/>
+	  <result property="estadoAutorizacion"   				column="cEstadoAutorizacion"			jdbcType="CHAR"   	javaType="String"/>
+	  <result property="modalidadGrupo"		   				column="cmodalidadGrupo"				jdbcType="CHAR"   	javaType="String"/>	
+	</resultMap>
+
+	<resultMap id="movimientoPorFechaTO" class="java.util.HashMap">
+      	<result property="fechaDeProceso"   					column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+	  	<result property="rutEmpresaPagadora"   				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+	  	<result property="digitoVerificadorEmpresaPagadora"  	column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="rutProveedor"   						column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+	  	<result property="digitoVerificadorProveedor"   		column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="tipoDocumento"   						column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="identificadorGrupo"   				column="iIdGrupo" 						jdbcType="INT"   	javaType="long"/>
+      	<result property="identificadorCuentaProveedor"   		column="cCuentaProveedorPagador"		jdbcType="CHAR"   	javaType="String"/>
+      	<result property="fechaVencimientoDelGrupo"   			column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+      	<result property="tipoDeGrupo"   						column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+      	<result property="montoGrupo"   						column="nMontoGrupo" 					jdbcType="NUMERIC"  javaType="double"/>
+      	<result property="identificadorCuartaCopia"   			column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="estadoDocumento"   					column="cEstadoGrupo" 					jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+
+	<resultMap id="subMovimientoPorFechaTO" class="java.util.HashMap">
+      	<result property="fechaDeProceso"   					column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+	  	<result property="rutEmpresaPagadora"   				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+	  	<result property="digitoVerificadorEmpresaPagadora"  	column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="rutProveedor"   						column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+	  	<result property="digitoVerificadorProveedor"   		column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="tipoDocumento"   						column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>	  	
+	  	<result property="cantidadDeDocumentosPorSubGrupo"   	column="iCantidadDocumentos" 			jdbcType="NUMERIC"  javaType="int"/>		
+	  	<result property="identificadorGrupo"   				column="iIdGrupo" 						jdbcType="NUMERIC"  javaType="long"/>		
+		<result property="identificadorSubGrupo"   				column="iIdSubGrupo" 					jdbcType="INT"   	javaType="int"/>
+      	<result property="tipoDeGrupo"   						column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+      	<result property="montoGrupo"   						column="nMontoSubGrupo" 				jdbcType="NUMERIC"  javaType="double"/>
+      	<result property="identificadorCuartaCopia"   			column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="estadoDocumento"   					column="cEstadoSubGrupo" 				jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+	
+    <resultMap id="movimientoPorCuentaTO" class="java.util.HashMap">
+	  <result property="fechaDeProceso"   					column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+	  <result property="rutEmpresaPagadora"   				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorEmpresaPagadora"  	column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorProveedor"   		column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+      <result property="fechaVencimientoDelDocumento"   	column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+	  <result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+      <result property="numeroReferencia"   				column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+      <result property="identificadorDocumento"   			column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+      <result property="montoDocumento"   					column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+      <result property="montoOperacion"   					column="nMontoOperacion" 				jdbcType="NUMERIC"  javaType="double"/>
+      <result property="montoAFinanciar"   					column="nMontoFinanciar" 				jdbcType="NUMERIC"  javaType="double"/>
+	  <result property="identificadorGrupo"   				column="iIdGrupo" 						jdbcType="INT"   	javaType="long"/>
+      <result property="numeroSolicitud"   					column="cNumeroSolicitud"				jdbcType="CHAR"   	javaType="String"/>
+      <result property="identificadorCuartaCopia"   		column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="estadoDocumento"   					column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+
+    <resultMap id="resultadoGrupoTO" class="java.util.HashMap">
+	  <result property="fechaDeProceso"   					column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+	  <result property="rutEmpresaPagadora"   				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorEmpresaPagadora"  	column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+	  <result property="digitoVerificadorProveedor"   		column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+      <result property="fechaVencimientoDelDocumento"   	column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+	  <result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+      <result property="numeroReferencia"   				column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+      <result property="identificadorDocumento"   			column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+      <result property="montoDocumento"   					column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+	  <result property="identificadorGrupo"   				column="iIdGrupo" 						jdbcType="INT"   	javaType="long"/>
+      <result property="numeroSolicitud"   					column="cNumeroSolicitud"				jdbcType="CHAR"   	javaType="String"/>
+      <result property="identificadorCuartaCopia"   		column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+	  <result property="estadoDocumento"   					column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+	  <result property="codigoDocumento"   					column="iCodigoDocumento" 				jdbcType="INT"   	javaType="long"/>
+	</resultMap>
+
+    <resultMap id="datosParaConsultarDetalleDeSolicitudTO" class="java.util.HashMap">
+		<result property="grupo"   				column="iIdGrupo" 					jdbcType="INT"   	javaType="String"/>
+		<result property="fechaDeVencimiento"   column="dFechaVencimiento" 			jdbcType="DATETIME" javaType="Date"/>
+		<result property="montoAFinanciar"   	column="nMontoDocumento" 			jdbcType="NUMERIC"  javaType="double"/>
+		<result property="montoDisponibleDelGrupo"   	jdbcType="NUMERIC"  	javaType="double"/>
+	</resultMap>
+
+    <resultMap id="resultado" class="java.util.HashMap">
+		<result property="respuesta"  jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+
+    <resultMap id="nominaTO" class="java.util.HashMap">
+    	<result property="identificadorDeProceso"   		column="iIdProceso" 					jdbcType="INT"   	javaType="int"/>
+    	<result property="fechaDeProceso"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+    	<result property="rutEmpresaPagadora"				column="iRutPagador"					jdbcType="INT"   	javaType="long"/>
+	  	<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>				
+	  	<result property="montoTotalCargado"   				column="nMontoTotal" 					jdbcType="NUMERIC"  javaType="double"/>
+	  	<result property="montoTotalDebe"   				column="nMontoTotalDebe" 				jdbcType="NUMERIC"  javaType="double"/>
+	  	<result property="montoTotalHaber"   				column="nMontoTotalHaber" 				jdbcType="NUMERIC"  javaType="double"/>
+        <result property="montoTotalDocumentosBloqueados"   column="nMontoDocumentosBloqueados" 	jdbcType="NUMERIC"  javaType="double"/>
+	  	<result property="cantidadTotalDocumentosCargados"  column="iCantidadTotalDocumentos" 		jdbcType="INT"   	javaType="int"/>
+	  	<result property="cantidadDocumentosBloqueados"   	column="iCantidadDocumentosBloqueados" 	jdbcType="INT"   	javaType="int"/>
+	  	<result property="cantidadDocumentosErroneos"   	column="iCantidadDocumentosErroneos" 	jdbcType="INT"   	javaType="int"/>
+	  	<result property="cantidadDocumentosDisponibles"   	column="iCantidadDocumentosDisponibles" jdbcType="INT"   	javaType="int"/>
+        <result property="estadoProceso"   					column="cEstadoAutorizacion" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialPagador"               column="cRazonSocialPagador"            jdbcType="CHAR"     javaType="String"/>
+	</resultMap>
+
+    <resultMap id="documentosFinanciados" class="java.util.HashMap">
+		<result property="fechaDeProceso"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="identificadorCuentaProveedor"   	column="cSociedad" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutEmpresaPagadora"   			column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialPagador"   			column="cRazonSocialPagador" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="estadoDocumento"   				column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="fechaDeVencimiento"   			column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+		<result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="numeroDeReferencia"   			column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="montoDelDocumento"   				column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+      	<result property="indicadorDebeHaber"   			column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="indicadorCuartaCopia"   			column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+		<result property="montoPagoBanco"   				column="nMontoPagoBanco" 				jdbcType="NUMERIC"  javaType="double"/>
+		<result property="numeroDeSolicitud"   				column="cNumeroSolicitud"				jdbcType="CHAR"   	javaType="String"/>
+      	<result property="fechaDePago"   					column="dFechaPago" 					jdbcType="DATETIME" javaType="Date"/>
+	  	<result property="numeroPagina"   					column="iPaginaActual" 					jdbcType="INT"   	javaType="int"/>
+		<result property="cantidadDePaginasObtenidas"   	column="iTotalPaginas" 					jdbcType="INT"   	javaType="int"/>
+		<result property="tasaDeDescuento"   				column="nTasaDeDescuento" 				jdbcType="NUMERIC"  javaType="double"/>
+		<result property="margenPagador"   					column="nMargenPagador" 				jdbcType="NUMERIC"  javaType="double"/>				
+		<result property="diferenciaDePrecio"   			column="nDiferenciaPrecio" 				jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="iva"   							column="nIva" 							jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="comision"   						column="nComision" 						jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="ivaMasComision"   				column="nIvaMasComision" 				jdbcType="NUMERIC"  javaType="double"/>		
+	</resultMap>
+
+    <resultMap id="documentosFinanciadosMKP" class="java.util.HashMap" extends="documentosFinanciados">
+		<result property="spreadCompartido"					column="sbl_spr_com"					jdbcType="NUMERIC"	javaType="double"/>
+		<result property="tipoRentabilidad"					column="par_tip_rcm"					jdbcType="INT"		javaType="int"/>
+	</resultMap>
+
+    <resultMap id="documentosBloqueados" class="java.util.HashMap">
+		<result property="fechaDeProceso"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="identificadorCuentaProveedor"   	column="cSociedad" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutEmpresaPagadora"   			column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialPagador"   			column="cRazonSocialPagador" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialProveedor"   			column="cRazonSocialProveedor" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutBeneficiario"   				column="iRutBeneficiario" 				jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorBeneficiario"   	column="cDVBeneficiario" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialBeneficiario"   		column="cRazonSocialBeneficiario" 		jdbcType="CHAR"   	javaType="String"/>
+		<result property="estadoDocumento"   				column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="fechaDeVencimiento"   			column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+		<result property="fechaDeEmision"   				column="dFechaEmision" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="numeroDeReferencia"   			column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="numeroDeDocumento"   				column="nNumeroDocumento" 				jdbcType="NUMERIC"   javaType="long"/>
+		<result property="montoDelDocumento"   				column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+      	<result property="indicadorDebeHaber"   			column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>
+      	<result property="tasaDeEncaje"   					column="iTasaEncaje" 					jdbcType="INT"   	javaType="int"/>
+      	<result property="tipoDeMoneda"   					column="cTipoMoneda" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="glosaDocumento"   				column="cGlosa" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="indicadorCuartaCopia"   			column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="numeroPagina"   					column="iPaginaActual" 					jdbcType="INT"   	javaType="int"/>
+		<result property="cantidadDePaginasObtenidas"   	column="iTotalPaginas" 					jdbcType="INT"   	javaType="int"/>
+	</resultMap>
+
+    <resultMap id="documentosDisponibles" class="java.util.HashMap">
+		<result property="fechaDeProceso"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="rutEmpresaPagadora"   			column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="fechaDeVencimiento"   			column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+		<result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="numeroDeReferencia"   			column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+      	<result property="indicadorDebeHaber"   			column="cDebeHaber" 					jdbcType="CHAR"   	javaType="String"/>		
+		<result property="montoDelDocumento"   				column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+	  	<result property="identificadorGrupo"   			column="iIdGrupo" 						jdbcType="INT"   	javaType="int"/>
+        <result property="numeroSolicitud"   				column="cNumeroSolicitud"				jdbcType="CHAR"   	javaType="String"/>		
+		<result property="indicadorCuartaCopia"   			column="cCuartaCopia"					jdbcType="CHAR"   	javaType="String"/>
+		<result property="estadoDocumento"   				column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+	  	<result property="numeroPagina"   					column="iPaginaActual" 					jdbcType="INT"   	javaType="int"/>
+		<result property="cantidadDePaginasObtenidas"   	column="iTotalPaginas" 					jdbcType="INT"   	javaType="int"/>
+	</resultMap>
+
+    <resultMap id="solicitudBloqueo" class="java.util.HashMap">
+		<result property="identificadorSolicitudDeBloqueo"	column="cSolicitudBloqueo" 				jdbcType="CHAR" 	javaType="String"/>
+		<result property="fechaDeSolicitud"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="rutEmpresaPagadora" 				column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR" 	javaType="String"/>
+		<result property="nombreDelArchivo"   				column="cNombreArchivo" 				jdbcType="CHAR"   	javaType="String"/>		
+		<result property="estadoDeBloqueo" 					column="cEstadoBloqueo" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="usuario"				   			column="cUsuarioRegistro" 				jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>	
+
+    <resultMap id="informacionHoldingTO" class="java.util.HashMap">
+		<result property="rutDelHolding" 							column="iRutHolding" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorDelHolding" 				column="cDVHolding" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialHolding" 						column="cRazonSocialHolding" 			jdbcType="CHAR"   	javaType="String"/>		
+		<result property="horarioInicioPortal"   					column="cHoraInicioPortal" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="horarioCierrePortal"   					column="cHorarioCierrePortal" 			jdbcType="CHAR"   	javaType="String"/>		
+		<result property="correoContactoDelHolding"   				column="cCorreoContacto" 				jdbcType="CHAR" 	javaType="String"/>
+		<result property="cantidadDeDocumentosMaximoAFinanciar"   	column="iCantidadMaxDocumentos" 		jdbcType="INT"   	javaType="int"/>		
+		<result property="cantidadDeDiasMinimos"				   	column="iDiasMinimosAnticipo" 			jdbcType="INT"   	javaType="int"/>		
+		<result property="estadoHolding"				   			column="cEstadoHolding" 				jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+	
+    <resultMap id="informacionInterfazTO" class="java.util.HashMap">
+		<result property="rutDelHolding" 							column="iRutHolding" 					jdbcType="INT"   	javaType="long"/>		
+		<result property="imagenCorporativa" 			column="cImagenCorporativa" 		jdbcType="CHAR"   	javaType="String"/>
+		<result property="ubicacionImagenCorporativa" 	column="cUbicacionImagen" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="imagenBanco" 					column="cImagenBanco" 				jdbcType="CHAR"   	javaType="String"/>		
+		<result property="codigoColorCorporativo"   	column="cCodigoColorCorporativo"	jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>
+
+    <resultMap id="informacionServicioTO" class="java.util.HashMap">
+		<result property="rutDelHolding" 							column="iRutHolding" 					jdbcType="INT"   	javaType="long"/>
+		<result property="codigoDelServicio" 					column="cCodigoServicio" 	jdbcType="CHAR"   	javaType="String"/>
+		<result property="descripcionDelServicio" 				column="cDescripcion" 		jdbcType="CHAR"   	javaType="String"/>
+		<result property="usuarioDelServicio" 					column="cUsuario" 			jdbcType="CHAR"   	javaType="String"/>		
+		<result property="passwordDelServicio"   				column="cPassword" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="direccionURLDelServicio"   			column="cUrl" 				jdbcType="CHAR" 	javaType="String"/>
+	</resultMap>
+
+    <resultMap id="informacionPagadorTO" class="java.util.HashMap">
+		<result property="rutDelHolding" 							column="iRutHolding" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorDelHolding" 				column="cDVHolding" 					jdbcType="CHAR"   	javaType="String"/>	
+		<result property="rutDelPagador"   							column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>	
+		<result property="digitoVerificadorDelPagador"				column="cDVPagador" 					jdbcType="CHAR" 	javaType="String"/>
+		<result property="razonSocialDelPagador"   					column="cRazonSocialPagador" 			jdbcType="CHAR" 	javaType="String"/>
+		<result property="razonSocialHolding" 						column="cRazonSocialHolding" 			jdbcType="CHAR"   	javaType="String"/>			
+		<result property="sociedadDelHolding" 						column="cSociedadHolding" 				jdbcType="CHAR"   	javaType="String"/>	
+		<result property="sociedadDelPagador"   					column="cSociedadPagador" 				jdbcType="CHAR"   	javaType="String"/>	
+		<result property="estadoDeSociedad"							column="cEstado" 						jdbcType="CHAR" 	javaType="String"/>
+	</resultMap>
+
+    <resultMap id="condicionesCuentaTO" class="java.util.HashMap">
+		<result property="codigoCondicion"						column="codigo" 		jdbcType="INT"   	javaType="String"/>
+		<result property="descripcionCondicion" 				column="descripcion" 	jdbcType="CHAR"   	javaType="String"/>
+	</resultMap>	
+	
+	 <resultMap id="proveedoresFinanciados" class="java.util.HashMap">
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialProveedor"  			column="cRazonSocialProveedor"			jdbcType="CHAR"   	javaType="String"/>
+		<result property="montoFinanciado"   				jdbcType="NUMERIC"  javaType="double"/>
+	</resultMap>
+
+	 <resultMap id="financiados" class="java.util.HashMap">
+		<result property="fechaDeProceso"   				column="dFechaProceso" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="identificadorCuentaProveedor"   	column="cSociedad" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutEmpresaPagadora"   			column="iRutPagador" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorEmpresaPagadora" column="cDVPagador" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialPagador"   			column="cRazonSocialPagador" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="rutProveedor"   					column="iRutProveedor" 					jdbcType="INT"   	javaType="long"/>
+		<result property="digitoVerificadorProveedor"   	column="cDVProveedor" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="razonSocialProveedor"   			column="cRazonSocialProveedor" 			jdbcType="CHAR"   	javaType="String"/>
+		<result property="estadoDocumento"   				column="cEstadoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="fechaDeVencimiento"   			column="dFechaVencimiento" 				jdbcType="DATETIME" javaType="Date"/>
+		<result property="tipoDocumento"   					column="cTipoDocumento" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="numeroDeReferencia"   			column="cNumeroReferencia" 				jdbcType="CHAR"   	javaType="String"/>
+		<result property="montoDelDocumento"   				column="nMontoDocumento" 				jdbcType="NUMERIC"  javaType="double"/>
+		<result property="montoPagoBanco"   				column="nMontoPagoBanco" 				jdbcType="NUMERIC"  javaType="double"/>
+		<result property="numeroDeSolicitud"   				column="cNumeroSolicitud"				jdbcType="CHAR"   	javaType="String"/>
+      	<result property="fechaDePago"   					column="dFechaPago" 					jdbcType="DATETIME" javaType="Date"/>
+		<result property="diasGandados"   					column="nDiasGanados" 					jdbcType="INT"   	javaType="int"/>
+		<result property="porcentajeInteresCobrado" 		column="nPorcentajeInteresCobrado" 		jdbcType="NUMERIC"  javaType="double"/>
+		<result property="fechaNuevaVencimiento"   			column="dFechaNuevoVencimiento" 		jdbcType="DATETIME" javaType="Date"/>
+		<result property="glosaDocumento"   			column="cGlosa" 						jdbcType="CHAR" javaType="String"/>
+	</resultMap>
+
+	 <resultMap id="cuartaCopia" class="java.util.HashMap">
+		<result property="cuartaCopia"   	jdbcType="CHAR"  	javaType="String"/>
+	</resultMap>
+
+	<resultMap id="diasMinimos" class="java.util.HashMap">
+		<result property="diasMinimos"   	jdbcType="INT"  	javaType="int"/>
+	</resultMap>
+	<resultMap id="encabezadoLiquidacionDeCesion" class="java.util.HashMap">
+		<result property="rutProveedor"   				column="prv_rut" 						jdbcType="INT" 		javaType="long"/>
+		<result property="digitoVerificadorProveedor"   column="pvr_dvf" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="rasonSocialProveedor"   		column="pvr_rsn_soc" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="apellidoPaternoProveedor" 	column="pvr_ape_ptn" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="apellidoMaternoProveedor"   	column="pvr_ape_mtn" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="fechaOperacion"   			column="opc_fec_sim" 					jdbcType="DATETIME" javaType="String"/>
+		<result property="montoOperacion"   			column="opc_mto_doc" 					jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="diferenciaDePrecio"   		column="opc_dif_pre" 					jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="ivaComision"   				column="opc_iva_com"					jdbcType="NUMERIC"  javaType="double"/>
+      	<result property="gastoFijo"   					column="opc_gas_fij" 					jdbcType="NUMERIC" 	javaType="double"/>
+		<result property="ivaGasto"   					column="opc_iva_gas" 					jdbcType="NUMERIC" 	javaType="double"/>		
+		<result property="formaPago" 				    column="opc_for_pag_efa" 				jdbcType="CHAR"  	javaType="String"/>
+		<result property="comision"   					column="opc_com_tot_pes" 				jdbcType="NUMERIC"  javaType="double"/>
+		<result property="banco"   						column="banco" 							jdbcType="CHAR"   	javaType="String"/>		
+		<result property="numeroOtorgamiento"   		column="opc_otg_cfg" 					jdbcType="NUMERIC" 	javaType="double"/>
+		<result property="opc_num_cfg"   		        column="opc_num_cfg" 					jdbcType="NUMERIC" 	javaType="double"/>
+		<result property="saldoPagar"   				column="opc_sal_pag" 					jdbcType="NUMERIC" 	javaType="double"/>
+		<result property="gasto_not"  					column="opc_gas_not" 					jdbcType="NUMERIC" 	javaType="double"/>
+		
+	
+	</resultMap>
+		<resultMap id="detalleLiquidacionDeCesion" class="java.util.HashMap">
+		<result property="rutPagador"   				column="gpg_rut" 						jdbcType="INT" 		javaType="long"/>
+		<result property="digitoVerificadorPagador"   	column="gpg_dvf" 						jdbcType="CHAR"   	javaType="String"/>
+		<result property="rasonSocialPagador"   		column="gpg_rsn_soc" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="apellidoPaternoPagador" 		column="gpg_ape_ptn" 					jdbcType="CHAR"   	javaType="String"/>
+		<result property="apellidoMaternoPagador"   	column="gpg_ape_mtn" 					jdbcType="CHAR"   	javaType="String"/>		
+		<result property="fechaNomina"   				column="nma_fec_int" 					jdbcType="DATETIME" javaType="String"/>
+		<result property="plazo"   						column="doc_ctd_dia" 					jdbcType="INT"  	javaType="int"/>
+		<result property="monto"   						column="doc_mto" 						jdbcType="NUMERIC"  javaType="double"/>
+		<result property="anticipo"   					column="doc_mto_ant" 					jdbcType="NUMERIC" 	javaType="double"/>
+		<result property="saldo"   						column="doc_sal_pen" 					jdbcType="NUMERIC"  javaType="double"/>
+		<result property="diferenciaPrecio"   			column="doc_dif_pre" 					jdbcType="NUMERIC"  javaType="double"/>
+		<result property="comision"   					column="doc_cms" 						jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="liquidoPagar"   				column="doc_tot_gir"					jdbcType="NUMERIC"  javaType="double"/>      	
+		<result property="numeroGrupo"   				column="doc_grp_bci" 					jdbcType="NUMERIC"  javaType="double"/>		
+		<result property="tasaNegocio"   				column="doc_tas_neg" 					jdbcType="NUMERIC"  javaType="double"/>
+		<result property="fechaPago"   					column="doc_fev" 						jdbcType="DATETIME" javaType="String"/>
+		
+	</resultMap>
+	
+	<!--   Obtener numro de otorgamiento   -->
+	<procedure id="obtenerNumeroOtorgamiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_num_oto(#num_solicitud#, #estado#)}
+    </procedure>
+	
+	<!--   Obtener encabezado liquidacion de cesion   -->
+	<procedure id="obtenerDetalleLiquidacionDeCesion" parameterClass="java.util.HashMap" resultMap="detalleLiquidacionDeCesion">
+		{CALL sp_eml_con_ope(#rutProveedor#, #numeroDeSolicitud#, #tipo#)}
+    </procedure>
+	
+	<!--   Obtener encabezado liquidacion de cesion   -->
+	<procedure id="obtenerEncabezadoLiquidacionDeCesion" parameterClass="java.util.HashMap" resultMap="encabezadoLiquidacionDeCesion">
+		{CALL sp_eml_con_ope(#rutProveedor#, #numeroDeSolicitud#, #tipo#)}
+    </procedure>
+	
+	<!--   Cargar grupos   -->
+	<procedure id="cargarGrupos" parameterClass="java.util.HashMap">
+		{CALL sp_carga_grupos_web(#rutBeneficiario#, #rutProveedor#, #nomina#, #grupo#, #montoDisponibleDelGrupo#, #fechaDeVencimiento#, #montoAFinanciar#, #numeroDeSolicitud#)}
+    </procedure>
+
+	<!--   Realizar simulaci�n financiamiento   -->
+	<procedure id="realizarSimulacionDeAnticipo" parameterClass="java.util.HashMap" resultMap="resultadoRealizarSimulacionDeAnticipo">
+		{ CALL sp_solicitud_web(#rutProveedor#, #numeroDeSolicitud#, #montoTotalAFinanciar#, #formaDePago#, #numeroCuenta#, #bancoDestino#, #oficinaValeVista#, #origenFinanciamiento#) }
+	</procedure>
+
+	<!--   Realizar simulaci�n financiamiento   -->
+	<procedure id="realizarFinanciamiento" parameterClass="java.util.HashMap" resultMap="resultadoRealizarFinanciamiento">
+		{ CALL sp_financiamiento_web(#rutProveedor#, #numeroDeSolicitud#, #estadoDeSolicitud#, #fechaDePago#) }
+	</procedure>
+
+	<!--   traerCuentasAsociadasDelProveedor   -->
+	<procedure id="traerCuentasAsociadasDelProveedor" parameterClass="java.util.HashMap" resultMap="informacionCuentaProveedorTO">
+		{ CALL spResCtaPorProveedor(#rutDelProveedor#) }
+	</procedure>
+
+    <!--   Trae el detalle detalle de la cuenta seleccionada por el proveedor-->
+	<procedure id="traerDetalleDeLaCuenta" parameterClass="java.util.HashMap" resultMap="informacionCuentaProveedorTO">
+		{ CALL spResCtaPorProPagFec(#rutDelProveedor#,#rutPagador#,#fechaProceso#) }
+	</procedure>
+
+    <!--   Trae los movimientos de la cuenta-->
+	<procedure id="traerMovimientosDeLaCuentaPorTipoDeDocumento" parameterClass="java.util.HashMap" resultMap="movimientoPorFechaTO">
+		{ CALL spGrupoDocPorTipoDocProPagFec(#tipoDocumento#,#rutDelProveedor#,#rutPagador#,#fechaProceso#) }
+	</procedure>
+
+    <!--   Trae el detalle del grupo seleccionado-->
+	<procedure id="traerDetalleDeMovimientosPorIdentificadorDeGrupo" parameterClass="java.util.HashMap" resultMap="resultadoGrupoTO">
+		{ CALL spDetalleDocPorProPagFecGrp(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#identificadorGrupo#,#tipoDocumento#) }
+	</procedure>
+
+    <!--   Trae el detalle de documentos segun el numero de referencia-->
+	<procedure id="traerDetalleDeMovimientosPorNumeroDeReferencia" parameterClass="java.util.HashMap" resultMap="movimientoPorCuentaTO">
+		{ CALL spDetalleDocPorProPagFecNroRef(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numerosDeReferencias#) }
+	</procedure>
+
+    <!--   Asocia la solicitud a los grupos ingresados para la solicitud   -->
+	<procedure id="asociarSolicitudAGrupo" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spDetalleDocActualizarPorGrp(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#grupos#,#tipoSeparador#,#expiracion#) }
+	</procedure>
+
+    <!--   Asocia la solicitud a los numeros de referencias ingresados para la solicitud   -->
+	<procedure id="asociarSolicitudANumeroDeReferencia" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spDetalleDocActualizarPorNRef(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#numerosDeReferencias#,#tipoSeparador#,#expiracion#) }
+	</procedure>
+
+    <!--   Asocia la solicitud a los numeros de referencias ingresados para la solicitud   -->
+	<procedure id="asociarSolicitudASubGrupo" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spDetalleDocActualizarPorSbGrp(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#subGrupos#,#tipoSeparador#,#expiracion#) }
+	</procedure>
+	
+    <!--   Actualiza el estado de los documentos a partir del numero de solicitud   -->
+	<procedure id="actualizarEstadoSolicitud" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spDetalleDocActualizarPorNSol(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#estado#) }
+	</procedure>
+
+    <!--   Actualiza el estado de los documentos a partir del numero de solicitud   -->
+	<procedure id="traerGruposAFinanciar" parameterClass="java.util.HashMap" resultMap="datosParaConsultarDetalleDeSolicitudTO">
+		{ CALL spDetalleDocPorProPagFecNSol(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#) }
+	</procedure>
+
+        <!--   Copia los documentos que son financiados a la tabla de documentos financiados   -->
+	<procedure id="copiarDocumentosFinanciados" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spEnvioCencosudIngresoRegFinan(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#fechaPago#) }
+	</procedure>
+
+        <!--   Obtener identificador de solicitud   -->
+	<procedure id="obtenerIdentificadorParaSimulacion" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spSemillaPorTipoAgno(#tipoSemilla#,#agno#) }
+	</procedure>
+
+        <!--   Verificar solicitud   -->
+	<procedure id="verificarSolicitud" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spDetalleDocFinanciarPorNSol(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#montoFinanciar#) }
+	</procedure>
+
+        <!--   Recalcular grupos   -->
+	<procedure id="recalcularMontoCuentaProveedor" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spGrupoResumenActualizar(#rutDelProveedor#,#rutPagador#,#fechaProceso#) }
+	</procedure>
+
+        <!--   Consulta nomina  -->
+	<procedure id="consultarNomina" parameterClass="java.util.HashMap" resultMap="nominaTO">
+		{ CALL spControlProcesoPorHolding(#fechaProceso#,#rutHolding#) }
+	</procedure>
+
+        <!--   Autoriza nomina  -->
+	<procedure id="actualizarEstadoDeLaNomina" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spControlProcesoActualizar(#identificadorProceso#,#usuario#,#estado#) }
+	</procedure>
+
+        <!--   Traer documentos financiados  -->
+	<procedure id="traerDocumentosFinanciados" parameterClass="java.util.HashMap" resultMap="documentosFinanciados">
+		{ CALL spDocFinanciadosBusqueda(#rutProveedor#,#rutPagador#,#fechaInicio#,#fechaTermino#,#numeroDeReferencia#,#tipoDocumento#,#pagina#,#cantidadRegistro#) }
+	</procedure>
+
+        <!--   Traer documentos informados  -->
+	<procedure id="traerDocumentosInformados" parameterClass="java.util.HashMap" resultMap="documentosBloqueados">
+		{ CALL spDocBloqueadosBusqueda(#rutProveedor#,#rutPagador#,#fechaInicio#,#fechaTermino#,#numeroDeReferencia#,#tipoDocumento#,#pagina#,#cantidadRegistro#) }
+	</procedure>
+
+    <!--   Trae sub-grupos de documentos perteneciente a una fecha de una cuenta corriente del proveedor-->
+	<procedure id="traerSubGruposPorGrupo" parameterClass="java.util.HashMap" resultMap="subMovimientoPorFechaTO">
+		{ CALL spSubGrupoDocumentoPorGrupo(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#identificadorDeGrupo#,#tipoDocumento#) }
+	</procedure>
+
+    <!--   Trae el detalle del sub-grupo seleccionado-->
+	<procedure id="traerDocumentosDisponibles" parameterClass="java.util.HashMap" resultMap="documentosDisponibles">
+		{ CALL spDetalleDocPorSubGrupo(#rutProveedor#,#rutPagador#,#fechaProceso#,#identificadorDeGrupo#,#identificadorSubGrupo#,#tipoDocumento#,#pagina#,#cantidadRegistro#) }
+	</procedure>
+
+        <!--   Bloquera n�mina por sociedad  -->
+	<procedure id="bloquearNominaPorPagador" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spBloquearNominaPorPagador(#fechaProceso#,#rutPagador#,#estado#,#usuario#) }
+	</procedure>
+	
+        <!--   Registra una solicitud de bloqueo de facturas  -->
+	<procedure id="ingresarSolicitudDeBloqueo" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spRegistrarSolicitudBloqueo(#solicitudBloqueo#,#fechaProceso#,#rutPagador#,#dvPagador#,#rutProveedor#,#dvProveedor#,#nombreArchivo#,#estadoBloqueo#,#usuario#) }
+	</procedure>
+
+        <!--   Consulta las solicitudes de bloqueo por proveedor  -->
+	<procedure id="consultarSolicitudDeBloqueo" parameterClass="java.util.HashMap" resultMap="solicitudBloqueo">
+		{ CALL spConSolicitudBloqProFec(#fechaDeSolicitud#,#rutProveedor#) }
+	</procedure>
+	
+        <!--   Consulta una factura neta de un proveedor y un pagador  -->
+	<procedure id="consultarFacturaNeta" parameterClass="java.util.HashMap" resultMap="movimientoPorCuentaTO">
+		{ CALL spDocPorProPagFecNroRef(#fechaProceso#,#rutProveedor#,#rutPagador#,#numeroDeReferencia#,#tipoDocumento#) }
+	</procedure>
+		
+    <!--   Bloquea facturas mediante sus n�meros de referencias   -->
+	<procedure id="bloquearFacturas" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spBloqFacProPagFec(#fechaProceso#,#rutProveedor#,#rutPagador#,#numerosDeReferencias#,#tipoSeparador#) }
+	</procedure>			
+
+     <!--   Ingresa una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="ingresarConfiguracionHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spIngresarHolding(#rutHolding#,#dvHolding#,#razonSocial#,#horaInicio#,#horaCierre#,#correo#,#cantidadDocumentos#,#cantidadDiasMinimos#,#estado#) }
+	</procedure>	
+
+    <!--   Ingresa informaci�n de interfaz de una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="ingresarInterfazHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spIngresarInterfazHolding(#rutHolding#,#imagenCorporativa#,#ubicacionImagen#,#imagenBanco#,#color#) }
+	</procedure>	
+
+    <!--   Ingresa un servicio de una empresa holding  relacionada con el portal financiamiento   -->
+	<procedure id="ingresarServicioPorHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spIngresarServicioHolding(#rutHolding#,#codigoServicio#,#descripcion#,#url#,#usuario#,#password#) }
+	</procedure>		
+
+    <!--   Consulta una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="consultarConfiguracionHolding" parameterClass="java.util.HashMap" resultMap="informacionHoldingTO">
+		{ CALL spConsConfHolding(#rutHolding#) }
+	</procedure>	
+
+    <!--   Consulta informaci�n de interfaz de una empresa holding relacionada  con el portal financiamiento   -->
+	<procedure id="consultarInterfazHolding" parameterClass="java.util.HashMap" resultMap="informacionInterfazTO">
+		{ CALL spConsInterfazHolding(#rutHolding#) }
+	</procedure>	
+
+    <!--   Consulta un servicio de una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="consultarServiciosDelHoding" parameterClass="java.util.HashMap" resultMap="informacionServicioTO">
+		{ CALL spConsServiciosHolding(#rutHolding#) }
+	</procedure>	
+
+    <!--   Actualiza una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="actualizarConfiguracionDelHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spActualizarHolding(#rutHolding#,#dvHolding#,#horaInicio#,#horaCierre#,#correo#,#cantidadDocumentos#,#cantidadDiasMinimos#,#estado#) }
+	</procedure>	
+
+    <!--   Actualiza informaci�n de interfaz de una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="actualizarInterfazDelHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spActInterfazHolding(#rutHolding#,#imagenCorporativa#,#ubicacionImagen#,#imagenBanco#,#color#) }
+	</procedure>	
+
+    <!--   Actualiza un servicio de una empresa holding relacionada con el portal financiamiento   -->
+	<procedure id="actualizarServicioPorHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spActualizarServicioHolding(#rutHolding#,#codigoServicio#,#descripcion#,#url#,#usuario#,#password#) }
+	</procedure>	
+ 
+
+
+     <!--   Consulta las sociedades pagadoras por rut de una empresa holding   -->
+	<procedure id="consultarPagadoresPorHolding" parameterClass="java.util.HashMap" resultMap="informacionPagadorTO">
+		{ CALL spSociedadesPorRutHolding(#rutHolding#) }
+	</procedure>	
+
+     <!--   Consulta una empresa pagadora por rut de una empresa holding y el rut de la empresa pagadora   -->
+	<procedure id="consultaPagadorPorRut" parameterClass="java.util.HashMap" resultMap="informacionPagadorTO">
+		{ CALL spConsPagadorPorRut(#rutHolding#,#rutPagador#) }
+	</procedure>	
+
+     <!--   Ingresa una empresa pagadora para un holding   -->
+	<procedure id="ingresarPagadorPorHolding" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spIngPagadorPorHolding(#rutHolding#,#dvHolding#,#razonSocialHolding#,#sociedadHolding#,#rutPagador#,#dvPagador#,#razonSocialPagador#,#sociedadPagador#,#estado#) }
+	</procedure> 
+
+     <!--   Elimina una empresa pagadora de un holding-->
+	<procedure id="eliminarPagador" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spEliSociedadHolding(#rutHolding#,#rutPagador#) }
+	</procedure>				
+
+	<!--   Validacion simulacion-->
+	<procedure id="validacionSimulacion" parameterClass="java.util.HashMap" resultMap="condicionesCuentaTO">
+		{ CALL sp_val_prv_pag(#rutPagador#,#rutProveedor#,#monto#) }
+	</procedure>
+	
+	     <!--   Ingresar documentos para simular-->
+	<procedure id="ingresarDocumentosParaSimular" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spIngDocProSimulacion(#fechaProceso#,#rutPagador#,#dvPagador#,#rutProveedor#,#dvProveedor#,#fechaVencimiento#,#tipoDocumento#,#numeroDeReferencia#,#debeHaber#,#montoDocumento#,#idGrupo#,#numeroSolicitud#,#cuartaCopia#,#fechaOperacion#,#estadoDocumento#,#glosa#) }
+	</procedure>
+	
+	<!--   Eliminar facturas simuladas-->
+	<procedure id="eliminarFacturasSimular" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spEliSimProSimulacion(#fechaProceso#,#rutPagador#,#rutProveedor#,#numeroSolicitud#) }
+	</procedure>
+	
+	<!--   Traer grupos-->
+	<procedure id="traerGrupos" parameterClass="java.util.HashMap" resultMap="datosParaConsultarDetalleDeSolicitudTO">
+		{ CALL spConsDocProSimulacion(#fechaProceso#,#rutPagador#,#rutProveedor#,#numeroSolicitud#) }
+	</procedure>
+
+	<!--   Eliminar facturas financiadas-->
+	<procedure id="eliminarFacturasFinanciadas" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spEliDocProFinanciados(#fechaProceso#,#rutPagador#,#rutProveedor#,#numeroSolicitud#) }
+	</procedure>
+
+	<!--   Traer proveedores que han financiado-->
+	<procedure id="traerProveedoresFinanciados" parameterClass="java.util.HashMap" resultMap="proveedoresFinanciados">
+		{ CALL spConsProFinanciados(#rutPagador#,#fechaInicio#,#fechaFin#) }
+	</procedure>
+	
+        <!--   Traer documentos financiados de la tabla tblFinanciado -->
+	<procedure id="traerDocumentosQueHanFinanciados" parameterClass="java.util.HashMap" resultMap="documentosFinanciadosMKP">
+		{ CALL spConsDocFinanciados(#rutProveedor#,#rutPagador#,#fechaInicio#,#fechaTermino#,#numeroDeReferencia#,#tipoDocumento#,#pagina#,#cantidadRegistro#) }
+	</procedure>
+
+        <!--   Actualiza los documentos financiados -->
+	<procedure id="actualizarDocumentoFinanciado" parameterClass="java.util.HashMap" resultMap="financiados">
+		{ CALL spFinanciadoRegistrar(#rutProveedor#,#rutPagador#,#fechaProceso#,#numeroSolicitud#,#fechaPago#,#rutHolding#) }
+	</procedure>	
+	
+	<procedure id="traerCondicionCuartaCopiaPagador" parameterClass="java.util.HashMap" resultMap="cuartaCopia">
+		{ CALL spIndicador4taCopiaPagador(#rutPagador#) }
+	</procedure>
+
+	<procedure id="traerCondicionCuartaCopiaProveedor" parameterClass="java.util.HashMap" resultMap="cuartaCopia">
+		{ CALL spIndicador4taCopiaProveedor(#rutPagador#,#rutProveedor#) }
+	</procedure>
+
+	<procedure id="diasMinimos" parameterClass="java.util.HashMap" resultMap="diasMinimos">
+		{ CALL spConsultaDiaMinimo(#rutPagador#) }
+	</procedure>	
+
+	<procedure id="reversaFinanciamiento" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL sp_rev_financiamiento_web(#solicitud#,#rutPagador#,#rutProveedor#) }
+	</procedure>		
+   
+   <resultMap id="validacionSolicitud" class="java.util.HashMap">
+       <result property="validacion"      jdbcType="CHAR"         javaType="String"/>
+   </resultMap>
+
+   <procedure id="validacionSolicitud" parameterClass="java.util.HashMap" resultMap="validacionSolicitud">
+       { CALL spValSolFinanciamiento(#solicitud#,#numeroDeReferencia#,#rutProveedor#,#rutPagador#) }
+   </procedure>		
+   
+   <procedure id="recuperaInformacionPublicitaria" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL sp_ad_devuelve_parametros(#codigoParametro#) }
+   </procedure>	
+   
+   <!-- reclutamiento automatico -->
+   	<resultMap id="resultadoCargaDatosContacto" class="java.util.HashMap">
+		<result property="estado"   	column="estado" 	jdbcType="INTEGER"   		javaType="int"/>
+		<result property="column1"		column=""	jdbcType="VARCHAR(100)" 	javaType="String"/>		
+	</resultMap>   
+   <!-- guarda datos de contacto de un nuevo proveedor -->
+   <procedure id="guardarDatosDeContacto" parameterClass="java.util.HashMap" resultMap="resultadoCargaDatosContacto">
+	   { CALL sp_ma_carga_comunidad_proveed(
+		#pag_rut#,
+ 		#pvr_rut#,
+ 		#par_tip_pvr#,
+ 		#pvr_dvf#,
+ 		#pvr_rso#,
+        #pvr_ape_ptn#,
+        #pvr_ape_mtn#,
+        #pvr_eje_ftg#,
+        #par_act_eco#,
+        #pvr_gir#,
+        #pvr_dml_cor#,
+        #cmn_cor#,
+        #pvr_dml_leg#,
+        #cmn_leg#,
+        #pvr_tel_pri#,
+        #pvr_fax_pri#,
+        #pvr_ema_pri#,
+        #pvr_cli_bci#,
+        #pvr_fec_nac#,
+        #pvr_sex#,
+        #par_for_pag#,
+        #pvr_bco_cod#,
+        #pvr_cta_cte#,
+        #pvr_obs#,
+        #cnc_nom#,  
+        #cnc_car#,
+        #cnc_obs#,
+        #cnc_tel#,
+        #cnc_fax#,
+        #cnc_ema#,
+        #cpp_por_fin#) }
+   </procedure>
+   
+<resultMap id="resultadoExisteRelacionProveedorPagador" class="java.util.HashMap">
+		<result property="existeRelacion" column="existeRelacion" jdbcType="INTEGER" javaType="Integer" />
+	</resultMap>
+	<!--  Verifica existencia de relacion proveedor-pagador -->
+	<procedure id="existeRelacionProvedorPagador" parameterClass="java.util.HashMap" resultMap="resultadoExisteRelacionProveedorPagador">
+		{ CALL sp_cns_rel_pg(#pvr_rut#,#gpg_rut#) }
+	</procedure>
+	
+<resultMap id="resultadoRegistrarRelacionProveedorPagador" class="java.util.HashMap">
+		<result property="codigo" column="codigo" jdbcType="INTEGER" javaType="Integer" />
+		<result property="mensaje" column="mensaje" jdbcType="CHAR" javaType="String" />
+	</resultMap>
+	<!--  Registrar relacion proveedor-pagador -->
+	<procedure id="registrarRelacionProveedorPagador" parameterClass="java.util.HashMap" resultMap="resultadoRegistrarRelacionProveedorPagador">
+		{ CALL sp_reg_rel_pg(#gpg_rut#,#pvr_rut#,#ppp_4ta_copia#,#cpp_por_fin#) }
+	</procedure>
+	<resultMap id="resultadoCargaDatosContacto" class="java.util.HashMap">
+		<result property="resultado"   	column="resultado" 	jdbcType="INTEGER"   		javaType="int"/>
+		<result property="mensaje"		column="mensaje"	jdbcType="VARCHAR(100)" 	javaType="String"/>		
+	</resultMap>   
+   <!-- modifica datos de contacto para un proveedor existente -->
+   <procedure id="cargarDatosDeContacto" parameterClass="java.util.HashMap" resultMap="resultadoCargaDatosContacto">
+	   { CALL sp_act_cnc_pvr(#rutProveedor#, #nombreContacto#, #telefonoContacto#, #faxContacto#, #mailContacto#, #cargoContacto#) }
+   </procedure>
+   <!-- lista las comunas existentes -->
+   <resultMap id="resultadoComunasExistentes" class="java.util.HashMap">
+		<result property="codigo"   	column="par_cod" 	jdbcType="INTEGER"   		javaType="int"/>
+		<result property="descripcion"		column="par_des"	jdbcType="VARCHAR(40)" 	javaType="String"/>
+	</resultMap>
+	<procedure id="listarComunas" parameterClass="java.util.HashMap" resultMap="resultadoComunasExistentes">
+	   { CALL sp_ma_devu_parametro(#par_tab#) }
+   </procedure>
+   
+<!-- fin reclutamiento automatico -->	   
+
+    <!--   Trae documentos disponibles por cuenta pagador-proveedor -->
+	<procedure id="traerDocumentosDisponiblesPorCuenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL spDetalleDocPorCuenta(#rutPagador#,#rutProveedor#,#fechaProceso#) }
+	</procedure>
+	
+<!-- Inicio Factoring -->
+	 <parameterMap id="setCalculaSolicitudAnticipo" class="java.util.HashMap">
+        <parameter property="rutProveedor" jdbcType="CHAR" javaType="String" />
+        <parameter property="numeroSolicitud" jdbcType="CHAR" javaType="String" />
+        <parameter property="totalFinanciar" jdbcType="Long" javaType="long" />
+        <parameter property="formaPago" jdbcType="CHAR" javaType="String" />
+        <parameter property="numeroCuenta" jdbcType="CHAR" javaType="String" />
+        <parameter property="bancoDestino" jdbcType="CHAR" javaType="String" />
+        <parameter property="oficina" jdbcType="CHAR" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="getCalculaSolicitudAnticipo">
+    	<result property="rutproveedor"      jdbcType="char"   javaType="String"/>
+    	<result property="nrosolicitud"      jdbcType="char"   javaType="String"/>
+    	<result property="nronominabco"      jdbcType="char"   javaType="String"/>
+    	<result property="idgrupo"           jdbcType="char"   javaType="String"/>
+    	<result property="montosolicitado"   jdbcType="char"   javaType="String"/>
+    	<result property="montoafinanciar"   jdbcType="char"   javaType="String"/>
+    	<result property="montointeres"      jdbcType="char"   javaType="String"/>
+    	<result property="montocomision"  jdbcType="char"   javaType="String"/>
+    	<result property="montoiva"       jdbcType="char"   javaType="String"/>
+    	<result property="montogastos"    jdbcType="char"   javaType="String"/>
+    	<result property="montodisponible"  jdbcType="char"   javaType="String"/>
+    	<result property="montogirar"       jdbcType="char"   javaType="String"/>
+    	<result property="montoutilizado"   jdbcType="char"   javaType="String"/>
+    	<result property="totalsolicitado"  jdbcType="char"   javaType="String"/>
+    	<result property="totalafinanciar"  jdbcType="char"   javaType="String"/>
+    	<result property="totalinteres"     jdbcType="char"   javaType="String"/>
+    	<result property="totalcomision"    jdbcType="char"   javaType="String"/>
+    	<result property="totaliva"       jdbcType="char"   javaType="String"/>
+    	<result property="totalgastos"    jdbcType="char"   javaType="String"/>
+    	<result property="estado"         jdbcType="char"   javaType="String"/>
+    	<result property="glosasolicitud" jdbcType="char"   javaType="String"/>
+    	<result property="tasaNegocio"         jdbcType="char"   javaType="String"/>
+    	<result property="comisionFormaPago"    jdbcType="char"   javaType="String"/>
+        <result property="iVAComisionFormaPago" jdbcType="char"   javaType="String"/>
+        <result property="tasaDescuento"        jdbcType="char"   javaType="String"/>
+    	<result property="diferenciaPrecio"     jdbcType="char"   javaType="String"/>
+    	<result property="comisionOperacion"    jdbcType="char"   javaType="String"/>
+        <result property="iVAComisionOperacion" jdbcType="char"   javaType="String"/>
+        <result property="numeroOperacion"      jdbcType="long"   javaType="Long"/>
+    </resultMap>
+    
+    <procedure id="calculaSolicitudAnticipo" parameterMap="setCalculaSolicitudAnticipo" resultMap="getCalculaSolicitudAnticipo">
+        { CALL sp_solicitud_fac(?,?,?,?,?,?,?) }
+    </procedure>
+    
+     <parameterMap id="setCargarGruposFactoring" class="java.util.HashMap">
+        <parameter property="rutUsuario" jdbcType="CHAR" javaType="String" />
+        <parameter property="rutProveedor" jdbcType="CHAR" javaType="String" />
+        <parameter property="nomina" jdbcType="char" javaType="String" />
+        <parameter property="grupo" jdbcType="int" javaType="Integer" />
+        <parameter property="montoDisponible" jdbcType="long" javaType="Long" />
+        <parameter property="fechaGrupo" jdbcType="date" javaType="java.util.Date" />
+        <parameter property="montoFinanciar" jdbcType="long" javaType="Long" />
+        <parameter property="numSolicitud" jdbcType="CHAR" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="getCargarGruposFactoring">
+    	<result property="estado" column="estado" jdbcType="char"   javaType="String"/>
+    	<result property="glosaEstado" column="Glosa_Estado" jdbcType="char"   javaType="String"/>
+    </resultMap>
+    
+    <procedure id="cargarGruposFactoring" parameterMap="setCargarGruposFactoring" resultMap="getCargarGruposFactoring">
+        { CALL sp_carga_grupos_fac (?,?,?,?,?,?,?,?) }
+    </procedure>
+    
+     <parameterMap id="setInformarFinanciamiento" class="java.util.HashMap">
+        <parameter property="rutProveedor" jdbcType="CHAR" javaType="String" />
+        <parameter property="numeroSolicitud" jdbcType="CHAR" javaType="String" />
+        <parameter property="estado"    jdbcType="CHAR" javaType="String" />
+        <parameter property="fechaPago" jdbcType="date" javaType="java.util.Date" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="getInformarFinanciamiento">
+    	<result property="estado"      jdbcType="char"   javaType="String"/>
+    	<result property="glosaEstado" jdbcType="char"   javaType="String"/>
+    </resultMap>
+    
+    <procedure id="informarFinanciamiento" parameterMap="setInformarFinanciamiento" resultMap="getInformarFinanciamiento">
+        { CALL sp_financiamiento(?,?,?,?) }
+    </procedure>
+    
+    <parameterMap id="setConsultarDocumentosFinanciados" class="java.util.HashMap">
+        <parameter property="rutProveedor" jdbcType="CHAR" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="getConsultarDocumentosFinanciados">
+        <result property="porcentajeFinanciamiento"  jdbcType="char"   javaType="String"/>
+        <result property="grupoPagador"              jdbcType="char"   javaType="String"/>
+        <result property="montoDocumento"            jdbcType="char"   javaType="String"/>
+        <result property="razonSocial"               jdbcType="char"   javaType="String"/>
+        <result property="fechaPago"                 jdbcType="date"   javaType="java.util.Date"/>
+        <result property="montoDisponible"           jdbcType="char"   javaType="String"/>
+    </resultMap>
+    
+    <procedure id="consultarDocumentosFinanciados" parameterMap="setConsultarDocumentosFinanciados" resultMap="getConsultarDocumentosFinanciados">
+        { CALL proc_historico(?) }
+    </procedure>
+    
+    <parameterMap id="setObtenerTasaPagador" class="java.util.HashMap">
+        <parameter property="numeroOperacion" jdbcType="long" javaType="Long" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="getObtenerTasaPagador">
+        <result property="rutPagador"  jdbcType="char"    javaType="String"/>
+        <result property="tasa"          jdbcType="double"  javaType="double"/>
+    </resultMap>
+    
+    <procedure id="obtenerTasaPagador" parameterMap="setObtenerTasaPagador" resultMap="getObtenerTasaPagador">
+        { CALL sp_con_tas_fac (?) }
+    </procedure>
+    
+     <parameterMap id="registrarErrorEnBitacora" class="java.util.HashMap">
+        <parameter property="rutHolding"    jdbcType="int" javaType="long" />
+        <parameter property="dvRutHolding" jdbcType="char" javaType="String" />
+        <parameter property="rutProveedor" jdbcType="int" javaType="long" />
+        <parameter property="dvRutProveedor" jdbcType="char" javaType="String" />
+        <parameter property="idTipoError" jdbcType="char" javaType="String" />
+        <parameter property="nroFactura" jdbcType="char" javaType="String" />
+        <parameter property="idSap"    jdbcType="char" javaType="String" />
+    </parameterMap>
+    
+    <procedure id="sp_ins_reg_error" parameterMap="registrarErrorEnBitacora">
+        { CALL sp_ins_reg_error(?,?,?,?,?,?,?) }
+    </procedure>
+    
+    <parameterMap id="consultaBitacoraErrores" class="java.util.HashMap">
+        <parameter property="rutProveedor" jdbcType="int" javaType="Long" />
+        <parameter property="dvRutProveedor" jdbcType="char" javaType="String" />
+        <parameter property="rutHolding"    jdbcType="int" javaType="Long" />
+        <parameter property="dvRutHolding" jdbcType="char" javaType="String" />
+        <parameter property="fechaInicio" jdbcType="datetime" javaType="Date" />
+        <parameter property="fechaFin" jdbcType="datetime" javaType="Date" />
+        <parameter property="idTipoError" jdbcType="char" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="resultConsultaBitacoraErrores">
+        <result property="fechaRegistro" column="tbe_fec_registro"  jdbcType="datetime" javaType="Date"/>
+        <result property="nroFactura" column="tbe_num_factura"  jdbcType="char" javaType="String" />
+        <result property="idSap"  column="tbe_id_sap"   jdbcType="char" javaType="String" />
+        </resultMap>
+    
+    <procedure id="sp_cns_bit_error" parameterMap="consultaBitacoraErrores" resultMap="resultConsultaBitacoraErrores">
+        { CALL sp_cns_bit_error (?,?,?,?,?,?,?) }
+    </procedure>
+   
+	<!-- Fin Factoring -->
+
+   <procedure id="recuperaParametrosFinanciamiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL sp_ad_devuelve_parametros(#codigoParametro#) }
+   </procedure>	
+
+   <procedure id="recuperaParametrosCuenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spRecuperaParametrosCuenta(#rutPagador#,#rutProveedor#) }
+   </procedure>
+
+<!--  CuentaProveedor -->
+    <parameterMap id="obtenerDocumentosPagadosProveedor" class="java.util.HashMap">
+        <parameter property="rutProveedor" jdbcType="int" javaType="long" />
+        <parameter property="dvRutProveedor" jdbcType="char" javaType="String" />
+        <parameter property="rutPagador"    jdbcType="int" javaType="long" />
+        <parameter property="dvRutPagador" jdbcType="char" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="resultObtenerDocumentosPagadosProveedor">
+        <result property="iCodigoDocumento"  jdbcType="int"    javaType="int"/>
+    </resultMap>
+    
+    <procedure id="sp_cns_dctos_pag" parameterMap="obtenerDocumentosPagadosProveedor" resultMap="resultObtenerDocumentosPagadosProveedor">
+        { CALL sp_cns_dctos_pag (?,?,?,?) }
+    </procedure>
+
+<!--  FIN CuentaProveedor -->
+<!--  LineaCreditoPagador -->
+    <parameterMap id="obtenerLineaCreditoPagador" class="java.util.HashMap">
+        <parameter property="rutPagador"    jdbcType="char" javaType="String" />
+    </parameterMap>
+    
+     <resultMap class="java.util.HashMap" id="resultObtenerLineaCreditoPagador">
+        <result property="gpg_rut"  jdbcType="char"   javaType="String"/>
+        <result property="sbl_mto"  jdbcType="MONEY"    javaType="Double"/>
+        <result property="sbl_mto_ocu"  jdbcType="MONEY"    javaType="Double"/>
+        <result property="sbl_spr_com"  jdbcType="int"    javaType="int"/>
+        <result property="par_est"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_fec_cre"  jdbcType="date"   javaType="java.util.Date"/>
+        <result property="sbl_fec_vig"  jdbcType="date"   javaType="java.util.Date"/>
+        <result property="sbl_tsa_mra"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_mto_min"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_pla_min"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_por_ant"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_pla_max"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_vlr_tip"  jdbcType="int"    javaType="int"/>
+        <result property="sbl_fij_spr"  jdbcType="int"    javaType="int"/>
+    </resultMap>
+    
+    <procedure id="sp_visacionsublinea" parameterMap="obtenerLineaCreditoPagador" resultMap="resultObtenerLineaCreditoPagador">
+        { CALL sp_visacion_sublinea_efact (?) }
+    </procedure>
+
+<!--  FIN LineaCreditoPagador -->
+
+
+<!-- agregado para Efactoring -->
+   <procedure id="recuperarOperacionesEFactoring" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcBuscaOperaciones(#tipoOperacion#, #codigoFormaPago#) }
+   </procedure>	
+   
+   <procedure id="recuperarOperacionesAbonadas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcOperacionesAbonadas(#codigoFormaPago#) }
+   </procedure>	   
+
+   <procedure id="recuperarBancos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL sp_ma_devuelve_banco() }
+   </procedure>	   
+
+	<resultMap id="getRecuperarParametrosEfactoring" class="java.util.HashMap">
+		<result property="tipo" 			jdbcType="INT"   	javaType="int"/>
+		<result property="codigo" 			jdbcType="INT"   	javaType="int"/>
+		<result property="descripcion" 		jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result property="valorDespliegue" 	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result property="nombre" 			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result property="atributo" 		jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result property="valorSistema" 	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<result property="estado" 			jdbcType="VARCHAR" javaType="java.lang.String" />
+	</resultMap>
+	
+<procedure id="recuperarParametrosEfactoring" parameterClass="java.util.HashMap" resultMap="getRecuperarParametrosEfactoring">
+       { CALL sp_ad_devuelve_parametros(#tipo#) }
+   </procedure>
+
+   <procedure id="guardarCuentaCorrienteEfactoring" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcActualizaCuenta(#rutProveedor#, #numeroOperacion#, #formaPago#, #banco#, #cuenta#) }
+   </procedure>
+   
+   <procedure id="recuperaLiquidacionOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcInformeLiquidacion(#rut#, #ope_num#) }
+   </procedure>
+   
+   <procedure id="recuperarOperacionesEmitidas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcOperacionesAIntegrar(#fechaContable#) }
+   </procedure>   
+   
+   <procedure id="recuperarOperacionesAExcepcionar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcExcepcionesAIntegrar(#fechaContable#) }
+   </procedure>
+
+   <procedure id="recuperaDatosNominaDetalle" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcGeneraNomina(#proveedor#, #pagador#, #solicitud#, #operacion#, #grupo#) }
+   </procedure>
+
+   <procedure id="excepcionarOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcGeneraExcepcion(#proveedor#, #operacion#, #otorgamiento#, #iva#, #comision#, #montoBanco#, #usuario#, #ip#, #codigoBanco#) }
+   </procedure>
+
+   <procedure id="modificaEstadoOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcGeneraMarca(#evalua#, #resp_tandem#, #marca#, #origen#, #proveedor#, #operacion#, #usuario#, #ip#, #id_nomina#) }
+   </procedure>
+
+   <procedure id="recuperarMontoTotal" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcMontoFinanciamientos(#fechaDesde#, #fechaHasta#, #tipoAbono#,	#formaPago#, #estadoAbono#, #rutPagador#, #rutProveedor#, #usuario#) }
+   </procedure>
+
+   <procedure id="recuperarInformeFinanciamiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcInformeFinanciamientos(#fechaDesde#, #fechaHasta#, #tipoAbono#, #formaPago#, #estadoAbono#, #rutPagador#, #rutProveedor#, #usuario#) }
+   </procedure>
+   
+   <procedure id="recuperarGruposPorOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcEvaluaOperacion(#rutProveedor#, #numeroOperacion#) }
+   </procedure>
+
+   <procedure id="recuperarDocumentosPorOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcDocumentosGrupo(#numeroOperacion#,#numeroSolicitud#,#rutProveedor#) }
+   </procedure>
+
+   <procedure id="recuperarTotalAbonosIntegracion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcMontoAbonoIntegracion(#fechaContable#) }
+   </procedure>
+
+   <procedure id="recuperarTotalExcepcionesIntegracion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcMontoExcepcionIntegrar(#fechaContable#) }
+   </procedure>
+
+   <procedure id="registrarNominaEfactoring" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+       { CALL spAblEfcRegistraNomina(#nombreNomina#,#usuario#,#direccionIp#,#cantidadOperaciones#,#montoNomina#) }
+   </procedure>   
+   
+	<!--   Obtener detall de documentos factoring para portal MultiPagador   -->
+	<procedure id="obtenerDetalleDocumentos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_obtenerDetalleDocumentoMP(#idDocumento#) }
+	</procedure>
+	
+	<!-- Comprueba si un documento ya ha sido financiado. Portal : MultiPagador -->
+	<procedure id="estaFinanciadoDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_estaFinanciadoDocumento(#iRutProveedor#, #iRutPagador#, #cTipoDocumento#, #nNumeroDeReferencia#) }
+	</procedure>
+	
+	<!-- Elimina los documentos recursados . Portal : MultiPagador -->
+	<procedure id="eliminarDocumentosRecursados" parameterClass="java.util.HashMap">
+		{ CALL sp_eliminarRecursadosMP(#numeroDeReferencia#) }
+	</procedure>
+	
+	<!--  Mueve un documento de la tabla de nominas a tblDetalleDocumento. Portal : MultiPagador -->
+	<procedure id="moverDocumentoSimuladoMP" parameterClass="java.util.HashMap">
+		{ CALL sp_moverDocumentoSimuladoMP(#iRutPagador#, #iRutProveedor#, #cNumeroReferencia#, #cTipoDocumento#, #cNumeroSolicitud#, #iIdGrupo#, #cCuartaCopia#) }
+	</procedure>
+	
+	<!--   Verificar solicitud portal MultiPagador   -->
+	<procedure id="verificarSolicitudPortalMultiPagador" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL spVerificaPorNSolPortalMulti(#rutDelProveedor#,#rutPagador#,#fechaProceso#,#numeroDeSolicitud#,#montoFinanciar#) }
+	</procedure>
+	
+	<!--   Obtener detalle de documentos seg�n n�mero de solicitud factoring para portal MultiPagador   -->
+	<procedure id="obtenerDetalleDocumentosPorSolicitud" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_obtenerDetalleDocumentosSol(#cNumeroSolicitud#) }
+	</procedure>
+	
+	<!-- Realiza el financiamiento de factoring  : Portal MultiPagador -->
+	<procedure id="realizarFinanciamientoPortalMultPagador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_financiamiento_web_MP(#rutProveedor#, #numeroDeSolicitud#, #estadoDeSolicitud#, #fechaDePago#) }
+	</procedure>
+	
+	<!--   Realizar simulaci�n ficticia de financiamiento : Portal MultiPagador -->
+	<procedure id="realizarSimulacionFicticiaDeAnticipo" parameterClass="java.util.HashMap" resultMap="resultadoRealizarSimulacionDeAnticipo">
+		{ CALL sp_solicitud_ficticia_web(#rutProveedor#, #numeroDeSolicitud#, #montoTotalAFinanciar#, #formaDePago#, #numeroCuenta#, #bancoDestino#, #oficinaValeVista#, #origenFinanciamiento#) }
+	</procedure>
+	<!--   Obtener datos beneficiario : Portal MultiPagador -->
+	<procedure id="consultarDatosBeneficiario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_cons_datosBeneficiario(#rutDelHolding#, #rutEmpresaPagadora#) }
+	</procedure>
+</sqlMap>

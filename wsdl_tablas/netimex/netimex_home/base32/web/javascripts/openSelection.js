@@ -1,0 +1,7 @@
+function openSelection()
+{
+	openLayoutSelection();
+}
+
+
+

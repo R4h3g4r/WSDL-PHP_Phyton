@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="CtaFamilia.procedimientosAlmacenados">
+
+	<parameterMap id="paramConsultarSolicitudesPorAsociado" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric"  javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="CHAR"     javaType="String" />
+	</parameterMap>
+
+	<resultMap id="resultConsultarSolicitudesPorAsociado" class="java.util.HashMap">
+		<result property="numeroSolicitud" 				column="SAF_NRO_SOL" javaType="java.lang.Long"/>
+		<result property="rutAsociado" 	column="SAF_RUT_USR_ASC" javaType="java.lang.Long"/>
+		<result property="dvAsociado" 	column="SAF_RUT_USR_ASC_DV" javaType="java.lang.String"/>
+		<result property="tipoCuenta" 	column="SAF_TIP_CTA_ASC" javaType="java.lang.String"/>
+        <result property="tipoAsociacion" 	column="SAF_TIP_ASC" javaType="java.lang.String"/>
+        <result property="fechaSolicitud" 	column="SAF_FEC_SOL" javaType="java.util.Date"/>
+        <result property="estadoSolicitud" 	column="SAF_ESTADO" javaType="java.lang.String"/>
+        <result property="nombreAsociado" 	column="SAF_NOM_ASC" javaType="java.lang.String"/>
+        <result property="apePaternoAsociado" 	column="SAF_APE_PAT_ASC" javaType="java.lang.String"/>
+        <result property="apeMaternoAsociado" 	column="SAF_APE_MAT_ASC" javaType="java.lang.String"/>
+        <result property="aliasAsociado" 	column="SAF_ALI_USR_ASC" javaType="java.lang.String"/>
+	</resultMap>
+	
+	<procedure id="consultarSolicitudesPorAsociado" parameterMap="paramConsultarSolicitudesPorAsociado" resultMap="resultConsultarSolicitudesPorAsociado">
+		{ CALL sp_consultaAsociadoCtaFamilia( ?,? ) }
+	</procedure>
+
+</sqlMap>	

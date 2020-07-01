@@ -1,0 +1,11 @@
+#Desarrollo
+#AMBIENTE; Desc=t3://161.131.184.91:8701;
+
+#Certificacion
+AMBIENTE; Desc=t3://161.131.16.150:9000;
+
+#Produccion
+#AMBIENTE; Desc=t3://161.131.133.40:9000;
+DB_FLUJOCAJA; Desc=CMG;
+SP_ANULAR; Desc=anularSpot;
+SP_INGRESAR; Desc=ingresarSpot;

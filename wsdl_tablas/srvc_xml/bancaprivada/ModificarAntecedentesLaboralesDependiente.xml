@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_mod_ald_cli_bp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="Long"   middle_name="cbp_rut" size="0" java_name="rutCliente" />
+        <field type="int"       middle_name="cbp_alb_cod"   size="0" java_name="codigoActividadLaboral"                />
+        
+		<field type="int"       middle_name="ald_emp_rut"   size="0" java_name="rutEmpresaEmpleadora"                />
+		<field type="char"      middle_name="ald_emp_dv"    size="0" java_name="digitoVerificadorEmpresaEmpleadora"  />
+		<field type="String"    middle_name="ald_emp_nom"   size="0" java_name="nombreEmpresaEmpleadora"             />
+		<field type="String"    middle_name="ald_emp_gir"   size="0" java_name="actividadEconomicaEmpresaEmpleadora" />
+		<field type="String"    middle_name="ald_ubi_fon"   size="0" java_name="fonoEmpresaEmpleadora"                />
+		<field type="String"    middle_name="ald_ubi_dir"   size="0" java_name="direccionEmpresaEmpleadora"             />
+		<field type="String"    middle_name="ald_ubi_com"   size="0" java_name="codigoComunaEmpresaEmpleadora"        />
+		<field type="String"    middle_name="ald_ubi_ciu"   size="0" java_name="codigoCiudadEmpresaEmpleadora"        />
+		<field type="String"    middle_name="ald_ubi_reg"   size="0" java_name="codigoRegionEmpresaEmpleadora"        />
+		<field type="String"    middle_name="ald_emp_crg"   size="0" java_name="cargo"                                />
+		<field type="Date"      middle_name="ald_fec_ini"   size="0" java_name="fechaInicioTrabajo"                   />
+		<field type="double"    middle_name="ald_emp_pcj"   size="0" java_name="porcentajeDeParticipacion"            />
+
+		<field type="String" middle_name="ald_usr_ing" size="0" java_name="usuarioIngreso" />
+		<field type="String" middle_name="ald_usr_act" size="0" java_name="usuarioActualizacion" />
+		<field type="String" middle_name="ald_pgm_act" size="0" java_name="programaUltimaModificacion" />
+		<field type="String" middle_name="ald_cnl_act" size="0" java_name="canalUltimaModificacion" />
+	</input>
+	<output/>
+</service>
+

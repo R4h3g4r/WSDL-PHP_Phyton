@@ -1,0 +1,285 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>entities</title>
+<style>
+<!--
+h1           { font-family: Arial; font-size: 18pt; font-weight: bold }
+h1           {  }
+h1           { font-family: Arial; font-size: 18pt; font-weight: bold }
+heading 1    { font-family: Arial; font-size: 18pt; margin-top: 6; margin-bottom: 12 }
+-->
+</style>
+</head>
+
+<body background="grnitbkg.gif" text="#000080">
+
+<h1><font face="Arial" size="5">ENTITIES</font></h1>
+<h2><font face="Arial" size="4"><b>Introduction</b></font></h2>
+<p><font face="Arial" size="2">The NetIMEX Multi-Entity feature is designed to
+allow a Bank using NetIMEX to host the electronic Trade Finance operation of
+several Entities in one installation of the system, rather than having several
+different installations - one for each entity.</font></p>
+<p><font face="Arial" size="2">The appearance for each Entity created is copied
+from an existing Entity.&nbsp; The User creating the entities can select the
+Entity from which to copy the appearance of the screens in the new Entity. All
+the necessary tables, images, help files and other information required by the
+system is automatically copied to the new Entity on its creation.</font></p>
+<p><font face="Arial" size="2">NetIMEX is supplied with one General Bank User
+defined. This user can perform only two actions in the system:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Maintain General Bank Users. These users will
+    be able to perform these same two functions only.</font></li>
+  <li><font face="Arial" size="2">Create new Entities.</font></li>
+</ul>
+<p><font face="Arial" size="2">A customer User will automatically be logged in
+to the Entity to which he belongs, and will be able to view and operate only
+those Customers belonging to his group, according to the authorization given to
+him. The regular Bank user has the option to edit, create and customize certain
+features for his Entity. For further details please refer to the section on Bank
+User Work Options with Entities.</font></p>
+<p><font face="Arial" size="4"><b>Customizing Entities</b></font></p>
+<p><font face="Arial" size="2">The first screen to which the General Bank User
+is routed after login is the Customize Entity screen, where a list of all
+Entities is displayed and Entities can be created, edited or deleted.</font><img src="entiti1.gif" v:shapes="_x0000_i1034" width="547" height="282"></p>
+<p><font face="Arial" size="2"><b>Entity ID</b> - This is the Entity ID code by
+which the Entity is recognized within the system.</font></p>
+<p><font face="Arial" size="2"><b>Entity Description </b>- This is the full name
+of the Entity.</font></p>
+<p><font face="Arial" size="2"><b>Limit Bank User Authorization</b> - Allows the
+Bank to restrict the authorization of Bank users.</font></p>
+<ul>
+  <li><font face="Arial" size="2">If Yes, segregation of duties exists for this
+    entity. This means that the authorization of the Banks users are split into
+    two types of Bank Users for the entity:</font></li>
+</ul>
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">- Supervisors: Authorized to create other
+    Bank Users as a supervisor or regular Bank user. For regular user the
+    Supervisor must set the authorization for specific functions e.g.
+    authorization maintenance, configuration, audit trail access, translation.
+    The supervisor cannot carry out any of these Bank functions and define any
+    end Users (None Bank User).&nbsp;</font></p>
+    <p><font face="Arial" size="2">- Bank User. Can work according to the
+    authorization set by the supervisor. Cannot create any Bank Users, not as a
+    supervisor nor as a regular Bank user and cannot give any regular Bank User
+    authorization.</font></p>
+  </blockquote>
+</blockquote>
+<ul>
+  <li><font face="Arial" size="2">If No, segregation of duties does not exist
+    for this entity.</font></li>
+</ul>
+<p><font face="Arial" size="2"><b>Delete</b> <img src="entiti2.gif" v:shapes="_x0000_i1035" width="22" height="28">&nbsp;-
+Clicking on this icon will erase the Entity from the system.</font></p>
+<p><font face="Arial" size="2"><i><b>Note: </b>An Entity can only be deleted
+from the system if there are no regular customers for tlis Entity defined in the
+system.</i></font></p>
+<p><font face="Arial" size="2"><b>Edit</b> <img src="entiti3.gif" v:shapes="_x0000_i1036" width="26" height="29">-
+This function allows the user to make changes&nbsp;to the Entity Description.</font></p>
+<p><font face="Arial" size="2"><img src="entiti4.gif" v:shapes="_x0000_i1037" width="62" height="23">&nbsp;Clicking
+on this button allows the user to create a new Entity,</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1038" width="61" height="22">&nbsp;Returns
+the user to the previous screen without making any changes.</font></p>
+<p><font face="Arial" size="2"><b>General Bank Users List</b> - Click on this
+link to display the list of all General Bank Users in the system.</font></p>
+<h3><font face="Arial" size="3">Entity ID</font></h3>
+<p><font face="Arial" size="2">Clicking on the Entity ID field in the Entities
+list allows the user to view the Entity Details.</font></p>
+<p class="screencaptures"><img src="entiti6.gif" v:shapes="_x0000_i1039" width="522" height="144"></p>
+<p><font face="Arial" size="2"><b>Entity ID</b> - This is the Entity ID code by
+which the Entity is recognized within the system.</font></p>
+<p><font face="Arial" size="2"><b>Entity Description</b> - This is the full name
+of the Entity.</font></p>
+<p><font face="Arial" size="2"><b>Limit Bank User Authorization</b> - Allows the
+Bank to restrict the authorization of Bank users.</font></p>
+<ul>
+  <li><font face="Arial" size="2">If “Yes”, segregation of duties exists for
+    this entity. This means that the authorization of the Banks users are split
+    into two types of Bank Users for the entity:</font></li>
+</ul>
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">- Supervisors: Authorized to create other
+    Bank Users as a supervisor or regular Bank user. For regular user the
+    Supervisor must set the authorization for specific functions e.g.
+    authorization maintenance, configuration, audit trail access, translation.
+    The supervisor cannot carry out any of these Bank functions and define any
+    end Users (None Bank User).&nbsp;</font></p>
+    <p><font face="Arial" size="2">- Bank User. Can work according to the
+    authorization set by the supervisor. Cannot create any Bank Users, not as a
+    supervisor nor as a regular Bank user and cannot give any regular Bank User
+    authorization.</font></p>
+  </blockquote>
+</blockquote>
+<ul>
+  <li><font face="Arial" size="2">If “No”, segregation of duties does not
+    exist for this entity.</font></li>
+</ul>
+<p><font face="Arial" size="2">This screen is for information purposes only and
+no changes can be made here.</font></p>
+<p><font face="Arial" size="2">Click <img src="entiti5.gif" v:shapes="_x0000_i1040" width="61" height="22">&nbsp;to
+return to the previous screen.</font></p>
+<h3><font face="Arial" size="3">Add Entity</font></h3>
+<p><font face="Arial" size="2">To add a new Entity, click on the <img src="entiti4.gif" v:shapes="_x0000_i1041" width="62" height="23">&nbsp;button
+at the bottom of the Entities list. The Entity Details form is displayed.</font></p>
+<p class="screencaptures"><img src="entiti7.gif" v:shapes="_x0000_i1042" width="557" height="193"></p>
+<p><font face="Arial" size="2">To complete the Entity Details form, enter the
+required data in the relevant fields. All the fields in this form are mandatory.</font></p>
+<p><font face="Arial" size="2"><b>Entity ID</b> - Enter a 3 character Entity ID
+by which the Entity will be recognized in the system.</font></p>
+<p><font face="Arial" size="2"><b>Entity Name</b> - Enter the full name of the
+Entity.</font></p>
+<p><font face="Arial" size="2"><b>Copy Layout from Entity</b> - Select the
+Entity from which the Layout is to be copied. The layout can be copied from any
+Entity that already exists in the system.</font></p>
+<p><font face="Arial" size="2"><b>Limit Bank User Authorization</b> - Allows the
+Bank to restrict the authorization of Bank users.</font></p>
+<ul>
+  <li><font face="Arial" size="2">If Yes, segregation of duties exists for this
+    entity. This means that the authorization of the Banks users are split into
+    two types of Bank Users for the entity:</font></li>
+</ul>
+<blockquote>
+  <blockquote>
+    <p><font face="Arial" size="2">- Supervisors: Authorized to create other
+    Bank Users as a supervisor or regular Bank user. For regular user the
+    Supervisor must set the authorization for specific functions e.g.
+    authorization maintenance, configuration, audit trail access, translation.
+    The supervisor cannot carry out any of these Bank functions and define any
+    end Users (None Bank User).&nbsp;</font></p>
+    <p><font face="Arial" size="2">- Bank User. Can work according to the
+    authorization set by the supervisor. Cannot create any Bank Users, not as a
+    supervisor nor as a regular Bank user and cannot give any regular Bank User
+    authorization.</font></p>
+  </blockquote>
+</blockquote>
+<ul>
+  <li><font face="Arial" size="2">If No, segregation of duties does not exist
+    for this entity.</font></li>
+</ul>
+<p><font face="Arial" size="2"><img src="entiti8.gif" v:shapes="_x0000_i1043" width="61" height="23">&nbsp;Click
+to save the new Entity in the System. This new Entity will automatically be
+assigned the number 000.</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1030" width="61" height="22">&nbsp;Click
+to return to the Entities list without saving any changes.</font></p>
+<p><font face="Arial" size="2"><i><b>Note:</b> When a new Entity is created, the
+system automatically creates a General Bank User called SYSTEMXXX where XXX is
+the ID of the newly created Entity, using the default Bank User password. Using
+this ID and password, the new General Bank User can log on to the system and
+perform those functions for which he is authorized</i></font></p>
+<h2><font face="Arial" size="3">Edit Entity</font></h2>
+<p><font face="Arial" size="2">Click on the Edit icon <img src="entiti3.gif" v:shapes="_x0000_i1031" width="26" height="29">to
+edit the Entity details. The Entity Details form is displayed.</font></p>
+<p class="screencaptures"><img src="entiti9.gif" v:shapes="_x0000_i1032" width="546" height="156"></p>
+<p><font face="Arial" size="2">The only field that can be edited on this form is
+the Entity Name. Enter a new name or change the existing name, as required.</font></p>
+<p><font face="Arial" size="2"><img src="entiti8.gif" v:shapes="_x0000_i1033" width="61" height="23">&nbsp;Click
+to save the changes to the Entity Name and return to the previous screen.</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1029" width="61" height="22">&nbsp;Click
+to return to the Entities List without saving any changes.</font></p>
+<h2><font face="Arial" size="4"><b>General Bank User List</b></font></h2>
+<p><font face="Arial" size="2">Click the General Bank Users link at the bottom
+of the Entities list in order to display the list of the General Bank Users in
+the system. The general bank User can perform only two actions in the system:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Create other General Bank Users.</font></li>
+  <li><font face="Arial" size="2">Create Entities.</font></li>
+</ul>
+<p><font face="Arial" size="2"><i><b>Note:</b> There must be at least one
+General Bank User per Entity and the user will not be able to delete a General
+Bank User if he/she is the only one.</i></font></p>
+<p class="screencaptures"><img src="entiti10.gif" v:shapes="_x0000_i1044" width="230" height="222"></p>
+<p><font face="Arial" size="2"><b>User ID</b> - The User ID code by which the
+User is recognized in the System.</font></p>
+<p><font face="Arial" size="2"><b>Delete </b><img src="entiti2.gif" v:shapes="_x0000_i1045" width="22" height="28">&nbsp;-
+Deletes the General User from the system, provided that he/she is not the only
+General User for that Entity.</font></p>
+<p><font face="Arial" size="2"><b>Update </b><img src="entiti3.gif" v:shapes="_x0000_i1046" width="26" height="29">-
+Enables the User to edit the General User Details.</font></p>
+<p><font face="Arial" size="2"><img src="entiti4.gif" v:shapes="_x0000_i1025" width="62" height="23">&nbsp;Click
+to add a General Bank User to the system.</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1026" width="61" height="22">&nbsp;Click
+to return to the previous screen without saving any changes.</font></p>
+<p><font face="Arial" size="2">Click on the Entities link at the bottom of the
+General Bank Users List to return to the Entities List.</font></p>
+<h3><font face="Arial" size="3">User ID</font></h3>
+<p><font face="Arial" size="2">Clicking on the User ID field in the General Bank
+User list allows the user to view the User Details.</font></p>
+<p class="screencaptures"><img src="entiti11.gif" v:shapes="_x0000_i1027" width="388" height="115"></p>
+<p><font face="Arial" size="2"><b>User ID</b> - The User ID code by which the
+User is recognized in the system.</font></p>
+<p><font face="Arial" size="2"><b>User Name </b>- The full name of the User</font></p>
+<p><font face="Arial" size="2">Click <img src="entiti5.gif" v:shapes="_x0000_i1028" width="61" height="22">&nbsp;to
+return to the Bank General User List.</font></p>
+<h3><font face="Arial" size="3">Add General Bank User</font></h3>
+<p><font face="Arial" size="2">Click Add to create a new General Bank User. The
+User Details form is displayed. To complete the User Details form, enter the
+required information in the relevant fields. Both fields in this form are
+mandatory.</font></p>
+<p class="screencaptures"><img src="entiti12.gif" v:shapes="_x0000_i1047" width="434" height="123"></p>
+<p><font face="Arial" size="2"><b>User ID</b> - Enter the User ID code by which
+the User will be recognized in the system.</font></p>
+<p><font face="Arial" size="2"><b>User Name</b> - Enter the full name of the
+User</font></p>
+<p><font face="Arial" size="2"><img src="entiti8.gif" v:shapes="_x0000_i1048" width="61" height="23">&nbsp;Click
+to save the User in the system.</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1049" width="61" height="22">&nbsp;Click
+to return to the Bank General User List without saving any changes.</font></p>
+<h3><font face="Arial" size="3">Edit General Bank User Details</font></h3>
+<p><font face="Arial" size="2">Click on the Edit icon <img src="entiti3.gif" v:shapes="_x0000_i1050" width="26" height="29">to
+edit the User details. The User Details form is displayed.</font></p>
+<p class="screencaptures"><img src="entiti13.gif" v:shapes="_x0000_i1051" width="433" height="120"></p>
+<p><font face="Arial" size="2">The only field that can be edited on this form is
+the User Name. Enter a new name or change the existing name, as required.</font></p>
+<p><font face="Arial" size="2"><img src="entiti8.gif" v:shapes="_x0000_i1052" width="61" height="23">&nbsp;Click
+to save the changes to the User Name and return to the previous screen.</font></p>
+<p><font face="Arial" size="2"><img src="entiti5.gif" v:shapes="_x0000_i1053" width="61" height="22">&nbsp;Click
+to return to the General Bank User List without saving any changes.</font></p>
+<p><font face="Arial" size="2">Click on the Entities link at the bottom of the
+General Bank User list to return to the Entities List.</font></p>
+<h3><font face="Arial" size="4"><span style="mso-bidi-font-size: 10.0pt; mso-fareast-font-family: Times New Roman; mso-ansi-language: EN-US; mso-fareast-language: EN-US; mso-bidi-language: AR-SA"><b>Regular
+Bank User Work Options with Entities</b></span></font></h3>
+<h2><font face="Arial" size="3">Customer</font></h2>
+<ul>
+  <li><font face="Arial" size="2">The regular Bank user can view and work with
+    only those Customers defined in his Entity.</font></li>
+  <li><font face="Arial" size="2">The regular Bank user can create new Customers
+    and edit existing Customers only for his own Entity. The Entity for the
+    newly created Customer will be set according to the Entity of the Bank User
+    who created the Customer. The system will identify this Entity from the
+    information entered at login.</font></li>
+</ul>
+<h2><font face="Arial" size="3">Group</font></h2>
+<ul>
+  <li><font face="Arial" size="2">The regular Bank user can view and work with
+    only those Groups defined in his Entity.</font></li>
+  <li><font face="Arial" size="2">The regular Bank user can create new Groups
+    and edit existing Groups only for his own entity. The Entity for the newly
+    created Group will be set according to the Entity of the Bank user who
+    created the Group. The system will identify this Entity from the information
+    entered at login.</font></li>
+</ul>
+<h2><font face="Arial" size="3">User</font></h2>
+<ul>
+  <li><font face="Arial" size="2">The regular Bank user can view and work with
+    only those Users defined in his Entity.</font></li>
+  <li><font face="Arial" size="2">The regular Bank user can create new Users and
+    edit existing Users only for his own entity. The Entity for the newly
+    created User will be set according to the Entity of the Bank user who
+    created the User. The system will identify this Entity from the information
+    entered at login.</font></li>
+</ul>
+<h2><font face="Arial" size="3">Customization</font></h2>
+<p><font face="Arial" size="2">The regular Bank user can customize certain
+features, for his Entity only. For details on customizing features, please refer
+to the section on Bank Maintenance.</font></p>
+
+</body>
+
+</html>

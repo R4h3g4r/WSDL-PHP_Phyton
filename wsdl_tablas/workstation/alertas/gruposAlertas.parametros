@@ -1,0 +1,17 @@
+# Tabla de parametros para agrupar las alertas
+
+
+#Asociacion de Grupos de Alertas
+TIPO_ALERTA;022=G01;020=G01;021=G01;025=G02;064=G02;003=G03;009=G03;033=G04;035=G04;061=G05;062=G05;
+
+
+
+#Grupos de alertas
+G01;Alertas=022,020,021;Cant=3;
+G02;Alertas=025,064;Cant=2;
+G03;Alertas=003,009;Cant=2;
+G04;Alertas=033,035;Cant=2;
+G05;Alertas=061,062;Cant=2;
+
+#descripcion de las alerta
+ALERTA_DESC;001=Leads Empresas Planificadas;003=Morosidad Leasing;004=Aumento Deuda Super 25%;005=Sobregiro no Pactado;007=Protestos en Sistema;008=Agendados del día;009=Morosidad Factoring;010=Deuda Morosa BCI;011=Deuda Castigada BCI;012=Deuda Vencida BCI;014=Cliente Retenido;017=Dirección Desactualizada;020=Cliente Cercano;021=Cliente a lograr mayor cercanía;022=Cliente Insatisfecho;024=Cliente Nuevo;025=Cliente será enviado a Boletín;026=Disminución de Colocaciones BCI mayores a 25%;027=Disminución de Vistas;033=Tasación vencida;035=Tasación por vencer;036=Morosidad Seguros;037=Calificación Caduca;038=Calificación Empeorada;039=Cliente con Email Desactualizado;040=Cliente con Teléfono Desactualizado;041=Cliente sin Email;042=Cliente de Cumpleaños;051=Alerta T. Crédito con Bajos Saldos;052=Cliente 3 Clics;053=Cambio Tasa variable CHIP;056=Programa NACE;059=Alerta Activacion Multilinea;060=Cliente sin Convenio ePYME;061=Articulo 85 por vencer;062=Articulo 85 Vencido;063=Actualizar Antecedentes;064=Indicador de Riesgo Integral;065=Monoproducto tarjeta credito;066=Sin Abono REM Convenios;069=Monoproducto Credito Automotriz;070=Cliente tiene LSG y TCR copados;071=Clte consume o transf a rubros de alto potencial;072=Consulta Prepago;

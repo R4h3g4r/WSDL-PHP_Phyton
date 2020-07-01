@@ -1,0 +1,13 @@
+<!ELEMENT Mensaje (RutEmpresa,RutUsuario?,Convenio,Pin?,Archivo,Fecha?)> 
+<!ELEMENT RutEmpresa (Numero,Digito)>
+<!ELEMENT RutUsuario (Numero,Digito)>
+<!ELEMENT Archivo (Tipo?,Plantilla?,Nombre,Cuerpo)>
+<!ELEMENT Numero (#PCDATA)>
+<!ELEMENT Digito (#PCDATA)>
+<!ELEMENT Convenio (#PCDATA)>
+<!ELEMENT Pin (#PCDATA)>
+<!ELEMENT Tipo (#PCDATA)>
+<!ELEMENT Plantilla (#PCDATA)>
+<!ELEMENT Nombre (#PCDATA)>
+<!ELEMENT Cuerpo (#PCDATA)>
+<!ELEMENT Fecha (#PCDATA)>

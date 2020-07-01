@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_del_aad_ban_priv">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="int" middle_name="rut" size="0" java_name="rutCliente"/>
+	</input>
+	<output>
+	</output>
+</service>
+

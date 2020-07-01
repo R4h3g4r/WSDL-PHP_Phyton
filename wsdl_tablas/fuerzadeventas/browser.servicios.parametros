@@ -1,0 +1,35 @@
+
+GeneralApp;                    Desc=Servicio de Entrada Aplicativo;
+BuscaClientes;                 Desc=Busca Clientes;
+Priorizador;                   Desc=Clientes Priorizados;
+
+
+ConsultaCliente;               Desc=Consulta Resumida del Cliente;
+Direcciones;                   Desc=Direcciones;                        variable=paso;
+InformacionCliente;            Desc=Vista de Datos Basicos del Cliente;
+CampanasCliente;               Desc=Campanas Cliente;
+campanas;               Desc=Campanas Cliente;variable=paso;
+CreditoHipotecario;            Desc=Consulta credito hipotecario;
+ContextSimulacion;                    Desc=Simulacion;
+Credito;                       Desc=Credito COMEX;
+MultiCreditoSimule;            Desc=MultiCr\351dito;        Objetos=CCT&CPR;
+
+#Servlet de Token 
+#==================================
+
+ConfigurarToken;      Desc=ConfigurarToken;                                                Objetos=CCT&CPR;
+
+OperarToken;          Desc=Operar Token;
+
+MantenerToken;        Desc=MantenerToken;               Objetos=CCT&CPR;
+
+ActivarToken;         Desc=MantenerToken;
+
+Renta;                Desc=Calculo Ingresos Banca Personas;
+ConsultaOperacionCreditoPorRut;   Desc=Consulta operacion credito por rut;
+
+Integrador;                Desc=Integrador de llamadas a WebApps Externos;
+
+#Servicios para modulo Venta Seguros
+#================================================================================
+VentasSeguros;  Desc=Ventas de Seguros;

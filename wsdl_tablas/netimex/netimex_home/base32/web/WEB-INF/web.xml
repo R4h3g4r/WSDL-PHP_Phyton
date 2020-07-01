@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
+
+   <web-app id="WebApp_ID">
+      <display-name>netimex32_dev</display-name>
+      <filter>
+      	<filter-name>MultipartFilter</filter-name>
+      	<display-name>MultipartFilter</display-name>
+      	<filter-class>netimex.web.filter.MultipartFilter</filter-class>
+      </filter>
+      <filter-mapping>
+      	<filter-name>MultipartFilter</filter-name>
+      	<url-pattern>/HttpGateWay</url-pattern>
+      </filter-mapping>
+      <servlet id="Servlet_1">
+         <servlet-name>HttpGateWay</servlet-name>
+         <display-name>HttpGateWay</display-name>
+         <servlet-class>netimex.web.HttpGateWay</servlet-class>
+         <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_2">
+         <servlet-name>collectionLetterPrint</servlet-name>
+         <display-name>collection Letter Print</display-name>
+         <jsp-file>/collectionLetterPrint.jsp</jsp-file>
+         <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_3">
+         <servlet-name>CoverLetterPrint</servlet-name>
+         <display-name>Cover Letter Print</display-name>
+         <jsp-file>/cover_letter_print.jsp</jsp-file>
+         <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_4">
+         <servlet-name>LetterOfCredit</servlet-name>
+         <display-name>Letter Of Credit</display-name>
+         <jsp-file>/letter_of_credit.jsp</jsp-file>
+         <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet id="Servlet_5">
+         <servlet-name>Main</servlet-name>
+         <display-name>Main</display-name>
+         <jsp-file>/main.jsp</jsp-file>
+         <load-on-startup>1</load-on-startup>
+      </servlet>
+      <servlet>
+      	<servlet-name>Notification</servlet-name>
+      	<display-name>Web Services Router Servlet</display-name>
+      	<servlet-class>com.ibm.ws.webservices.engine.transport.http.WebServicesServlet</servlet-class>
+      </servlet>
+      <servlet>
+      	<servlet-name>NotificationTester</servlet-name>
+      	<display-name>NotificationTester</display-name>
+      	<servlet-class>test.NotificationTester</servlet-class>
+      </servlet>
+      <servlet-mapping id="ServletMapping_1">
+         <servlet-name>HttpGateWay</servlet-name>
+         <url-pattern>/HttpGateWay</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+      	<servlet-name>Notification</servlet-name>
+      	<url-pattern>services/Notification</url-pattern>
+      </servlet-mapping>
+      <servlet-mapping>
+      	<servlet-name>NotificationTester</servlet-name>
+      	<url-pattern>/NotificationTester</url-pattern>
+      </servlet-mapping>
+   </web-app>

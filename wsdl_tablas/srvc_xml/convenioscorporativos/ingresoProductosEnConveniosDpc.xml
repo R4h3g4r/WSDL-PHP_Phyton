@@ -1,0 +1,397 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2IngProConv">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.convenioscorporativos.ConveniosCorporativosBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "caiConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "numConvenio"
+          middle_name_secondary = "tasaIntMin38"
+        />
+
+        <field
+          java_name = "iicConvenio"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "tasaAdiCol2"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "codEmpresa"
+          middle_name_secondary = "tasaIntMin35"
+        />
+
+        <field
+          java_name = "vrfEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa"
+          middle_name_secondary = "tasaIntMin36"
+        />
+
+        <field
+          java_name = "indEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa2"
+          middle_name_secondary = "tasaIntMin34"
+        />
+
+        <field
+          java_name = "indEmpresa2"
+          type = "String"
+          size = "3"
+          middle_name = "rutEmpresa3"
+          middle_name_secondary = "tasaIntMin33"
+        />
+
+        <field
+          java_name = "segmento"
+          type = "String"
+          size = "12"
+          middle_name = "segmento"
+          middle_name_secondary = "tasaIntMin48"
+        />
+
+        <field
+          java_name = "sistema"
+          type = "String"
+          size = "3"
+          middle_name = "sistema"
+          middle_name_secondary = "tasaIntMin45"
+        />
+
+        <field
+          java_name = "moneda"
+          type = "String"
+          size = "6"
+          middle_name = "moneda"
+          middle_name_secondary = "tasaIntMin49"
+        />
+
+        <field
+          java_name = "tipoOperacion"
+          type = "String"
+          size = "3"
+          middle_name = "tipoOperacion"
+          middle_name_secondary = "tasaIntMin47"
+        />
+
+        <field
+          java_name = "codigoAuxiliar"
+          type = "String"
+          size = "3"
+          middle_name = "auxiliarOpe"
+          middle_name_secondary = "tasaIntMin39"
+        />
+
+        <field
+          java_name = "grupoProductos"
+          type = "String"
+          size = "12"
+          middle_name = "grupoProducto"
+          middle_name_secondary = "tipoCuentaDestino5"
+        />
+
+        <field
+          java_name = "correlativo"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "correlativo"
+          middle_name_secondary = "tipoCuentaDestino2"
+        />
+
+        <field
+          java_name = "tipoCanalVenta"
+          type = "String"
+          size = "3"
+          middle_name = "glosaTipoLinea"
+          middle_name_secondary = "tasaIntMin46"
+        />
+
+        <field
+          java_name = "canalVenta"
+          type = "String"
+          size = "3"
+          middle_name = "canal"
+          middle_name_secondary = "tasaIntMin40"
+        />
+
+        <field
+          java_name = "ejecutivoCanalVenta"
+          type = "String"
+          size = "12"
+          middle_name = "codEjecutivo"
+          middle_name_secondary = "tasaIntMin42"
+        />
+
+        <field
+          java_name = "porcentajeComisionClic"
+          type = "double"
+          size = "8"
+          sign = "no"
+          integers = "3"
+          decimals = "4"
+          middle_name = "montoComision"
+          middle_name_secondary = "tipoCuentaDestino3"
+        />
+
+        <field
+          java_name = "periodoVentaInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "ventaActual"
+          middle_name_secondary = "tasaIntMin50"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "periodoVentaFin"
+          type = "Date"
+          size = "8"
+          middle_name = "ventaAnterior"
+          middle_name_secondary = "tasaAdi"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "rentaMinimaFamiliar"
+          type = "double"
+          size = "19"
+          sign = "no"
+          integers = "11"
+          decimals = "4"
+          middle_name = "renta"
+          middle_name_secondary = "tipoCuentaDestino4"
+        />
+
+        <field
+          java_name = "expresadoEn"
+          type = "String"
+          size = "6"
+          middle_name = "query"
+          middle_name_secondary = "tasaIntMin44"
+        />
+
+        <field
+          java_name = "tipoEnvio"
+          type = "String"
+          size = "3"
+          middle_name = "canalEnvioNor"
+          middle_name_secondary = "tasaIntMin41"
+        />
+
+        <field
+          java_name = "diaEmision"
+          type = "int"
+          size = "2"
+          sign = "no"
+          integers = "2"
+          decimals = "0"
+          middle_name = "numeroDias8"
+          middle_name_secondary = "tasaAdiFil7"
+        />
+
+        <field
+          java_name = "diaEnvio"
+          type = "int"
+          size = "2"
+          sign = "no"
+          integers = "2"
+          decimals = "0"
+          middle_name = "numeroDias6"
+          middle_name_secondary = "tasaAdiFil8"
+        />
+
+        <field
+          java_name = "diaRecepcion"
+          type = "int"
+          size = "2"
+          sign = "no"
+          integers = "2"
+          decimals = "0"
+          middle_name = "numeroDias"
+          middle_name_secondary = "tasaAdiFil10"
+        />
+
+        <field
+          java_name = "diaVencimiento"
+          type = "int"
+          size = "2"
+          sign = "no"
+          integers = "2"
+          decimals = "0"
+          middle_name = "fecVencimiento"
+          middle_name_secondary = "tipoCuentaDestino"
+        />
+
+        <field
+          java_name = "tipoPlanilla"
+          type = "char"
+          size = "1"
+          middle_name = "numeroPlanilla"
+          middle_name_secondary = "tasaAdiCol4"
+        />
+
+        <field
+          java_name = "numeroDiasAntEnvio"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numeroDias5"
+          middle_name_secondary = "tasaAdiCol5"
+        />
+
+        <field
+          java_name = "diaPago"
+          type = "int"
+          size = "2"
+          sign = "no"
+          integers = "2"
+          decimals = "0"
+          middle_name = "cuotaCapital"
+          middle_name_secondary = "tasaAdiFil9"
+        />
+
+        <field
+          java_name = "numeroDiasPasarCobranza"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numeroDias4"
+          middle_name_secondary = "tasaAdiFil6"
+        />
+
+        <field
+          java_name = "formaDePago"
+          type = "String"
+          size = "3"
+          middle_name = "formaPago"
+          middle_name_secondary = "tasaIntMin43"
+        />
+
+        <field
+          java_name = "numCuenta"
+          type = "String"
+          size = "4"
+          middle_name = "numeroCuadroPago"
+          middle_name_secondary = "tasaIntMin37"
+        />
+
+        <field
+          java_name = "numCuentaAux"
+          type = "String"
+          size = "8"
+          middle_name = "numeroCuadroPago2"
+          middle_name_secondary = "tasaAdiCol1"
+        />
+
+        <field
+          java_name = "politicas"
+          type = "char"
+          size = "1"
+          middle_name = "cuota"
+          middle_name_secondary = "tasaAdiCol3"
+        />
+
+        <field
+          java_name = "indicadorTipoAbono"
+          type = "String"
+          size = "5"
+          middle_name = "indicadorTipoAcc"
+          middle_name_secondary = "cuotasPagadas5"
+        />
+
+        <field
+          java_name = "numeroCuenta"
+          type = "String"
+          size = "4"
+          middle_name = "numeroTarjeta"
+          middle_name_secondary = "cuotasPagAtras1"
+        />
+
+        <field
+          java_name = "numeroCuentaAux"
+          type = "String"
+          size = "8"
+          middle_name = "numeroTarjeta2"
+          middle_name_secondary = "cuotasPagadas3"
+        />
+
+        <field
+          java_name = "indicadorCargo"
+          type = "String"
+          size = "5"
+          middle_name = "tipoOpRelacion"
+          middle_name_secondary = "cuotasPagadas6"
+        />
+
+        <field
+          java_name = "cuentaCargo"
+          type = "String"
+          size = "4"
+          middle_name = "ctaCargo1"
+          middle_name_secondary = "cuotasPagadas2"
+        />
+
+        <field
+          java_name = "cuentaCargoAux"
+          type = "String"
+          size = "8"
+          middle_name = "ctaCargo2"
+          middle_name_secondary = "cuotasPagadas4"
+        />
+
+  </input>
+
+  <output>
+
+  </output>
+
+</service>

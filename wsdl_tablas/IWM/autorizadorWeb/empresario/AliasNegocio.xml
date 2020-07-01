@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<aliasNegocio>
+	<alias>
+		<nombreAliasNegocio>esApoderadoAutorizado</nombreAliasNegocio>
+		<regla>UsuarioEsApoderadoAutorizado</regla>
+	</alias>
+	<alias>
+		<nombreAliasNegocio>OperaConFyP</nombreAliasNegocio>
+		<regla>UsuarioOperaConFyP</regla>
+		<parametro>2</parametro>
+	</alias>
+	<alias>
+		<nombreAliasNegocio>EmpresaRegistradaEnFyP</nombreAliasNegocio>
+		<regla>EmpresaRegistradaEnFyP</regla>
+	</alias>
+	<alias>
+		<nombreAliasNegocio>UsuarioPoseeFacultadFyP</nombreAliasNegocio>
+		<regla>UsuarioPoseeFacultadFyP</regla>
+		<parametro>2</parametro>
+	</alias>
+    <alias>
+        <nombreAliasNegocio>TieneProductoExpress</nombreAliasNegocio>
+        <regla>ClienteTieneProductoContratado</regla>
+        <parametro>Prod01</parametro>
+    </alias> 
+    <alias>
+        <nombreAliasNegocio>EmpresaTieneFyPCaducado</nombreAliasNegocio>
+        <regla>EmpresaTieneFyPCaducado</regla>
+    </alias>
+</aliasNegocio>

@@ -1,0 +1,89 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "p_CEII_pac_sel_archivos_a_clt"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "fecDesde"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "fecHasta"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha2"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerificador"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionRescataArchivosDisponibles" var_name = "archivoDisponible" >
+
+          <field
+            java_name = "carDescripcion"
+            type = "String"
+            size = "13"
+            middle_name = "descripcionMascara"
+          />
+
+          <field
+            java_name = "carCantidad"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "cantPago"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

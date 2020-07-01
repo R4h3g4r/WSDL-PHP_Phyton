@@ -1,0 +1,22 @@
+# 
+# Tabla de Parametros para la Carga de Campanas 
+# =============================================================== 
+
+
+#Subir archivo desde la Web. 
+#Desarrollo - Kiniko 
+#FTP;HOST=161.131.184.81;USUARIO=csucuser;CLAVE=planta06;PATH=in; 
+#servidorMsj_ATM;ip=161.131.184.80;usuario=banele;pwd=XXXXX;path=/admCampana/in; 
+
+#Certificacion - Giotto2 
+FTP;HOST=161.131.232.185;USUARIO=csucuser;CLAVE=planta06;PATH=in; 
+servidorMsj_ATM;ip=161.131.232.185;usuario=campana;pwd=campana1;path=/admCampana/in; 
+
+#Produccion - Definir server produccion 
+#FTP;HOST=161.131.184.81;USUARIO=csucuser;CLAVE=planta06;PATH=in; 
+#servidorMsj_ATM;ip=161.131.232.10;usuario=admcampa;pwd=admcamp2011;path=/admCampana/in; 
+#ACCESO-GLOBAL;nombreServicio=GeneralApp;nombreVista=VST_CRG_CMP;listaAcciones=ACC; 
+#MJE_AUTOGENERADO;GLOSAERROR=Error al ingresar campaña autogenerada: ;GLOSAEXITO=Campaña autogenerada realizada con éxito  ; 
+
+
+mensaje;true=El archivo ha sido guardado con éxito;false=No fue posible realizar la operación.;

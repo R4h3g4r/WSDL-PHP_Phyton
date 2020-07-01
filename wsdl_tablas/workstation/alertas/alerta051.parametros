@@ -1,0 +1,86 @@
+# Alerta Tarjeta Credito sin movimiento y bajos saldos                                  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=La Campaña tiene como objetivo contactar a clientes con saldos de deuda facturada menor a $10.000 para aconsejarles el pago de ésta y así evitar el cobro de intereses y comisión. Y al mismo tiempo recordar los beneficios de las Tarjetas de Crédito Bci de manera de incentivar su uso.;
+GLOSA1;mensaje=Es importante identificar si el cliente cuenta con PAC contratado o bien si no tiene Cuenta Corriente. Adicionalmente se debe verificar que al momento del llamado mantenga una deuda facturada por monto menor a $10.000.;
+GLOSA2;mensaje=Pueden existir 3 tipos de clientes que aparece su detalle en “Tipo de cliente”, los que se describen a continuación:;
+GLOSA3;mensaje=1.- Clientes con Cuenta Corriente CON PAC de Tarjeta de Crédito;
+GLOSA4;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda.;
+GLOSA5;mensaje=2.- Clientes con Cuenta Corriente SIN PAC de Tarjeta de Crédito;
+GLOSA6;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Además, no cuenta con PAC contratado. Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda. Adicionalmente se debe aconsejar suscripción del Pago Mínimo de la Tarjeta de Crédito a PAC, para así evitar la posibilidad de no pago de la Tarjeta, con consecuente bloqueo de esta e intereses por mora. (Proceso de contratación en: ;
+GLOSA7;mensaje=                   http://normativa.bci.cl/BCI/Personas/Tarjetas_de_Cr%c3%a9dito/Procesos/Pedidos/Mantenci%c3%b3n_Datos_de_Cuenta_-_Everest);
+GLOSA8;mensaje=3.- Clientes con Tarjeta de Crédito sin Cuenta Corriente;
+GLOSA9;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda. Adicionalmente, se debe recordar que para el pago de los Estados de Cuenta de T.Crédito, Bci ha puesto a disposición de sus clientes las siguientes alternativas adicionales a sucursales: A través de Internet, desde cualquier Banco:;
+GLOSA10;mensaje=      - Pago de la deuda a través de una transferencia electrónica a terceros directamente a su tarjeta de crédito sin necesidad de contar con cuenta corriente Bci (ver mayor información en Preguntas Frecuentes).;
+GLOSA11;mensaje=      - Cajas Servipag ;
+GLOSA12;mensaje=Informacion Adicional ;
+GLOSA13;mensaje=Tarifario:;
+GLOSA14;mensaje=Cobro Mensual: UF 0,06;
+GLOSA15;mensaje=La tarjeta estará exenta de este cobro si no presenta uso durante el período de facturación. Esto es, no haber realizado transacciones de compras y/o avances y no mantener deuda vigente.; 
+GLOSA16;mensaje= Comisiones Transaccionales:;
+GLOSA17;mensaje=  -	Avance de Efectivo en Chile		UF 0,30;
+GLOSA18;mensaje=  -	Avance de Efectivo en Extranjero	UF 0,23;
+GLOSA19;mensaje=  -	Compras en Extranjero	2,5% sobre el monto de la compra (No aplica para Tarjetas de Crédito Bci Visa OpenSky, Bci Visa Signature y Bci MasterCard Black).;
+GLOSA20;mensaje=Preguntas Frecuentes y Manejo de objeciones:;
+GLOSA21;mensaje=¿Cómo se realiza el pago de la Tarjeta de Crédito como transferencia de fondos a terceros desde la Web de otros Bancos?;
+GLOSA22;mensaje=1)	Realice una transferencia de fondos a terceros a la Cuenta Corriente N° 40001113 del Banco Crédito e Inversiones.;
+GLOSA23;mensaje=2)	En Rut del Destinatario, ingrese 97006000-6.;
+GLOSA24;mensaje=3)	En el Nombre del Destinatario ingrese la información de la Tarjeta a pagar, en el siguiente formato: primera letra de la marca (V o M) y los últimos 4 dígitos del número de su Tarjeta, sin espacio.;
+GLOSA25;mensaje=Ejemplos: VXXXX (Tarjeta Visa) y MXXXX (Tarjeta MasterCard).;
+GLOSA26;mensaje=4)	Ingrese el monto que desea pagar.;
+GLOSA27;mensaje=INFORMACIÓN RELEVANTE:;
+GLOSA28;mensaje= -	Este servicio está habilitado para pagos desde una Cuenta Corriente perteneciente al Titular de la Tarjeta de Crédito Bci.;
+GLOSA29;mensaje= -	Si no es posible ingresar números en el campo Nombre del Destinatario, ingrese la palabra Bci y en el campo Asunto, agregue la información de la Tarjeta a pagar (VXXXX o MXXXX).;
+GLOSA30;mensaje= -	Si el Banco exige como obligatorios otros campos, complételos según corresponda.;
+GLOSA31;mensaje= -	Recuerde guardar el destinatario para realizar futuros pagos.;
+GLOSA32;mensaje= -	Puede revisar en línea el pago del Tarjeta en www.bci.cl.;
+GLOSA33;mensaje= -	Este servicio sólo está disponible para pago de deuda nacional.;
+GLOSA34;mensaje=Beneficios Tarjetas de Crédito Bci:;
+GLOSA35;mensaje=PROGRAMA PUNTOSBCI:;
+GLOSA36;mensaje=Además,  todas sus compras con Tarjetas Bci acumulan PuntosBci (incluidas compras en bencineras y PAT), los cuales pueden usarse en el Programa de PuntosBci, el cual ofrece más opciones para canjear los Puntos acumulados en Panoramas, Viajes, Tarjetas de regalo y diversos productos, todo incluído en el mejor y más completo Catálogo de Puntos, el Catáologo PuntosBci.;
+GLOSA37;mensaje=Por cada $10.000 ó US$100 de compra con su Tarjeta de Crédito Bci, acumula 100 PuntosBci.;
+
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=La Campaña tiene como objetivo contactar a clientes con saldos de deuda facturada menor a $10.000 para aconsejarles el pago de ésta y así evitar el cobro de intereses y comisión. Y al mismo tiempo recordar los beneficios de las Tarjetas de Crédito Bci de manera de incentivar su uso.;
+GLOSAPDF0;mensaje=La Campaña tiene como objetivo contactar a clientes con saldos de deuda facturada menor a $10.000 para aconsejarles el pago de ésta y así evitar el cobro de intereses y comisión. Y al mismo tiempo recordar los beneficios de las Tarjetas de Crédito Bci de manera de incentivar su uso.;
+GLOSAPDF1;mensaje=Es importante identificar si el cliente cuenta con PAC contratado o bien si no tiene Cuenta Corriente. Adicionalmente se debe verificar que al momento del llamado mantenga una deuda facturada por monto menor a $10.000.;
+GLOSAPDF2;mensaje=Pueden existir 3 tipos de clientes que aparece su detalle en “Tipo de cliente”, los que se describen a continuación:;
+GLOSAPDF3;mensaje=1.- Clientes con Cuenta Corriente CON PAC de Tarjeta de Crédito;
+GLOSAPDF4;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda.;
+GLOSAPDF5;mensaje=2.- Clientes con Cuenta Corriente SIN PAC de Tarjeta de Crédito;
+GLOSAPDF6;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Además, no cuenta con PAC contratado. Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda. Adicionalmente se debe aconsejar suscripción del Pago Mínimo de la Tarjeta de Crédito a PAC, para así evitar la posibilidad de no pago de la Tarjeta, con consecuente bloqueo de esta e intereses por mora. (Proceso de contratación en: ;
+GLOSAPDF7;mensaje=                   http://normativa.bci.cl/BCI/Personas/Tarjetas_de_Cr%c3%a9dito/Procesos/Pedidos/Mantenci%c3%b3n_Datos_de_Cuenta_-_Everest);
+GLOSAPDF8;mensaje=3.- Clientes con Tarjeta de Crédito sin Cuenta Corriente;
+GLOSAPDF9;mensaje=    Cliente no presenta uso de su Tarjeta de Crédito y mantiene un saldo menor a $10.000 (validar que así sea al momento de contactar a cliente). Se debe recordar el monto de su deuda facturada y aconsejar el pago de esta para de esta forma evitar generar intereses asociados a esta deuda. Adicionalmente, se debe recordar que para el pago de los Estados de Cuenta de T.Crédito, Bci ha puesto a disposición de sus clientes las siguientes alternativas adicionales a sucursales: A través de Internet, desde cualquier Banco:;
+GLOSAPDF10;mensaje=      - Pago de la deuda a través de una transferencia electrónica a terceros directamente a su tarjeta de crédito sin necesidad de contar con cuenta corriente Bci (ver mayor información en Preguntas Frecuentes).;
+GLOSAPDF11;mensaje=      - Cajas Servipag ;
+GLOSAPDF12;mensaje=Informacion Adicional ;
+GLOSAPDF13;mensaje=Tarifario:;
+GLOSAPDF14;mensaje=Cobro Mensual: UF 0,06;
+GLOSAPDF15;mensaje=La tarjeta estará exenta de este cobro si no presenta uso durante el período de facturación. Esto es, no haber realizado transacciones de compras y/o avances y no mantener deuda vigente.; 
+GLOSAPDF16;mensaje= Comisiones Transaccionales:;
+GLOSAPDF17;mensaje=  -	Avance de Efectivo en Chile		UF 0,30;
+GLOSAPDF18;mensaje=  -	Avance de Efectivo en Extranjero	UF 0,23;
+GLOSAPDF19;mensaje=  -	Compras en Extranjero	2,5% sobre el monto de la compra (No aplica para Tarjetas de Crédito Bci Visa OpenSky, Bci Visa Signature y Bci MasterCard Black).;
+GLOSAPDF20;mensaje=Preguntas Frecuentes y Manejo de objeciones:;
+GLOSAPDF21;mensaje=¿Cómo se realiza el pago de la Tarjeta de Crédito como transferencia de fondos a terceros desde la Web de otros Bancos?;
+GLOSAPDF22;mensaje=1)	Realice una transferencia de fondos a terceros a la Cuenta Corriente N° 40001113 del Banco Crédito e Inversiones.;
+GLOSAPDF23;mensaje=2)	En Rut del Destinatario, ingrese 97006000-6.;
+GLOSAPDF24;mensaje=3)	En el Nombre del Destinatario ingrese la información de la Tarjeta a pagar, en el siguiente formato: primera letra de la marca (V o M) y los últimos 4 dígitos del número de su Tarjeta, sin espacio.;
+GLOSAPDF25;mensaje=Ejemplos: VXXXX (Tarjeta Visa) y MXXXX (Tarjeta MasterCard).;
+GLOSAPDF26;mensaje=4)	Ingrese el monto que desea pagar.;
+GLOSAPDF27;mensaje=INFORMACIÓN RELEVANTE:;
+GLOSAPDF28;mensaje= -	Este servicio está habilitado para pagos desde una Cuenta Corriente perteneciente al Titular de la Tarjeta de Crédito Bci.;
+GLOSAPDF29;mensaje= -	Si no es posible ingresar números en el campo Nombre del Destinatario, ingrese la palabra Bci y en el campo Asunto, agregue la información de la Tarjeta a pagar (VXXXX o MXXXX).;
+GLOSAPDF30;mensaje= -	Si el Banco exige como obligatorios otros campos, complételos según corresponda.;
+GLOSAPDF31;mensaje= -	Recuerde guardar el destinatario para realizar futuros pagos.;
+GLOSAPDF32;mensaje= -	Puede revisar en línea el pago del Tarjeta en www.bci.cl.;
+GLOSAPDF33;mensaje= -	Este servicio sólo está disponible para pago de deuda nacional.;
+GLOSAPDF34;mensaje=Beneficios Tarjetas de Crédito Bci:;
+GLOSAPDF35;mensaje=PROGRAMA PUNTOSBCI:;
+GLOSAPDF36;mensaje=Además,  todas sus compras con Tarjetas Bci acumulan PuntosBci (incluidas compras en bencineras y PAT), los cuales pueden usarse en el Programa de PuntosBci, el cual ofrece más opciones para canjear los Puntos acumulados en Panoramas, Viajes, Tarjetas de regalo y diversos productos, todo incluído en el mejor y más completo Catálogo de Puntos, el Catáologo PuntosBci.;
+GLOSAPDF37;mensaje=Por cada $10.000 ó US$100 de compra con su Tarjeta de Crédito Bci, acumula 100 PuntosBci.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=AEn base a la actividad y la deuda de la Tarjeta de Crédito en los últimos 6 meses.;periodo= Una vez cada tres meses.;fuente= Inactividad y Deuda bajo $10.000.- durante los últimos 6 meses;

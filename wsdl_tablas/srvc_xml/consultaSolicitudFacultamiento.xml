@@ -1,0 +1,253 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<service name = "sp_con_uni_sol">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="" />
+
+		<es_funcion value="no" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "numeroOperacion"
+          type = "String"
+          size = "12"
+          middle_name = "operacion"
+        />
+
+  </input>
+
+  <output>
+	<struct struct_size = "0" class_name = "SolicitudFacultamiento" var_name = "solicitudes" >
+	
+        <field
+          java_name = "rutCliente"
+          type = "String"
+          size = "12"
+          middle_name = "aut_rut"
+        />
+
+        <field
+          java_name = "digitoVerificadorRut"
+          type = "char"
+          size = "1"
+          middle_name = "aut_vrt"
+        />
+
+        <field
+          java_name = "nombreCliente"
+          type = "String"
+          size = "45"
+          middle_name = "aut_nom"
+        />
+
+        <field
+          java_name = "fechaSolicitud"
+          type = "Date"
+          size = "8"
+          middle_name = "aut_fec_aut"
+        />
+
+        <field
+          java_name = "codigoEjecutivoSolicitante"
+          type = "String"
+          size = "12"
+          middle_name = "aut_usu_sol"
+        />
+
+        <field
+          java_name = "codigoEjecutivoAutorizador"
+          type = "String"
+          size = "12"
+          middle_name = "aut_usu_aut"
+        />
+
+        <field
+          java_name = "montoCredito"
+          type = "Double"
+          size = "26"
+          sign = "no"
+          integers = "16"
+          decimals = "4"
+          middle_name = "aut_mto_cdt"
+        />
+
+        <field
+          java_name = "codigoMonedaCredito"
+          type = "String"
+          size = "6"
+          middle_name = "aut_cod_mon"
+        />
+
+        <field
+          java_name = "tipoOperacion"
+          type = "String"
+          size = "6"
+          middle_name = "aut_tip_ope"
+        />
+
+        <field
+          java_name = "estadoAutorizacion"
+          type = "String"
+          size = "2"
+          middle_name = "aut_mca_aut"
+        />
+
+        <field
+          java_name = "estadoSolicitud"
+          type = "String"
+          size = "2"
+          middle_name = "aut_mca_reg_uso"
+        />
+
+        <field
+          java_name = "spread"
+          type = "Double"
+          size = "26"
+          sign = "no"
+          integers = "16"
+          decimals = "4"
+          middle_name = "aut_spr"
+        />
+
+        <field
+          java_name = "oficinaSolicitante"
+          type = "String"
+          size = "3"
+          middle_name = "aut_ofi"
+        />
+
+        <field
+          java_name = "spreadMinimo"
+          type = "Double"
+          size = "26"
+          sign = "no"
+          integers = "16"
+          decimals = "4"
+          middle_name = "aut_spr_min"
+        />
+
+        <field
+          java_name = "numeroOperacion"
+          type = "String"
+          size = "12"
+          middle_name = "aut_clv_cdt"
+        />
+
+        <field
+          java_name = "spreadSugerido"
+          type = "Double"
+          size = "26"
+          sign = "no"
+          integers = "16"
+          decimals = "4"
+          middle_name = "aut_pre_sug"
+        />
+
+        <field
+          java_name = "spreadDiferencia"
+          type = "Double"
+          size = "26"
+          sign = "no"
+          integers = "16"
+          decimals = "4"
+          middle_name = "aut_mto_per"
+        />
+
+        <field
+          java_name = "banca"
+          type = "char"
+          size = "1"
+          middle_name = "aut_ban"
+        />
+
+        <field
+          java_name = "perfilAutorizador"
+          type = "String"
+          size = "3"
+          middle_name = "aut_cod_per"
+        />
+
+        <field
+          java_name = "rentabilidad"
+          type = "String"
+          size = "20"
+          middle_name = "aut_ren"
+        />
+
+        <field
+          java_name = "saldoCtaCte"
+          type = "String"
+          size = "20"
+          middle_name = "aut_sdo"
+        />
+
+        <field
+          java_name = "clasificacionRiesgo"
+          type = "String"
+          size = "20"
+          middle_name = "aut_crg"
+        />
+
+        <field
+          java_name = "spreadColocaciones"
+          type = "String"
+          size = "20"
+          middle_name = "aut_sco"
+        />
+
+        <field
+          java_name = "probabilidadIncumplimiento"
+          type = "String"
+          size = "20"
+          middle_name = "aut_pi"
+        />
+
+        <field
+          java_name = "perdidaEsperada"
+          type = "String"
+          size = "20"
+          middle_name = "aut_pe"
+        />
+
+        <field
+          java_name = "plazo"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "aut_pzo"
+        />
+
+        <field
+          java_name = "comentario"
+          type = "String"
+          size = "2048"
+          middle_name = "aut_cmt_autorizador"
+        />
+	</struct>
+  </output>
+
+</service>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<database>
+	<server>venus</server> 
+	<name>Projects\Covenants\Covenants_v2020JB.nsf</name> 
+	<query>
+	  	<view>QryRutCovenants</view> 
+		<key>Rut</key>
+	</query>
+	<keyLabels>Rut,Fecha Ingreso,Nro. Contrato,Documento,Estado,Status</keyLabels>
+	<viewentry> 	
+	  	<column java_name="Rut">0</column> 
+  		<column java_name="Fecha Ingreso">3</column> 
+  		<column java_name="Nro. Contrato">4</column> 
+  		<column java_name="Documento">5</column> 
+  		<column java_name="Estado">7</column> 
+  		<column java_name="Status">8</column> 	  	  	  	
+	</viewentry>
+</database>

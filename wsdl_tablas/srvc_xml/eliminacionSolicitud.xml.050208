@@ -1,0 +1,59 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_del_sol"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="output_param" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idSolicitud"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "identificador"
+        />
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

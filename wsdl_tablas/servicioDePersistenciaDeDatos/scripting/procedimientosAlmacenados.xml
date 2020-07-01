@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="scripting.procedimientosAlmacenados">	
+
+<resultMap id="nodo" class="java.util.HashMap">
+		<result property="identificadorCodigoNodo"      	column="ndo_cod_ndo"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="identificadorCodigoScripting"   	column="scr_cod_scr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreNodo"   					column="ndo_nom_ndo" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="tituloNodo"        				column="ndo_tit_ndo" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="descripcionDelNodo"           	column="ndo_des_ndo" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="preguntaDelNodo" 					column="ndo_prg_ndo" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="identificadorDelNodoPadre"        column="ndo_ndo_pdr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="usuarioModificador"  				column="ndo_usr_mod" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="pasoDelNodo"    					column="ndo_pas"    	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="operacion" class="java.util.HashMap">
+		<result property="identificadorDeLaOperacion"  		column="acc_cod_opr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="descripcionDeLaOperacion"        	column="acc_des_opr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="producto" class="java.util.HashMap">
+		<result property="identificadorDelProducto"  			column="itm_cod_prd" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="descripcionDelProducto"        		column="itm_des_prd" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>      
+ 
+<resultMap id="banca" class="java.util.HashMap">
+		<result property="identificadorDeLaBanca"  			column="agr_cod_bca" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="descripcionDeLaBanca"        		column="agr_des_bca" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>  
+
+<resultMap id="nodoRespuesta" class="java.util.HashMap">
+		<result property="codigoDelNodo"      				column="res_cod_res"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="identificadorCodigoDeRespuesta"   column="ndo_cod_ndo"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="respuesta" 						column="res_ndo_res" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="identificadorNodoSiguiente"       column="res_ndo_sig"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="usuarioModificador"  				column="res_usr_mod" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="documento" class="java.util.HashMap">
+		<result property="identificadorDelDocumento"      	column="doc_cod_doc"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreDocumento"  				column="doc_nom_doc" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasDelDocumento"       			column="doc_not_doc"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="comandoDeEjecucion"  				column="doc_com_ejc" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="documento" class="java.util.HashMap">
+		<result property="identificadorDelDocumento"      	column="doc_cod_doc"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreDocumento"  				column="doc_nom_doc" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasDelDocumento"       			column="doc_not_doc"	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="comandoDeEjecucion"  				column="doc_com_ejc" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="scripting" class="java.util.HashMap">
+		<result property="identificadorScripting"      		column="scr_cod_scr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreDelScripting"   			column="scr_nom_scr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasDelScripting"        		column="scr_not_scr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="versionDelScripting"   			column="scr_ver_scr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>		
+		<result property="usuarioCreadorScripting"          column="scr_usr_cre" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="usuarioModificadorDelScripting" 	column="scr_usr_mod" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="ranking"        					column="scr_cnt_rkg"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="cantidadDePasos"   				column="scr_cnt_pas"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="codigoAutenticacion"   			column="scr_est_aut"	javaType="java.lang.String"     jdbcType="VARCHAR"/>		
+</resultMap>
+
+<resultMap id="scriptingDetalle" class="java.util.HashMap">
+		<result property="identificadorScripting"      		column="scr_cod_scr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreDelScripting"   			column="scr_nom_scr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasDelScripting"        		column="scr_not_scr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="versionDelScripting"   			column="scr_ver_scr"	javaType="java.lang.Long"       jdbcType="INTEGER"/>		
+		<result property="usuarioCreadorScripting"          column="scr_usr_cre" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="usuarioModificadorDelScripting" 	column="scr_usr_mod" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="ranking"        					column="scr_cnt_rkg"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="cantidadDePasos"   				column="scr_cnt_pas"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="identificadorDeLaBanca"           column="agr_cod_bca" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="identificadorDelProducto"         column="itm_cod_prd" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="identificadorDelaOperacion"       column="acc_cod_opr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="identificadorEstado"       		column="scr_cod_est" 	javaType="java.lang.String"     jdbcType="INTEGER"/>
+		<result property="numeroScripting"       			column="scr_id_scr" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="codigoAutenticacion"   			column="scr_est_aut"	javaType="java.lang.String"     jdbcType="VARCHAR"/>														
+</resultMap>
+
+<resultMap id="novedad" class="java.util.HashMap">
+		<result property="identificadorNovedad"      		column="nov_cod_nov"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="tituloNovedad"   					column="nov_tit_nov" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasNovedad"        				column="nov_des_nov" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="usuarioCreador"   				column="nov_usr_cre"	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="fechaCreacion"   					column="nov_fec_cre"	javaType="Date"/> 
+		<result property="usuarioModificador"   			column="nov_usr_mod"	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="fechaModificacion"   				column="nov_fec_mod"	javaType="Date"/> 
+		<result property="fechaExpiracion"   				column="nov_fec_exp"	javaType="Date"/> 	
+		<result property="codigoTipo"   					column="nov_cod_tpo"	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="codigoDocumento"   				column="nov_doc_cod"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="estadoDocumento"   				column="nov_doc_est"	javaType="java.lang.String"     jdbcType="VARCHAR"/>		
+		<result property="estadoNovedad"   					column="nov_cod_est"	javaType="java.lang.String"     jdbcType="VARCHAR"/>													
+</resultMap>
+
+<resultMap id="documentoNovedad" class="java.util.HashMap">
+		<result property="identificadorDelDocumento"      	column="nov_doc_cod"	javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="nombreDocumento"  				column="nov_doc_nom" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="notasDelDocumento"       			column="nov_doc_not"	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="comandoDeEjecucion"  				column="nov_doc_com" 	javaType="java.lang.String"     jdbcType="VARCHAR"/>
+</resultMap>
+
+<resultMap id="resultado" class="java.util.HashMap">
+		<result property="respuesta"  jdbcType="CHAR"   	javaType="String"/>
+</resultMap>
+	
+	<!--    consultaNodo  -->
+	<procedure id="consultaNodo" parameterClass="java.util.HashMap" resultMap="nodo">
+		{CALL sp_cns_ndo(#iCodigoNodo#)}
+    </procedure>
+	
+	<!--  consultaNodoPadre    -->
+	<procedure id="consultaNodoPadre" parameterClass="java.util.HashMap" resultMap="nodo">
+		{CALL sp_cns_ndo_pdr(#identificadorDelScripting#)}
+    </procedure>
+
+	<!--  consultaOperacionProducto    -->
+	<procedure id="consultaOperacionProducto" parameterClass="java.util.HashMap" resultMap="operacion">
+		{CALL sp_cns_opr_prd(#identificadorProducto#)}
+    </procedure>
+	
+	<!--   consultaAgrupacionProducto   -->
+	<procedure id="consultaAgrupacionProducto" parameterClass="java.util.HashMap" resultMap="producto">
+		{CALL sp_cns_prd_bca(#banca#)}
+    </procedure>
+	
+	<!--   consultaBanca   -->
+	<procedure id="consultaBanca" parameterClass="java.util.HashMap" resultMap="banca">
+		{CALL sp_cns_bca_agr()}
+    </procedure>
+	
+	<!--   traerNodoRespuesta   -->
+	<procedure id="traerNodoRespuesta" parameterClass="java.util.HashMap" resultMap="nodoRespuesta">
+		{CALL sp_cns_rsp_ndo(#nodo#)}
+    </procedure>
+	
+	<!--   consulaDocumentoDelNodo   -->
+	<procedure id="consulaDocumentoDelNodo" parameterClass="java.util.HashMap" resultMap="documento">
+		{CALL sp_cns_doc_ndo(#nodo#)}
+    </procedure>
+	
+	<!--   consultaScripting   -->
+	<procedure id="consultaScripting" parameterClass="java.util.HashMap" resultMap="scripting">
+		{CALL sp_cns_scr(#banca#,#producto#,#operacion#)}
+    </procedure>
+
+	<!--   Actualizar Ranking   -->
+	<procedure id="actualizarRanking" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_mod_rkg_scr(#scripting#)}
+    </procedure>
+
+	
+	
+	<!--  consultaScriptingPorIdentificador    -->
+	<procedure id="consultaScriptingPorIdentificador" parameterClass="java.util.HashMap" resultMap="scriptingDetalle">
+		{CALL sp_cns_scr_id(#identificadorDelScripting#)}
+    </procedure>
+	<!--  consultaBancaPorIdentificador    -->
+	<procedure id="consultaBancaPorIdentificador" parameterClass="java.util.HashMap" resultMap="banca">
+		{CALL sp_cns_bca(#identificadorDeLaBanca#)}
+    </procedure>
+	<!--  consultaProductoPorIdentificador    -->
+	<procedure id="consultaProductoPorIdentificador" parameterClass="java.util.HashMap" resultMap="producto">
+		{CALL sp_cns_pro(#identificadorDelProducto#)}
+    </procedure>
+	<!--  consultaOperacionPorIdentificador    -->
+	<procedure id="consultaOperacionPorIdentificador" parameterClass="java.util.HashMap" resultMap="operacion">
+		{CALL sp_cns_ope(#identificadorDeLaOperacion#)}
+    </procedure>
+	<!--  consultaDocumentosDelScripting    -->
+	<procedure id="consultaDocumentosDelScripting" parameterClass="java.util.HashMap" resultMap="documento">
+		{CALL sp_cns_doc_scr(#identificadorDelScripting#)}
+    </procedure>
+	
+	<!--  agregarScripting    -->
+	<procedure id="agregarScripting" parameterClass="java.util.HashMap">
+		{CALL sp_agr_scr(#producto#, #banca#, #operacion#, #estado#, #nombre#, #nota#, #version#,
+                     		#usuarioCreador#, #fechaCreacion#, #usuarioMod#, #fechaMod#, #ranking#, #cantidadPasos#, #idScripting#,
+							#autenticacion#, #nombreNodo#, #tituloNodo#, #descripcionNodo#, #preguntaNodo#, #usuario#, #pasoNodo#)}
+    </procedure>
+	
+	<!--  agregarDocumento    -->
+	<procedure id="agregarDocumento" parameterClass="java.util.HashMap">
+		{CALL sp_agr_doc(#codNodo#, #codDoc#, #nombreDoc#, #descripcionDoc#, #comando#)}
+    </procedure>
+	
+	<!--  actualizarScripting    -->
+	<procedure id="actualizarScripting" parameterClass="java.util.HashMap">
+		{CALL sp_mod_scr(#producto#, #banca#, #operacion#, #estado#, #nombre#, #nota#, #version#,
+                     		#usuarioMod#, #fechaMod#, #idScripting#, #numScripting#, #autenticacion#)}
+    </procedure>	
+	
+	<!--  actualizarDocumento    -->
+	<procedure id="actualizarDocumento" parameterClass="java.util.HashMap">
+		{CALL sp_mod_doc(#idScripting#, #nombreDoc#, #descripcionDoc#, #comando#)}
+    </procedure>
+		
+	<!--   consultaScriptingPorEstado   -->
+	<procedure id="consultaScriptingPorEstado" parameterClass="java.util.HashMap" resultMap="scripting">
+		{CALL sp_cns_scr_est(#banca#, #producto#, #operacion#, #estado#)}
+    </procedure>	
+	
+	<!--   consultaScriptingNombre   -->
+	<procedure id="consultaScriptingNombre" parameterClass="java.util.HashMap" resultMap="scripting">
+		{CALL sp_cns_scr_nom(#palabraClave#, #estado#)}
+    </procedure>
+
+	<!--   consultaNovedades   -->
+	<procedure id="consultaNovedades" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_cns_nov_est(#fecha#, #tipo#, #estado#)}
+    </procedure>		
+	
+	<!--   consultaDocumentoNovedad   -->
+	<procedure id="consultaDocumentoNovedad" parameterClass="java.util.HashMap" resultMap="documentoNovedad">
+		{CALL sp_cns_doc_nov(#codigoDelDocumento#)}
+    </procedure>	
+	
+	<!--   consultaNovedadPorPalabraClaveYTipo   -->
+	<procedure id="consultaNovedadPorPalabraClaveYTipo" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_cns_nov_nom(#palabraClave#, #tipo#)}
+    </procedure>		
+
+	<!--   consultaNovedadPorPalabraClave   -->
+	<procedure id="consultaNovedadPorPalabraClave" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_cns_nov_tit(#palabraClave#)}
+    </procedure>	
+		
+	<!--   consultaNovedadPorIdentificador   -->
+	<procedure id="consultaNovedadPorIdentificador" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_cns_nov_id(#identificador#)}
+    </procedure>	
+	<!--  actualizarNovedad    -->
+	<procedure id="actualizarNovedad" parameterClass="java.util.HashMap">
+		{CALL sp_mod_nov(#codigoNovedad#, #titulo#, #nota#, #usuarioMod#, #fechaMod#, #fechaExp#, #tipo#,
+                     		#estadoDoc#, #estado#, #codDoc#)}
+    </procedure>	
+	<!--  actualizarDocumentoNovedad    -->
+	<procedure id="actualizarDocumentoNovedad" parameterClass="java.util.HashMap">
+		{CALL sp_mod_doc_nov(#codigoDocumento#, #nombreDoc#, #descripcionDoc#, #comando#)}
+    </procedure>	
+	
+	<!--  agregarNovedad    -->
+	<procedure id="agregarNovedad" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_agr_nov(#titulo#, #notaNovedad#, #usuarioCreador#, #fechaCreacion#, #usuarioMod#, #fechaMod#, #fechaExp#,
+                     		#tipo#, #codigoDoc#, #estadoDoc#, #estadoNovedad#)}
+    </procedure>
+
+	<!--  agregarDocumentoDeNovedad    -->
+	<procedure id="agregarDocumentoDeNovedad" parameterClass="java.util.HashMap">
+		{CALL sp_agr_doc_nov(#codDoc#, #nombreDoc#, #descripcionDoc#, #comando#)}
+    </procedure>							
+
+	<!--   consultaScriptingNombreYBanca, consulta un procedimiento por palabra clave y banca   -->
+	<procedure id="consultaScriptingNombreYBanca" parameterClass="java.util.HashMap" resultMap="scripting">
+		{CALL sp_scr_nom_bca(#palabraClave#, #estado#, #identificadorDeLaBanca#)}
+    </procedure>
+	
+	<!--   consultaScriptingPorIdentificadorYBanca, consulta un procedimiento por identificador y banca   -->
+	<procedure id="consultaScriptingPorIdentificadorYBanca" parameterClass="java.util.HashMap" resultMap="scriptingDetalle">
+		{CALL sp_cns_scr_bca(#identificadorDelScripting#, #identificadorDeLaBanca#)}
+    </procedure>
+
+	<!--   agregarBanca, agrega una banca   -->
+	<procedure id="agregarBanca" parameterClass="java.util.HashMap">
+		{CALL sp_ins_bca(#identificadorDeLaBanca#, #descripcionDeLaBanca#)}
+    </procedure>	
+	
+	<!--   eliminarBanca, elimina una banca   -->
+	<procedure id="eliminarBanca" parameterClass="java.util.HashMap" resultMap="resultado">
+		{CALL sp_eli_bca(#identificadorDeLaBanca#)}
+    </procedure>									
+
+	<!--   eliminarProductoPorBanca, elimina un producto de una banca   -->
+	<procedure id="eliminarProductoPorBanca" parameterClass="java.util.HashMap">
+		{CALL sp_eli_pro_bca(#identificadorDeLaBanca#, #identificadorDelProducto#)}
+    </procedure>	
+
+	<!--   agregarProducto, agrega un producto a una banca   -->
+	<procedure id="agregarProducto" parameterClass="java.util.HashMap" resultMap="resultado">
+		{CALL sp_ins_prd(#identificadorDeLaBanca#, #identificadorDelProducto#, #descripcionDelProducto#)}
+    </procedure>	
+
+	<!--   agregarOperacion, agrega una operación a un producto   -->
+	<procedure id="agregarOperacion" parameterClass="java.util.HashMap" resultMap="resultado">
+		{CALL sp_ins_ope(#identificadorDelProducto#, #identificadorDeLaOperacion#, #descripcionDeLaOperacion#)}
+    </procedure>	
+	
+	<!--   asociarOperacionesAProducto, asocia operaciones existentes a un producto   -->
+	<procedure id="asociarOperacionesAProducto" parameterClass="java.util.HashMap">
+		{CALL sp_aso_ope_pro(#identificadorDelProducto#, #operaciones#, #separador#)}
+    </procedure>
+	
+	<!--   eliminarOperacionPorProducto, elimina una operación de un producto   -->
+	<procedure id="eliminarOperacionPorProducto" parameterClass="java.util.HashMap">
+		{CALL sp_eli_ope(#identificadorDelProducto#, #identificadorDeLaOperacion#)}
+    </procedure>	
+
+	<!--   asociarProductosABanca, asocia productos existentes a una banca   -->
+	<procedure id="asociarProductosABanca" parameterClass="java.util.HashMap">
+		{CALL sp_aso_prd_bca(#identificadorDeLaBanca#, #productos#, #separador#)}
+    </procedure>	
+	
+	<!--   consultaBancaPorNombre, consulta una banca mediante su descripción   -->
+	<procedure id="consultaBancaPorNombre" parameterClass="java.util.HashMap" resultMap="banca">
+		{CALL sp_cns_bca_nom(#descripcionDeLaBanca#)}
+    </procedure>
+	
+	<!--   consultaOperacionPorNombre, consulta una operación mediante su descripción   -->
+	<procedure id="consultaOperacionPorNombre" parameterClass="java.util.HashMap" resultMap="operacion">
+		{CALL sp_cns_ope_nom(#descripcionDeLaOperacion#)}
+    </procedure>	
+
+	<!--   asociarNovedadABanca, asocia una novedad a una banca  -->
+	<procedure id="asociarNovedadABanca" parameterClass="java.util.HashMap">
+		{CALL sp_ins_nov_bca(#codigoNovedad#, #codigoBanca#)}
+    </procedure>
+
+	<!--   consultaNovedades   -->
+	<procedure id="consultarNovedadesPorBanca" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_cns_nov_bca(#fecha#, #tipo#, #estado#, #banca#)}
+    </procedure>		
+
+	<!--   traerBancasPorNovedad   -->
+	<procedure id="traerBancasPorNovedad" parameterClass="java.util.HashMap" resultMap="banca">
+		{CALL sp_cns_bca_nov(#codigoNovedad#)}
+    </procedure>
+
+	<!--   eliminarBancaPorNovedad, elimina las bancas de una novedad  -->
+	<procedure id="eliminarBancaPorNovedad" parameterClass="java.util.HashMap">
+		{CALL sp_eli_nov_bca(#codigoNovedad#)}
+    </procedure>
+
+	<!--   consultaNovedades   -->
+	<procedure id="consultaNovedadesPorPalabraYBanca" parameterClass="java.util.HashMap" resultMap="novedad">
+		{CALL sp_nov_nom_bca(#palabraClave#, #tipo#, #banca#)}
+    </procedure>		
+	
+	<!--   actualizarBanca, actualiza una banca  -->
+	<procedure id="actualizarBanca" parameterClass="java.util.HashMap">
+		{CALL sp_mod_nom_bca(#codigoBanca#, #banca#)}
+    </procedure>	
+
+	<!--   consultarProductosRestantes, consulta los productos que no pertenecen a una banca   -->
+	<procedure id="consultarProductosRestantes" parameterClass="java.util.HashMap" resultMap="producto">
+		{CALL sp_cns_prd_res(#banca#)}
+    </procedure>
+
+	<!--   consultarOperacionesRestantes, consulta las operaciones que no pertenecen a un producto   -->
+	<procedure id="consultarOperacionesRestantes" parameterClass="java.util.HashMap" resultMap="operacion">
+		{CALL sp_cns_ope_res(#codigoProducto#)}
+    </procedure>				
+
+	<!--   consultarProductoPorNombreYBanca, consulta el producto de una banca mediante su nombre   -->
+	<procedure id="consultarProductoPorNombreYBanca" parameterClass="java.util.HashMap" resultMap="producto">
+		{CALL sp_cns_prd_exi(#producto#, #codigoBanca#)}
+    </procedure>
+
+        <!--   obtenerCodigoPorItem, Obtener código para los items: banca, producto y operación  -->
+	<procedure id="obtenerCodigoPorItem" parameterClass="java.util.HashMap" resultMap="resultado">
+		{ CALL sp_gen_semilla(#tipoSemilla#) }
+	</procedure>	
+</sqlMap>	

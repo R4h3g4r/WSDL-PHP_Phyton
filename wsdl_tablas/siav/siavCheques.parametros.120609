@@ -1,0 +1,44 @@
+#
+# Tabla de Parámetros para WebServices SIAV Cheques
+# =================================================
+#
+# Adapters: nombres de servicios tuxedo expuestos por el adapter Stac Teller
+Adapters;depoBci=stdepositosiav;depoOtros=stdeposito4p;reversaDepoOtros=stdeposito4p;pagoDirecto=stpagoche5p;pagoReverso=stpagoche5rp;datosCliente=stnomcuensiav;reversaDepoBci1=stdepositosiav;reversaDepoBci2=stdepochequer;pagoDirectoSinSerialRut=stpagoche3pA;PagoReversoSinSerialRut=stpagoche3pA;
+# camposAdapters: nombres de campos retornados por el adapter. Normalmente no se modifican.
+camposAdapters;descError=descripcionError;codError=codigoError;nombre=nombre;
+# parametros para manejo de CMC7
+codigosCmc7;bancoBCI=016;docCheque=01,02;
+cmc7PreSet;Desc=1;
+# montos maximos de pago y deposito
+montos;maxPago=500000;maxDepoBCI=500000;maxDepoOtros=10000000;sufijoMontosParaTX=00;
+# mensajes
+mensajes;exitoTX=TRANSACCION EXITOSA;
+#Activacion de uso de servicio de firmas, SI o NO.
+ServicioFirmas;Desc=NO;
+# URL de consulta de servicios web de Comicrom
+urlComicrom.ConsultaServicioFirmas;Desc=http://192.168.252.168/bancobci2/WSConsultaWebServiceFirmas2/ConsultaServicioFirmas.asmx?WSDL;
+#Url a insertar en excepciones soapfault.
+soapFaultUrl;Desc=http://www.bci.cl/soap/siav/SiavCheques;
+#Nombre JNDI 
+JNDIName;Desc=wcorp.bprocess.autoservicios.siav.ServicioWebCheque;
+#Servicios Jolt
+ServiciosJolt;consNombre=TConsCliSin;
+#Nombre Cajero para consulta de cuentas
+CajeroConsNombre;Desc=CCHANDI;
+#Validacion Beneficiario
+validacionBeneficiario;SI=0;NO=1;
+#Llave Supervisor para Transaccion G0608
+llaveSuper0608;Desc=1;
+#Contexto para wtc de JNDI
+WtcContext;Desc=wtcmeson_context;
+#Constante para servicios Tuxedo. Tuxedo Connection Factory.
+tcf;Desc=tuxedo.services.TuxedoConnection;
+
+#Constantes para consulta de modo de operacion
+ParametrosConsultaModo;servicioTux=stmodo;idnCajero=CCHANDI;usuario=SIAVCORTE;operador=1402;codTrans=G0002;canal=920;separadorFecha=-;campoRespuesta=modo-usu;codigoModoManana=0;codigoModoTarde=2;
+#Constantes de conexion web service de magneprint
+url.ValidarMP;Desc=http://161.131.141.179:8701/magneprintsystem/magneprintservice.svc?wsdl;
+#Constantes sistemas Magneprint
+ConstantesMagneprint;largoPan=16;largoMagneprint=108;transactionId=09;transactionType=40;
+#Codigos de retorno para MagnePrint
+CodigosRetornoMagnePrint;autenticacionCorrrecta=0;tarjetaClonada=-54;debeEnrolar=-61;

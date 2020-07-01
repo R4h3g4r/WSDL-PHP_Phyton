@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_con_val_spread_prom">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field java_name="rut" type="long" size="0" middle_name="rut"/>
+	</input>
+	<output>
+		<field java_name="rut" type="long" size="0" middle_name="sprd_pr_rut"/>
+		<field java_name="valorSpreadPromedio" type="double" size="0" middle_name="sprd_pr_spread"/>
+	</output>
+</service>

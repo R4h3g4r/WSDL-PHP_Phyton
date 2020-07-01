@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_idv_ban_priv">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="long" middle_name="rut" size="0" java_name="rut"/>
+	</input>
+
+	<output>
+		<struct struct_size="0" class_name="ConsultaInformeDeVisitasTO" var_name="visita">
+			<field type="int"          middle_name="cbp_rut"             size="0"  java_name="rutCliente"    />
+			<field type="Date"         middle_name="idv_fec_vst"         size="0"  java_name="fechaVisita"   />
+			<field type="String"       middle_name="idv_ubi_dir" 		 size="0"  java_name="lugar"         />
+			<field type="String"       middle_name="idv_txt_obj" 		 size="0"  java_name="objetivo"      />
+			<field type="String"       middle_name="idv_txt_cmp" 		 size="0"  java_name="compromisos"   />
+			<field type="String"       middle_name="idv_neg"    		 size="0"  java_name="tipoDeNegocio" />
+			<field type="String"       middle_name="idv_txt_cmt" 		 size="0"  java_name="comentarios"   />
+			<field type="int"          middle_name="idv_crr" 		     size="0"  java_name="idVisita"   />
+		</struct>
+	</output>
+</service>
+

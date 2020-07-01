@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="admprom.procedimientosAlmacenados">
+
+	<resultMap id="getTodosPlan" class="java.util.HashMap">
+		<result property="idPlan"		column="prd_id_pln"		jdbcType="char"	javaType="java.lang.String"/>
+		<result property="codigoPlan"	column="prd_cod_pln"	jdbcType="char"	javaType="java.lang.String"/>
+		<result property="nombrePlan"	column="prd_nom_pln"	jdbcType="char"	javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="todosPlan" resultMap="getTodosPlan">
+		{ CALL sp_obt_plns() }
+	</procedure>
+	
+	<parameterMap id="setIngresarPlan" class="java.util.HashMap">
+		<parameter property="codigo" jdbcType="CHAR"	javaType="String"/>
+		<parameter property="nombre" jdbcType="VARCHAR"	javaType="String"/>
+	</parameterMap>
+	<procedure id="ingresarPlan" parameterMap="setIngresarPlan" resultClass="Integer">
+		{ CALL sp_ing_pln(?, ?) }
+	</procedure>
+	
+	<parameterMap id="setIngresarMedicion" class="java.util.HashMap">
+		<parameter property="idPlan"				jdbcType="CHAR"		javaType="String"/>
+		<parameter property="nombreMedicion"		jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="estadoMedicion"		jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="fechainicioMedicion"	jdbcType="DATE"		javaType="java.util.Date"/>
+		<parameter property="fechafinMedicion"		jdbcType="DATE"		javaType="java.util.Date"/>
+		<parameter property="totalAcumulacionPlan"	jdbcType="INT"		javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="ingresarMedicion" parameterMap="setIngresarMedicion" resultClass="java.lang.Integer">
+		{ CALL sp_ins_med(?, ?, ?, ?, ?, ?) }
+	</procedure>
+
+	<resultMap id="getObtenerMedicionesSegunEstado" class="java.util.HashMap">
+		<result property="idMedicion"			column="idM"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="nombreMedicion"		column="nomM"	jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+		<result property="fechaInicioMedicion"	column="fecIM"	jdbcType="DATE" 	javaType="java.util.Date"/>
+		<result property="fechaFinMedicion"		column="fecFM"	jdbcType="DATE" 	javaType="java.util.Date"/>
+		<!-- result property="acumPlanMed"			column="acumPM"	jdbcType="INT" 		javaType="java.lang.Integer"/ -->
+		<result property="codPlan"				column="codP"	jdbcType="CHAR" 	javaType="java.lang.String"/>
+		<!-- result property="nombrePlan"			column="nomP"	jdbcType="VARCHAR" 	javaType="java.lang.String"/ -->
+		<result property="regtot"				column="regtot"	jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+	</resultMap>
+	<parameterMap id="setObtenerMedicionesSegunEstado" class="java.util.HashMap">
+		<parameter property="estadoMedicion"	jdbcType="CHAR"	javaType="String"/>
+		<parameter property="pagina"			jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="numeroPaginas"		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="obtenerMedicionesSegunEstado" parameterMap="setObtenerMedicionesSegunEstado" resultMap="getObtenerMedicionesSegunEstado">
+		{ CALL sp_cst_med_est(?, ?, ?) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setObtenerVtaTotAcumPlanes">
+		<parameter property="codigoPlan" jdbcType="CHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<procedure id="obtenerVtaTotAcumPlanes" parameterMap="setObtenerVtaTotAcumPlanes" resultClass="Integer">
+		{ CALL sp_obt_vta_tot_acum_pln( ? ) }
+	</procedure>
+	
+	<parameterMap id="setModificarMedicion" class="java.util.HashMap">
+		<parameter property="idMedicion"			jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="codPlan"				jdbcType="CHAR"		javaType="String"/>
+		<parameter property="nombreMedicion"		jdbcType="VARCHAR"	javaType="java.lang.String"/>
+		<parameter property="estadoMedicion"		jdbcType="VARCHAR"	javaType="java.lang.String"/>
+		<parameter property="fechaInicioMedicion"	jdbcType="DATE"		javaType="java.util.Date"/>
+		<parameter property="fechaFinMedicion"		jdbcType="DATE"		javaType="java.util.Date"/>
+		</parameterMap>
+	<procedure id="modificarMedicion" parameterMap="setModificarMedicion" resultClass="int">
+		{ CALL sp_mod_med( ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+	<resultMap id="getObtenerEventosMedicion" class="java.util.HashMap">
+		<result property="idEvento"			column="prd_id_evt"			jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="nomEvento"		column="prd_nom_evt"		jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+		<result property="nomTipoEvento"	column="prd_nom_tipo_evt"	jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+		<result property="codPlan"			column="prd_cod_pln"		jdbcType="CHAR" 	javaType="java.lang.String"/>
+		<result property="nomPlan"			column="prd_nom_evt"		jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+	</resultMap>
+		<parameterMap id="setObtenerEventosMedicion" class="java.util.HashMap">
+		<parameter property="idMedicion"	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="obtenerEventosMedicion" parameterMap="setObtenerEventosMedicion" resultMap="getObtenerEventosMedicion">
+		{ CALL sp_cst_evt_med(?) }
+	</procedure>
+
+	<resultMap id="getObtenerTipoEventos" class="java.util.HashMap" >
+		<result property="idTipo" column="prd_id_tipo_evt" jdbcType="INT" javaType="java.lang.Integer" />
+		<result property="nombreTipo" column="prd_nom_tipo_evt" jdbcType="VARCHAR" javaType="java.lang.String" />
+	</resultMap>
+	
+	<procedure id="obtenerTipoEventos" resultMap="getObtenerTipoEventos">
+		{ CALL sp_cst_tipos_evts() }
+	</procedure>
+	
+	<resultMap id="getSinAsignarEvento" class="java.util.HashMap">
+		<result property="idEvento"				column="prd_id_evt"	 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="nombreEvento"			column="prd_nom_evt"	jdbcType="VARCHAR" 	javaType="java.lang.String"/>
+		<result property="idMedicion"			column="prd_id_med"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		
+	</resultMap>
+	<parameterMap id="setSinAsignarEvento" class="java.util.HashMap">
+		<parameter property="idTipoEvento"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="idMed"	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="sinAsignarEvento" parameterMap="setSinAsignarEvento" resultMap="getSinAsignarEvento">
+		{ CALL sp_cst_evt_sin_asig( ?, ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setIngresarTipoEvento">
+		<parameter property="nombreTipoEvento" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="indFecha" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCodigo" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indNombre" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indComuna" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockTot" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockUtil" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockRest" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockUserGen" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indMetAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCliAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCliNoAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV1" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV2" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV3" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV4" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV5" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV6" jdbcType="CHAR" javaType="String"/>
+		<parameter property="nombFecha" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCodigo" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombNombre" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombComuna" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockTot" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockUtil" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockRest" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockUserGen" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombMetAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCliAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCliNoAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV3" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV4" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV5" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV6" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	
+	<procedure id="ingresarTipoEvento" resultClass="java.lang.Integer" parameterMap="setIngresarTipoEvento" >
+		{ CALL sp_ins_tipo_evt( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+	<parameterMap id="setEventoaMedicion" class="java.util.HashMap">
+		<parameter property="idEvento"		jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="idMedicion"	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="asignarEventoaMedicion" parameterMap="setEventoaMedicion" resultClass="java.lang.Integer">
+		{ CALL sp_asig_evt(?, ?) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setObtenerDetalleTipoEvento">
+		<parameter property="idTipoEvento"/>
+	</parameterMap>
+	
+	<resultMap class="java.util.HashMap" id="getObtenerDetalleTipoEvento">
+		<result property="nombreTipo"		column="prd_nom_tipo_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="indFecha"			column="prd_ind_fec"			jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCodigo"		column="prd_ind_cod"			jdbcType="CHAR" 	javaType="String"/>
+		<result property="indNombre"		column="prd_ind_nom"			jdbcType="CHAR" 	javaType="String"/>
+		<result property="indComuna"		column="prd_ind_com"			jdbcType="CHAR" 	javaType="String"/>
+		<result property="indStockTot"		column="prd_ind_stock_tot"		jdbcType="CHAR" 	javaType="String"/>
+		<result property="indStockUtil"		column="prd_ind_stock_util"		jdbcType="CHAR" 	javaType="String"/>
+		<result property="indStockRest"		column="prd_ind_stock_rest"		jdbcType="CHAR" 	javaType="String"/>
+		<result property="indUsuGen"		column="prd_ind_usr_gen"		jdbcType="CHAR" 	javaType="String"/>
+		<result property="indMetAsigCli"	column="prd_ind_met_asig_cli"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCliAsig"		column="prd_ind_cli_asig"		jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCliNoAsig"		column="prd_ind_cli_no_asig"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV1"			column="prd_ind_cam_var_1_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV2"			column="prd_ind_cam_var_2_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV3"			column="prd_ind_cam_var_3_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV4"			column="prd_ind_cam_var_4_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV5"			column="prd_ind_cam_var_5_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="indCV6"			column="prd_ind_cam_var_6_evt"	jdbcType="CHAR"		javaType="String"/>
+		<result property="nombreFecha"		column="nom_fecha"				jdbcType="VARCHAR"	javaType="String"/>
+		<result property="nombreCodigo"		column="nom_cod"				jdbcType="VARCHAR"	javaType="String"/>
+		<result property="nombreNombre"		column="nom_nom"				jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreComuna"		column="nom_com"				jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreStockTot"	column="nom_stock_tot"			jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreStockUtil"	column="nom_stock_util"			jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreStockRest"	column="nom_stock_rest"			jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreUsuGen"		column="nom_usr_gen"			jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreMetAsigCli"	column="nom_met_asig_cli"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCliAsig"	column="nom_cli_asig"			jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCliNoAsig"	column="nom_cli_no_asig"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV1"		column="nom_cam_var_1_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV2"		column="nom_cam_var_2_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV3"		column="nom_cam_var_3_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV4"		column="nom_cam_var_4_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV5"		column="nom_cam_var_5_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="nombreCV6"		column="nom_cam_var_6_evt"		jdbcType="VARCHAR" 	javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obtenerDetalleTipoEvento" resultMap="getObtenerDetalleTipoEvento" parameterMap="setObtenerDetalleTipoEvento" >
+		{ CALL sp_cst_det_tipo_evt( ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setModificarTipoEvento">
+		<parameter property="idTipo" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="nombreTipoEvento" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="indFecha" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCodigo" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indNombre" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indComuna" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockTot" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockUtil" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockRest" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indStockUserGen" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indMetAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCliAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCliNoAsig" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV1" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV2" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV3" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV4" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV5" jdbcType="CHAR" javaType="String"/>
+		<parameter property="indCV6" jdbcType="CHAR" javaType="String"/>
+		<parameter property="nombFecha" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCodigo" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombNombre" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombComuna" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockTot" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockUtil" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockRest" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombStockUserGen" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombMetAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCliAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCliNoAsig" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV3" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV4" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV5" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="nombCV6" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	
+	<procedure id="modificarTipoEvento" resultClass="java.lang.Integer" parameterMap="setModificarTipoEvento" >
+		{ CALL sp_mod_tipo_evt( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setEliminarTipoEvento">
+		<parameter property="idTipoEvento"/>
+	</parameterMap>
+	
+	<procedure id="eliminarTipoEvento" resultClass="java.lang.Integer" parameterMap="setEliminarTipoEvento" >
+		{ CALL sp_elim_tipo_evt( ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setConsultaEventosTiposEventos">
+		<parameter property="idTipoEvento"/>
+	</parameterMap>
+	
+	<procedure id="consultaEventosTiposEventos" resultClass="java.lang.Integer" parameterMap="setConsultaEventosTiposEventos" >
+		{ CALL sp_cst_evt_tipo_evt( ? ) }
+	</procedure>
+
+	<parameterMap id="setIngresarEvento" class="java.util.HashMap">
+		<parameter property="tipoEvento"				jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="fechaEvento"				jdbcType="DATETIME"	javaType="java.util.Date"/>
+		<parameter property="codEvento"					jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="nombreEvento"				jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="comunaEvento"				jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="codigoPlan"				jdbcType="CHAR"		javaType="String"/>
+		<parameter property="stockTotalEvento"			jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="stockUtilEvento"			jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="stockRestEvento"			jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="usuarioGeneradorEvento"	jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="clienteaEvento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable1Evento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable2Evento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable3Evento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable4Evento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable5Evento"			jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable6Evento"			jdbcType="VARCHAR"	javaType="String"/>
+	</parameterMap>
+	<procedure id="ingresarEvento" parameterMap="setIngresarEvento" resultClass="java.lang.Integer">
+		{ CALL sp_ins_evt(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+	</procedure>
+	
+	<resultMap id="getObtenerEventosPorTipo" class="java.util.HashMap">
+		<result property="idEvento"					column="idEvt"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="fechaEvento"				column="fecha"	 	jdbcType="DATE" 	javaType="java.util.Date"/>
+		<result property="codigoEvento"				column="codigo"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="nombreEvento"				column="nombre"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="comunaEvento"				column="comuna"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="stockTotalEvento"			column="stock_tot"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="stockUtilEvento"			column="stock_util"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="stockRestanteEvento"		column="stock_rest"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="usuarioGeneradorEvento"	column="usuarioGen"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="clientesaEvento"			column="asigCli"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="variable1Evento"			column="var1"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable2Evento"			column="var2"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable3Evento"			column="var3"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable4Evento"			column="var4"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable5Evento"			column="var5"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable6Evento"			column="var6"		jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="totalRegistros"			column="regtot"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="anulado"					column="anulado"	jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<parameterMap id="setObtenerEventosPorTipo" class="java.util.HashMap">
+		<parameter property="idTipoEvento"		jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="pagina"			jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="numeroPaginas"		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>	
+	<procedure id="obtenerEventosPorTipo" parameterMap="setObtenerEventosPorTipo" resultMap="getObtenerEventosPorTipo">
+		{ CALL sp_cst_evts_by_tipo(?,?,?) }
+	</procedure>
+		
+	<parameterMap id="setAnularEvento" class="java.util.HashMap">
+		<parameter property="idEvento"		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="anularEvento" parameterMap="setAnularEvento" resultClass="java.lang.Integer">
+		{ CALL sp_anular_evt(?)}
+	</procedure>
+	
+	<resultMap id="getObtenerEvento" class="java.util.HashMap">
+		<result property="idEvento"					column="prd_id_evt" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="idTipoEvento"				column="prd_id_tipo_evt" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="nombreTipoEvento"			column="prd_nom_tipo_evt" 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="codigoPlan"				column="prd_cod_pln" 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="fechaEvento"				column="prd_fec_evt"	 	jdbcType="DATE" 	javaType="java.util.Date"/>
+		<result property="codigoEvento"				column="prd_cod_evt"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="nombreEvento"				column="prd_nom_evt"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="comunaEvento"				column="prd_com_evt"	 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="stockTotalEvento"			column="prd_stock_tot_evt"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="stockUtilEvento"			column="prd_stock_util_evt"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="stockRestanteEvento"		column="prd_stock_rest_evt"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<result property="usuarioGeneradorEvento"	column="prd_usr_gen_evt"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="clientesaEvento"			column="prd_met_asig_cli"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="variable1Evento"			column="prd_cam_var_1_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable2Evento"			column="prd_cam_var_2_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable3Evento"			column="prd_cam_var_3_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable4Evento"			column="prd_cam_var_4_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable5Evento"			column="prd_cam_var_5_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+		<result property="variable6Evento"			column="prd_cam_var_6_evt"	jdbcType="VARCHAR" 	javaType="String"/>
+	</resultMap>
+	
+	<parameterMap id="setObtenerEvento" class="java.util.HashMap">
+		<parameter property="idEvento"	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<procedure id="obtenerEvento" parameterMap="setObtenerEvento" resultMap="getObtenerEvento">
+		{ CALL sp_cst_evt(?) }
+	</procedure>
+	
+	<resultMap id="getModificarEvento" class="java.util.HashMap">
+		<result property="confirmacion"		  	column="dato"		jdbcType="INT" javaType="java.lang.Integer"/>
+	</resultMap>
+	
+	<parameterMap id="setModificarEvento" class="java.util.HashMap">
+		<parameter property="idEvento"				 jdbcType="INT" 	javaType="java.lang.Integer"/>
+		<parameter property="idTipoEvento"			 jdbcType="INT" 	javaType="java.lang.Integer"/>
+		<parameter property="fechaEvento"			 jdbcType="DATE"	javaType="java.util.Date"/>
+		<parameter property="codEvento"				 jdbcType="CHAR"	javaType="String"/>
+		<parameter property="nombreEvento"			 jdbcType="CHAR"	javaType="String"/>
+		<parameter property="comunaEvento"			 jdbcType="CHAR"	javaType="String"/>
+		<parameter property="stockTotalEvento"		 jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="stockUtilEvento"		 jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="stockRestEvento"		 jdbcType="INT"		javaType="java.lang.Integer"/>
+		<parameter property="usuarioGeneradorEvento" jdbcType="CHAR"	javaType="String"/>
+		<parameter property="variable1Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable2Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable3Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable4Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable5Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+		<parameter property="variable6Evento"		 jdbcType="VARCHAR"	javaType="String"/>
+	</parameterMap>
+	
+	<procedure id="modificarEvento" parameterMap="setModificarEvento" resultClass="java.lang.Integer">
+		{ CALL sp_mod_evt(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setObtenerDatosCertificado">
+		<parameter property="rut" 		 jdbcType="INT"  javaType="java.lang.Long"/>
+		<parameter property="dv" 		 jdbcType="CHAR" javaType="String"/>
+		<parameter property="codPlan" 	 jdbcType="CHAR" javaType="String"/>
+		<parameter property="tipoEvento" jdbcType="INT"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<resultMap class="java.util.HashMap" id="getObtenerDatosCertificado">
+		<result property="cod_evento"		column="prd_id_evt"		 jdbcType="INT"	javaType="java.lang.Integer"/>
+		<result property="cod_tipo_evento"	column="prd_id_tipo_evt" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="cod_certificado"	column="prd_cod_evt"	 jdbcType="VARCHAR" javaType="String"/>
+		<result property="nom_tipo_evento"	column="prd_nom_evt"	 jdbcType="VARCHAR" javaType="String"/>
+		<result property="com_tipo_evento"	column="prd_com_evt"	 jdbcType="VARCHAR" javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obtenerDatosCertificado" resultMap="getObtenerDatosCertificado" parameterMap="setObtenerDatosCertificado" >
+		{ CALL sp_obt_evt_cert( ?, ?, ?, ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setCompensacionManualClientes">
+		<parameter property="rut" 		 jdbcType="INT"  javaType="Long"/>
+		<parameter property="dv" 		 jdbcType="CHAR" javaType="String"/>
+		<parameter property="codPlan" 	 jdbcType="CHAR" javaType="String"/>
+		<parameter property="idEvt" 	 jdbcType="INT" javaType="Integer"/>
+		<parameter property="fecha"		 jdbcType="DATETIME" javaType="java.util.Date"/>
+	</parameterMap>
+	
+	<procedure id="compensacionManualClientes" resultClass="Integer" parameterMap="setCompensacionManualClientes" >
+		{ CALL sp_comp_man_cli_post( ?, ?, ?, ?, ?) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setCompensacionAuto">
+		<parameter property="codPlan" 	 jdbcType="CHAR" javaType="String"/>
+		<parameter property="idEvt"		 jdbcType="INT" javaType="Integer"/>
+	</parameterMap>
+	
+	<procedure id="compensacionAuto" resultClass="Integer" parameterMap="setCompensacionAuto" >
+		{ CALL sp_comp_auto_cli_post( ?, ?) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setObteneClientesEvento">
+		<parameter property="idEvento" jdbcType="INT"  javaType="Integer"/>
+	</parameterMap>
+	
+	<resultMap class="java.util.HashMap" id="getObteneClientesEvento">
+		<result property="rut"	column="cli_rut"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<result property="dv"	column="cli_dv"		jdbcType="CHAR" javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obteneClientesEvento" resultMap="getObteneClientesEvento" parameterMap="setObteneClientesEvento" >
+		{ CALL sp_obt_cli_evt( ? ) }
+	</procedure>
+	
+	<resultMap class="java.util.HashMap" id="getObteneClientesSinEvento">
+		<result property="rut"	column="cli_rut"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<result property="dv"	column="cli_dv"		jdbcType="CHAR" javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obteneClientesSinEvento" resultMap="getObteneClientesSinEvento" parameterClass="java.util.HashMap">
+		{ CALL sp_obt_cli_no_evt() }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setEsClientePlanEco">
+		<parameter property="rut" jdbcType="INT"  javaType="Long"/>
+		<parameter property="dv" jdbcType="CHAR"  javaType="String"/>
+		<parameter property="codigoPlan" jdbcType="CHAR"  javaType="String"/>
+	</parameterMap>
+	
+	<procedure id="esClientePlanEco" resultClass="Integer" parameterMap="setEsClientePlanEco" >
+		{ CALL sp_val_cli_pln_eco( ?, ?, ? ) }
+	</procedure>
+	
+	<parameterMap class="java.util.HashMap" id="setEliminarCompensacion">
+		<parameter property="idEvt" jdbcType="INT"  javaType="Integer"/>
+	</parameterMap>
+	
+	<procedure id="eliminarCompensacion" resultClass="Integer" parameterMap="setEliminarCompensacion" >
+		{ CALL sp_elim_comp( ? ) }
+	</procedure>
+	
+	
+</sqlMap>

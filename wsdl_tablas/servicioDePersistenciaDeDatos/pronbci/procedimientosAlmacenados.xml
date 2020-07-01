@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="pronbci.procedimientosAlmacenados">	
+
+<resultMap id="detalleSucursal" class="java.util.HashMap">
+		<result property="estado"      											    column="estadoTicket"								javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="tipoTicketGenerado"   						            column="tipoTicketGen"								javaType="java.lang.String"     jdbcType="VARCHAR"/>
+		<result property="totalRegistros"   									    column="totalRegistros" 							javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		<result property="monto"        											column="montoTotal" 								javaType="java.lang.Long"       jdbcType="INTEGER"/>
+	    <result property="oficina"       		  									column="local"										javaType="java.lang.Long"       jdbcType="INTEGER"/>
+		
+
+</resultMap>
+
+
+	<!--    elimina favorito  -->
+	<procedure id="eliminaFavorito" parameterClass="java.util.HashMap">
+		{CALL sp_del_fav(#iIdentificadorFavorito#)}
+    </procedure>
+	
+<!--    agrega reporte-->
+	<procedure id="agregaReporte" parameterClass="java.util.HashMap">
+		{CALL sp_ins_rep(#sServicio#,#sEstado#,#iNumeroTransacciones#,#fMontoTransacciones#,#dFechaReporte#,#sSku#,#iEmpresaGestora#)}
+    </procedure>
+
+<!--    consulta detalle sucursal  -->
+	<procedure id="traerDetallePorLocalMultyBox" parameterClass="java.util.HashMap"  resultMap="detalleSucursal"> 
+		{CALL sp_com_lcl(#com_fec_ini#)}
+    </procedure>
+	
+<!--    consulta detalle de movimientos  -->
+	<procedure id="traerDetalleMovimientos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cns_com_dtl(#empresaOrigen#, #fechaPago#)}
+    </procedure>	<procedure id="traerPorIdentificadorUnico" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cns_com_idu_uni(#vcIdUnico#)}
+    </procedure>
+	<procedure id="traerPorFechaGeneracion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cns_pre_fec(#fechaPago#, #negocio#)}
+    </procedure>
+
+<!--	consulta datos de vehiculo y propietario por patente -->
+	<procedure id="traerDatosDeVehiculoYPropietario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_seg_veh_pro(#patente#)}
+    </procedure>
+	
+	<procedure id="agregarVehiculoYPropietario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_ins_ext_veh_prop(#id_comprobante_pago#, #patente_veh#, #anio_veh#, #id_tipo_veh#, #tipo_veh#, #id_marca_veh#, #marca_veh#, 
+			#id_modelo_veh#, #modelo_veh#, #numero_motor_veh#, #rut_prop#, #digito_verificador_prop#, #nombre_prop#, #apellido_paterno_prop#, 
+			#apellido_materno_prop#, #despacho_domicilio#, #id_region_prop#, #region_prop#, #id_ciudad_prop#, #ciudad_prop#, #id_comuna_prop#, 
+			#comuna_prop#, #direccion_prop#, #numero_direccion_prop#, #nota_direccion_prop#, #telefono_prop#, #email_prop#, #valor_seguro#)}
+    </procedure>
+	
+	<procedure id="traerInfoExtendida" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cns_ext(#id_comprobante_pago#)}
+    </procedure>
+	
+	<procedure id="traerNumeroPoliza" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cns_ext_plz()}
+    </procedure>
+		
+</sqlMap>	

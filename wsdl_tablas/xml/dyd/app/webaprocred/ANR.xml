@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<XML>
+<AU NTx="AprCreCrcXX" GLS="N">  
+	<SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+	<ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+    <I>
+     <!--   <campo FF="keywf" LF="30">numWf</campo>	 -->
+        <campo FF="numSol" LF="16" COD="" POS="" TD="" PREF="">numSolicitud</campo>
+		<campo FF="rutdv" LF="12" COD="" POS="" TD="" PREF="">rut</campo>
+		<campo FF="iddoc" LF="32" COD="" POS="" TD="" PREF=""> XX </campo>
+		<campo FF="estanr" LF="1" COD="" POS="" TD="" PREF=""> XX </campo>
+		<campo FF="fechaanr" LF="10" COD="" POS="" TD="" PREF=""> XX </campo>
+    </I> 
+</AU>
+<C NTx="AprCreConXX" GLS="N">  
+	<SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+	<ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+    <I>
+   <!--     <campo FF="keywf" LF="30">numWf</campo>	 	 -->
+        <campo FF="numSol" LF="16" COD="" POS="" TD="" PREF="">numSolicitud</campo>
+    </I> 
+    <O>
+		<campo FF="rutdv" LF="12" COD="" POS="" TD="" PREF="">rut</campo>
+		<campo FF="iddoc" LF="32" COD="" POS="" TD="" PREF=""> XX </campo>
+		<campo FF="estanr" LF="1" COD="" POS="" TD="" PREF=""> XX </campo>
+		<campo FF="fechaanr" LF="10" COD="" POS="" TD="" PREF=""> XX </campo>
+    </O> 	
+</C>
+</XML>
+<!-- Creation date: 24-10-2003 -->

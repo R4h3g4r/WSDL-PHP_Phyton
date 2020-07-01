@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="ctaprima.procedimientosAlmacenados">
+
+	<!-- BuscarDatos y cuentas cliente -->
+	
+	<procedure id="recuperaCuentasPrimasCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeConvenios(#sRutCli#)}
+	</procedure>
+	
+	<!-- Resumen -->	
+	
+	<procedure id="recuperaPeriodos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeePeriodos(#sPdoVig#)}
+	</procedure>
+	
+	<procedure id="recuperaCobrosResumen" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeResumenPrs(#sPdoVig#,#sCta#)}
+	</procedure>
+
+	<!-- Detalle Cobro -->
+	
+	<procedure id="recuperarDetalleCobro" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeDetCobPrs(#sPdoVig#,#sCta#)}
+	</procedure>
+	
+	<procedure id="recuperarTransaccionesAfectasCobro" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaTrxRealizadas(#sPdoVig#,#sCta#)}
+	</procedure>
+	
+	<!-- Movimientos -->
+	<procedure id="recuperarDetalleMovimientos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaDetalleTrx(#sCta#,#sPdoVig#)}
+	</procedure>	
+
+
+	<!-- Configuracion Fija -->
+
+	<procedure id="recuperarConfiguracionFija" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroFijoPer(#periodo#, #cuenta#)}
+	</procedure>
+
+	<!-- Configuracion Variable -->
+
+	<procedure id="recuperarConfiguracionVariable" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroVarPer(#periodo#, #cuenta#)}
+	</procedure>
+
+	<!-- Configuracion Transaccional -->
+
+	<procedure id="recuperarDetalleConfigTransaccional" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaConfigTrxPer(#periodo#, #cuenta#)}
+	</procedure>
+		
+	<!-- *************************************************************************** -->
+	<!-- DESARROLLO DE COMISIONES CUENTA PRIMA POR CONVENIO -->
+	<!-- *************************************************************************** -->
+	<!-- BuscarDatos, cuentas y convenios cliente -->
+	
+	<procedure id="recuperaCuentasPrimasConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeCuentas(#sRutCli#)}
+	</procedure>
+
+	<!-- Resumen Por Convenio-->
+	<procedure id="recuperaCobrosResumenPorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeResumenEmpWeb(#sPdoVig#,#sConvenio#, #sCta#)}
+	</procedure>
+
+	<!-- Configuracion Fija Por Convenio-->
+	<procedure id="recuperarConfiguracionFijaPorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroFijoEmp(#periodo#, #convenio#)}
+	</procedure>
+
+	<!-- Configuracion Variable Por Convenio-->
+	<procedure id="recuperarConfiguracionVariablePorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroVarEmp(#periodo#, #convenio#)}
+	</procedure>
+
+	<!-- Configuracion Transaccional Por Convenio-->
+
+	<procedure id="recuperarDetalleConfigTransaccionalPorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaConfigTrxEmp(#periodo#, #convenio#)}
+	</procedure>
+
+	<!-- Detalle Cobro Por Convenio-->
+	<procedure id="recuperarDetalleCobroFijoPorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeDetCobEmpFij(#sPdoVig#,#sConvenio#, #sCta#)}
+	</procedure>
+	
+	<procedure id="recuperarDetalleCobroVariablePorConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeDetCobEmpVar(#sPdoVig#,#sConvenio#, #sCta#)}
+	</procedure>
+	
+	<!-- Detalle Cobro Por Convenio para persona -->
+	<procedure id="recuperarConfiguracionPorConvenioFijaPersona" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroFijoPer2(#periodo#, #cuenta#)}
+	</procedure>
+
+	<procedure id="recuperarConfiguracionPorConvenioVariablePersona" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ConsultaCobroVarPer2(#periodo#, #cuenta#)}
+	</procedure>
+
+	<procedure id="recuperarDetalleCobroPorConvenioPersona" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_LeeDetCobPrsDet(#sPdoVig#,#sCta#)}
+	</procedure>
+	
+	<parameterMap id="setIngresarEncabezadoNomina" class="java.util.HashMap">
+	
+        <parameter property="var_rut_cli"                   jdbcType="INT"          javaType="Integer" />
+        <parameter property="var_dv_cli"                    jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_cnv_cli"                   jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_tipo_archivo"          jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_nombre"                jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="var_cnv_cod"                   jdbcType="CHAR"         javaType="String" />               
+        <parameter property="var_enp_tipo_despacho"         jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_direc_part_calle"      jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="var_enp_direc_part_nro"        jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_direc_part_depto"      jdbcType="CHAR"         javaType="String" />       
+        <parameter property="var_enp_direc_part_cod_reg"    jdbcType="CHAR"         javaType="String" />   
+        <parameter property="var_enp_direc_part_nom_reg"    jdbcType="VARCHAR"      javaType="String" />            
+        <parameter property="var_enp_direc_part_cod_com"    jdbcType="CHAR"         javaType="String" />         
+        <parameter property="var_enp_direc_part_nom_com"    jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="var_enp_suc_zona"              jdbcType="VARCHAR"      javaType="String" />                 
+        <parameter property="var_enp_cod_sucursal"          jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_suc_nom"               jdbcType="VARCHAR"      javaType="String" />      
+        <parameter property="var_enp_nom_archivo"           jdbcType="VARCHAR"      javaType="String" />          
+        <parameter property="var_cod_estado"                jdbcType="CHAR"         javaType="String" />          
+        <parameter property="var_enp_fec_ing"               jdbcType="DATETIME"     javaType="Date" />
+        <parameter property="var_enp_cta_cargo"             jdbcType="CHAR"         javaType="String" />               
+        <parameter property="var_enp_ejecutivo"             jdbcType="VARCHAR"      javaType="String" />                      
+        <parameter property="var_enp_ofi_ejecutivo"         jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="var_enp_canal"                 jdbcType="VARCHAR"      javaType="String" />     
+        
+<parameter property="var_enp_tipo_ctaprima"         jdbcType="CHAR"         javaType="String" />
+        <parameter property="var_enp_comision_ctaprima"     jdbcType="CHAR"         javaType="String" />   
+        
+    </parameterMap>
+
+    <procedure id="ingresarEncabezadoNomina" parameterMap="setIngresarEncabezadoNomina" resultClass="int">
+            { CALL sp_ing_enc_nmn( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setIngresarEventoSolicitud" class="java.util.HashMap">
+        <parameter property="enp_id"           jdbcType="INT"          javaType="Integer" />
+        <parameter property="nom_usu"          jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="rut_usu"          jdbcType="INT"          javaType="Integer" />
+        <parameter property="dv_usu"           jdbcType="CHAR"         javaType="String" />
+        <parameter property="cod_estado"       jdbcType="VARCHAR"      javaType="String" />
+    </parameterMap>
+
+    <procedure id="ingresarEventoSolicitud" parameterMap="setIngresarEventoSolicitud" resultClass="int">
+            { CALL sp_ingresar_evento_solicitud( ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setConsultarNominasCuentaPrima" class="java.util.HashMap">
+        <parameter property="rutCliente"    jdbcType="INT"          javaType="Integer" />        
+        <parameter property="dvCLiente"     jdbcType="CHAR"         javaType="String" />
+        <parameter property="cnvCLiente"    jdbcType="CHAR"         javaType="String" />
+    </parameterMap>
+
+    <resultMap id="getConsultarNominasCuentaPrima" class="java.util.HashMap">
+                <result property="id"                              column="id"                              jdbcType="INT"          javaType="String" />          
+                <result property="rut_cliente"                     column="rut_cliente"                     jdbcType="INT"          javaType="String" />             
+                <result property="dv_cliente"                      column="dv_cliente"                      jdbcType="CHAR"         javaType="String" />      
+                <result property="convenio_bel"                    column="convenio_bel"                    jdbcType="CHAR"         javaType="String" />
+                <result property="tipo_nomina"                     column="tipo_nomina"                     jdbcType="CHAR"         javaType="String" />           
+                <result property="nombre_carga"                    column="nombre_carga"                    jdbcType="VARCHAR"      javaType="String" />           
+                <result property="codigo_convenio_cta_prima"       column="codigo_convenio_cta_prima"       jdbcType="CHAR"         javaType="String" />
+                <result property="tipo_despacho"                   column="tipo_despacho"                   jdbcType="CHAR"         javaType="String" />           
+                <result property="calle_particular_despacho"       column="calle_particular_despacho"       jdbcType="VARCHAR"      javaType="String" />         
+                <result property="numero_particular_despacho"      column="numero_particular_despacho"      jdbcType="CHAR"         javaType="String" />           
+                <result property="depto_particular_despacho"       column="depto_particular_despacho"       jdbcType="CHAR"         javaType="String" />           
+                <result property="cod_region_particular_despacho"  column="cod_region_particular_despacho"  jdbcType="CHAR"         javaType="String" />
+                <result property="nom_region_particular_despacho"  column="nom_region_particular_despacho"  jdbcType="CHAR"         javaType="String" />
+                <result property="cod_comuna_particular_despacho"  column="cod_comuna_particular_despacho"  jdbcType="CHAR"         javaType="String" />   
+                <result property="nom_comuna_particular_despacho"  column="nom_comuna_particular_despacho"  jdbcType="VARCHAR"      javaType="String" />   
+                <result property="zona_sucursal"                   column="zona_sucursal"                   jdbcType="CHAR"         javaType="String" />   
+                <result property="nombre_sucursal"                 column="nombre_sucursal"                 jdbcType="CHAR"         javaType="String" />   
+                <result property="nombre_archivo"                  column="nombre_archivo"                  jdbcType="VARCHAR"      javaType="String" />   
+                <result property="estado_de_carga"                 column="estado_de_carga"                 jdbcType="CHAR"         javaType="String" />   
+                <result property="estado_descripcion"              column="estado_descripcion"              jdbcType="VARCHAR"      javaType="String" />   
+                <result property="fecha_ingreso"                   column="fecha_ingreso"                   jdbcType="DATETIME"     javaType="Date" />  
+                <result property="ctacte_cargo_comision"           column="ctacte_cargo_comision"           jdbcType="CHAR"         javaType="String" />   
+                <result property="ejecutico"                       column="ejecutico"                       jdbcType="VARCHAR"      javaType="String" />   
+                <result property="canal"                           column="canal"                           jdbcType="VARCHAR"      javaType="String" />
+                <result property="totalRegistrosRechazados"        column="totalRegistrosRechazados"        jdbcType="INT"          javaType="String" />
+                <result property="totalRegistros"                  column="totalRegistros"                  jdbcType="INT"          javaType="String" />
+     </resultMap>
+
+        <procedure id="consultarNominasCuentaPrima" parameterMap="setConsultarNominasCuentaPrima" resultMap="getConsultarNominasCuentaPrima">
+            { CALL sp_consulta_nominas_ctaprima( ?, ?, ? ) }
+    </procedure>
+    
+     <parameterMap id="setCambiarEstadoNominaCuentaPrima" class="java.util.HashMap">
+        <parameter property="idNomina"          jdbcType="INT"          javaType="Integer" />
+        <parameter property="rutCliente"        jdbcType="INT"          javaType="Integer" />
+        <parameter property="dvCLiente"         jdbcType="CHAR"         javaType="String" />
+        <parameter property="cnvCLiente"        jdbcType="CHAR"         javaType="String" />
+        <parameter property="estado"            jdbcType="CHAR"         javaType="String" />    
+    </parameterMap>
+
+    <procedure id="cambiarEstadoNominaCuentaPrima" parameterMap="setCambiarEstadoNominaCuentaPrima" resultClass="int">
+            { CALL sp_cambia_estado_nomina( ?, ?, ?, ?, ?) }
+    </procedure>
+    
+     <parameterMap id="setIngresarContactoNomina" class="java.util.HashMap">
+        <parameter property="idNomina"          jdbcType="INT"          javaType="Integer" />
+        <parameter property="nombreContacto"    jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="emailContacto"     jdbcType="VARCHAR"      javaType="String" />
+        <parameter property="fonoContacto"      jdbcType="VARCHAR"      javaType="String" />
+    </parameterMap>
+
+    <procedure id="ingresarContactoNomina" parameterMap="setIngresarContactoNomina" resultClass="int">
+            { CALL sp_ing_contacto( ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setObtenerEventosHistorial" class="java.util.HashMap">
+        <parameter property="idNomina"    jdbcType="INT"          javaType="Integer" />    
+    </parameterMap>
+
+    <resultMap id="getObtenerEventosHistorial" class="java.util.HashMap">
+                <result property="id_nomina"                       column="id_nomina"                       jdbcType="INT"          javaType="String" />          
+                <result property="nombre_usuario"                  column="nombre_usuario"                  jdbcType="VARCHAR"      javaType="String" />             
+                <result property="rut_usuario"                     column="rut_usuario"                     jdbcType="INT"          javaType="String" />                  
+                <result property="dv_usuario"                      column="dv_usuario"                      jdbcType="CHAR"         javaType="String" />      
+                <result property="cod_estado"                      column="cod_estado"                      jdbcType="CHAR"         javaType="String" />
+                <result property="desc_estado"                     column="desc_estado"                     jdbcType="VARCHAR"      javaType="String" />     
+                <result property="fecha_evento"                    column="fecha_evento"                    jdbcType="DATETIME"     javaType="Date" />  
+     </resultMap>
+
+        <procedure id="obtenerEventosHistorial" parameterMap="setObtenerEventosHistorial" resultMap="getObtenerEventosHistorial">
+            { CALL sp_consulta_eventos_solicitud( ? ) }
+    </procedure>
+	
+		<!--lucho-obtiene las consultas de estados-->
+   	<parameterMap id="setDatosConsulta" class="java.util.HashMap">
+	<parameter property="rutEmpresa"       jdbcType="INT"       javaType="Long"/>
+	<parameter property="ctaCargo"         jdbcType="CHAR"      javaType="String"/>
+	<parameter property="cnvCtaPrima"      jdbcType="CHAR"      javaType="String"/>
+	<parameter property="tipoOperacion"    jdbcType="CHAR"      javaType="String"/>
+	<parameter property="estadoOperacion"  jdbcType="CHAR"      javaType="String"/>	
+	<parameter property="desde"            jdbcType="DATETIME"  javaType="Date"/>
+	<parameter property="hasta"            jdbcType="DATETIME"  javaType="Date"/>
+	<parameter property="numSolicitud"     jdbcType="INT"       javaType="Integer"/>
+	<parameter property="tipoBusqueda"     jdbcType="INT"       javaType="Integer"/>
+	</parameterMap>
+	<resultMap id="getConsultaEstados" class="java.util.HashMap">
+	<result property="id_solicitud"            column="id_solicitud"            javaType="int"/>
+	<result property="cuenta_cargo"            column="cuenta_cargo"            javaType="String"/>   
+	<result property="convenio_cta_prima"      column="convenio_cta_prima"      javaType="String"/>
+	<result property="fecha_ingreso_solicitud" column="fecha_ingreso_solicitud" javaType="Date"/>
+	<result property="nombre_archivo"          column="nombre_archivo"          javaType="String"/>
+	<result property="tipo_operacion"          column="tipo_operacion"          javaType="String"/>
+	<result property="total_reg_rechazo"       column="total_reg_rechazo"       javaType="int"/>
+	<result property="total_registros"         column="total_registros"         javaType="int"/>
+	<result property="codigo_estado"           column="codigo_estado"           javaType="String"/>
+	<result property="descripcion_estado"      column="descripcion_estado"      javaType="String"/>
+	<result property="glosa_detalle_estado"    column="glosa_detalle_estado"    javaType="String"/>
+	</resultMap>
+	<procedure id="consultarEstados" parameterMap="setDatosConsulta" resultMap="getConsultaEstados">
+	{ CALL sp_buscar_nominas_cta_prima (?,?,?,?,?,?,?,?,?) }
+	</procedure>
+    
+	
+	<parameterMap id="setCambiaEstadoFueraHorarioFirma" class="java.util.HashMap">
+        <parameter property="idNomina"          jdbcType="INT"          javaType="Integer" />
+        <parameter property="estado"            jdbcType="CHAR"         javaType="String" />
+        <parameter property="fecha"            jdbcType="DATETIME"         javaType="Date" />    
+    </parameterMap>
+
+    <procedure id="cambiaEstadoFueraHorarioFirma" parameterMap="setCambiaEstadoFueraHorarioFirma" resultClass="int">
+            { CALL sp_cambia_fecha_firma(?,?,?) }
+    </procedure>
+    
+</sqlMap>

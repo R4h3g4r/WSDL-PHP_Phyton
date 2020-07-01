@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ctl.procedimientosAlmacenados">
+
+  <!-- ========================================================================================== ==
+    == Consulta categoria
+    == ========================================================================================== -->
+
+  <resultMap id="getConsultarCategoria"   class="java.util.HashMap">
+    <result property="idcategoria"        jdbcType="int" javaType="int" />
+    <result property="nombre"             jdbcType="char" javaType="String" />
+    <result property="estado"             jdbcType="char" javaType="String" />
+	<result property="paginaActual"       jdbcType="int" javaType="int" />
+    <result property="totalPaginas"		  jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarCategoria" resultMap="getConsultarCategoria">
+     { call sp_cns_categoria(#idCategoria#,#pagina#,#largoPagina#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Inserta o modifica una categoria
+    == ========================================================================================== -->
+  <resultMap id="resultado"       class="java.util.HashMap">
+    <result property="respuesta"        jdbcType="char" javaType="String" />
+  </resultMap>
+
+  <procedure id="modificaInsertaCategoria" resultMap="resultado" parameterClass="java.util.HashMap">
+     { call sp_ins_mod_categoria(#idCategoria#, #nombre#, #estado#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Consulta subcategorias
+    == ========================================================================================== -->
+
+  <resultMap id="getConsultarSubCategoria" class="java.util.HashMap">
+    <result property="idsubcategoria"      jdbcType="int" javaType="int" />
+    <result property="idcategoria"         jdbcType="int" javaType="int" />
+    <result property="nombre"              jdbcType="char" javaType="String" />
+    <result property="estado"              jdbcType="char" javaType="String" /> 
+	<result property="paginaActual"        jdbcType="int" javaType="int" />
+    <result property="totalPaginas"		   jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarSubCategoria" resultMap="getConsultarSubCategoria">
+     { call sp_cns_subcategoria(#idSubCategoria#, #idCategoria#,#pagina#,#largoPagina#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Inserta o modifica una subcategoria
+    == ========================================================================================== -->
+
+  <procedure id="modificaInsertaSubCategoria" resultMap="resultado" parameterClass="java.util.HashMap">
+     { call sp_ins_mod_subcategoria(#idsubcategoria#, #idcategoria#, #nombre#, #estado#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Consulta las especialidades
+    == ========================================================================================== -->
+
+  <resultMap id="getConsultarEspecialidad"  class="java.util.HashMap">
+    <result property="idespecialidad"      	jdbcType="int" javaType="int" />
+    <result property="idcategoria"      	jdbcType="int" javaType="int" />
+    <result property="nombre"      		    jdbcType="char" javaType="String" />    
+    <result property="estado"      	        jdbcType="char" javaType="String" />    
+	<result property="paginaActual"         jdbcType="int" javaType="int" />
+    <result property="totalPaginas"		    jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarEspecialidad" resultMap="getConsultarEspecialidad">
+     { call sp_cns_especialidad(#idespecialidad#, #idsubcategoria#,#pagina#,#largoPagina#)}
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Inserta o modifica una especialidad
+    == ========================================================================================== -->
+
+  <procedure id="modificaInsertaEspecialidad" resultMap="resultado" parameterClass="java.util.HashMap">
+     { call sp_ins_mod_especialidad(#idespecialidad#, #idsubcategoria#, #nombre#, #estado#) }
+  </procedure>
+
+ <!-- ========================================================================================== ==
+    == Consulta region
+    == ========================================================================================== -->
+
+  <resultMap id="getRegion"             class="java.util.HashMap">
+    <result property="idregion"         jdbcType="int" javaType="int" />
+    <result property="nombre"           jdbcType="char" javaType="String" />
+  </resultMap>
+
+  <procedure id="consultarRegion" resultMap="getRegion">
+     { call sp_cns_region(#idregion#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Consulta comuna
+    == ========================================================================================== -->
+
+  <resultMap id="getConsultarComuna" class="java.util.HashMap">
+    <result property="idcomuna"      jdbcType="int" javaType="int" />
+    <result property="idregion"      jdbcType="int" javaType="int" />
+    <result property="nombre"        jdbcType="char" javaType="String" />   
+  </resultMap>
+
+  <procedure id="consultarComuna" resultMap="getConsultarComuna">
+     { call sp_cns_comuna(#idcomuna#, #idregion#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Consulta ciudad
+    == ========================================================================================== -->
+  <resultMap id="getConsultarCiudad" class="java.util.HashMap">
+    <result property="idciudad"      jdbcType="int" javaType="int" />
+    <result property="idcomuna"      jdbcType="int" javaType="int" />
+    <result property="nombre"        jdbcType="char" javaType="String" />   
+  </resultMap>
+
+  <procedure id="consultarCiudad" resultMap="getConsultarCiudad">
+     { call sp_cns_ciudad(#idciudad#, #idcomuna#) }
+  </procedure>
+
+  
+ <!-- ========================================================================================== ==
+    == Inserta o modifica un punto de interes
+    == ========================================================================================== -->
+  <procedure id="modificaInsertaPoi" resultMap="resultado" parameterClass="java.util.HashMap">
+     { call sp_ins_mod_beneficio(#idpoi#, #idespecialidad#, #restricciones#, #detalle#,
+								 #descuento#, #nombreComercio#, #imagen#, #estado#,
+								 #idComuna#, #idcategoria#, #idsubcategoria#, #latitud#, #longitud#, 
+								 #tipo#, #direccion#, #telefono#, #fechaInicio#, #fechaTermino#, #codigosBanca#) }
+  </procedure>
+
+ <!-- ========================================================================================== ==
+    == Consultar subproductos campana
+    == ========================================================================================== -->
+  
+  <resultMap id="getConsultarPoi" class="java.util.HashMap">
+    <result property="idpoi"      				jdbcType="int" javaType="int" />
+    <result property="idbeneficio"      	    jdbcType="int" javaType="int" />
+    <result property="poi_cod_comuna"			jdbcType="int" javaType="int" />
+	<result property="idsubcategoria"      		jdbcType="int" javaType="int" />
+    <result property="latitud"      	        jdbcType="float" javaType="double" />
+    <result property="longitud"      		    jdbcType="float" javaType="double" />
+    <result property="tipo"      	            jdbcType="char" javaType="String" />
+	<result property="direccion"      			jdbcType="char" javaType="String" />
+    <result property="telefono"      	        jdbcType="char" javaType="String" />
+    <result property="estado"      	            jdbcType="char" javaType="String" />
+    <result property="idespecialidad"      	    jdbcType="int" javaType="int" />
+	<result property="restriccion"      		jdbcType="char" javaType="String" />
+    <result property="detalle"      	        jdbcType="char" javaType="String" />
+    <result property="descuento"      		    jdbcType="int" javaType="int" />
+	<result property="nombrecomercio"      	    jdbcType="char" javaType="String" />
+    <result property="imagen"      	            jdbcType="char" javaType="String" />
+	<result property="paginaActual"      	    jdbcType="int" javaType="int" />
+    <result property="totalPaginas"				jdbcType="int" javaType="int" />
+    <result property="idcategoria"      	    jdbcType="int" javaType="int" />
+    <result property="fechaInicio"				jdbcType="datetime" javaType="String" />
+    <result property="fechaTermino"      	    jdbcType="datetime" javaType="String" />
+	
+  </resultMap>
+
+  <procedure id="consultarPoi" resultMap="getConsultarPoi">
+     { call sp_cns_poi(#idpoi#,#tipo#,#pagina#,#largoPagina#,#idSubCategoria#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == Consultar puntos de interes cercanoss
+    == ========================================================================================== -->
+  
+  <resultMap id="getConsultarPoiCercanos" class="java.util.HashMap">
+    <result property="idpoi"      				jdbcType="int" javaType="int" />
+    <result property="idbeneficio"      	    jdbcType="int" javaType="int" />
+    <result property="poi_cod_comuna"			jdbcType="int" javaType="int" />
+	<result property="idsubcategoria"      		jdbcType="int" javaType="int" />	
+    <result property="latitud"      	        jdbcType="float" javaType="double" />
+    <result property="longitud"      		    jdbcType="float" javaType="double" />
+    <result property="tipo"      	            jdbcType="char" javaType="String" />
+	<result property="direccion"      			jdbcType="char" javaType="String" />
+    <result property="telefono"      	        jdbcType="char" javaType="String" />
+    <result property="estado"      	            jdbcType="char" javaType="String" />
+    <result property="idespecialidad"      	    jdbcType="int" javaType="int" />
+	<result property="restriccion"      		jdbcType="char" javaType="String" />
+    <result property="detalle"      	        jdbcType="char" javaType="String" />
+    <result property="descuento"      		    jdbcType="int" javaType="int" />
+	<result property="nombrecomercio"      	    jdbcType="char" javaType="String" />
+    <result property="imagen"      	            jdbcType="char" javaType="String" />
+    <result property="idcategoria"      	    jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarPoiCercanos" resultMap="getConsultarPoiCercanos">
+     { call sp_cns_poi_coordenada(#latitud#,#longitud#,#tipo#,#rango#) }
+  </procedure>
+
+    <!-- ========================================================================================== ==
+    == Consultar puntos de interes por nombre
+    == ========================================================================================== -->
+
+  <procedure id="consultarPoiPorNombre" resultMap="getConsultarPoi">
+     { call sp_cns_poi_nombre(#idpoi#,#tipo#,#pagina#,#largoPagina#,#filtroNombre#) }
+  </procedure>
+  
+  
+	<!-- ========================================================================================== ==
+    == Registrar consulta en tabla temporal.
+    == ========================================================================================== -->
+  
+  <procedure id="registrarConsultaBeneficio" resultMap="resultado" parameterClass="java.util.HashMap">
+     { call sp_ins_registro_consulta(#idPoi#, #latitud#, #longitud#, #canal#, #fecha#) }
+  </procedure>
+  
+  	<!-- ========================================================================================== ==
+    == Consultar bancas.
+    == ========================================================================================== -->
+  
+  <resultMap id="getConsultarBancas" class="java.util.HashMap">
+    <result property="idBeneficio"			jdbcType="int" javaType="int" />
+    <result property="idBanca"				jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarBancas" resultMap="getConsultarBancas">
+     { call sp_cns_bancas(#idBeneficio#) }
+  </procedure>
+  
+</sqlMap>

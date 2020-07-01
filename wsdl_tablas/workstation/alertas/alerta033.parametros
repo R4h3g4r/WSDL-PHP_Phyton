@@ -1,0 +1,25 @@
+# Tasacion vencida                                  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar si corresponde retasar.;
+GLOSA1;mensaje=Excepciones:;
+GLOSA2;mensaje=*   Tasación al día, no ingresada al sistema.;
+GLOSA3;mensaje=*   Línea de crédito global con gtía. que posee excepción de renovación de tasación y seguro.;
+GLOSA4;mensaje=*   Exclusión Autorizada por gte. regional o superior.;
+GLOSA5;mensaje=*   Garantía alzada legalmente pero no en sistemas.;
+GLOSA6;mensaje=2.- Si corresponde retasar, contactar cliente e informar de este requerimiento y su costo.;
+GLOSA7;mensaje=Pidiendo además contacto en la empresa (nombre y fono) para indicar a tasador.<br>;
+GLOSA8;mensaje=3.- Dar instrucción a unidad de garantías para retasar.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Verificar si corresponde retasar.;
+GLOSAPDF1;mensaje=Excepciones:;
+GLOSAPDF2;mensaje=*   Tasación al día, no ingresada al sistema.;
+GLOSAPDF3;mensaje=*   Línea de crédito global con gtía. que posee excepción de renovación de tasación y seguro.;
+GLOSAPDF4;mensaje=*   Exclusión Autorizada por gte. regional o superior.;
+GLOSAPDF5;mensaje=*   Garantía alzada legalmente pero no en sistemas.;
+GLOSAPDF6;mensaje=2.- Si corresponde retasar, contactar cliente e informar de este requerimiento y su costo.;
+GLOSAPDF7;mensaje=Pidiendo además contacto en la empresa (nombre y fono) para indicar a tasador.;
+GLOSAPDF8;mensaje=3.- Dar instrucción a unidad de garantías para retasar.;
+
+#Viñeta Explicativa
+VINETA;calcula=Alerta "Tasación por Vencer": Esta alerta se visualizara solo en el caso de que para la propiedad en garantía del cliente haya pasado más de 28 meses (garantía hipotecaria) y más de 16 meses (otras garantías)desde la última tasación.;periodo= pasado más de 28 meses (garantía hipotecaria) y más de 16 meses (otras garantías)desde la última tasación.;fuente= Indeterminados;

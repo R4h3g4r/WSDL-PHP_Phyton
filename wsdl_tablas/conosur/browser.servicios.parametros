@@ -1,0 +1,232 @@
+BciMail;                                      Desc=Servicio BciMail;
+WLSBcimail;                                   Desc=Bcimail;
+
+GeneracionMenu;                                   Desc=Servicio para la generación de Menú;
+Download;                                     Desc=Download de informacion;
+PassCodeWLS;                                  Desc=Solicitud de PassCode;
+PassCode;                                     Desc=PassCode;
+CerrarSesion;                                 Desc=Cerrar Sesión;
+SolicitarToken;                                 Desc=Solicitud y Reposicion de Token;
+MenuSeguridad;                                  Desc=Menu dinamico de seguridad;
+EstadoSeguridad;                                Desc=Informacion de claves del usuario;
+ConfigurarToken;                                Desc=Activacion del token;
+CasaIdeas;                                      Desc=Oferta Casa Ideas;
+GuardianSeguridad;                                   Desc=BCI Guardian;
+
+PortFolioInv;                                   Desc=Mi Portfolio;
+
+# SuperCartola
+# ========================
+SuperCartola;  Desc=SuperCartola;    Objetos=CCT&CPR&TDC_NOVA&TDC; 
+#
+# Cuenta Corriente
+# ****************
+CartolaLinea;                                   Desc=Cartola en Linea;                                  Objetos=CCT&CPR;
+MiniCartolaCtaCte;                              Desc=Minicartola Cta. Cte.;                             Objetos=CCT&CPR;
+SaldoCtaCte;                                  Desc=Saldo;                                          Objetos=CCT&CPR&CCT_VIN&CPR_VIN;
+CartolaHistorica;                             Desc=Cartola Histórica;                                 Objetos=CCT&CPR&CCT_VIN&CPR_VIN;
+SolicitarMultiCredito;                        Desc=SolicitarMultiCredito;
+ChequesCobrados;                                Desc=Consulta Cheques Cobrados;                         Objetos=CCT;
+VistaCheques;                                   Desc=Imagenes de Cheques;                               Objetos=CCT;
+
+#
+# Linea de Sobregiro
+# ******************
+CartolaLineaSobregiro;                          Desc=Cartola;                                           Objetos=CCT_CCC;
+SaldoLineaSobregiro;                            Desc=Saldo;                                             Objetos=CCT_CCC;
+AbonoLineaSobregiro;                            Desc=Abono a Línea de Sobregiro;                        Objetos=CCT_CCC;
+AumentoCupoLinea;                               Desc=Aumento de Cupo;                                   Objetos=CCT_CCC;
+SolAumentoCupoLinea;                            Desc=Aumento de Cupo;                                   Objetos=CCT_CCC;
+SolLineaSobregiro;                              Desc=Solicitud Línea de Sobregiro;
+
+Transferencias;                               Desc=Transferencias de Fondos;                       Objetos=CPR;
+TransferenciaEntreCuentas;                    Desc=Transferencias de Fondos Entre Cuentas Propias; Objetos=CPR;
+TransferenciaTercerosBCI;                     Desc=Transferencias de Fondos Entre Cuentas Propias; Objetos=CPR;
+TransferenciasOtrosBancos;                    Desc=Transferencias de Fondos Entre Cuentas Propias; Objetos=CPR;
+TransferenciaOtrosBancos;                     Desc=A Otros Bancos;                                 Objetos=CPR;
+TransferenciaTerceros;                        Desc=A Cuentas de Terceros;                          Objetos=CPR;
+TransferenciaTercerosAhorro;                  Desc=A Cuentas de Ahorro de Terceros;                Objetos=CPR;
+TrfCuentas;                                   Desc=Entre Ctas. Ctes. o Ctas. primas;               Objetos=CPR;                                 CheckOr=CPR;Restriccion=SI;
+WLSBciPago;                                   Desc=bcipago;
+WLSOrganizador;																Desc=Organizador de Gastos;													 Objetos=CCT&CPR;
+ConsolidadoPagos;                             Desc=cartola de pagos consolidados;
+
+ProgramacionFondos;                             Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosCtaPropia;                    Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosTerceros;                     Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosTercerosBCI;                  Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosModificarCtaTerceros;         Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosDetenerCtaTerceros;           Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosActivarCtaTerceros;           Desc=programacion de transferencias;  Objetos=CPR;
+ProgramacionFondosEliminarCtaTerceros;          Desc=programacion de transferencias;  Objetos=CPR;
+Comprobante;                                    Desc=Comprobante Transferencias;
+
+#gestor
+#=============================
+GestorPagos;                                    Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorAliasTransferencias;            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorTransferencias;                           Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasActivar;               Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasEliminar;              Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorPagosNuevoPel;                            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorPagosPelRegistrado;                       Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasDesactivar;            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasGrabaProgramacion;                Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+
+MarketingOfertas;                              Desc=Ofertas de Marketing;
+MantencionRenta;                               Desc=Mantencion Renta Actualizada;
+Marketing121DespliegueOfertas;                 Desc=Despliegue de banners;
+
+hipotecario;                                   Desc=Servicios de Crédito Hipotecario;
+
+#Recarga Celular
+#=============================
+RecargaCelular;                               Desc=Carga el telefono;         Grupos=RecargaDeCelularGR;     Servicio=RecargaCelular;        Mostrar=OBJ;         Destino=top;       Objetos=CCT&CPR;
+
+EstadoClaveDos;                  Desc=Estado ClaveDos;
+CambioClaveDos;                  Desc=Cambio ClaveDos;
+
+ #RECARGA DE TARJETAS BIP!
+CargaTarjetaBip; Desc=Carga Tarjeta Bip!;  Objetos=CCT&CPR; variable=validaSegundaClave;
+
+ConsultaCuentasVin;                             Desc=Controlador de Cuentas Vinculadas;                 Objetos=CCT&CPR;
+
+
+# Tarjeta Credito
+# ***************
+TarjetasCredito;                                Desc=Tarjetas de Credito;                               Objetos=TDC;
+SaldoCtaCred;                                   Desc=Saldo;                                             Objetos=TDC;
+EstadoNacional;                                 Desc=Estado de Cuenta Nacional;                         Objetos=TDC;
+EstadoNacionalVisa;                             Desc=Estado de Cuenta Nacional Visa;                    Objetos=TDC;
+EstadoInternacional;                            Desc=Estado de Cuenta Internacional;                    Objetos=TDC;
+ComprasNoFacturadasNac;                         Desc=Últimas Compras Nacional;                          Objetos=TDC;
+ComprasNoFacturadasInt;                         Desc=Últimas Compras Internacional;                     Objetos=TDC;
+PagoCtaCred;                                    Desc=Pago Tarjeta Crédito;                              Objetos=CCT&CPR; CheckOr=CCT&CPR;
+AvanceCtaCred;                                  Desc=Avance a Cuenta Corriente;                         Objetos=CCT&CPR; CheckOr=CCT&CPR;
+PagoDeudaDolares;                               Desc=Pago Deuda Internacional;                          Objetos=CCT&CPR; CheckOr=CCT&CPR;
+ConsultaBloqueoTarjeta;                         Desc=Consulta Bloqueo Tarjetas;                         Objetos=TDC;
+BloqueoTarjeta;                                 Desc=Bloqueo de Tarjetas;                               Objetos=TDC;
+SolAumentoCupoVisa;                             Desc=Aumento Cupo;                                      Objetos=TDC;
+SolTarjetaAdicionalVisa;                        Desc=Solicitud de Tarjeta Adicional;                    Objetos=TDC;
+SolReposicionVisa;                              Desc=Solicitud Reposición;                              Objetos=TDC;
+SolTarjeta;                                     Desc=Solicitud Tarjeta;                                 Objetos=TDC;
+SolTar;                                         Desc=Solicitud Tarjeta;
+SolTarMenu;                                     Desc=Solicitud Tarjeta Menu;
+SolAumentoCupoTC;                               Desc=Solicitud Aumento de Cupo Tarjeta;                 Objetos=TDC;
+SolReposicion;                                  Desc=Solicitud Reposicion Tarjeta;                      Objetos=TDC;
+SolTarjetaAdicional;                            Desc=Solicitud Tarjeta Adicional;                       Objetos=TDC;
+TarjetaCreditoSolicitar;                        Desc=Solicitud Tarjeta Adicional;                       Objetos=TDC;
+
+TarjetaVirtual;                                 Desc=Tarjetas de Credito Virtuales;                     Objetos=TDC;
+CampanaTDC;                                     Desc=Campañas de Tarjetas de Credito;                   Objetos=TDC;
+CambioPINTarjetaCredito;                        Desc=Cambio de PIN de Tarjetas de Credito;              Objetos=TDC;
+Solicitudes;                                    Desc=Solicitudes;                                       Objetos=TDC;
+
+ProgramaPuntosBciNova;                              Desc=Programa Puntos Bci;                               Objetos=TDC;
+
+
+
+#Tarjeta Automatica
+#=============================
+tarjetaAutomatica;                         Desc=Solicitud de Tarjeta Automatica;
+
+
+# Pago Automatico en Tarjeta de credito
+# ***************
+PagosPat;                                       Desc=Pagos con Tarjeta de Credito;                      Objetos=TDC;  
+
+
+#
+#=============================
+ConsultaDividendosCancelados;                   Desc=Dividendos Cancelados;
+PortalPagos;                                    Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+PagosPac;                                       Desc=Pagos Pac;                                         Objetos=CCT&CPR;
+EfectuarPagos;                                  Desc=Bcinet Efectuar Pagos;                             Objetos=CCT&CPR;
+CreditosGrp;                                    Desc=Creditos;                                          Objetos=CCT&CPR;        GruposTitulo=<b><font color=#000000>créditos</font></b>;        noObjetos=http://www.bci.cl/personas/hagasecliente/index.html;                                                          Mostrar=OBJ;
+SuperCartolaGrp;                                Desc=Solicitud Productos;                                                       GruposTitulo=super<b>cartola</b>;                               noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=OBJ;
+CuentaCorriente;                                Desc=Solicitud Cuenta Corriente;                        Objetos=CCT&CPR;        GruposTitulo=cuenta<b>corriente/prima</b>;                      noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=Si;      destino=_top;
+LineaSobregiro;                                 Desc=Solicitud de Línea de Sobregiro;                   Objetos=CCT_CCC;        GruposTitulo=línea<b>sobregiro</b>;                             noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;
+Transferencia;                                  Desc=Transferencias a Terceros;                         Objetos=CCT&CPR;        GruposTitulo=transferencia<b>Fondos</b>;                        noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;
+TarjetaCredito;                                 Desc=Solicitud de Tarjetas de Crédito;                  Objetos=TDC;            GruposTitulo=tarjeta<b>decrédito</b>;                           noObjetos=https://www.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=tarjetacredito@solicitudtarjeta;   Mostrar=Si;      destino=servicio;
+BciPagos;                                       Desc=BCI Pagos;                                                                 GruposTitulo=bci<b>pago</b>;                                    noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=OBJ;
+BciPagoPac;                                     Desc=Pago Automático en Cuentas;                                                GruposTitulo=bcipago<b>automáticoencuenta</b>;                  noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=OBJ;
+BciPagoPat;                                     Desc=Pago Automático en Tarjetas;                                               GruposTitulo=bcipago<b>automáticoentarjeta</b>;                 noObjetos=https://www.bci.cl/transa/loginmopa.jsp?url=/switchwls/switchwls.htm?grupo=tarjetacredito@solicitudtarjeta;   Mostrar=OBJ;
+BciPagoOnLineGrp;                               Desc=Bci Pago en Línea;                                                         GruposTitulo=bcipago<b>enlínea</b>;                             noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=OBJ;
+SPCHogar;                                       Desc=Cotización Hogar;                                                          GruposTitulo=cotización<b>hogar</b>;                            noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;
+CuentaAhorro;                                   Desc=Solicitud Apertura;                                Objetos=LDE;            GruposTitulo=ahorro<b>electrónico</b>;                          noObjetos=http://www.bci.cl/personas/inversiones/prs_invso.htm;                                                         Mostrar=Si;      destino=_top;
+PagosCliente;                                   Desc=Pago Clientes;                                                             GruposTitulo=pagos<b>clientesbci</b>;                           noObjetos=http://www.bci.cl/personas/ctacte/prs_cuentas.htm;                                                            Mostrar=Si;
+CreditosYSeguros;                               Desc=Creditos y Seguros;                                                        GruposTitulo=créditos;                                                                                                                                                                  Mostrar=Si;
+Comex;                                          Desc=Comercio Exterior;                                 Objetos=CCX;            GruposTitulo=comercio<b>exterior</b>;
+MultiCreditoGrp;                                Desc=MultiCrédito;                                      Objetos=CCT;            GruposTitulo=<b>multicrédito</b>;                                                                                                                                                       Mostrar=SI;
+BciCreditosGrp;                                 Desc=Bci Creditos;                                      Objetos=CCT;            GruposTitulo=bci<b>creditos</b>;                                                                                                                                                        Mostrar=Si;
+CreditoConsumo;                                 Desc=Consulta Créditos Consumo;                         Objetos=CCT;            GruposTitulo=<b>creditoconsumo</b>;                                                                                                                                                     Mostrar=Si;
+BciHipotecarioGrp;                              Desc=Bci Hipotecario;                                   Objetos=CCT;            GruposTitulo=bci<b>hipotecario</b>;                                                                                                                                                        Mostrar=Si;
+OrganizadorGrp;                                 Desc=Organizador de Gastos                              Mostrar=Si;
+WLSCreditos;                                    Desc=Inversiones;
+WLSProySer;                                     Desc=Producto y Servicios;
+WLSOferPro;                                     Desc=Ofertas y Promociones;
+WLSPromociones;                                 Desc=Promociones con Multicredito;
+WLSBciBancoEnLinea;                             Desc=Banco en Linea;
+AbonoLineaSobregiro;                            Desc=Abono a Línea de Sobregiro;                        Objetos=CCT_CCC;
+#
+#
+# Pague Directo
+#
+#PagueDirecto;                                   Desc=Pague Directo;                                    Objetos=CCT&CPR&TDC;
+# Servicio Frame Generico para cambiar de Portal
+#=========================================
+GenericoWLS;                                    Desc=Generico Bci;
+
+#
+# Pago Clientes BCI
+# *****************
+ConsultaCreditos;                               Desc=Consulta de Créditos;                              Objetos=CCT&CPR&TDC;
+CreditosConsultar;                              Desc=Consulta de Créditos;                              Objetos=CCT&CPR&TDC;
+
+#Alertas para Cliente (Mensajes del Banco).
+#=========================================
+AlertasParaCliente;                             Desc=Alertas para Cliente (mensajes del banco);
+
+#
+# PostVenta de Seguros
+# ========================
+PostVentaSeguros;          Desc=Consulta Pólizas Vigentes;
+
+# ================
+# InversionesWLS
+# ================
+TomarDAPInv;                                    Desc=Tomar un Deposito;                                 Objetos=CCT&CPR;
+ConsInversionesInv;                             wDesc=Consulta de Inversiones;
+InversionesFFMMInv;                             Desc=Inversion en Fondos Mutuos;                        Objetos=CCT&CPR;
+RescateFFMMInv;                                 Desc=Rescate de Fondos Mutuos;                          Objetos=CCT&CPR;
+InversionesWLS;                                 Desc=Inversiones;
+
+GeneralApp;                                     Desc=Servicio de Entrada Aplicativo;
+
+# Configuracion Multipass
+#==========================================
+ValidaTarjetaMultipass;    Desc=Valida tarjeta Redbanc para autorizar bloqueo de multipass;
+BloquearMultipass;         Desc=Bloquear Multipass;
+
+#Pago Dividendos Hipotecario.
+#=========================================
+PagoDividendos;		Desc=Pago en Línea Dividendo;		Objetos=CCT&CPR&TDC;
+
+#Direcciones en Web
+#=========================================
+Direcciones;                               Desc=Direcciones;                                    Objetos=CCT&CPR;
+DireccionesWeb; Desc=DireccionesWeb; Objetos=CCT&CPR&TDC&LDE;
+PerfilCliente;                             Desc=PerfilCliente;                                  Objetos=CCT&CPR;
+
+#Solicitud de Actualizacion de Renta
+#==========================================
+ActualizacionRentaPrevired;   Desc=Pagina de actualizacion de renta;
+
+#Visualizacion firma cliente
+#==========================================
+VisualizacionFirmaCliente; Desc=Imagen firma cliente en pagina de direcciones;
+
+#Emergencias
+#=============================
+Emergencias;             Desc=Emergencias;
+

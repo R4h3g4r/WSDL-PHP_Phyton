@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="creditoConsumoOnline.procedimientosAlmancenados">
+
+
+    <resultMap id="resultadoConsultarCmoPorRut"
+               class="java.util.HashMap" >
+
+        <result property="error"   column="error"  />
+        <result property="cmo_rut_cli"  column="cmo_rut_cli" />
+        <result property="cmo_dv_cli"   column="cmo_dv_cli"  />
+        <result property="cmo_cod_lin"  column="cmo_cod_lin" />
+        <result property="cmo_mto_aut"  column="cmo_mto_aut" />
+        <result property="cmo_mto_dis"  column="cmo_mto_dis" />
+        <result property="cmo_fec_ven"  column="cmo_fec_ven" />
+        <result property="cmo_fec_prc"  column="cmo_fec_prc" />
+
+    </resultMap>
+
+    <procedure id="consultarCmoPorRut"
+                   parameterClass="java.util.HashMap"
+                   resultMap="resultadoConsultarCmoPorRut">
+
+        {CALL sp_cons_cmo(#cmoRut#)}
+
+    </procedure>
+
+</sqlMap>

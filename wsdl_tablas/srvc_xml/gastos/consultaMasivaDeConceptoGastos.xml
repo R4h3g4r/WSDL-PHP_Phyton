@@ -1,0 +1,432 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2ConMasGas">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.gastos.GastosBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "codCaiGastoNotarial"
+          type = "String"
+          size = "4"
+          middle_name = "codigo10"
+          middle_name_secondary = "calificacion"
+        />
+
+        <field
+          java_name = "codIicGastoNotarial"
+          type = "String"
+          size = "8"
+          middle_name = "codigo11"
+          middle_name_secondary = "canalEnvioRef"
+        />
+
+        <field
+          java_name = "codSistema"
+          type = "String"
+          size = "3"
+          middle_name = "codSistema"
+          middle_name_secondary = "campoVariable"
+        />
+
+        <field
+          java_name = "codEvento"
+          type = "String"
+          size = "3"
+          middle_name = "codEventoPrimNivel"
+          middle_name_secondary = "cambioTrabajo"
+        />
+
+        <field
+          java_name = "tipo"
+          type = "char"
+          size = "1"
+          middle_name = "tipo"
+          middle_name_secondary = "cantCuotasCancel"
+        />
+
+        <field
+          java_name = "fecha"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha"
+          middle_name_secondary = "canalContacto"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "hora"
+          type = "String"
+          size = "6"
+          middle_name = "hora"
+          middle_name_secondary = "canalEnvioNor"
+        />
+
+        <field
+          java_name = "numero"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "cantidadMov"
+        />
+
+        <field
+          java_name = "siguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indAval"
+          middle_name_secondary = "capital"
+        />
+
+        <field
+          java_name = "cicConceptoGasto"
+          type = "String"
+          size = "12"
+          middle_name = "cic"
+          middle_name_secondary = "calle"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "char"
+          size = "1"
+          middle_name = "masInformacion"
+          middle_name_secondary = "montoPagar"
+        />
+
+        <field
+          java_name = "totOcurrencias"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numeroRegistros"
+          middle_name_secondary = "unidadTpoPlMax"
+        />
+
+    <struct struct_size = "50" class_name = "RowsResultConsultaMasivaDeConceptoGastos" var_name = "rowsResultConsultaMasivaDeConceptoGastos" discriminatory = "(${documento}).trim().equals(&quot;&quot;)" >
+
+          <field
+            java_name = "documento"
+            type = "String"
+            size = "3"
+            middle_name = "documento"
+            middle_name_secondary = "cantHurtos"
+          />
+
+          <field
+            java_name = "tipoDocumento"
+            type = "String"
+            size = "3"
+            middle_name = "tipoDocum"
+            middle_name_secondary = "cantExtravios"
+          />
+
+          <field
+            java_name = "cobro"
+            type = "String"
+            size = "3"
+            middle_name = "cobro"
+            middle_name_secondary = "cantHipotecario"
+          />
+
+          <field
+            java_name = "obligatoriedad"
+            type = "char"
+            size = "1"
+            middle_name = "obligatorio"
+            middle_name_secondary = "cantidadActivos"
+          />
+
+          <field
+            java_name = "ivaSN"
+            type = "char"
+            size = "1"
+            middle_name = "valorAfectoIVA"
+            middle_name_secondary = "cuotasPagadas3"
+          />
+
+          <field
+            java_name = "tasaMontoBanco"
+            type = "double"
+            size = "15"
+            sign = "yes"
+            integers = "9"
+            decimals = "4"
+            middle_name = "tasa"
+            middle_name_secondary = "cantMaxVencim"
+          />
+
+          <field
+            java_name = "moneda"
+            type = "String"
+            size = "6"
+            middle_name = "moneda"
+            middle_name_secondary = "cantidad"
+          />
+
+          <field
+            java_name = "codConceptoBase"
+            type = "String"
+            size = "3"
+            middle_name = "nombre"
+            middle_name_secondary = "cantCuotasMora"
+          />
+
+          <field
+            java_name = "tasaMontoNotario"
+            type = "double"
+            size = "15"
+            sign = "yes"
+            integers = "9"
+            decimals = "4"
+            middle_name = "tasaAdi"
+            middle_name_secondary = "bancoBenef"
+          />
+
+          <field
+            java_name = "moneda2"
+            type = "String"
+            size = "6"
+            middle_name = "monedaCupo"
+            middle_name_secondary = "cantidad3"
+          />
+
+          <field
+            java_name = "conceptoBase"
+            type = "String"
+            size = "3"
+            middle_name = "corte2"
+            middle_name_secondary = "cantDetalle"
+          />
+
+          <field
+            java_name = "espresionTasa1"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil1"
+            middle_name_secondary = "cuotasPagadas4"
+          />
+
+          <field
+            java_name = "espresionTasa2"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil2"
+            middle_name_secondary = "cuotasPagadas6"
+          />
+
+          <field
+            java_name = "espresionTasa3"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil3"
+            middle_name_secondary = "cuotasPagadas5"
+          />
+
+          <field
+            java_name = "espresionTasa4"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil4"
+            middle_name_secondary = "cuotasPagadas7"
+          />
+
+          <field
+            java_name = "espresionTasa5"
+            type = "String"
+            size = "3"
+            middle_name = "tasaAdiFil5"
+            middle_name_secondary = "cuotasPagadas1"
+          />
+
+          <field
+            java_name = "espresionTasa6"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil6"
+            middle_name_secondary = "cuotasPagadas8"
+          />
+
+          <field
+            java_name = "espresionTasa7"
+            type = "int"
+            size = "3"
+            sign = "no"
+            integers = "3"
+            decimals = "0"
+            middle_name = "tasaAdiFil7"
+            middle_name_secondary = "cuotasPagadas11"
+          />
+
+          <field
+            java_name = "espresionTasa8"
+            type = "char"
+            size = "1"
+            middle_name = "tasaAdiFil8"
+            middle_name_secondary = "cuotasPagadas9"
+          />
+
+          <field
+            java_name = "unidadDeBase"
+            type = "int"
+            size = "5"
+            sign = "no"
+            integers = "5"
+            decimals = "0"
+            middle_name = "unidad"
+            middle_name_secondary = "cantInstFinan"
+          />
+
+          <field
+            java_name = "numeroDocumentos"
+            type = "int"
+            size = "5"
+            sign = "no"
+            integers = "5"
+            decimals = "0"
+            middle_name = "numeroAba"
+            middle_name_secondary = "cantidadOperaciones"
+          />
+
+          <field
+            java_name = "montoTope"
+            type = "long"
+            size = "14"
+            sign = "no"
+            integers = "11"
+            decimals = "0"
+            middle_name = "montoMaxAut"
+            middle_name_secondary = "cantOtros"
+          />
+
+          <field
+            java_name = "moneda3"
+            type = "String"
+            size = "6"
+            middle_name = "monedaDesembolso"
+            middle_name_secondary = "cantidad2"
+          />
+
+          <field
+            java_name = "conceptoTope"
+            type = "String"
+            size = "3"
+            middle_name = "capitalDolar"
+            middle_name_secondary = "cantCuotasMoroCan"
+          />
+
+          <field
+            java_name = "plazoTope"
+            type = "int"
+            size = "5"
+            sign = "no"
+            integers = "5"
+            decimals = "0"
+            middle_name = "plazoMax"
+            middle_name_secondary = "cantidadPasivos"
+          />
+
+          <field
+            java_name = "indExpresado"
+            type = "char"
+            size = "1"
+            middle_name = "referencia2"
+            middle_name_secondary = "cantidadCuotas"
+          />
+
+          <field
+            java_name = "minimo"
+            type = "double"
+            size = "12"
+            sign = "yes"
+            integers = "8"
+            decimals = "2"
+            middle_name = "medio"
+            middle_name_secondary = "cantPago"
+          />
+
+          <field
+            java_name = "maximo"
+            type = "double"
+            size = "12"
+            sign = "yes"
+            integers = "8"
+            decimals = "2"
+            middle_name = "maxAttach"
+            middle_name_secondary = "cantPagados"
+          />
+
+          <field
+            java_name = "monedaMaxMin"
+            type = "String"
+            size = "6"
+            middle_name = "monedaGasto"
+            middle_name_secondary = "cantidad4"
+          />
+
+          <field
+            java_name = "vigencia"
+            type = "int"
+            size = "3"
+            sign = "no"
+            integers = "3"
+            decimals = "0"
+            middle_name = "vigencia"
+            middle_name_secondary = "cuotasPagadas12"
+          />
+
+          <field
+            java_name = "indVigencia"
+            type = "char"
+            size = "1"
+            middle_name = "indVigencia"
+            middle_name_secondary = "cuotasPagadas10"
+          />
+
+          <field
+            java_name = "indicadorAcumunac"
+            type = "char"
+            size = "1"
+            middle_name = "vigenciaInicial"
+            middle_name_secondary = "cuotasPagadas2"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

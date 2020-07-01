@@ -1,0 +1,187 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-MIS-CLIENTES,MENU-VENTA,MENU-GESTION,MENU-RIESGO,MENU-ACCESOS-DIRECTOS;
+RAIZ-MENU;nodosMenu=MENU-MIS-CLIENTES,MENU-VENTA,MENU-GESTION,MENU-RIESGO,MENU-ACCESOS-DIRECTOS,MENU-COMPRA-VENTA-DIVISAS;
+#MENU-RETENCION;
+################################################################################
+# Definicion del menú MENU-MIS-CLIENTES.
+################################################################################
+MENU-MIS-CLIENTES;tipoNodo=MENU;nombre=MIS CLIENTES;nodosMenu=OPCION-EMPEJE,OPCION-FACTORING,OPCION-LISTADO-ON-DEMAND,OPCION-ADMIN-PRI;
+
+# Definición de opción "Empeje"
+OPCION-EMPEJE;tipoNodo=OPCION;nombre=Mi Cartera;url=/workstationwls/empresa/vistaejecutivo/consultaCarteraClientes.do?accion=iniciarConsultaEmpresas;nombrePopUp=carteraClientes;opcionesPopUp=scrollbars=yes,resizable=yes,width=990,height=570,status=yes;vistaValida=ETE_EMPEJE;accionesValidas=ABRIR_EJECUTIVO,ABRIR_JEFE;
+
+# Definicion de opción "Eventos Seguimiento Clientes".
+#OPCION-SEGUIMIENTO-CLIENTES;tipoNodo=OPCION;nombre=Seguimiento Clientes;
+
+# Definicion de opción "Matriz Fidelización".
+# OPCION-MATRIZ-FIDELIZACION-MS;tipoNodo=OPCION;nombre=Matriz Fidelización;url=http://webdominoiii.bci.cl/MatrizGestionBE/MatrizGestionBE.nsf/NavMatriz;nombrePopUp=matrizFidelizacion;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Factoring".
+OPCION-FACTORING;tipoNodo=OPCION;nombre=Factoring;url=/workstationwls/factoring/factoringEjecutivo.do;nombrePopUp=factoringEjecutivo;opcionesPopUp=scrollbars=yes,width=550,height=400;vistaValida=ETE_MISCLIENTES;accionesValidas=LINK_BEFACT;
+
+# Definicion de opción "Listado On Demand".
+OPCION-LISTADO-ON-DEMAND;tipoNodo=OPCION;nombre=Listado On Demand;url=/portalwls/integrador/IntegradorPortal?servicio=listados;nombrePopUp=listados;opcionesPopUp=scrollbars=yes,width=800,height=600;vistaValida=ETE_MISCLIENTES;accionesValidas=LINK_BEONDEM;
+
+# Definicion de opción "Administración Prime".
+OPCION-ADMIN-PRI;tipoNodo=OPCION;nombre=Administrador Prime;url=/workstationwls/empresa/bancaelectronica/administradorDeClientesPrimeAction.do?metodo=cargarAdministraClientePrime;nombrePopUp=listados;opcionesPopUp=scrollbars=yes,width=800,height=600;vistaValida=OPC_MAN_PRI;accionesValidas=INGRESA;
+
+################################################################################
+# Definicion del menu MENU-VENTA.
+################################################################################
+MENU-VENTA;tipoNodo=MENU;nombre=VENTAS;nodosMenu=OPCION-ASL,OPCION-CAMPANAS,OPCION-OP-FACUL,OPCION-IMPRESION-POR-OPERACION;
+
+# Definicion de opción "ASL".
+OPCION-ASL;tipoNodo=OPCION;nombre=ASL;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarASL&vista=EJE;opcionesPopUp=scrollbars=yes,width=800,height=600;vistaValida=ETE_VENTA;accionesValidas=LINK_BEASL;
+
+# Definicion de opción "Campañas".
+OPCION-CAMPANAS;tipoNodo=OPCION;nombre=Campañas;url=/portalwls/campanas/filtrarProdPriorizados.do;vistaValida=PCE_PRIORIZAR;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;nombrePopUp=campana;opcionesPopUp=status=no,toolbar=no,scrollbars=yes,width=800,height=450;
+
+# Definicion de opción "Operaciones en Facultamiento".
+OPCION-OP-FACUL;tipoNodo=OPCION;nombre=Operaciones en Facultamiento;
+
+# Definicion de opción "Impresión por Operación".
+OPCION-IMPRESION-POR-OPERACION;tipoNodo=OPCION;nombre=Impresión por Operación;url=/workstationwls/creditos/impresiondoc/consultaoperacion.jsp;nombrePopUp=;opcionesPopUp=width=500,height=450;accionesValidas=SIM_CURSE;vistaValida=VST_CURSE;
+
+################################################################################
+# Definicion del menu MENU-GESTION.
+################################################################################
+MENU-GESTION;tipoNodo=MENU;nombre=GESTION;nodosMenu=OPCION-BRIO8,OPCION-BRIO11,OPCION-ART85,OPCION-INFORMECAMPANAS,OPCION-COBROS-PENDIENTES,OPCION-COBROS-EFECTUADOS,OPCION-REPORTE-SEGUROS,OPCION-PEDIDOS-WEB,OPCION-ADMINISTRACION-CONTRATO;
+
+# Definicion de opcion "Panel de Gestion"
+OPCION-BRIO8;tipoNodo=OPCION;nombre=Panel de Gestion;url=/portalwls/integrador/IntegradorPortal?servicio=odmbrio2;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=600,height=650;
+
+# Definicion de opcion "Panel de Gestion en brio11"
+OPCION-BRIO11;tipoNodo=OPCION;nombre=Informes de Gestion;url=/portalwls/integrador/IntegradorPortal?servicio=odmbrio11;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=600,height=650;vistaValida=ETE_GESTION;accionesValidas=LINK_BPPANGES;
+
+# Definicion de opcion "Panel de Gestion de Articulo 85"
+OPCION-ART85;tipoNodo=OPCION;nombre=Informe Art 85;url=/portalwls/integrador/IntegradorPortal?servicio=art85;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=600,height=650;vistaValida=ART85;accionesValidas=ABRIR;
+
+# Definicion de opcion "PipeLine".
+#OPCION-PIPELINE;tipoNodo=OPCION;nombre=Pipe Line;
+#;url=;nombrePopUp=pipeline;opcionesPopUp=scrollbars=yes,width=600,height=650;
+
+# Definicion de opcion "Presupuesto".
+#OPCION-PRESUPUESTO;tipoNodo=OPCION;nombre=Presupuesto;url=/workstationwls/pptos/ContextProcess.do;nombrePopUp=pop8;opcionesPopUp=scrollbars=yes,width=600,height=650;
+
+# Definicion de opcion "Reportes de Seguros".
+OPCION-REPORTE-SEGUROS;tipoNodo=OPCION;nombre=Reportes de Seguros;url=/portalwls/integrador/IntegradorPortal?servicio=SRCS;nombrePopUp=popReporteCS;opcionesPopUp=scrollbars=yes,width=800,height=650;
+
+# Definicion opción "Informe de Campañas"
+OPCION-INFORMECAMPANAS;tipoNodo=OPCION;nombre=Informe de Campañas;url=/workstationwls/informeCampanas/inicioInformeCampanas.do;vistaValida=PCE_PRIORIZAR;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion opción "Mantenedor de Pedidos Web"
+OPCION-PEDIDOS-WEB;tipoNodo=OPCION;nombre=Mantenedor de Pedidos Web;url=/portalwls/pedidos/listarPedidosAction.do;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion de opcion "Consulta Cobros Pendientes".
+OPCION-COBROS-PENDIENTES;tipoNodo=OPCION;nombre=Consulta Cobros Pendientes;url=/workstationwls/comisiones/cobroComisiones/cobroComisiones.do?metodo=consultaCobroComision&esPrimeraVez=true&estadoCobro=P&esMetodoInicial=true;vistaValida=CONCOB_PEN;accionesValidas=EVTCOMPENDIENTE;nombrePopUp=ConsultaCobrosPendientes;opcionesPopUp=scrollbars=yes,width=740,height=650;
+
+# Definicion de opcion "Consulta Cobros Efectuados".
+OPCION-COBROS-EFECTUADOS;tipoNodo=OPCION;nombre=Consulta Cobros Efectuados;url=/workstationwls/comisiones/cobroComisiones/cobroComisiones.do?metodo=consultaCobroComision&esPrimeraVez=true&estadoCobro=E&esMetodoInicial=true;vistaValida=CONCOB_EFE;accionesValidas=EVTCOMEFECTUADO;nombrePopUp=ConsultaCobrosEfectuados;opcionesPopUp=scrollbars=yes,width=740,height=650;
+
+# Definicion de opcion "Administración de Contrato".
+OPCION-ADMINISTRACION-CONTRATO;tipoNodo=OPCION;nombre=Administración de Contrato;url=/cl/bci/aplicaciones/infraestructuradenegocios/vista/inicio.jsf;nombrePopUp=AdministracionContrato;opcionesPopUp=scrollbars=yes,width=740,height=650;
+
+
+################################################################################
+# Definicion del menu MENU-RIESGO.
+################################################################################
+MENU-RIESGO;tipoNodo=MENU;nombre=RIESGO;nodosMenu=OPCION-PAGO-CONSULTA-SOBREG,OPCION-CLIENTES-SOBREGIRADOS,OPCION-CLIENTES-A-BOLETIN,OPCION-RIESGO-SIS-CAL,OPCION-RIESGO-CONSULTAMX,OPCION-CALCULADORA-EMPRESARIOS;
+
+# Definicion de opcion "Pago de la Consulta".
+OPCION-PAGO-CONSULTA-SOBREG;tipoNodo=OPCION;nombre=Pago de la Consulta;url=/workstationwls/pagoconsulta/VerificarEjecutivoConectado.do;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_PAGCON;nombrePopUp=pop110;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+# Definicion de opcion "Cliente Sobregirado".
+OPCION-CLIENTES-SOBREGIRADOS;tipoNodo=OPCION;nombre=Clientes Sobregirados;url=/workstationwls/riesgo/desplegarClientesSobregirados.do;nombrePopUp=popSobregirado;opcionesPopUp=scrollbars=yes,status=no,width=750,height=490;vistaValida=ETE_RIESGO;accionesValidas=LINK_BECLISOBRE;
+
+# Definicion de opcion " Clientes a Boletín ".
+OPCION-CLIENTES-A-BOLETIN;tipoNodo=OPCION;nombre=Clientes a Boletín;url=/workstationwls/boletincomercial/cargaBoletinImpagos.do;nombrePopUp=popBoletin;opcionesPopUp=scrollbars=no,status=yes,width=860,height=490;vistaValida=ETE_RIESGO;accionesValidas=LINK_BECLIBOL;
+
+# Definicion de opción "Sistema de Calificación".
+OPCION-RIESGO-SIS-CAL;tipoNodo=OPCION;nombre=Sistema de Calificaciones;url=/workstationwls/calificaciondeclientes/indexEjecutivo.do;nombrePopUp=selector;opcionesPopUp=scrollbars=yes,width=1000,height=580;vistaValida=ETE_RIESGO;accionesValidas=LINK_EJBESISCAL;
+
+# Definicion de opcion "Pago de la Consulta mx".
+OPCION-RIESGO-CONSULTAMX;tipoNodo=OPCION;nombre=Pago a la Consulta MX;url=/workstationwls/canjemx/canjeMx.do?accion=inicio;nombrePopUp=riesgo;opcionesPopUp=scrollbars=yes,width=770,height=450;vistaValida=ABRIR_CANJE_MX;accionesValidas=ABRIR_CANJE_MX;
+
+
+# Definicion de opción "Calculadora Empresarios"
+OPCION-CALCULADORA-EMPRESARIOS;tipoNodo=OPCION;nombre=Calculadora Empresarios;url=/workstationwls/calculadora/calculadoraFinanciamiento.do?accion=inicio&vista=EJE&ETE=EMPRESAS;nombrePopUp=popCalcEmp;opcionesPopUp=scrollbars=yes,status=no,width=820,height=570;
+
+################################################################################
+# Definicion del menu MENU-ACCESOS-DIRECTOS.
+################################################################################
+MENU-ACCESOS-DIRECTOS;tipoNodo=MENU;nombre=ACCESOS DIRECTOS;nodosMenu=OPCION-BASICA-RIB,OPCION-TASACIONES,OPCION-WORKFLOW-GARANTIAS,OPCION-WORKFLOW-HIPOTECARIO,OPCION-SII,OPCION-TESORERIA,OPCION-STORBOX,OPCION-COMICRON,OPCION-LEXIS,OPCION-CART-HIS,OPCION-PATPASS;
+MENU-ACCESOS-DIRECTOS;tipoNodo=MENU;nombre=ACCESOS DIRECTOS;nodosMenu=OPCION-BASICA-RIB,OPCION-TASACIONES,OPCION-WORKFLOW-GARANTIAS,OPCION-WORKFLOW-HIPOTECARIO,OPCION-SII,OPCION-TESORERIA,OPCION-STORBOX,OPCION-COMICRON,OPCION-LEXIS,OPCION-FYP,OPCION-PATPASS;
+
+# Definicion de opción "Básica RIB".
+OPCION-BASICA-RIB;tipoNodo=OPCION;nombre=RIB;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarRIB;nombrePopUp=popBasicaRIB;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BEBASRIB;
+
+# Definicion de opción "Tasaciones".
+OPCION-TASACIONES;tipoNodo=OPCION;nombre=Tasaciones;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarTasaciones;nombrePopUp=popTasaciones;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BETASACI;
+
+# Definicion de opción "Workflow Garantías".
+OPCION-WORKFLOW-GARANTIAS;tipoNodo=OPCION;nombre=Workflow Garantías;url=/workstationwls_bgl/IngresoGarantiasMenu.do;nombrePopUp=popWorkflowGarantias;opcionesPopUp=scrollbars=no,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BEWORGTIA;
+
+# Definicion de opción "Workflow Hipotecario".
+OPCION-WORKFLOW-HIPOTECARIO;tipoNodo=OPCION;nombre=Workflow Hipotecario;url=/portalwls/integrador/IntegradorPortal?servicio=asicom;nombrePopUp=popWorkflowHipotecario;opcionesPopUp=width=700,height=550;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BEWORHIPO;
+
+# Definicion de opción "SII".
+OPCION-SII;tipoNodo=OPCION;nombre=SII;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarSII;nombrePopUp=popSII;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BESII;
+
+# Definicion de opción "Tesorería".
+OPCION-TESORERIA;tipoNodo=OPCION;nombre=Tesorería;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarTesoreria;nombrePopUp=popTesorería;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BETESOR;
+
+# Definicion de opción "Storbox".
+OPCION-STORBOX;tipoNodo=OPCION;nombre=Storbox;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarStorebox;nombrePopUp=popStorbox;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BESTORBOX;
+
+# Definicion de opción "Comicron".
+OPCION-COMICRON;tipoNodo=OPCION;nombre=Comicron;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarComicrom;nombrePopUp=popComicron;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BECOMIC;
+
+# Definicion de opción "Lexis Nexis".
+OPCION-LEXIS;tipoNodo=OPCION;nombre=Lexis Nexis;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarLexisNexis;nombrePopUp=popLexis;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=550;vistaValida=ETE_ACCDIR;accionesValidas=LINK_BELEXNEX;
+
+#Definición de opción "Cartola Histórica"
+OPCION-CART-HIS;tipoNodo=OPCION;nombre=Cartola Histórica;url=/workstationwls/cartolas/cargaCartolaHistorica.do;nombrePopUp=popCartolaHistorica;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;vistaValida=CAR_HIS;accionesValidas=ACCESO;
+
+# Definicion de opción "Firmas y Poderes".
+OPCION-FYP;tipoNodo=OPCION;nombre=Firmas y Poderes;url=http://firmasypoderes.bci.cl;nombrePopUp=popFirmayPoderes;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=600;vistaValida=FYP_PER;accionesValidas=LINK_FYP_PER;
+
+# Definicion de opción "PATPASS".
+OPCION-PATPASS;tipoNodo=OPCION;nombre=PATPASS;url=https://www.pagoautomaticocontarjetas.cl/nuevopat/login.jsp;nombrePopUp=PATPASS;opcionesPopUp=status=yes,scrollbars=yes,location=yes,menubar=yes,toolbar=yes;vistaValida=ACC_EVEREST;accionesValidas=ACCESAR;
+  
+################################################################################
+# Definicion del menu MENU-COMPRA-VENTA-DIVISAS.
+################################################################################
+MENU-COMPRA-VENTA-DIVISAS;tipoNodo=MENU;nombre=COMPRA VENTA DIVISAS;nodosMenu=OPCION-COTIZAR,OPCION-CONSULTAR,OPCION-APROBAR,OPCION-MODIFICAR;
+
+# Definicion de opción "Cotizar".
+OPCION-COTIZAR;tipoNodo=OPCION;nombre=Ingresar Operación;url=/workstationwls/comex/compraventa/compraventa.do?accion=cotizar;vistaValida=CMPRA_VTA_DIV;accionesValidas=COTIZAR;nombrePopUp=Cotizar;opcionesPopUp=status=yes,scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Consultar".
+OPCION-CONSULTAR;tipoNodo=OPCION;nombre=Consultar Operación;url=/workstationwls/comex/compraventa/operacionCompraVenta.do?accion=consultar;vistaValida=CMPRA_VTA_DIV;accionesValidas=CONSULTAR;nombrePopUp=Consultar;opcionesPopUp=status=yes,scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Aprobar".
+OPCION-APROBAR;tipoNodo=OPCION;nombre=Aprobar Operación;url=/workstationwls/comex/compraventa/operacionCompraVenta.do?accion=aprobar;nombrePopUp=Aprobar;vistaValida=CMPRA_VTA_DIV;accionesValidas=APROBAR;opcionesPopUp=status=yes,scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Modificar".
+OPCION-MODIFICAR;tipoNodo=OPCION;nombre=Modificar Operación;url=/workstationwls/comex/compraventa/operacionCompraVenta.do?accion=modificar;nombrePopUp=Modificar;vistaValida=CMPRA_VTA_DIV;accionesValidas=MODIFICAR;opcionesPopUp=status=yes,scrollbars=yes,width=800,height=600;

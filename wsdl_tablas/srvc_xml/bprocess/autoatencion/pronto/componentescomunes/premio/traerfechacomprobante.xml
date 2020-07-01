@@ -1,0 +1,77 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_pre_fec">
+  <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+
+   <input>
+<field
+         java_name = "fechaPago"
+         type = "Date"
+         size = "4"
+         middle_name = "fechaPago"
+      />
+      <field
+         java_name = "servicio"
+         type = "String"
+         size = "15"
+         middle_name = "negocio"
+      />
+      
+      
+   </input>
+
+   
+   <output>
+      <struct struct_size="0" class_name="SalidaTraerPorFechaGeneracionDTOGenerico" var_name="salidaTraerPorFechaGeneracionDTOGenerico">
+      <field
+            java_name = "identificadorPremio"
+            type = "long"
+            size = "4"
+            middle_name = "pre_idp"
+         />
+         <field
+            java_name = "identificadorSorteo"
+            type = "long"
+            size = "4"
+            middle_name = "pre_sor_ids"
+         />
+         <field
+            java_name = "identificadorComprobantePremiado"
+          type = "long"
+            size = "4"
+            middle_name = "pre_com_pre"
+         />
+         <field
+            java_name = "negocio"
+            type = "String"
+            size = "15"
+            middle_name = "pre_neg"
+         />
+         <field
+            java_name = "montoPremio"
+            type = "Double"
+            size = "8"
+            middle_name = "pre_mnt"
+         />
+         <field
+            java_name = "fechaGeneracion"
+            type = "Date"
+            size = "4"
+            middle_name = "pre_fec_eje"
+         />
+         
+      </struct>
+			
+   </output>
+</service>

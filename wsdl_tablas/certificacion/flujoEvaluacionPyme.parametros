@@ -1,0 +1,283 @@
+#===============================================
+# BANCAS PERMITIDAS EN CDA PYME
+#===============================================
+TIPOS_BANCA;listado=PM,PME,PMR,PMN;PM=true;PME=true;PMN=true;PMR=true;
+
+#===============================================
+# RANGO DE VENTAS EN UF
+#===============================================
+VENTAS;minimo=1200;maximo=24000;
+
+#===============================================
+# MENSAJES
+#===============================================
+MENSAJE;Desc= Los Datos se guardaron correctamente, pero NO cumple con las condiciones para continuar en Evaluación por CDA Pyme;
+PERSONA_NO_VALIDA;Desc= Tipo persona no evaluable.;
+ACTIVIDAD_NO_VALIDA;Desc= Actividad Económica debe ser con fines de lucro.;
+RANGO_VENTAS_MIN;Desc= No cumple con el rango de ventas mínimo;
+RANGO_VENTAS_MAX;Desc= No cumple con el rango de ventas máximo;
+
+#===============================================
+# OBTENCION DE DATOS
+#===============================================
+ERR_SOCIO_NO_CUMPLE; Desc = No se cumple condiciones de % de participacion mayor a 20% o para socio cliente rut: ;
+ERR_NO_CUMPLE_PORCENTAJE; Desc = No se cumple con el porcentaje de participacion mínimo de 90%;
+ERR_LINEA_DE_CREDITO; Desc = Se puede obtener de la pestaña Línea de Crédito.;
+ERR_DATOS_BASICOS; Desc = Se puede obtener de la pestaña de Datos Básicos.;
+ERR_ESTADO_FINAN_VENTAS; Desc = Se puede obtener de la pestaña de Estado Financiero y Ventas;
+ERR_ESTADO_SITUACION; Desc = Se puede obtener de la pestaña de Estado de Situación y Carga Financiera;
+ERR_NO_REP_LEGAL; Desc = Se debe seleccionar el representante legal, que puede ser un socio, si no es socio de la empresa, debe ingresarse en la pestaña de Grupo Económico.;
+ERR_SOLO_UN_REP_LEGAL; Desc = La solicitud solamente debe poseer un representante legal.;
+ERR_NO_GESTOR; Desc = Se debe seleccionar el gestor de la solicitud, que puede ser socio o el representante legal de la empresa.;
+ERR_SOLO_UN_GESTOR; Desc = La solicitud solamente debe poseer un gestor de la solicitud;
+ERR_FECHA_EVALUACION; Desc = No se pudo obtener la fecha de evaluación de la Solicitud.;
+ERR_NUMERO_EVALUACIONES; Desc = No se pudo obtener el número de evaluaciones del solicitante titular.;
+ERR_ACTIVIDAD_ECONOMICA; Desc = No se pudo obtener la Actividad económica de cliente rut: ;
+ERR_FECHA_INICIO_GIRO; Desc = No se pudo obtener la Fecha de Inicio de Giro de cliente rut: ;
+ERR_FECFA_NACIMIENTO; Desc = No se pudo obtener la Fecha de nacimiento de cliente rut: ;
+ERR_BANCA; Desc = No se pudo obtener la Banca de cliente rut: ;
+ERR_TIPO_BANCA; Desc = Cliente pertenece a banca no evaluable por el Motor de Decisión, cliente rut: ;
+ERR_TIPO_PERSONA_SOC; Desc = Los socios deben ser del tipo Persona Natural para ser evaluadas por el Motor de Decisión, cliente rut: ;
+ERR_TIPO_PERSONA_EMP; Desc = La Empresa debe ser del tipo Persona Juridica o Persona Natural con Giro para ser evaluadas por el Motor de Decisión.;
+ERR_EEFF; Desc = No se pudo obtener información del estado financiero para la empresa.;
+ERR_EEFF_CTA_DEP_A_PLAZO; Desc = No se pudo obtener la cuenta de los activos de los estados financieros.;
+ERR_EEFF_CTA_DOC_POR_COBRAR; Desc = No se pudo obtener los documentos por cobrar los estados financieros.;
+ERR_EEFF_DEP_EJER; Desc = No se pudo obtener la depreciación del ejercicio de los estados financieros.;
+ERR_EEFF_CTAS_EXIS; Desc = No se pudieron obtener las cuentas existentes de los estados financieros.;
+ERR_EEFF_GTS_FIN; Desc = No se pudieron obtener los gastos financieros de los estados financieros.;
+ERR_EEFF_GOB; Desc = No se pudo obtener la generación operativa bruta de los estados financieros.;
+ERR_EEFF_ING; Desc = No se pudieron obtener los ingresos de los financieros de los estados financieros.;
+ERR_EEFF__MARG_FIN; Desc = No se pudo obtener la generación operativa brutanformacion de margen de los estados financieros.;
+ERR_EEFF_RESUL_FINAL_EMP; Desc = No se pudo obtener el resultado final de los estados financieros.;
+ERR_EEFF_RESUL_OP; Desc = No se pudo obtener el resultado operacional de los estados financieros.;
+ERR_EEFF_RET_DIV_PROV; Desc = No se pudo obtener la informacon de retiro dividento provisorio de los estados financieros.;
+ERR_EEFF_TOTAL_ACT_CIRC; Desc = No se pudo obtener el total de activo circulante de los estados financieros.;
+ERR_EEFF_TOTAL_ACT_FIJO; Desc = No se pudieron obtener los total de activos fijos de los estados financieros.;
+ERR_EEFF_TOTAL_ACTIVO; Desc = No se pudo obtener la generación operativa bruta de los estados financieros.;
+ERR_EEFF_OTROS_ACTIVOS; Desc = No se pudieron obtener los otros activos de los estados financieros.;
+ERR_EEFF_TOTAL_PASIVO; Desc = No se pudo obtener el total de pasivos no exigible de los estados financieros.;
+ERR_EEFF_DAI; Desc = No se pudo obtener informarción del estado financiero DAI para cliente rut: ;
+ERR_CODIGO_104; Desc = No se pudo obtener el Codigo 104 del estado para cliente rut: ;
+ERR_CODIGO_110; Desc = No se pudo obtener el Codigo 110 del estado para cliente rut: ;
+ERR_CODIGO_161; Desc = No se pudo obtener el Codigo 161 del estado para cliente rut: ;
+ERR_EEFF_SOC; Desc = No se pudo obtener informarción del estado financiero para cliente rut: ;
+ERR_ACT_EESS; Desc = No se pudo obtener el Total de Activos Estado de Situación para cliente rut: ;
+ERR_PAS_EESS; Desc = No se pudo obtener el Total de Pasivos Estado de Situación para cliente rut: ;
+ERR_PAT_EESS; Desc = No se pudo obtener el Patrimonio Estado de Situación para cliente rut: ;
+ERR_DEUDA_SBIF; Desc = No se pudo obtener informarción de la deuda sbif para cliente rut: ;
+ERR_PI; Desc = No se pudo obtener la probabilidad de incumplimiento de cliente rut: ;
+ERR_VENTAS; Desc = No se pudieron obtener las ventas de la empresa,;
+ERR_VENT_ANUAL; Desc = No se pudieron obtener el total de ventas anuales de la empresa.;
+ERR_VENT_PAR_ACTUAL; Desc = No se pudieron obtener el total de ventas anuales de la empresa.;
+ERR_VENT_PAR_ANTERIOR; Desc = No se pudieron obtener el total de ventas anuales de la empresa.;
+ERR_RES_CTA; Desc = No se pudo obtener información del Resumen de la Cuenta Corriente para cliente rut: ;
+ERR_RES_DEPOS_CTA; Desc = No se pudo obtener información de Deposito de Cuenta para cliente rut: ;
+ERR_RES_PERIODO_CTA; Desc = No se pudo obtener información de Periodo de cuenta para cliente rut: ;
+ERR_RES_SALDO_CTA; Desc = No se pudo obtener información del Saldo de Cuenta para cliente rut: ;
+#===============================================
+# CONVERSION DE CODIGOS PARA CDA
+#===============================================
+CAMBIO_CODIGO_LDC_SUBPROD;LSP=linea_sobregiro;TCP=tjta_credito;CMO=cons_libre_dispon;LEM=LEM;CHP=hipotecario;LCR=lcr;CCA=cons_compra_cart;
+CAMBIO_CODIGO_LDC_PROD;PBG=boletas;FCT=fct;LME=lme;LBR=l01;LBG=boletas;LBE=boletas;CLI=l01;CMO=cons_libre_dispon;BAS=linea_sobregiro;LEX=mle;LSP=linea_sobregiro;LTC=tjta_credito;L01=l01;LCR=lcr;MLE=mle;MLT=mlt;MLI=mli;LEA=lea;PCM=l09;PCN=cons_libre_dispon;LSB=linea_sobregiro;LSE=linea_sobregiro;TCP=tjta_credito;
+CAMBIO_CODIGO_TIP_GTIA;HIPOTECA=951;PRENDA=952;WARRANTS=954;LETRAS Y PAGARES=955;AVAL=avl;FIANZA SOLIDARIA=fia;
+#===============================================================
+# Evaluación Filtros de Riesgo para Motor de decisiones CDA.
+#===============================================================
+EVAL_FILTROS_RIESGO_MTR;COD_APP=MTR_EVAL_PYM;COD_CANAL=150;LISTA_FILTROS=1,3,4,5,6,8,15,16,18,20,21,22,33,34;
+EVAL_FILTROS_RIESGO_MTR_PYME;LISTA_FILTROS=8,33,34;
+EVAL_FILTROS_RIESGO_MTR_PYME_ALERTAS;LISTA_FILTROS=f008,f033,f034;
+
+#===============================================================
+# Datos Web Services para conectarse al Motor de Decisión
+#===============================================================
+
+#Integracion y Certificación
+#WebService;path=http://b2bcert.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=6;INVESTIGAR=Devuelta;APROBADA=Aprobada;RECHAZADA=Rechazada;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_pyme.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_evaluacion_pyme.xml;
+
+#Producción
+#WebService;path=http://alsb.bci.cl/esb/intranet/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=6;INVESTIGAR=Devuelta;APROBADA=Aprobada;RECHAZADA=Rechazada;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_pyme.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_evaluacion_pyme.xml;
+
+#===============================================================
+# Tag anexos al xml de entrada al Motor de Decisión
+#===============================================================
+TAG_INICIO_XML;tag=<Application DeliveryOptionCode="PYMES" ProcessingRequestType="DA"> <CreditRequest ProductCategory="PYME" ProductCode="Productos_Basicos"/> ;
+TAG_FIN_XML;tag=</Application> ;
+
+#===============================================================
+# Motor de decisiones Evaluación automática.
+#===============================================================
+
+OBSERVACION_CDA;USUARIO_RESOLUTOR=EVAL_AUT;OBSERVACION_AUT=Solicitud evaluada por el motor de decisiones PYME.;OBS_SOL_APROBADA=El Nuevo Margen Otorgado, con sus respectivos subdetalles se encuentran cargados en "Línea de Crédito Solicitada", de la pestaña Línea de Crédito.;OBS_COMPRA_CART=Crédito Compra de Cartera por M$[xx] hasta 60 meses plazo con lo cual se cancela total deuda corto plazo No BCI. Emitir Vale Vista Nominativo;
+OBSERVACION_CDA_POR_PRODUCTO;cons_libre_dispon=Credito Consumo Libre Disponibilidad:M$ [xx], a [yy] meses plazo;cons_compra_cart=Credito Consumo Compra Cartera:M$ [xx], a [yy] meses plazo;LEM=LEM:M$ [xx];Linea_Sobregiro=Linea Sobregiro:M$ [xx];LCR=Multicredito:M$ [xx];Tjta_Credito=Tarjeta de Credito:M$ [xx];
+
+MONEDAS_POR_PRODUCTO_MOTOR;cons_libre_dispon=999;lcr=999;hipotecario=998;linea_sobregiro=999;tjta_credito=999;LEM=999;cons_compra_cart=999;DEFAULT=999;
+MONEDAS_POR_LINEAS_MOTOR;CMO=999;LCR=999;CHP=998;LSP=999;TCP=999;LEM=999;CCA=999;DEFAULT=999;
+
+#===============================================================
+# Estados Solicitud.
+#===============================================================
+ESTADOS_SOLICITUD;INGRESO=10;REVISION_JOF=20;RECOMENDACION=30;RECHAZADA=40;APROBADA=50;DEVUELTA=60;INSISTIDA=70;ANULADA=80;RESUELTA=90;ENVIADA=100;ENVIADARIESGO=110;ENEVALUACION=120;ENVIADAMARGEN=140;
+
+#===============================================================
+# Plazo que se colocará a las líneas de crédito que se ingresen a SUC al ser otorgadas por el motor de decisiones. Si no se encuentra en esta clase la LDC se asume plazo 1 año.
+#===============================================================
+PLAZO_LDC_MTR;CMO=5;LCR=5;LSP=1;TCP=1;LEM=1;CCA=5;
+
+#===============================================================
+# Codigos para cambios de productos a SUC
+#===============================================================
+CAMBIO_CODIGO_LDC_CDA;boletas=LBG;l01=L01;cons_libre_dispon=CMO;linea_sobregiro=LSP;tjta_credito=LTC;cons_compra_cart=CCA;fct=FCT;lme=LME;lcr=LCR;mle=MLE;mlt=MLT;mli=MLI;lea=LEA;l09=L09;hipotecario=CHP;ANT=ANT;BCE=BCE;BEM=BEM;CFO=CFO;CPC=CPC;DCP=DCP;DLP=DLP;DSP=DSP;EFC=EFC;FCE=FCE;FCF=FCF;FEM=FEM;L2A=L2A;LCP=LCP;LCR=LCR;LDD=LDD;LEM=LEM;LFU=LFU;LPH=LPH;LTC=LTC;MMD=MMD;OPS=OPS;PYM=PYM;STB=STB;TAB=TAB;YBO=YBO;
+VIGENCIA_OFERTAS_MOTOR;CODIGO_NUEVA_MTR=nueva;CODIGO_VIGENTE_MTR=vigente;nueva=N;vigente=V;sin respuesta=V;
+CAMBIO_CODIGO_CND_GTIA;O=indistinta;S=sin_garantia;U=unica;Y=conjunta;conjunta=Y;indistinta=O;unica=U;sin_garantia=S;
+DETALLE_LINEA_CREDITO;TIPOS_LINEA_DETALLE=CHP,ANT,LPH,DSP;CODIGO_SIN_GARANTIA=S;CODIGO_GARNTIA_CONJUNTA=Y;CODIGO_GARNTIA_INDISTINTA=O;CANT_MAXIMA_GARANTIAS=9;CODIGO_LDC_NUEVA=N;
+
+
+#=======================================================================================
+# Parámetro que indica el tope de dias de una fecha al traer la Carga Financiera
+#=======================================================================================
+MAX_FECHA;TOPE=360;
+
+#========================================================================================
+# PRODUCTOS CORRESPONDIENTES A UNA SOLICITUD MANUAL
+#========================================================================================
+PRODUCTOS_SOLICITUD_MANUAL;;
+
+#========================================================================================
+# DATOS BASICOS CLIENTE SOLICITUD EMPRESARIO
+#========================================================================================
+TIPO_CLIENTE;PERNA=true;PERJU=true;
+ESTADO_CIVIL;CAS=true;
+SITUACION_LABORAL;DE1=true;DE2=true;
+
+#========================================================================================
+# DATOS ORIGEN SOLICITUD
+#========================================================================================
+TIPOS_ORIGEN;EMP=true;
+
+#===============================================
+# RESOLUCION
+#===============================================
+TIPOS_RESOLUCION;FUERAPLAZO=5;
+CARGOS_RECOM_DEVOL;listado=JCE,JPE,REGIONAL_COM,ZONAL_PYME,GTE_REG_PYME,ZONAL_NOR,JZONAL_NOR,GTE_ZON_NOR;
+TIPO_RESOLUCION;FUERAPOLITICA=Fuera de política;
+ESTADOS_DEVOLVER_RECOMENDAR;listado=21,22,30,60,70,100,120;
+
+#===============================================================
+# Identificador para el generar mapa de envio al motor
+#===============================================================
+CANTIDAD_ESTADO_SITUACION;VEH=act_vehiculos_cantidad;BR=act_bienes_raices_cantidad;OTRACT=act_otros_activos_cantidad;AAD=act_aho_acciones_dap_cantidad;PAS=act_part_aporte_soc_cantidad;HIP=pas_hipotecarios_cantidad;OTR=pas_otros_pasivos_cantidad;CCO=pas_casas_comerciales_cantidad;BCP=pas_bancos_corto_plazo_cantidad;BLP=pas_bancos_largo_plazo_cantidad;
+MONTO_ESTADO_SITUACION;VEH=act_vehiculos_monto;BR=act_bienes_raices_monto;OTRACT=act_otros_activos_monto;AAD=act_aho_acciones_dap_monto;PAS=act_part_aporte_soc_monto;HIP=pas_hipotecarios_monto;OTR=pas_otros_pasivos_monto;CCO=pas_casas_comerciales_monto;BCP=pas_bancos_corto_plazo_monto;BLP=pas_bancos_largo_plazo_monto;
+
+#===============================================================
+# Template para formar xml entrada 
+#===============================================================
+VARIABLES_CDA;PLANTILLA_ENTRADA=/solicitud/solicitud_entrada_pyme.ftl;PLANTILLA_SALIDA=/respuesta/respuesta_evaluacion_pyme_aut.xml;
+
+#===============================================================
+# Etiquetas para el manejo de la respuesta ODS
+#===============================================================
+ETIQUETAS_ODS;LISTADO=tipo_producto,monto_margen,garantias,tipo_deuda,periodo_lea,modelo_provision;tipo_producto=Producto_BCI;monto_margen=Margen;MARGEN=Margen;GARANTIA=garantias;garantias=Garantia_Margen;tipo_deuda=Deuda_SBIF;PERIODO_LEA=Deuda_Leasing;SEPARADOR_IZQ=[*;SEPARADOR_DER=*];LARGO_SEPARADOR=2;LARGO_SEPARADOR_NORMAL=1;Pi=probabilidad_incumplimiento;tipo_gtia_Mrg=garantia;
+
+#===============================================================
+# Valores de reglas de negocio para los integrantes del grupo económico (socios)
+#===============================================================
+REGLAS_GRUPO_ECONOMICO;TOPE_SOCIOS_SOLICITANTES=3;CANT_SOCIOS_MAYORITARIOS_SEGUN_PARTICIPACION=4;PORC_MIN_PART_SOCIOS_MAYOR_APROB_SOL_AUT=80;PORC_MIN_PART_SOCIOS_PRINCIPALES_APROB_SOL_AUT=60;EDAD_MIN_SOCIO_PRINCIPAL_APROB_SOL_AUT=30;EDAD_MAX_SOCIO_PRINCIPAL_APROB_SOL_AUT=72;
+TIPO_RELACION;CONYUGE=CON;TITULAR=TIT;AVAL=AVL;SOCIO=SOC;GRUPO_EMPRESA=GRUEM;
+VALIDACION_ART85;GRUPO_ECONOMICO=N;
+
+
+#===============================================================
+# Mensaje para la respuesta del motor de decisión.
+#===============================================================
+MENSAJE_ESTADO_EVAL;DSP_INVESTIGATE=true;DSP_APPROVE=false;DSP_DECLINE=false;MSG_INVESTIGATE=Remitir vía SUC a comité;APPROVE=;DECLINE=;ENVIADA_JOF=Solicitud enviada a JOF;
+
+#===============================================================
+# Selección de producto Solicitud Pyme.
+#===============================================================
+PRODUCTOS_PYME;LISTADO=COM,CRU,HIPOT,LEINM,LEMOB,LOEPN,NCHFG,OTROS,REFDE,MLEA;SELECCIONADO=Si;NOSELECCIONADO=No;CRU=flg_sol_cruce_basico;COM=flg_sol_comercial_sobre36;HIPOT=flg_sol_chip_vivienda;NCHFG=flg_sol_chip_fines_generales;REFDE=flg_sol_refinanc;OTROS=flg_sol_otros;LEINM=flg_sol_leasing_inmobiliario;LEMOB=flg_sol_leasing_mobiliario;LOEPN=flg_sol_linea_operacional;MLEA=flg_sol_multileasing;
+
+#===============================================================
+# Filtros de Riesgo en línea.
+#===============================================================
+FILTRO_RIESGO;COS=COS;SI=Si;NO=No;CODIGO_LOB=018;
+
+#===============================================================
+# Valores Flags de Suc automatica pyme.
+#===============================================================
+FLG_NORMALIZA;1=Si;0=No;
+FLAG_XML;true=Si;false=No;
+
+#===============================================================
+# Motivos por los cuales la solicitud se puede ir al flujo manual.
+#===============================================================
+
+MOTIVOS_MANUAL;NO_EXISTE_SUCURSAL=Sucursal no se encuentra en tabla de parametros;
+
+#========================================================================================
+# CONFIGURACION FILTRO SUCURSAL
+#========================================================================================
+FILTRO_SUCURSAL;CODIGO=OK;
+LISTA_SUCURSAL_SELECCIONADA;CODIGO=244,334,24,333,320,357,360,316,325,107,402,73,352,125,54,367,274,144,84,83,407,369,426,127,173,398,120,25,100,376,324,147,810,298,102,353,139,293,51,59,137,400,296,807,364,910,302,33,48,85,301,806,303,809,82,162,359,166,330,266,101,155,386,323,146,254,313,370,378,138,332,92,273,161,275,128,259,29,490,55,174,148,103,361,86,277,314,80,57,165,152,167,291,258,118,379,32,256,45,160,142,257,491,278,129,175,415,265,297,365,372,350,802,555,554,551,39,383,401,143,35,902,255,49,41,292,903,93,652,104,122,396,803,329,53,76,358,75,30,108,52,268,271,335,65,98,405,50,38,318,17,131,132,16,37,28,126,373,394,31,18,311,319,19,371,424,375,382,11,12,253,315,13,169,134,262,368,21,89,388,72,26,14,33,552,110,576,157,10,384,392,374,344,22,163,46,397,34,42,141,81,69,105,363,20,354,36,381,88,411,43,15,380,272,47,299,171,40,377,389,279,276,355,67,27,261,121,151,326,267,77,385,327,351,312,106,61,91,74,64,95,71,94,97,87,63,408,362,153,60,168,62,170,321,263,387,116,96,56,322,79,158,406,23,78,269,44,390,264,124,68,391,164,66,70,901,90,123,154;
+
+#========================================================================================
+# CONFIGURACION OBTENER CAMPAÑAS VIGENTES
+#========================================================================================
+FLG_CAMPANA;true=Si;false=No;
+
+#===============================================================================
+# Datos Web Services para extraer la variable score_originacion enviada al motor
+#===============================================================================
+#Integracion
+#WS_EQUIFAX;WSDL=http://b2bdesa.bci.cl:9050/Cliente/Antecedentes/ScoreBureau/ServicioScoringBureauPS?wsdl;SISTEMA=wlsalsb;TIMEOUT=10;
+
+#Certificacion
+WS_EQUIFAX;WSDL=http://b2bcert.bci.cl:9050/Cliente/Antecedentes/ScoreBureau/ServicioScoringBureauPS?wsdl;SISTEMA=wlsalsb;TIMEOUT=10;
+
+#Produccion
+#WS_EQUIFAX;WSDL=http://alsb.bci.cl/esb/intranet/cliente/antecedentes/ScoreBureau/ServicioScoringBureauPS?wsdl;SISTEMA=wlsalsb;TIMEOUT=20;
+
+#===============================================================================
+# Diferencia de dias para validar cuenta corriente
+#===============================================================================
+VALIDAR_CUENTA;DIAS=365;
+
+#===============================================================================
+# Flag Pestanas flujo automatico
+#===============================================================================
+FLAG_PESTANYA;true=S;false=N;
+
+#===============================================================================
+# Periodo utilizado para calcular la fecha de vencimiento de una solicitud.
+#===============================================================================
+PLAZO_MAXIMO_CLF;MESES=19;
+
+#===================================================================
+# Parametro que indica si una solicitud automatica pyme se normaliza
+#===================================================================
+NORMALIZA_SOL_AUTO_PYME;valor=1;
+
+#===================================================================
+# Flag que indica si una solicitud normaliza se evalua automatica al crearla
+#===================================================================
+FLAG_CREA_AUTO_NORM;valor=1;
+
+#===================================================================
+# Flag que indica si una solicitud normaliza se reevalua y recomienda con motor
+#===================================================================
+FLAG_REEVAL_AUTO_NORM;valor=1;
+
+#===============================================================
+# Datos Web Services para conectarse al OM-DM
+#===============================================================
+#Desarrollo
+#WebServiceOMDM;path=http://localhost:9050/esb/Productos/Colocaciones/Solicitudes/ServicioEvaluacionOMDM/ServicioEvaluacionOMDMPS?WSDL;sistemaOSB=osbomdm;timeout=20;INVESTIGAR=Devuelta;APROBADA=Aprobada;RECHAZADA=Rechazada;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_pyme.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_evaluacion_pyme.xml;
+
+#Integracion y Certificación
+#WebServiceOMDM;path=http://b2bcert.bci.cl:9050/esb/Productos/Colocaciones/Solicitudes/ServicioEvaluacionOMDM/ServicioEvaluacionOMDMPS?WSDL;sistemaOSB=osbomdm;timeout=2;INVESTIGAR=Devuelta;APROBADA=Aprobada;RECHAZADA=Rechazada;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_pyme.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_evaluacion_pyme.xml;
+
+#Producción
+#WebServiceOMDM;path=http://alsb.bci.cl/esb/intranet/Productos/Colocaciones/Solicitudes/ServicioEvaluacionOMDM/ServicioEvaluacionOMDMPS?WSDL;sistemaOSB=osbomdm;timeout=10;INVESTIGAR=Devuelta;APROBADA=Aprobada;RECHAZADA=Rechazada;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_pyme.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_evaluacion_pyme.xml;
+
+CODIGO_MONEDA;PESO=$;UF=UF;UTM=UT;
+JNDI_SERV_ECONOMIA;Desc=wcorp.serv.economia.ServiciosEconomia;
+FILTRO_ANNOS;Desc=5;

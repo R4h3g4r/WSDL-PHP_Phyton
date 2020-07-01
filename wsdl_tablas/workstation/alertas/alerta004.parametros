@@ -1,0 +1,17 @@
+# Aumento Deuda Super 25%       
+#Glosa para desplegar por pantalla con tag html
+
+GLOSA0;mensaje=1.- Verificar Información (Evolución Deuda CMFChile en aplicación de Saldos Promedios).;
+GLOSA1;mensaje=2.- Interiorizarse de la situación que llevó al cliente a requerir financiamiento bancario fuera del Bci.;
+GLOSA5;mensaje=3.- Existe una oportunidad de negocio que debes trabajar para lograr nuestra meta de ser Banco Principal.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=<b>1.-</b> Verificar Información (Evolución Deuda CMFChile en aplicación de Saldos Promedios).;
+GLOSAPDF1;mensaje=<b>2.-</b> Interiorizarse de la situación que llevó al cliente a requerir financiamiento bancario fuera del Bci.;
+GLOSAPDF5;mensaje=<b>3.-</b> Existe una oportunidad de negocio que debes trabajar para lograr nuestra meta de ser Banco Principal.;
+
+#flag desa                                                                                                                                                                                                                                                                                                                                                                                                                                        ctivacion
+#DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=calculo nercesario para sacarr la alerta;periodo= por el lapso de tiempo que se calcula;fuente= de donde se sacaron los datos que disparan la alerta;

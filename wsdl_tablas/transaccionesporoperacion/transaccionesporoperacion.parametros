@@ -1,0 +1,8 @@
+## define la cantidad de +filas+ que serán mostradas
+filasConsultaMasiva;filas=15;
+
+## define los codigos monedas validos 
+codigosMonedaValidos;desc=0999,0998;
+
+## Define personalizacion
+txopersonal;desc=X;concepto=PRP;vigencia=S,N;cantidad=NM;valor=NM;moneda=NM;adicional=NM;NM=No mostrar;codigosValidos=TRB,LSG,TDC;TRB=Tarjeta Débito;LSG=Linea de Sobregiro;TDC=Tarjeta de Crédito;

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name="sp_extrae_ctas_cnv">
+  <!-- contexto -->
+  <context>
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+    <!-- package dao -->
+    <joltpool_name value="wcorp.serv.bciexpress.cartolaselectronicas.DummyFacadeImpl" />
+    
+  </context>
+  <!-- entrada -->
+  <input>
+	  <field java_name = "rutEmpresa" type = "String" size = "12" middle_name = "p_emp_num_rut"/>
+	  <field java_name = "idConvenio" type = "String" size = "1" middle_name = "p_cnv_num"/>      
+	  <field java_name = "tipoCta" type = "String" size = "75" middle_name = "p_tip_cta"/>      	          
+  </input>
+  <!-- salida -->
+  <output>
+
+        <struct struct_size="0" class_name="EmpresasHijas" var_name="empresasHijas">
+           <field
+            java_name = "tipoCta"
+            type = "String"
+            size = "4"
+            middle_name = "cec_tip_cta"
+           />
+           <field
+            java_name = "numeroCta"
+            type = "String"
+            size = "12"
+            middle_name = "cec_num_cta"
+           />
+           <field
+            java_name = "glosaCta"
+            type = "String"
+            size = "25"
+            middle_name = "cec_gls_cta"
+           />
+           <field
+            java_name = "rutEmpresa"
+            type = "String"
+            size = "12"
+            middle_name = "emp_num_rut"
+           />
+           <field
+            java_name = "dvEmpresa"
+            type = "String"
+            size = "1"
+            middle_name = "emp_vrt_rut"
+           />
+           <field
+            java_name = "nombreEmpresa"
+            type = "String"
+            size = "75"
+            middle_name = "cem_nom_emp"
+           />          
+        </struct>
+
+  </output>	  
+</service>

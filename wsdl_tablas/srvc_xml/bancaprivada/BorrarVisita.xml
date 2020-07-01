@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_elim_idv_bp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+
+			<field type="long"        middle_name="idv_crr"            size="0"  java_name="idVisita"      />
+
+	</input>
+
+	<output>
+	</output>
+</service>

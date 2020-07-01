@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name = "sp_CEII_cns_LOG">
+  <context>
+
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+
+    <joltpool_name value="wcorp.serv.consultalogs.DummyFacadeImpl" />
+
+  </context>
+	
+  <input>
+        <field
+          java_name = "numeroDeConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "cnv_num"
+        />		
+		
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "emp_rut"
+        />
+				
+        <field
+          java_name = "rutUsuario"
+          type = "String"
+          size = "12"
+          middle_name = "usu_rut"
+        />
+				
+        <field
+          java_name = "fechaConsulta"
+          type = "String"
+          size = "10"
+          middle_name = "fec_cns"
+        />		
+
+        <field
+          java_name = "tipoConsulta"
+          type = "char"
+          size = "1"
+          middle_name = "tip_cns"
+        />		
+  </input>
+  <output>
+	<struct struct_size="0" class_name="DatosSalidaConsultaLOGsVO" var_name="datosSalidaConsultaLOGsVO">
+	   <field
+          java_name = "numeroDeConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "convenio"
+       />   
+		
+	   <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+       />
+		   
+	   <field
+          java_name = "dvRutEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "dvRutEmpresa"
+       />   
+		
+	   <field
+          java_name = "rutUsuario"
+          type = "String"
+          size = "12"
+          middle_name = "rutUsuario"
+       />
+		
+	   <field
+          java_name = "dvRutUsuario"
+          type = "char"
+          size = "1"
+          middle_name = "dvRutUsuario"
+       />   
+
+	   <field
+          java_name = "fechaLOG"
+          type = "Date"
+		  size = "10"
+          middle_name = "fechaLOG"
+       />   
+		
+	   <field
+          java_name = "codigoProducto"
+          type = "String"
+		  size = "6"
+          middle_name = "codigoProducto"
+       />   
+	   
+	   <field
+          java_name = "nombreProducto"
+          type = "String"
+		  size = "30"
+          middle_name = "nombreProducto"
+       />   
+	   
+	   <field
+          java_name = "codigoServicio"
+          type = "String"
+		  size = "8"
+          middle_name = "codigoServicio"
+       /> 	   
+
+	   <field
+          java_name = "nombreServicio"
+          type = "String"
+		  size = "30"
+          middle_name = "nombreServicio"
+       /> 	   
+
+	   <field
+          java_name = "tipoConsulta"
+          type = "char"
+		  size = "1"
+          middle_name = "tipoConsulta"
+       /> 	   
+
+	   <field
+          java_name = "glosaDescripcion"
+          type = "String"
+		  size = "255"
+          middle_name = "glosaDescripcion"
+       /> 	   
+
+	   <field
+          java_name = "codigoEstado"
+          type = "String"
+		  size = "4"
+          middle_name = "codigoEstado"
+       /> 	   
+	   
+    </struct>
+  </output>	  
+</service>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_rel_bp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="long" middle_name="rut_cliente" size="0" java_name="rutCliente"/>
+		<field type="String" middle_name="relacion_bp" size="0" java_name="relacionClienteBancaPrivada"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="ConsultaMapaDeRelacion" var_name="mapaDeRelacion">
+			<field type="Integer" middle_name="rut_empresa" size="0" java_name="rutEmpresa"/>
+			<field type="char" middle_name="dv_empresa" size="0" java_name="digitoVerificadorEmpresa"/>
+			<field type="String" middle_name="nombre_empresa" size="0" java_name="nombreEmpresa"/>
+		</struct>	
+	</output>
+</service>
+
+

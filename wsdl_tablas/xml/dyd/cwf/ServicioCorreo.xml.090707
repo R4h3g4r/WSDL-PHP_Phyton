@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+
+	<Admin>
+			<from>WebAprocred</from>
+			<name>WebAprocred</name>
+	</Admin>
+
+	<role id="ACAdministrador">
+		<Subject>-WebAprocred- Error Workflow en solicitud @sol</Subject>
+		<Content>Ha Ocurrido el siguiente problema: \n@error</Content>
+		<Signature>Atte Sistema Aprobación de Créditos -WebAprocred-</Signature>
+	</role>
+
+	<role id="ACComInt">
+		<Subject>-WebAprocred-Solicitud Nº: @sol del cliente Rut: @rut</Subject>
+		<Content>Se le informa que se ha enviado una nueva solicitud de aprobación de créditos,\nen la cual debe participar</Content>
+		<Signature>Atte Sistema Aprobación de Créditos -WebAprocred-</Signature>
+	</role>
+
+	<role id="ACRespLDC">
+		<Subject>-WebAprocred- Solicitud Nº: @sol del cliente Rut: @rut, fue aprobada con cambios.</Subject>
+		<Content>Reflejar los cambios correspondientes, en el sistema de líneas de créditos, a través de APR.</Content>
+		<Signature>Atte Sistema Aprobación de Créditos -WebAprocred-</Signature>
+	</role>
+
+</root>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="bciinstantaneo.procedimientosAlmacenados">
+
+<!-- RESULT MAP -->
+    	
+	<resultMap id="sociedad" class="java.util.HashMap">
+        <result property="folio_perfil"         	javaType="Long"       column="folio_perfil"               jdbcType="numeric" />
+		<result property="rut_cliente"         		javaType="Integer"    column="rut_cliente"             	jdbcType="int" />
+		<result property="tipo_sociedad"         	javaType="String"     column="tipo_sociedad"            jdbcType="char" />
+		<result property="rut"         				javaType="Integer"    column="rut"                		jdbcType="int" />
+		<result property="dv_rut"         			javaType="String"     column="dv_rut"                	jdbcType="char" />
+		<result property="nombre"         			javaType="String"     column="nombre"                	jdbcType="varchar" />
+		<result property="tipo_relacion"         	javaType="String"     column="tipo_relacion"            jdbcType="char" />
+		<result property="porcentaje_participacion"	javaType="Double"     column="porcentaje_participacion"	jdbcType="numeric" />
+    </resultMap>
+	
+	<resultMap id="otroBien" class="java.util.HashMap">
+        <result property="folio_perfil"         	javaType="Long"       column="folio_perfil"               jdbcType="numeric" />
+		<result property="rut_cliente"         		javaType="Integer"    column="rut_cliente"             	jdbcType="int" />
+		<result property="detalle"         			javaType="String"     column="detalle"            jdbcType="varchar" />
+		<result property="monto"         			javaType="Double"    column="monto"                		jdbcType="numeric" />
+    </resultMap>
+	
+	<resultMap id="datosPerfil" class="java.util.HashMap">
+        <result property="folio_perfil"         		javaType="Long"       column="folio_perfil"               jdbcType="numeric" />
+		<result property="rut_cliente"         			javaType="Integer"    column="rut_cliente"             	jdbcType="int" />
+		<result property="estado"         				javaType="String"    column="estado"             	jdbcType="char" />
+		<result property="fecha_creacion"         		javaType="Date"    column="fecha_creacion"             	jdbcType="DATE" />
+		<result property="fecha_estado"         		javaType="Date"    column="fecha_estado"             	jdbcType="DATE" />
+		<result property="residencia_cliente"         	javaType="String"    column="residencia_cliente"             	jdbcType="varchar" />
+		<result property="rut_empleador"         		javaType="Integer"    column="rut_empleador"             	jdbcType="int" />
+		<result property="dv_rut_empleador"         	javaType="String"    column="dv_rut_empleador"             	jdbcType="char" />
+		<result property="razon_social_empleador"       javaType="String"    column="razon_social_empleador"             	jdbcType="varchar" />
+		<result property="actividad_empresa_anterior"   javaType="String"    column="actividad_empresa_anterior"             	jdbcType="varchar" />
+		<result property="cai_folio"   javaType="String"    column="cai_folio"             	jdbcType="varchar" />
+    </resultMap>
+    <!-- FIN GARANTIAS -->
+
+    <resultMap class="java.util.HashMap" id="existePerfil">
+        <result property="existePerfil" javaType="Integer" column="existePerfil" jdbcType="int"/>
+    </resultMap>
+
+    <resultMap class="java.util.HashMap" id="resultObtenerFolioPerfil">
+        <result property="folio"    javaType="Integer" column="folio"       jdbcType="int"/>
+        <result property="caifolio" javaType="String"  column="caifolio"    jdbcType="varchar"/>
+    </resultMap>
+<!-- FIN RESULT MAP -->
+
+<!-- PROCEDIMIENTOS ALMACENADOS -->
+	
+	<!--  Perfil Cliente -->
+	<procedure id="guardarSociedad" parameterClass="java.util.HashMap">
+        {CALL sp_din_ins_soc(
+            #folio_perfil#,
+            #rut_cliente#,
+			#tipo_sociedad#,
+			#rut#,
+			#dv_rut#,
+			#nombre#,
+			#tipo_relacion#,
+			#porcentaje_participacion#,
+			#orden#
+        )}
+    </procedure>
+	<procedure id="guardarOtroBien" parameterClass="java.util.HashMap">
+        {CALL sp_din_ins_obn(
+            #folio_perfil#,
+            #rut_cliente#,
+			#orden#,
+			#detalle#,
+			#monto#
+        )}
+    </procedure>
+	<procedure id="guardarDatosPerfil" parameterClass="java.util.HashMap">
+        {CALL sp_din_ins_per(
+			#folio_perfil#,
+			#rut_cliente#,
+			#estado#,
+			#fecha_creacion#,
+			#fecha_estado#,
+			#residencia_cliente#,
+			#rut_empleador#,
+			#dv_rut_empleador#,
+			#razon_social_empleador#,
+			#actividad_empresa_anterior#,
+			#cai_folio#
+        )}
+    </procedure>
+	
+	<procedure id="consultarSociedades" parameterClass="java.util.HashMap" resultMap="sociedad">
+		{CALL sp_din_cns_soc(
+			#folio_perfil#,
+			#rut_cliente#
+        )}
+	</procedure>
+	
+	<procedure id="consultarOtrosBienes" parameterClass="java.util.HashMap" resultMap="otroBien">
+		{CALL sp_din_cns_obn(
+			#folio_perfil#,
+			#rut_cliente#
+        )}
+	</procedure>
+	
+	<procedure id="consultarPerfil" parameterClass="java.util.HashMap" resultMap="datosPerfil">
+		{CALL sp_din_cns_per(
+			#folio_perfil#,
+			#rut_cliente#
+        )}
+	</procedure>
+	
+	<procedure id="registrarEvento" parameterClass="java.util.HashMap">
+		{CALL sp_din_ins_bit(
+			#rut_cliente#,
+			#fecha#,
+			#codigo_evento#,
+			#codigo_ejecutivo#,
+			#descripcion#
+        )}
+	</procedure>
+
+    <procedure id="existePerfil" parameterClass="java.util.HashMap" resultMap="existePerfil">
+        {CALL sp_din_cns_existe_perfil(
+            #rut_cliente#,
+            #estado#,
+            #mesesVigencia#
+        )}
+    </procedure>
+
+    <procedure id="obtenerFolioPerfil" parameterClass="java.util.HashMap" resultMap="resultObtenerFolioPerfil">
+        {CALL sp_din_cns_folio_perfil(
+            #rut_cliente#,
+            #estado#,
+            #mesesVigencia#
+        )}
+    </procedure>
+
+	<!-- fin perfil cliente -->
+  
+    <!-- Oferta de Planes -->
+    <procedure id="esPlanVigente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_es_plan_vigente(
+            #codigo_plan#
+        )}
+    </procedure>
+    
+    <procedure id="obtenerPlanesAOfrecer" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_obtener_plan_a_ofrecer(
+             <isNull property="codigo_plan">NULL</isNull><isNotNull property="codigo_plan">#codigo_plan#</isNotNull>,
+             <isNull property="codigo_segmento">NULL</isNull><isNotNull property="codigo_segmento">#codigo_segmento#</isNotNull>
+        )}
+    </procedure>
+   <!-- Fin Oferta de planes -->
+
+</sqlMap>

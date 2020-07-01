@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="prospectos.procedimientosAlmacenados">
+    <parameterMap id="grabaEncabezadoCotizacionesMap" class="java.util.HashMap">
+        <parameter property="rutCliente"            jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="codigoViaje"           jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="fechaConsulta"         jdbcType="DATE"     javaType="java.util.Date" />
+        <parameter property="estadoRenta"           jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    <procedure id="grabaEncabezadoCotizacion" parameterMap="grabaEncabezadoCotizacionesMap" resultClass="int">
+        { CALL sp_ing_enc_cot(?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="actualizaEstadoEncabezadoCotizacionMap" class="java.util.HashMap">
+        <parameter property="identificador"     jdbcType="INTEGER"     javaType="Integer" />
+        <parameter property="estado"            jdbcType="CHAR"        javaType="String" />
+    </parameterMap>
+    <procedure id="actualizaEstadoEncabezadoCotizacion" parameterMap="actualizaEstadoEncabezadoCotizacionMap" resultClass="int">
+        { CALL sp_act_est_enc_cot(?, ?) }
+    </procedure>
+    
+    <parameterMap id="grabaDetalleCotizacionesMap" class="java.util.HashMap">    
+        <parameter property="idEncabezado"              jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="periodo"                   jdbcType="DATE"     javaType="Date" />
+        <parameter property="remuneracionImponible"     jdbcType="DECIMAL"  javaType="double" />
+        <parameter property="montoCotizado"             jdbcType="DECIMAL"  javaType="double" />
+        <parameter property="fechaPago"                 jdbcType="DATE"     javaType="Date" />
+        <parameter property="tipoMovimiento"            jdbcType="CHAR"     javaType="String" />
+        <parameter property="rutEmpleador"              jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="digitoVerificador"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="afp"                       jdbcType="CHAR"     javaType="String" />    
+    </parameterMap>
+    <procedure id="grabaDetalleCotizacion" parameterMap="grabaDetalleCotizacionesMap" resultClass="int">    
+        { CALL sp_ing_det_cot(?, ?, ?, ?, ?, ?, ?, ?, ?) }    
+    </procedure>
+    
+    <parameterMap id="setIngresoRegistroRTA" class="java.util.HashMap">
+        <parameter property="rut"                       jdbcType="INTEGER"  javaType="Integer" />
+        <parameter property="rentaFijaCalculada"        jdbcType="FLOAT"    javaType="Double" />
+        <parameter property="rentaVariableCalculada"    jdbcType="FLOAT"    javaType="Double" />
+        <parameter property="rentaLiquidaCalculada"     jdbcType="FLOAT"    javaType="Double" />
+        <parameter property="origen"                    jdbcType="CHAR"     javaType="String" />
+        <parameter property="usuarioAct"                jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    <procedure id="ingresoRegistroRTA" parameterMap="setIngresoRegistroRTA" resultClass="int">
+        { CALL sp_ing_rta(?, ?, ?, ?, ?, ?) }
+    </procedure>
+	<parameterMap id="setIngresarTicketProspecto" class="java.util.HashMap">
+		<parameter property="ticketId" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="codViaje" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="vigencia" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	
+ 	<procedure id="ingresarTicketProspecto" parameterMap="setIngresarTicketProspecto" resultClass="int">
+		{ CALL sp_ing_ticket_prospecto(?,?,?) }
+	</procedure>
+	
+
+
+	<parameterMap id="setActualizarEtapaViaje" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+		<parameter property="codEtapaActual" jdbcType="NUMERIC" javaType="integer" />
+	</parameterMap>
+	
+ 	<procedure id="actualizarEtapaViaje" parameterMap="setActualizarEtapaViaje" resultClass="int">
+		{ CALL sp_upd_etp_vje_prospecto(?,?) }
+	</procedure>
+
+
+
+	<parameterMap id="setActualizarEstadoProspecto" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+		<parameter property="estado" jdbcType="char" javaType="String" />
+	</parameterMap>
+	
+ 	<procedure id="actualizarEstadoProspecto" parameterMap="setActualizarEstadoProspecto" resultClass="int">
+		{ CALL sp_upd_est_prospecto(?,?) }
+	</procedure>
+
+	
+	<parameterMap id="setActualizarIntentosEnvioDatos" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+	</parameterMap>
+	
+ 	<procedure id="actualizarIntentosEnvioDatos" parameterMap="setActualizarIntentosEnvioDatos" resultClass="int">
+		{ CALL sp_upd_intentos_reg_trf(?) }
+	</procedure>
+	
+	
+	<parameterMap id="setActualizarIntentosVerificacion" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+	</parameterMap>
+	
+ 	<procedure id="actualizarIntentosVerificacion" parameterMap="setActualizarIntentosVerificacion" resultClass="int">
+		{ CALL sp_upd_intentos_vrf_trf(?) }
+	</procedure>
+	
+	
+	<parameterMap id="setIngresarDatosTransferencia" class="java.util.HashMap">
+		<parameter property="vje_cod" jdbcType="NUMERIC" javaType="integer" />		
+		<parameter property="cta_ori" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="cta_dest" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="bco_dest" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="monto" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="email" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+ 	<procedure id="ingresarDatosTransferencia" parameterMap="setIngresarDatosTransferencia" resultClass="int">
+		{ CALL sp_ins_act_aut_prp(?,?,?,?,?,?) }
+	</procedure>
+	
+		
+	<!-- guardar datos autenticación -->
+	<parameterMap id="setGuardarDatosAutenticacion" class="java.util.HashMap">
+		<parameter property="vje_cod" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="cta_ori" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="cta_dest" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="bco_dest" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="monto" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="email" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+ 	<procedure id="guardarDatosAutenticacion" parameterMap="setGuardarDatosAutenticacion" resultClass="int">
+		{ CALL sp_ins_act_aut_prp(?,?,?,?,?,?) }
+	</procedure>
+	<!-- fin guardar datos autenticación -->
+
+	<!-- verificar ticket viaje prospecto -->
+	<parameterMap id="setVerificarTicketViajeProspecto" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+		<parameter property="vje_cod" jdbcType="NUMERIC" javaType="integer" />
+	</parameterMap>
+
+	<resultMap id="getVerificarTicketViajeProspecto" class="java.util.HashMap">
+		<result property="validacionRespuesta" column="respuesta" javaType="integer" />		
+	</resultMap>
+	
+ 	<procedure id="verificarTicketViajeProspecto" parameterMap="setVerificarTicketViajeProspecto" resultMap="getVerificarTicketViajeProspecto">
+		{ CALL sp_cons_ticket_vje_prospecto(?,?) }
+	</procedure>
+	<!-- fin verificar ticket viaje prospecto -->
+	
+	<!-- validar viaje prospecto -->
+	<parameterMap id="setValidarViajeProspecto" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+		<parameter property="vje_cod" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="serv" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+
+	<resultMap id="getValidarViajeProspecto" class="java.util.HashMap">
+		<result property="validacionRespuesta" column="respuesta" javaType="integer" />		
+	</resultMap>
+	
+ 	<procedure id="validarViajeProspecto" parameterMap="setValidarViajeProspecto" resultMap="getValidarViajeProspecto">
+		{ CALL sp_val_vje_prospecto(?,?,?) }
+	</procedure>
+	<!-- fin validar viaje prospecto -->
+	
+	<!-- consultar cuenta origen -->
+	<resultMap id="getConsultarCuentaOrigen" class="java.util.HashMap">
+		<result property="numeroCuenta" column="numero_cuenta" javaType="String" />		
+	</resultMap>
+	
+ 	<procedure id="consultarCuentaOrigen" resultMap="getConsultarCuentaOrigen">
+		{ CALL sp_obt_cta_ori_trf() }
+	</procedure>
+	<!-- fin consultar cuenta origen -->
+
+	<!-- consulta intentos trf -->
+	<parameterMap id="setConsultarIntentosEnvioDatos" class="java.util.HashMap">
+		<parameter property="vjeCodigo" jdbcType="NUMERIC" javaType="int" />
+	</parameterMap>
+	
+	<resultMap id="getConsultarIntentosEnvioDatos" class="java.util.HashMap">
+		<result property="numeroIntentos" column="resultado" javaType="integer" />		
+	</resultMap>
+	
+ 	<procedure id="consultarIntentosEnvioDatos" parameterMap="setConsultarIntentosEnvioDatos" resultMap="getConsultarIntentosEnvioDatos">
+		{ CALL sp_cns_int_trf_vje(?) }
+	</procedure>
+	<!-- fin consulta intentos trf -->
+	
+	
+	<!-- consulta intentos aut -->
+	<parameterMap id="setConsultarIntentosAutenticacion" class="java.util.HashMap">
+		<parameter property="vjeCodigo" jdbcType="NUMERIC" javaType="int" />
+	</parameterMap>
+	
+	<resultMap id="getConsultarIntentosAutenticacion" class="java.util.HashMap">
+		<result property="numeroIntentos" column="resultado" javaType="integer" />		
+	</resultMap>
+	
+ 	<procedure id="consultarIntentosAutenticacion" parameterMap="setConsultarIntentosAutenticacion" resultMap="getConsultarIntentosAutenticacion">
+		{ CALL sp_cns_int_aut_vje(?) }
+	</procedure>
+	<!-- fin consulta intentos aut -->
+	
+	
+	<parameterMap id="setObtenerBancoProspectoResult" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerBancoProspectoResult" class="java.util.HashMap">
+		<result property="bcoDestino" column="aut_trf_bco_destino" javaType="String" />
+	</resultMap>
+    
+    <procedure id="obtenerBancoProspecto" parameterMap="setObtenerBancoProspectoResult" resultMap="getObtenerBancoProspectoResult">
+        {CALL sp_cns_banco(?)}
+    </procedure>
+	
+	
+	
+	<!-- obtener datos para validar verificacion prospecto -->
+	<parameterMap id="setObtenerDatosTransferencia" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+		<parameter property="ctaOrigen" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="monto" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="dobleVerificacion" jdbcType="NUMERIC" javaType="integer" />
+	</parameterMap>
+
+	<resultMap id="getObtenerDatosTransferencia" class="java.util.HashMap">
+		<result property="resultado" column="resultado" javaType="integer" />
+		<result property="prp_email" column="prp_email" javaType="String" />
+	</resultMap>
+	
+ 	<procedure id="obtenerDatosTransferencia" parameterMap="setObtenerDatosTransferencia" resultMap="getObtenerDatosTransferencia">
+		{ CALL sp_cns_datos_trf(?,?,?,?) }
+    </procedure>
+	<!-- obtener datos para validar verificacion prospecto -->
+
+    <resultMap class="wcorp.aplicaciones.atenciondecliente.venta.oportunidad.to.ViajeTO" id="validaEstadoProspectoResult">
+        <result property="etapaActual.codigo"   column="etp_codigo"     nullValue="0"/>
+        <result property="etapaActual.nombre"   column="etp_nombre" />
+        <result property="estado"               column="vje_estado" />
+    </resultMap>
+
+    <procedure id="validaEstadoProspecto" parameterClass="java.util.HashMap" resultMap="validaEstadoProspectoResult">
+        {CALL sp_val_est_prospecto(#rutProspecto#)}
+    </procedure>	
+    
+    <procedure id="registrarProspecto" parameterClass="java.util.HashMap" resultClass="int">
+        {CALL sp_ins_prospecto( 
+                    #rutProspecto#,
+                    #dvProspecto#,
+                    #apellidoPaterno#,
+                    #apellidoMaterno#,
+                    #nombres#,
+                    #email#,
+                    #codigoArea#,
+                    #telefono#,
+                    #montoRenta#,
+                    #fechaNacimiento#,
+                    #edad#,
+                    #sexo#,
+                    #estadoCivil#,
+                    #codigoRegimen#,
+                    #codigoBanca#,
+                    #codigoSegmento#,
+                    #codigoSituacionLaboral#,
+                    #codigoActividad#,
+                    #codigoNivelEducacional#,
+                    #direccion#,
+                    #ciudad#,
+                    #comuna#,
+                    #region#,
+                    #autPrevired#,
+                    #fechaAutPrevired#,
+                    #usuarioActualiza#,
+                    #estadoViaje#,
+                    #motivoEstado#,
+                    #idCanalIni#,
+                    #idInteraccion#,
+                    #planSeleccionado#)}
+    </procedure>
+
+    <resultMap class="wcorp.aplicaciones.atenciondecliente.venta.oportunidad.to.ProspectoTO" id="obtenerProspectoResult">
+        <result property="rut"                              column="prp_rut"/>
+        <result property="digitoVerificador"                column="prp_dv"/>
+        <result property="apellidoPaterno"                  column="prp_ape_paterno"/>
+        <result property="apellidoMaterno"                  column="prp_ape_materno"/>
+        <result property="nombres"                          column="prp_nom"/>
+        <result property="email"                            column="prp_email"/>
+        <result property="codigoArea"                       column="prp_cod_area"/>
+        <result property="telefono"                         column="prp_telefono"/>
+        <result property="montoRenta"                       column="prp_mto_renta_ing"/>
+        <result property="fechaNacimiento"                  column="prp_fec_nac"/>
+        <result property="edad"                             column="prp_edad_ing"/>
+        <result property="sexo"                             column="prp_sexo"/>
+        <result property="estadoCivil"                      column="prp_est_civil"/>
+        <result property="codigoRegimen"                    column="prp_cod_regimen"/>
+        <result property="codigoBanca"                      column="prp_cod_banca"/>
+        <result property="codigoSegmento"                   column="prp_cod_segmento"/>
+        <result property="situacionLaboral"                 column="prp_cod_sit_lab"/>
+        <result property="codigoActividad"                  column="prp_cod_act"/>
+        <result property="codigoNivelEducacional"           column="prp_cod_niv_edu"/>
+        <result property="direccion"                        column="prp_direccion"/>
+        <result property="ciudad"                           column="prp_ciudad"/>
+        <result property="comuna"                           column="prp_comuna"/>
+        <result property="region"                           column="prp_region"/>
+        <result property="autPrevired"                      column="prp_aut_previred"/>
+        <result property="fechaAutPrevired"                 column="prp_fec_aut_previred"/>
+        <result property="fechaHoraIngreso"                 column="prp_fec_hms_ingreso"/>
+        <result property="fechaHoraActualizacion"           column="prp_fec_hms_actualiza"/>
+        <result property="usuarioActualiza"                 column="prp_usuario_actualiza"/>
+        <result property="viaje.codigo"                     column="vje_codigo"/>
+        <result property="viaje.tipoViaje.codigo"           column="tpo_vje_codigo"/>
+        <result property="viaje.etapaActual.codigo"         column="etp_codigo"/>
+        <result property="viaje.estado"                     column="vje_estado"/>
+        <result property="viaje.motivoEstado"               column="vje_motivo_estado"/>
+        <result property="viaje.idCanalInicio"              column="vje_id_canal_ini"/>
+        <result property="viaje.idCanalFin"                 column="vje_id_canal_fin"/>
+        <result property="viaje.codigoInterno"              column="vje_cod_interno" nullValue="0"/>
+        <result property="viaje.idInteraccionEpiphany"      column="vje_id_interaccion_epy"/>
+        <result property="viaje.codigoSUC"                  column="vje_cod_suc"/>
+        <result property="viaje.codigoSucursal"             column="vje_cod_sucursal"/>
+        <result property="viaje.ejecutivoAsignadoVenta"     column="vje_eje_asignado_venta"/>
+        <result property="viaje.ejecutivoAsignadoSGC"       column="vje_eje_asignado_sgc"/>
+        <result property="viaje.fechaEstimadaCierre"        column="vje_fec_est_cierre"/>
+        <result property="viaje.fechaHoraIngreso"           column="vje_fec_hms_ingreso"/>
+        <result property="viaje.fechaHoraActualizacion"     column="vje_fec_hms_actualiza"/>
+        <result property="viaje.usuarioActualiza"           column="vje_usuario_actualiza"/>		
+    </resultMap>
+    
+    <procedure id="obtenerProspecto" parameterClass="java.util.HashMap" resultMap="obtenerProspectoResult">
+        {CALL sp_cns_prospecto(#rutProspecto#,#codigoViaje#)}
+    </procedure>	
+</sqlMap>    

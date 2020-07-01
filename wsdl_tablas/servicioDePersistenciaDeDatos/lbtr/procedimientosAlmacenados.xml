@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="lbtr_syb.procedimientosAlmacenados">
+
+<!--  1 SP MIGRADO  -->
+<parameterMap id="setConsultarTrfRecibidas" class="java.util.HashMap">
+	     	  		
+	 <parameter property="identificador"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="fechaInicio"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="fechaFin"		jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="ctaCte"		jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="pagina"		jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="registros"	jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+	     	  		
+</parameterMap>
+	     	  
+<resultMap id="getConsultarTrfRecibidas" class="java.util.HashMap">	
+     	  		
+     	 <result property="fecha"	column="fld_mdptdr_fec_pgr"		javaType="String" />
+     	 <result property="hora"	column="fld_mdptdr_hra_pgr"		javaType="String" />
+     	 <result property="rutBenef"  	column="fld_m_50_bei"			javaType="String" />
+     	 <result property="nombreBenef"	column="fld_m_50_1"			javaType="String" />
+     	 <result property="monto"	column="fld_m_32a_mto"			javaType="String" />
+     	 <result property="referencia"	column="fld_o_72_1"			javaType="String" />
+     	 <result property="glosa"	column="glo_bconam"  			javaType="String" />
+     	 <result property="cantidad2"	column="cant_pag"			jdbcType="NUMERIC"	javaType="java.lang.Integer"  />
+     	  		
+    	  		
+</resultMap>
+	     	  
+<procedure id="consultarTrfRecibidas" parameterMap="setConsultarTrfRecibidas" resultMap="getConsultarTrfRecibidas">
+	{ CALL sp_con_rec_cta ( ?,?,?,?,?,?) }
+</procedure> 
+
+
+<!--  2 SP MIGRADO  -->
+<parameterMap id="setConsultaSwift" class="java.util.HashMap">
+	<parameter property="tipoPagoLBTR"		   	jdbcType="CHAR" 	javaType="String" />				
+	<parameter property="numTransferencia"		  	jdbcType="NUMERIC"	javaType="java.lang.Integer" />				
+				
+</parameterMap>
+		
+<resultMap id="getConsultaSwift" class="java.util.HashMap">
+	<result property="codRespuesta"     		column="resultado"	        jdbcType="NUMERIC" javaType="java.lang.Integer" />
+	<result property="respuesta"			column="mensaje_resultado"	jdbcType="CHAR"	   javaType="String" />
+	
+</resultMap>
+		
+<procedure id="consultaSwift" parameterMap="setConsultaSwift" resultMap="getConsultaSwift">
+		{ CALL sp_con_mt103_all_serv ( ?, ?) }
+</procedure>	
+
+
+<!--  3 SP MIGRADO  -->
+<parameterMap id="setInsertarTrasferenciaLbtr" class="java.util.HashMap">
+	     	  		
+	 <parameter property="idProducto"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="numOperacion"	jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="tipoOperacion"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="accion"		jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="fechaOperacion"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="glosaMoneda"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="rutPagador"	jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="codSucursal"	jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="nombreOrdenante"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="nombreCompleto"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="ctaCteCargo"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="codigoCargoOrig"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="montoOperacion"	jdbcType="NUMERIC"	javaType="java.lang.Long" />
+     	 <parameter property="fechaTransac"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="rutBenef"		jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="sucursalDestino"	jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="codigoCargoDest"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="nombreDestin"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="nombreBenef"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="bancoBenef"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="ctaAbono"		jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="parametro1"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="parametro2"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="parametro3"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="parametro4"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="glosaGastos"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="horaTransac"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="numero"		jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+     	 <parameter property="firmaTRF_1"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_2"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_3"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_4"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_5"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_6"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_7"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_8"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_9"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="firmaTRF_10"	jdbcType="CHAR"	javaType="String" />
+     	 <parameter property="indPago"		jdbcType="CHAR"	javaType="String" />
+	     	  		
+</parameterMap>
+	     	  
+<resultMap id="getInsertarTrasferenciaLbtr" class="java.util.HashMap">
+	<result property="codRespuesta"     		column="resultado"	        jdbcType="NUMERIC" javaType="java.lang.Integer" />
+	<result property="respuesta"			column="mensaje_resultado"	jdbcType="CHAR"	   javaType="String" />
+	
+</resultMap>
+
+	     	  
+<procedure id="insertarTrasferenciaLbtr" parameterMap="setInsertarTrasferenciaLbtr" resultMap="getInsertarTrasferenciaLbtr">
+	{ CALL sp_ing_mt103_bxp_all_serv ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+</procedure> 
+
+
+
+</sqlMap>
+
+

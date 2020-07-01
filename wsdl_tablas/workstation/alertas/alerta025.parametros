@@ -1,0 +1,13 @@
+# Cliente Enviado a Boletin                         
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Informar al cliente de la situación. y solicitar su regularización.;
+GLOSA1;mensaje=2.- Obtener claridad de los motivos por lo que se ha producido la situación.;
+GLOSA2;mensaje=3.- Si la situación es recurrente tomar medidas de acción.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Informar al cliente de la situación. y solicitar su regularización.;
+GLOSAPDF1;mensaje=2.- Obtener claridad de los motivos por lo que se ha producido la situación.;
+GLOSAPDF2;mensaje=3.- Si la situación es recurrente tomar medidas de acción.;
+
+#Viñeta Explicativa
+VINETA;calcula=Esta alerta aparece cuando el cliente se encuentra en la lista de Clientes Morosos. La consulta entrega por defecto la quincena correspondiente a la fecha actual, por ejemplo: si usuario consulta el 22/09/09, por defecto se despliegan los datos contenidos entre el 01/09/2009 y el  15/09/2009.;periodo= cliente se encuentra en la lista de Clientes Morosos dentro de la quincena correspondiente a la fecha actual;fuente= Aplicación de BCI Corp/Colocaciones/Boletín Informe Comercial.;

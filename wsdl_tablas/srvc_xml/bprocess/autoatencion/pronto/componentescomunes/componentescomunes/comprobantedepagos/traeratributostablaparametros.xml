@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_prm">
+   <context>
+      
+   </context>
+
+   <input>
+      <field
+         java_name = "identificadorParametro"
+         type = "long"
+         size = "4"
+         middle_name = "prm_id"
+      />
+      
+   </input>
+
+   
+   <output>
+      <field
+            java_name = "identificadorParametro"
+            type = "long"
+            size = "4"
+            middle_name = "prm_id"
+         />
+         <field
+            java_name = "descripcionSistema"
+            type = "String"
+            size = "20"
+            middle_name = "prm_dsc_sis"
+         />
+         <field
+            java_name = "tabla"
+            type = "String"
+            size = "40"
+            middle_name = "prm_tbl"
+         />
+         <field
+            java_name = "atributosDeLaTabla"
+            type = "String"
+            size = "15"
+            middle_name = "prm_qry"
+         />
+   </output>
+</service>

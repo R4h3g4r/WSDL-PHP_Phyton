@@ -1,0 +1,494 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2ModConCom">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.comisiones.ComisionesBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "codComisionCai"
+          type = "String"
+          size = "4"
+          middle_name = "codComision"
+          middle_name_secondary = "abonoDia"
+        />
+
+        <field
+          java_name = "codComisionIic"
+          type = "String"
+          size = "8"
+          middle_name = "comisionAdmin"
+          middle_name_secondary = "actividad"
+        />
+
+        <field
+          java_name = "codSistema"
+          type = "String"
+          size = "3"
+          middle_name = "codSistema"
+          middle_name_secondary = "abonos"
+        />
+
+        <field
+          java_name = "codEvento"
+          type = "String"
+          size = "3"
+          middle_name = "codEventoPrimNivel"
+          middle_name_secondary = "abonoMes"
+        />
+
+        <field
+          java_name = "tipo"
+          type = "char"
+          size = "1"
+          middle_name = "tipo"
+          middle_name_secondary = "activoNetoAnoAnt"
+        />
+
+        <field
+          java_name = "fechaInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fechaInicio"
+          middle_name_secondary = "accion"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "horaInicio"
+          type = "String"
+          size = "6"
+          middle_name = "horaInicio"
+          middle_name_secondary = "acog57bis"
+        />
+
+        <field
+          java_name = "codMoneda"
+          type = "String"
+          size = "6"
+          middle_name = "moneda"
+          middle_name_secondary = "accesoPOS"
+        />
+
+        <field
+          java_name = "numero"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "aprobAjustLinea"
+        />
+
+        <field
+          java_name = "cicComision"
+          type = "String"
+          size = "12"
+          middle_name = "cic"
+          middle_name_secondary = "abonoDolar"
+        />
+
+        <field
+          java_name = "siguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indAval"
+          middle_name_secondary = "boleta"
+        />
+
+        <field
+          java_name = "descripcion"
+          type = "String"
+          size = "40"
+          middle_name = "descripcion"
+          middle_name_secondary = "auxiliarGarantia"
+        />
+
+        <field
+          java_name = "descripcion2"
+          type = "String"
+          size = "40"
+          middle_name = "descripcion2"
+          middle_name_secondary = "auxiliarOpe"
+        />
+
+        <field
+          java_name = "descuento"
+          type = "char"
+          size = "1"
+          middle_name = "descuento"
+          middle_name_secondary = "activoNeto"
+        />
+
+        <field
+          java_name = "cargoAbono"
+          type = "char"
+          size = "1"
+          middle_name = "indCargo"
+          middle_name_secondary = "actividadSecund"
+        />
+
+        <field
+          java_name = "comision"
+          type = "String"
+          size = "3"
+          middle_name = "comision"
+          middle_name_secondary = "ajusteGarantia"
+        />
+
+        <field
+          java_name = "tipo2"
+          type = "String"
+          size = "3"
+          middle_name = "tipoExt"
+          middle_name_secondary = "activoTotalMesAnt"
+        />
+
+        <field
+          java_name = "cobro"
+          type = "String"
+          size = "3"
+          middle_name = "cobro"
+          middle_name_secondary = "agente"
+        />
+
+        <field
+          java_name = "obligatoriedad"
+          type = "char"
+          size = "1"
+          middle_name = "obligatorio"
+          middle_name_secondary = "anexo"
+        />
+
+        <field
+          java_name = "unidadCobro"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "unidad"
+          middle_name_secondary = "areaCuadratura"
+        />
+
+        <field
+          java_name = "tasaMonto"
+          type = "double"
+          size = "15"
+          sign = "yes"
+          integers = "9"
+          decimals = "4"
+          middle_name = "tasa"
+          middle_name_secondary = "areaDestino"
+        />
+
+        <field
+          java_name = "moneda"
+          type = "String"
+          size = "6"
+          middle_name = "monedaAvance"
+          middle_name_secondary = "alias"
+        />
+
+        <field
+          java_name = "codConcepto"
+          type = "String"
+          size = "3"
+          middle_name = "nombre"
+          middle_name_secondary = "activoTotal"
+        />
+
+        <field
+          java_name = "iva"
+          type = "char"
+          size = "1"
+          middle_name = "iva"
+          middle_name_secondary = "ano"
+        />
+
+        <field
+          java_name = "montoTope"
+          type = "long"
+          size = "14"
+          sign = "no"
+          integers = "11"
+          decimals = "0"
+          middle_name = "montoMaxAut"
+          middle_name_secondary = "areaOrigen"
+        />
+
+        <field
+          java_name = "monedaVencimiento"
+          type = "String"
+          size = "6"
+          middle_name = "monedaCupo"
+          middle_name_secondary = "ajusteTtalGarantias"
+        />
+
+        <field
+          java_name = "conceptoTope"
+          type = "String"
+          size = "3"
+          middle_name = "contacto1"
+          middle_name_secondary = "activos"
+        />
+
+        <field
+          java_name = "plazoTope"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "plazoMax"
+          middle_name_secondary = "archivoCliente"
+        />
+
+        <field
+          java_name = "indExpresado"
+          type = "char"
+          size = "1"
+          middle_name = "referencia"
+          middle_name_secondary = "anticipado"
+        />
+
+        <field
+          java_name = "numeroVig"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "vigenciaDesde"
+          middle_name_secondary = "cartaCredExpConDis"
+        />
+
+        <field
+          java_name = "miscelaneoUTVD"
+          type = "char"
+          size = "1"
+          middle_name = "vigenciaHasta"
+          middle_name_secondary = "cartaCredExpNeg"
+        />
+
+        <field
+          java_name = "edadTope"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "edadMax"
+          middle_name_secondary = "codAccion"
+        />
+
+        <field
+          java_name = "indRespecto"
+          type = "char"
+          size = "1"
+          middle_name = "referenciaEmp"
+          middle_name_secondary = "anoVehiculo"
+        />
+
+        <field
+          java_name = "numeroEventos"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "numActiv"
+          middle_name_secondary = "archivo"
+        />
+
+        <field
+          java_name = "minimo"
+          type = "double"
+          size = "12"
+          sign = "yes"
+          integers = "8"
+          decimals = "2"
+          middle_name = "medio"
+          middle_name_secondary = "attNombre"
+        />
+
+        <field
+          java_name = "maximo"
+          type = "double"
+          size = "12"
+          sign = "yes"
+          integers = "8"
+          decimals = "2"
+          middle_name = "maxAttach"
+          middle_name_secondary = "atributo"
+        />
+
+        <field
+          java_name = "monedaMinMax"
+          type = "String"
+          size = "6"
+          middle_name = "monedaMargen"
+          middle_name_secondary = "amortizacion"
+        />
+
+        <field
+          java_name = "numeroMaximoCobro"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numFolio"
+          middle_name_secondary = "apellidoPaternoRel"
+        />
+
+        <field
+          java_name = "indicadorAcumulador"
+          type = "char"
+          size = "1"
+          middle_name = "calificacion"
+          middle_name_secondary = "cartaCredExpNegPla"
+        />
+
+        <field
+          java_name = "numeroLicitacion"
+          type = "String"
+          size = "12"
+          middle_name = "numeroDeclaracion"
+          middle_name_secondary = "afectoDerivado"
+        />
+
+        <field
+          java_name = "tipoTasaBase"
+          type = "char"
+          size = "1"
+          middle_name = "tasaBase"
+          middle_name_secondary = "antiguedad"
+        />
+
+        <field
+          java_name = "periodoTasaBase"
+          type = "char"
+          size = "1"
+          middle_name = "periodoVig"
+          middle_name_secondary = "apellidoMatConyuge"
+        />
+
+        <field
+          java_name = "bajoPeriodoBase"
+          type = "char"
+          size = "1"
+          middle_name = "bajoPerBaseTasa"
+          middle_name_secondary = "capitalFinal"
+        />
+
+        <field
+          java_name = "sobrePeriodoBase"
+          type = "char"
+          size = "1"
+          middle_name = "sobrePerBaseTasa"
+          middle_name_secondary = "apellidoMaterno"
+        />
+
+        <field
+          java_name = "baseTasaVariable"
+          type = "String"
+          size = "3"
+          middle_name = "tasaVar"
+          middle_name_secondary = "activoTotalAnoAnt"
+        />
+
+        <field
+          java_name = "tipoFechaPeriodoRepacto"
+          type = "char"
+          size = "1"
+          middle_name = "tipoFechaPerRepac"
+          middle_name_secondary = "apellidoMaternoRel"
+        />
+
+        <field
+          java_name = "periodoRepacto"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "periodoRepacto"
+          middle_name_secondary = "capitalDolar"
+        />
+
+        <field
+          java_name = "mscExpresado"
+          type = "char"
+          size = "1"
+          middle_name = "referencia2"
+          middle_name_secondary = "apellidoPaterno"
+        />
+
+        <field
+          java_name = "situacionContable"
+          type = "String"
+          size = "3"
+          middle_name = "situacionContable"
+          middle_name_secondary = "ajusteAvales"
+        />
+
+        <field
+          java_name = "indTasaCredito"
+          type = "char"
+          size = "1"
+          middle_name = "indTasaComisNeg"
+          middle_name_secondary = "anoEgreso"
+        />
+
+        <field
+          java_name = "modoCalculo"
+          type = "char"
+          size = "1"
+          middle_name = "modo"
+          middle_name_secondary = "anio"
+        />
+
+        <field
+          java_name = "mora"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "monto5"
+          middle_name_secondary = "aplicacion"
+        />
+
+  </input>
+
+  <output>
+
+  </output>
+
+</service>

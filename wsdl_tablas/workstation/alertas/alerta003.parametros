@@ -1,0 +1,20 @@
+# Morosidad Leasing   
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar información<br>;
+GLOSA1;mensaje=Si Cliente efectivamente está en mora:<br>;
+GLOSA2;mensaje=a.- Conocer su situación de Riesgo con el Ejecutivo Comercial.<br>;
+GLOSA3;mensaje=b.- Contactar al cliente e indagar situación general.<br>;
+GLOSA4;mensaje=c.- Solicitar regularización de deuda morosa.<br>;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=1.- Verificar información;
+GLOSAPDF1;mensaje=Si Cliente efectivamente está en mora:;
+GLOSAPDF2;mensaje=a.- Conocer su situación de Riesgo con el Ejecutivo Comercial.;
+GLOSAPDF3;mensaje=b.- Contactar al cliente e indagar situación general.;
+GLOSAPDF4;mensaje=c.- Solicitar regularización de deuda morosa.;
+
+#flag desactivacion
+DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=La alerta "Morosidad Leasing" se activa cuando el cliente figura en el listado de morosos Bci.Esta información se encuentra en la Visación de la Estación de Trabajo Everest, específicamente en el "ver detalle" de la Deuda BCI.;periodo= No se utiliza teimpo en el cálculo;fuente= Indeterminada;

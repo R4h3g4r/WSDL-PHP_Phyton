@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_consCliTodosPlanesVigentes">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field java_name="codigoEjecutivo" type="String" size="12" middle_name="eje"/>
+		<field java_name="codigoOficina" type="String" size="3" middle_name="ofi"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="OutputEjecutivoConsultarTodosTO" var_name="argumentos">
+			<field type="String" middle_name="cli_nom" size="0" java_name="nombre"/>
+			<field type="String" middle_name="cli_rut" size="0" java_name="rut"/>
+			<field type="String" middle_name="cli_dv" size="0" java_name="dv"/>
+			<field type="String" middle_name="prn_des" size="0" java_name="descripcion"/>
+			<field type="String" middle_name="prn_cod" size="0" java_name="codigo"/>
+		</struct>
+	</output>
+</service>

@@ -1,0 +1,20 @@
+# Morosidad Leasing   
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Actualizar antecedentes:<br>;
+GLOSA1;mensaje=Verificar el estado de Situación del cliente y la vigencia de la Renta.;
+GLOSA2;mensaje=2.- Solicitar Evaluación a Comité:<br>;
+GLOSA3;mensaje=Ingreso de los datos al Solcred o Scoring dependiendo del caso.;
+GLOSA4;mensaje=3.- Esperar Resolución Comercial.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=1.- Actualizar antecedentes:;
+GLOSAPDF1;mensaje=Verificar el estado de Situación del cliente y la vigencia de la Renta.;
+GLOSAPDF2;mensaje=2.- Solicitar Evaluación a Comité:;
+GLOSAPDF3;mensaje=Ingreso de los datos al Solcred o Scoring dependiendo del caso.;
+GLOSAPDF4;mensaje=3.- Esperar Resolución Comercial.;
+
+#flag desactivacion
+DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=calculo nercesario para sacarr la alerta;periodo= por el lapso de tiempo que se calcula;fuente= de donde se sacaron los datos que disparan la alerta;

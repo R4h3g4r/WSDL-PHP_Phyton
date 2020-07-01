@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+  <!ELEMENT Objetos (Objeto)*>
+
+  <!ELEMENT Nombre (#PCDATA)>
+
+  <!ELEMENT Destino (#PCDATA)>
+
+  <!ELEMENT Descripcion (#PCDATA)>
+
+  <!ELEMENT Titulo (#PCDATA)>
+
+  <!ELEMENT noObjetos (#PCDATA)>
+
+  <!ELEMENT Grupo (Titulo|Destino|Objetos|Descripcion|noObjetos|Nombre)*>
+  <!ATTLIST Grupo
+    key CDATA #IMPLIED
+    mostrar CDATA #IMPLIED
+  >
+
+  <!ELEMENT Grupos (Grupo)*>
+
+  <!ELEMENT Objeto (#PCDATA)>

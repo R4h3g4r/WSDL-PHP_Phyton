@@ -1,0 +1,787 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="FMParticipes.procedimientosAlmacenados">
+
+  	<parameterMap id="setBuscarParticipes" class="java.util.HashMap">
+  		<parameter property="razonSocial"   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="apellidoPaterno"	jdbcType="CHAR"				javaType="String" />
+		<parameter property="apellidoMaterno"  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="nombres"       	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getBuscarParticipes" class="java.util.HashMap">
+		<result property="rut"					column="RUT"				javaType="String" />
+		<result property="dv"					column="DV"					javaType="String" />
+		<result property="tipoCliente"			column="TIPO_CLIENTE"		javaType="String" />
+		<result property="razonSocial"    		column="RAZON_SOCIAL"		javaType="String" />
+		<result property="apellidoPaterno"		column="APELLIDO_PATERNO"	javaType="String" />
+		<result property="apellidoMaterno"		column="APELLIDO_MATERNO"	javaType="String" />
+		<result property="nombres"				column="NOMBRES"			javaType="String" />
+	</resultMap>
+	<procedure id="buscarParticipes" parameterMap="setBuscarParticipes" resultMap="getBuscarParticipes">
+		{ CALL dbo.SP_CON_BUSCA_LISTA_CLIENTES ( ?, ?, ?, ? ) }
+	</procedure>
+
+  	<parameterMap id="setObtenerMandato" class="java.util.HashMap">
+  		<parameter property="rutCliente" 	  	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerMandato" class="java.util.HashMap">
+		<result property="fechaTransaccion"		column="wmt_fec_trn"	jdbcType="DATE"	
+			javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="concepto"				column="wmt_usu_trn"		javaType="String" />
+		<result property="codigo"				column="wmt_mtd"			javaType="String" />
+	</resultMap>
+	<procedure id="obtenerMandato" parameterMap="setObtenerMandato" resultMap="getObtenerMandato">
+		{ CALL dbo.SP_LEE_MANDATOS ( ? ) }
+	</procedure>
+
+  	<parameterMap id="setObtenerInformeRentabilidad" class="java.util.HashMap">
+  		<parameter property="fondo"   				jdbcType="CHAR"				javaType="String" />
+  		<parameter property="fechaIni"            	jdbcType="CHAR"         	javaType="String"  />
+  		<parameter property="fechaFin"            	jdbcType="CHAR"         	javaType="String"  />
+		<parameter property="tipoConsulta"  		jdbcType="CHAR"				javaType="String" />
+		<parameter property="serie"       			jdbcType="CHAR"				javaType="String" />
+		<parameter property="usuario"      			jdbcType="CHAR"				javaType="String" />
+		<parameter property="idTipoFondo"  			jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerInformeRentabilidad" class="java.util.HashMap">
+		<result property="razonSocial"					column="FMU_RAZON_SOCIAL"			javaType="String" />
+		<result property="tipoFondo"					column="TIPO_FONDO"					javaType="String" />
+		<result property="rentabilidadDiaria"			column="RENTABILIDAD_DIARIA"		javaType="java.lang.Double" />
+		<result property="rentabilidadNominal"    		column="RENTABILIDAD_NOMINAL"		javaType="java.lang.Double" />
+		<result property="fechaHoy"                		column="FECHA_HOY"            		javaType="String" />
+		<result property="valorCuotaHoy"				column="VALOR_CUOTA_HOY"			javaType="java.lang.Double" />
+		<result property="rentabilidadMensual"			column="RENTABILIDAD_MENSUAL"		javaType="java.lang.Double" />
+		<result property="fechaMensual"					column="FECHA_MENSUAL"				javaType="String" />
+		<result property="valorCuotaMensual"			column="VALOR_CUOTA_MENSUAL"		javaType="java.lang.Double" />
+		<result property="rentabilidadTrimestral"		column="RENTABILIDAD_TRIMESTRAL"	javaType="java.lang.Double" />
+		<result property="fechaTrimestral"				column="FECHA_TRIMESTRAL"			javaType="String" />
+		<result property="valorCuotaTrimestral"			column="VALOR_CUOTA_TRIMESTRAL"		javaType="java.lang.Double" />
+		<result property="rentabilidadPeriodo"			column="RENTABILIDAD_PERIODO"		javaType="java.lang.Double" />
+		<result property="fechaPeriodo"					column="FECHA_PERIODO"				javaType="String" />
+		<result property="valorCuotaPeriodo"			column="VALOR_CUOTA_PERIODO"		javaType="java.lang.Double" />
+		<result property="rentabilidadAnual"			column="RENTABILIDAD_ANUAL"			javaType="java.lang.Double" />
+		<result property="fechaAnual"					column="FECHA_ANUAL"				javaType="String" />
+		<result property="valorCuotaAnual"				column="VALOR_CUOTA_ANUAL"			javaType="java.lang.Double" />
+		<result property="valorCuotaAyer"				column="VALOR_CUOTA_AYER"			javaType="java.lang.Double" />
+		<result property="rentabilidadPeriodoCons"		column="RENTABILIDAD_PERIODO_CONS"	javaType="java.lang.Double" />
+		<result property="fechaPeriodoCons"				column="FECHA_PERIODO_CONS"			javaType="String" />
+		<result property="valorCuotaPeriodoCons"		column="VALOR_CUOTA_PERIODO_CONS"	javaType="java.lang.Double" />
+	</resultMap>
+	<procedure id="obtenerInformeRentabilidad" parameterMap="setObtenerInformeRentabilidad" resultMap="getObtenerInformeRentabilidad">
+		{ CALL dbo.SP_CON_RENTABILIDAD_FONDOS ( ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtenerLibroInversiones" class="java.util.HashMap">
+  		<parameter property="fechaIni"				jdbcType="CHAR"				javaType="String" />
+		<parameter property="fechaFin"  			jdbcType="CHAR"				javaType="String" />
+		<parameter property="grupo"		  			jdbcType="CHAR"				javaType="String" />
+		<parameter property="sucursal"  			jdbcType="CHAR"				javaType="String" />
+		<parameter property="agente"  				jdbcType="CHAR"				javaType="String" />
+		<parameter property="fondo"		  			jdbcType="CHAR"				javaType="String" />
+		<parameter property="usuario"  				jdbcType="CHAR"				javaType="String" />
+		<parameter property="agenteDueno"  			jdbcType="CHAR"				javaType="String" />
+		<parameter property="tipoConsulta" 			jdbcType="CHAR"				javaType="String" />
+		<parameter property="tipoFondo"  			jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerLibroInversiones" class="java.util.HashMap">
+		<result property="fondo"				column="FONDO"				javaType="String" />
+		<result property="nombreFondo"			column="NOMBRE FONDO"		javaType="String" />
+		<result property="sucursal"				column="SUCURSAL"			javaType="String" />
+		<result property="nombreAgente"			column="NOMBRE_AGENTE"		javaType="String" />
+		<result property="rutParticipe"			column="RUT PARTICIPE"		javaType="String" />
+		<result property="dvRutParticipe"		column="DV_RUT_PARTICIPE"	javaType="String" />
+		<result property="participe"			column="PARTICIPE"			javaType="String" />
+		<result property="rutCoParticipe"		column="COPARTICIPE"		javaType="String" />
+		<result property="dvRutCoParticipe"		column="DV_RUT_COPARTICIPE"	javaType="String" />
+		<result property="nombreCoParticipe"	column="NOMBRE COPARTICIPE"	javaType="String" />
+		<result property="nCuenta"				column="N_CUENTA"			javaType="String" />
+		<result property="clasificacion"		column="CLASIFICACION"		javaType="String" />
+		<result property="monto"				column="MONTO"				javaType="String" />
+		<result property="decimales"			column="DECIMALES"			javaType="String" />
+		<result property="fechaIngreso"			column="FECHA IGRESO"		javaType="String" />
+		<result property="fechaPago"			column="FECHA_PAGO"			javaType="String" />
+		<result property="horaIngreo"			column="HORA_INGRESO"		javaType="String" />
+		<result property="estadoRecaudado"		column="ESTADO_RECAUDADO"	javaType="String" />
+		<result property="fechaInicio"			column="FECHA DESDE"		javaType="String" />
+		<result property="fechaFin"				column="FECHA HASTA"		javaType="String" />
+		<result property="tipoSolicitud"		column="TIPO_SOLICITUD"		javaType="String" />
+		<result property="folio"				column="FOLIO"				javaType="String" />
+		<result property="razonSocial"			column="PSI_RAZON_SOCIAL"	javaType="String" />
+		<result property="diasRetencion"		column="DIAS_RETENCION"		javaType="String" />
+		<result property="agenteDueno"			column="AGENTE_DUENO"		javaType="String" />
+		<result property="comision"				column="COMISION"			javaType="String" />
+		<result property="fondoMadre"			column="FONDO_MADRE"		javaType="String" />
+		<result property="documentoPago"		column="DOCUMENTO_PAGO"		javaType="String" />
+		<result property="descripcion"			column="DESCRIPCION"		javaType="String" />
+		<result property="banco"				column="BANCO"				javaType="String" />
+		<result property="bancoFondo"			column="BANCO_FONDO"		javaType="String" />
+		<result property="cuentaFondo"			column="CUENTA_FONDO"		javaType="String" />
+		<result property="correlativo"			column="CORRELATIVO"		javaType="String" />
+	</resultMap>
+	<procedure id="obtenerLibroInversiones" parameterMap="setObtenerLibroInversiones" resultMap="getObtenerLibroInversiones">
+		{ CALL dbo.SP_CON_INFORME_FONDO_SUCURSAL2 ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setAlmacenaMandato" class="java.util.HashMap">
+  		<parameter property="rutCliente"	   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="dvRut"				jdbcType="CHAR"				javaType="String" />
+		<parameter property="tipoCliente"	  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="estado"	       	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getAlmacenaMandato" class="java.util.HashMap">
+		<result property="respuesta"			column="Respuesta"			javaType="String" />
+	</resultMap>
+	<procedure id="almacenaMandato" parameterMap="setAlmacenaMandato" resultMap="getAlmacenaMandato">
+		{ CALL dbo.SP_ING_WMT_PAR ( ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtenerLibroRescates" class="java.util.HashMap">
+  		<parameter property="fechaIni"	   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="fechaFin"			jdbcType="CHAR"				javaType="String" />
+		<parameter property="grupo"			  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="sucursal"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="agente"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="fondo"		       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="usuario"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="agenteDueno"     	jdbcType="CHAR"				javaType="String" />
+		<parameter property="docPago"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="tipoConsulta"    	jdbcType="CHAR"				javaType="String" />
+		<parameter property="tipoFondo"    		jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerLibroRescates" class="java.util.HashMap">
+		<result property="fondo"				column="FONDO"				javaType="String" />
+		<result property="nombreFondo"			column="NOMBRE FONDO"		javaType="String" />
+		<result property="sucursal"				column="SUCURSAL"			javaType="String" />
+		<result property="nombreAgente"			column="NOMBRE_AGENTE"		javaType="String" />
+		<result property="rutParticipe"			column="RUT PARTICIPE"		javaType="String" />
+		<result property="dvRutParticipe"		column="DV_RUT_PARTICIPE"	javaType="String" />
+		<result property="participe"			column="PARTICIPE"			javaType="String" />
+		<result property="coParticipe"			column="COPARTICIPE"		javaType="String" />
+		<result property="dvRutCoParticipe"		column="DV_RUT_COPARTICIPE"	javaType="String" />
+		<result property="nombreCoParticipe"	column="NOMBRE COPARTICIPE"	javaType="String" />
+		<result property="nCuenta"				column="N_CUENTA"			javaType="String" />
+		<result property="clasificacion"		column="CLASIFICACION"		javaType="String" />
+		<result property="monto"				column="MONTO"				javaType="java.lang.Double" />
+		<result property="decimales"			column="DECIMALES"			javaType="java.lang.Double" />
+		<result property="fechaPago"			column="FECHA_PAGO"			javaType="String" />
+		<result property="fechaLiquidacion"		column="FECHA_LIQUIDACION"	javaType="String" />
+		<result property="fechaInicial"			column="FECHA DESDE"		javaType="String" />
+		<result property="fechaFinal"			column="FECHA HASTA"		javaType="String" />
+		<result property="tipoPago"				column="TIPO_PAGO"			javaType="String" />
+		<result property="unidadRescate"		column="UNIDAD_RESCATE"		javaType="String" />
+		<result property="digitador"			column="DIGITADOR"			javaType="String" />
+		<result property="folio"				column="FOLIO"				javaType="String" />
+		<result property="agenteDueno"			column="AGENTE_DUENO"		javaType="String" />
+		<result property="docPago"				column="DOC_PAGO"			javaType="String" />
+		<result property="banco"				column="BANCO"				javaType="String" />
+		<result property="valorCuota"			column="VALOR_CUOTA"		javaType="java.lang.Double" />
+		<result property="estadoRecaudado"		column="ESTADO_RECAUDADO"	javaType="String" />
+		<result property="fondoMadre"			column="FONDO_MADRE"		javaType="java.lang.Integer" />
+	</resultMap>
+
+	<procedure id="obtenerLibroRescates" parameterMap="setObtenerLibroRescates" resultMap="getObtenerLibroRescates">
+		{ CALL dbo.SP_CON_INFORME_RES_FDO_SUC ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+    <resultMap id="movimientosCartola" class="java.util.HashMap">
+        <result property="numeroDeFondo" javaType="int" column="fondo" jdbcType="char" />
+        <result property="numeroDeCuenta" javaType="int" column="cuenta" jdbcType="char" />
+        <result property="fechaOperacion" javaType="String" column="fec_ope" jdbcType="char" />
+        <result property="numeroOperacion" javaType="String" column="num_ope" jdbcType="int" />
+        <result property="descripcionOperacion" javaType="String" column="des_ope" jdbcType="char" />
+        <result property="montoOperacionEnPeso" javaType="double" column="mto_ope" jdbcType="double" />
+        <result property="valorCuota" javaType="double" column="vlr_cuota" jdbcType="double" />
+        <result property="numeroDeCuotas" javaType="double" column="num_cuotas" jdbcType="double" />
+        <result property="saldoDeCuotas" javaType="double" column="sdo_cuotas" jdbcType="double" />
+        <result property="saldoAnterior" javaType="double" column="saldo_anterior" jdbcType="double" />
+        <result property="valorCuotaAnterior" javaType="double" column="valor_cuota_ant" jdbcType="double" />
+        <result property="montoAnterior" javaType="double" column="monto_ant" jdbcType="double" />
+        <result property="saldoFin" javaType="double" column="saldo_cuotas_fin" jdbcType="double" />
+        <result property="valorCuotaFin" javaType="double" column="valor_cuota_fin" jdbcType="double" />
+        <result property="montoFin" javaType="double" column="monto_fin" jdbcType="double" />
+        <result property="prefijoMoneda" javaType="String" column="moneda" jdbcType="char" />
+        <result property="decimalesMoneda" javaType="int" column="decimales" jdbcType="int" />
+    </resultMap>
+
+    <resultMap id="valorCuotaFondo" class="java.util.HashMap">
+        <result property="codigoFondo" javaType="int"    column="num_fondo" jdbcType="int" />
+        <result property="nombreFondo" javaType="String" column="des_fondo" jdbcType="char" />
+        <result property="valorCuota"  javaType="double" column="vlr_cuota"  jdbcType="float" />
+    </resultMap>
+
+    <resultMap id="seriesFondoMutuo" class="java.util.HashMap">
+        <result property="nombreSerie" javaType="String" column="nombreSerie" jdbcType="char" />
+        <result property="codigoSerie" javaType="String" column="codigoSerie" jdbcType="char" />
+    </resultMap>
+
+    <resultMap id="codigoYDetalleFondoMutuo" class="java.util.HashMap">
+        <result property="codigoFondoMutuo" javaType="int" column="num_fondo" jdbcType="int" />
+        <result property="nombreCuentaFondoMutuo" javaType="String" column="des_fondo" jdbcType="char" />
+    </resultMap>
+
+    <resultMap id="operacionEnTransito" class="java.util.HashMap">
+        <result property="numeroDeOperacion" javaType="int" column="num_ope" jdbcType="int" />
+        <result property="fechaSolicitud" javaType="String" column="fec_ope" jdbcType="char" />        
+        <result property="detalle" javaType="String" column="des_fondo" jdbcType="char" />
+        <result property="tipo" javaType="String" column="des_mov" jdbcType="char" />
+        <result property="moneda" javaType="String" column="des_mda" jdbcType="char" />
+        <result property="monto" javaType="double" column="mto_ope" jdbcType="double" />
+        <result property="fechaMaterializacion" javaType="String" column="fec_materializa" jdbcType="char" />
+        <result property="estadoDeOperacion" javaType="String" column="estado_ope" jdbcType="char" />
+        <result property="cuenta" javaType="int" column="num_cta" jdbcType="int" />
+    </resultMap>
+
+    <resultMap id="fondosCliente" class="java.util.HashMap">
+        <result property="codigoFondo" javaType="int" column="EMP_CODIGO" jdbcType="int" />
+        <result property="nombreFondo" javaType="String" column="EMP_NOMBRE_EMPRESA" jdbcType="char" />
+    </resultMap>  
+
+    <procedure id="anyosCartolaHistorica" parameterClass="java.util.HashMap" resultClass="int">
+        {CALL sp_web_trae_anomov_cliente(#rut#)}
+    </procedure>
+
+    <procedure id="fondosClienteCartolaHistorica" resultMap="codigoYDetalleFondoMutuo" >
+        {CALL sp_web_trae_fondoscliente(#rut#, #desde#, #hasta#)}
+    </procedure>    
+
+    <procedure id="cuentasClienteCartolaHistorica" parameterClass="java.util.HashMap" resultClass="int">
+        {CALL sp_web_trae_cuentafondocliente(#rut#, #fondo#, #desde#, #hasta#)}
+    </procedure> 
+
+    <procedure id="cartolaMovimientos" resultMap="movimientosCartola">
+        {CALL sp_web_trae_movcuentacliente(#rut#, #fondo#, #cuenta#, #desde#, #hasta#)}
+    </procedure>
+
+    <procedure id="valorCuotaFFMMPorSerie" resultMap="valorCuotaFondo">
+        {CALL sp_web_trae_valorcuota_serie(#fecha#, #serie#)}
+    </procedure>
+
+    <procedure id="seriesParaConsultaValorCuota" resultMap="seriesFondoMutuo">
+        {CALL sp_web_trae_serie_val_cuo()}
+    </procedure> 
+
+    <procedure id="fondosParaConsultarRentabilidad" resultMap="codigoYDetalleFondoMutuo">
+        {CALL sp_web_trae_fonrentab()}
+    </procedure>
+
+	<parameterMap id="setObtieneContratoMandato" class="java.util.HashMap">
+  		<parameter property="folio"		 	  	jdbcType="INTEGER"				javaType="java.lang.Long" />
+	</parameterMap>
+	<resultMap id="getObtieneContratoMandato" class="java.util.HashMap">
+		<result property="folioMandato"			column="FOLIO_MANDATO"			javaType="String" />
+		<result property="fechaIngreso"			column="FECHA_INGRESO"			javaType="String" />
+		<result property="horaIngreso"			column="HORA_INGRESO"			javaType="String" />
+		<result property="sucursal"				column="SUCURSAL"				javaType="String" />
+		<result property="lugarSuscripcion"		column="LUGAR_SUSCRIPCION"		javaType="String" />
+		<result property="ejecutivo"			column="EJECUTIVO"				javaType="String" />
+		<result property="tipoParticipe"		column="TIPO_PARTICIPE"			javaType="String" />
+		<result property="razonSocial"			column="RAZON_SOCIAL"			javaType="String" />
+		<result property="rutCliente"			column="RUT_CLIENTE"			javaType="java.lang.Long" />
+		<result property="dvRutCliente"			column="DIGITO"					javaType="String" />
+		<result property="direccion"			column="DIRECCION"				javaType="String" />
+		<result property="email"				column="EMAIL"					javaType="String" />
+		<result property="telefono"				column="TELEFONO"				javaType="String" />
+		<result property="admOrigen"			column="ADM_ORIGEN"				javaType="String" />
+		<result property="rutAdmOrigen"			column="RUT_ADM_ORIGEN"			javaType="java.lang.Long" />
+		<result property="digAdmOrigen"			column="DIG_ADM_ORIGEN"			javaType="String" />
+		<result property="folioRescate"			column="FOLIO_RESCATE"			javaType="java.lang.Double" />
+		<result property="nemoOrigen"			column="NEMO_ORIGEN"			javaType="String" />
+		<result property="fondoRescateOrigen"	column="FONDO_RESCATE_ORIGEN"	javaType="String" />
+		<result property="serieRescateOrigen"	column="SERIE_RESCATE_ORIGEN"	javaType="String" />
+		<result property="cuentaRescateOrigen"	column="CUENTA_RESCATE_ORIGEN"	javaType="String" />
+		<result property="montoRescate"			column="MONTO_RESCATE"			javaType="java.lang.Double" />
+		<result property="transferencia"		column="TRANSFERENCIA"			javaType="String" />
+		<result property="nomAdmDestino"		column="NOM_ADM_DESTINO"		javaType="String" />
+		<result property="rutAdmDestino"		column="RUT_ADM_DESTINO"		javaType="java.lang.Long" />
+		<result property="digAdmDestino"		column="DIG_ADM_DESTINO"		javaType="String" />
+		<result property="nemoDestino"			column="NEMO_DESTINO"			javaType="String" />
+		<result property="nomFondoDestino"		column="NOM_FONDO_DESTINO"		javaType="String" />
+		<result property="nomSerieDestino"		column="NOM_SERIE_DESTINO"		javaType="String" />
+		<result property="ctaDestino"			column="CTA_DESTINO"			javaType="String" />
+		<result property="fechaPago"			column="FECHA_PAGO"				javaType="String" />
+		<result property="decimales"			column="DECIMALES"				javaType="String" />
+		<result property="moneda"				column="MONEDA"					javaType="String" />
+		<result property="porcentaje"			column="PORCENTAJE"				javaType="String" />
+		<result property="rutRepLegal"			column="RUT_REP_LEGAL" 			javaType="java.lang.Long" />
+		<result property="dvRutRepLegal"		column="DIGITO_REP_LEGAL" 		javaType="String" />
+		<result property="nomRepresentante"		column="NOMBRE_REP_LEGAL" 		javaType="String" />
+		<result property="emailRepLegal"		column="EMAIL_REP_LEGAL" 		javaType="String" />
+		<result property="fonoRepLegal"			column="FONO_REP_LEGAL" 		javaType="String" />
+		<result property="montoPesos"			column="MONTO_PESOS" 			javaType="java.lang.Double" />
+		<result property="unidadRescate"		column="UNIDAD_RESCATE" 		javaType="String" />
+	</resultMap>
+	<procedure id="obtieneContratoMandato" parameterMap="setObtieneContratoMandato" resultMap="getObtieneContratoMandato">
+		{ CALL dbo.SP_CON_INF_MANDATO_MK2 ( ? ) }
+	</procedure>
+
+	<parameterMap id="setObtieneTablaMKDosADM" class="java.util.HashMap">
+  		<parameter property="tipoConsulta"	   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="indMK2"			jdbcType="CHAR"				javaType="String" />
+		<parameter property="indExterno"	  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondoOrigen"    	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idAdministrador"  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondo"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="rutParticipe"	    jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="rutCoparticipe"	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="cuentaOrigen"	   	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtieneTablaMKDosADM" class="java.util.HashMap">
+		<result property="idAdministradora"				column="ID_ADMINISTRADORA"			javaType="String" />
+		<result property="nombreAdministradora"			column="RAZON_SOCIAL"				javaType="String" />
+	</resultMap>
+	<procedure id="obtieneTablaMKDosADM" parameterMap="setObtieneTablaMKDosADM" resultMap="getObtieneTablaMKDosADM">
+		{ CALL dbo.SP_CON_TABLAS_MK2 ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtieneTablaMKDosFON" class="java.util.HashMap">
+  		<parameter property="tipoConsulta"	   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="indMK2"			jdbcType="CHAR"				javaType="String" />
+		<parameter property="indExterno"	  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondoOrigen"    	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idAdministrador"  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondo"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="rutParticipe"	    jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="rutCoparticipe"	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="cuentaOrigen"	   	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtieneTablaMKDosFON" class="java.util.HashMap">
+		<result property="idFondo"				column="ID_FONDO"			javaType="String" />
+		<result property="nombreFondo"			column="NOMBRE"				javaType="String" />
+	</resultMap>
+	<procedure id="obtieneTablaMKDosFON" parameterMap="setObtieneTablaMKDosFON" resultMap="getObtieneTablaMKDosFON">
+		{ CALL dbo.SP_CON_TABLAS_MK2 ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtieneTablaMKDosSER" class="java.util.HashMap">
+  		<parameter property="tipoConsulta"	   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="indMK2"			jdbcType="CHAR"				javaType="String" />
+		<parameter property="indExterno"	  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondoOrigen"    	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idAdministrador"  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="idFondo"	       	jdbcType="CHAR"				javaType="String" />
+		<parameter property="rutParticipe"	    jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="rutCoparticipe"	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="cuentaOrigen"	   	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtieneTablaMKDosSER" class="java.util.HashMap">
+		<result property="idSerie"				column="ID_SERIE"			javaType="String" />
+		<result property="nombreSerie"			column="NOMBRE"				javaType="String" />
+	</resultMap>
+	<procedure id="obtieneTablaMKDosSER" parameterMap="setObtieneTablaMKDosSER" resultMap="getObtieneTablaMKDosSER">
+		{ CALL dbo.SP_CON_TABLAS_MK2 ( ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setValidaInversionMK2" class="java.util.HashMap">
+ 		<parameter property="rutParticipe"	   	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="rutCoparticipe"	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="fondoMutuo"	  	jdbcType="CHAR"				javaType="String" />
+		<parameter property="cuenta"    		jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getValidaInversionMK2" class="java.util.HashMap">
+		<result property="control"				column="CONTROL"			javaType="String" />
+		<result property="mensaje"				column="MENSAJE"			javaType="String" />
+	</resultMap>
+	<procedure id="validaInversionMK2" parameterMap="setValidaInversionMK2" resultMap="getValidaInversionMK2">
+		{ CALL dbo.SP_CON_VALIDA_INVERSION_MK2  ( ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtieneCuentaMK2" class="java.util.HashMap">
+  		<parameter property="rutParticipe"	   	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="rutCoparticipe"	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+		<parameter property="indicadorMK2"    		jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtieneCuentaMK2" class="java.util.HashMap">
+		<result property="cuenta"				column="CUE_NUMERO_CUENTA"		javaType="String" />
+		<result property="descripcion"			column="CLA_DESCRIPCION"		javaType="String" />
+		<result property="fondo"				column="FMU_FONDO"				javaType="String" />
+	</resultMap>
+	<procedure id="obtieneCuentaMK2" parameterMap="setObtieneCuentaMK2" resultMap="getObtieneCuentaMK2">
+		{ CALL dbo.SP_WORK_CON_CUENTA_PARTI_MK2  ( ?, ?, ? ) }
+	</procedure>
+  <parameterMap id="setAnulaInversion" class="java.util.HashMap">
+		<parameter property="folio"	   	jdbcType="LONG"				javaType="java.lang.Long" />			
+	</parameterMap>
+	<procedure id="anulaInversion" parameterMap="setAnulaInversion" resultClass="int">
+				{ CALL dbo.sp_web_anula_inversion(?) }
+	</procedure>
+
+    <procedure id="obtenerOperacionesEnTransito" resultMap="operacionEnTransito">
+        {CALL sp_web_trae_oper_transito(#rut#, #desde#, #hasta#)}
+    </procedure>
+    <procedure id="obtenerFondosDelCliente" resultMap="fondosCliente">
+        {CALL SP_BUSCA_PROD_CLI(#rut#, #tipoDeFondo#)}
+    </procedure>
+
+	<parameterMap id="setValidaMontoMinimo" class="java.util.HashMap">
+  		<parameter property="fondo"	   	jdbcType="CHAR"				javaType="String" />
+  		<parameter property="monto"	   	jdbcType="NUMERIC"			javaType="java.lang.Long" />
+	</parameterMap>
+	<resultMap id="getValidaMontoMinimo" class="java.util.HashMap">
+		<result property="codigo"			column="CODIGO_ERROR"			javaType="String" />
+		<result property="mensaje"			column="MENSAJE_ERROR"			javaType="String" />
+	</resultMap>
+	<procedure id="validaMontoMinimo" parameterMap="setValidaMontoMinimo" resultMap="getValidaMontoMinimo">
+		{ CALL dbo.SP_VALIDA_MONTO_MINIMO_CANALES ( ?, ? ) }
+	</procedure>    
+		<parameterMap id="setConsultaTipoDocumentoPorDocPago" class="java.util.HashMap">
+		<parameter property="documentoPago"	   	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getConsultaTipoDocumentoPorDocPago" class="java.util.HashMap">
+		<result property="boletaRecaudacion"		column="DPA_BOL_RECAUDACION"			javaType="String" />
+		<result property="papeletaCargoAbono"		column="DPA_PAPEL_CARGO_CTACTE"			javaType="String" />
+	</resultMap>
+	<procedure id="consultaTipoDocumentoPorDocPago" parameterMap="setConsultaTipoDocumentoPorDocPago" resultMap="getConsultaTipoDocumentoPorDocPago">
+		{ CALL dbo.SP_CON_IMPRESION_BOLPAPEL ( ? ) }
+	</procedure>
+	<parameterMap id="setConsultaTipoDocumentoPorFolio" class="java.util.HashMap">
+		<parameter property="folio"	   		jdbcType="CHAR"				javaType="java.lang.Long" />
+	</parameterMap>
+	<resultMap id="getConsultaTipoDocumentoPorFolio" class="java.util.HashMap">
+		<result property="boletaRecaudacion"		column="IMPRIME_RECAUDACION"		javaType="String" />
+		<result property="papeletaCargoAbono"		column="IMPRIME_CTACTE"			javaType="String" />
+	</resultMap>
+	<procedure id="consultaTipoDocumentoPorFolio" parameterMap="setConsultaTipoDocumentoPorFolio" resultMap="getConsultaTipoDocumentoPorFolio">
+		{ CALL dbo.SP_WORK_IMP_RECAUDACION ( ? ) }
+	</procedure>	
+	<parameterMap id="setObtieneBoletaRecaudacion" class="java.util.HashMap">
+		<parameter property="folio"	   		jdbcType="NUMERIC"				javaType="java.lang.Long" />
+	</parameterMap>
+	<resultMap id="getObtieneBoletaRecaudacion" class="java.util.HashMap">
+		<result property="folioInversion"		column="FOLIO_INVERSION"			javaType="String" />
+		<result property="fondoMadre"			column="CODIGO_FONDO_MADRE"			javaType="String" />
+		<result property="nombreFondoMadre"		column="NOMBRE_FONDO_MADRE"			javaType="String" />
+		<result property="codigoAgente"			column="CODIGO_AGENTE"				javaType="String" />
+		<result property="nombreAgente"			column="NOMBRE_AGENTE"				javaType="String" />
+		<result property="horaIngreso"			column="HORA_INGRESO"				javaType="String" />
+		<result property="cuenta"			column="NUMERO_CUENTA"				javaType="String" />
+		<result property="montoSolicitud"		column="MONTO_SOLICITUD"			javaType="String" />
+		<result property="nombreFondoSerie"		column="NOMBRE_FONDO_SERIE"			javaType="String" />
+		<result property="nombreParticipe"		column="NOMBRE_PARTICIPE"			javaType="String" />
+		<result property="rutParticipe"			column="RUT_PARTICIPE"				javaType="java.lang.Long" />
+		<result property="dvParticipe"			column="DIG_PARTICIPE"				javaType="String" />
+		<result property="direccionParticipe"		column="DIRECCION_PARTICIPE"			javaType="String" />
+		<result property="comunaParticipe"		column="COMUNA_PARTICIPE"			javaType="String" />
+		<result property="decimalesFondo"		column="DECIMALES_FONDO"			javaType="String" />
+		<result property="razonSocial"			column="PSI_RAZON_SOCIAL"			javaType="String" />
+		<result property="monedaAporte"			column="MONEDA_APORTE"				javaType="String" />
+		<result property="formaPago"			column="FORMA_PAGO"				javaType="String" />
+		<result property="fondoNormal"			column="FMU_FONDO_NORMAL"			javaType="String" />
+		<result property="nombreUsuario"		column="NOMBRE_USUARIO"				javaType="String" />
+		<result property="fechaLiquidacion"		column="FECHA_LIQUIDACION"			javaType="String" />
+		<result property="fechaIngreso"			column="FECHA_ING"				javaType="String" />
+		<result property="razonSocialContrato"		column="PSI_RS_CONTRATO_SUSCRIPCION"		javaType="String" />
+		<result property="convenio"			column="CONVENIO"				javaType="String" />
+		<result property="observacion"			column="OBSERVACION"				javaType="String" />
+		<result property="documentoPago"		column="DPA_DOCUMENTO_PAGO"			javaType="String" />
+		<result property="numeroPago"			column="PSO_ID_PAGO"				javaType="String" />
+	</resultMap>
+	<procedure id="obtieneBoletaRecaudacion" parameterMap="setObtieneBoletaRecaudacion" resultMap="getObtieneBoletaRecaudacion">
+		{ CALL dbo.SP_BOLETA_RECAUDACION ( ? ) }
+	</procedure>
+	<parameterMap id="setObtienePapeletaCargoAbono" class="java.util.HashMap">
+		<parameter property="folio"	   		jdbcType="NUMERIC"				javaType="java.lang.Long" />
+	</parameterMap>
+	<resultMap id="getObtienePapeletaCargoAbono" class="java.util.HashMap">
+		<result property="folioInversion"		column="FOLIO_INVERSION"			javaType="String" />
+		<result property="fondoMadre"			column="CODIGO_FONDO_MADRE"			javaType="String" />
+		<result property="nombreFondoMadre"		column="NOMBRE_FONDO_MADRE"			javaType="String" />
+		<result property="codigoAgente"			column="CODIGO_AGENTE"				javaType="String" />
+		<result property="nombreAgente"			column="NOMBRE_AGENTE"				javaType="String" />
+		<result property="horaIngreso"			column="HORA_INGRESO"				javaType="String" />
+		<result property="cuenta"			column="NUMERO_CUENTA"				javaType="String" />
+		<result property="montoSolicitud"		column="MONTO_SOLICITUD"			javaType="String" />
+		<result property="nombreFondoSerie"		column="NOMBRE_FONDO_SERIE"			javaType="String" />
+		<result property="nombreParticipe"		column="NOMBRE_PARTICIPE"			javaType="String" />
+		<result property="rutParticipe"			column="RUT_PARTICIPE"				javaType="java.lang.Long" />
+		<result property="dvParticipe"			column="DIG_PARTICIPE"				javaType="String" />
+		<result property="direccionParticipe"		column="DIRECCION_PARTICIPE"			javaType="String" />
+		<result property="comunaParticipe"		column="COMUNA_PARTICIPE"			javaType="String" />
+		<result property="decimalesFondo"		column="DECIMALES_FONDO"			javaType="String" />
+		<result property="razonSocial"			column="PSI_RAZON_SOCIAL"			javaType="String" />
+		<result property="monedaAporte"			column="MONEDA_APORTE"				javaType="String" />
+		<result property="formaPago"			column="FORMA_PAGO"				javaType="String" />
+		<result property="fondoNormal"			column="FMU_FONDO_NORMAL"			javaType="String" />
+		<result property="nombreUsuario"		column="NOMBRE_USUARIO"				javaType="String" />
+		<result property="fechaLiquidacion"		column="FECHA_LIQUIDACION"			javaType="String" />
+		<result property="fechaIngreso"			column="FECHA_ING"				javaType="String" />
+		<result property="razonSocialContrato"		column="PSI_RS_CONTRATO_SUSCRIPCION"		javaType="String" />
+		<result property="cuentaCorrienteCliente"	column="CTACTE_CLIENTE"				javaType="String" />
+		<result property="convenio"			column="CONVENIO"				javaType="String" />
+		<result property="observacion"			column="OBSERVACION"				javaType="String" />
+		<result property="documentoPago"		column="DPA_DOCUMENTO_PAGO"			javaType="String" />
+		<result property="numeroPago"			column="PSO_ID_PAGO"				javaType="String" />
+	</resultMap>
+	<procedure id="obtienePapeletaCargoAbono" parameterMap="setObtienePapeletaCargoAbono" resultMap="getObtienePapeletaCargoAbono">
+		{ CALL dbo.SP_PAPELETA_CARGO_CTACTE ( ? ) }
+	</procedure>
+
+    <procedure id="consultaBloqueoAccesoWeb" resultClass="String">
+        { CALL SP_LEE_VALOR_ACCESO_WEB() }
+    </procedure> 
+
+    <resultMap id="getValidaContratoCliente" class="java.util.HashMap">
+		<result property="bloqueo"			column="BLOQUEO"			javaType="java.lang.String" />
+		<result property="mensaje"			column="MENSAJE"			javaType="java.lang.String" />		
+	</resultMap>
+
+	<parameterMap id="setValidaContratoCliente" class="java.util.HashMap">
+		<parameter property="rutCliente"	   		jdbcType="NUMERIC"				javaType="java.lang.Long" />
+		<parameter property="codigoFondo"			jdbcType="CHAR"					javaType="java.lang.String" />
+	</parameterMap>
+
+	<procedure id="validaContratoCliente" parameterMap="setValidaContratoCliente" resultMap="getValidaContratoCliente">
+				{ CALL dbo.SP_VALIDA_CON_GRL_FONDOS(?,?) }
+	</procedure>
+
+    <resultMap id="getGeneraContratoCliente" class="java.util.HashMap">
+		<result property="folio"			column="FOLIO_CONTRATO"			javaType="java.lang.Long" />
+	</resultMap>
+
+	<parameterMap id="setGeneraContratoCliente" class="java.util.HashMap">
+		<parameter property="rutCliente"	   		jdbcType="NUMERIC"				javaType="java.lang.Long" />
+		<parameter property="codigoEjecutivo"		jdbcType="CHAR"					javaType="java.lang.String" />
+	</parameterMap>
+
+	<procedure id="generaContratoCliente" parameterMap="setGeneraContratoCliente" resultMap="getGeneraContratoCliente">
+				{ CALL dbo.SP_GENERA_CGF(?,?) }
+	</procedure>
+
+	<resultMap id="getObtieneDetalleContratoCliente" class="java.util.HashMap">
+		<result property="razonSocial"							column="PAR_RAZON_SOCIAL"		javaType="String" />
+		<result property="rutParticipe"							column="PAR_RUT_PARTICIPE"		javaType="java.lang.Long" />
+		<result property="dvParticipe"							column="PAR_DV"					javaType="String" />
+		<result property="direccion"							column="DPA_DIRECCION"			javaType="String" />
+		<result property="telefono"								column="DPA_TELEFONO"			javaType="String" />
+		<result property="email"								column="PAR_EMAIL"				javaType="String" />
+		<result property="rutAdministradoraFondos"				column="RUT_ADM_GRAL_FONDOS"	javaType="java.lang.Long" />
+		<result property="dvAdministradoraFondos"				column="DIG_ADM_GRAL_FONDOS"	javaType="String" />
+		<result property="representanteLegal"					column="REP_LEGAL_ADMINISTR"	javaType="String" />
+		<result property="fechaImpresion"						column="FECHA_IMPRESION"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<result property="rutRepresentanteLegal"				column="RUT_RL"					javaType="java.lang.Long" />
+		<result property="dvRepresentanteLegal"					column="DV_RL"					javaType="String" />
+		<result property="nombreRepLegal"						column="NOMBRE_REP_LEGAL"		javaType="String" />
+		<result property="folioContrato"						column="FOLIO_CONTRATO"			javaType="java.lang.Long" />
+		<result property="codigoFirma"							column="CODIGO_IMAGEN"			javaType="java.lang.Long" />
+		<result property="ordenReporte"							column="ORDEN_REPORTE"			javaType="String" />
+		<result property="glosaCopia"							column="GLOSA_COPIA"			javaType="String" />
+	</resultMap>
+
+	<parameterMap id="setObtieneDetalleContratoCliente" class="java.util.HashMap">
+		<parameter property="folio"	   		jdbcType="NUMERIC"				javaType="java.lang.Long" />
+	</parameterMap>
+
+	<procedure id="obtieneDetalleContratoCliente" parameterMap="setObtieneDetalleContratoCliente" resultMap="getObtieneDetalleContratoCliente">
+				{ CALL dbo.SP_CON_CONTRATO_GRAL_FONDOS (?) }
+	</procedure>
+
+     <procedure id="obtenerPerfilProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+       {call sp_cns_perfil_prod(#cod_producto#)}
+     </procedure>  
+
+  <procedure id="cuentasInversionDelCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_cuentas_inversion(#RUT_CLIENTE#)}
+  </procedure>
+
+  <procedure id="daoObtieneDetalleCuentaFondoMutuo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_trae_saldo_cuen_cli(#FONDO:CHAR#, #RUT_CLIENTE#, #CUENTA_CLI:CHAR#)}
+  </procedure>
+
+  <procedure id="daoDetalleCuentaFondoMutuo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_sdo_cta_inv(#FONDO:CHAR#, #RUT_CLIENTE#, #CUENTA_CLI:CHAR#)}
+  </procedure>
+
+  <procedure id="daoFondosMutuosCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_trae_saldo_clientes(#rut#)}
+  </procedure>
+
+  <procedure id="daoFondosMutuosClientePorFondoCuenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_sof_trae_saldo_cuen_cli(#RUT_CLIENTE#, #FONDO:CHAR#, #CUENTA_CLI:CHAR#)}
+  </procedure>
+
+  <procedure id="daoFmuTraeSaldoCar" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_saldos_cartolas(#rut:VARCHAR#, #codFondo#)}
+  </procedure>
+
+  <procedure id="obtenerMontoOperacionesOffLine" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call SP_VALIDA_TRANSACCION_PIR(#pir_fec_ing:CHAR#, #pir_tip_ope:CHAR#, #pir_rut_cli:CHAR#, #pir_cod_fdo:INTEGER#, #monto:FLOAT#)}
+  </procedure>
+
+  <procedure id="validaAccesoDatosWeb" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call SP_LEE_VALOR_ACCESO_WEB()}
+  </procedure>
+
+  <procedure id="consultaFondosAdmCartera" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_des_cli_otros_prod(#RUT_CLIENTE#)}
+  </procedure>
+
+  <procedure id="consultaPeriodosCartolasAdmCartera" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_per_cli_otros_prod(#RUT_CLIENTE#, #ID_FONDO:VARCHAR#)}
+  </procedure>
+
+  <procedure id="obtieneEvolucionCuota" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_sof_evolucion_cuota(#ID_FONDO:VARCHAR#, #FECHA:VARCHAR#)}
+  </procedure>
+
+  <procedure id="obtieneFondosRentabilidad" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_sof_filtro_fondos_rent(#ID_FONDO:VARCHAR#, #FECHA:VARCHAR#, #HORIZONTE#, #NIVEL_RIESGO:VARCHAR#)}
+  </procedure>
+
+  <procedure id="consultaDetalleComisionRescate" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call SP_DSK_CONSULTAR_SALDOS(#ID_PARTICIPE#, #ID_COPARTICIPE#, #ID_FONDO:VARCHAR#, #ID_CUENTA:VARCHAR#, #TIPO_MONTO:CHAR#, #MONTO_RESCATE#)}
+  </procedure>
+
+  <procedure id="obtieneFichaTecnica" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call SP_FM_FICHA_TECNICA(#FONDO:VARCHAR#, #FECHA:VARCHAR#)}
+  </procedure>
+
+  <procedure id="obtieneValoresCuota" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_trae_valores_cuota(#FECHA:VARCHAR#)}
+  </procedure>
+
+  <procedure id="obtieneFondosMutuos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_cons_fondos(#FONDO#, #FECHA#, #HORIZONTE#, #RIESGO#)}
+  </procedure>
+
+  <procedure id="obtieneArchivos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_cons_archivos(#FONDO#, #TIPO#)}
+  </procedure>
+
+  <procedure id="obtienePremios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_cons_premios(#FONDO#, #TIPO#)}
+  </procedure>
+
+
+  <parameterMap id="setConsultaCartolaMovimientosFFMM" class="java.util.HashMap">
+  		<parameter property="fechaIni"          jdbcType="CHAR"				javaType="String" />
+		<parameter property="fechaFin"	        jdbcType="CHAR"				javaType="String" />
+		<parameter property="codFondo"      	jdbcType="CHAR"				javaType="String" />
+		<parameter property="rut"       	    jdbcType="INTEGER"			javaType="java.lang.Long" />
+		<parameter property="clasificacion"    	jdbcType="CHAR"				javaType="String" />
+  </parameterMap>
+
+  <resultMap id="getConsultaCartolaMovimientosFFMM" class="java.util.HashMap">
+		<result property="rutParticipe"			column="RUT_PARTICIPE"		javaType="java.lang.Long" />
+		<result property="dvParticipe"			column="DV"					javaType="String" />
+		<result property="nombreParticipe"		column="NOMBRE_PARTICI"		javaType="String" />
+		<result property="direccionParticipe"	column="DIREC_PARTICI"		javaType="String" />
+		<result property="comunaParticipe"		column="COMUNA_PARTICI"		javaType="String" />
+		<result property="ciudadParticipe"		column="CUIDAD_PARTICI"		javaType="String" />
+		<result property="fondo"				column="FONDO"				javaType="String" />
+		<result property="fondoMadre"			column="FONDO_MADRE"		javaType="String" />
+		<result property="fondoSerie"			column="FONDO_SERIE"		javaType="String" />
+		<result property="fondoAdministradora"	column="FONDO_ADMINISTRADORA"		javaType="String" />
+		<result property="rutCoParticipe"		column="RUT_COPARTICIPE"	javaType="java.lang.Long" />
+		<result property="dvCoParticipe"		column="DV_COPARTICIPE"		javaType="String" />
+		<result property="nombreParticipe"		column="NOMBRE_COPARTICI"	javaType="String" />
+		<result property="direccionCoParticipe"	column="DIREC_COPARTICI"	javaType="String" />
+		<result property="comunaCoParticipe"	column="COMUNA_COPARTICI"	javaType="String" />
+		<result property="ciudadCoParticipe"	column="CUIDAD_COPARTICI"	javaType="String" />
+		<result property="nombreFondo"			column="NOMBRE_FONDO"		javaType="String" />
+		<result property="moneda"				column="MONEDA"				javaType="String" />
+		<result property="decimales"			column="DECIMALES"			javaType="java.lang.Long" />
+		<result property="cuenta"				column="CUENTA"				javaType="String" />
+		<result property="codClasificacion"		column="COD_CLASI"			javaType="String" />
+		<result property="clasificacion"		column="CLASIFICACION"		javaType="String" />
+		<result property="agente"				column="AGENTE"				javaType="String" />
+		<result property="nombreAgente"			column="NOMBRE_AGENTE"		javaType="String" />
+		<result property="sucursal"				column="SUCURSAL"			javaType="String" />
+		<result property="nombreSucursal"		column="NOMBRE_SUCURSAL"	javaType="String" />
+		<result property="fecha"				column="FECHA"				javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+		<result property="hora"					column="HORA"				javaType="String" />
+		<result property="tipoMov"				column="TIPO_MOV"			javaType="String" />
+		<result property="origenMov"			column="ORIGEN_MOV"			javaType="String" />
+		<result property="folioMov"				column="FOLIO_ORIGEN"		javaType="String" />
+		<result property="monto"				column="MONTO"				javaType="java.lang.Long" />
+		<result property="cuotaHoy"				column="CUOTA_HOY"			javaType="java.lang.Long" />
+		<result property="cuotas"				column="CUOTAS"				javaType="java.lang.Long" />
+		<result property="saldoAnterior"		column="SALDO_ANTERIOR"		javaType="java.lang.Long" />
+		<result property="saldo"				column="SALDO"				javaType="java.lang.Long" />
+		<result property="valorCuotaAnt"		column="VALOR_CUOTA_ANT"	javaType="java.lang.Long" />
+		<result property="valorCuotaFin"		column="VALOR_CUOTA_FIN"	javaType="java.lang.Long" />
+		<result property="saldoCuotasFin"		column="SALDO_CUOTAS_FIN"	javaType="java.lang.Long" />
+		<result property="telefono"				column="TELEFONO"			javaType="String" />
+		<result property="fax"					column="FAX"				javaType="String" />
+		<result property="mail"					column="MAIL"				javaType="String" />
+		<result property="tipoReparto"			column="TIPO_REPARTO"		javaType="String" />
+		<result property="psiRazonSocial"		column="PSI_RAZON_SOCIAL"	javaType="String" />
+		<result property="valorCuota"			column="VALOR_CUOTA"		javaType="java.lang.Long" />
+		<result property="montoPesos"			column="MONTO_PESOS"		javaType="java.lang.Long" />
+		<result property="fechaInicio"			column="FECHA_INI"			javaType="String"/>
+		<result property="fechaFinal"			column="FECHA_FIN"			javaType="String"/>
+		<result property="nombreFondoMadre"		column="NOMBRE_FONDO_MADRE"	javaType="String" />
+		<result property="nombreFondoAdm"		column="NOMBRE_FONDO_ADM"	javaType="String" />
+		<result property="direccionFondoAdm"	column="DIRECCION_FONDO_ADM"	javaType="String" />
+		<result property="comunaFondoAdm"		column="COMUNA_FONDO_ADM"	javaType="String" />
+		<result property="ciudadFondoAdm"		column="CIUDAD_FONDO_ADM"	javaType="String" />
+		<result property="fonoFondoAdm"			column="FONO_FONDO_ADM"		javaType="String" />
+		<result property="faxFondoAdm"			column="FAX_FONDO_ADM"		javaType="String" />
+		<result property="estado"				column="ESTADO"				javaType="String" />
+		<result property="concepto"				column="CONCEPTO"			javaType="String" />
+		<result property="saldoInicial"			column="SALDO_INI"			javaType="String" />
+		<result property="reparto"				column="REPARTO"			javaType="String" />
+		<result property="mfoMoneda"			column="MFO_MONEDA"			javaType="String" />
+  </resultMap>
+
+  <procedure id="consultaCartolaMovimientosFFMM" parameterMap="setConsultaCartolaMovimientosFFMM" resultMap="getConsultaCartolaMovimientosFFMM" >
+    {call sp_work_cart_mov_aut_man(?, ?, ?, ?, ?)}
+  </procedure>
+
+<procedure id="obtenerFondoMadre" 
+parameterClass="java.util.HashMap" 
+resultClass="java.util.HashMap" >
+    {call sp_web_cons_fdo_madre(#FONDO:VARCHAR#)}
+  </procedure>
+<parameterMap id="setDatosConsulta" class="java.util.HashMap">
+    <parameter property="rut"       jdbcType="NUMERIC"       javaType="java.lang.Long"/>
+    </parameterMap>
+    <resultMap id="getConsulta" class="java.util.HashMap">
+    <result property="Nuevo"            column="Nuevo"            javaType="String"/>
+    <result property="Bloqueado"            column="Bloqueado"            javaType="String"/>   
+    </resultMap>
+    <procedure id="consultarClienteNuevo" parameterMap="setDatosConsulta" resultMap="getConsulta">
+    { CALL sp_web_con_valida_cliente (?) }
+    </procedure>
+  
+     <resultMap id="getValidaExistenciaContratoCliente" class="java.util.HashMap">
+        <result property="codigo"          column="CODIGO"            javaType="int" />
+    </resultMap>
+
+    <parameterMap id="setValidaExistenciaContratoCliente" class="java.util.HashMap">
+        <parameter property="rutCliente"            jdbcType="varchar"              javaType="java.lang.String" />
+    </parameterMap>
+
+    <procedure id="validaExistenciaContratoCliente" parameterMap="setValidaExistenciaContratoCliente" resultMap="getValidaExistenciaContratoCliente">
+                { CALL dbo.SP_EXISTE_CON_GRL_FONDOS_CLI(?) }
+    </procedure>
+    
+  <procedure id="sp_web_trae_fondo_cuenta_cli" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_web_trae_fondo_cuenta_cli(#rut#)}
+  </procedure>
+	
+	<parameterMap id="setSimularRentabilidad" class="java.util.HashMap">
+  		<parameter property="idFondo"   	jdbcType="CHAR"				javaType="String" />
+		<parameter property="fecha"			jdbcType="CHAR"         	javaType="String" />
+		<parameter property="horizonte"  	jdbcType="NUMERIC"			javaType="java.lang.Integer" />
+		<parameter property="monto"       	jdbcType="NUMERIC"			javaType="java.lang.Double" />
+	</parameterMap>
+	<resultMap id="getSimularRentabilidad" class="java.util.HashMap">
+		<result property="idFondo"				column="FMU_FONDO"			javaType="String" />
+		<result property="montoFinal"			column="MONTO_FINAL"		javaType="java.lang.Double" />
+		<result property="rentabilidad"			column="RENTABILIDAD"		javaType="java.lang.Double" />
+		<result property="valorCuotaHoy"    	column="VCHOY"				javaType="java.lang.Double" />
+		<result property="valorCuotaIni"		column="VCINI"				javaType="java.lang.Double" />
+		<result property="factorReparto"		column="FACTOR_REP"			javaType="java.lang.Integer" />
+		<result property="horizonte"			column="HORIZONTE"			javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="simularRentabilidad" parameterMap="setSimularRentabilidad" resultMap="getSimularRentabilidad">
+		{ CALL dbo.sp_web_simulador_fondo ( ?, ?, ?, ? ) }
+	</procedure>
+
+	<procedure id="consultarClienteNuevoBag" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call sp_cns_exi_bag_inv(#rut#)}
+	  </procedure> 
+</sqlMap>

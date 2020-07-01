@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<database>
+	<server>webdominoiii</server>
+	<name>names.nsf</name>
+	<query>
+		<view>(ShortName)</view>
+		<key>ShortName</key>
+	</query>
+	<document>	  	 
+	  <!-- Solo los valores de retorno deben ir con Sus respectivos objetos -->
+	  <items java_name="getString">FullName</items> 
+	  		
+	</document>
+</database>

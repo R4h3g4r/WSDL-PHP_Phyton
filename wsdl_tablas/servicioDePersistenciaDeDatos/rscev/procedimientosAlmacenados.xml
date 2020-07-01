@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="rscev.procedimientosAlmacenados">
+
+	<procedure id="ingresaDatosProductos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ing_pdt_eva(#periodo#,#codigo1#,#codigo2#,#rut#,#dv#,#tipo#,#nombre#,#apellidoPaterno#,#apellidoMaterno#,#estado1#,#estado2#,#estado3#,#estado4#,#fecha#,#producto#,#monto#,#canal#)}
+	</procedure>	
+	<procedure id="cambiarProduccionRscev" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_mod_fec_pro(#codigo#,#periodo#,#periodoNuevo#)}
+	</procedure>
+
+<!-- Mantenedor Tipo De Contrato -->
+
+	<procedure id="listaTipoDeContratos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_tip_ctt_clb(#cod_tipo_contrato#)}
+	</procedure>
+	<procedure id="ingresaTipoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_tip_ctt_clb(#cod_tipo_contrato#,#des_tipo_contrato#,#pusuario#)}
+	</procedure>
+	<procedure id="modificaTipoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_tip_ctt_clb(#cod_tipo_contrato#,#des_tipo_contrato#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaTipoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_tip_ctt_clb(#cod_tipo_contrato#,#pusuario#)}
+	</procedure>
+	
+<!-- Mantenedor Anexo De Contrato -->	
+	 
+	<procedure id="listaAnexoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_anx_contrato(#cod_anx_contrato#)}
+	</procedure>
+	<procedure id="ingresaAnexoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_anx_contrato(#cod_anx_contrato#,#des_anx_contrato#,#tipo_suc#,#pusuario#)}
+	</procedure>
+	<procedure id="modificaAnexoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_anx_contrato(#cod_anx_contrato#,#des_anx_contrato#,#tipo_suc#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaAnexoDeContrato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_anx_contrato(#cod_anx_contrato#,#tipo_suc#,#pusuario#)}
+	</procedure>
+	
+<!-- Mantenedor Sucursales y Regionales -->
+	 
+	<procedure id="listaComunas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_com()}
+	</procedure>
+	<procedure id="listaRegionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_suc_reg(#cod_sucursal#,#tipo#)}
+	</procedure>
+	<procedure id="listaSucursalesRegionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_suc(#cod_sucursal#)}
+	</procedure>
+	<procedure id="ingresaSucursalesRegionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_suc(#cod_suc#,#des_suc#,#tipo#,#cod_regional#,#cod_comuna#,#dir#,#pusuario#)}
+	</procedure>
+	<procedure id="modificaSucursalesRegionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_suc(#cod_suc#,#des_suc#,#tipo#,#cod_regional#,#cod_comuna#,#dir#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaSucursalesRegionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_suc(#cod_sucursal#,#pusuario#)}
+	</procedure>
+	
+<!-- Mantenedor Fuerza de Venta -->
+	
+	<procedure id="listaFuerzaVenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_fza_vta(#cod_fza_vta#)}
+	</procedure>
+	<procedure id="ingresaFuerzaVenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_fza_vta(#cod_fza_vta#,#des_fza_vta#,#pusuario#)}
+	</procedure>
+	<procedure id="modificaFuerzaVenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_fza_vta(#cod_fza_vta#,#des_fza_vta#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaFuerzaVenta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_fza_vta(#cod_fza_vta#,#pusuario#)}
+	</procedure>
+		
+<!-- Mantenedor Modelo de Negocio -->
+	
+	<procedure id="listaModeloDeNegocios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_mdl_neg(#cod_fza_vta#)}
+	</procedure>
+	<procedure id="ingresaModeloDeNegocios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_mdl_neg(#cod_fza_vta#,#cod_modelo_negocio#,#des_modelo_neg#,#pusuario#)}
+	</procedure>
+	<procedure id="modificaModeloDeNegocios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_mdl_neg(#cod_fza_vta#,#cod_modelo_negocio#,#des_modelo_neg#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaModeloDeNegocios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_mdl_neg(#cod_fza_vta#,#cod_modelo_neg#,#pusuario#)}
+	</procedure>
+	<procedure id="listaFuerzaVentaVigente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_vig_fza_vta (#cod_fza_vta#)}
+	</procedure>
+	
+<!-- Mantenedor Canales-->
+	 
+	<procedure id="listaCanales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_cnl_psv(#cod_canal#)}
+	</procedure>
+	<procedure id="listaModeloNegocioVigente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_vig_mdl_neg(#cod_mod_neg#)}
+	</procedure>
+	<procedure id="ingresaCanales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_cnl_psv(#cod_fza_vta#,#cod_modelo_negocio#,#cod_canal#,#des_canal#,#pusuario#)}
+	</procedure>
+	<procedure id="actualizaCanales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_act_cnl_psv(#cod_fza_vta#,#cod_modelo_negocio#,#cod_canal#,#des_canal#,#pusuario#)}
+	</procedure>
+	<procedure id="eliminaCanales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_eli_cnl_psv(#cod_fza_vta#,#cod_modelo_neg#,#cod_canal#,#pusuario#)}
+	</procedure>
+	
+<!-- Mantenedor Dotacion -->
+	
+	<procedure id="confirmaInforme" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ing_ges_dot(#prm_fec_ini#,#prm_fec_ter#,#prm_meses#,#prm_login#)}
+	</procedure>
+	<procedure id="consultaDotaciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_dot(#prm_tipo_cargo#,#prm_ind_busca#,#prm_rut#,#prm_codigo#,#prm_nombres#,#prm_ape_pat#,#prm_ape_mat#)}
+	</procedure>
+	<procedure id="consultaEstadosCiviles" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_ecv()}
+	</procedure>
+	<procedure id="consultaNivelesEducacionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_ned()}
+	</procedure>
+	<procedure id="actualizarDotacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_dot_psv(#tipo_cargo#,#correlativo#,#rut#,#dv#,#pat#,#mat#,#nombres#,#cod_est_civ#,#cod_niv_edu#,#fec_nac#,#sexo#,#nac#)}
+	</procedure>
+	<procedure id="insertarDotacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_dot_psv(#tipo_cargo#,#rut#,#dig_dv#,#pat#,#mat#,#nombres#,#cod_est_civ#,#cod_niv_edu#,#fec_nac#,#sexo#,#nac#)}
+	</procedure>
+	<procedure id="consultaJefesComerciales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_jco_psv()}
+	</procedure>
+	<procedure id="consultaJefesDeGrupos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_jgp_psv()}
+	</procedure>
+	<procedure id="consultaCentrosCosto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_cco()}
+	</procedure>
+	<procedure id="actualizaEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_eje_psv(#cod_proservice#,#fec_alta#,#cod_jef_grupo#,#cod_fza_vta#,#mod_neg#,#canal#,#cod_suc#,#cod_tip_ctto#,#cod_anx_ctto#,#cod_cco_cco#,#cod_usr_bci#,#fono#,#cod_usr_eph#,#email_lab#,#id_rut#)}
+	</procedure>
+	<procedure id="actualizaJefeComercial" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_jco_psv(#cod_proservice#,#fec_alta#,#cod_suc#,#cod_tip_ctto#,#cod_anx_ctto#,#cod_cco_cco#,#cod_usr_bci#,#fono#,#cod_usr_eph#,#email_lab#,#id_rut#)}
+ 	</procedure>
+ 	<procedure id="actualizaJefeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_jgp_psv(#cod_proservice#,#fec_alta#,#cod_jef_comercial#,#cod_suc#,#cod_tip_ctto#,#cod_anx_ctto#,#cod_cco_cco#,#cod_usr_bci#,#fono#,#cod_usr_eph#,#email_lab#,#id_rut#)}
+	</procedure>
+	<procedure id="consultaJefesGrupoPorComercial" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_asg_jgp_lis(#cod_jco_p#)}
+	</procedure>
+	<procedure id="asignarJefeGrupoAComercial" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_asg_jgp_act(#cod_jco_p#,#jgp_cod#)}
+	</procedure>
+	<procedure id="consultaEjecutivosPorJefeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_asg_eje_lis(#cod_jgp_p#,#fza_vta_p#,#mdl_neg_p#,#cnl_cod_p#)}
+	</procedure>
+	<procedure id="asignarEjecutivoAJefeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_asg_eje_act(#cod_eje_psv#,#cod_jefe_grp#,#cod_fza_vta#,#cod_mdl_neg#,#cod_cnl#,#ind#,#usuario#)}
+	</procedure>
+	<procedure id="consultarHistoricoVacaciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_vac_dot(#rut#)}
+	</procedure>
+	<procedure id="ingresarVacacionesColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_vac_dot(#rut#,#fecha_car#,#fecha_ini#,#fecha_fin#,#dias#)}
+	</procedure>
+	<procedure id="eliminarVacacionesColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_vac_dot(#corr#,#rut#)}
+	</procedure>
+	<procedure id="consultarHistoricoLicencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_lic_dot(#rut#)}
+	</procedure>
+	<procedure id="consultarTiposLicencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_tip_lic()}
+	</procedure>
+	<procedure id="consultarTiposJornadasLicencias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_tip_jor_lic()}
+	</procedure>
+	<procedure id="eliminarLicenciaColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_lic_dot(#corr#,#rut#)}
+	</procedure>
+	<procedure id="actualizarLicenciaColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_lic_dot(#corr#,#rut#,#tip_lic#,#tipo_jor#)}
+	</procedure>
+	<procedure id="insertarLicenciaColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_lic_dot(#rut#,#fecha_car#,#fecha_ini#,#fecha_fin#,#dias#,#tip_lic#,#tipo_jor#)}
+	</procedure>
+	<procedure id="consultarLicenciaColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_lic_dot(#rut#)}
+	</procedure>
+	<procedure id="consultarDatosContacto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_cto_dot(#rut#)}
+	</procedure>
+	<procedure id="consultarComunas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_com()}
+	</procedure>
+	<procedure id="eliminarDatosContacto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_dat_cto_dot(#corr#,#rut#,#pusuario#)}
+	</procedure>
+	<procedure id="insertarDatosContacto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_dat_cto_dot(#rut#,#fecha_ingreso#,#dir#,#cod_comuna#,#fono#,#celular#,#correo#,#pusuario#)}
+	</procedure>
+	<procedure id="consultarHistoricoFueros" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_fue_dot(#rut#)}
+	</procedure>
+	<procedure id="eliminarFuero" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_fue_dot(#corr#,#rut#,#pusuario#)}
+	</procedure>
+	<procedure id="insertarFuero" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_fue_dot(#rut#,#fecha_ingreso#,#fecha_ini#,#fecha_ter#,#dias#,#ind_fuero#,#pusuario#)}
+	</procedure>
+	<procedure id="modificarFuero" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_fue_dot(#correlativo#,#rut#,#indicador#,#pusuario#)}
+	</procedure>
+	<procedure id="consultarHistoricoAsignaciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_his_asg_psv(#cod_psv#)}
+	</procedure>
+	<procedure id="insertarAsignacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_his_asg_psv(#cod_psv#,#cod_fza_vta#,#cod_mod_neg#,#cod_cnl#,#cod_suc#,#fec_ini#,#fec_fin#,#pusruario#)}
+	</procedure>
+	<procedure id="eliminarAsignacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_asg_psv(#corr#,#cod_psv#,#pusuario#)}
+	</procedure>
+	
+
+<!-- Ingreso Informe Comision -->
+	<procedure id="ingresarInformeComision" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ins_inf_cms_psv(#prm_periodo#,#prm_comision#,#prm_login#)}
+	</procedure>
+	
+<!-- Fin Ingreso Informe Comision -->
+	
+<!-- Cambiar Periodo Produccion -->
+	<procedure id="obtenerJefesDeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_jgp_psv(#jefe_comercial#)}
+	</procedure>
+	
+	<procedure id="listaEjecutivosDeJefeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_vig_eje_jgp_psv(#cod_proservice#)}
+	</procedure>
+	
+	<procedure id="obtenerProduccionEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_mae_pdc_pdo(#periodo#,#cod_eje#,#cod_jgp#)}
+	</procedure>
+
+	<procedure id="cambiarPeriodoProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_mae_pdc_pdo(#correlativo#,#periodo#,#usuario#)}
+	</procedure>
+<!-- Fin Cambiar Periodo Produccion -->
+	<!-- Incio Gestion de produccion -->
+	
+	<procedure id="obtenerJefesComercialGestion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_jco_psv()}
+	</procedure>
+	
+	<procedure id="obtenerJefesGrupoGestion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_jgp_psv(#jefe_comercial#)}
+	</procedure>
+	
+	<procedure id="obtenerEjecutivosGestion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_eje_psv(#cod_proservice#)}
+	</procedure>
+	
+	<procedure id="obtenerGestionJefeComercial" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ges_prd_jco(#prm_periodo#,#cod_jefeComercial#,#cod_jefeGrupo#,#cod_ejecutivo#,#prm_rutCliente#)}
+	</procedure>
+	
+	<procedure id="obtenerGestionJefeGrupo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ges_prd_jgp(#prm_periodo#,#cod_jefeComercial#,#cod_jefeGrupo#,#cod_ejecutivo#,#prm_rutCliente#)}
+	</procedure>
+	
+	<procedure id="obtenerGestionEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ges_prd_eje(#prm_periodo#,#cod_jefeComercial#,#cod_jefeGrupo#,#cod_ejecutivo#,#prm_rutCliente#)}
+	</procedure>
+	
+	<procedure id="obtenerGestionCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ges_prd_cli(#prm_periodo#,#cod_jefeComercial#,#cod_jefeGrupo#,#cod_ejecutivo#,#prm_rutCliente#)}
+	</procedure>
+	
+	<!-- Fin Gestion de produccion -->
+	
+	<!-- Visacion Produccion -->
+	
+	<procedure id="listaVisacionProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_vis_pdc()}
+	</procedure>
+	<procedure id="ingresaVisacionProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_vis_pdc(#prm_correl#,#prm_estado#,#prm_login#)}
+	</procedure>
+	
+	<!-- Ingreso Nueva Producción -->
+	
+	<procedure id="listaPeriodosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_pdo_pdc_psv()}
+	</procedure>
+	<procedure id="listaEjecutivosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_eje_psv(#cod_proservice#,#nombres#,#paterno#,#materno#)}
+	</procedure>
+	<procedure id="listaCarteraEjecutivosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_pdo_eje_cli(#periodo#,#ejecutivo#)}
+	</procedure>
+	<procedure id="actualizaProductoCreditoHipotecario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_hip_mae_pdc(#correlativo#,#tipo_mon#,#monto#,#cuotas#,#usuario#)}
+	</procedure>
+	<procedure id="actualizaProductoCreditoConsumo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_cmo_mae_pdc(#correlativo#,#tipo_mon#,#monto#,#num_cuota#,#tipo_cred#,#usuario#)}
+	</procedure>
+	<procedure id="actualizaProductoTarjetaAdicional" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_tar_mae_pdc(#correlativo#,#rut_adic#,#usuario#)}
+	</procedure>
+	<procedure id="ingresaNuevosProductosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_ins_mae_pdc(#periodo#,#eje_cod_pro#,#rut_cli#,#monto#,#cuota#,#moneda#,#rut_adic#,#tipo_prod#,#usuario#,#det_prod#)}
+	</procedure>
+	<procedure id="listaProductosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_grp_prd()}
+	</procedure>
+	<procedure id="listaDetalleProductosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_lis_det_prod(#tipo_prod#)}
+	</procedure>
+	<procedure id="eliminaProductosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_eli_mae_pdc(#correlativo#,#usuario#)}
+	</procedure>
+	<procedure id="listaProductosDiariosProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_mae_pdc_ing(#eje_cod_pro#,#rut_cli#,#fec_ingreso#)}
+	</procedure>
+
+	
+	<!-- Inicio Finiquitos Dotacion-->
+    <procedure id="consultarHistoricoFiniquitos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_fin_dot(#prm_rut#)}
+	</procedure>
+	
+	<procedure id="eliminarFiniquitosColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_fin_dot(#prm_correlativo#,#prm_rut#)}
+	</procedure>
+	
+	<procedure id="ingresarFiniquitosColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_fin_dot(#prm_rut#,#prm_fecha_car#,#prm_fecha_fin#,#prm_motivo#,#prm_obs#,#prm_articulo#,#prm_indicador#)}
+	</procedure>
+	
+    <procedure id="modificarFiniquitosColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_act_fin_dot(#prm_correlativo#,#prm_rut#,#prm_fecha_fin#,#prm_motivo#,#prm_obs#,#prm_articulo#,#prm_indicador#)}
+	</procedure>
+	<!-- Fin Finiquitos Dotacion-->
+	
+	<!-- Inicio Permisos Dotacion-->
+    <procedure id="consultarHistoricoPermisos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_pem_dot(#prm_rut#)}
+	</procedure>
+	
+	<procedure id="eliminarPermisosColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_eli_pem_dot(#prm_correlativo#,#prm_rut#,#prm_codProservice#)}
+	</procedure>	
+	
+	<procedure id="ingresarPermisosColaborador" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_ins_pem_dot(#prm_rut#,#prm_fecha_car#,#prm_fecha_ini#,#prm_fecha_fin#,#prm_dias#,#prm_codProservice#)}
+	</procedure>
+    <!-- Fin Permisos Dotacion-->
+    
+    <!-- Inicio Historico Laboral Dotacion-->
+        <procedure id="consultarHistoricoLaboral" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_dot_lis_his_dot_psv(#prm_rut#,#prm_tipo#)}
+	</procedure>
+    <!-- Fin Historico Laboral Dotacion-->
+    
+    <!-- Mantencion Produccion -->
+	
+	<procedure id="listaEjecutivosMantencionProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_lis_mae_pdc_eje(#periodo#,#cod_jgp#,#cod_eje#,#rut_cli#)}
+	</procedure>
+	<procedure id="actualizaEjecutivosMantencionProduccion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_prd_act_mae_pdc_eje(#correlativo#,#codigo_pro#,#usuario#)}
+	</procedure>
+	
+	<procedure id="verificaExistenciaProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_npp_cons_prod(#periodo#,#rutCliente#,#codigoEjecutivo#,#tipoProducto#)}
+	</procedure>	
+	
+</sqlMap>	

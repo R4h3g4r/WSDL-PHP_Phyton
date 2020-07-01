@@ -1,0 +1,1602 @@
+# --------------------------------------------------------------------------------
+# Estados del Viaje.
+# 01 = Activo
+# 02 = Finalizado
+# 03 = Lead
+# 04 = Rechazado
+# --------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------
+# Definición de planes.
+# --------------------------------------------------------------------------------
+
+planes;codigos=planClasico,planPremier,planPremierB,planPreferencial,planPreferencialB,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;
+planClasico;plan=Plan Clásico;codigo=9;rentaMin=450;rentaMax=1300;cupoLsgRenta=1;tarifa=01;
+planPremier;plan=Plan Premier;codigo=Z;rentaMin=1300;rentaMax=2500;cupoLsgRenta=1;edadMax=35;tarifa=02;
+planPremierB;plan=Plan Premier;codigo=Z;rentaMin=1300;rentaMax=3000;cupoLsgRenta=1;edadMin=36;tarifa=02;
+planPreferencial;plan=Plan Preferencial;codigo=W;rentaMin=2500;rentaMax=;cupoLsgRenta=1;edadMax=35;tarifa=03;
+planPreferencialB;plan=Plan Preferencial;codigo=W;rentaMin=3000;cupoLsgRenta=1;edadMin=36;tarifa=03;
+planAdvantage;plan=Plan Bci/AAdvantage;codigo=A;rentaMin=750;cupoLsgRenta=1;edadMin=18;tarifa=04;
+planConvenio1;plan=Plan Convenio 1;codigo=H;rentaMin=450;cupoLsgRenta=1;edadMin=18;tarifa=05;
+planConvenio2;plan=Plan Convenio 2;codigo=0;rentaMin=450;cupoLsgRenta=1;edadMin=18;tarifa=06;
+planConvenio3;plan=Plan Convenio 3;codigo=R;rentaMin=450;cupoLsgRenta=1;edadMin=18;tarifa=07;
+planConvenio4;plan=Plan Convenio 4;codigo=8;rentaMin=450;cupoLsgRenta=1;edadMin=18;tarifa=08;
+planescodigos;codigos=A,Z,W,9,H,0,R,8;
+planSegmentoA;codigos=A;
+planSegmentoB;codigos=Z,W,9;
+planesDescPorCodigo;A=Plan Bci/AAdvantage;Z=Plan Premier;W=Plan Preferencial;9=Plan Clásico;
+
+# --------------------------------------------------------------------------------
+#Definición de código interno plan por código de plan
+# --------------------------------------------------------------------------------
+plan_9;codigoInterno=planClasico;
+plan_A;codigoInterno=planAdvantage;
+plan_W;codigoInterno=planPreferencial;
+plan_Z;codigoInterno=planPremier,planPremierB;
+plan_H;codigoInterno=planConvenio1;
+plan_0;codigoInterno=planConvenio2;
+plan_R;codigoInterno=planConvenio3;
+plan_8;codigoInterno=planConvenio4;
+
+# --------------------------------------------------------------------------------
+# Definición de planes especiales.
+# --------------------------------------------------------------------------------
+planUniversitario;plan=Plan Universitario;codigo=U;edadMax=28;rentaMax=449999;
+planIndependiente;plan=Plan Independiente;
+
+# --------------------------------------------------------------------------------
+# Definición de tarifas.
+# --------------------------------------------------------------------------------
+Tarifa01;T1=0.45;T2=0.32;T3=0.26;Grat1=0;Grat2=6;SpreadLSG=2.15;
+Tarifa02;T1=0.40;T2=0;T3=0;Grat1=3;Grat2=6;SpreadLSG=1.70;
+Tarifa03;T1=0.21;T2=0;T3=0;Grat1=3;Grat2=12;SpreadLSG=1.20;
+Tarifa04;T1=0.55;T2=0.30;T3=0.20;Grat1=3;Grat2=0;SpreadLSG=1.70;
+Tarifa05;T1=0.12;T2=0.12;T3=0.10;Grat1=3;Grat2=12;SpreadLSG=2.15;
+Tarifa06;T1=0.10;T2=0.10;T3=0.10;Grat1=3;Grat2=12;SpreadLSG=2.15;
+Tarifa07;T1=0.00;T2=0.00;T3=0.00;Grat1=0;Grat2=0;SpreadLSG=2.15;
+Tarifa08;T1=0.40;T2=0.12;T3=0.10;Grat1=3;Grat2=12;SpreadLSG=2.15;
+
+# -----------------------------------------
+# Filtro de tarjetas AAdvantage para  calculo de la cupo TDC.
+# -----------------------------------------
+filtroTDCAdvantage;tarjetas=041,096,536;cupoMinimo=750000,4000000,4000000;factorInt=0.5,1,1;
+
+# --------------------------------------------------------------------------------
+# Definición de Tarjetas de Crédito
+# --------------------------------------------------------------------------------
+
+definicionTC01;tarjetas=002;
+definicionTC02;tarjetas=001,501;
+definicionTC03;tarjetas=036,006,516,041;
+definicionTC04;tarjetas=026,506,036,096,536;
+definicionTC05;tarjetas=041;
+definicionTC06;tarjetas=096,536;
+definicionTC07;tarjetas=001,501,041;
+definicionTC08;tarjetas=036,006,516,096,536;
+
+tarjeta002;nombre=Bci Visa Classic;
+tarjeta001;nombre=Bci Visa Gold;
+tarjeta501;nombre=Bci Mastercard Dorada;
+tarjeta036;nombre=Bci Visa OpenSky;factorInt=0.8;
+tarjeta006;nombre=Bci Visa Platinum;
+tarjeta516;nombre=Bci Mastercard Platinum;
+tarjeta026;nombre=Bci Visa Signature;
+tarjeta506;nombre=Bci MasterCard Black;
+tarjeta041;nombre=Bci / AAdvantage Visa Gold;
+tarjeta096;nombre=Bci / AAdvantage Visa Signature;
+tarjeta536;nombre=Bci / AAdvantage MasterCard Black;
+
+# --------------------------------------------------------------------------------
+#Cupo de TC y razon peso por dolar
+# --------------------------------------------------------------------------------
+cupoTC01;factorNac=1;factorInt=0.5;
+cupoTC02;factorNac=2;factorInt=0.8;
+cupoTC03;factorNac=1;factorInt=0.8;
+cupoTC04;factorNac=1;factorInt=1;
+cupoTC05;cupoNac=750000;factorInt=0.5;
+cupoTC06;cupoNac=4000000;factorInt=1;
+pesoXDolar;razon=500;
+
+# --------------------------------------------------------------------------------
+#Definición plan por renta
+# --------------------------------------------------------------------------------
+rangoRenta;rangos=450_550,550_750,750_1050,1050_1200,1200_1300,1300_2000,2000_2500,2500_3000,3000_4000,4000_;
+renta450_550;plan=planClasico,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=01,01,01,01,01;cantidadTC=1,1,1,1,1;cupoTC=01,01,01,01,01;
+renta550_750;plan=planClasico,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=02,02,02,02,02;cantidadTC=1,1,1,1,1;cupoTC=01,01,01,01,01;
+renta750_1050;plan=planClasico,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=07,05,02,02,02,02;cantidadTC=1,1,1,1,1,1;cupoTC=01,05,01,01,01,01;
+renta1050_1200;plan=planClasico,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=07,05,07,07,07,07;cantidadTC=1,1,1,1,1,1;cupoTC=02,05,02,02,02,02;
+renta1200_1300;plan=planClasico,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=03,05,02,02,02,02;cantidadTC=1,1,1,1,1,1;cupoTC=02,05,02,02,02,02;
+renta1300_2000;plan=planPremier,planPremierB,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=03,03,05,03,03,03,03;cantidadTC=1,1,1,1,1,1,1;cupoTC=02,02,05,02,02,02,02;
+renta2000_2500;plan=planPremier,planPremierB,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=03,03,05,03,03,03,03;cantidadTC=2,2,1,2,2,2,2;cupoTC=03,03,05,03,03,03,03;
+renta2500_3000;plan=planPremierB,planPreferencial,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=08,08,06,08,08,08,08;cantidadTC=2,2,2,2,2,2,2;cupoTC=03,03,06,03,03,03,03;
+renta3000_4000;plan=planPreferencialB,planPreferencial,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=08,08,06,08,08,08,08;cantidadTC=2,2,2,2,2,2,2;cupoTC=03,03,06,03,03,03,03;
+renta4000_;plan=planPreferencial,planPreferencialB,planAdvantage,planConvenio1,planConvenio2,planConvenio3,planConvenio4;definicionTC=04,04,06,04,04,04,04;cantidadTC=2,2,2,2,2,2,2;cupoTC=04,04,06,04,04,04,04,;
+
+# --------------------------------------------------------------------------------
+# Parametros infoValor del registro Lead
+# --------------------------------------------------------------------------------
+
+registroProspecto_Lead;parametrosInfoValor=13;
+infoValorLead1;componente=CrmInteraccion;atributo=estado;nombreValor=Abierto;claveMap=CrmInteraccion.estado;
+infoValorLead2;componente=CrmInteraccion;atributo=prioridad;nombreValor=Normal;claveMap=CrmInteraccion.prioridad;
+infoValorLead3;componente=CrmInteraccion;atributo=origen;nombreValor=Inbound;claveMap=CrmInteraccion.origen;
+infoValorLead4;componente=CrmInteraccion;atributo=condicion;nombreValor=Nuevo;claveMap=CrmInteraccion.condicion;
+infoValorLead5;componente=CrmInteraccion;atributo=motivo;nombreValor=Ventas;claveMap=CrmInteraccion.motivo;
+infoValorLead6;componente=CrmInteraccion;atributo=tipo;nombreValor=WWW;claveMap=CrmInteraccion.tipo;
+infoValorLead7;componente=CrmCliente.telefonos;atributo=tipoDeTelefono;nombreValor=Desconocido;claveMap=CrmInteraccion.cliente.telefonos.tipoDeTelefono;
+infoValorLead8;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=CrmInteraccion.leads.familiaDeProductos;
+infoValorLead9;componente=CrmLead;atributo=estado;nombreValor=Nuevo;claveMap=CrmInteraccion.leads.estado;
+infoValorLead10;componente=CrmLead;atributo=unidadDeNegocio;nombreValor=BP__PLANES;claveMap=CrmInteraccion.leads.unidadDeNegocio;
+infoValorLead11;componente=CrmOportunidad.campania;atributo=codigo;nombreValor=Formulario Web Planes TBanc;claveMap=CrmInteraccion.leads.campania.codigo;
+infoValorLead12;componente=CrmCliente.telefonos;atributo=tipoDeTelefono;nombreValor=Desconocido;claveMap=CrmInteraccion.leads.cliente.telefonos.tipoDeTelefono;
+infoValorLead13;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=Oportunidad.familiaDeProducto;
+oportunidad_etapa;valor=Oferta;
+oportunidad_registradoEnSGC;valor=no;
+
+
+#---------------------------------------------------------------------------------
+# Valores por defecto prospecto (primer registro)
+#---------------------------------------------------------------------------------
+usuarioActualiza;valor= ;
+emailProspecto;valor= ;
+
+# --------------------------------------------------------------------------------
+# Valores con monto mínimo y máximo a transferir.
+# --------------------------------------------------------------------------------
+montos;valor=1,99;
+montosOtrosBancos;valor=100,999;
+
+# --------------------------------------------------------------------------------
+# Código de bancos.
+# --------------------------------------------------------------------------------
+codigoBci;valor=016;
+bancosSoloMonto;valor=001,012,014,016,027,028,037,039,049,051,504,507,031,009,053,055,057;
+
+# --------------------------------------------------------------------------------
+# valores utilizado para la transferencia.
+# --------------------------------------------------------------------------------
+canal;valor=110;
+tipoCuentaOrigen;valor=CCT;
+tipoAutenticacion;valor=Token;
+codigoErrorDatosIncorrectosTEF;valor=TRF026;
+#PRODUCCION
+#rutClienteOrigen;valor=97006000;
+#CERTIFICACION
+rutClienteOrigen;valor=6243264;
+cuentas;valor=13469541-58217703-58238808;
+#INTEGRACION
+#rutClienteOrigen;valor=6243264;
+#cuentas;valor=13469541-58217703-58238808;
+
+# --------------------------------------------------------------------------------
+# Valores con límite de intentos para transferencia y autenticación según código de banco.
+# --------------------------------------------------------------------------------
+intentosBancos;014=2;037=2;001=3;009=3;011=3;012=3;016=3;017=3;018=3;027=3;028=3;029=3;031=3;032=3;033=3;034=3;035=3;036=3;038=3;039=3;049=3;041=3;042=3;043=3;045=3;046=3;049=3;051=3;052=3;053=3;054=3;055=3;056=3;057=3;266=3;504=3;507=3;672=3;716=3;733=3;734=3;
+
+#---------------------------------------------------------------------------------
+# Parámetros filtro Viajes.
+#---------------------------------------------------------------------------------
+operacionesPublicas;valores=ofertaPlanesPorRenta,registrarProspecto,enviarDatosAutenticacion,listasFormulario,verificarProspecto,validarTicket,insertarProcesoBatchLead,subirImagenViajeClienteFTP,consultaEquifax,respuestasEquifax,verificarProspectoEquifax,consultarOrigenRentaPrevired,obtieneRangosRentaLiquida;
+
+#---------------------------------------------------------------------------------
+# Página destino según etapa del viaje cliente.
+#---------------------------------------------------------------------------------
+paginaEtapa2;codigoPagina=08;refPagina=planSugerido;
+paginaEtapa3;codigoPagina=09;refPagina=planSugerido;
+paginaEtapa4;codigoPagina=10,12,13;refPagina=datospersonales2,activos,seleccionarProductos;accion=0;
+paginaEtapa7;codigoPagina=13;refPagina=confirmacionProductos;
+paginaEtapa8;codigoPagina=16;refPagina=confirmacionProductos;
+paginaEtapa9;codigoPagina=17;refPagina=exito;
+
+# --------------------------------------------------------------------------------
+# Texto para armar plantilla de envío de correo con ticket del prospecto.
+# --------------------------------------------------------------------------------
+plantilla;linea1=Estimado(a) <NOMBREDESTIN>\n\n;linea2=le informamos que con fecha <FECHA> su numero de ticket <NUMEROTICKET> ha sido generado.;linea3=\n\nAtte,\nBCI - Banco Credito Inversiones\n\nImportante:\n;linea4=Este mail es generado de manera automatica, por favor no responda a este mensaje. Ante cualquier duda, contactese al 600 824 24 24.;linea5=\nP.D.: Los tildes han sido omitidos en forma intencional.\n\n;
+loginEnterprise;desc=bci;
+refContract;desc=WEBBCI_AVISO_TTFF;
+subject;desc=Confirmacion codigo de ticket;
+
+# --------------------------------------------------------------------------------
+# Datos para el envío de correo con plantilla por latinia.
+# --------------------------------------------------------------------------------
+loginEnterprise;desc=bci;
+subject;desc=Confirmación codigo ticket;
+refContract;desc=WEBBCI_VIAJE_COD_SEG;
+template;desc=tmpl_WEBBCI_VIAJE_COD_SEG;
+
+#INTEGRACION/CERTIFICACION
+#fromDireccion;desc=jpaineq@bcicert.cl;
+#hostEmail;desc=bcicert.cl;
+#PRODUCCION
+#fromDireccion;desc=planonline@bci.cl;
+#hostEmail;desc=bci.cl;
+#subject;desc=Confirmación código de ticket;
+
+# --------------------------------------------------------------------------------
+# Valores con código de banca.
+# --------------------------------------------------------------------------------
+tipoBanca;preferencial=PBP;premier=PRE;clasica=PP;universitario=PBU;
+
+# --------------------------------------------------------------------------------
+# Datos para creación de Solicitud Única de Crédito (SUC).
+# --------------------------------------------------------------------------------
+tipoPersona;valor=P;
+idEjecutivo;valor=USUFICT;
+telefonoEjecutivo;valor=-1;
+codigoOficinaEjecutivo;valor=090;
+cicCliente;valor=0;
+tipoXmlNuevo;valor=Nuevo;
+antiguedadLaboral;valor=12;
+canalContacto;valor=110;
+contratoIndefinido;valor=Indefinido;
+
+
+# --------------------------------------------------------------------------------
+# Mensajes de error de negocio
+# --------------------------------------------------------------------------------
+errorIngresarViaje;02=errorClienteViajeFinalizado;03=errorClienteExisteEnLead;04=errorProspectoViajeRechazado;
+ERRPLNVIAJE55;Desc=Ejecutivo No Posee Oficina.;
+errorRutInvalido;Desc=Estimado Cliente, el Rut ingresado es inválido. Por favor inténtelo nuevamente.;
+errorEtapaIncorrectaValidarProspecto;Desc=Estimado Cliente, para realizar esta acción debe registrarse y validar su identidad transfiriendole a su cuenta en otro banco.;
+errorEtapaIncorrectaValidarProspectoEquifax;Desc=Estimado Cliente, para realizar esta acción debe registrarse y validar su identidad.;
+errorCedulaIdentidad;Desc=En base a la información que nos ha proporcionado hemos detectado que su cédula de identidad no se encuentra vinculada al número de Run proporcionado. Por favor vuelva a ingresar dicha información.;
+errorClienteOportunidadOtroCanal;Desc=Estimado cliente, según nuestros registros usted ha contratado o está en proceso de contratar la apertura de alguno de nuestros productos. Si requiere realizar un cambio de plan o tiene dudas respecto a sus productos, le solicitamos pueda comunicarse directamente con su ejecutivo asignado o con nuestra mesa de ayuda web al 600 824 2424.;
+errorEdadInsuficiente;Desc=Estimado cliente, la edad mínima para contratar un plan de cuenta corriente, es de 18 años.;
+errorPlanesNoDisponiblesRenta;Desc=Lamentablemente nos es imposible atender su solicitud a través de nuestra página web, por favor intente más tarde.;
+clienteRegistradoLead;Desc=Estimado cliente: uno de nuestros ejecutivos se comunicará con usted y lo guiará en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorProspectoActivo;Desc=Estimado cliente, usted ya ha iniciado anteriormente un proceso para solicitar un Plan a través de la web. Por favor retome su proceso con su Rut y número de Código de Seguimiento.;
+errorEtapaProspecto;Desc=Estimado Cliente, usted ya se encuentra autenticado. Ingrese su Rut y su Código de Seguimiento para continuar con el proceso de contratación de su Plan en Línea.;
+errorNoRegistroAntecedentes;Desc=En base a la información que nos ha proporcionado hemos detectado que su cédula de identidad no se encuentra vinculada al número de Run proporcionado. Por favor vuelva a ingresar dicha información.;
+errorPlanInvalido;Desc=Estimado Cliente, el plan seleccionado es inválido. Por favor seleccione nuevamente otro plan.;
+errorClienteExisteEnLead;Desc=Estimado Cliente, su solicitud de Plan ya se encuentra registrada y en proceso. Un ejecutivo se contactará con usted a la brevedad.;
+errorPropectoInvalido;Desc=Propecto no es válido, verifique los datos del prospecto.;
+errorViajeInvalido;Desc=Estimado Cliente, ha ocurrido un error en el proceso. Por favor vuelva a intentar más tarde.;
+errorConsultaRutProspecto;Desc=Estimado cliente, el Rut ingresado no es correcto. Por favor, inténtelo nuevamente.;
+errorLimiteIntentos;Desc=Lo sentimos, la información ingresada no coincide con la requerida para validar su identidad. Por medidas de seguridad, hemos limitado la cantidad de intentos para cursar su solicitud, por lo que si usted superó los intentos permitidos, puede dirigirse a cualquier sucursal Bci, donde uno de nuestros ejecutivos podrá guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorNoPoseeTicket;Desc=Estimado Cliente: usted no posee Código de Seguimiento. Lo invitamos a contratar su Plan de cuenta Corriente en Línea.;
+errorNoCodigoPagina;Desc=Estimado Cliente, la opción ingresada no es válida. Por favor verifique su solicitud.;
+errorServicioNoAutorizado;Desc=Estimado Cliente: En este momento no podemos atender su solicitud, por favor intente más tarde.;
+errorCuentaDestino;Desc=Estimado cliente: el número de cuenta ingresado es inválido. Por favor inténtelo nuevamente.;
+errorTranferencia;Desc=Estimado cliente, ha ocurrido un error durante la transferencia, por favor intente mas tarde.;
+errorValidacionPrecondicionesSuc;Desc=Etapa rechazada, por favor, verifique los datos.;
+errorRentaNoValida;Desc=Estimado Cliente: La Renta ingresada no corresponde. Por favor inténtelo nuevamente.;
+errorArchivoInvalido;Desc=El archivo proporcionado es inválido, por favor, verifique nuevamente.;
+errorSubirArchivo;Desc=Estimado Cliente: Ocurrió un error al intentar subir el archivo. Por favor vuelva  a intentar.;
+errorTicketInvalido;Desc=Estimado Cliente: El Código de Seguimiento es inválido. Por favor inténtelo nuevamente.;
+errorCodigoArchivoInvalido;Desc=Estimado Cliente: existe un error en la carga del archivo. Por favor vuelva  a intentarlo.;
+errorSizeArchivo;Desc=Estimado Cliente: el archivo no puede superar el tamaño máximo de 2MB.;
+errorSizeArchivoMovil;Desc=Estimado Cliente: el archivo no puede superar el tamaño permitido.;
+errorUniversitarioOIndependiente;Desc=Lamentablemente nos es imposible atender su solicitud a través de nuestra página web. Por favor ingrese su información de contacto para que uno de nuestros ejecutivos se comuniquen con usted y podamos guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+clienteExiste;Desc=Estimado cliente, según nuestros registros usted ha contratado o está en proceso de contratar la apertura de alguno de nuestros productos. Si requiere realizar un cambio de plan o tiene dudas respecto a sus productos, le solicitamos pueda comunicarse directamente con su ejecutivo asignado o con nuestra mesa de ayuda web al 600 824 2424.;
+errorCtaCteNoCoincideConRut;Desc=El número  de cuenta corriente ingresada no corresponde al número de  Run ingresado.  Por lo anterior, le solicitamos que vuelva al paso anterior para reingresar los datos correctamente. Recuerde que por medidas de seguridad, hemos limitado la cantidad de intentos para cursar su solicitud, por lo que si superó los intentos permitidos, puede dirigirse a cualquier sucursal Bci donde uno de nuestros ejecutivos podrá guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorServicioVisacion;Desc=Estimado(a) Cliente: En base a los antecedentes proporcionados por usted, le informamos que de acuerdo a nuestras políticas de riesgo, no podremos acoger por el momento su solicitud.;
+errorRechazoVisacion;Desc=Estimado(a) Cliente: En base a los antecedentes proporcionados por usted, le informamos que de acuerdo a nuestras políticas de riesgo, no podremos acoger por el momento su solicitud.;
+errorClienteViajeFinalizado;Desc=Estimado Cliente, su solicitud a concluido exitosamente.;
+errorProspectoViajeRechazado;Desc=Estimado(a) Cliente: En base a los antecedentes proporcionados por usted, le informamos que de acuerdo a nuestras políticas de riesgo, no podremos acoger por el momento su solicitud.;
+errorExtensionArchivo;Desc=Estimado Cliente: La extensión del archivo que intenta subir no es válida. Por favor solo utilice archivos .pdf, .jpeg, .jpg, .png, .doc, .docx;
+errorViajeFinalizado;Desc=Estimado Cliente, Usted ya posee una solicitud finalizada con anterioridad. Le solicitamos pueda comunicarse directamente con su ejecutivo asignado o con nuestra mesa de ayuda web al 600 824 2424.;
+errorServicioSinacofi;Desc=Estimado(a) Cliente:, Se ha producido un error al obtener sus datos personales. ;
+errorRentaInferior;Desc=Estimado(a) Cliente:, Se ha producido un error al validar su renta.
+
+# --------------------------------------------------------------------------------
+# Definición de Listas Formulario.
+# --------------------------------------------------------------------------------
+ListasDetallePerfilDesc;paises=PAI;estadoCivil=ECV;nivelEducacional=NED;actividadLaboral=ACT;profesion=PRF;regimenConyugal=RCY;regiones=REG;
+ListasDetallePerfil;listados=paises,estadoCivil,nivelEducacional,actividadLaboral,profesion,regimenConyugal,regiones;
+ListaRegiones;regiones=REG;
+
+# --------------------------------------------------------------------------------
+# Informacion Complementar Perfil
+# --------------------------------------------------------------------------------
+actualizacionDesdeProspecto;Desc=PROSPECTO;
+situacionLaboral;Desc=DE1;
+tipoPersonaProspecto;Desc=P;
+
+# --------------------------------------------------------------------------------
+# cantidad Tarjetas a seleccionar
+# --------------------------------------------------------------------------------
+rentaTC;rentaMinimaPlan1=400000;rentaMaximaPlan1=2000000;rentaMinimaPlan2=750000;rentaMaximaPlan2=2500000;tcsuc=8000000;
+
+# --------------------------------------------------------------------------------
+# cupo minimo tarjeta
+# --------------------------------------------------------------------------------
+cupoTCOpcion1;rangoMinimo1=400000;rangoMaximo1=1050000;rangoMinimo2=1050000;rangoMaximo2=2000000;rangoMinimo3=2000000;rangoMaximo3=4000000;rangoMinimo4=4000000;
+cantidadRentaOpcion1;rango1=1;rango2=2;rango3=1;rango4=1;
+cupoTCOpcion2;rangoMinimo1=750000;rangoMaximo1=2500000;rangoMinimo2=2500000;
+montoMinimoOpcion2;rango1=750000;rango2=4000000;
+factorCupoMinimo;valor=0.90;
+
+# --------------------------------------------------------------------------------
+# Código de Etapas Viaje Plan.
+# --------------------------------------------------------------------------------
+
+codigoEtapa;ingreso=1;pendienteAutenticacion=2;autenticado=3;perfil=4;ingresoActivos=5;consultaCuposOferta=6;sucursalProducto=7;confirmacionDetalle=8;
+
+# --------------------------------------------------------------------------------
+# Informacion Subir imagen
+# --------------------------------------------------------------------------------
+#INTEGRACIÓN
+#ftpviaje;host=161.131.141.238;sistema=prospftp;pathOportunidad=in;
+#CERTIFICACION
+ftpviaje;host=161.131.232.185;sistema=prospftp;pathOportunidad=in;
+#PRODUCCION
+#ftpviaje;host=161.131.232.12;sistema=prospftp;pathOportunidad=in;
+#extensiones;validas=pdf,jpeg,jpg,png,doc,docx;
+
+# --------------------------------------------------------------------------------
+# Información para consultar detalle a confirmar
+# --------------------------------------------------------------------------------
+fechaRetiro;cantidadDiasSiguientes=7;
+horarioAtencion;valor=Lunes a Viernes de 9:00 a 14:00 hrs;
+
+# -------------------------------------------------------------------------------
+#  Informacion para reemplazar caracteres con tilde y enies
+#--------------------------------------------------------------------------------
+original;valor=áàäéèëíìïóòöúùuñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ;
+ascii;valor=aaaeeeiiiooouuunAAAEEEIIIOOOUUUNcC;
+
+# Parametros infoValor inyeccion Oportunidades CRM
+# --------------------------------------------------------------------------------
+
+registroProspecto_Inyeccion;parametrosInfoValor=11;
+infoValorOportunidad1;componente=CrmInteraccion;atributo=estado;nombreValor=Abierto;claveMap=CrmInteraccion.estado;
+infoValorOportunidad2;componente=CrmInteraccion;atributo=prioridad;nombreValor=Normal;claveMap=CrmInteraccion.prioridad;
+infoValorOportunidad3;componente=CrmInteraccion;atributo=origen;nombreValor=Inbound;claveMap=CrmInteraccion.origen;
+infoValorOportunidad4;componente=CrmInteraccion;atributo=condicion;nombreValor=Nuevo;claveMap=CrmInteraccion.condicion;
+infoValorOportunidad5;componente=CrmInteraccion;atributo=motivo;nombreValor=Ventas;claveMap=CrmInteraccion.motivo;
+infoValorOportunidad6;componente=CrmInteraccion;atributo=tipo;nombreValor=WWW;claveMap=CrmInteraccion.tipo;
+infoValorOportunidad7;componente=CrmInteraccion.oportunidades[0];atributo=estado;nombreValor=Activa;claveMap=CrmInteraccion.oportunidades[0].estado;
+infoValorOportunidad8;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=CrmInteraccion.oportunidades[0].familiaDeProducto.codigo;
+infoValorOportunidad9;componente=CrmInteraccion.oportunidades[0].unidadDeNegocio;atributo=codigo;nombreValor=BP__PLANES;claveMap=CrmInteraccion.oportunidades[0].unidadDeNegocio;
+infoValorOportunidad10;componente=CrmInteraccion.oportunidades[0];atributo=etapaActual;nombreValor=BP__PLANES|Aprobación;claveMap=CrmInteraccion.oportunidades[0].etapaActual;
+infoValorOportunidad11;componente=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;atributo=tipo;nombreValor=Unipersonal;claveMap=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.tipo;
+inyectaOportunidad_registradoEnSGC;valor=si;
+
+# --------------------------------------------------------------------------------
+# Parametros inyeccion Oportunidades
+# --------------------------------------------------------------------------------
+#Valores para inyectar a Oportunidades 
+agenteResponsable;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+plataformaInteraccion;nombreCampo=Plan Persona Web;valor=Plan Persona Web;
+asuntoInteraccion;nombreCampo=definir;valor=Web Planes;
+fechaDeTerminoInteraccion;nombreCampo=30/05/2016;valor=30/05/2016;
+agenteResponsableOportunidad;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+creadorOportunidad;nombreCampo= ejeviajeplan;valor= ejeviajeplan;
+nombreOportunidad;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoCliente;nombreCampo=desconocido;valor=desconocido;
+tipoDeTelefonoCliente;nombreCampo=2;valor=2;
+codigoDeAreaCliente;nombreCampo=56;valor=56;
+cliente.sucursalCliente;nombreCampo=DEF6;valor=DEF6;
+codigoEjecutivoTerminonombreEtapa0;Campo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoTerminoEtapa1;Campo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoTerminoEtapa2;Campo=ejeviajeplan;valor=ejeviajeplan;
+ejecutivoQueFinalizaTareas;Campo=ejeviajeplan;valor=ejeviajeplan;
+fechaEstimadaDeCierre;Campo=cierreEstimado;valor=cierreEstimado;
+motivoExencion;Campo=texto;valor=texto;
+codigoAfinidad;Campo=texto;valor=texto;
+cobroDeAdministracion;Campo=texto;valor=texto;
+envioDeTarjeta;Campo=texto;valor=texto;
+sucursalEnvio;Campo=texto;valor=texto;
+tipoBancaOportunidades;Campo=P;valor=P;
+responsableTareas;Campo=ejeviajeplan;valor=ejeviajeplan;
+cuentaCorrienteresponsable;nombreCampo=ejeviaje;valor=ejeviaje;
+cuentaCorrientePlan;valor=A6787CC47D5B447A85C33F7A9BEF441A;
+seguroDesgravamen;Campo=1;valor=1;
+tipoLead;lead1=Cliente universitario;lead2=Cliente independiente;lead3=Cliente FATCA;lead4=Cliente no desean el Plan ofertado;lead5=Cliente no posee cuenta corriente;lead6=Lead movil;
+
+# --------------------------------------------------------------------------------
+# Configuracion wsdl webservice finalizar viaje.
+# --------------------------------------------------------------------------------
+# INTEGRACION
+#wsdlServicioAperturaPlan;wsdl=http://b2bdesa.bci.cl:9050/esb/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# CERTIFICACION
+wsdlServicioAperturaPlan;wsdl=http://b2bcert.bci.cl:9050/esb/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# PRODUCCION
+#wsdlServicioAperturaPlan;wsdl=http://alsb.bci.cl/esb/personas/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# --------------------------------------------------------------------------------
+# Configuracion wsdl webservice Equifax.
+# --------------------------------------------------------------------------------
+# VIRTUALIZACION
+#wsdlServicioEquifaxConsulta;wsdl=http://161.131.140.76:9080/PRX_VerificacionIdentidadEquifax?wsdl
+# INTEGRACION
+#wsdlServicioEquifaxConsulta;wsdl=http://161.131.184.123:9101/NEGOCIO/Infraestructura/Seguridad/Verificacion/VerificacionIdentidadEquifax/VerificacionIdentidadEquifax?WSDL;
+# CERTIFICACION
+wsdlServicioEquifaxConsulta;wsdl=http://161.131.140.76:9080/PRX_VerificacionIdentidadEquifax?WSDL;
+# PRODUCCION
+#wsdlServicioEquifaxConsulta;wsdl=http://alsb.bci.cl/esb/personas/infraestructura/seguridad/VerificacionIdentidadEquifax?WSDL;
+# Accesos al Servicio.
+#EquifaxAccess;user=/bci;pass=KRscLVT0JRKlzOQsa22rS53Kk210SLLG;
+#Acceso al Servicio para Produccion o UAT
+#EquifaxService;service=uat;
+#EquifaxService;service=prod;
+
+
+#---------------------------------------------------------------------------------
+# Parametros finalizar viaje
+#---------------------------------------------------------------------------------
+
+paramFinalizarViaje;etapaRequerida=8;canalInyeccionMargen=16;
+
+# --------------------------------------------------------------------------------
+# Parámetros para la creación de cuenta del cliente, finalizar viaje.
+# --------------------------------------------------------------------------------
+crearCuentaCliente;nroDireccion=01;fecha=1999-11-26;cantidad=01;tipoOperacion=CCT;reposicion=000;codMatrizRet=2;codExcencion=;plan=;interes=N;valorCambio=;talonarios=1;parametro4=001;numTalonario=01;tipoCliente=001;codParametro=;tipoCompra=;cuenta= ;periodoPago=M;tipoUsuario=;indicadorTipoAcc=D;cta=;parametro3=;
+
+# INTEGRACION/CERTIFICACION
+#ejecutivoCrearCtaCte;valor=NMELLA;
+#sucursalCrearCtaCte;valor=244;
+
+# PRODUCCION
+#ejecutivoCrearCtaCte;valor=USUFICT;
+#sucursalCrearCtaCte;valor=090;
+
+# --------------------------------------------------------------------------------
+# Parámetros para la creación del perfil cartola del cliente, finalizar viaje.
+# --------------------------------------------------------------------------------
+crearPerfilCartola;periodoEmisionNor=00;periodoEmisionRef=00;oficinaRefer=000;tipo=G;folioUltimaCart=00000;saldoUltimaCart=000000000000000;movCtd=00000;cantidadMov=0;emisor=;tipoEstado=;tipoDireccionRef=0;canalEnvioNor=C;canalEnvioRef=;referencia=G;oficinaReceptora=000;indicador=;numDirecEnvioRef=0;indicadorEnvio=1;numDirecEnvioNor=1;codigoCambio=;tipoCartola=;tipoDireccionNor=D;periodicidad=;segmento=;
+
+
+# --------------------------------------------------------------------------------
+# constantes obtener Plan Cliente
+# --------------------------------------------------------------------------------
+filler;valor=00000000000000000000000000000;
+IOPE;valor=000000000000;
+modalidadDeCobroDelPlan;valor=F;
+modalidadDeIngresoAlPlan;valor=A;
+moneda;valor=0998  ;
+periodicidadDeCobro;valor=M;
+periodoDeGracia;valor=00;
+subtipoProductoP;valor=000;
+tipoAccion;valor=I;
+tipoCanal;valor=   ;
+tipoProducto;valor=PLN00;
+tipoProductoP;valor=000;
+valorDelPlan;valor=000000000000000000;
+ValorUno;valor=0000000000000000;
+ValorDos;valor=0000000000000000;
+cuotasDelPlan;valor=00;
+
+# --------------------------------------------------------------------------------
+# constantes obtener spread
+# --------------------------------------------------------------------------------
+codEvento;valor=CUR;
+codConcepto;valor=INT;
+caiOperacion;valor=SIM;
+extOperacion;valor=0000;
+codMoneda;valor=0999;
+codTipoOperacion;valor=LSG;
+codAuxiliar;valor=400;
+indPlazoOperacion;valor=D;
+codTipoConsulta;valor=;
+iicOperacion;valor=0;
+numPlazoOperacion;valor=365;
+valSaldoOperacion;valor=0;
+vctoOperacion;valor=0;
+valInteOperacion;valor=0;
+valMontoAdicional;valor=0;
+codClfRentabilidad;valor=;
+codFactorRiesgo;valor=000;
+indTipoPago;valor=0;
+caiOperacionRcc;valor=;
+codigoSegmento;valor=;
+codigoOrigen;valor=000001;
+codigoTx;valor=HV01BCIBCIBEEESCL NMELLA      110              TABPPTPGS;
+
+# --------------------------------------------------------------------------------
+# constantes linea de sobregiro
+# --------------------------------------------------------------------------------
+cobroLSG;valor=;
+codGarantia;valor=SIN;
+porcentajeLSG;valor=0;
+codComision;valor=0;
+periodoPago;valor=0;
+seguroDesgravamen;valor=N;
+codPlan;valor=9;
+seguroCesantia;valor=N;
+tipoUsuario;valor=SC;
+tipoLinea;valor=1;
+modo;valor=N;
+porcenDescuento;valor=0000000;
+
+# --------------------------------------------------------------------------------
+# constantes cuenta corriente para tarjeta de débito
+# --------------------------------------------------------------------------------
+cobro;valor=N;
+motivo;valor=0;
+serialInicial;valor=814;
+pos;valor=0;
+tipoTarjeta;valor=00;
+claseTarjeta;valor=00;
+codigoServicio;valor=2;
+periodoPagoTarjeta;valor=M;
+tipoOperacionTarjeta;valor=CCT;
+cadenaAQuitarNroCtaCte;valor=0009;
+# --------------------------------------------------------------------------------
+# Parametros inyeccion Oportunidades
+# --------------------------------------------------------------------------------
+#Valores para inyectar a Oportunidades 
+CrmInteraccionOportunidadEstado;valor=Activa;
+crmInteraccionCondicion;valor=Nuevo;
+crmInteraccionEstado;valor=Abierto;
+crmInteraccionMotivo;valor=Consulta General;
+crmInteraccionOrigen;valor=inbound;
+crmInteraccionPrioridad;valor=Normal;
+crmInteraccionTipo;valor=WWW;
+clienteregistradoEnSGC;valor=si;
+agenteResponsable;valor=ejeviaje;
+codigoEjecutivo;valor=ejeviaje;
+tipoBancaOportunidades;valor=P;
+familiaDeProductoCodigo;valor=Planes;
+oportunidadfamiliaDeProducto;valor=planes;
+oportunidadetapa;valor=Oferta;
+canalNombre;valor=Web;
+unidadDeNegocioCodigo;valor=BP__PLANES;
+creadorOportunidad;valor=ejeviaje;
+responsableOportunidad;valor=ejeviaje;
+cuentaCorrienteresponsable;valor=ejeviaje;
+talonarioDeChequesInicioSerie;valor=1;
+talonarioDeChequesTerminoSerie;valor=100;
+numeroDeSerie;valor=100;
+talonarioTitular;valor=1;
+tipoDireccion;valor=casa;
+productoRelacionadoTarjetaCreditoFechaPago;valor=8;
+productoRelacionadoTarjetaCredito;valor=Sucursal;
+codigoAfinidad;valor=00;
+crmInteraccionTarjetaCreditoConfirmaMonto;valor=1;
+codigoEjecutivoTerminoEtapaOferta;valor=ejeWeb;
+codigoEjecutivoTerminoEtapaCierre;valor=ejeWeb;
+codigoEjecutivoTerminoAprobacion;valor=ejeviaje;
+ejecutivoQueFinalizaTareasOferta;valor=ejeWeb;
+ejecutivoQueFinalizaPropuestaCli;valor=ejeWeb;
+ejecutivoQueFinalizaVistoBuenoJof;valor=ejeWeb;
+ejecutivoQueFinalizaAprobacion;valor=ejeWeb;
+ejecutivoQueFinalizaAprobacionAC;valor=ejeWeb;
+crmInteraccionOportunidadesNombre;valor=Oportunidad Viaje Planes;
+horaEntrega;valor=14:00 a 16:45;
+tarjetaCreditoFechaDePago;valor=8;
+tarjetaSucursalDestino;valor=93;
+tarjetaformaDePago;valor=3= Pago Mínimo 3% en Cta Cte;
+tarjetaCobroDeAdministracion;valor=Cobro Semestral;valorExcento=Exento Permanente;
+tarjetaPreemitida;valor=0;
+ctaTipoTalonario;valor=Derecho;
+ctaTipo;valor=Unipersonal;
+ctaSegmentoFinal;valor=Masivo Emergente;
+cuentaCorrienteDobleEjecutivo;valor=0;
+responsableTareaOferta;valor=ejeWeb;
+responsableTareaCA;valor=ejeWeb;
+responsableTareaAP;valor=ejeWeb;
+responsableTareaAC;valor=ejeWeb;
+CodigosTarjetaVisa;valor=071,012,071,216,236,206,041,096;
+CodigoTarjetaMaster;valor=541,556,546,536;
+cantidadDiasFechaEstimadaCierre;valor=5;
+cantidadDiasFechaCierre;valor=0;
+situacionLaboralOportunidad;valor=DEPENDIENTE;
+datosEmpleador;rut=76378340;dv=5;razonSocial=Por defecto;direccion=Dirección por defecto;comuna=Santiago;ciudad=Santiago;
+lineaDeCredito;seguroCesantia=0;seguroDesgravamen=1;
+tarjetaATM;valor=1;
+talonarioTitular;valor=1;
+etapasOportunidad;oferta=BP__PLANES|Oferta;cierreAcordado=BP__PLANES|Cierre Acordado;aprobacion=BP__PLANES|Aprobación;activacion=BP__PLANES|Activación;
+validarRenta;desc=La renta declarada en viaje digital es de {0}. Por favor validar con la renta ingresada en Everest por Célula de Renta.;
+validarDireccionComercial;desc=Verificar Dirección Comercial: Dirección/Región/Comuna.;
+envioElectronico;valor=Envío Electrónico;
+# --------------------------------------------------------------------------------
+# Codigos de Comuna y Region por defecto 
+# --------------------------------------------------------------------------------
+datosComunaRegion;codComunaDefecto=080;codRegionDefecto=13;
+
+valoresInvalidosListas;regiones=99;nivelEducacional=X01,X02,X03;estadoCivil=CCV;listaBancos=016;comunasPorRegion=510,511;
+valoresReemplazoListas;regiones=13;
+regiones;13=REGION METROPOLITANA;
+
+# --------------------------------------------------------------------------------
+# Correo para ejecutivo bcinet
+# --------------------------------------------------------------------------------
+correoSucursal;desc=Estimado <!-- nombre -->\n\n Por la presente comunicación, le hacemos entrega del siguiente Código de\n Seguimiento, para continuar con el proceso de contratación de su Plan de\n Cuenta Corriente, iniciado por usted a través de nuestra página web www.bci.cl.\n\n \t\t\tCódigo de Seguimiento N° <!-- ticket -->\n\n Usted deberá ingresar nuevamente a nuestro sitio web y accediendo a través\n del menú "Planes", seleccionar "Contrata tu Plan Online" y luego ingresar el\n Código de Seguimiento informado, que el sistema le solicitará.\n\n Este código es válido para retomar el proceso de contratación cuando usted lo\n desee, tanto a través de la página web del Banco o directamente en nuestras\n sucursales, donde además podrá contar con el apoyo de uno de nuestros\n ejecutivos.\n\n Atentamente\n BCI - Somos Diferentes. ;
+# --------------------------------------------------------------------------------
+# Parametro que permite habilitar/inhabilitar flujo de equifax en el viaje
+# --------------------------------------------------------------------------------
+equifaxHabilitado;valor=S;
+
+# --------------------------------------------------------------------------------
+# Mensaje para validacion fallida por equifax.
+# --------------------------------------------------------------------------------
+mensaje;valor=Estimado cliente, no hemos podido validar su identidad con las respuestas proporcionadas. Por favor inténtelo nuevamente.;
+
+# --------------------------------------------------------------------------------
+# Comunas que deben ser homologadas con sinacofi para ser enviadas correctamente a IBM.
+# --------------------------------------------------------------------------------
+comunasParaHomologar;valor=SAN PEDRO DE LA PAZ,CON CON,SAN PEDRO DE ATACAMA,DIEGO DE ALMAGRO,PAIHUANO,CANELA O MINCHA,LLAYLLAY,TILTIL,SAN JOSE DE MAIPO,QUINTA DE TILCOCO,SAN VICENTE,MARCHIGUE,TREHUACO,SAN JUAN DE LA COSTA,O'HIGGINS,ANTARTICA,CANELA O MINCHA,VALDIVIA,MARIQUINA,PALENA;
+valoresCorrectosParaIBM;valor=S PEDRO LA PAZ,CON-CON,S PEDRO ATACAMA,DIEGO ALMAGRO,PAIGUANO,MINCHA,LLAY LLAY,TIL TIL,SAN JOSE MAIPO,QUINTA TILCOCO,SAN VICENTE T-T,MARCHIHUE,TREGUACO,S JUAN DE COSTA,O HIGGINS,LA ANTARTICA,CANELA,PEDRO VALDIVIA,S J MARIQUINA,ALTO PALENA;
+
+# ------------------------------------
+# JNDI de servicio de seguridad
+# ------------------------------------
+jndiSeguridad;valor=wcorp.serv.seguridad.ServiciosSeguridad;
+
+# ------------------------------------
+# JNDI de Servicios Campanas Priorizadas
+# ------------------------------------
+jndiEjbcampana;valor=wcorp.serv.campanas.ServiciosCampanasPriorizadas;
+
+# -----------------------------------------------------------------
+# Bandera para indicar si el servicio de campaña estara activado.
+# -----------------------------------------------------------------
+CAMPANIA_SUC_ACTIVADA;ESTADO=SI;
+#CAMPANIA_SUC_ACTIVADA;ESTADO=NO;
+
+# ----------------------------------------------
+# Filtros para obtener las campañas vigentes.
+# ----------------------------------------------
+#Integración
+#CLIENTE_VIGENTE;NOMBRE=CIBARRP;
+#CLIENTE_NUEVO;NOMBRE=MEMERYC,APROBAD,PREAPRO;
+
+#Certificación
+#CLIENTE_VIGENTE;NOMBRE=CIBARRP;
+#CLIENTE_NUEVO;NOMBRE=MEMERYC,APROBAD,PREAPRO;
+
+#Producción
+CLIENTE_VIGENTE;NOMBRE=CIBARRP;
+CLIENTE_NUEVO;NOMBRE=MEMERYC,APROBAD,PREAPRO;
+
+# ----------------------------------------------
+# Mensaje para clientes con convenio.
+# ----------------------------------------------
+mensajeClienteConvenio;valor=Cliente de empresa [RUT DE EMPRESA], con [PLAN CONVENIO] y código [CODIGO DE CONVENIO];
+planesConvenio_H;valor=PLAN CONVENIO 1 - H;
+planesConvenio_0;valor=PLAN CONVENIO 2 - 0;
+planesConvenio_R;valor=PLAN CONVENIO 3 - R;
+planesConvenio_8;valor=PLAN CONVENIO 4 - 8;
+planesConvenio_A;valor=Plan Bci/AAdvantage - A;
+planesConvenio_Z;valor=Plan Premier - Z;
+planesConvenio_W;valor=Plan Preferencial - W;
+planesConvenio_9;valor=Plan Clásico - 9;
+# ----------------------------------------------
+# Clave para inyeccion de notas en el mapa de oportunidad enviado a ephiphany.
+# ----------------------------------------------
+claveNotaConvenio;valor=CrmInteraccion.notas[1];
+claveNotaConvenio2;valor=CrmInteraccion.oportunidades[0].notas[1];
+
+ListasDetallePerfilAutoCompletar;listados=paises,estadoCivil,actividadLaboral,profesion;
+ListasDetallePerfilAutoCompletarDesc;paises=PAI;estadoCivil=ECV;actividadLaboral=ACT;profesion=PRF;
+
+
+#--------------------------------------------------------
+# Listado de homologacion sinacofi
+#--------------------------------------------------------
+SINACOFI_ESTADOCIVIL_C;valorServ=CAS;
+SINACOFI_ESTADOCIVIL_D;valorServ=DIV;
+SINACOFI_ESTADOCIVIL_S;valorServ=SOL;
+SINACOFI_ESTADOCIVIL_V;valorServ=VIU;
+
+#--------------------------------------------------------
+# Listado de homologacion sinacofi - ACTIVIDAD LABORAL
+#-------------------------------------------------------
+
+SINACOFI_ACTLABORAL_CULTIVO_DE_TRIGO;valorServ=11111;
+SINACOFI_ACTLABORAL_CULTIVO_DE_MAIZ;valorServ=99500;
+SINACOFI_ACTLABORAL_CULTIVO_DE_AVENA;valorServ=99501;
+SINACOFI_ACTLABORAL_CULTIVO_DE_ARROZ;valorServ=11112;
+SINACOFI_ACTLABORAL_CULTIVO_DE_CEBADA;valorServ=99502;
+SINACOFI_ACTLABORAL_CULTIVO_DE_OTROS_CEREALES;valorServ=99503;
+SINACOFI_ACTLABORAL_CULTIVO_FORRAJEROS_EN_PRADERAS_NATURALES;valorServ=99504;
+SINACOFI_ACTLABORAL_CULTIVO_DE_POROTOS_O_FRIJOL;valorServ=11114;
+SINACOFI_ACTLABORAL_CULTIVO,_PRODUCCION_DE_LUPINO;valorServ=99506;
+SINACOFI_ACTLABORAL_CULTIVO_DE_OTRAS_LEGUMBRES;valorServ=99507;
+SINACOFI_ACTLABORAL_CULTIVO_DE_PAPAS;valorServ=11115;
+SINACOFI_ACTLABORAL_CULTIVO_DE_CAMOTES_O_BATATAS;valorServ=99508;
+SINACOFI_ACTLABORAL_CULTIVO_DE_OTROS_TUBERCULOS_N.C.P;valorServ=99509;
+SINACOFI_ACTLABORAL_CULTIVO_DE_RAPS;valorServ=99510;
+SINACOFI_ACTLABORAL_CULTIVO_DE_MARAVILLA;valorServ=99511;
+SINACOFI_ACTLABORAL_CULTIVO_DE_OTRAS_OLEAGINOSAS_N.C.P.;valorServ=99512;
+SINACOFI_ACTLABORAL_CULTIVO_DE_REMOLACHA;valorServ=99513;
+SINACOFI_ACTLABORAL_CULTIVO_DE_TABACO;valorServ=11113;
+SINACOFI_ACTLABORAL_CULTIVO_DE_FIBRAS_VEGETALES_INDUSTRIALES;valorServ=99514;
+SINACOFI_ACTLABORAL_OTROS_CULTIVOS_N.C.P.;valorServ=11119;
+SINACOFI_ACTLABORAL_CULTIVO_ORGANICO_DE_HORTALIZAS;valorServ=99518;
+SINACOFI_ACTLABORAL_CULTIVO_DE_UVA_DE_MESA;valorServ=11131;
+SINACOFI_ACTLABORAL_CULTIVO_DE_ESPECIAS;valorServ=99526;
+SINACOFI_ACTLABORAL_CRIA_DE_EQUINOS_(CABALLARES,_MULARES);valorServ=99527;
+SINACOFI_ACTLABORAL_CRIA_DE_PORCINOS;valorServ=12125;
+SINACOFI_ACTLABORAL_CRIA_DE_AVES_FINAS_O_NO_TRADICIONALES;valorServ=12122;
+SINACOFI_ACTLABORAL_APICULTURA;valorServ=12128;
+SINACOFI_ACTLABORAL_EXPLOTACION_MIXTA;valorServ=11192;
+SINACOFI_ACTLABORAL_SERVICIO_DE_CORTE_Y_ENFARDADO_DE_FORRAJE;valorServ=99530;
+SINACOFI_ACTLABORAL_OTROS_SERVICIOS_AGRICOLAS_N.C.P.;valorServ=11205;
+SINACOFI_ACTLABORAL_EXPLOTACION_DE_BOSQUES;valorServ=13101;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_FORESTACION;valorServ=13103;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_CORTA_DE_MADERA;valorServ=13201;
+SINACOFI_ACTLABORAL_REPRODUCCION_Y_CRIANZAS_DE_PECES_MARINOS;valorServ=15041;
+SINACOFI_ACTLABORAL_PESCA_INDUSTRIAL;valorServ=15011;
+SINACOFI_ACTLABORAL_ACTIVIDAD_PESQUERA_DE_BARCOS_FACTORIAS;valorServ=99538;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_MINERALES_DE_HIERRO;valorServ=23011;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_ORO_Y_PLATA;valorServ=99544;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_ZINC_Y_PLOMO;valorServ=99545;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_MANGANESO;valorServ=99546;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_COBRE;valorServ=23031;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_PIEDRA,_ARENA_Y_ARCILLA;valorServ=29011;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_NITRATOS_Y_YODO;valorServ=29021;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_SAL;valorServ=29031;
+SINACOFI_ACTLABORAL_PRODUCCION_DE_HARINA_DE_PESCADO;valorServ=31154;
+SINACOFI_ACTLABORAL_ELABORACION_DE_QUESOS;valorServ=99551;
+SINACOFI_ACTLABORAL_ELABORACION_DE_HARINAS_DE_TRIGO;valorServ=31161;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_MOLIENDA_DE_ARROZ;valorServ=99552;
+SINACOFI_ACTLABORAL_FABRICACION_DE_GALLETAS;valorServ=31172;
+SINACOFI_ACTLABORAL_ELABORACION_DE_CACAO_Y_CHOCOLATES;valorServ=31191;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_DE_CONFITERIA;valorServ=31192;
+SINACOFI_ACTLABORAL_ELABORACION_DE_TE,_CAFE,_INFUSIONES;valorServ=31216;
+SINACOFI_ACTLABORAL_ELABORACION_DE_VINOS;valorServ=31321;
+SINACOFI_ACTLABORAL_ELABORACION_DE_BEBIDAS_NO_ALCOHOLICAS;valorServ=31341;
+SINACOFI_ACTLABORAL_ELABORACION_DE_HIELO;valorServ=31213;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CIGARROS_Y_CIGARRILLOS;valorServ=31401;
+SINACOFI_ACTLABORAL_ACABADO_DE_PRODUCTOS_TEXTIL;valorServ=32114;
+SINACOFI_ACTLABORAL_FABRICACION_DE_TAPICES_Y_ALFOMBRA;valorServ=32141;
+SINACOFI_ACTLABORAL_FABRICACION_DE_TEJIDOS_DE_PUNTO;valorServ=32132;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ACCESORIOS_DE_VESTIR;valorServ=32202;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ROPA_DE_TRABAJO;valorServ=99556;
+SINACOFI_ACTLABORAL_CURTIDO_Y_ADOBO_DE_CUEROS;valorServ=32311;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CALZADO;valorServ=32401;
+SINACOFI_ACTLABORAL_ASERRADO_Y_ACEPILLADURA_DE_MADERAS;valorServ=33111;
+SINACOFI_ACTLABORAL_FABRICACION_DE_RECIPIENTES_DE_MADERA;valorServ=33121;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PAPEL_DE_PERIODICO;valorServ=99557;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PAPEL_Y_CARTON_N.C.P.;valorServ=34112;
+SINACOFI_ACTLABORAL_EDICION_PRINCIPALMENTE_DE_LIBROS;valorServ=34204;
+SINACOFI_ACTLABORAL_EDICION_DE_GRABACIONES;valorServ=99560;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_DE_EDICION;valorServ=34202;
+SINACOFI_ACTLABORAL_IMPRESION_PRINCIPALMENTE_DE_LIBROS;valorServ=34201;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_DE_IMPRESION_N.C.P.;valorServ=99561;
+SINACOFI_ACTLABORAL_REPRODUCCION_DE_GRABACIONES;valorServ=99563;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_DE_HORNOS_COQUE;valorServ=35401;
+SINACOFI_ACTLABORAL_ELABORACION_DE_COMBUSTIBLE_NUCLEAR;valorServ=99564;
+SINACOFI_ACTLABORAL_FABRICACION_DE_FIBRAS_MANUFACTURADAS;valorServ=35133;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_PRODUCTOS_DE_CAUCHO;valorServ=35591;
+SINACOFI_ACTLABORAL_FABRICACION_DE_VIDRIO_HUECO;valorServ=99568;
+SINACOFI_ACTLABORAL_FABRICACION_DE_FIBRAS_DE_VIDRIO;valorServ=99569;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CEMENTO,_CAL_Y_YESO;valorServ=36921;
+SINACOFI_ACTLABORAL_CORTE,_TALLADO_Y_ACABADO_DE_LA_PIEDRA;valorServ=99574;
+SINACOFI_ACTLABORAL_INDUSTRIAS_BASICAS_DE_HIERRO_Y_ACERO;valorServ=37102;
+SINACOFI_ACTLABORAL_FUNDICION_DE_HIERRO_Y_ACERO;valorServ=99578;
+SINACOFI_ACTLABORAL_FUNDICION_DE_METALES_NO_FERROSOS;valorServ=99579;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ARTICULOS_DE_CUCHILLERIA;valorServ=38111;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MAQUINAS_HERRAMIENTAS;valorServ=38314;
+SINACOFI_ACTLABORAL_REPARACION_DE_MAQUINAS_HERRAMIENTAS;valorServ=99596;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MAQUINARIA_METALURGICA;valorServ=99597;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ARMAS_Y_MUNICIONES;valorServ=99603;
+SINACOFI_ACTLABORAL_REPARACION_DE_ARMAS;valorServ=99604;
+SINACOFI_ACTLABORAL_FABRICACION_DE_HILOS_Y_CABLES_AISLADOS;valorServ=99608;
+SINACOFI_ACTLABORAL_REPARACION_DE_EQUIPO_DE_ILUMINACION;valorServ=99610;
+SINACOFI_ACTLABORAL_FABRICACION_DE_COMPONENTES_ELECTRONICOS;valorServ=38325;
+SINACOFI_ACTLABORAL_REPARACION_DE_COMPONENTES_ELECTRONICOS;valorServ=99612;
+SINACOFI_ACTLABORAL_LABORATORIOS_DENTALES;valorServ=93510;
+SINACOFI_ACTLABORAL_FABRICACION_DE_RELOJES;valorServ=38531;
+SINACOFI_ACTLABORAL_FABRICACION_DE_VEHICULOS_AUTOMOTORES;valorServ=30001;
+SINACOFI_ACTLABORAL_CONSTRUCCION_DE_EMBARCACIONES_MENORES;valorServ=99620;
+SINACOFI_ACTLABORAL_REPARACION_DE_EMBARCACIONES_MENORES;valorServ=99621;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MOTOCICLETAS;valorServ=38441;
+SINACOFI_ACTLABORAL_FABRICACION_DE_JOYAS_Y_PRODUCTOS_CONEXOS;valorServ=39011;
+SINACOFI_ACTLABORAL_FABRICACION_DE_INSTRUMENTOS_DE_MUSICA;valorServ=39021;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ARTICULOS_DE_DEPORTE;valorServ=39031;
+SINACOFI_ACTLABORAL_FABRICACION_DE_JUEGOS_Y_JUGUETES;valorServ=39091;
+SINACOFI_ACTLABORAL_FABRICACION_DE_FOSFOROS;valorServ=99626;
+SINACOFI_ACTLABORAL_RECICLAMIENTO_DE_PAPEL;valorServ=99628;
+SINACOFI_ACTLABORAL_RECICLAMIENTO_DE_VIDRIO;valorServ=99629;
+SINACOFI_ACTLABORAL_GENERACION_HIDROELECTRICA;valorServ=41011;
+SINACOFI_ACTLABORAL_GENERACION_EN_OTRAS_CENTRALES_N.C.P.;valorServ=99633;
+SINACOFI_ACTLABORAL_TRANSMISION_DE_ENERGIA_ELECTRICA;valorServ=99634;
+SINACOFI_ACTLABORAL_DISTRIBUCION_DE_ENERGIA_ELECTRICA;valorServ=99635;
+SINACOFI_ACTLABORAL_SUMINISTRO_DE_VAPOR_Y_AGUA_CALIENTE;valorServ=41031;
+SINACOFI_ACTLABORAL_OBRAS_DE_INGENIERIA;valorServ=53021;
+SINACOFI_ACTLABORAL_ACONDICIONAMIENTO_DE_EDIFICIOS;valorServ=53032;
+SINACOFI_ACTLABORAL_VENTA_DE_MOTOCICLETAS;valorServ=99640;
+SINACOFI_ACTLABORAL_REPARACION_DE_MOTOCICLETAS;valorServ=99642;
+SINACOFI_ACTLABORAL_CORRETAJE_DE_PRODUCTOS_AGRICOLAS;valorServ=61111;
+SINACOFI_ACTLABORAL_CORRETAJE_DE_GANADO_(FERIAS_DE_GANADO);valorServ=61127;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_ANIMALES_VIVOS;valorServ=61117;
+SINACOFI_ACTLABORAL_MAYORISTA_DE_FRUTAS_Y_VERDURAS;valorServ=99643;
+SINACOFI_ACTLABORAL_MAYORISTAS_DE_CARNES;valorServ=61124;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_CONFITES;valorServ=99644;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_MUEBLES;valorServ=61523;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_PAPEL_Y_CARTON;valorServ=61384;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_LIBROS;valorServ=61386;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_PRODUCTOS_QUIMICOS;valorServ=61412;
+SINACOFI_ACTLABORAL_ALMACENES_PEQUENOS_(VENTA_DE_ALIMENTOS);valorServ=62101;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_AVES_Y_HUEVOS;valorServ=62122;
+SINACOFI_ACTLABORAL_FARMACIAS_INDEPENDIENTES;valorServ=62554;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_CALZADO;valorServ=62411;
+SINACOFI_ACTLABORAL_COMERCIO_POR_MENOR_DE_JUGUETES;valorServ=62544;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_LIBROS;valorServ=99673;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ROPA_USADA;valorServ=99677;
+SINACOFI_ACTLABORAL_MAQUINAS_EXPENDEDORAS;valorServ=99684;
+SINACOFI_ACTLABORAL_REPARACIONES_ELECTRICAS_Y_ELECTRONICAS;valorServ=95040;
+SINACOFI_ACTLABORAL_REPARACION_DE_RELOJES_Y_JOYAS;valorServ=95060;
+SINACOFI_ACTLABORAL_HOTELES;valorServ=63211;
+SINACOFI_ACTLABORAL_MOTELES;valorServ=99687;
+SINACOFI_ACTLABORAL_RESIDENCIALES;valorServ=63214;
+SINACOFI_ACTLABORAL_RESTAURANTES;valorServ=63110;
+SINACOFI_ACTLABORAL_CASINOS_Y_CLUBES_SOCIALES;valorServ=99689;
+SINACOFI_ACTLABORAL_TRANSPORTE_DE_CARGA_POR_FERROCARRILES;valorServ=99690;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TRANSPORTE_ESCOLAR;valorServ=99694;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TRANSPORTE_DE_TRABAJADORES;valorServ=99695;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TRANSPORTE_A_TURISTAS;valorServ=99698;
+SINACOFI_ACTLABORAL_TRANSPORTE_DE_CARGA_POR_CARRETERA;valorServ=71141;
+SINACOFI_ACTLABORAL_TRANSPORTE_POR_TUBERIAS;valorServ=99700;
+SINACOFI_ACTLABORAL_MANIPULACION_DE_LA_CARGA;valorServ=99706;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_ALMACENAMIENTO_Y_DEPOSITO;valorServ=71921;
+SINACOFI_ACTLABORAL_TERMINALES_TERRESTRES_DE_PASAJEROS;valorServ=71122;
+SINACOFI_ACTLABORAL_PUERTOS_Y_AEROPUERTOS;valorServ=71213;
+SINACOFI_ACTLABORAL_AGENCIAS_DE_ADUANAS;valorServ=71912;
+SINACOFI_ACTLABORAL_AGENCIAS_DE_TRANSPORTE;valorServ=99708;
+SINACOFI_ACTLABORAL_ACTIVIDADES_POSTALES_NACIONALES;valorServ=99709;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TELEFONIA_FIJA;valorServ=99711;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TELEFONIA_MOVIL;valorServ=99712;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TELEVISION_NO_ABIERTA;valorServ=99714;
+SINACOFI_ACTLABORAL_PROVEEDORES_DE_INTERNET;valorServ=99715;
+SINACOFI_ACTLABORAL_CENTROS_DE_ACCESO_A_INTERNET;valorServ=99717;
+SINACOFI_ACTLABORAL_BANCA_CENTRAL;valorServ=99718;
+SINACOFI_ACTLABORAL_BANCOS;valorServ=81011;
+SINACOFI_ACTLABORAL_FINANCIERAS;valorServ=81022;
+SINACOFI_ACTLABORAL_LEASING_FINANCIERO;valorServ=99719;
+SINACOFI_ACTLABORAL_LEASING_HABITACIONAL;valorServ=99720;
+SINACOFI_ACTLABORAL_FACTORING;valorServ=99723;
+SINACOFI_ACTLABORAL_OTROS_INSTITUCIONES_FINANCIERAS_N.C.P.;valorServ=99725;
+SINACOFI_ACTLABORAL_ADMINISTRADORAS_DE_FONDOS_DE_INVERSION;valorServ=99726;
+SINACOFI_ACTLABORAL_ADMINISTRADORAS_DE_FONDOS_MUTUOS;valorServ=99727;
+SINACOFI_ACTLABORAL_PLANES_DE_SEGURO_DE_VIDA;valorServ=99731;
+SINACOFI_ACTLABORAL_PLANES_DE_REASEGUROS_DE_VIDA;valorServ=99732;
+SINACOFI_ACTLABORAL_PLANES_DE_SEGUROS_GENERALES;valorServ=82001;
+SINACOFI_ACTLABORAL_PLANES_DE_REASEGUROS_GENERALES;valorServ=99733;
+SINACOFI_ACTLABORAL_ISAPRES;valorServ=82003;
+SINACOFI_ACTLABORAL_ADMINISTRACION_DE_MERCADOS_FINANCIEROS;valorServ=99734;
+SINACOFI_ACTLABORAL_CORREDORES_DE_BOLSA;valorServ=81032;
+SINACOFI_ACTLABORAL_AGENTES_DE_VALORES;valorServ=99735;
+SINACOFI_ACTLABORAL_OTROS_SERVICIOS_DE_CORRETAJE;valorServ=99736;
+SINACOFI_ACTLABORAL_CAMARA_DE_COMPENSACION;valorServ=99737;
+SINACOFI_ACTLABORAL_ADMINISTRADORA_DE_TARJETAS_DE_CREDITO;valorServ=99738;
+SINACOFI_ACTLABORAL_CLASIFICADORES_DE_RIESGOS;valorServ=99740;
+SINACOFI_ACTLABORAL_CASAS_DE_CAMBIO_Y_OPERADORES_DE_DIVISA;valorServ=81031;
+SINACOFI_ACTLABORAL_CORREDORES_DE_SEGUROS;valorServ=99741;
+SINACOFI_ACTLABORAL_SERVICIOS_JURIDICOS;valorServ=84211;
+SINACOFI_ACTLABORAL_SERVICIO_NOTARIAL;valorServ=84213;
+SINACOFI_ACTLABORAL_CONSERVADOR_DE_BIENES_RAICES;valorServ=99755;
+SINACOFI_ACTLABORAL_RECEPTORES_JUDICIALES;valorServ=99756;
+SINACOFI_ACTLABORAL_ARBITRAJES,_SINDICOS,_PERITOS_Y_OTROS;valorServ=84212;
+SINACOFI_ACTLABORAL_EMPRESAS_DE_PUBLICIDAD;valorServ=84251;
+SINACOFI_ACTLABORAL_SERVICIOS_PERSONALES_EN_PUBLICIDAD;valorServ=99762;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_RECLUTAMIENTO_DE_PERSONAL;valorServ=84272;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_INVESTIGACION;valorServ=99764;
+SINACOFI_ACTLABORAL_SERVICIOS_INTEGRALES_DE_SEGURIDAD;valorServ=99765;
+SINACOFI_ACTLABORAL_TRANSPORTE_DE_VALORES;valorServ=99766;
+SINACOFI_ACTLABORAL_DESRATIZACION_Y_FUMIGACION_NO_AGRICOLA;valorServ=99769;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_FOTOGRAFIA_PUBLICITARIA;valorServ=99770;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_ENVASADO_Y_EMPAQUE;valorServ=99772;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_COBRANZA_DE_CUENTAS;valorServ=99773;
+SINACOFI_ACTLABORAL_DISENADORES_DE_VESTUARIO;valorServ=99776;
+SINACOFI_ACTLABORAL_DISENADORES_DE_INTERIORES;valorServ=99777;
+SINACOFI_ACTLABORAL_OTROS_DISENADORES_N.C.P.;valorServ=84273;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_FOTOCOPIAS;valorServ=34205;
+SINACOFI_ACTLABORAL_AGENCIAS_DE_CONTRATACION_DE_ACTORES;valorServ=99780;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_SUBASTA_(MARTILLEROS);valorServ=99781;
+SINACOFI_ACTLABORAL_GALERIAS_DE_ARTE;valorServ=99782;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_EMPRESARIALES_N.C.P.;valorServ=83291;
+SINACOFI_ACTLABORAL_GOBIERNO_CENTRAL;valorServ=91200;
+SINACOFI_ACTLABORAL_MUNICIPALIDADES;valorServ=99784;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DEL_PODER_JUDICIAL;valorServ=99785;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DEL_PODER_LEGISLATIVO;valorServ=99786;
+SINACOFI_ACTLABORAL_RELACIONES_EXTERIORES;valorServ=99787;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_DEFENSA;valorServ=99788;
+SINACOFI_ACTLABORAL_CAJAS_DE_COMPENSACION;valorServ=99791;
+SINACOFI_ACTLABORAL_ESTABLECIMIENTOS_DE_ENSENANZA_PREESCOLAR;valorServ=93240;
+SINACOFI_ACTLABORAL_ESTABLECIMIENTOS_DE_ENSENANZA_PRIMARIA;valorServ=93150;
+SINACOFI_ACTLABORAL_UNIVERSIDADES;valorServ=93120;
+SINACOFI_ACTLABORAL_INSTITUTOS_PROFESIONALES;valorServ=93210;
+SINACOFI_ACTLABORAL_CENTROS_DE_FORMACION_TECNICA;valorServ=93250;
+SINACOFI_ACTLABORAL_SERVICIOS_PERSONALES_DE_EDUCACION;valorServ=99799;
+SINACOFI_ACTLABORAL_HOSPITALES_Y_CLINICAS;valorServ=93440;
+SINACOFI_ACTLABORAL_CENTROS_DE_ATENCION_ODONTOLOGICA;valorServ=99801;
+SINACOFI_ACTLABORAL_OTROS_PROFESIONALES_DE_LA_SALUD;valorServ=93410;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_CLINICAS_VETERINARIAS;valorServ=93550;
+SINACOFI_ACTLABORAL_SERVICIOS_SOCIALES_CON_ALOJAMIENTO;valorServ=93680;
+SINACOFI_ACTLABORAL_SERVICIOS_SOCIALES_SIN_ALOJAMIENTO;valorServ=99804;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_VERTEDEROS;valorServ=99805;
+SINACOFI_ACTLABORAL_BARRIDO_DE_EXTERIORES;valorServ=99806;
+SINACOFI_ACTLABORAL_RECOGIDA_Y_ELIMINACION_DE_DESECHOS;valorServ=99807;
+SINACOFI_ACTLABORAL_COLEGIOS_PROFESIONALES;valorServ=93810;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_SINDICATOS;valorServ=93820;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_ORGANIZACIONES_RELIGIOSAS;valorServ=93900;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_ORGANIZACIONES_POLITICAS;valorServ=93850;
+SINACOFI_ACTLABORAL_CLUBES_SOCIALES;valorServ=99811;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_OTRAS_ASOCIACIONES_N.C.P.;valorServ=93991;
+SINACOFI_ACTLABORAL_PRODUCCION_DE_PELICULAS_CINEMATOGRAFICAS;valorServ=94111;
+SINACOFI_ACTLABORAL_DISTRIBUIDORA_CINEMATOGRAFICAS;valorServ=94144;
+SINACOFI_ACTLABORAL_EXHIBICION_DE_FILMES_Y_VIDEOCINTAS;valorServ=99813;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_TELEVISION;valorServ=94131;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_RADIO;valorServ=94132;
+SINACOFI_ACTLABORAL_INSTRUCTORES_DE_DANZA;valorServ=99817;
+SINACOFI_ACTLABORAL_AGENCIAS_DE_NOTICIAS;valorServ=94162;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_BIBLIOTECAS_Y_ARCHIVOS;valorServ=94205;
+SINACOFI_ACTLABORAL_FUTBOL_PROFESIONAL;valorServ=99825;
+SINACOFI_ACTLABORAL_FUTBOL_AMATEUR;valorServ=99826;
+SINACOFI_ACTLABORAL_HIPODROMOS;valorServ=94905;
+SINACOFI_ACTLABORAL_ESCUELAS_PARA_DEPORTES;valorServ=99828;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_CASINO_DE_JUEGOS;valorServ=99831;
+SINACOFI_ACTLABORAL_PELUQUERIAS_Y_SALONES_DE_BELLEZA;valorServ=95110;
+SINACOFI_ACTLABORAL_SERVICIOS_FUNERARIOS;valorServ=99833;
+SINACOFI_ACTLABORAL_SERVICIOS_EN_CEMENTERIOS;valorServ=99834;
+SINACOFI_ACTLABORAL_CULTIVO_FORRAJEROS_EN_PRADERAS_MEJORADAS_O_SEMBRADAS;valorServ=99505;
+SINACOFI_ACTLABORAL_CULTIVO_DE_PLANTAS_AROMATICAS_O_MEDICINALES;valorServ=99515;
+SINACOFI_ACTLABORAL_CULTIVO_TRADICIONAL_DE_HORTALIZAS_FRESCAS;valorServ=99516;
+SINACOFI_ACTLABORAL_CULTIVO_DE_PLANTAS_VIVAS_Y_PRODUCTOS_DE_LA_FLORICULTURA;valorServ=99519;
+SINACOFI_ACTLABORAL_PRODUCCION_DE_SEMILLAS_DE_FLORES,_PRADOS,_FRUTAS_Y_HORTALIZAS;valorServ=99520;
+SINACOFI_ACTLABORAL_CULTIVO_Y_RECOLECCION_DE_HONGOS,_TRUFAS_Y_SAVIA;_PRODUCCION_DE_JARABE_DE_ARCE_DE_AZUCAR_Y_AZUCAR;valorServ=99521;
+SINACOFI_ACTLABORAL_CULTIVO_DE_UVA_DESTINADA_A_PRODUCCION_DE_PISCO_Y_AGUARDIENTE;valorServ=99522;
+SINACOFI_ACTLABORAL_CULTIVO_DE_UVA_DESTINADA_A_PRODUCCION_DE_VINO;valorServ=99523;
+SINACOFI_ACTLABORAL_CULTIVO_DE_FRUTALES_MENORES_EN_PLANTAS_CON_CICLO_DE_VIDA_DE_UNA_TEMPORADA;valorServ=99524;
+SINACOFI_ACTLABORAL_CULTIVO_DE_PLANTAS_CUYAS_HOJAS_O_FRUTAS_SE_UTILIZAN_PARA_PREPARAR_BEBIDAS;valorServ=99525;
+SINACOFI_ACTLABORAL_CRIA_DE_AVES_DE_CORRAL_PARA_LA_PRODUCCION_DE_CARNE;valorServ=12127;
+SINACOFI_ACTLABORAL_CRIA_DE_AVES_DE_CORRAL_PARA_LA_PRODUCCION_DE_HUEVOS;valorServ=99528;
+SINACOFI_ACTLABORAL_CRIA_DE_ANIMALES_DOMESTICOS;_PERROS_Y_GATOS;valorServ=99529;
+SINACOFI_ACTLABORAL_OTRAS_EXPLOTACIONES_DE_ANIMALES_NO_CLASIFICADOS_EN_OTRA_PARTE,_INCLUIDO_SUS_SUBPRODUCTOS;valorServ=12129;
+SINACOFI_ACTLABORAL_COSECHA,_PODA,_AMARRE_Y_LABORES_DE_ADECUACION_DE_LA_PLANTA_U_OTRAS;valorServ=99531;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_ADIESTRAMIENTO,_GUARDERIA_Y_CUIDADOS_DE_MASCOTAS;_EXCEPTO_ACTIVIDADES_VETERINARIAS;valorServ=99532;
+SINACOFI_ACTLABORAL_SERVICIOS_GANADEROS,_EXCEPTO_ACTIVIDADES_VETERINARIAS;valorServ=99533;
+SINACOFI_ACTLABORAL_CAZA_DE_MAMIFEROS_MARINOS;_EXCEPTO_BALLENAS;valorServ=15021;
+SINACOFI_ACTLABORAL_CAZA_ORDINARIA_Y_MEDIANTE_TRAMPAS,_Y_ACTIVIDADES_DE_SERVICIOS_CONEXAS;valorServ=12302;
+SINACOFI_ACTLABORAL_RECOLECCION_DE_PRODUCTOS_FORESTALES_SILVESTRES;valorServ=13109;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_CONTROL_DE_INCENDIOS_FORESTALES;valorServ=99535;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_DE_SERVICIOS_CONEXAS_A_LA_SILVICULTURA_N.C.P.;valorServ=13102;
+SINACOFI_ACTLABORAL_CULTIVO_DE_ESPECIES_ACUATICAS_EN_CUERPO_DE_AGUA_DULCE;valorServ=99536;
+SINACOFI_ACTLABORAL_CULTIVO,_REPRODUCCION_Y_CRECIMIENTOS_DE_VEGETALES_ACUATICOS;valorServ=15051;
+SINACOFI_ACTLABORAL_SERVICIOS_RELACIONADOS_CON_LA_ACUICULTURA,_NO_INCLUYE_SERVICIOS_PROFESIONALES_Y_DE_EXTRACCION;valorServ=99537;
+SINACOFI_ACTLABORAL_PESCA_ARTESANAL._EXTRACCION_DE_RECURSOS_ACUATICOS_EN_GENERAL;_INCLUYE_BALLENAS;valorServ=99539;
+SINACOFI_ACTLABORAL_RECOLECCION_DE_PRODUCTOS_MARINOS,_COMO_PERLAS_NATURALES,_ESPONJAS,_CORALES_Y_ALGAS.;valorServ=99540;
+SINACOFI_ACTLABORAL_SERVICIOS_RELACIONADOS_CON_LA_PESCA,_NO_INCLUYE_SERVICIOS_PROFESIONALES;valorServ=99541;
+SINACOFI_ACTLABORAL_EXTRACCION,_AGLOMERACION_DE_CARBON_DE_PIEDRA,_LIGNITO_Y_TURBA;valorServ=21001;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_SERVICIOS_RELACIONADAS_CON_LA_EXTRACCION_DE_PETROLEO_Y_GAS;valorServ=99542;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_MINERALES_DE_URANIO_Y_TORIO;valorServ=99543;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_OTROS_MINERALES_METALIFEROS_NO_FERROSOS_N.C.P.;valorServ=23041;
+SINACOFI_ACTLABORAL_EXTRACCION_DE_LITIO_Y_CLORUROS,_EXCEPTO_SAL;valorServ=99547;
+SINACOFI_ACTLABORAL_EXPLOTACION_DE_OTRAS_MINAS_Y_CANTERAS_N.C.P.;valorServ=29090;
+SINACOFI_ACTLABORAL_CONSERVACION_DE_CARNES_ROJAS_(FRIGORIFICOS);valorServ=31112;
+SINACOFI_ACTLABORAL_PRODUCCION,_PROCESAMIENTO_Y_CONSERVACION_DE_CARNES_DE_AVE_Y_OTRAS_CARNES_DISTINTAS_A_LAS_ROJAS;valorServ=31113;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_ENLATADOS_DE_PESCADO_Y_MARISCOS;valorServ=31141;
+SINACOFI_ACTLABORAL_ELABORACION_DE_CONGELADOS_DE_PESCADOS_Y_MARISCOS;valorServ=99548;
+SINACOFI_ACTLABORAL_ELABORACION_DE_PRODUCTOS_AHUMADOS,_SALADOS,_DESHIDRATADOS_Y_OTROS_PROCESOS_SIMILARES;valorServ=99549;
+SINACOFI_ACTLABORAL_ELABORACION_DE_PRODUCTOS_EN_BASE_A_VEGETALES_ACUATICOS;valorServ=99550;
+SINACOFI_ACTLABORAL_ELABORACION_Y_CONSERVACION_DE_FRUTAS,_LEGUMBRES_Y_HORTALIZAS;valorServ=31131;
+SINACOFI_ACTLABORAL_ELABORACION_DE_ACEITES_Y_GRASAS_DE_ORIGEN_VEGETAL;valorServ=31151;
+SINACOFI_ACTLABORAL_ELABORACION_DE_ACEITES_Y_GRASAS_DE_ORIGEN_MARINO;valorServ=31153;
+SINACOFI_ACTLABORAL_FABRICACION_DE_POSTRES_A_BASE_DE_LECHE_(HELADOS,_SORBETES_Y_OTROS_SIMILARES);valorServ=31123;
+SINACOFI_ACTLABORAL_ELABORACION_DE_OTRAS_MOLINERAS_Y_ALIMENTOS_A_BASE_DE_CEREALES;valorServ=31163;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PAN,_PRODUCTOS_DE_PANADERIA_Y_PASTELERIA;valorServ=31171;
+SINACOFI_ACTLABORAL_ELABORACION_DE_LEVADURAS_NATURALES_O_ARTIFICIALES;valorServ=31214;
+SINACOFI_ACTLABORAL_ELABORACION_DE_VINAGRES,_MOSTAZAS,_MAYONESAS_Y_CONDIMENTOS_EN_GENERAL;valorServ=31211;
+SINACOFI_ACTLABORAL_ELABORACION_DE_PISCOS_(INDUSTRIAS_PISQUERAS);valorServ=99554;
+SINACOFI_ACTLABORAL_ELABORACION_DE_BEBIDAS_ALCOHOLICAS_Y_DE_ALCOHOL_ETILICO_A_PARTIR_DE_SUSTANCIAS_FERMENTADAS_Y_OTROS;valorServ=31312;
+SINACOFI_ACTLABORAL_ELABORACION_DE_BEBIDAS_MALTEADAS,_CERVEZAS_Y_MALTAS;valorServ=31331;
+SINACOFI_ACTLABORAL_ENVASADO_DE_AGUA_MINERAL_NATURAL,_DE_MANANTIAL_Y_POTABLE_PREPARADA;valorServ=99555;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_PRODUCTOS_DEL_TABACO;valorServ=31402;
+SINACOFI_ACTLABORAL_PREPARACION_DE_HILATURA_DE_FIBRAS_TEXTILES;_TEJEDURA_DE_PRODUCTOS_TEXTILES;valorServ=32112;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRENDAS_DE_VESTIR_DE_CUERO_NATURAL,_ARTIFICIAL,_PLASTICO;valorServ=32204;
+SINACOFI_ACTLABORAL_ADOBO_Y_TENIDOS_DE_PIELES;_FABRICACION_DE_ARTICULOS_DE_PIEL;valorServ=32322;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MALETAS,_BOLSOS_DE_MANO_Y_SIMILARES;_ARTICULOS_DE_TALABARTERIA_Y_GUARNICIONERIA;valorServ=32331;
+SINACOFI_ACTLABORAL_FABRICACION_DE_TABLEROS,_PANELES_Y_HOJAS_DE_MADERA_PARA_ENCHAPADO;valorServ=33112;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PARTES_Y_PIEZAS_DE_CARPINTERIA_PARA_EDIFICIOS_Y_CONSTRUCCIONES;valorServ=33113;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_PRODUCTOS_DE_MADERA;_ARTICULOS_DE_CORCHO,_PAJA_Y_MATERIALES_TRENZABLES;valorServ=33193;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CELULOSA_Y_OTRAS_PASTAS_DE_MADERA;valorServ=34111;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PAPEL_Y_CARTON_ONDULADO_Y_DE_ENVASES_DE_PAPEL_Y_CARTON;valorServ=34121;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_ARTICULOS_DE_PAPEL_Y_CARTON;valorServ=34191;
+SINACOFI_ACTLABORAL_EDICION_DE_FOLLETOS,_PARTITURAS_Y_OTRAS_PUBLICACIONES;valorServ=99558;
+SINACOFI_ACTLABORAL_EDICION_DE_PERIODICOS,_REVISTAS_Y_PUBLICACIONES_PERIODICAS;valorServ=99559;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_SERVICIO_RELACIONADA_CON_LA_IMPRESION;valorServ=99562;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CARBON_VEGETAL,_Y_BRIQUETAS_DE_CARBON_VEGETAL;valorServ=99565;
+SINACOFI_ACTLABORAL_FABRICACION_DE_SUSTANCIAS_QUIMICAS_BASICAS,_EXCEPTO_ABONOS_Y_COMPUESTOS_DE_NITROGENO;valorServ=35111;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ABONOS_Y_COMPUESTOS_DE_NITROGENO;valorServ=35121;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PLASTICOS_EN_FORMAS_PRIMARIAS_Y_DE_CAUCHO_SINTETICO;valorServ=35132;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PLAGUICIDAS_Y_OTROS_PRODUCTOS_QUIMICOS_DE_USO_AGROPECUARIO;valorServ=35122;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_FARMACEUTICOS,_SUSTANCIAS_QUIMICAS_MEDICINALES_Y_PRODUCTOS_BOTANICOS;valorServ=35221;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_PRODUCTOS_QUIMICOS_N.C.P.;valorServ=35299;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CUBIERTAS_Y_CAMARAS_DE_CAUCHO;valorServ=35511;
+SINACOFI_ACTLABORAL_RECAUCHADO_Y_RENOVACION_DE_CUBIERTAS_DE_CAUCHO;valorServ=35512;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PLANCHAS,_LAMINAS,_CINTAS,_TIRAS_DE_PLASTICO;valorServ=99566;
+SINACOFI_ACTLABORAL_FABRICACION_DE_TUBOS,_MANGUERAS_PARA_LA_CONSTRUCCION;valorServ=99567;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_ARTICULOS_DE_PLASTICO;valorServ=35601;
+SINACOFI_ACTLABORAL_FABRICACION,_MANIPULADO_Y_TRANSFORMACION_DE_VIDRIO_PLANO;valorServ=36201;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_DE_ARCILLA_Y_CERAMICAS_NO_REFRACTARIAS_PARA_USO_ESTRUCTURAL;valorServ=36103;
+SINACOFI_ACTLABORAL_ELABORACION_DE_HORMIGON,_ARTICULOS_DE_HORMIGON_Y_MORTERO_(MEZCLA_PARA_CONSTRUCCION);valorServ=99570;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_DE_FIBROCEMENTO_Y_ASBESTOCEMENTO;valorServ=99571;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PANELES_DE_YESO_PARA_LA_CONSTRUCCION;valorServ=99572;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ARTICULOS_DE_CEMENTO_Y_YESO_N.C.P.;valorServ=99573;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MEZCLAS_BITUMINOSAS_A_BASE_DE_ASFALTO,_DE_BETUNES_NATURALES,_Y_PRODUCTOS_SIMILARES;valorServ=99575;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_PRODUCTOS_MINERALES_NO_METALICOS_N.C.P;valorServ=36991;
+SINACOFI_ACTLABORAL_ELABORACION_DE_PRODUCTOS_DE_COBRE_EN_FORMAS_PRIMARIAS.;valorServ=99576;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_PRIMARIOS_DE_METALES_PRECIOSOS_Y_DE_OTROS_METALES_NO_FERROSOS_N.C.P.;valorServ=37201;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PRODUCTOS_METALICOS_DE_USO_ESTRUCTURAL;valorServ=38135;
+SINACOFI_ACTLABORAL_FABRICACION_DE_RECIPIENTES_DE_GAS_COMPRIMIDO_O_LICUADO;valorServ=99580;
+SINACOFI_ACTLABORAL_FABRICACION_DE_GENERADORES_DE_VAPOR,_EXCEPTO_CALDERAS_DE_AGUA_CALIENTE_PARA_CALEFACCION;valorServ=99583;
+SINACOFI_ACTLABORAL_TRATAMIENTOS_Y_REVESTIMIENTOS_DE_METALES;_OBRAS_DE_INGENIERIA_MECANICA_EN_GENERAL;valorServ=38196;
+SINACOFI_ACTLABORAL_FABRICACION_DE_HERRAMIENTAS_DE_MANO_Y_ARTICULOS_DE_FERRETERIA;valorServ=38112;
+SINACOFI_ACTLABORAL_FABRICACION_DE_CABLES,_ALAMBRES_Y_PRODUCTOS_DE_ALAMBRE;valorServ=38194;
+SINACOFI_ACTLABORAL_REPARACION_DE_BOMBAS,_COMPRESORES,_SISTEMAS_HIDRAULICOS,_VALVULAS_Y_ARTICULOS_DE_GRIFERIA;valorServ=99587;
+SINACOFI_ACTLABORAL_REPARACION_DE_COJINETES,_ENGRANAJES,_TRENES_DE_ENGRANAJES_Y_PIEZAS_DE_TRANSMISION;valorServ=99589;
+SINACOFI_ACTLABORAL_REPARACION_DE_HORNOS,_HOGARES_Y_QUEMADORES;valorServ=99591;
+SINACOFI_ACTLABORAL_FABRICACION_DE_EQUIPO_DE_ELEVACION_Y_MANIPULACION;valorServ=99592;
+SINACOFI_ACTLABORAL_REPARACION_DE_EQUIPO_DE_ELEVACION_Y_MANIPULACION;valorServ=99593;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTRO_TIPO_DE_MAQUINARIAS_DE_USO_GENERAL;valorServ=38291;
+SINACOFI_ACTLABORAL_REPARACION_DE_MAQUINARIA_PARA_LA_INDUSTRIA_METALURGICA;valorServ=99598;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PARTES_PARA_MAQUINAS_DE_SONDEO_O_PERFORACION;valorServ=99599;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MAQUINARIA_PARA_LA_ELABORACION_DE_ALIMENTOS,_BEBIDAS_Y_TABACOS;valorServ=38241;
+SINACOFI_ACTLABORAL_REPARACION_DE_MAQUINARIA_PARA_LA_INDUSTRIA_TEXTIL,_DE_LA_CONFECCION,_DEL_CUERO_Y_DEL_CALZADO;valorServ=99602;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_TIPOS_DE_MAQUINARIAS_DE_USO_ESPECIAL;valorServ=38244;
+SINACOFI_ACTLABORAL_REPARACION_DE_OTROS_TIPOS_DE_MAQUINARIA_DE_USO_ESPECIAL;valorServ=99605;
+SINACOFI_ACTLABORAL_FABRICACION_DE_APARATOS_DE_USO_DOMESTICO_N.C.P.;valorServ=38332;
+SINACOFI_ACTLABORAL_FABRICACION_Y_ARMADO_DE_COMPUTADORES_Y_HARDWARE_EN_GENERAL;valorServ=38252;
+SINACOFI_ACTLABORAL_REPARACION_DE_MOTORES,_GENERADORES_Y_TRANSFORMADORES_ELECTRICOS;valorServ=99606;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ACUMULADORES_DE_PILAS_Y_BATERIAS_PRIMARIAS;valorServ=99609;
+SINACOFI_ACTLABORAL_FABRICACION_DE_LAMPARAS_Y_EQUIPO_DE_ILUMINACION;valorServ=38393;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_TIPOS_DE_EQUIPO_ELECTRICO_N.C.P.;valorServ=38315;
+SINACOFI_ACTLABORAL_REPARACION_DE_OTROS_TIPOS_DE_EQUIPO_ELECTRICO_N.C.P.;valorServ=99611;
+SINACOFI_ACTLABORAL_REPARACION_DE_TRANSMISORES_DE_RADIO_Y_TELEVISION,_APARATOS_PARA_TELEFONIA_Y_TELEGRAFIA_CON_HILOS;valorServ=99613;
+SINACOFI_ACTLABORAL_REPARACION_DE_EQUIPO_MEDICO_Y_QUIRURGICO,_Y_DE_APARATOS_ORTOPEDICOS;valorServ=99614;
+SINACOFI_ACTLABORAL_FABRICACION_DE_INSTRUMENTOS_Y_APARATOS_PARA_MEDIR,_VERIFICAR,_ENSAYAR,_NAVEGAR_Y_OTROS_FINES;valorServ=38511;
+SINACOFI_ACTLABORAL_REPARACION_DE_INSTRUMENTOS_Y_APARATOS_PARA_MEDIR,_VERIFICAR,_ENSAYAR,_NAVEGAR_Y_OTROS_FINES;valorServ=99615;
+SINACOFI_ACTLABORAL_FABRICACION_DE_EQUIPOS_DE_CONTROL_DE_PROCESOS_INDUSTRIALES;valorServ=99616;
+SINACOFI_ACTLABORAL_FABRICACION_Y/O_REPARACION_DE_LENTES_Y_ARTICULOS_OFTALMOLOGICOS;valorServ=38523;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PARTES_Y_ACCESORIOS_PARA_VEHICULOS_AUTOMOTORES_Y_SUS_MOTORES;valorServ=30002;
+SINACOFI_ACTLABORAL_CONSTRUCCION_Y_REPARACION_DE_BUQUES;_ASTILLEROS;valorServ=38411;
+SINACOFI_ACTLABORAL_CONSTRUCCION_DE_EMBARCACIONES_DE_RECREO_Y_DEPORTE;valorServ=99622;
+SINACOFI_ACTLABORAL_REPARACION_DE_EMBARCACIONES_DE_RECREO_Y_DEPORTES;valorServ=99623;
+SINACOFI_ACTLABORAL_REPARACION_DE_AERONAVES_Y_NAVES_ESPACIALES;valorServ=99624;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_EQUIPOS_DE_TRANSPORTE_N.C.P.;valorServ=71112;
+SINACOFI_ACTLABORAL_FABRICACION_DE_MUEBLES_PRINCIPALMENTE_DE_MADERA;valorServ=33201;
+SINACOFI_ACTLABORAL_FABRICACION_DE_OTROS_MUEBLES_N.C.P.,_INCLUSO_COLCHONES;valorServ=38121;
+SINACOFI_ACTLABORAL_FABRICACION_DE_PLUMAS_Y_LAPICES_DE_TODA_CLASE_Y_ARTICULOS_DE_ESCRITORIO_EN_GENERAL;valorServ=39093;
+SINACOFI_ACTLABORAL_FABRICACION_DE_BROCHAS,_ESCOBAS_Y_CEPILLOS;valorServ=39095;
+SINACOFI_ACTLABORAL_FABRICACION_DE_ARTICULOS_DE_OTRAS_INDUSTRIAS_N.C.P.;valorServ=39099;
+SINACOFI_ACTLABORAL_GENERACION_EN_CENTRALES_TERMOELECTRICA_DE_CICLOS_COMBINADOS;valorServ=99631;
+SINACOFI_ACTLABORAL_FABRICACION_DE_GAS;_DISTRIBUCION_DE_COMBUSTIBLES_GASEOSOS_POR_TUBERIAS;valorServ=41021;
+SINACOFI_ACTLABORAL_PREPARACION_DEL_TERRENO,_EXCAVACIONES_Y_MOVIMIENTOS_DE_TIERRAS;valorServ=53036;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_DEMOLICION_Y_EL_DERRIBO_DE_EDIFICIOS_Y_OTRAS_ESTRUCTURAS;valorServ=52012;
+SINACOFI_ACTLABORAL_CONSTRUCCION_DE_EDIFICIOS_COMPLETOS_O_DE_PARTES_DE_EDIFICIOS;valorServ=51013;
+SINACOFI_ACTLABORAL_OBRAS_MENORES_EN_CONSTRUCCION_(CONTRATISTAS,_ALBANILES,_CARPINTEROS);valorServ=53037;
+SINACOFI_ACTLABORAL_ALQUILER_DE_EQUIPO_DE_CONSTRUCCION_O_DEMOLICION_DOTADO_DE_OPERARIOS;valorServ=99636;
+SINACOFI_ACTLABORAL_VENTA_O_COMPRAVENTA_AL_POR_MENOR_DE_VEHICULOS_AUTOMOTORES_NUEVOS_O_USADOS;_EXCEPTO_MOTOCICLETAS;valorServ=62558;
+SINACOFI_ACTLABORAL_MANTENIMIENTO_Y_REPARACION_DE_VEHICULOS_AUTOMOTORES;valorServ=95050;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_COMBUSTIBLE_PARA_AUTOMOTORES;valorServ=62536;
+SINACOFI_ACTLABORAL_OTROS_TIPOS_DE_CORRETAJES_O_REMATES_N.C.P._(NO_INCLUYE_SERVICIOS_DE_MARTILLERO);valorServ=62001;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_MATERIAS_PRIMAS_AGRICOLAS;valorServ=61129;
+SINACOFI_ACTLABORAL_MAYORISTAS_DE_PRODUCTOS_DEL_MAR_(PESCADO,_MARISCOS,_ALGAS);valorServ=61126;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_TABACO_Y_PRODUCTOS_DERIVADOS;valorServ=61333;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_HUEVOS,_LECHE,_ABARROTES,_Y_OTROS_ALIMENTOS_N.C.P.;valorServ=61311;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_PRODUCTOS_TEXTILES,_PRENDAS_DE_VESTIR_Y_CALZADO;valorServ=61343;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_ARTICULOS_DE_PERFUMERIA,_COSMETICOS,_JABONES_Y_PRODUCTOS_DE_LIMPIEZA;valorServ=99646;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_OTROS_ENSERES_DOMESTICOS_N.C.P.;valorServ=61512;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_COMBUSTIBLES_LIQUIDOS;valorServ=99650;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_COMBUSTIBLES_SOLIDOS;valorServ=99651;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_COMBUSTIBLES_GASEOSOS;valorServ=99652;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_PRODUCTOS_CONEXOS_A_LOS_COMBUSTIBLES;valorServ=99653;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_METALES_Y_MINERALES_METALIFEROS;valorServ=61521;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_MADERA_NO_TRABAJADA_Y_PRODUCTOS_RESULTANTES_DE_SU_ELABORACION_PRIMARIA;valorServ=61381;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_OTROS_PRODUCTOS_INTERMEDIOS,_DESPERDICIOS_Y_DESECHOS_N.C.P.;valorServ=61522;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_MAQUINARIA_AGRICOLA_Y_FORESTAL;valorServ=99656;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_MAQUINARIA,_HERRAMIENTAS,_EQUIPO_Y_MATERIALES_N.C.P.;valorServ=62552;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MAYOR_DE_OTROS_PRODUCTOS_N.C.P.;valorServ=61911;
+SINACOFI_ACTLABORAL_GRANDES_ESTABLECIMIENTOS_(VENTA_DE_ALIMENTOS);_HIPERMERCADOS;valorServ=62103;
+SINACOFI_ACTLABORAL_GRANDES_TIENDAS_-_VESTUARIO_Y_PRODUCTOS_PARA_EL_HOGAR;valorServ=62410;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_OTROS_PRODUCTOS_EN_PEQUENOS_ALMACENES_NO_ESPECIALIZADOS;valorServ=62570;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_BEBIDAS_Y_LICORES_(BOTILLERIAS);valorServ=62111;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_CARNES_(ROJAS,_BLANCAS,_OTRAS)_PRODUCTOS_CARNICOS_Y_SIMILARES;valorServ=62121;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_VERDURAS_Y_FRUTAS_(VERDULERIA);valorServ=62161;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_PRODUCTOS_DE_PANADERIA_Y_PASTELERIA;valorServ=62102;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_ALIMENTOS_PARA_MASCOTAS_Y_ANIMALES_EN_GENERAL;valorServ=62191;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_PRODUCTOS_DE_CONFITERIAS,_CIGARRILLOS,_Y_OTROS;valorServ=62199;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_PRODUCTOS_MEDICINALES;valorServ=99666;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_ARTICULOS_ORTOPEDICOS;valorServ=62518;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_PRENDAS_DE_VESTIR_EN_GENERAL,_INCLUYE_ACCESORIOS;valorServ=62412;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_LANAS,_HILOS_Y_SIMILARES;valorServ=62414;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_MALETERIAS,_TALABARTERIAS_Y_ARTICULOS_DE_CUERO;valorServ=62421;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_ROPA_INTERIOR_Y_PRENDAS_DE_USO_PERSONAL;valorServ=62417;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_TEXTILES_PARA_EL_HOGAR_Y_OTROS_PRODUCTOS_TEXTILES_N.C.P.;valorServ=62459;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_ARTICULOS_ELECTRODOMESTICOS_Y_ELECTRONICOS_PARA_EL_HOGAR;valorServ=62529;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_CRISTALES,_LOZAS,_PORCELANA,_MENAJE_(CRISTALERIAS);valorServ=62532;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_DISCOS,_CASSETTES,_DVD_Y_VIDEOS;valorServ=99669;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_LAMPARAS,_APLIQUES_Y_SIMILARES;valorServ=62513;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_ARTICULOS_DE_FERRETERIA_Y_MATERIALES_DE_CONSTRUCCION;valorServ=62538;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_PRODUCTOS_DE_VIDRIO;valorServ=99671;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_FOTOGRAFICOS;valorServ=62519;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_OPTICOS;valorServ=99672;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_REVISTAS_Y_DIARIOS;valorServ=99674;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_COMPUTADORAS,_SOFTWARES_Y_SUMINISTROS;valorServ=62550;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARMERIAS,_ARTICULOS_DE_CAZA_Y_PESCA;valorServ=62514;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_DEPORTIVOS;valorServ=62530;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_DE_JOYERIA,_FANTASIAS_Y_RELOJERIAS;valorServ=62545;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_GAS_LICUADO_EN_BOMBONAS;valorServ=99675;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_CARBON,_LENA_Y_OTROS_COMBUSTIBLES_DE_USO_DOMESTICO;valorServ=62531;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_TIPICOS_(ARTESANIAS);valorServ=62522;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_DE_MASCOTAS_Y_ACCESORIOS;valorServ=99676;
+SINACOFI_ACTLABORAL_COMERCIO_AL_POR_MENOR_DE_ARTICULOS_Y_ARTEFACTOS_USADOS_N.C.P.;valorServ=62520;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_EN_EMPRESAS_DE_VENTA_A_DISTANCIA_POR_CORREO;valorServ=99678;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_EN_EMPRESAS_DE_VENTA_A_DISTANCIA_VIA_TELEFONICA;valorServ=99679;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_EN_EMPRESAS_DE_VENTA_A_DISTANCIA_VIA_INTERNET;_COMERCIO_ELECTRONICO;valorServ=99680;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_EN_PUESTOS_DE_VENTA_Y_MERCADOS;valorServ=99681;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_REALIZADA_POR_INDEPENDIENTES_EN_TRANSPORTE_PÚBLICO(LEY_20.388);valorServ=99682;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_NO_REALIZADA_EN_ALMACENES_DE_PRODUCTOS_PROPIOS_N.C.P.;valorServ=99683;
+SINACOFI_ACTLABORAL_VENTA_AL_POR_MENOR_A_CAMBIO_DE_UNA_RETRIBUCION_O_POR_CONTRATA;valorServ=99685;
+SINACOFI_ACTLABORAL_OTROS_TIPOS_DE_VENTA_AL_POR_MENOR_NO_REALIZADA_EN_ALMACENES_N.C.P.;valorServ=99686;
+SINACOFI_ACTLABORAL_OTRAS_REPARACIONES_DE_EFECTOS_PERSONALES_Y_ENSERES_DOMESTICOS_N.C.P.;valorServ=95070;
+SINACOFI_ACTLABORAL_OTROS_TIPOS_DE_HOSPEDAJE_TEMPORAL_COMO_CAMPING,_ALBERGUES,_POSADAS,_REFUGIOS_Y_SIMILARES;valorServ=99688;
+SINACOFI_ACTLABORAL_ESTABLECIMIENTOS_DE_COMIDA_RAPIDA_(BARES,_FUENTES_DE_SODA,_GELATERIAS,_PIZZERIAS_Y_SIMILARES);valorServ=63112;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_COMIDA_PREPARADA_EN_FORMA_INDUSTRIAL;valorServ=63116;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_BANQUETES,_BODAS_Y_OTRAS_CELEBRACIONES;valorServ=95150;
+SINACOFI_ACTLABORAL_TRANSPORTE_URBANO_DE_PASAJEROS_VIA_FERROCARRIL_(INCLUYE_METRO);valorServ=99691;
+SINACOFI_ACTLABORAL_TRANSPORTE_INTERURBANO_DE_PASAJEROS_VIA_AUTOBUS;valorServ=71121;
+SINACOFI_ACTLABORAL_OTROS_TIPOS_DE_TRANSPORTE_REGULAR_DE_PASAJEROS_POR_VIA_TERRESTRE_N.C.P.;valorServ=99696;
+SINACOFI_ACTLABORAL_OTROS_TIPOS_DE_TRANSPORTE_NO_REGULAR_DE_PASAJEROS_N.C.P.;valorServ=71131;
+SINACOFI_ACTLABORAL_TRANSPORTE_MARITIMO_Y_DE_CABOTAJE_DE_PASAJEROS;valorServ=71211;
+SINACOFI_ACTLABORAL_TRANSPORTE_DE_CARGA_POR_VIAS_DE_NAVEGACION_INTERIORES;valorServ=99702;
+SINACOFI_ACTLABORAL_TRANSPORTE_REGULAR_POR_VIA_AEREA_DE_PASAJEROS;valorServ=71311;
+SINACOFI_ACTLABORAL_TRANSPORTE_REGULAR_POR_VIA_AEREA_DE_CARGA;valorServ=99703;
+SINACOFI_ACTLABORAL_TRANSPORTE_NO_REGULAR_POR_VIA_AEREA_DE_PASAJEROS;valorServ=99704;
+SINACOFI_ACTLABORAL_TRANSPORTE_NO_REGULAR_POR_VIA_AEREA_DE_CARGA;valorServ=99705;
+SINACOFI_ACTLABORAL_ESTACIONAMIENTO_DE_VEHICULOS_Y_PARQUIMETROS;valorServ=71161;
+SINACOFI_ACTLABORAL_SERVICIOS_PRESTADOS_POR_CONCESIONARIOS_DE_CARRETERAS;valorServ=99707;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_CONEXAS_AL_TRANSPORTE_N.C.P.;valorServ=71312;
+SINACOFI_ACTLABORAL_AGENCIAS_Y_ORGANIZADORES_DE_VIAJES;_ACTIVIDADES_DE_ASISTENCIA_A_TURISTAS_N.C.P.;valorServ=71911;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_CORREO_DISTINTAS_DE_LAS_ACTIVIDADES_POSTALES_NACIONALES;valorServ=99710;
+SINACOFI_ACTLABORAL_PORTADORES_TELEFONICOS_(LARGA_DISTANCIA_NACIONAL_E_INTERNACIONAL);valorServ=99713;
+SINACOFI_ACTLABORAL_CENTROS_DE_LLAMADOS;_INCLUYE_ENVIO_DE_FAX;valorServ=99716;
+SINACOFI_ACTLABORAL_OTROS_SERVICIOS_DE_TELECOMUNICACIONES_N.C.P.;valorServ=72001;
+SINACOFI_ACTLABORAL_FINANCIAMIENTO_DEL_FOMENTO_DE_LA_PRODUCCION;valorServ=99721;
+SINACOFI_ACTLABORAL_ADMINISTRADORAS_DE_FONDOS_PARA_LA_VIVIENDA;valorServ=99729;
+SINACOFI_ACTLABORAL_SOCIEDADES_DE_INVERSION_Y_RENTISTAS_DE_CAPITALES_MOBILIARIOS_EN_GENERAL;valorServ=81049;
+SINACOFI_ACTLABORAL_ADMINISTRADORAS_DE_FONDOS_DE_PENSIONES_(AFP);valorServ=81024;
+SINACOFI_ACTLABORAL_EMPRESAS_DE_ASESORIA,_CONSULTORIA_FINANCIERA_Y_DE_APOYO_AL_GIRO;valorServ=99739;
+SINACOFI_ACTLABORAL_LIQUIDADORES_DE_SEGUROS;valorServ=82002;
+SINACOFI_ACTLABORAL_COMPRA,_VENTA_Y_ALQUILER_(EXCEPTO_AMOBLADOS)_DE_INMUEBLES_PROPIOS_O_ARRENDADOS;valorServ=83101;
+SINACOFI_ACTLABORAL_ALQUILER_DE_EQUIPO_DE_TRANSPORTE_POR_VIA_AEREA_SIN_TRIPULANTES;valorServ=99746;
+SINACOFI_ACTLABORAL_ALQUILER_DE_MAQUINARIA_Y_EQUIPO_AGROPECUARIO;valorServ=99747;
+SINACOFI_ACTLABORAL_ALQUILER_DE_OTROS_TIPOS_DE_MAQUINARIAS_Y_EQUIPOS_N.C.P.;valorServ=84301;
+SINACOFI_ACTLABORAL_ALQUILER_DE_OTROS_EFECTOS_PERSONALES_Y_ENSERES_DOMESTICOS_N.C.P.;valorServ=62565;
+SINACOFI_ACTLABORAL_ASESORES_Y_CONSULTORES_EN_INFORMATICA_(SOFTWARE);valorServ=84263;
+SINACOFI_ACTLABORAL_INVESTIGACIONES_Y_DESARROLLO_EXPERIMENTAL_EN_EL_CAMPO_DE_LAS_CIENCIAS_NATURALES_Y_LA_INGENIERIA;valorServ=93320;
+SINACOFI_ACTLABORAL_INVESTIGACIONES_Y_DESARROLLO_EXPERIMENTAL_EN_EL_CAMPO_DE_LAS_CIENCIAS_SOCIALES_Y_LAS_HUMANIDADES;valorServ=93300;
+SINACOFI_ACTLABORAL_EMPRESAS_DE_SERVICIOS_DE_TOPOGRAFIA_Y_AGRIMENSURA;valorServ=99758;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_INGENIERIA_PRESTADOS_POR_PROFESIONALES_N.C.P.;valorServ=84261;
+SINACOFI_ACTLABORAL_OTROS_SERVICIOS_DE_ENSAYOS_Y_ANALISIS_TECNICOS;valorServ=99761;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_LIMPIEZA_DE_EDIFICIOS_RESIDENCIALES_Y_NO_RESIDENCIALES;valorServ=99768;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_REVELADO,_IMPRESION,_AMPLIACION_DE_FOTOGRAFIAS;valorServ=95140;
+SINACOFI_ACTLABORAL_EVALUACION_Y_CALIFICACION_DEL_GRADO_DE_SOLVENCIA;valorServ=99774;
+SINACOFI_ACTLABORAL_ASESORIAS_EN_LA_GESTION_DE_LA_COMPRA_O_VENTA_DE_PEQUENAS_Y_MEDIANAS_EMPRESAS;valorServ=99775;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_TAQUIGRAFIA,_REPRODUCCION,_DESPACHO_DE_CORRESPONDENCIA,_Y_OTRAS_LABORES_DE_OFICINA;valorServ=84271;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TRADUCCION_E_INTERPRETACION;valorServ=99779;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_MANTENIMIENTO_DEL_ORDEN_PUBLICO_Y_DE_SEGURIDAD;valorServ=99789;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_PLANES_DE_SEGURIDAD_SOCIAL_DE_AFILIACION_OBLIGATORIA_RELACIONADOS_CON_SALUD;valorServ=99790;
+SINACOFI_ACTLABORAL_ESTABLECIMIENTOS_DE_ENSENANZA_SECUNDARIA_DE_FORMACION_GENERAL;valorServ=99793;
+SINACOFI_ACTLABORAL_EDUCACION_EXTRAESCOLAR_(ESCUELA_DE_CONDUCCION,_MUSICA,_MODELAJE,_ETC.);valorServ=99797;
+SINACOFI_ACTLABORAL_ESTABLECIMIENTOS_MEDICOS_DE_ATENCION_AMBULATORIA_(CENTROS_MEDICOS);valorServ=93450;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_ODONTOLOGOS_EN_FORMA_INDEPENDIENTE;valorServ=93470;
+SINACOFI_ACTLABORAL_LABORATORIOS_CLINICOS;_INCLUYE_BANCOS_DE_SANGRE;valorServ=93500;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_MEDICOS_VETERINARIOS_EN_FORMA_INDEPENDIENTE;valorServ=93551;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_EVACUACION_DE_RILES_Y_AGUAS_SERVIDAS;valorServ=99808;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_TRATAMIENTO_DE_RILES_Y_AGUAS_SERVIDAS;valorServ=99809;
+SINACOFI_ACTLABORAL_CENTROS_DE_MADRES_Y_UNIDADES_VECINALES_Y_COMUNALES;valorServ=99810;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_INSTITUTOS_DE_ESTUDIOS,_FUNDACIONES,_CORPORACIONES_DE_DESARROLLO_(EDUCACION,_SALUD);valorServ=99812;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_PRODUCCION_DE_RECITALES_Y_OTROS_EVENTOS_MUSICALES_MASIVOS;valorServ=99814;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_PRODUCCION_TEATRAL_Y_OTROS_N.C.P.;valorServ=94141;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_ARTISTAS:_AUTORES,_COMPOSITORES,_PINTORES,_COMPANIAS_DE_TEATRO,_ORQUESTAS,_OTROS;valorServ=99815;
+SINACOFI_ACTLABORAL_AGENCIAS_DE_VENTA_DE_BILLETES_DE_TEATRO,_SALAS_DE_CONCIERTO_Y_DE_TEATRO;valorServ=99816;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_DISCOTECAS,_CABARET,_SALAS_DE_BAILE_Y_SIMILARES;valorServ=99818;
+SINACOFI_ACTLABORAL_ESPECTACULOS_CIRCENSES,_DE_TITERES_U_OTROS_SIMILARES;valorServ=99820;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_DE_ENTRETENIMIENTO_N.C.P.;valorServ=99821;
+SINACOFI_ACTLABORAL_SERVICIOS_PERIODISTICOS_PRESTADO_POR_PROFESIONALES;valorServ=94161;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_MUSEOS_Y_PRESERVACION_DE_LUGARES_Y_EDIFICIOS_HISTORICOS;valorServ=99822;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_JARDINES_BOTANICOS_Y_ZOOLOGICOS_Y_DE_PARQUES_NACIONALES;valorServ=99823;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_CLUBES_DE_DEPORTES_Y_ESTADIOS;valorServ=94906;
+SINACOFI_ACTLABORAL_PROMOCION_Y_ORGANIZACION_DE_ESPECTACULOS_DEPORTIVOS;valorServ=99827;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_RELACIONADAS_AL_DEPORTE_N.C.P.;valorServ=99829;
+SINACOFI_ACTLABORAL_SISTEMAS_DE_JUEGOS_DE_AZAR_MASIVOS.;valorServ=99830;
+SINACOFI_ACTLABORAL_SALAS_DE_BILLAR,_BOWLING,_POOL_Y_JUEGOS_ELECTRONICOS;valorServ=94902;
+SINACOFI_ACTLABORAL_CONTRATACION_DE_ACTORES_PARA_CINE,_TV,_Y_TEATRO;valorServ=99832;
+SINACOFI_ACTLABORAL_OTROS_SERVICIOS_DE_DIVERSION_Y_ESPARCIMIENTOS_N.C.P.;valorServ=94910;
+SINACOFI_ACTLABORAL_LAVADO_Y_LIMPIEZA_DE_PRENDAS_DE_TELA_Y_DE_PIEL,_INCLUSO_LAS_LIMPIEZAS_EN_SECO;valorServ=95080;
+SINACOFI_ACTLABORAL_SERVICIOS_DE_CARROZAS_FÚNEBRES_(TRANSPORTE_DE_CADÁVERES);valorServ=99835;
+SINACOFI_ACTLABORAL_ACTIVIDADES_DE_MANTENIMIENTO_FISICO_CORPORAL_(BANOS,_TURCOS,_SAUNAS);valorServ=95120;
+SINACOFI_ACTLABORAL_OTRAS_ACTIVIDADES_DE_SERVICIOS_PERSONALES_N.C.P.;valorServ=95005;
+SINACOFI_ACTLABORAL_ORGANIZACIONES_Y_ORGANOS_EXTRATERRITORIALES;valorServ=96001;
+#--------------------------------------------------------
+# Listado de homologacion sinacofi - PROFESION
+#-------------------------------------------------------
+SINACOFI_PROFESION_ABOGADA;valorServ=401;
+SINACOFI_PROFESION_ACTOR;valorServ=601;
+SINACOFI_PROFESION_ADMINISTRADOR_DE_COMERCIO_EXTERIOR;valorServ=904;
+SINACOFI_PROFESION_ADMINISTRADOR_DE_EMPRESAS;valorServ=906;
+SINACOFI_PROFESION_ADMINISTRADOR_DE_EMPRESAS_DE_TURISMO;valorServ=905;
+SINACOFI_PROFESION_ADMINISTRADOR_PUBLICO;valorServ=402;
+SINACOFI_PROFESION_ADMINISTRADOR_TURISTICO;valorServ=979;
+SINACOFI_PROFESION_ANALISTA_QUÍMICO;valorServ=930;
+SINACOFI_PROFESION_ANTROPOLOGO;valorServ=751;
+SINACOFI_PROFESION_ARQUEOLOGO;valorServ=752;
+SINACOFI_PROFESION_ARQUITECTO;valorServ=101;
+SINACOFI_PROFESION_ASISTENTE_SOCIAL;valorServ=305;
+SINACOFI_PROFESION_ASTRÓNOMO;valorServ=753;
+SINACOFI_PROFESION_BIBLIOTECARIO;valorServ=602;
+SINACOFI_PROFESION_BIOLOGO_MARINO;valorServ=756;
+SINACOFI_PROFESION_CIRUJANO_DENTISTA;valorServ=202;
+SINACOFI_PROFESION_COMUNICACIÓN_AUDIOVISUAL;valorServ=934;
+SINACOFI_PROFESION_CONSTRUCTOR_CIVIL;valorServ=102;
+SINACOFI_PROFESION_CONTADOR;valorServ=403;
+SINACOFI_PROFESION_CONTADOR_AUDITOR;valorServ=404;
+SINACOFI_PROFESION_DIBUJANTE_TECNICO;valorServ=103;
+SINACOFI_PROFESION_DISEÑADOR_CON_MENCIÓN_EN_DISEÑO_GRAFICO;valorServ=615;
+SINACOFI_PROFESION_DISEÑADOR_DE_VESTUARIO;valorServ=605;
+SINACOFI_PROFESION_DISEÑADOR_PUBLICITARIO;valorServ=908;
+SINACOFI_PROFESION_ECONOMISTA;valorServ=405;
+SINACOFI_PROFESION_ENFERMERO;valorServ=204;
+SINACOFI_PROFESION_ESTADÍSTICO;valorServ=407;
+SINACOFI_PROFESION_FONOAUDIOLOGO;valorServ=205;
+SINACOFI_PROFESION_FOTÓGRAFO_PROFESIONAL;valorServ=607;
+SINACOFI_PROFESION_GEÓLOGO;valorServ=754;
+SINACOFI_PROFESION_INGENIERO_AGRÓNOMO;valorServ=105;
+SINACOFI_PROFESION_INGENIERO_AMBIENTAL;valorServ=980;
+SINACOFI_PROFESION_INGENIERO_CIVIL;valorServ=106;
+SINACOFI_PROFESION_INGENIERO_COMERCIAL;valorServ=406;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_ACUICULTURA;valorServ=941;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_ADMINISTRACIÓN_HOTELERA;valorServ=942;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_ADMINISTRACIÓN_TURISTICA_Y_HOTELERA;valorServ=943;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_AGRONOMIA;valorServ=948;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_CONECTIVIDAD_Y_REDES;valorServ=946;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_CONSTRUCCIÓN;valorServ=947;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_ELECTRICIDAD_MENCIÓN_ELECTRÓNICA;valorServ=949;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_GEOMENSURA;valorServ=951;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_GESTIÓN_FORESTAL;valorServ=952;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCION_EN_INDUSTRIA_ALIMENTARIA;valorServ=954;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_INFORMÁTICA;valorServ=950;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MAQUINARIA_Y_VEHICULOS_AUTOMOTRICES;valorServ=955;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MARKETING;valorServ=957;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MECÁNICA_AUTOMOTRIZ_Y_AUTOTRÓNICA;valorServ=958;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MECÁNICA_DE_PROCESOS_Y_MANTENIMIENTO_INDUSTRIAL;valorServ=959;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MEDIO_AMBIENTE;valorServ=961;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_MINAS;valorServ=962;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_NEGOCIOS_INTERNACIONALES;valorServ=963;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_PREVENCIÓN_DE_RIESGOS;valorServ=964;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_PROCESOS_INDUSTRIALES;valorServ=945;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_PROYECTOS_INDUSTRIALES;valorServ=965;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_QUÍMICA_INDUSTRIAL;valorServ=966;
+SINACOFI_PROFESION_INGENIERO_DE_EJECUCIÓN_EN_TELECOMUNICACIONES;valorServ=968;
+SINACOFI_PROFESION_INGENIERO_ELECTRONICO_Y_EN_TELECOMUNICACIONES;valorServ=108;
+SINACOFI_PROFESION_INGENIERO_EN_ACUICULTURA;valorServ=116;
+SINACOFI_PROFESION_INGENIERO_EN_ADMINISTRACIÓN;valorServ=975;
+SINACOFI_PROFESION_INGENIERO_EN_COMPUTACIÓN;valorServ=502;
+SINACOFI_PROFESION_INGENIERO_EN_EJECUCIÓN_ADMINISTRACIÓN_DE_EMPRESAS;valorServ=944;
+SINACOFI_PROFESION_INGENIERO_EN_GESTIÓN_DE_CALIDAD;valorServ=978;
+SINACOFI_PROFESION_INGENIERO_EN_MINAS;valorServ=107;
+SINACOFI_PROFESION_INGENIERO_EN_PREVENCIÓN_DE_RIESGOS;valorServ=977;
+SINACOFI_PROFESION_INGENIERO_EN_SONIDO;valorServ=114;
+SINACOFI_PROFESION_INGENIERO_FORESTAL;valorServ=113;
+SINACOFI_PROFESION_INGENIERO_GEOLOGO;valorServ=754;
+SINACOFI_PROFESION_INGENIERO_INDUSTRIAL;valorServ=109;
+SINACOFI_PROFESION_INGENIERO_MECANICO;valorServ=110;
+SINACOFI_PROFESION_INGENIERO_NAVAL;valorServ=111;
+SINACOFI_PROFESION_INGENIERO_QUÍMICO;valorServ=112;
+SINACOFI_PROFESION_INSTRUMENTISTA;valorServ=931;
+SINACOFI_PROFESION_INTÉRPRETE;valorServ=608;
+SINACOFI_PROFESION_KINESIOLOGO;valorServ=206;
+SINACOFI_PROFESION_LABORATORISTA_DENTAL;valorServ=218;
+SINACOFI_PROFESION_MATRONA;valorServ=208;
+SINACOFI_PROFESION_MÉDICO;valorServ=209;
+SINACOFI_PROFESION_MÉDICO_VETERINARIO;valorServ=210;
+SINACOFI_PROFESION_METEOROLOGO;valorServ=755;
+SINACOFI_PROFESION_NUTRICIONISTA;valorServ=211;
+SINACOFI_PROFESION_NUTRICIONISTA_DIETISTA;valorServ=203;
+SINACOFI_PROFESION_PERIODISTA;valorServ=612;
+SINACOFI_PROFESION_PILOTO_COMERCIAL;valorServ=703;
+SINACOFI_PROFESION_PINTOR;valorServ=613;
+SINACOFI_PROFESION_PROFESOR_DE_EDUCACIÓN_BÁSICA;valorServ=303;
+SINACOFI_PROFESION_PROFESOR_DE_EDUCACIÓN_DIFERENCIAL;valorServ=307;
+SINACOFI_PROFESION_PROFESOR_DE_EDUCACIÓN_PARVULARIA;valorServ=302;
+SINACOFI_PROFESION_PROFESOR_DE_ENSEÑANZA_MEDIA;valorServ=304;
+SINACOFI_PROFESION_PROGRAMADOR_DE_APLICACIONES_COMPUTACIONALES;valorServ=503;
+SINACOFI_PROFESION_PUBLICISTA;valorServ=614;
+SINACOFI_PROFESION_QUÍMICO_FARMACEUTICO;valorServ=213;
+SINACOFI_PROFESION_RELACIONADOR_PÚBLICO;valorServ=939;
+SINACOFI_PROFESION_SECRETARIA_PROFESIONAL;valorServ=410;
+SINACOFI_PROFESION_SICOLOGO;valorServ=214;
+SINACOFI_PROFESION_SOCIOLOGO;valorServ=306;
+SINACOFI_PROFESION_SUBOFICIAL_MAYOR_(R);valorServ=812;
+SINACOFI_PROFESION_TÉCNICO_NIVEL_SUPERIOR_EN_PROGRAMACIÓN_DE_COMPUTADORES;valorServ=918;
+SINACOFI_PROFESION_TECNÓLOGA_EN_ADMINISTRACIÓN_DE_EMPRESAS_TURÍSTICAS_Y_HOTELERAS;valorServ=933;
+SINACOFI_PROFESION_TECNOLOGO_DEL_SONIDO;valorServ=936;
+SINACOFI_PROFESION_TECNÓLOGO_EN_ALIMENTOS;valorServ=974;
+SINACOFI_PROFESION_TECNÓLOGO_EN_CONSTRUCCIONES;valorServ=926;
+SINACOFI_PROFESION_TECNÓLOGO_EN_ELECTRICIDAD;valorServ=921;
+SINACOFI_PROFESION_TECNÓLOGO_EN_PREVENCIÓN_DE_RIESGOS_Y_MEDIO_AMBIENTE;valorServ=976;
+SINACOFI_PROFESION_TECNÓLOGO_EN_TELECOMUNICACIONES;valorServ=938;
+SINACOFI_PROFESION_TECNÓLOGO_MÉDICO;valorServ=215;
+SINACOFI_PROFESION_TOPOGRAFO;valorServ=104;
+SINACOFI_PROFESION_TRADUCTOR;valorServ=981;
+
+
+SINACOFI_PAISES_C;valorServ=997;
+#----------------------------------------------------------
+# ---------------------------------------------------
+# Rangos de renta.
+# -----------------------------------------------------
+RANGO_RENTA;total=6;
+0_RANGO_RENTA;texto=$0 a $449.999;valor=449999;
+1_RANGO_RENTA;texto=$450.000 a $749.999;valor=749999;
+2_RANGO_RENTA;texto=$750.000 a $1.299.999;valor=1299999;
+3_RANGO_RENTA;texto=$1.300.000 a $2.499.999;valor=2499999;
+4_RANGO_RENTA;texto=$2.500.000 a $2.999.999;valor=2999999;
+5_RANGO_RENTA;texto=$3.000.000 a $4.000.000;valor=3999999;
+6_RANGO_RENTA;texto=Mayor o igual a $4.000.000;valor=4000000;
+
+# -----------------------------------------------------------
+# Planes de convenio.
+# -----------------------------------------------------------
+PLANES_CONVENIO;total=3;
+0_PLANES_CONVENIO;glosa=Plan convenio 1;valor=H;
+1_PLANES_CONVENIO;glosa=Plan convenio 2;valor=0;
+2_PLANES_CONVENIO;glosa=Plan convenio 3;valor=R;
+3_PLANES_CONVENIO;glosa=Plan convenio 4;valor=8;
+
+# ----------------------------------------------------------
+# PLAN CONVENIO
+# ----------------------------------------------------------
+
+PLANESCONVENIO;valor=H,0,R,8;
+
+rentaMinimaPermitida;110=450000;105=400000;
+modificarClieneCalificacion3;valor=true;
+MINIMO_RENTA_PREVIRED_110;valor=450000;
+MINIMO_RENTA_PREVIRED_105;valor=400000;
+
+
+# -------------------------------------------------
+# UNIVERSIDADES
+# -------------------------------------------------
+
+TOTAL_UNIVERSIDADES;total=80;
+
+1_UNIVERSIDAD;nombre=Pontificia Universidad Católica De Chile;
+2_UNIVERSIDAD;nombre=Universidad De Chile;
+3_UNIVERSIDAD;nombre=Pontificia Universidad Católica De Valparaíso;
+4_UNIVERSIDAD;nombre=Universidad Austral De Chile;
+5_UNIVERSIDAD;nombre=Universidad Católica Del Norte;
+6_UNIVERSIDAD;nombre=Universidad De Concepción;
+7_UNIVERSIDAD;nombre=Universidad De Santiago De Chile;
+8_UNIVERSIDAD;nombre=Universidad Adolfo Ibáñez;
+9_UNIVERSIDAD;nombre=Universidad Alberto Hurtado;
+10_UNIVERSIDAD;nombre=Universidad Católica Del Maule;
+11_UNIVERSIDAD;nombre=Universidad De La Frontera;
+12_UNIVERSIDAD;nombre=Universidad De Los Andes;
+13_UNIVERSIDAD;nombre=Universidad De Talca;
+14_UNIVERSIDAD;nombre=Universidad De Tarapacá;
+15_UNIVERSIDAD;nombre=Universidad De Valparaíso;
+16_UNIVERSIDAD;nombre=Universidad Del Bío-Bío;
+17_UNIVERSIDAD;nombre=Universidad Del Desarrollo;
+18_UNIVERSIDAD;nombre=Universidad Diego Portales;
+19_UNIVERSIDAD;nombre=Universidad Mayor;
+20_UNIVERSIDAD;nombre=Universidad San Sebastián;
+21_UNIVERSIDAD;nombre=Universidad Técnica Federico Santa María;
+22_UNIVERSIDAD;nombre=Universidad Andrés Bello;
+23_UNIVERSIDAD;nombre=Universidad Autónoma De Chile;
+24_UNIVERSIDAD;nombre=Universidad Católica De La Santísima Concepción;
+25_UNIVERSIDAD;nombre=Universidad Católica De Temuco;
+26_UNIVERSIDAD;nombre=Universidad Católica Silva Henríquez;
+27_UNIVERSIDAD;nombre=Universidad De Antofagasta;
+28_UNIVERSIDAD;nombre=Universidad De Atacama;
+29_UNIVERSIDAD;nombre=Universidad De La Serena;
+30_UNIVERSIDAD;nombre=Universidad De Magallanes;
+31_UNIVERSIDAD;nombre=Universidad De Playa Ancha De Ciencias De La Educación;
+32_UNIVERSIDAD;nombre=Universidad De Viña Del Mar;
+33_UNIVERSIDAD;nombre=Universidad Finis Terrae;
+34_UNIVERSIDAD;nombre=Universidad Metropolitana De Ciencias De La Educación;
+35_UNIVERSIDAD;nombre=Universidad Academia De Humanismo Cristiano;
+36_UNIVERSIDAD;nombre=Universidad Adventista De Chile;
+37_UNIVERSIDAD;nombre=Universidad Arturo Prat;
+38_UNIVERSIDAD;nombre=Universidad Bernardo O'Higgins;
+39_UNIVERSIDAD;nombre=Universidad Central De Chile;
+40_UNIVERSIDAD;nombre=Universidad De Las Américas;
+41_UNIVERSIDAD;nombre=Universidad De Los Lagos;
+42_UNIVERSIDAD;nombre=Universidad Santo Tomás;
+43_UNIVERSIDAD;nombre=Universidad Tecnológica De Chile Inacap;
+44_UNIVERSIDAD;nombre=Universidad Tecnológica Metropolitana;
+45_UNIVERSIDAD;nombre=Universidad Del Pacífico;
+46_UNIVERSIDAD;nombre=Universidad Gabriela Mistral;
+47_UNIVERSIDAD;nombre=Universidad Bolivariana;
+48_UNIVERSIDAD;nombre=Universidad De Arte Y Ciencias Sociales Arcis;
+49_UNIVERSIDAD;nombre=Universidad De Artes, Ciencias Y Comunicación Uniacc;
+50_UNIVERSIDAD;nombre=Universidad Del Mar;
+51_UNIVERSIDAD;nombre=Universidad Iberoamericana De Ciencias Y Tecnología Unicit;
+52_UNIVERSIDAD;nombre=Universidad La República;
+53_UNIVERSIDAD;nombre=Universidad Pedro De Valdivia;
+54_UNIVERSIDAD;nombre=Universidad Sek;
+55_UNIVERSIDAD;nombre=Universidad Ucinf;
+56_UNIVERSIDAD;nombre=Instituto Profesional Duoc Uc;
+57_UNIVERSIDAD;nombre=Instituto Profesional Inacap;
+58_UNIVERSIDAD;nombre=Instituto Nacional Del Fútbol, Deporte Y Actividad Física ( Ip Inaf);
+59_UNIVERSIDAD;nombre=Instituto Profesional Agrario Adolfo Matthei;
+60_UNIVERSIDAD;nombre=Instituto Profesional De Chile;
+61_UNIVERSIDAD;nombre=Instituto Profesional La Araucana;
+62_UNIVERSIDAD;nombre=Instituto Profesional Virginio Gómez;
+63_UNIVERSIDAD;nombre=Instituto Profesional Aiep;
+64_UNIVERSIDAD;nombre=Instituto Profesional Ciisa;
+65_UNIVERSIDAD;nombre=Instituto Profesional De Artes Y Comunicación Arcos;
+66_UNIVERSIDAD;nombre=Instituto Profesional Escuela De Contadores Auditores De Santiago;
+67_UNIVERSIDAD;nombre=Instituto Profesional Escuela Moderna De Música;
+68_UNIVERSIDAD;nombre=Instituto Profesional Esucomex;
+69_UNIVERSIDAD;nombre=Instituto Profesional Guillermo Subercaseaux;
+70_UNIVERSIDAD;nombre=Instituto Profesional Santo Tomás;
+71_UNIVERSIDAD;nombre=Instituto Profesional Carlos Casanueva;
+72_UNIVERSIDAD;nombre=Instituto Profesional Eatri;
+73_UNIVERSIDAD;nombre=Instituto Profesional Galdámez, Ipg;
+74_UNIVERSIDAD;nombre=Instituto Profesional Los Leones;
+75_UNIVERSIDAD;nombre=Instituto Profesional Catequístico Puc;
+76_UNIVERSIDAD;nombre=Instituto Profesional Diego Portales;
+77_UNIVERSIDAD;nombre=Instituto Profesional Los Lagos;
+78_UNIVERSIDAD;nombre=Instituto Profesional Providencia;
+79_UNIVERSIDAD;nombre=Instituto Profesional Valle Central;
+80_UNIVERSIDAD;nombre=Otra;
+
+
+
+# -------------------------------------------------
+# CARRERAS
+# -------------------------------------------------
+
+TOTAL_CARRERAS;total=95;
+
+1_CARRERA;nombre=Geología;
+2_CARRERA;nombre=Ing. Civil;
+3_CARRERA;nombre=Ing. Civil en Computación e Informática;
+4_CARRERA;nombre=Ing. Civil Eléctrica;
+5_CARRERA;nombre=Ing. Civil en Electrónica;
+6_CARRERA;nombre=Ing. Civil en Construcción;
+7_CARRERA;nombre=Ing. Civil Industrial;
+8_CARRERA;nombre=Ing. Civil en Información y Control de Gestión;
+9_CARRERA;nombre=Ing. Civil en Minas;
+10_CARRERA;nombre=Ing. Civil en Obras Civiles;
+11_CARRERA;nombre=Ing. Civil Mecánica;
+12_CARRERA;nombre=Ing. Civil Metalmecánica;
+13_CARRERA;nombre=Ing. Civil Metalúrgica;
+14_CARRERA;nombre=Ing. Civil Química;
+15_CARRERA;nombre=Ing. Civil (otras especialidades);
+16_CARRERA;nombre=Medicina (sin especialidad);
+17_CARRERA;nombre=Agronomía;
+18_CARRERA;nombre=Construcción Civil;
+19_CARRERA;nombre=Derecho;
+20_CARRERA;nombre=Enfermería;
+21_CARRERA;nombre=Fonoaudiología;
+22_CARRERA;nombre=Ing. Comercial;
+23_CARRERA;nombre=Ing. Eléctrica;
+24_CARRERA;nombre=Ing. en Electrónica;
+25_CARRERA;nombre=Ing. en Información y Control de Gestión;
+26_CARRERA;nombre=Ing. en Informática;
+27_CARRERA;nombre=Ing. Industrial;
+28_CARRERA;nombre=Ing. (otras especialidades);
+29_CARRERA;nombre=Kinesiología;
+30_CARRERA;nombre=Odontología;
+31_CARRERA;nombre=Química y Farmacia y Tecnología Médica.;
+32_CARRERA;nombre=Administración Pública;
+33_CARRERA;nombre=Arquitectura;
+34_CARRERA;nombre=Bibliotecología;
+35_CARRERA;nombre=Biología y Química;
+36_CARRERA;nombre=Bioquímica;
+37_CARRERA;nombre=Comunicación Audiovisual;
+38_CARRERA;nombre=Comunicación Social;
+39_CARRERA;nombre=Contador Auditor;
+40_CARRERA;nombre=Diseño;
+41_CARRERA;nombre=Ed. Parvularia;
+42_CARRERA;nombre=Ed. Diferencial;
+43_CARRERA;nombre=Geografía;
+44_CARRERA;nombre=Ing. de Ejecución Eléctrica;
+45_CARRERA;nombre=Ing. de Ejecución en Computación e informática;
+46_CARRERA;nombre=Ing. de Ejecución en Electrónica;
+47_CARRERA;nombre=Ing. de Ejecución Industrial;
+48_CARRERA;nombre=Ing. de Ejecución Mecánica;
+49_CARRERA;nombre=Ing. de Ejecución (otras especialidades);
+50_CARRERA;nombre=Ing. en Alimentos;
+51_CARRERA;nombre=Ingeniería Forestal;
+52_CARRERA;nombre=Licenciatura en Artes;
+53_CARRERA;nombre=Nutrición y Dietética;
+54_CARRERA;nombre=Licenciatura en Historia;
+55_CARRERA;nombre=Licenciatura en Letras y Literatura;
+56_CARRERA;nombre=Medicina Veterinaria;
+57_CARRERA;nombre=Música y Danza;
+58_CARRERA;nombre=Obstetricia y Puericultura;
+59_CARRERA;nombre=Pedagogía Artes;
+60_CARRERA;nombre=Pedagogía Castellano y Filosofía;
+61_CARRERA;nombre=Pedagogía Cs. Naturales;
+62_CARRERA;nombre=Pedagogía Ed. Básica;
+63_CARRERA;nombre=Pedagogía Ed. Física;
+64_CARRERA;nombre=Pedagogía en Idiomas;
+65_CARRERA;nombre=Pedagogía Historia;
+66_CARRERA;nombre=Pedagogía Matemáticas;
+67_CARRERA;nombre=Pedagogía Religión;
+68_CARRERA;nombre=Periodismo;
+69_CARRERA;nombre=Psicología;
+70_CARRERA;nombre=Psicopedagogía;
+71_CARRERA;nombre=Publicidad;
+72_CARRERA;nombre=Químico Laboratorista;
+73_CARRERA;nombre=Sociólogo;
+74_CARRERA;nombre=Terapia Ocupacional;
+75_CARRERA;nombre=Trabajo y Servicio Social;
+76_CARRERA;nombre=Traducción y Otras.;
+77_CARRERA;nombre=Contador Auditor;
+78_CARRERA;nombre=Diseño;
+79_CARRERA;nombre=Ing. en negocios internacionales;
+80_CARRERA;nombre=Ing. en construcción;
+81_CARRERA;nombre=Ing. en Geomensura;
+82_CARRERA;nombre=Ing. en Automatización;
+83_CARRERA;nombre=Ing.  en Electricidad;
+84_CARRERA;nombre=Ing. en Telecomunicaciones;
+85_CARRERA;nombre=Ing. en Biotecnología;
+86_CARRERA;nombre=Ing. en Industria alimentaria;
+87_CARRERA;nombre=Ing. en química industrial;
+88_CARRERA;nombre=Ing. en prev. de riesgos;
+89_CARRERA;nombre=Ing. Agrícola mención ganadería;
+90_CARRERA;nombre=Ing. en Sonido;
+91_CARRERA;nombre=Ing. en Gestión Logística;
+92_CARRERA;nombre=Ing. en Gestión Comercial;
+93_CARRERA;nombre=Ing. en mecánica e Ing. Ejecución (especialidades);
+94_CARRERA;nombre=Publicidad;
+95_CARRERA;nombre=Otra;
+
+#------------------------
+# Anio en curse
+#------------------------
+ANIO_CURSE_TOTAL;total=4;
+
+1_ANIO_CURSE;valor=Antepenúltimo;
+2_ANIO_CURSE;valor=Penúltimo;
+3_ANIO_CURSE;valor=Último;
+4_ANIO_CURSE;valor=Otro;
+
+#----------------------------------------
+# DETALLE DE TARJETA PARA MOVILES
+#----------------------------------------
+TARJETAS_MOVIL;valor=002,001,036,006,026,041,096,501,516,506,536;
+
+# TARIFAS MOVILES 
+
+TARJETAS_MOVIL_002;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=2.50;cobroAdmin=0.00;
+TARJETAS_MOVIL_001;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=2.50;cobroAdmin=0.00;
+TARJETAS_MOVIL_501;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=2.50;cobroAdmin=0.00;
+TARJETAS_MOVIL_036;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=0.00;cobroAdmin=0.00;
+TARJETAS_MOVIL_006;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=2.50;cobroAdmin=0.00;
+TARJETAS_MOVIL_516;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=2.50;cobroAdmin=0.00;
+TARJETAS_MOVIL_026;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=0.00;cobroAdmin=0.00;
+TARJETAS_MOVIL_506;cobroMensual=0.06;avanceChile=0.30;avanceEfectivoExtranjero=0.23;compraExtranjero=0.00;cobroAdmin=0.00;
+TARJETAS_MOVIL_041;cobroMensual=0.09;avanceChile=0.30;avanceEfectivoExtranjero=0.30;compraExtranjero=2.50;cobroAdmin=1.80;
+TARJETAS_MOVIL_096;cobroMensual=0.13;avanceChile=0.30;avanceEfectivoExtranjero=0.30;compraExtranjero=0.00;cobroAdmin=2.20;
+TARJETAS_MOVIL_536;cobroMensual=0.13;avanceChile=0.30;avanceEfectivoExtranjero=0.30;compraExtranjero=0.00;cobroAdmin=2.20;
+
+#BENEFICIOS MOVILES
+
+TARJETAS_MOVIL_BENEF_002;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_001;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_501;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_036;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_006;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_516;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_026;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_506;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_041;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_096;valor=Beneficio1|&&|Beneficio2;
+TARJETAS_MOVIL_BENEF_536;valor=Beneficio1|&&|Beneficio2;
+
+
+#NUEVOS CODIGOS TARJETAS
+codigosTdc;002=012;001=071;501=541;036=216;006=236;516=556;026=206;506=546;
+#LISTA PARA INVERTIR A LOS VALORES ANTIGUOS DE LAS TDC
+convertirACodigosAntiguos;012=002;071=001;541=501;216=036;236=006;556=516;206=026;546=506;
+
+#FINALIZAR VIAJE MOBILE
+etapasViaMobile;ingresoSucMobile=PLANES_SUC_INGRESADA;seleccionaSucursalMobile=PLANES_SUCURSAL_MOB;finalizaViajeMobile=PLANES_FINAL_VJE_MOB;
+
+
+#TAMANIO MAXIMO POR ARCHIVO MOVIL
+SIZE_MAX_FILE_MOVIL;VALOR=5242880;
+#SIZE_MAX_FILE_MOVIL;VALOR=4194304;
+#SIZE_MAX_FILE_MOVIL;VALOR=3145728;
+#SIZE_MAX_FILE_MOVIL;VALOR=2097152;
+

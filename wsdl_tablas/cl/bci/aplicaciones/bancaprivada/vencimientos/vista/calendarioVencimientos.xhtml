@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.prime.com.tr/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+<h:head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
+<title>BCI: Banca Privada</title>
+<h:outputScript library="primefaces" name="jquery/jquery.js" />
+<script type="text/javascript">
+	$ = jQuery;
+</script>
+<!--
+<h:outputStylesheet library="css" name="screen_jsf.css"></h:outputStylesheet>  
+<h:outputStylesheet library="css" name="print.css"></h:outputStylesheet>  
+-->
+  <link href="../../../../../../resources/bancaprivada/vencimientos/css/screen.css" rel="stylesheet" type="text/css" media="screen" />
+  <link href="../../../../../../resources/bancaprivada/vencimientos/css/print.css" rel="stylesheet" type="text/css" media="print" /> 
+   <link href="../../../../../../resources/bancaprivada/vencimientos/css/baseVencimientos.css" rel="stylesheet" type="text/css" media="screen" />
+	
+	<link href="../../../../../../resources/bancaprivada/vencimientos/css/fullcalendar.css" rel="stylesheet" type="text/css" media="screen" />
+	<link href="../../../../../../resources/bancaprivada/vencimientos/css/fullcalendar.print.css" rel="stylesheet" type="text/css" media="screen" />
+
+<h:outputScript library="bancaprivada/vencimientos/js" name="main.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="validaciones.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="global/menu.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="global/tamano_texto.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="global/global.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="plugins/jquery.easing.1.3.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="plugins/jquery.anyDropDown.js"></h:outputScript>  
+<h:outputScript library="bancaprivada/vencimientos/js" name="plugins/jquery.tablesorter.min.js"></h:outputScript> 
+
+	<h:outputScript name="js/calendario/jquery-ui-1.8.11.custom.min.js" library="bancaprivada/vencimientos"></h:outputScript>
+	<h:outputScript name="js/calendario/fullcalendar.min.js" library="bancaprivada/vencimientos"></h:outputScript>
+
+<script type="text/javascript">
+
+function seleccionarDia(diaInicial){
+		$("#hiddenDiaSeleccionado").val(diaInicial);
+		cargarDiaSeleccionado();
+		mostrar_detalle();
+}
+
+function seleccionarMensual(diaInicial, diaFinal){
+	
+		$("#hiddenDiaSeleccionado").val(diaInicial);
+		$("#hiddenDiaSeleccionadoFinal").val(diaFinal);
+	
+		cargarSeleccionarMensual();
+		mostrar_detalle();
+}
+
+</script>
+
+</h:head>
+
+<style type='text/css'>
+	#calendar {
+		width: 100%;
+		margin: 0 auto;
+		}
+
+</style>
+
+<f:loadBundle basename="cl.bci.aplicaciones.bancaprivada.vencimientos.Vencimientos" var="msgVencimientos"/> 
+<h:body>
+
+	<div class="encabezado">
+
+	<div class="usabilidad">
+	<h:form id="formInformes" prependId="false">
+		<span class="excel"><h:commandLink actionListener="#{vencimientosModelMB.generarCalendarioExcel}" value="#{msgVencimientos.exportarExcel}"></h:commandLink></span><span class="imprimir"><a href="#;"
+		onclick="javascript: window.print();" title="Imprimir">#{msgVencimientos.imprimir}</a></span>
+	</h:form>
+	</div>
+	
+	<h2>#{msgVencimientos.titulo}</h2>
+	
+	<p>#{msgVencimientos.cierreSaldo} 
+		<h:outputText value="#{vencimientosModelMB.fechaCierre[0]}">
+			<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+		</h:outputText>
+	    -
+	   #{msgVencimientos.cierreSaldoHora}
+	    <h:outputText value="#{vencimientosModelMB.fechaCierre[0]}">
+			<f:convertDateTime pattern="hh:mm a"></f:convertDateTime>
+		</h:outputText>
+	</p>
+	</div>
+	
+	<div id="main">
+	
+	<div id="fondo_main">
+	
+	<div class="botonera_seleccionar">
+	<span class="botones"><a href="#;"
+	onclick="$('#empresas_vencimientos') .fadeIn(1000); $('#productos_vencimientos') .fadeOut('normal');"
+	title="#{msgVencimientos.selCuenta}">#{msgVencimientos.selCuenta}</a></span><span
+	class="botones"><a href="#;"
+	onclick="$('#productos_vencimientos') .fadeIn(1000); $('#empresas_vencimientos') .fadeOut('normal');"
+	title="#{msgVencimientos.selProducto}">#{msgVencimientos.selProducto}</a></span></div>
+	<!--MESES-->
+	<h:form id="formFiltros" prependId="false">
+	
+	<p:outputPanel id="panelCalendario" >
+	<script type="text/javascript">
+
+	$(document).ready(function() {
+	        $('.contenedor_meses').anyDropDown({
+	                dropDownElem: '.menu_colapsable', //La clase del contenedor
+	                dropDownMenuElem: '.menu_colapsable_links', //La clase del UL que forma el menú
+	                slideDownDuration: 200, //Duración al expandir
+	                slideUpDuration: 200, //Duración al colapsar
+	                closeMessage: '#{msgVencimientos.seleccionar}'
+	        });
+	        
+	        $('.contenedor_anio').anyDropDown({
+	                dropDownElem: '.menu_colapsable_anio', //La clase del contenedor
+	                dropDownMenuElem: '.menu_colapsable_links', //La clase del UL que forma el menú
+	                slideDownDuration: 200, //Duración al expandir
+	                slideUpDuration: 200, //Duración al colapsar
+	                closeMessage: '#{msgVencimientos.seleccionar}'
+	        });
+	        
+	        
+	      //Calendario
+
+	        $('#calendar').fullCalendar( 'destroy' );
+
+	        var calendar = $('#calendar').fullCalendar({
+	        	header: {
+	        		left: '',
+	        		center: '',
+	        		right: ''
+	        	},
+	        	height: 400,
+	        	columnFormat: {
+	        		month: 'dddd'
+	        	},
+	        	year: #{vencimientosBackingMB.filtroAnyo},
+	        	month: #{vencimientosBackingMB.filtroMes - 1},
+	        	dayNames: ['Domingo', 'Lunes', 'Martes', 'Mi&eacute;rcoles',
+	        	           'Jueves', 'Viernes', 'Sabado'],
+	        	weekends: false,
+	        	weekMode: 'variable',
+	        	selectable: true,
+	        	selectHelper: true,
+	        	select: function(start, end, allDay) {	
+	        		var myDate = new Date();
+	        		myDate.setDate(myDate.getDate() - 1);
+	        		
+	        		var myMonth = myDate.getMonth(); 
+	        		
+	                if (start &lt; myDate) {
+  						//Fecha Pasada
+	                }else if(myMonth &lt; end.getMonth()){
+ 						//Fecha Futuro
+	                }else{
+	                	
+	                	if(start.getDay() == end.getDay()){
+	                		var valor = $.fullCalendar.formatDate( start, 'dd/MM/yyyy');
+	                		seleccionarDia(valor)
+	                	}else{
+	                		var diaInicial = $.fullCalendar.formatDate( start, 'dd/MM/yyyy');
+	                		var diaFinal = $.fullCalendar.formatDate( end, 'dd/MM/yyyy');
+	                		seleccionarMensual(diaInicial, diaFinal);
+	                	}
+	                	
+	                	 
+	                }
+	                
+	        		calendar.fullCalendar('unselect');
+	        	},
+	        	editable: false,
+	        	events: #{vencimientosModelMB.mensajeJson} 
+	        });
+
+	        //Ajustes manuales
+	        
+	        
+	        $('.fc-event-inner', $('#calendario')).each(function(index) {
+	            $(this).parent().css('left', ((parseInt($(this).parent().css('left'))) + 26) + 'px');
+	        });
+	        
+			$('.fc-widget-content', $('#calendario')).each(function(index) {
+	            if($(this).hasClass('fc-today')){
+	            	return false;
+	            }else{
+	            	$(this).addClass('fc-fecha-anterior');
+	            }
+	        });
+			
+			//Ajuste tamanno celda
+			$('.fc-day-content', $('#calendario')).each(function(index) {
+				$("&lt;div style='position:relative'&gt;&amp;nbsp;&lt;/div&gt;").replaceAll($(this)); 
+				
+			});
+			
+			//Reposicion del valor neto
+			$("span:contains('Neto')", $('#calendario')).each(function(index) {
+				var contenido = $(this).text();
+
+				var numTexto = $(this).text().replace('Neto ','');
+				var num = parseInt(numTexto);
+
+				var dia = parseInt(contenido.split('dia_')[1]);
+				numTexto = numTexto.replace('dia_' + dia, '');
+                var aux = 0;
+                var auxLeft = 0;
+
+				$('.fc-day-number', $('#calendario')).each(function(index) {
+					if(dia == parseInt($(this).text())){
+						aux = $(this).offset().top;
+						auxLeft = $(this).offset().left;
+						
+						if(num &gt;= 0){
+							$(this).addClass('fc-day-verde');
+						}else{
+							$(this).addClass('fc-day-rojo');
+						}
+					}
+				});
+
+				
+				//Ajuste altura
+                $(this).parent().parent().css('top', (aux -110) + 'px');
+				
+
+				if(num &gt;= 0){
+					$("&lt;div class='fc-neto-verde'&gt;&lt;div class='fc-patch-neto' &gt;Neto&amp;nbsp;" + numTexto + "&lt;/div &gt;&lt;/div&gt;").replaceAll($(this)); 
+				 }else{
+					 $("&lt;div class='fc-neto-rojo'&gt;Neto&amp;nbsp;" + numTexto + "&lt;/div&gt;").replaceAll($(this));
+				 } 
+				
+							
+				//Reposicion a recibir
+				$("span:contains('A recibir ')", $('#calendario')).each(function(index) {
+					var contenido = $(this).text();
+					
+					if(contenido.indexOf('dia_' + dia) != -1){
+
+						if($.browser.msie){
+							$(this).parent().parent().css('margin-left', -15  + 'px');
+							$(this).parent().parent().css('top', (aux - 80) + 'px');
+						}else{
+							$(this).parent().parent().css('margin-left', -15  + 'px');
+							$(this).parent().parent().css('top', (aux - 76) + 'px');
+						}
+
+						
+						
+						var contenidoTemp = $(this).text().replace('dia_' + dia,'');
+						var num = contenidoTemp.replace('A recibir ','');
+						
+						$("&lt;span class='fc-recibir' &gt;A recibir&lt;/span&gt;" + "&lt;span class='fc-recibir-imagen' &gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;div class='fc-recibir-numero' &gt;" + num + "&lt;/div&gt;").replaceAll($(this));
+					
+					}
+
+				});
+				
+				
+				//Reposicion a pagar
+				$("span:contains('A pagar ')", $('#calendario')).each(function(index) {
+					var contenido = $(this).text();
+					
+					if(contenido.indexOf('dia_' + dia) != -1){
+						if($.browser.msie){
+							$(this).parent().parent().css('margin-left', -15  + 'px');
+							$(this).parent().parent().css('top', (aux - 67) + 'px');
+						}else{
+							$(this).parent().parent().css('margin-left', -15  + 'px');
+							$(this).parent().parent().css('top', (aux - 62) + 'px');
+						}
+						
+						
+						var contenidoTemp = $(this).text().replace('dia_' + dia,'');
+						var num = contenidoTemp.replace('A pagar ','');
+
+						$("&lt;span class='fc-pagar' &gt;A pagar&lt;/span&gt;" + "&lt;span class='fc-pagar-imagen' &gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;div class='fc-pagar-numero' &gt;" + num + "&lt;/div&gt;").replaceAll($(this)); 
+					}
+
+				});
+				
+				
+
+			});// fin funcion full
+
+			
+	});
+	</script>
+	<div class="cont_meses">
+	
+	<div class="contenedor_meses">
+	<p class="menu_colapsable"><h:outputText value="#{vencimientosBackingMB.filtroNombreMes}" /></p>
+	<ul class="menu_colapsable_links">
+	  <ui:repeat var="parametro" value="#{vencimientosModelMB.meses}">
+			<li>
+				<p:commandLink update="panelCalendario" actionListener="#{vencimientosBackingMB.filtrar}" style="margin-right:20px;">
+					<f:param id="mesSeleccionado" name="mesSeleccionado" value="#{parametro.codigo}"></f:param>  
+        			<h:outputText value="#{parametro.nombre}" />  
+    			</p:commandLink>
+			</li>
+		</ui:repeat>
+	</ul>
+	</div>
+	
+	<div class="contenedor_anio">
+	
+	<p class="menu_colapsable_anio"><h:outputText value="#{vencimientosBackingMB.filtroAnyo}" /></p>
+	<ul class="menu_colapsable_links">
+		<div style="overflow-y:auto; height: 300px;"> 
+		<ui:repeat var="parametro" value="#{vencimientosModelMB.anyos}">
+			<li>
+				<p:commandLink update="panelCalendario" actionListener="#{vencimientosBackingMB.filtrar}" style="margin-right:20px;">
+					<f:param id="anyoSeleccionado" name="anyoSeleccionado" value="#{parametro.codigo}"></f:param>  
+        			<h:outputText value="#{parametro.nombre}" />  
+    			</p:commandLink>
+    		</li>
+		</ui:repeat>
+		</div>
+	</ul>
+	</div>
+	</div>
+	</p:outputPanel>
+	</h:form>
+	<!--END MESES-->
+	<!--FECHA-->
+	<h:form id="formFiltroCalendario" prependId="false">
+	<div class="cont_fecha cont_fecha_opt" style="display: none;">
+	&nbsp;&nbsp;
+	<span>#{msgVencimientos.fechaDesde} 
+		<p:calendar id="fechaDesde" value="#{vencimientosModelMB.filtro.fechaDesde}" navigator="true" display="popup" 
+			pattern="dd-MM-yyyy" 
+			mindate="#{vencimientosModelMB.fechaActual}" 
+			maxdate="31-12-2040" 
+			readOnlyInputText="true" 
+			popupIconOnly="true" 
+			showOn="button" 
+			popupIcon="#{resource['bancaprivada/vencimientos:images/html/ico_calendario_venc.jpg']}"
+			inputStyleClass="caja_fecha" 
+			selectListener="#{vencimientosModelMB.handleFechaDesde}"
+			onSelectUpdate="fechaHasta panelDetalle"/>
+	</span>
+	&nbsp;&nbsp;&nbsp;&nbsp;
+	 <span>#{msgVencimientos.fechaHasta}
+		<p:calendar id="fechaHasta" value="#{vencimientosModelMB.filtro.fechaHasta}" navigator="true" display="popup" 
+			pattern="dd-MM-yyyy" 
+			mindate="#{vencimientosModelMB.filtro.fechaDesde}" 
+			maxdate="31-12-2040" 
+			readOnlyInputText="true" 
+			popupIconOnly="true" 
+			showOn="button" 
+			popupIcon="#{resource['bancaprivada/vencimientos:images/html/ico_calendario_venc.jpg']}"
+			inputStyleClass="caja_fecha"
+			selectListener="#{vencimientosModelMB.handleFechaHasta}" 
+			onSelectUpdate="panelDetalle"/>
+		</span> 
+	</div>
+	</h:form>
+	<!--END FECHA-->
+	<ul class="menu_tabs">
+	  <li><a href="#;" onclick="ocultarDetalle(); javascript:mostrar_calendario();"
+	    class="activo">#{msgVencimientos.calendario}</a></li>
+	  <li><a href="#;" onclick="javascript:seleccionarMensual('', '');">#{msgVencimientos.detalle}</a></li>
+	</ul>
+	<!--FONDO CONTENIDOS-->
+	
+	<div id="fondo_contenidos">
+	<!-- SELECCIONAR CUENTAS CLIENTE-->
+	<h:form id="formCuentaProducto" prependId="false">
+	<div class="editar_vencimientos" id="empresas_vencimientos"
+	style="display: none;">
+	
+	
+	  <h2><span class="cerrar"><a href="#;"
+	  onclick="$('#empresas_vencimientos') .fadeOut('normal');"
+	  title="Cerrar">x</a></span>Cuentas Sociedades y Personas</h2>
+	
+	  <p:pickList value="#{vencimientosModelMB.cuentas}"
+				var="cuenta"
+				iconOnly="true"
+				addAllLabel="#{msgVencimientos.pickListAgregarToda}"
+				addLabel="#{msgVencimientos.pickListAgregar}"
+				removeAllLabel="#{msgVencimientos.pickListRemoverTodas}"
+				removeLabel="#{msgVencimientos.pickListRemover}"
+				itemLabel="#{cuenta.nombre}"
+				itemValue="#{cuenta.nombre}"
+				immediate="true"
+				id="idCuenta" 
+				required="true"
+				styleClass="picklist_custom"/>
+	
+	<div class="bot_aceptar">
+	  <a href="#;" title="#{msgVencimientos.pickListAceptar}">#{msgVencimientos.pickListAceptar}</a>
+	</div>
+	</div>
+	</h:form>	
+	<!--END CUENTAS CLIENTE-->
+	<!--SELECCIONAR PRODUCTOS CLIENTE-->
+	
+	<div class="editar_vencimientos" id="productos_vencimientos"
+	style="display: none;">
+	
+
+	  <h2><span class="cerrar"><a href="#;"
+	  onclick="$('#productos_vencimientos') .fadeOut('normal');"
+	  title="Cerrar">x</a></span>Productos</h2>
+	
+	  <p:pickList value="#{vencimientosModelMB.productos}"
+				var="producto"
+				iconOnly="true"
+				addAllLabel="#{msgVencimientos.pickListAgregarToda}"
+				addLabel="#{msgVencimientos.pickListAgregar}"
+				removeAllLabel="#{msgVencimientos.pickListRemoverTodas}"
+				removeLabel="#{msgVencimientos.pickListRemover}"
+				itemLabel="#{producto.nombre}"
+				itemValue="#{producto.nombre}"
+				immediate="true"
+				id="idProducto" 
+				required="true"
+				styleClass="picklist_custom"/>
+	
+	<div class="bot_aceptar">
+	  <a href="#;" title="#{msgVencimientos.pickListAceptar}">#{msgVencimientos.pickListAceptar}</a>
+	</div>
+
+	</div>
+	<!--END SELECCIONAR PRODUCTOS CLIENTE-->
+	<!--CALENDARIO-->
+	<h:form id="formCalendario" prependId="false">
+	<h:inputHidden id="hiddenDiaSeleccionado" value="#{vencimientosBackingMB.hiddenDiaSeleccionado}"/>
+	<h:inputHidden id="hiddenDiaSeleccionadoFinal" value="#{vencimientosBackingMB.hiddenDiaSeleccionadoFinal}"/>
+	<p:remoteCommand name="cargarDiaSeleccionado" actionListener="#{vencimientosBackingMB.filtrarDia}" update="fechaDesde fechaHasta panelDetalle" />
+	<p:remoteCommand name="cargarSeleccionarMensual" actionListener="#{vencimientosBackingMB.filtrarMensual}" update="fechaDesde fechaHasta panelDetalle" />
+	
+	
+	<p:remoteCommand name="ocultarDetalle" actionListener="#{vencimientosModelMB.ocultarDetalle}" update="panelDetalle" />   
+    
+	<div id="calendario">
+		<!-- Calendario Jquery -->
+		<div id='calendar'></div>
+		
+		<!-- Fin Calendario Jquerio -->
+
+		<p class="condiciones">#{msgVencimientos.valoresDia} 
+		 <h:outputText value="#{vencimientosModelMB.fechaActual}">
+		 	<f:convertDateTime pattern="dd-MM-yyyy"></f:convertDateTime>
+		</h:outputText>
+		: #{msgVencimientos.uf}:#{vencimientosModelMB.unidadesMonetariaSupportMB.valorUF} - #{msgVencimientos.usd}: #{vencimientosModelMB.unidadesMonetariaSupportMB.dolar}.</p>
+	</div>
+	<!--END CALENDARIO-->
+	</h:form>
+	
+	<p:outputPanel id="panelDetalle" style="display:#{vencimientosModelMB.mostrarDetalle}">
+	<!--DETALLE-->	
+	<div class="fondo_montos">
+	
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" summary="Montos"
+	class="tabla_montos">
+	  <thead>
+	    <tr>
+	      <th>#{msgVencimientos.cabeceraMontosPeriodo}</th>
+	      <th>#{msgVencimientos.cabeceraArecibir}</th>
+	      <th>#{msgVencimientos.cabeceraApagar}</th>
+	      <th><h:outputText value="#{msgVencimientos.cabeceraNetoMonedaOrigen}" escape="false" /></th>
+	      <th><h:outputText value="#{msgVencimientos.cabeceraEquivalentePesos}" escape="false" /></th>
+	    </tr>
+	  </thead>
+	  <tfoot>
+	    <tr>
+	      <th>#{msgVencimientos.totalGeneralPesos}</th>
+	      <th>&nbsp;</th>
+	      <th>&nbsp;</th>
+	      <th>&nbsp;</th>
+	      <th><span class="#{vencimientosModelMB.resumenMovimientosTO.totalPesos lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.totalPesos}"></h:outputText>  </span></th>
+	    </tr>
+	  </tfoot>
+	  <tbody>
+	  	<p:outputPanel rendered="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesos !=0}">
+		    <tr>
+		      <td>#{msgVencimientos.totalEnPeso}</td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirPesos lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.recibirPesos}"></h:outputText>  </span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirPesos lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.pagarPesos}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirPesos lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoMonedaOrigenPesos}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirPesos lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesos}"></h:outputText></span></td>
+		    </tr>
+	    </p:outputPanel>
+	    <p:outputPanel rendered="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosUf !=0}">
+		    <tr>
+		      <td>#{msgVencimientos.totalEnUF}</td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirUf lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.recibirUf}"></h:outputText>  </span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.pagarUf lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.pagarUf}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.netoMonedaOrigenUf lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoMonedaOrigenUf}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosUf lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosUf}"></h:outputText></span></td>
+		    </tr>
+	    </p:outputPanel>
+	    <p:outputPanel rendered="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosDolar !=0}">
+		    <tr>
+		      <td>#{msgVencimientos.totalEnUSD}</td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.recibirDolar lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.recibirDolar}"></h:outputText>  </span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.pagarDolar lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.pagarDolar}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.netoMonedaOrigenDolar lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoMonedaOrigenDolar}"></h:outputText></span></td>
+		      <td><span class="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosDolar lt 0? 'baja':'sube'}"><h:outputText value="#{vencimientosModelMB.resumenMovimientosTO.netoEquivalentePesosDolar}"></h:outputText></span></td>
+		    </tr>
+	    </p:outputPanel>
+	  </tbody>
+	</table>
+	</div>
+	<h:form id="formMovimientos" prependId="false">
+		<p:dataTable id="tablaMovimientos" var="movimiento" 
+		value="#{vencimientosModelMB.listaMovimientos}" 
+		width="100%" styleClass="tabla_vencimientos base_movimientos" 
+		emptyMessage="#{msgVencimientos.sinRegistros}" >  
+	        <p:column sortBy="#{movimiento.fechaVencimiento}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movFechaVencimiento}" escape="false" />
+	            </f:facet>
+	            <div align="center"> 
+	            <strong> 
+		            <h:outputText value="#{movimiento.fechaVencimiento}">
+		            	<f:convertDateTime pattern="dd/MM/yyyy"></f:convertDateTime>
+		            </h:outputText>
+	            </strong>
+	            </div>  
+	        </p:column>
+	        <p:column sortBy="#{movimiento.razonSocial}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movRazonSocial}" escape="false" />  
+	            </f:facet> 
+	            <div align="left"> 
+	            	<h:outputText value="#{movimiento.razonSocial}" />
+	            </div>
+	        </p:column>
+	        <p:column sortBy="#{movimiento.producto}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movProducto}" escape="false" />  
+	            </f:facet>
+	            <div align="left">  
+	            	<h:outputText value="#{movimiento.producto}" />
+	            </div>
+	        </p:column>
+	        <p:column sortBy="#{movimiento.moneda}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movMoneda}" escape="false" />  
+	            </f:facet>
+	            <div align="center">
+		            <strong>  
+		            	<h:outputText value="#{movimiento.moneda}" />
+		            </strong>
+	            </div>
+	        </p:column>
+	        <p:column sortBy="#{movimiento.montoMonedaOrigen}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movMontoMonedaOrigen}" escape="false" />  
+	            </f:facet>
+	            <div align="center">  
+	            	<h:outputText value="#{movimiento.montoMonedaOrigen}" />
+	            </div>
+	        </p:column>
+	        <p:column sortBy="#{movimiento.montoEqPesos}" >  
+	            <f:facet name="header">  
+	                <h:outputText value="#{msgVencimientos.movEquivalentePesos}" escape="false" />  
+	            </f:facet> 
+	            <div align="center"> 
+	            <h:outputText value="#{movimiento.montoEqPesos}" />
+	            </div>
+	        </p:column>
+	    </p:dataTable>
+	</h:form>
+	
+	<p class="condiciones"><h:outputText value="#{msgVencimientos.movFooter}" escape="false" /> 
+		#{msgVencimientos.valoresDia} 
+		 <h:outputText value="#{vencimientosModelMB.fechaActual}">
+		 	<f:convertDateTime pattern="dd-MM-yyyy"></f:convertDateTime>
+		</h:outputText>
+		: #{msgVencimientos.uf}:#{vencimientosModelMB.unidadesMonetariaSupportMB.valorUF} - #{msgVencimientos.usd}: #{vencimientosModelMB.unidadesMonetariaSupportMB.dolar}.
+	</p>
+	<!--END DETALLE-->
+	</p:outputPanel>
+			
+	</div>
+
+	<!-- END FONDO_CONTENIDOS -->
+	
+	<div id="fondo_contenidos_bottom">
+	</div>
+	<!-- END FONDO_CONTENIDOS -->
+	</div>
+	<!-- END DIV FONDO_MAIN -->
+	
+	<div id="main_bottom">
+	</div>
+	</div>
+	<!--END MAIN-->
+	<!--FOOTER-->
+	
+	
+	
+	
+	<div id="footer">
+	<p class="copyright">#{msgVencimientos.footerCopyright}</p>
+	
+	<p><strong>#{msgVencimientos.footerAtencionCliente}</strong></p>
+	<address>#{msgVencimientos.footerDireccion}</address>
+	</div>
+	<!--END FOOTER-->
+
+</h:body>
+</html>

@@ -1,0 +1,197 @@
+Cuando deba lanzarse una excepción que el usuario verá, debe usarse un código.
+Esta tabla contiene los códigos y los textos/glosas que les corresponden (que
+serán lo que el usuario vea, en vez de dicho código).
+
+Parte del contenido, a modo de ejemplo:
+
+------------------------------------------
+0091;Desc=No hay datos para la consulta.;
+0270;Desc=Tipo de Cliente Empresa no válido para asignar un convenio;
+ETIQUETA-0003;Desc=<font color='red'>El registro que intenta utilizar no le corresponde</font>;
+------------------------------------------
+
+El identificador de línea es también el código de error. La llave +Desc+
+contiene la glosa.
+
+[REGISTRODEVERSIONES]
+==========================================
+. ??? Harvest lista ¡112! versiones desde marzo de 2002 en adelante.
+
+. 04/07/2007 Carlos Cerda Iglesias (SEnTRA): Se eleva el monto maximo a transferir,
+  desde 3.000.000 a 5.000.000 de pesos con clave Multipass para Bci y Tbanc sitio privado, cuando se sobrepase
+  el monto máximo a transferir.
+
+. 12/07/2007 Denisse Velásquez Salazar (SEnTRA): Se agregan
+  Mensajes de Excepciones para ingreso de Clientes a Finance Kit.
+
+. 20/09/2007 Carlos Cerda Iglesias (SEnTRA): Se lanzan nuevos códigos de error para cuando el monto que se desea
+  transferir supera el máximo diario autorizado para transferencias: TRF022, para cuenta corriente y TRF023, para cuenta prima.
+
+. 12/12/2007 Luis Silva Soto (TINet): Se agregan códigos de error utilizados por la aplicación que gestiona
+  los clientes Banca Privada (Errores del tipo BCAPRIVADA-XXXX).
+. 30/01/2008 Pedro Carmona E. (SEnTRA): Se agregan el códigos de error TRF027 el cual es requerido
+  cuando un cliente que no posee Multipass intenta realizar un Transferencia de Fondos diferida.
+
+. 19/02/2008 Diego Olivares Bolton (TINet): Se agrega el codigo DETALLE_CLIENTE_PROBLEMA_CONSULTA_PRODUCTOS
+  de error para manejar las excepciones del detalle de la cartera de un cliente.
+. 13/09/2007 Claudio González Toro  (SEnTRA): Se agrega el error
+  EVE00069;ErrObtAsig=No es posible obtener los datos del jefe de oficina, por favor intente más tarde.;
+  Se informa que el jefe de oficina no existe, en otras palabras cuando se busca al jefe de ofcina, el sistema
+  envía una excepción y este es el mensaje que se le entrega al usuario.
+
+. 14/12/2007 Miguel Quiroz Herrera (TINet): Se agrega los errores MONTO-EXCEDIDO, MONTO-MAXIMO-NO-DETERMINADO,
+  SERVICIO-MONTO-NO-DISPONIBLE.  Asociados a la transferencia de fondos con firmas y poderes.
+  
+. 19/12/2007 Robson Watt  (Neoris Chile): Se agregan los errores precedidos de la sigla MNX, que están asociados
+  al sistema de Pague Directo Moneda Nacional y Extranjera (MONEX).
+
+. 27/02/2008 Alfredo Torres Perez (Sermaluc): Se agrega codigo de error VALORCONVERSION, el cual es requerido cuando no se encuentra
+  el valor de conversion del dolar en una fecha determinada.
+  
+. 31/03/2008 Eduardo Mascayano (TINet): Se agregan los errores asociados a la aplicación Convenios y Planes.
+
+. 16/04/2008 Eduardo Mascayano (TINet): Se agregan los siguientes códigos de error para la
+  aplicación de Convenios y Planes de Everest: CNV-001, CNV-003, CNV-004, CNV-005
+  CNV-006, PLN-001, PLN-002, PLN-003, PLN-004, PLN-005, PLN-006, PLN-007.
+
+. 12/05/2008 Jessica Carroza E. (SEnTRA): Se agregan nuevos códigos de errores, desde CTAFA-001 a CTAFA-027 para el manejo de 
+  excepciones en Cuenta Familia.
+
+. 08/06/2008 Eduardo Mascayano (TINet): Se agrega el código de error ADM_CAMPANAS_ERROR-17011
+  que determina la glosa del error al filtrar las ofertas por producto en la aplicación Campañas.
+
+. 12/06/2008 Jessica Carroza E. (SEnTRA): se agrega dos nuevos errores asociados a Errores de Pago en Línea: PEL200-01 y PEL300-01.
+
+. 17/07/2008 Raúl Eduardo Plata (Neoris Chile): Se modifica error MNX-0022, se agregan errores MNX-0060 al MNX-0075,
+  MNX-30010;MNX-30039; Se elimina el duplicado MNX-0035. Errores para BCI Express Pague Directo MONEX.
+. 14/07/2008 Daniela Morales L. (Neoris): Se agregan los errores asociados a la aplicación comex.
+
+. 18/07/2008 Kendru Estrada R. (TINet): se agrega código de error para la aplicación de factoring: FACTORING-001.
+. 12/08/2008 Jorge Gómez O. (SEnTRA): Se agregan los códigos de errores para la aplicación administración de supervisores.
+. 16/08/2008 Mauricio Retamal C. (SEnTRA): Se agregan códigos de error utilizados por la aplicación de Centro de Contacto
+(Errores del tipo ECC-XXX)
+. 14/07/2008 Manuel Duran M. (Imagemaker IT): Se agregan los errores asociados a la aplicación cálculo de ingresos,
+  SGCRUT   BLK,SGCDIG   BLK,CLI   NEX,SGCRTAVARNNU,SGCRTALIQNNU,SGCPRDVARBLQ,SGCPRDLIQBLQ,SGCRUTCYGERR,SCGAEPUPDERR 
+  SCGAEPMODERR y SCGAEPPUTERR
+. 24/09/2008 Jessica Carroza E. (SEnTRA): se modifica el mensaje de error TK07, 110-TK07 y 100-TK07 para productos Token Bci.
+. 16/10/2008 Francisca Craig  (ADA Ltda.): Se agregan códigos y descripciones para los errores de Giro por Caja de 
+  Cuenta Corriente y Cuenta Prima.
+. 14/11/2008 Raúl Eduardo Plata (Neoris Chile): Se agregan códigos de error utilizados por DemoAvaya (AGENDA-).
+. 10/11/2008 Alejandro Barra F. (SEnTRA): Se agregan nuevos códigos de errores para la aplicación administración de supervisores:
+  SUP-034, SUP-035
+
+. 16/10/2008 Mauricio Retamal C. (SEnTRA): Se agregan códigos de error utilizados por la aplicación de Bloqueo de Fondos Mutuos
+(Errores del tipo EBF-XXX)
+
+. 23/10/2008 José Flores (TInet): Se agregan los códigos de errores CLI-LSG-001, CLI-LSG-002,
+CLI-LSG-003, CLI-LSG-004, CLI-LSG-005 y CLI-LSG-006 para la implementación de Leasing en Bciexpress.
+
+· 12/01/2009 Pedro Carmona E. (SEnTRA): Se modifica la descripción de los códigos BADMSG, POOL y TUX.
+
+. 04/02/2008 Alejandro Barra F. (SEnTRA): Se agregan un nuevo código de error, para la aplicación administración de supervisores: SUP-045.
+
+. 17/02/2009 Nelson W. Cuevas Reyes (Imagemaker IT); Se agregan códigos de error para aplicación Cambio de PIN.
+
+. 27/03/2009 Jesus Orellana L. (SEnTRA): Se agregan dos nuevos códigos de error para la aplicación de sincronización de multipass: 100-TK24 y 100-TK25
+
+. 20/12/2008 Francisca Craig. (ADA Ltda.): Se agregan nuevos códigos de errores para la aplicación venta y administración 
+  de talonarios en sucursal.
+  
+. 09/03/2009 Daniel Zamora O. (ADA Ltda.): Se agregan nuevos códigos de errores para la aplicación venta y administración 
+  de talonarios moneda extranjera.
+
+. 29/04/2009 Ytalo Mendoza (Adexus) : Se agregan los errores asociados a la aplicación Línea de Emergencia.
+
+. 05/06/2009 Francisco López Castro (TINet): Se modificó el código PLN-005 para planes y convenios.
+
+. 26/06/2009 Francisco Cares (TINet) : Se agregan errores asociados a la aplicación de contrato Línea de Emergencia.
+
+. 13/07/2009 Marcelo Avendaño (BCI) : Se agregan errores de restriccion de la firma digital en transferencias LBTR.
+
+. 20/05/2009 Pedro Carmona Escobar (SEnTRA) : Se agregan los códigos de errores PEL110-02, PEL100-02, PEL110-03 y PEL100-03 asociados a pago en línea.
+
+. 20/07/2009 Mauricio Retamal C. (SEnTRA) : Se agrega el código de error FFMM-001 asociado a la cartola de fondos mutuos.
+
+. 17/07/2009 Felipe Rivera C. (TINet): Se agregan nuevos códigos de error para la aplicacion campañas priorizadas.
+
+. 04/09/2009 Andrés Morán O. (SEnTRA): Se agrega código de error TK08, para ser usado en la sincronización del multipass por webcorp.
+
+. 02/10/2009 Pablo Cáceres F (Ada Ltda): Se agregan códigos de errores para Programas de Beneficios. 
+
+. 05/10/2009 Mauricio Retamal C. (SEnTRA): Se agregan los códigos de error del tipo INV-XXX para la aplicación de inversiones
+					   programadas.
+. 27/10/2009 Francisco Cares: Se cambia descripción del código de error CNV-003.
+. 23/10/2009 Oliver López V. (ADA Ltda.): Se agregan nuevos códigos de errores para la autenticación de tarjeta mas pin (Errores 0700-0701)
+
+. 16/11/2009 Pedro Carmona Escobar (SEnTRA) : Se agregan los códigos de errores para el desbloqueo y reseteo de clave internet. Además, se
+                                            agrega el código de error 800-TK04 para cuando la clave multipass es incorrecta en el canal Nova.
+
+. 29/12/2009 Marco Aicon (SEnTRA): Se agregan los códigos EDDA-032 y EDDA-033 para ser utilizados en la creacion de clave internet mediante el uso de 
+					tarjeta de Crédito.
+. 18/11/2009 Felipe Rivera Cid. (TINet): Se agregan codigos de error asociados a la solicitud de una línea de emergencia para una o más cuentas corrientes de un cliente.
+
+. 08/01/2010 Mauricio Retamal C. (SEnTRA): Se agregan los códigos del tipo EMM-XXX para ser utilizados en la aplicación de Muro de Mensajería.
+
+. 14/01/2010 Alejandro Barra (SEnTRA): Se agregan los codigos FORM-WEB-XX para la aplicacion de Formularios de la Web.
+
+. 16/02/2010 Pei Kang Fu (Neoris Chile) : Se agregan los errores asociados a la aplicación Transfer Monex.
+
+. 28/02/2010 Martín Vergara B. (Ada Ltda) : Se agregan los errores asociados a la aplicación tarjeta bip convenio empresas.
+
+. 15/03/2010 Ximena Medel P. (SEnTRA): Se agrega el código del tipo ECVV-XXX para ser utilizado en la aplicación de consulta valores.
+
+. 06/11/2009 Denisse Velásquez S. (SEnTRA): Se agregan los códigos de errores W200, TRF031, TRF032, TRF033 y TRF034 asociados a Transferencia de Fondos.
+
+. 15/03/2010 Etson Mora J. (Imagemaker IT): Se agregan códigos de error en caso de ausencia de parámetros obligatorios del servicio Pague Directo,
+             para canal BCI y TBanc. Además, se corrigen errores según ValidaTabla.pl, es decir, se eliminan códigos duplicados, caracteres desconocidos,
+             se agregan ';' y se corrige formato llave/valor.
+. 16/03/2010 Mauricio Retamal C. (SEnTRA): Se agregan los códigos del tipo EDDA-XXX-YYY para ser utilizado en la aplicación de creación de clave internet.
+
+. 17/03/2010 Miguel Quiroz Herrera (TINet) : Se agregan los errores asociados a la validacion de monto para Apertura de Linea de Emergencia.
+. 19/04/2010 Magdalena Díaz R. (Imagemaker IT) : Se agrega error de certificados, cuando no existen certificados asociados a una operación de crédito hipotecario.
+
+. 19/03/2010 Rodrigo González Merino (Imagemaker IT) : Se agrega código
+             PEL110-04 usado cuando se detecta que la combinación
+             empresa-número cliente ya existe previamente una cuenta previa 
+             cancelada por el cliente.
+. 21/01/2010 José Verdugo (TINet): Se agrega código de error con prefijo FDV que corresponde a canal Fuerza de ventas.
+. 27/03/2010 Gonzalo Villagrán C. (SEnTRA): Se agregan los códigos desde BM-2010 hasta BM-2036 para ser utilizados en los errores que pueden
+					ocurrir al enrolar y desenrolar a un cliente, asi como al actualizar los datos o reinicializar la clave de un cliente.
+
+. 03/05/2010 Gonzalo Villagrán C. (CVA Ingeniería):  Se incluyen los mensajes asociados a la calculadora everest. se identifican por el prefijo CALCEMP.
+
+
+. 11/05/2010 Denisse Velásquez S. (SEnTRA): Se agregan los códigos de error TRF036 al TRF043 asociados a Transferencia de Fondos Empresa.
+. 21/06/2010 Daniel Muñoz. (Tinet): Se agregan códigos de error utilizados por la aplicación de Mega Marketing one to one(Errores del tipo MMKT-XX)
+. 30/10/2009 Pablo Carreño (TINet): Se agregan codigos de error relacionados con el cierre de una linea de emergencia.
+. 29/06/2010 Mauricio Retamal C. (SEnTRA): Se agregan los códigos del tipo ERR-XXX para la aplicación de Agendamiento de Talonarios.
+. 18/06/2010 Roberto San Martín (TINet): Se agrega código de error PD1001 para validación de preingreso paguedirecto.
+. 29/06/2010 Felipe Rivera C. (TINet), Miguel Garcia (TINet), Cristoffer Morales (TINet): Se ingresan los errores de la aplicación "Solicitud Única de Creditos" (SUC).
+
+. 14/07/2010 Rodrigo González Merino (Imagemaker IT) : Se agrega código
+             800-PRODUCTOCANAL1 usado cuando se detecta en NOVA que el cliente
+             no posee los productos necesario para operar en el portal.
+. 23/08/2010 Felipe Rivera C.(TINet): Se agregan las claves "SUC_INCONSISTENCIA_MARGEN_VIG", "SUC_SIN_OFICINA", "SUC_MONTO_LINEA_MAYOR_MARGEN"
+  y "SUC_ING_FECHA_VENC_VENCIDA".
+. 30/06/2010 Roberto Rodríguez Pino (ImageMaker IT): Se agrega el codigo de error 7126 para cuando un
+            colaborador quiere desplegar los datos de un colaborador que es cliente y no tiene los 
+            permisos respectivos.
+
+. 11/08/2010 Carlos Cerda (ORAND) : Se agregan, para las Campañas Móviles (Ofertas de créditos u otros productos via acceso por móviles), los códigos:
+             ADM_CAMPANAS_ERROR-17012: para cuando un usuario no tiene ofertas asignadas para serle mostradas
+             ADM_CAMPANAS_ERROR-17013; mensaje que indica que hubo un impedimento para acceder a una oferta
+             ADM_CAMPANAS_ERROR-17014; mensaje que indica que huboo un impedimento para almacenar el lead asociado a una oferta;
+. 30/09/2010 Felipe Rivera C.(TINet): Se agrega la clave "SUC_MARGEN_ACTIVACION" para reflejar el error ocurrido al fallar la activación del
+  margen inyectado para el cliente en IBM.
+
+. 19/06/2010 Cristian Navarro. (OSONE):  Se agregan los códigos PF-001 al PF-019 utilizados por la aplicación obtención de balances del portal finanzas
+. 20/08/2010 Francisca Craig. (ADA Ltda.): Se agregan los errores asociados a la aplicación Scripting(Consulta y mantención de procedimientos del banco), 
+				           utilizada por el Colaborador mediante portal Webcorp.
+. 08/10/2010 Felipe Rivera Cid (TINet): Se agregan los errores: "SUC_INTEGRANTE_GRUPO_ECONOMICO_EXISTE" y "SUC_NO_CLIENTE".
+. 04/10/2010 Luis Silva (TINet): Se agrega códigos de error para la venta de productos vía autoservicios (códigos MKT-1XX).
+. 19/10/2010 Marcelo Fuentes (SEnTRA) : Se agregan errores asociados a Cambio o Generación de Pinpass para tarjeta de crédito.
+
+
+
+==========================================
+. 30/09/2010 Marcelo Fuentes (SEnTRA) : Se agregan los códigos de error CT_0001 al CT_0007 asociados a Asignación de Clave telefónica.

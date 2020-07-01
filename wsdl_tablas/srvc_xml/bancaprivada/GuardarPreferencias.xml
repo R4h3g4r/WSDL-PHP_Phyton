@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_ing_pcl_cli_bp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+			<field type="int"        middle_name="cbp_rut"        size="0"  java_name="rutCliente"      />
+			<field type="String"     middle_name="pcl_txt"        size="0"  java_name="descripcionPreferencia" />
+			<field type="int"        middle_name="pre_tip_cod"    size="0"  java_name="codigoPreferencia"  />
+
+			<field type="String"     middle_name="pcl_usr_ing" size="0" java_name="usuarioIngreso" />
+			<field type="String"     middle_name="pcl_usr_act" size="0" java_name="usuarioActualizacion" />
+			<field type="String"     middle_name="pcl_pgm_act" size="0" java_name="programaUltimaModificacion" />
+			<field type="String"     middle_name="pcl_cnl_act" size="0" java_name="canalUltimaModificacion" />
+	</input>
+
+	<output>
+	</output>
+</service>
+

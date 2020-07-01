@@ -1,0 +1,64 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_suma_dias_habiles_web"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "cantDias"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "cantidad4"
+        />
+
+        <field
+          java_name = "envFecDesde"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "envFecHasta"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha7"
+          middle_date_format = "ddMMyyyy"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "retorno"
+          type = "String"
+          size = "6"
+          middle_name = "codRetorno"
+        />
+
+  </output>
+
+</service>

@@ -1,0 +1,4 @@
+# Definición de elementos para JMS
+# La forma de definir es: <<nombre clase completo>>; jndiFactory=<<jndi del factory>>; jndiQueue=<<jndi de la cola (queue)>>
+
+wcorp.bprocess.autoatencion.pronto.PagoDeServiciosAsync; jndiFactory=jms.factoryPronto; jndiQueue=jms.queuePronto;

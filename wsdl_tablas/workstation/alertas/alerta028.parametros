@@ -1,0 +1,19 @@
+# Cliente sin LCG                                   
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar si cliente es sujeto de crédito.;
+GLOSA1;mensaje=2.- Si es sujeto de crédito.;
+GLOSA2;mensaje=Actualizar antecedentes financieros.;
+GLOSA3;mensaje=Validar requerimiento con cliente .;
+GLOSA4;mensaje=3.- Solicitar Evaluación a Comité:;
+GLOSA5;mensaje=4.- Informar a cliente resolución.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Verificar si cliente es sujeto de crédito.;
+GLOSAPDF1;mensaje=2.- Si es sujeto de crédito.;
+GLOSAPDF2;mensaje=Actualizar antecedentes financieros.;
+GLOSAPDF3;mensaje=Validar requerimiento con cliente .;
+GLOSAPDF4;mensaje=3.- Solicitar Evaluación a Comité:;
+GLOSAPDF5;mensaje=4.- Informar a cliente resolución.;
+
+#Viñeta Explicativa
+VINETA;calcula=Esta alerta se activa cuando el margen global es menor o igual a UF1 o cuando no exista.;periodo= No se utiliza periodo de tiempo;fuente= Aplicación Consulta de Margen de Bci Corp;

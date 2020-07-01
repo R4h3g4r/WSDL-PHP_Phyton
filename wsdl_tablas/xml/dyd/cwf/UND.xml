@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 25-11-2003 -->
+<XML>
+<C NTx="AprConWoUnit">
+    <I>
+      <campo FF="dominio" LF="20" COD="" POS="" TD="" PREF="">idDominio</campo>
+      <campo FF="subdominio" LF="20" COD="" POS="" TD="" PREF="">subTipo</campo>
+      <campo FF="rol" LF="20" COD="" POS="" TD="" PREF="">rol</campo>
+      <campo FF="user" LF="10" COD="" POS="" TD="" PREF="">usuario</campo>
+      <campo FF="indicador" LF="5" COD="" POS="" TD="" PREF="">indicador</campo>
+    </I>
+    <O>
+      <campo FF="unidad" LF="9" COD="" POS="" TD="" PREF="">unidad</campo>
+      <campo FF="retorno2" LF="80" COD="" POS="" TD="" PREF="">respuesta2</campo>
+    </O>
+</C>
+</XML>

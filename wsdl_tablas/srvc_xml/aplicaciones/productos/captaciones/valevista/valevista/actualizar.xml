@@ -1,0 +1,94 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_upd_vvi">
+   <context>
+      <es_funcion value="select"/>
+   </context>
+
+   <input>
+      <field
+         java_name = "numeroDeSistema"
+         type = "String"
+         size = "4"
+         middle_name = "numeroDeSistema"
+      />
+      <field
+         java_name = "correlativo"
+         type = "String"
+         size = "8"
+         middle_name = "correlativo"
+      />
+      <field
+         java_name = "codigoDeOficinaDeEntrega"
+         type = "String"
+         size = "3"
+         middle_name = "codigoDeOficinaDeEntrega"
+      />
+      <field
+         java_name = "codigoDeOficinaDeImpresion"
+         type = "String"
+         size = "3"
+         middle_name = "codigoDeOficinaDeImpresion"
+      />
+      <field
+         java_name = "nombreDeOficinaDeEntrega"
+         type = "String"
+         size = "38"
+         middle_name = "nombreDeOficinaDeEntrega"
+      />
+      <field
+         java_name = "codigoDeEjecutivo"
+         type = "String"
+         size = "12"
+         middle_name = "codigoDeEjecutivo"
+      />
+      <field
+         java_name = "serial"
+         type = "String"
+         size = "12"
+         middle_name = "serial"
+      />
+      <field
+         java_name = "codigoDeOficinaVirtual"
+         type = "String"
+         size = "3"
+         middle_name = "codigoDeOficinaVirtual"
+      />
+      <field
+         java_name = "nuevoEstado"
+         type = "String"
+         size = "2"
+         middle_name = "nuevoEstado"
+      />
+      <field
+         java_name = "rutDelPrimerRetirador"
+         type = "String"
+         size = "8"
+         middle_name = "rutDelPrimerRetirador"
+      />
+      <field
+         java_name = "digitoVerificadorDelPrimerRetirador"
+         type = "String"
+         size = "1"
+         middle_name = "digitoVerificadorDelPrimerRetirador"
+      />
+      <field
+         java_name = "nombreDelPrimerRetirador"
+         type = "String"
+         size = "45"
+         middle_name = "nombreDelPrimerRetirador"
+      />
+      
+   </input>
+
+   
+   <output>
+      <field
+            java_name = "resultado"
+            type = "int"
+            size = "4"
+            middle_name = "resultado"
+         />
+         
+   </output>
+</service>

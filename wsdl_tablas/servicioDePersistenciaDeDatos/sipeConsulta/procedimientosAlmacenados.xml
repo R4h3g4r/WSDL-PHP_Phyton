@@ -1,0 +1,740 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="sipeConsulta.procedimientosAlmacenados">
+
+    <parameterMap id="setObtenerNominasHistPorFolio" class="java.util.HashMap">
+    
+       <parameter property="rutEmpresa"        jdbcType="CHAR"     javaType="String"/>
+       <parameter property="cuentaCargoAbono"  jdbcType="CHAR"     javaType="String"/>
+       <parameter property="tipoPago"          jdbcType="CHAR"     javaType="String"/>
+       <parameter property="fechaPagoDesde"    jdbcType="DATETIME" javaType="String"/>
+       <parameter property="fechaPagoHasta"    jdbcType="DATETIME" javaType="String"/>
+       <parameter property="dkt"               jdbcType="CHAR"     javaType="String"/>
+       <parameter property="canal"             jdbcType="CHAR"     javaType="String"/>
+       <parameter property="estadoNomina"      jdbcType="CHAR"     javaType="String"/>
+       <parameter property="agrupacion"        jdbcType="CHAR"     javaType="String"/>
+       
+    </parameterMap>
+    
+    <resultMap id="getObtenerNominasHistPorFolio" class="java.util.HashMap">
+       <result property="numeroFolio"              jdbcType="CHAR"          javaType="String"/>
+       <result property="rutEmpresa"               jdbcType="CHAR"          javaType="String"/>
+       <result property="dvEmpresa"                jdbcType="CHAR"          javaType="String"/>
+       <result property="razonSocial"              jdbcType="CHAR"          javaType="String"/>
+       <result property="fechaPago"                jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="codigoTipoPago"           jdbcType="CHAR"          javaType="String"/>
+       <result property="descripcionTipoPago"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cuentaCargoAbono"         jdbcType="CHAR"          javaType="String"/>
+       <result property="cantidadPagos"            jdbcType="INT"           javaType="Integer"/>
+       <result property="totalPago"                jdbcType="MONEY"         javaType="Double"/>
+       <result property="cantidadPagosAceptados"   jdbcType="INT"           javaType="Integer"/>
+       <result property="montoPagosAceptados"      jdbcType="MONEY"         javaType="Double"/>
+       <result property="cantidadPagosRechazados"  jdbcType="INT"           javaType="Integer"/>
+       <result property="montoPagosRechazados"     jdbcType="MONEY"         javaType="Double"/>
+       <result property="nombreArchivo"            jdbcType="CHAR"          javaType="String"/>
+       <result property="convenioSipe"             jdbcType="INT"           javaType="Integer"/>
+       <result property="codigoRechazo"            jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorModulo"          jdbcType="INT"           javaType="Integer"/>
+       <result property="descripcionError"         jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorLineaHistorico"  jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorCargoForzado"    jdbcType="INT"           javaType="Integer"/>
+       <result property="tipoEmpresa"              jdbcType="CHAR"          javaType="String"/>
+       <result property="dkt"                      jdbcType="CHAR"           javaType="String"/>
+       
+       </resultMap>
+    
+    <procedure id="obtenerNominasHistPorFolio" parameterMap="setObtenerNominasHistPorFolio" resultMap="getObtenerNominasHistPorFolio">
+       {CALL sp_cons_hist_folios(?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+     <parameterMap id="setObtenerNominasHistPagos" class="java.util.HashMap">
+       
+       <parameter property="numeroFolio"       jdbcType="CHAR"     javaType="String"/>
+       <parameter property="rutEmpresa"        jdbcType="CHAR"     javaType="String"/>
+       <parameter property="rutBeneficiario"   jdbcType="CHAR"     javaType="String"/>
+       <parameter property="fechaPagoDesde"    jdbcType="DATETIME" javaType="String"/>
+       <parameter property="fechaPagoHasta"    jdbcType="DATETIME" javaType="String"/>
+       <parameter property="dkt"               jdbcType="CHAR"     javaType="String"/>
+       <parameter property="canal"             jdbcType="CHAR"     javaType="String"/>
+       <parameter property="tipoPago"          jdbcType="CHAR"     javaType="String"/>
+       <parameter property="formaPago"         jdbcType="CHAR"     javaType="String"/>
+       <parameter property="estadoNomina"      jdbcType="CHAR"     javaType="String"/>
+       <parameter property="agrupacion"        jdbcType="CHAR"     javaType="String"/>
+       
+	   <parameter property="rutRetirador"      jdbcType="CHAR"     javaType="String"/>
+	   <parameter property="fechaEntregaDesde"  jdbcType="DATETIME" javaType="String"/>
+	   <parameter property="fechaEntregaHasta"  jdbcType="DATETIME" javaType="String"/>
+       
+    </parameterMap>
+    
+    <resultMap id="getObtenerNominasHistPagos" class="java.util.HashMap">
+       
+        <result property="numeroFolio"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="numeroLinea"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="rutBeneficiario"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="dvBeneficiario"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="nombreCliente"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="apellidoPaternoCliente"	jdbcType="CHAR"          javaType="String"/>
+		<result property="apellidoMaternoCliente"	jdbcType="CHAR"          javaType="String"/>
+		<result property="fechaPago"	            jdbcType="SMALLDATETIME" javaType="Date"/>
+		<result property="fechaRecepcion"	        jdbcType="SMALLDATETIME" javaType="Date"/>
+		<result property="rutEmpresa"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="dvEmpresa"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="razonSocial"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="codigoFormaPago"          jdbcType="CHAR"          javaType="String"/>
+		<result property="descripcionFormaPago"     jdbcType="CHAR"          javaType="String"/>
+		<result property="codigoBancoDestino"	    jdbcType="CHAR"          javaType="String"/>
+		<result property="numeroOperacion"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="totalPago"                jdbcType="MONEY"         javaType="Double"/>
+		<result property="numeroDocumento"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="valorDocumento"	        jdbcType="MONEY"         javaType="Double"/>
+		<result property="direccionEntrega"	        jdbcType="CHAR"          javaType="String"/>
+		<result property="codigoViaRendicion"	    jdbcType="CHAR"          javaType="String"/>
+		<result property="fechaEntrega"	            jdbcType="SMALLDATETIME" javaType="Date"/>
+		<result property="codigoEstado"	            jdbcType="INT"           javaType="Integer"/>
+		<result property="indicadorMedio"	        jdbcType="INT"           javaType="Integer"/>
+		<result property="descripcionEstado"		jdbcType="CHAR"          javaType="String"/>
+        <result property="dkt"                      jdbcType="CHAR"          javaType="String"/>
+        <result property="indicadorLineaHistorico"  jdbcType="CHAR"          javaType="String"/>
+        <result property="tipoDePago"               jdbcType="CHAR"          javaType="String"/>
+        <result property="glosaPago"                jdbcType="CHAR"          javaType="String"/>
+       
+		<result property="rutRetirador"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="dvRetirador"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="appPaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+		<result property="appMaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+		<result property="nombreRetirador"	        jdbcType="CHAR"          javaType="String"/>
+        <result property="codigoOfiEntrega"	        jdbcType="CHAR"          javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerNominasHistPagos" parameterMap="setObtenerNominasHistPagos" resultMap="getObtenerNominasHistPagos">
+       {CALL sp_cons_hist_pagos(?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerNominasHistTotales" class="java.util.HashMap">
+       
+        <parameter property="numeroFolio"       jdbcType="CHAR"     javaType="String"/>
+        <parameter property="rutEmpresa"        jdbcType="CHAR"     javaType="String"/>
+        <parameter property="cuentaCargoAbono"  jdbcType="CHAR"     javaType="String"/>
+	    <parameter property="tipoPago"          jdbcType="CHAR"     javaType="String"/>
+        <parameter property="fechaPagoDesde"    jdbcType="DATETIME" javaType="String"/>
+        <parameter property="fechaPagoHasta"    jdbcType="DATETIME" javaType="String"/>
+        <parameter property="dkt"               jdbcType="CHAR"     javaType="String"/>
+        <parameter property="canal"             jdbcType="CHAR"     javaType="String"/>
+        <parameter property="estadoNomina"      jdbcType="CHAR"     javaType="String"/>
+        <parameter property="agrupacion"        jdbcType="CHAR"     javaType="String"/>
+       
+    </parameterMap>
+    
+    <resultMap id="getObtenerNominasHistTotales" class="java.util.HashMap">
+       
+       <result property="numeroFolio"              jdbcType="CHAR"          javaType="String"/>
+       <result property="rutEmpresa"               jdbcType="CHAR"          javaType="String"/>
+       <result property="dvEmpresa"                jdbcType="CHAR"          javaType="String"/>
+       <result property="razonSocial"              jdbcType="CHAR"          javaType="String"/>
+       <result property="fechaPago"                jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="fechaRecepcion"           jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="codigoTipoPago"           jdbcType="CHAR"          javaType="String"/>
+       <result property="descripcionTipoPago"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cuentaCargoAbono"         jdbcType="CHAR"          javaType="String"/>
+       <result property="cantidadPagos"            jdbcType="INT"           javaType="Integer"/>
+       <result property="totalPago"                jdbcType="MONEY"         javaType="Double"/>
+       <result property="cantidadPagosAceptados"   jdbcType="INT"           javaType="Integer"/>
+       <result property="montoPagosAceptados"      jdbcType="MONEY"         javaType="Double"/>
+       <result property="cantidadPagosRechazados"  jdbcType="INT"           javaType="Integer"/>
+       <result property="montoPagosRechazados"     jdbcType="MONEY"         javaType="Double"/>
+       <result property="nombreArchivo"            jdbcType="CHAR"          javaType="String"/>
+       <result property="convenioSipe"             jdbcType="INT"           javaType="Integer"/>
+       <result property="codigoRechazo"            jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorModulo"          jdbcType="INT"           javaType="Integer"/>
+       <result property="descripcionError"         jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorLineaHistorico"  jdbcType="CHAR"          javaType="String"/>
+       <result property="indicadorCargoForzado"    jdbcType="INT"           javaType="Integer"/>
+       <result property="tipoEmpresa"              jdbcType="CHAR"          javaType="String"/>
+       <result property="dkt"                      jdbcType="CHAR"           javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerNominasHistTotales" parameterMap="setObtenerNominasHistTotales" resultMap="getObtenerNominasHistTotales">
+       {CALL sp_cons_hist_totales(?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    
+    <parameterMap id="setInsertarSolicitudHistorica" class="java.util.HashMap">
+       
+         <parameter property="fec_sol"     jdbcType="DATETIME" javaType="String"/>
+		 <parameter property="usu_sol"     jdbcType="CHAR"     javaType="String"/>
+         <parameter property="rut_cli"     jdbcType="CHAR"     javaType="String"/>
+         <parameter property="dv_cli"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="nom_sol"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="cnl_sol"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="tpo_bus"     jdbcType="DATETIME" javaType="String"/>
+		 <parameter property="fec_ini_bus" jdbcType="DATETIME" javaType="String"/>
+		 <parameter property="fec_fin_bus" jdbcType="DATETIME" javaType="String"/>
+		 <parameter property="rut_emp"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="dv_emp"      jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="rut_bnf"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="dv_bnf"      jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="tip_pag"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="cta_cgo"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="for_pag"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="mcv_num"     jdbcType="INT"      javaType="Integer"/>
+		 <parameter property="dkt_emp"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="num_fol"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="est_bus"     jdbcType="CHAR"     javaType="String"/>
+         <parameter property="fec_mod"     jdbcType="DATETIME"     javaType="String"/>
+		 <parameter property="usu_mod"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="rut_ret"     jdbcType="CHAR"     javaType="String"/>
+		 <parameter property="fec_ini_ret" jdbcType="DATETIME"     javaType="String"/>
+		 <parameter property="fec_fin_ret" jdbcType="DATETIME"     javaType="String"/>
+		 
+</parameterMap>
+    
+    <procedure id="insertarSolicitudHistorica" parameterMap="setInsertarSolicitudHistorica" resultClass="Integer">
+       {CALL sp_ins_sol_cons_hist(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    
+    <parameterMap id="setObtenerSolicitudesHistoricas" class="java.util.HashMap">
+       
+        <parameter property="rutEmpresa"       jdbcType="CHAR"     javaType="String"/>
+        <parameter property="rutBeneficiario"  jdbcType="CHAR"     javaType="String"/>
+        <parameter property="fec_ini_sol"      jdbcType="DATETIME" javaType="String"/>
+	    <parameter property="fec_fin_sol"      jdbcType="DATETIME" javaType="String"/>
+        <parameter property="dkt_emp"          jdbcType="CHAR"     javaType="String"/>
+        <parameter property="cnl_sol"          jdbcType="CHAR"     javaType="String"/>
+       
+    </parameterMap>
+    
+    <resultMap id="getObtenerSolicitudesHistoricas" class="java.util.HashMap">
+       
+       <result property="cnh_id_sol"	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_fec_sol" 	   jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="cnh_usu_sol"	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_nom_sol" 	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_cnl_sol" 	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_est_sol" 	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_det_sol"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_tpo_bus" 	   jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_fec_ini"      jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="cnh_fec_fin"      jdbcType="SMALLDATETIME" javaType="Date"/>
+       <result property="cnh_rut_emp"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_dv_emp"       jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_rut_bnf"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_dv_bnf"       jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_tip_pag"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_det_tip"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_cta_cgo"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_for_pag"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_det_for"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_mcv_num"      jdbcType="INT"           javaType="Integer"/>
+       <result property="cnh_dkt_emp"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_num_fol"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_est_bus"      jdbcType="CHAR"          javaType="String"/>
+       <result property="cnh_det_est"      jdbcType="CHAR"          javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerSolicitudesHistoricas" parameterMap="setObtenerSolicitudesHistoricas" resultMap="getObtenerSolicitudesHistoricas">
+       {CALL sp_cons_sol_hist(?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerEncabezadoResumenNominaHistorica" class="java.util.HashMap">
+       <parameter property="folio"          jdbcType="CHAR"         javaType="String"/>
+       <parameter property="estado"         jdbcType="CHAR"         javaType="String"/>
+    </parameterMap>
+       
+    <resultMap id="getObtenerEncabezadoResumenNominaHistorica" class="java.util.HashMap">
+       <result property="folio"                 jdbcType="CHAR"     javaType="String"/>
+       <result property="rutEmpresa"            jdbcType="INT"      javaType="Integer"/>
+       <result property="dvEmpresa"             jdbcType="CHAR"     javaType="String"/>
+       <result property="fechaCreacion"         jdbcType="DATETIME" javaType="Date"/>
+       <result property="fechaPago"             jdbcType="DATETIME" javaType="Date"/>
+       <result property="fechaCaducidad"        jdbcType="CHAR"     javaType="String"/>
+       <result property="nombreEmpresa"         jdbcType="CHAR"     javaType="String"/>
+       <result property="archivo"               jdbcType="CHAR"     javaType="String"/>
+       <result property="cuentaCargoAbono"      jdbcType="CHAR"     javaType="String"/>
+       <result property="tipoPago"              jdbcType="CHAR"     javaType="String"/>
+       <result property="descripcionTipoPago"   jdbcType="CHAR"     javaType="String"/>
+       <result property="estado"                jdbcType="CHAR"     javaType="String"/>
+       <result property="codigoEstado"          jdbcType="INT"      javaType="Integer"/>
+       <result property="descripcionEstado"     jdbcType="CHAR"     javaType="String"/>
+       <result property="tipoEmpresa"           jdbcType="CHAR"     javaType="String"/>
+       <result property="dkt"                   jdbcType="CHAR"     javaType="String"/>
+       <result property="convenio"              jdbcType="CHAR"     javaType="String" />
+       <result property="tipoNomina"            jdbcType="CHAR"     javaType="String"/>
+       <result property="fechaCaducidadVVi"     jdbcType="DATETIME" javaType="Date"/>
+    </resultMap>
+    
+    <procedure id="obtenerEncabezadoResumenNominaHistorica" parameterMap="setObtenerEncabezadoResumenNominaHistorica" resultMap="getObtenerEncabezadoResumenNominaHistorica">
+       {CALL sp_con_enc_nom_hist(?,?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerTotalesResumenNominaHistorica" class="java.util.HashMap">
+       <parameter property="folio"              jdbcType="CHAR"     javaType="String"/>
+    </parameterMap>
+    
+    <resultMap id="getObtenerTotalesResumenNominaHistorica" class="java.util.HashMap">
+       <result property="tipoPago"              jdbcType="CHAR"    javaType="String"/>
+       <result property="descripcionTipoPago"   jdbcType="CHAR"    javaType="String"/>
+       <result property="regTotales"            jdbcType="INT"     javaType="Integer"/>
+       <result property="regAceptados"          jdbcType="INT"     javaType="Integer"/>
+       <result property="regRechazados"         jdbcType="INT"     javaType="Integer"/>
+       <result property="montoTotal"            jdbcType="money"   javaType="java.math.BigDecimal"/>
+       <result property="montoAceptado"         jdbcType="money"   javaType="java.math.BigDecimal"/>
+       <result property="montoRechazado"        jdbcType="money"   javaType="java.math.BigDecimal"/>
+    </resultMap>
+    <procedure id="obtenerTotalesResumenNominaHistorica" parameterMap="setObtenerTotalesResumenNominaHistorica" resultMap="getObtenerTotalesResumenNominaHistorica">
+       {CALL sp_PM_con_tot_nom_hist(?)}
+    </procedure>
+    
+    <parameterMap id="setObtienePagosNominaHistorica" class="java.util.HashMap">
+       <parameter property="folio"          jdbcType="CHAR" javaType="String"/>
+       <parameter property="formaPago"      jdbcType="CHAR" javaType="String"/>
+       <parameter property="pagina"         jdbcType="INT" javaType="Integer"/>
+       <parameter property="cantRegistros"  jdbcType="INT" javaType="Integer"/>
+    </parameterMap>
+    
+    <resultMap id="getObtienePagosNominaHistorica" class="java.util.HashMap">
+       <result property="numeroLinea"           jdbcType="CHAR"     javaType="String"/>
+       <result property="rutBenef"              jdbcType="CHAR"     javaType="String"/>
+       <result property="dvBenef"               jdbcType="CHAR"     javaType="String"/>
+       <result property="nomBenef"              jdbcType="CHAR"     javaType="String"/>
+       <result property="apePtnBenef"           jdbcType="CHAR"     javaType="String"/>
+       <result property="apeMtnBenef"           jdbcType="CHAR"     javaType="String"/>
+       <result property="codigoFormaPago"       jdbcType="CHAR"     javaType="String"/>
+       <result property="descripcionFormaPago"  jdbcType="CHAR"     javaType="String"/>
+       <result property="banco"                 jdbcType="CHAR"     javaType="String"/>
+       <result property="cuentaCargoAbono"      jdbcType="CHAR"     javaType="String"/>
+       <result property="montoPago"             jdbcType="MONEY"    javaType="Double"/>
+       <result property="codigoEstado"          jdbcType="CHAR"     javaType="String"/>
+       <result property="descripcionEstado"     jdbcType="CHAR"     javaType="String"/>
+       <result property="folioNomina"           jdbcType="CHAR"     javaType="String"/>
+       <result property="codigoMoneda"          jdbcType="CHAR"     javaType="String"/>
+       <result property="numeroDocumento"       jdbcType="CHAR"     javaType="String"/>
+       <result property="nombreBanco"           jdbcType="CHAR"     javaType="String"/>
+       <result property="tipoPago"           jdbcType="CHAR"     javaType="String"/>
+       <result property="cantidadPaginas"       jdbcType="INT"      javaType="Integer"/>
+    </resultMap>
+    <procedure id="obtienePagosNominaHistorica" parameterMap="setObtienePagosNominaHistorica" resultMap="getObtienePagosNominaHistorica">
+       {CALL sp_con_reg_nom_form_pag_hist(?,?,?,?)}
+    </procedure>
+    
+    <resultMap id="getConsultaDetalleBenefPagoHistorico" class="java.util.HashMap">
+        <result property="rut_pag"                  jdbcType="NUMBER"           javaType="long"/>
+        <result property="dv_pag"                   jdbcType="CHAR"             javaType="String"/>
+        <result property="nom_emp"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="odp_num_lin_pag"          jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_rut"                  jdbcType="NUMBER"           javaType="long"/>
+        <result property="bnf_vrt"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_nom"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_ape_ptn"              jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_ape_mtn"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_bco_dst"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_cta_car_abo"          jdbcType="CHAR"             javaType="String"/>
+        <result property="mon_cod"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_mto_mon_ori"          jdbcType="MONEY"            javaType="Double"/>
+        <result property="dop_num_odc_cli"          jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_gls_pag"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_tip_doc_pag"          jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_num_doc"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_val_doc"              jdbcType="NUMBER"           javaType="Double"/>
+        <result property="dop_val_dct"              jdbcType="NUMBER"           javaType="Double"/>
+        <result property="dop_mto_pag_cbr"          jdbcType="MONEY"            javaType="Double"/>
+        <result property="dop_via_rnd_bnf"          jdbcType="CHAR"             javaType="String"/>
+        <result property="rcz_cod"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="odp_idn_mdl"              jdbcType="INT"              javaType="Integer"/>
+        <result property="rcz_des"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="dcv_ind_liq"              jdbcType="CHAR"             javaType="String"/>
+        
+    </resultMap>
+    <procedure id="consultaDetalleBenefPagoHistorico" resultMap="getConsultaDetalleBenefPagoHistorico"> 
+        { CALL cns_det_bnf_pag_hist(#folio#,#linea#, #tipoPago#) } 
+    </procedure>
+    
+     <resultMap id="getconsultaDetalleBenefPagoInfoDetOpVVHistorico" class="java.util.HashMap">
+        <result property="odp_num_fol_uop"      jdbcType="NUMBER"         javaType="long"/>
+        <result property="odp_num_lin_pag"      jdbcType="CHAR"           javaType="String"/>
+        <result property="ofi_nom"              jdbcType="CHAR"           javaType="String"/>
+        <result property="bnf_rut"              jdbcType="CHAR"         javaType="long"/>
+        <result property="bnf_vrt"              jdbcType="CHAR"           javaType="String"/>
+        <result property="bnf_dir"              jdbcType="CHAR"           javaType="String"/>
+        <result property="cmn_nom"              jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_rut_rtd_1"        jdbcType="CHAR"         javaType="String"/>
+        <result property="rbf_vrt_rtd_1"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_ape_ptn_1"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_ape_mtn_1"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_nom_1"            jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_rut_rtd_2"        jdbcType="CHAR"         javaType="String"/>
+        <result property="rbf_vrt_rtd_2"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_ape_ptn_2"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_ape_mtn_2"        jdbcType="CHAR"           javaType="String"/>
+        <result property="rbf_nom_2"            jdbcType="CHAR"           javaType="String"/>
+        <result property="vvp_fec_ent"          jdbcType="DATETIME"       javaType="Date"/>
+        <result property="dop_cta_car_abo"      jdbcType="CHAR"           javaType="String"/>
+        <result property="mon_cod"              jdbcType="CHAR"           javaType="String"/>
+        <result property="dop_num_doc"          jdbcType="NUMBER"         javaType="long"/>
+        <result property="ofi_cod"              jdbcType="CHAR"           javaType="String"/>
+        <result property="com_cod"              jdbcType="CHAR"           javaType="String"/>
+        
+        
+    </resultMap>
+    <procedure id="consultaDetalleBenefPagoInfoDetOpVVHistorico" resultMap="getconsultaDetalleBenefPagoInfoDetOpVVHistorico"> 
+        { CALL cns_info_det_ope_hist(#rutEmpresa#, #idTransfer#, #folio#, #linea#, #tipoConvenio#) } 
+    </procedure>
+    
+    <parameterMap id="setObtenerTotalesResumenNominaHistorico" class="java.util.HashMap">
+       <parameter property="folio"              jdbcType="CHAR"     javaType="String"/>
+    </parameterMap>
+    
+    <resultMap id="getObtenerTotalesResumenNominaHistorico" class="java.util.HashMap">
+       <result property="tipoPago"              jdbcType="CHAR"    javaType="String"/>
+       <result property="descripcionTipoPago"   jdbcType="CHAR"    javaType="String"/>
+       <result property="regTotales"            jdbcType="INT"     javaType="Integer"/>
+       <result property="regAceptados"          jdbcType="INT"     javaType="Integer"/>
+       <result property="regRechazados"         jdbcType="INT"     javaType="Integer"/>
+       <result property="montoTotal"            jdbcType="money"   javaType="java.math.BigDecimal"/>
+       <result property="montoAceptado"         jdbcType="money"   javaType="java.math.BigDecimal"/>
+       <result property="montoRechazado"        jdbcType="money"   javaType="java.math.BigDecimal"/>
+    </resultMap>
+    <procedure id="obtenerTotalesResumenNominaHistorico" parameterMap="setObtenerTotalesResumenNominaHistorico" resultMap="getObtenerTotalesResumenNominaHistorico">
+       {CALL sp_PM_con_tot_nom_hist(?)}
+    </procedure>
+    
+        <resultMap id="getConsultaDetalleBenefPagoInfoDetOpHistorico" class="java.util.HashMap">
+        <result property="odp_num_lin_pag"          jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_rut"                  jdbcType="NUMBER"           javaType="long"/>
+        <result property="bnf_vrt"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_nom"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_ape_ptn"              jdbcType="CHAR"             javaType="String"/>
+        <result property="bnf_ape_mtn"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_bco_dst"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_cta_car_abo"          jdbcType="CHAR"             javaType="String"/>
+        <result property="mon_cod"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_mto_mon_ori"          jdbcType="MONEY"            javaType="Double"/>
+        <result property="dop_num_odc_cli"          jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_gls_pag"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_tip_doc_pag"          jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_num_doc"              jdbcType="CHAR"             javaType="String"/>
+        <result property="dop_val_doc"              jdbcType="NUMBER"           javaType="Double"/>
+        <result property="dop_val_dct"              jdbcType="NUMBER"           javaType="Double"/>
+        <result property="dop_mto_pag_cbr"          jdbcType="MONEY"            javaType="Double"/>
+        <result property="dop_via_rnd_bnf"          jdbcType="CHAR"             javaType="String"/>
+        <result property="rcz_cod"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="odp_idn_mdl"              jdbcType="INT"              javaType="Integer"/>
+        <result property="rcz_des"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="dcv_ind_liq"              jdbcType="CHAR"             javaType="String"/>
+        
+    </resultMap>
+    <procedure id="consultaDetalleBenefPagoInfoDetOpHistorico" resultMap="getConsultaDetalleBenefPagoInfoDetOpHistorico"> 
+        { CALL sp_cons_det_pag_hist(#folio#,#linea#, #tipoPago#) } 
+    </procedure>
+    
+    <parameterMap id="setConsultarPagosRecibidos" class="java.util.HashMap">
+       <parameter property="rut"          jdbcType="CHAR" javaType="String"/>
+       <parameter property="odp_fec_pag_desde"          jdbcType="SMALLDATETIME"	javaType="String"/>
+       <parameter property="odp_fec_pag_hasta"          jdbcType="SMALLDATETIME"	javaType="String"/>
+       <parameter property="cant_reg"          jdbcType="Int" javaType="int"/>
+    </parameterMap>
+    <resultMap id="getConsultarPagosRecibidos" class="java.util.HashMap">
+       <result property="fechaDePago"             jdbcType="SMALLDATETIME" javaType="java.util.Date"/>
+       <result property="numeroFolio"             jdbcType="CHAR"          javaType="String"/>
+       <result property="numeroLinea"             jdbcType="CHAR"          javaType="String"  />
+       <result property="rutPagador"              jdbcType="CHAR"          javaType="String"/>
+       <result property="dvPagador"               jdbcType="CHAR"          javaType="String"/>
+       <result property="nombrePagador"           jdbcType="CHAR"          javaType="String"/>
+       <result property="idFormaDePago"           jdbcType="CHAR"          javaType="String"/>
+       <result property="formaDePago"             jdbcType="CHAR"          javaType="String"/>
+       <result property="numCuentaValeVista"      jdbcType="CHAR"          javaType="String"/>
+       <result property="montoPago"               jdbcType="MONEY"         javaType="double"/>
+       <result property="bancoOrigen"             jdbcType="CHAR"          javaType="String"/>
+       <result property="idTipoDePago"            jdbcType="CHAR"          javaType="String"/>
+       <result property="tipoDePago"              jdbcType="CHAR"          javaType="String"/>
+       <result property="codigoOficinaRetiro"     jdbcType="CHAR"          javaType="String"/>
+       <result property="oficinaRetiro"           jdbcType="CHAR"          javaType="String"/>
+       <result property="numeroOrdenCliente"      jdbcType="CHAR"          javaType="String"/>
+       <result property="codigoRechazo"           jdbcType="CHAR"          javaType="String"/>
+       <result property="modulo"                  jdbcType="TINYINT"       javaType="int"/>
+       <result property="numeroDocumento"         jdbcType="CHAR"          javaType="String"/>
+       <result property="bancoDestino"            jdbcType="CHAR"          javaType="String"/>
+       <result property="apellidoPatBenef"        jdbcType="CHAR"          javaType="String"/>
+       <result property="apellidoMatBenef"        jdbcType="CHAR"          javaType="String"/>
+       <result property="nombreBeneficiario"      jdbcType="CHAR"          javaType="String"/>
+       <result property="viaRendicion"            jdbcType="CHAR"          javaType="String"/>
+    </resultMap>
+    <procedure id="consultarPagosRecibidos" parameterMap="setConsultarPagosRecibidos" resultMap="getConsultarPagosRecibidos">
+       {CALL sp_cons_pag_rec(?,?,?,?) }
+    </procedure>
+	
+    <resultMap id="getPagosPorBeneficiario" class="java.util.HashMap">
+		<result property="numeroFolio"           jdbcType="CHAR"         javaType="String"/>
+		<result property="rutBeneficiario"       jdbcType="DECIMAL"      javaType="java.lang.Long"/>
+		<result property="rutEmpleador"          jdbcType="DECIMAL"      javaType="java.lang.Long"/>
+		<result property="montoTotal"            jdbcType="MONEY"        javaType="Double" />
+		<result property="formaPago"             jdbcType="CHAR"         javaType="String"/>
+		<result property="tipoPago"              jdbcType="CHAR"         javaType="String"/>
+		<result property="fechaPago"             jdbcType="DATE"         javaType="java.util.Calendar"   column="odp_fec_pag"   typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />        
+    </resultMap>
+    
+    <procedure id="consultaPagosPorBeneficiario" resultMap="getPagosPorBeneficiario">
+       {CALL sp_consulta_pagos_beneficiario(#bnf_rut#,#dcv_tip_cnv_pag#,#dop_tip_doc_pag#,#odp_fec_pag_desde#,#odp_fec_pag_hasta#)}
+    </procedure>
+    
+    <parameterMap id="setObtenerDetalleCuadraturaDebitosEntrantes" class="java.util.HashMap">
+        <parameter property="fecha"            jdbcType="DATETIME" javaType="Date"/>
+    </parameterMap>
+    <resultMap id="getObtenerDetalleCuadraturaDebitosEntrantes" class="java.util.HashMap">
+        <result property="codigo"       jdbcType="CHAR"        javaType="String"/>
+        <result property="banco"        jdbcType="CHAR"        javaType="String"/>
+        <result property="efectivas"    jdbcType="MONEY"         javaType="Double"/>
+        <result property="retornos"     jdbcType="MONEY"         javaType="Double"/>
+        <result property="diferencia"   jdbcType="MONEY"         javaType="Double"/>
+        <result property="informe"      jdbcType="MONEY"         javaType="Double"/>
+        <result property="estado"       jdbcType="CHAR"        javaType="String"/>
+    </resultMap>
+    <procedure id="obtenerDetalleCuadraturaDebitosEntrantes" parameterMap="setObtenerDetalleCuadraturaDebitosEntrantes" resultMap="getObtenerDetalleCuadraturaDebitosEntrantes">
+        {CALL sp_consCuadraturaDebEnt(?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerDetalleCuadraturaDebitosSalientes" class="java.util.HashMap">
+        <parameter property="fecha"            jdbcType="DATETIME" javaType="Date"/>
+    </parameterMap>
+    <resultMap id="getObtenerDetalleCuadraturaDebitosSalientes" class="java.util.HashMap">
+        <result property="codigo"                   jdbcType="CHAR"        javaType="String"/>
+        <result property="banco"                    jdbcType="CHAR"        javaType="String"/>
+        <result property="efectivas"                jdbcType="MONEY"         javaType="Double"/>
+        <result property="retornos"                 jdbcType="MONEY"         javaType="Double"/>
+        <result property="diferencia"               jdbcType="MONEY"         javaType="Double"/>
+        <result property="informeSIPE"              jdbcType="MONEY"         javaType="Double"/>
+        <result property="estado"                   jdbcType="CHAR"        javaType="String"/>
+        <result property="retornosContingencia"     jdbcType="MONEY"         javaType="Double"/>
+    </resultMap>
+    <procedure id="obtenerDetalleCuadraturaDebitosSalientes" parameterMap="setObtenerDetalleCuadraturaDebitosSalientes" resultMap="getObtenerDetalleCuadraturaDebitosSalientes">
+        {CALL sp_consCuadraturaDebSal(?)}
+    </procedure>
+
+    <parameterMap id="setObtenerDetalleCuadraturaEfectivasEntrantes" class="java.util.HashMap">
+        <parameter property="fecha"            jdbcType="DATETIME" javaType="Date"/>
+    </parameterMap>
+    <resultMap id="getObtenerDetalleCuadraturaEfectivasEntrantes" class="java.util.HashMap">
+        <result property="codigo"                       jdbcType="CHAR"        javaType="String"/>
+        <result property="banco"                        jdbcType="CHAR"        javaType="String"/>
+        <result property="totalInformeSIPE"             jdbcType="MONEY"       javaType="Double"/>
+        <result property="totalEfectivasRecibidasCAA"   jdbcType="MONEY"       javaType="Double"/>
+        <result property="diferencia"                   jdbcType="MONEY"       javaType="Double"/>
+        <result property="estado"                       jdbcType="CHAR"        javaType="String"/>
+    </resultMap>
+    <procedure id="obtenerDetalleCuadraturaEfectivasEntrantes" parameterMap="setObtenerDetalleCuadraturaEfectivasEntrantes" resultMap="getObtenerDetalleCuadraturaEfectivasEntrantes">
+        {CALL sp_consCuadraturaEfeEnt(?)}
+    </procedure>
+
+    <parameterMap id="setObtenerDetalleCuadraturaRegistrosEnviados" class="java.util.HashMap">
+        <parameter property="fecha"            jdbcType="DATETIME" javaType="Date"/>
+    </parameterMap>
+    <resultMap id="getObtenerDetalleCuadraturaRegistrosEnviados" class="java.util.HashMap">
+        <result property="codigo"                           jdbcType="CHAR"        javaType="String"/>
+        <result property="banco"                            jdbcType="CHAR"        javaType="String"/>
+        <result property="efectivasRetornosEnviadas"        jdbcType="MONEY"       javaType="Double"/>
+        <result property="informeEnviadas"                  jdbcType="MONEY"       javaType="Double"/>
+        <result property="glosaDiferenciaEnviadas"          jdbcType="CHAR"        javaType="String"/>
+        <result property="efectivasRetornosRecibidas"       jdbcType="MONEY"       javaType="Double"/>
+        <result property="informeRecibidas"                 jdbcType="MONEY"       javaType="Double"/>
+        <result property="glosaDiferenciaRecibidas"         jdbcType="CHAR"        javaType="String"/>
+    </resultMap>
+    <procedure id="obtenerDetalleCuadraturaRegistrosEnviados" parameterMap="setObtenerDetalleCuadraturaRegistrosEnviados" resultMap="getObtenerDetalleCuadraturaRegistrosEnviados">
+        {CALL sp_consCuadraturaRegEnv(?)}
+    </procedure>
+    
+    
+    <resultMap id="getConsultarValesVistasHistorica" class="java.util.HashMap">
+       <result property="odp_num_fol_uop"           jdbcType="CHAR"         javaType="String"/>
+       <result property="odp_num_lin_pag"           jdbcType="CHAR"         javaType="String"/>
+       <result property="dop_cta_car_abo"           jdbcType="CHAR"         javaType="String"/>
+       <result property="bnf_rut"                   jdbcType="NUMBER"       javaType="long"/>
+       <result property="bnf_vrt"                   jdbcType="CHAR"         javaType="String"/>
+       <result property="ofi_nom"                   jdbcType="CHAR"         javaType="String" />
+       <result property="vvp_fec_ent"               jdbcType="DATE"         javaType="java.util.Calendar" column="vvp_fec_ent" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+       <result property="odp_fec_cad_vvi"           jdbcType="DATE"         javaType="java.util.Calendar" column="odp_fec_cad_vvi" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+       <result property="vvp_fec_liq"               jdbcType="DATE"         javaType="java.util.Calendar" column="vvp_fec_liq" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+       <result property="dop_mto_pag_cbr"           jdbcType="MONEY"        javaType="java.lang.Double" />
+       <result property="rcz_des"                   jdbcType="CHAR"         javaType="String" />
+       <result property="odp_fec_pag"               jdbcType="DATE"         javaType="java.util.Calendar" column="odp_fec_pag" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+       <result property="rutRetirador"	            jdbcType="CHAR"          javaType="String"/>
+       <result property="dvRetirador"               jdbcType="CHAR"          javaType="String"/>
+       <result property="appPaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+       <result property="appMaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+       <result property="nombreRetirador"	        jdbcType="CHAR"          javaType="String"/>
+       <result property="nombreBenef"	            jdbcType="CHAR"          javaType="String"/>
+       <result property="appPaternoBenef"	        jdbcType="CHAR"          javaType="String"/>
+       <result property="appMaternoBenef"	        jdbcType="CHAR"          javaType="String"/>
+       <result property="ofi_cod"	                jdbcType="CHAR"          javaType="String"/>
+		<result property="odp_idn_mdl"              jdbcType="INT"            javaType="Integer"/>
+       <result property="rcz_cod"	                jdbcType="CHAR"          javaType="String"/>
+	</resultMap>
+    
+    <procedure id="consultarValesVistasHistorica" resultMap="getConsultarValesVistasHistorica">
+       {CALL sp_PM_consulta_VVhist(#numFolio#,#estadoFolio#,#fechaDesde#,#fechaHasta#,#tipoPago#,#rutBenef#,#rutEmpresa#,#idnTrans#,#rutRetirador#,#fechaEntregaDesde#,#fechaEntregaHasta#)}
+    </procedure>
+
+    
+    <parameterMap id="setObtenerNominasPorValeVistaHistorica" class="java.util.HashMap">
+       <parameter property="fechaPagoDesde"     jdbcType="DATETIME"     javaType="String"/>
+       <parameter property="fechaPagoHasta"     jdbcType="DATETIME"     javaType="String"/>
+       <parameter property="rutBeneficiario"    jdbcType="CHAR"         javaType="String"/>
+       <parameter property="numeroValeVista"    jdbcType="CHAR"         javaType="String"/>
+       <parameter property="estado"             jdbcType="CHAR"         javaType="String"/>
+       <parameter property="agrupacion"         jdbcType="CHAR"         javaType="String"/>
+       <parameter property="oficina"            jdbcType="CHAR"         javaType="String"/>
+       <parameter property="rutCliente"         jdbcType="CHAR"         javaType="String"/>
+       <parameter property="pagina"             jdbcType="INT"          javaType="Integer"/>
+       <parameter property="cantRegistros"      jdbcType="INT"          javaType="Integer"/>
+       
+       <parameter property="rutRetirador"      jdbcType="CHAR"     javaType="String"/>
+	   <parameter property="fechaEntregaDesde"  jdbcType="DATETIME" javaType="String"/>
+	   <parameter property="fechaEntregaHasta"  jdbcType="DATETIME" javaType="String"/>
+    </parameterMap>
+    
+    <resultMap id="getObtenerNominasPorValeVistaHistorica" class="java.util.HashMap">
+        <result property="numeroFolio"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="numeroLinea"                  jdbcType="CHAR"             javaType="String"/>
+        <result property="numeroValeVista"              jdbcType="CHAR"             javaType="String"/>
+        <result property="rutBeneficiario"              jdbcType="java.lang.Long"   javaType="DECIMAL"/>
+        <result property="dvBeneficiario"               jdbcType="CHAR"             javaType="String"/>
+        <result property="fechaEntrega"                 jdbcType="SMALLDATETIME"    javaType="Date"/>
+        <result property="fechaCaducidad"               jdbcType="SMALLDATETIME"    javaType="Date"/>
+        <result property="fechaLiquidacion"             jdbcType="SMALLDATETIME"    javaType="Date"/>
+        <result property="montoPago"                    jdbcType="java.lang.Long"   javaType="DECIMAL"/>
+        <result property="codigoEstado"                 jdbcType="CHAR"             javaType="String"/>
+        <result property="indicadorMedio"               jdbcType="TINYINT"          javaType="Integer"/>
+        <result property="descripcionEstado"            jdbcType="CHAR"             javaType="String"/>
+        
+        <result property="cuentaConvenio"               jdbcType="CHAR"             javaType="String"/>
+        <result property="codOficinaConvenio"           jdbcType="CHAR"             javaType="String"/>
+        <result property="gloOficinaConvenio"           jdbcType="CHAR"             javaType="String"/>
+        <result property="diasDesdeEmision"             jdbcType="TINYINT"          javaType="Integer"/>
+        <result property="cantidadPaginas"              jdbcType="INT"              javaType="Integer"/>
+		<result property="rutRetirador"	                jdbcType="CHAR"             javaType="String"/>
+		<result property="dvRetirador"	                jdbcType="CHAR"             javaType="String"/>
+		<result property="appPaternoRetirador"   	    jdbcType="CHAR"             javaType="String"/>
+		<result property="appMaternoRetirador"   	    jdbcType="CHAR"             javaType="String"/>
+		<result property="nombreRetirador"	            jdbcType="CHAR"             javaType="String"/>
+        <result property="codigoOfiEntrega"	            jdbcType="CHAR"             javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerNominasPorValeVistaHistorica" parameterMap="setObtenerNominasPorValeVistaHistorica" resultMap="getObtenerNominasPorValeVistaHistorica">
+       {CALL sp_cons_nomina_por_VVhist(?,?,?,?,?,?,?,?,?,?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setConsultarEstadoDetallePago" class="java.util.HashMap">
+        <parameter property="folio"       jdbcType="CHAR"     javaType="String" />
+        <parameter property="numeroLinea" jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultarEstadoDetallePago" class="java.util.HashMap">
+            <result property="estado"     jdbcType="CHAR"    javaType="String" />
+            <result property="modulo"     jdbcType="INT"     javaType="java.lang.Integer"/>
+            <result property="forma_pago" jdbcType="CHAR"    javaType="String" />
+            <result property="monto_pago" jdbcType="DECIMAL" javaType="Double"/>
+    </resultMap>
+    
+    <procedure id="consultarEstadoDetallePago" parameterMap="setConsultarEstadoDetallePago" resultMap="getConsultarEstadoDetallePago">
+        { CALL sp_OPF_cns_est_dop( ?,?) }
+    </procedure>
+    
+    <parameterMap id="setActEstadoTransaccionPorActualizacionVVI" class="java.util.HashMap">
+        <parameter property="nrocuenta"     jdbcType="CHAR"     javaType="String" />
+        <parameter property="estado"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="fecha"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="p_oficinaPago" jdbcType="CHAR"     javaType="String" />
+        <parameter property="p_fechaPago"   jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    
+    <procedure id="actEstadoTransaccionPorActualizacionVVI" parameterMap="setActEstadoTransaccionPorActualizacionVVI" resultClass="String">
+        { CALL sp_update_dopvvi( ?,?,?,?,?) }
+    </procedure>
+	
+	 <parameterMap id="setconsultaVVRetiradorProveedores" class="java.util.HashMap">
+       <parameter property="folio"             jdbcType="CHAR"     javaType="String"/>
+       <parameter property="cuenta"            jdbcType="CHAR"     javaType="String"/>
+    </parameterMap>
+    
+    <resultMap id="getconsultaVVRetiradorProveedores" class="java.util.HashMap">
+       	<result property="rutRetirador"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="dvRetirador"	            jdbcType="CHAR"          javaType="String"/>
+		<result property="appPaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+		<result property="appMaternoRetirador"   	jdbcType="CHAR"          javaType="String"/>
+		<result property="nombreRetirador"	        jdbcType="CHAR"          javaType="String"/>
+        <result property="codigoOfiEntrega"	        jdbcType="CHAR"          javaType="String"/>
+    </resultMap>
+    
+    <procedure id="consultaVVRetiradorProveedores" parameterMap="setconsultaVVRetiradorProveedores" resultMap="getconsultaVVRetiradorProveedores">
+       {CALL sp_cons_retiradores(?,?)}
+    </procedure>
+	
+    <parameterMap id="setConsultarDetallePagosRecibidos" class="java.util.HashMap">
+       <parameter property="rut"          jdbcType="CHAR" javaType="String"/>
+       <parameter property="odp_fec_pag_desde"          jdbcType="SMALLDATETIME"	javaType="String"/>
+       <parameter property="odp_fec_pag_hasta"          jdbcType="SMALLDATETIME"	javaType="String"/>
+       
+    </parameterMap>
+    <resultMap id="getConsultarDetallePagosRecibidos" class="java.util.HashMap">
+       <result property="rutPagador"              jdbcType="CHAR"          javaType="String"/>
+       <result property="dvPagador"               jdbcType="CHAR"          javaType="String"/>
+       <result property="nombrePagador"           jdbcType="CHAR"          javaType="String"/>     
+       <result property="fechaDePago"             jdbcType="SMALLDATETIME" javaType="String"/>
+       <result property="tipoDePago"              jdbcType="CHAR"          javaType="String"/>
+       <result property="tipoDocumento"           jdbcType="CHAR"          javaType="String"/>     
+       <result property="bancoOrigen"             jdbcType="CHAR"          javaType="String"/>
+       <result property="rutBeneficiario"         jdbcType="CHAR"          javaType="String"/>
+       <result property="nombreBeneficiario"      jdbcType="CHAR"          javaType="String"/>
+       <result property="formaDePago"             jdbcType="CHAR"          javaType="String"/>       
+       <result property="numCuentaValeVista"      jdbcType="CHAR"          javaType="String"/>
+       <result property="numeroDocumento"         jdbcType="CHAR"          javaType="String"/>          
+       <result property="montoBoleta"             jdbcType="MONEY"         javaType="double"/>               
+       <result property="montoPago"               jdbcType="MONEY"         javaType="double"/>     
+       <result property="oficinaRetiro"           jdbcType="CHAR"          javaType="String"/>
+       <result property="bancoDestino"            jdbcType="CHAR"          javaType="String"/>    
+       <result property="numeroOrdenCliente"      jdbcType="CHAR"          javaType="String"/>    
+       <result property="glosaPago"      		  jdbcType="CHAR"          javaType="String"/>
+       <result property="dvBenef"      		      jdbcType="CHAR"          javaType="String"/>
+       
+    
+    </resultMap>
+    <procedure id="consultarDetallePagosRecibidos" parameterMap="setConsultarDetallePagosRecibidos" resultMap="getConsultarDetallePagosRecibidos">
+       {CALL Pr_Obtener_Pagos_Recibidos(?,?,?) }
+    </procedure>
+    
+    <parameterMap id="setReintegrarPagosValeVista" class="java.util.HashMap">
+        <parameter property="emp_num_rut"     	jdbcType="CHAR"      javaType="String" />
+        <parameter property="cnv_num"     		jdbcType="CHAR"      javaType="String" />
+        <parameter property="tip_cnv_pago"     	jdbcType="CHAR"      javaType="String" />
+        <parameter property="numeroFolio"     	jdbcType="CHAR"      javaType="String" />
+        <parameter property="tipoProducto"     	jdbcType="CHAR"      javaType="String" />
+        <parameter property="numeroLineas"     	jdbcType="CHAR"      javaType="String" />
+     </parameterMap>
+
+    <resultMap id="getReintegrarPagosValeVista" class="java.util.HashMap">
+       <result property="rutBenef"              jdbcType="CHAR"     javaType="String"/>
+       <result property="dvBenef"               jdbcType="CHAR"     javaType="String"/>
+       <result property="nomBenef"              jdbcType="CHAR"     javaType="String"/>
+       <result property="apePtnBenef"           jdbcType="CHAR"     javaType="String"/>
+       <result property="apeMtnBenef"           jdbcType="CHAR"     javaType="String"/>
+       <result property="cuentaCargoAbono"      jdbcType="CHAR"     javaType="String"/>
+       <result property="agrupar"      			jdbcType="CHAR"     javaType="String"/>
+       <result property="cuentaDevolucion"      jdbcType="CHAR"     javaType="String"/>
+       <result property="montoPago"             jdbcType="MONEY"    javaType="Double"/>
+       <result property="descripcionEstado"     jdbcType="CHAR"     javaType="String"/>
+       <result property="descripcionOficina"    jdbcType="CHAR"     javaType="String"/>
+       <result property="montoTotalReintegro"   jdbcType="INT"      javaType="Integer"/>
+       <result property="lineaPago"   			jdbcType="CHAR"     javaType="String"/>
+       <result property="codigoEstadoPago"   	jdbcType="CHAR"     javaType="String"/>
+       <result property="numeroFolio"   		jdbcType="CHAR"     javaType="String"/>
+    </resultMap>
+
+	<procedure id="reintegrarPagosValeVistaVI" parameterMap="setReintegrarPagosValeVista" resultMap="getReintegrarPagosValeVista">
+		{ CALL sp_rein_estado_val_vista_hist( ? , ? , ? , ? , ? , ?) }
+	</procedure>
+	    
+</sqlMap>   

@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="notifica.procedimientosAlmacenados">
+
+	<parameterMap id="setActualizaFechaRevision" class="java.util.HashMap">
+		<parameter property="fecha" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	</parameterMap>
+	
+	<procedure id="actualizaFechaRevision" parameterMap="setActualizaFechaRevision" resultClass="int">
+		{ CALL sp_ins_fec_ult_rev( ? ) }
+	</procedure>
+	
+	<resultMap id="getObtenerFechaRevision" class="java.util.HashMap">
+		<result property="fechaProceso" column="fechaProceso" jdbcType="DATE" javaType="String" />
+	</resultMap>
+
+	<procedure id="obtenerFechaRevision" resultMap="getObtenerFechaRevision">
+		{ CALL sp_cns_fec_ult_rev() }
+	</procedure>
+	
+	<parameterMap id="setRegistraMensaje" class="java.util.HashMap">
+		<parameter property="fechaDeEnvio"	jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="canal"			jdbcType="varchar" javaType="String" />
+		<parameter property="evento"		jdbcType="varchar" javaType="String" />
+		<parameter property="subEvento"		jdbcType="varchar" javaType="String" />
+		<parameter property="producto"		jdbcType="varchar" javaType="String" />
+		<parameter property="numeroCelular"	jdbcType="varchar" javaType="String" />
+		<parameter property="mensaje"		jdbcType="varchar" javaType="String" />
+		<parameter property="estadoEnvio"	jdbcType="char" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="registraMensaje" parameterMap="setRegistraMensaje" resultClass="int">
+		{ CALL sp_ins_sms_enviado( ?,?,?,?,?,?,?,? ) }
+	</procedure>
+
+
+
+
+	<parameterMap id="setEnrolaCliente" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric"  javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="CHAR"     javaType="String" />
+		<parameter property="telefonoCliente"	jdbcType="char"     javaType="String" />
+		<parameter property="carrierCelular"  	jdbcType="char"     javaType="String" />
+		<parameter property="cuenta"    		jdbcType="char"     javaType="String" />
+		<parameter property="codigoProducto"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoEvento"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoServicio"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="fechaSuscripcion"	jdbcType="DATE"     javaType="java.util.Date" />
+		<parameter property="canal"				jdbcType="Numeric"  javaType="java.lang.Integer" />
+		<parameter property="ejecutivo"			jdbcType="char"     javaType="String" />
+	</parameterMap>
+		<procedure id="enrolaCliente" parameterMap="setEnrolaCliente" resultClass="int">
+		{ CALL sp_ins_erl_cli( ?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<parameterMap id="setDesenrolaCliente" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric"  javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="char"     javaType="String" />
+		<parameter property="codigoProducto"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoEvento"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoServicio"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="canal"				jdbcType="Numeric"	javaType="java.lang.Integer" />
+		<parameter property="ejecutivo"			jdbcType="char"		javaType="java.lang.String" />
+	</parameterMap>
+		<procedure id="desenrolaCliente" parameterMap="setDesenrolaCliente" resultClass="int">
+		{ CALL sp_del_erl_cli( ?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<parameterMap id="setActualizaEnrolamiento" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric"  javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="char"     javaType="String" />
+		<parameter property="telefonoCliente"	jdbcType="char"     javaType="String" />
+		<parameter property="carrierCelular"  	jdbcType="char"     javaType="String" />
+		<parameter property="cuenta"    		jdbcType="char"     javaType="String" />
+		<parameter property="codigoProducto"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoEvento"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoServicio"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="canal"				jdbcType="Numeric"  javaType="java.lang.Integer" />
+		<parameter property="ejecutivo"			jdbcType="char"     javaType="String" />	
+	</parameterMap>
+		<procedure id="actualizaEnrolamiento" parameterMap="setActualizaEnrolamiento" resultClass="int">
+		{ CALL sp_upd_erl_cli( ?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<parameterMap id="setConsultaEnrolamientoCliente" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric" 	javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="CHAR"    	javaType="String" />
+		<parameter property="codigoProducto"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoEvento"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="codigoServicio"	jdbcType="CHAR"		javaType="String" />
+	</parameterMap>
+		<resultMap id="getConsultaEnrolamientoCliente" class="java.util.HashMap">
+		<result property="respuesta"		column="respuesta"			javaType="String" />
+	</resultMap>
+		<procedure id="consultaEnrolamientoCliente" parameterMap="setConsultaEnrolamientoCliente" resultMap="getConsultaEnrolamientoCliente">
+		{ CALL sp_con_erl_cli( ?,?,?,?,? ) }
+	</procedure>
+
+
+	<parameterMap id="setObtieneRUTCliente" class="java.util.HashMap">
+		<parameter property="telefono"	jdbcType="char"    javaType="String" />
+	</parameterMap>
+		<resultMap id="getObtieneRUTCliente" class="java.util.HashMap">
+		<result property="rut"		column="rut"	   javaType="java.lang.Long" />
+		<result property="dv"		column="dv"	   javaType="String" />
+	</resultMap>
+		<procedure id="obtieneRUTCliente" parameterMap="setObtieneRUTCliente" resultMap="getObtieneRUTCliente">
+		{ CALL sp_con_rut_cli( ? ) }
+	</procedure>
+
+
+	<parameterMap id="setObtieneEventosPorCanal" class="java.util.HashMap">
+		<parameter property="canal"		jdbcType="char" javaType="String" />
+	</parameterMap>
+		<resultMap id="getObtieneEventosPorCanal" class="java.util.HashMap">
+		<result property="codigoEvento"		column="codigoEvento"			javaType="java.lang.Integer" />
+		<result property="glosaEvento"		column="glosaEvento"			javaType="String" />
+	</resultMap>
+		<procedure id="obtieneEventosPorCanal" parameterMap="setObtieneEventosPorCanal" resultMap="getObtieneEventosPorCanal">
+		{ CALL sp_con_evn_can( ? ) }
+	</procedure>
+
+
+	<parameterMap id="setObtieneDatosCliente" class="java.util.HashMap">
+		<parameter property="rut"		jdbcType="Numeric" javaType="java.lang.Long" />
+		<parameter property="dv"		jdbcType="CHAR"    javaType="String" />
+	</parameterMap>
+		<resultMap id="getObtieneDatosCliente" class="java.util.HashMap">
+		<result property="telefonoCliente"	column="telefonoCliente"		javaType="String" />
+		<result property="carrierCelular"	column="carrierCelular"		javaType="String" />
+		<result property="cuenta"		column="cuenta"			javaType="String" />
+	</resultMap>
+		<procedure id="obtieneDatosCliente" parameterMap="setObtieneDatosCliente" resultMap="getObtieneDatosCliente">
+		{ CALL sp_con_inf_cli( ?, ? ) }
+	</procedure>
+
+	
+	<parameterMap id="setObtenerCantidadDeConsultasDeSaldo" class="java.util.HashMap">
+		<parameter property="rut"			jdbcType="Numeric"		javaType="java.lang.Long" />
+		<parameter property="celular"		jdbcType="CHAR"			javaType="String" />
+		<parameter property="fechaInicio"	jdbcType="datetime"     javaType="java.util.Date" />
+		<parameter property="fechaFin"		jdbcType="datetime"     javaType="java.util.Date" />
+	</parameterMap>
+
+	<resultMap id="getObtenerCantidadDeConsultasDeSaldo" class="java.util.HashMap">
+		<result property="cantidadConsultas"		column="cantidadConsultas"			javaType="Integer" />
+	</resultMap>
+	
+	<procedure id="obtenerCantidadDeConsultasDeSaldo" parameterMap="setObtenerCantidadDeConsultasDeSaldo" resultMap="getObtenerCantidadDeConsultasDeSaldo">
+		{ CALL sp_con_cnt_cns_sal( ?, ?, ?, ? ) }
+	</procedure>
+
+	<parameterMap id="setObtieneCupoRecargaDisponible" class="java.util.HashMap">
+		<parameter property="fechaIni"	jdbcType="DATE"	javaType="java.util.Date" />
+		<parameter property="fechaFin"	jdbcType="DATE"	javaType="java.util.Date" />
+		<parameter property="rut"		jdbcType="Numeric"	javaType="java.lang.Long" />		
+	</parameterMap>
+	<resultMap id="setObtieneCupoRecargaDisponible" class="java.util.HashMap">
+		<result property="recargasRealizadas"	column="recargas_realizadas" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtieneCupoRecargaDisponible" parameterMap="setObtieneCupoRecargaDisponible" resultMap="setObtieneCupoRecargaDisponible">
+		{ CALL sp_con_tot_rec( ?,?,? )}
+	</procedure>
+
+	
+	<parameterMap id="setObtieneMontoUtilizadoParaRecarga" class="java.util.HashMap">
+		<parameter property="fechaIni"	jdbcType="DATE"	javaType="java.util.Date" />
+		<parameter property="fechaFin"	jdbcType="DATE"	javaType="java.util.Date" />
+		<parameter property="rut"		jdbcType="Numeric"	javaType="java.lang.Long" />	
+	</parameterMap>
+	<resultMap id="setObtieneMontoUtilizadoParaRecarga" class="java.util.HashMap">
+		<result property="rut" 				column="ldt_rut_cli" javaType="java.lang.Long"/>
+		<result property="numeroCelular" 	column="ldt_num_cel" javaType="java.lang.String"/>
+		<result property="numeroCuenta" 	column="ldt_cta_pri" javaType="java.lang.String"/>
+		<result property="montoRecarga" 	column="montoRecarga" javaType="java.lang.Double"/>
+	</resultMap>
+	<procedure id="obtieneMontoUtilizadoParaRecarga" parameterMap="setObtieneMontoUtilizadoParaRecarga" resultMap="setObtieneMontoUtilizadoParaRecarga">
+		{ CALL sp_con_cup_rec( ?,?,? )}
+	</procedure>
+	
+	<parameterMap id="setIngresarEvento" class="java.util.HashMap">
+		<parameter property="rut"				jdbcType="Numeric"  	javaType="java.lang.Long" />
+		<parameter property="dv"				jdbcType="CHAR"     	javaType="String" />
+		<parameter property="fechaIngreso"		jdbcType="datetime" 	javaType="java.util.Date" />
+		<parameter property="telefonoCliente"	jdbcType="char"     	javaType="String" />
+		<parameter property="cuenta"    		jdbcType="char"     	javaType="String" />
+		<parameter property="indicadorRecarga"	jdbcType="char"     	javaType="String" />	
+		<parameter property="monto"				jdbcType="Numeric"  	javaType="java.lang.Integer" />
+		<parameter property="estado"			jdbcType="char"     	javaType="String" />
+		<parameter property="mensajeError"		jdbcType="char"     	javaType="String" />
+		<parameter property="codigoProducto"	jdbcType="char"  		javaType="String" />
+		<parameter property="codigoEvento"		jdbcType="char"     	javaType="String" />
+		<parameter property="codigoServicio"	jdbcType="char"     	javaType="String" />
+		<parameter property="canal"				jdbcType="char"     	javaType="String" />
+	</parameterMap>
+	<resultMap id="getIngresarEvento" class="java.util.HashMap">
+		<result property="numeroOperacion"		column="numeroOperacion"			javaType="Integer" />
+	</resultMap>
+	<procedure id="ingresarEvento" parameterMap="setIngresarEvento" resultMap="getIngresarEvento">
+		{ CALL sp_ins_ldt( ?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<parameterMap id="setModificarTransaccion" class="java.util.HashMap">
+		<parameter property="idOperacion" 	jdbcType="Numeric" 	javaType="java.lang.Integer"/>
+		<parameter property="estado"		jdbcType="char"		javaType="java.lang.String"/>
+		<parameter property="montoRecarga"	jdbcType="double"	javaType="java.lang.Double"/>
+		<parameter property="mensaje"		jdbcType="string"	javaType="java.lang.String"/>		
+	</parameterMap>
+	<procedure id="modificarTransaccion" parameterMap="setModificarTransaccion" resultClass="int">
+		{ CALL sp_mod_ldt(?,?,?,?) }
+	</procedure>
+	<resultMap id="reclamoSMS" class="java.util.HashMap">
+		<result property="rut" column="rut" jdbcType="int" javaType="java.lang.Long" />
+		<result property="digitoVerificador" column="dv" jdbcType="char" javaType="java.lang.String" />
+		<result property="numeroMovil" column="num_tel_movil" jdbcType="varchar" javaType="java.lang.String" />
+		<result property="fechaIngreso" column="fec_hms_ing" jdbcType="datetime" javaType="java.util.Date" />
+		<result property="canal" column="cod_canal" jdbcType="char" javaType="java.lang.String" />
+		<result property="estado" column="cod_est" jdbcType="char" javaType="java.lang.String" />
+		<result property="glosaEstado" column="glosa_estado" jdbcType="char" javaType="java.lang.String" />
+		<result property="codigoEvento" column="cod_evt" jdbcType="int" javaType="java.lang.Long" />
+		<result property="idReclamo" column="id_reclamo" jdbcType="int" javaType="java.lang.Long" />
+	</resultMap>
+    <procedure id="obtenerReclamos" parameterClass="java.util.HashMap" resultMap="reclamoSMS">
+		{ CALL sp_cns_rec_sms() }
+	</procedure>
+	<procedure id="obtenerDetalleReclamo" parameterClass="java.util.HashMap" resultMap="reclamoSMS">
+		{ CALL sp_cns_det_rec_sms(#idReclamo#) }
+	</procedure>
+	<procedure id="actualizarEstadoReclamo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL sp_act_est_rec_sms(#idReclamo#,#codigoEvento#) }
+	</procedure>
+
+	<!-- *************** Llama da al procedimiento sp_upd_estado_cob_sms ********************* -->
+    <parameterMap id="getCobSMSParams" class="java.util.HashMap">
+        <parameter property="rut"   jdbcType="INTEGER" javaType="long" />
+    </parameterMap>
+    
+    <resultMap id="getCobSMSResult" class="java.util.HashMap">  
+        <result property="rutCliente" column="cob_rut_ins" javaType="long" />
+        <result property="cuentaCorriente" column="cob_ctacte_ins" javaType="String" />
+        <result property="numCelular" column="cob_movil_ins" javaType="String" />
+        <result property="fechaInscripcion" column="cob_fecha_ins" javaType="Date" />
+        <result property="fechaDesinscripcion" column="cob_fecha_des" javaType="Date"  />
+        <result property="estadoInscripcion" column="cob_estado" javaType="String" />
+        <result property="glosa" column="cob_glosa" javaType="String" />
+    </resultMap>
+     
+    <procedure id="getCobSMSProc" parameterMap="getCobSMSParams" resultMap="getCobSMSResult">
+        { CALL sp_get_cob_sms( ? ) }
+    </procedure>
+    <!-- ************************************************************************************** -->
+    
+    
+    <!-- ************ Llama da al procedimiento sp_upd_estado_cob_sms ***************** -->
+    <parameterMap id="updEstadoCobSMSParams" class="java.util.HashMap">
+        <parameter property="rut"   jdbcType="INTEGER" javaType="long" />
+        <parameter property="cuentaCorriente"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="numCelular"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="estadoInscripcion"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="glosa"   jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+    
+    <procedure id="updEstadoCobSMSProc" parameterMap="updEstadoCobSMSParams" resultClass="int">
+        { CALL sp_upd_estado_cob_sms( ?, ?, ?, ?, ? ) }
+    </procedure>
+    <!-- ************************************************************************************** -->
+
+
+    <!-- *************** Llama da al procedimiento sp_ins_cob_sms ********************* -->
+    <parameterMap id="insCobSMSParams" class="java.util.HashMap">
+        <parameter property="rut"   jdbcType="INTEGER" javaType="long" />
+        <parameter property="cuentaCorriente"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="numCelular"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="estadoInscripcion"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="glosa"   jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+    
+    <procedure id="insCobSMSProc" parameterMap="insCobSMSParams" resultClass="int">
+        { CALL sp_ins_cob_sms( ?,?,?,?,? ) }
+    </procedure>
+    <!-- ************************************************************************************** -->
+</sqlMap>	

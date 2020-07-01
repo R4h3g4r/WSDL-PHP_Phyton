@@ -1,0 +1,255 @@
+#
+# Tabla de Parámetros para Venta de Seguros.
+# =============================================
+
+
+#Parámetros para configuración de la aplicación.
+FILTRAR_PUERTAS;valor=1;
+SEPARADORES;separador=|;
+CIA_CONVENIOS_13;DESC=GENERALES;BANCOS=016|001|029|014|037|012|039|504|027|033|507|049;TARJETAS=1-VISA|2-MASTERCARD|3-AMEX|4-DINERS;
+CIA_CONVENIOS_58;DESC=VIDA;BANCOS=016|001|029|014|037|012|039|504|027|033|507|049|028;TARJETAS=VISA|MASTERCARD|AMEX|DINERS;
+ESTADOPROPUESTA;CURSADA=100;TRANSF_ERROR=-2;SIPE_ERROR=-3;PENDIENTE=0;ANULADA=200;CONTINUAR=1;TRANSF_OK=-3;CURSAR_ENDED=100;
+
+LARGO;NOMBRESAPELLIDOS=40;DIRECCION=255;FONO=50;EMAIL=100;
+
+IDBANCOBCI;VALOR=016;CUENTA=10469346;RUT=99147000-K;CUENTAVIDA=10469338;RUTVIDA=96573600-K;
+RESULTADOS;RESULT_OK=OK;
+
+BCIACAM;NOCONDUCTOR=SG27;
+TIPOFORMASPAGO;MODO_EFECTIVO=1;MODO_CHEQUE=2;MODO_CARGO_CUENTA_BCI=3;MODO_TARJETA=4;MODO_TARJETA_OTRO=5;MODO_CARGO_CUENTA=6;MODO_DESCUENTO_PLANILLA=7;
+
+#Mensajes de error
+MSG_NO_SALDO;Desc=No existe el suficiente saldo en la cuenta seleccionada;
+MSG_ERR_TRANSFERENCIA;Desc=NO SE REALIZO LA TRANSFERENCIA;
+MSSG_TRANS_SUCCESFUL;Desc=SE REALIZO LA TRANSFERENCIA.\n;
+MSG_ERR_CAMBIA_STATUS;Desc=AVISAR AL ADMINISTRADOR DEL SISTEMA QUE OCURRIO UN ERROR AL CURSAR LA PROPUESTA.\n NO INTENTAR CURSARLA NUEVAMENTE. ERROR: ;
+MSG_ERR_ANULACION;Desc=ERROR AL ANULAR LA PROPUESTA. INTENTELO MAS TARDE NUEVAMENTE;
+MSG_PROPUESTA_ANULADA;Desc=SE ANULO LA PROPUESTA;
+MSSG_ERR_SIPE;Desc=Error en inscripcion en Sipe.;
+
+VALORCONTENIDOMINIMO;VALOR=1.0;
+
+SEGMENTOS_CLIENTE;JOVENES=1;INDEPENDIENTE_SOLO_ADULTO=2;INDEPENDIENTE_SOLO_MAYOR=3;EN_PAREJA_JOVEN=4;EN_PAREJA_ADULTO=5;EN_FAMILIA_HIJOS_JOVEN=6;EN_FAMILIA_HIJOS_ADULTO=7;EN_FAMILIA_HIJOS_SOLO=8;ANOS_DORADOS=9;OTROS=10;
+RANGO_EDADES_SEGMENTOS;EDAD_SUPERIOR_JOVENES=35;EDAD_INFERIOR_SOLO_ADULTO=35;EDAD_SUPERIOR_SOLO_ADULTO=45;EDAD_INFERIOR_SOLO_MAYOR=45;EDAD_SUPERIOR_PAREJA_JOVEN=35;EDAD_INFERIOR_PAREJA_ADULTO=35;EDAD_SUPERIOR_FAMILIA_HIJOS_JOVEN=35;EDAD_INFERIOR_FAMILIA_HIJOS_ADULTO=35;
+SITUACION_PERSONAL;SOLTERO=1;CASADO=2;CON_PAREJA=3;SEPARADO=4;VIUDO=5;
+SITUACION_LABORAL;DEPENDIENTE=1;DUENO_SOCIO_EMPRESA=2;PROFESIONAL_INDEPENDIENTE=3;INDEPENDIENTE=4;JUBILADO=5;ESTUDIANTE=6;DUENA_CASA=7;CESANTE=8;
+DEPENDIENTES;DEPENDIENTE_CONYUGE=1;DEPENDIENTE_HIJOS=2;DEPENDIENTE_PADRES=3;DEPENDIENTE_OTROS=4;
+
+# Rutas de plantillas xsl para generación de pdf
+XSL_BCITMP;P_110=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-bci.xsl;P_100=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-tbanc.xsl;P_800=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-nova.xsl;C_100=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-bci.xsl;C_110=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-tbanc.xsl;C_800=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-nova.xsl;
+XSL_BCITMPC;P_110=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-bci.xsl;P_100=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-tbanc.xsl;P_800=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-nova.xsl;C_100=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-bci.xsl;C_110=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-tbanc.xsl;C_800=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-nova.xsl;
+XSL_BCIAPE;P_110=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-bci.xsl;P_100=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-tbanc.xsl;P_800=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-nova.xsl;C_100=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-bci.xsl;C_110=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-tbanc.xsl;C_800=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-nova.xsl;
+XSL_BCIMULP3;P_110=pdf/seguros/venta/multi/impresion_multi_prop-bci.xsl;P_100=pdf/seguros/venta/multi/impresion_multi_prop-tbanc.xsl;P_800=pdf/seguros/venta/multi/impresion_multi_prop-nova.xsl;C_100=pdf/seguros/venta/multi/impresion_multi_cot-bci.xsl;C_110=pdf/seguros/venta/multi/impresion_multi_cot-tbanc.xsl;C_800=pdf/seguros/venta/multi/impresion_multi_cot-nova.xsl;
+XSL_BCIACAM;P_110=pdf/seguros/venta/auto/impresion_auto_prop-bci.xsl;P_100=pdf/seguros/venta/auto/impresion_auto_prop-tbanc.xsl;P_800=pdf/seguros/venta/auto/impresion_auto_prop-nova.xsl;C_100=pdf/seguros/venta/auto/impresion_auto_cot-bci.xsl;C_110=pdf/seguros/venta/auto/impresion_auto_cot-tbanc.xsl;C_800=pdf/seguros/venta/auto/impresion_auto_cot-nova.xsl;
+XSL_BCIHOG;P_110=pdf/seguros/venta/hogar/impresion_hogar_prop-bci.xsl;P_100=pdf/seguros/venta/hogar/impresion_hogar_prop-tbanc.xsl;P_800=pdf/seguros/venta/hogar/impresion_hogar_prop-nova.xsl;C_100=pdf/seguros/venta/hogar/impresion_hogar_cot-bci.xsl;C_110=pdf/seguros/venta/hogar/impresion_hogar_cot-tbanc.xsl;C_800=pdf/seguros/venta/hogar/impresion_hogar_cot-nova.xsl;
+XSL_BCICAT;P_110=pdf/seguros/venta/salud/impresion_salud_prop-bci.xsl;P_100=pdf/seguros/venta/salud/impresion_salud_prop-tbanc.xsl;P_800=pdf/seguros/venta/salud/impresion_salud_prop-nova.xsl;C_100=pdf/seguros/venta/salud/impresion_salud_cot-bci.xsl;C_110=pdf/seguros/venta/salud/impresion_salud_cot-tbanc.xsl;C_800=pdf/seguros/venta/salud/impresion_salud_cot-nova.xsl;
+XSL_BCICATC;P_110=pdf/seguros/venta/salud/impresion_salud_prop-bci.xsl;P_100=pdf/seguros/venta/salud/impresion_salud_prop-tbanc.xsl;P_800=pdf/seguros/venta/salud/impresion_salud_prop-nova.xsl;C_100=pdf/seguros/venta/salud/impresion_salud_cot-bci.xsl;C_110=pdf/seguros/venta/salud/impresion_salud_cot-tbanc.xsl;C_800=pdf/seguros/venta/salud/impresion_salud_cot-nova.xsl;
+
+
+# Rutas de los textos legales en administrador de contenidos de portal
+CONTENT_MANAGER_BCITMP;mandato_especial=/BEA Repository/Documentos/Seguros/venta/vital/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/vital/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/vital/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/vital/mandatoPac;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/vital/condPartGeneral;
+CONTENT_MANAGER_BCITMPC;mandato_especial=/BEA Repository/Documentos/Seguros/venta/vital/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/vital/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/vital/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/vital/mandatoPac;
+CONTENT_MANAGER_BCIAPE;mandato_especial=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/mandatoPac;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/condPartGeneral;
+CONTENT_MANAGER_BCIMULP3;mandato_especial=/BEA Repository/Documentos/Seguros/venta/multiproteccion/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/multiproteccion/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/multiproteccion/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/multiproteccion/mandatoPac;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/multiproteccion/condPartGeneral;
+CONTENT_MANAGER_BCIHOG;mandato_especial=/BEA Repository/Documentos/Seguros/venta/hogar/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/hogar/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/hogar/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/hogar/mandatoPac;
+CONTENT_MANAGER_BCICAT;mandato_especial=/BEA Repository/Documentos/Seguros/venta/cuentaCero/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/cuentaCero/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/cuentaCero/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/cuentaCero/mandatoPac;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/cuentaCero/condPartGeneral;
+CONTENT_MANAGER_BCICATC;mandato_especial=/BEA Repository/Documentos/Seguros/venta/cuentaCero/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/cuentaCero/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/cuentaCero/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/cuentaCero/mandatoPac;
+
+DEPENDIENTE_CONYUGE;codigo=1;descripcion=Conyuge es dependiente del cliente;
+DEPENDIENTE_HIJOS;codigo=2;descripcion=Hijos son dependientes del cliente;
+DEPENDIENTE_PADRES;codigo=3;descripcion=Padres son dependientes del cliente;
+DEPENDIENTE_OTROS;codigo=4;descripcion=El cliente tiene otros dependientes;
+
+EDADES_SEGMENTO_JOVEN;valor_edad_superior_jovenes=35;
+EDADES_SEGMENTO_SOLO_ADULTO;valor_edad_inferior_solo_adulto=35;valor_edad_superior_solo_adulto=45;
+EDADES_SEGMENTO_SOLO_MAYOR;valor_edad_inferior_solo_mayor=45;
+EDADES_SEGMENTO_PAREJA_JOVEN;valor_edad_superior_pareja_joven=35;
+EDADES_SEGMENTO_PAREJA_ADULTO;valor_edad_inferior_pareja_adulto=35;
+EDADES_SEGMENTO_FAMILIA_HIJOS_JOVEN;valor_edad_superior_familia_hijos_joven=35;
+EDADES_SEGMENTO_FAMILIA_HIJOS_ADULTO;valor_edad_inferior_familia_hijos_adulto=35;
+
+
+SITUACION_PERSONAL_SOLTERO;codigo=1;descripcion=Soltero;
+SITUACION_PERSONAL_CASADO;codigo=2;descripcion=Casado;
+SITUACION_PERSONAL_PAREJA;codigo=3;descripcion=Viviendo en pareja;
+SITUACION_PERSONAL_SEPARADO;codigo=4;descripcion=Separado;
+SITUACION_PERSONAL_VIUDO;codigo=5;descripcion=Viudo;
+
+SITUACION_LABORAL_JUBILADO;codigo=5;descripcion=JUBILADO;
+
+SEGMENTOS_CLIENTE_JOVEN;codigo=1;descripcion=Segmento Joven;
+SEGMENTOS_SOLO_ADULTO;codigo=2;descripcion=Segmento Independiente/Solo-Adulto;
+SEGMENTOS_SOLO_MAYOR;codigo=3;descripcion=Segmento Independiente/Solo-Mayor;
+SEGMENTOS_PAREJA_JOVEN;codigo=4;descripcion=Segmento En pareja-Joven;
+SEGMENTOS_PAREJA_ADULTO;codigo=5;descripcion=Segmento En pareja-Adulto;
+SEGMENTOS_FAMILIA_JOVEN;codigo=6;descripcion=Segmento En familia/Hijos-Joven;
+SEGMENTOS_FAMILIA_ADULTO;codigo=7;descripcion=Segmento En familia/Hijos-Adulto;
+SEGMENTOS_FAMILIA_SOLO;codigo=8;descripcion=Segmento En familia/Hijos-Solo;
+SEGMENTOS_ANOS_DORADOS;codigo=9;descripcion=Segmento Años Dorados;
+SEGMENTOS_OTROS;codigo=10;descripcion=Otros segmentos;
+
+PERIODO_EN_MESES;codigo=10;descripcion=En meses;
+TIPO_CLIENTE_PERSONA;codigo=P;descripcion=Persona;
+TIPO_CLIENTE_EMPRESA;codigo=E;descripcion=Empresa;
+
+TIPO_ESTADO_CIVIL;valores=3-VIUDO|2-SOLTERO|1-CASADO;
+GLOSA;valores=GLOSA_MULTI-Las definidas en el texto coberturas, servicios, montos asegurados y condiciones particulares de la póliza.;
+TIPO_SEXO;valores=1-FEMENINO|0-MASCULINO;
+MONEDA;valores=300-UF|13-US$|0-$;
+LOGOS;valores=LOGO-/configseguros/;
+TIPO_PARENTESCO;valores=1-HIJO|2-CONYUGE|3-PADRE|4-MADRE|6-OTRO;
+TIPO_AUTO_USO;valores=VP-PARTICULAR|VC-COMERCIAL;
+TIPO_VEHICULO;valores=1-AUTOMOVIL|2-CAMIONETA|6-FURGON|3-JEEP|5-STATION WAGON|7-VAN;
+
+
+MULTI_PLAN_MU2WT;planPago=19;
+MULTI_PLAN_MU8WT;planPago=19;
+MULTI_PLAN_MU2WB;planPago=19;
+MULTI_PLAN_MU8WB;planPago=19;
+
+PLAN_A1WT;planPago=18;
+PLAN_A2WT;planPago=18;
+PLAN_A4WT;planPago=18;
+PLAN_A5WT;planPago=18;
+PLAN_A1WB;planPago=18;
+PLAN_A2WB;planPago=18;
+PLAN_A4WB;planPago=18;
+PLAN_A5WB;planPago=18;
+
+PLAN_V1WT;planPago=18;
+PLAN_V2WT;planPago=18;
+PLAN_V3WT;planPago=18;
+PLAN_V4WT;planPago=18;
+PLAN_V1WB;planPago=18;
+PLAN_V2WB;planPago=18;
+PLAN_V3WB;planPago=18;
+PLAN_V4WB;planPago=18;
+
+PLAN_G01WT;planPago=2;
+PLAN_G04WT;planPago=2;
+PLAN_G02WT;planPago=2;
+PLAN_G05WT;planPago=2;
+PLAN_G03WT;planPago=2;
+PLAN_G06WT;planPago=2;
+PLAN_G01WB;planPago=2;
+PLAN_G04WB;planPago=2;
+PLAN_G02WB;planPago=2;
+PLAN_G05WB;planPago=2;
+PLAN_G03WB;planPago=2;
+PLAN_G06WB;planPago=2;
+
+PLAN_SHWTI00;planPago=20;
+PLAN_SHWTI0S;planPago=20;
+PLAN_SHWTIRS;planPago=20;
+PLAN_SHWTIR0;planPago=20;
+
+PLAN_SHWBI00;planPago=20;
+PLAN_SHWBI0S;planPago=20;
+PLAN_SHWBIRS;planPago=20;
+PLAN_SHWBIR0;planPago=20;
+
+
+PLAN_DE_PAGO_20;codigoCompania=0;descripcionPlanPago=Contado mas 11 cuotas (WEB);cantidadCuotasDesde=1;cantidadCuotasHasta=11;indicadorCuotasGratis=N;cantidadCuotasGratis=0;indicadorPrimerPago=S;indicadorFuturosPagos=S;formasPagoPrimerPago=3,4;formasPagoFuturosPagos=3,4;diasPago=2,10,18,25;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+
+PLAN_DE_PAGO_2;codigoCompania=0;descripcionPlanPago=Contado mas 11 cuotas;cantidadCuotasDesde=1;cantidadCuotasHasta=11;indicadorCuotasGratis=N;cantidadCuotasGratis=0;indicadorPrimerPago=S;indicadorFuturosPagos=S;formasPagoPrimerPago=3,4;formasPagoFuturosPagos=3,4;diasPago=2,5,10,18,25,30;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+
+PLAN_DE_PAGO_18;codigoCompania=0;descripcionPlanPago=Promoción 1 cuota gratis (WEB);cantidadCuotasDesde=1;cantidadCuotasHasta=11;indicadorCuotasGratis=S;cantidadCuotasGratis=1;indicadorPrimerPago=N;indicadorFuturosPagos=S;formasPagoPrimerPago=;formasPagoFuturosPagos=3,4;diasPago=2,5,18,30;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+
+PLAN_DE_PAGO_19;codigoCompania=0;descripcionPlanPago=Cuotas (Campaña Multiprotección) WEB;cantidadCuotasDesde=9;cantidadCuotasHasta=9;indicadorCuotasGratis=S;cantidadCuotasGratis=3;indicadorPrimerPago=N;indicadorFuturosPagos=S;formasPagoPrimerPago=;formasPagoFuturosPagos=3,4;diasPago=2,10,18,25;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+
+
+FORMA_DE_PAGO_3;descripcion=Cta. Cte. BCI;codigoPlanPago=19;indicadorTipoPago=F;indicadorFormaPagoDefault=N;posicionComboFormasPago=3;posicionVisualizacionPagina=3;
+
+FORMA_DE_PAGO_4;descripcion=Tarj. Credito BCI;codigoPlanPago=19;indicadorTipoPago=F;indicadorFormaPagoDefault=N;posicionComboFormasPago=4;posicionVisualizacionPagina=4;
+
+ARCHIVO_APPLET_HUELLA;ruta=C:\\TEMP\\BCI\\config.xml;
+
+PAR_HD_BCIAPE;codigo=C,R;
+PAR_HD_BCIAPEV;codigo=C,R;
+PAR_HD_BCIAPEN;codigo=C,R;
+PAR_HD_BCIAPES;codigo=C,R;
+PAR_HD_BCIAPEC;codigo=C,R;
+PAR_HD_BCIAPAH;codigo=C,R;
+PAR_HD_BCIDNTL;codigo=C,R;
+PAR_HD_BCICOL;codigo=AT,A1,A2,A3,A4,A5,A6,A7,C,R;
+PAR_HD_BCIHOG;codigo=C,R;
+PAR_HD_BCIININ;codigo=C,R;
+PAR_HD_BCIHOGC;codigo=C,R;
+PAR_HD_BCIACOL;codigo=C,R;
+PAR_HD_BCITMP;codigo=AT,C,R;
+PAR_HD_BCITMPC;codigo=AT,C,R;
+PAR_HD_BCIACAM;codigo=C,R;
+PAR_HD_BCICAT;codigo=AT,A1,A2,A3,A4,A5,A6,A7,C,R;
+PAR_HD_BCICATC;codigo=AT,A1,A2,A3,A4,A5,A6,A7,C,R;
+PAR_HD_BCIMULP3;codigo=C,R;
+PAR_HD_BCIMULP4;codigo=C,R;
+PAR_HD_BCIPYM3;codigo=C,R;
+PAR_HD_CESVO2;codigo=C,R;
+PAR_HD_BCIESCC;codigo=A,C,R;
+PAR_HD_BSGRCI;codigo=A,R;
+PAR_HD_BCINCE;codigo=C,R;
+PAR_HD_ULV;codigo=A,R;
+PAR_HD_VDEUPRO;codigo=C,R;
+PAR_HD_BCIRGM;codigo=C,R;
+
+RUTA_HUELLA;ruta=portalwls/productos/seguros/venta/huellaDigital.do;
+
+CANTIDAD_PERIODOS_SEGUROS_AUTO;desc=3;
+
+FILTROS;valores=FRF;
+
+ALERTAS_CONSIDERADAS;codigos=-003-007-025-009-010-011-012-030-029-;
+
+FRF0;con=1;sin=1;
+FRF1;con=1;sin=1;
+FRF2;con=1;sin=1;
+
+PLAN_AP1WB;planPago=20;
+PLAN_AP2WB;planPago=20;
+PLAN_AP3WB;planPago=20;
+
+PLAN_AP1WT;planPago=20;
+PLAN_AP2WT;planPago=20;
+PLAN_AP3WT;planPago=20;
+CONTENT_MANAGER_BCIAPEN;mandato_especial=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/mandatoEspecial;vigencia=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/vigencia;cobertura=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/cobertura;mandato_pac=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/mandatoPac;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/accidentesPersonales/condPartGeneral;
+XSL_BCIAPEN;P_110=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-bci.xsl;P_100=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-tbanc.xsl;P_800=pdf/seguros/venta/accidentespersonales/impresion_acper_prop-nova.xsl;C_100=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-bci.xsl;C_110=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-tbanc.xsl;C_800=pdf/seguros/venta/accidentespersonales/impresion_acper_cot-nova.xsl;
+
+
+
+# Agregado para Seguro Automotriz
+
+PLAN_SATTA;planPago=20;
+PLAN_SATTB;planPago=23;
+PLAN_SATTT;planPago=35;
+PLAN_SABTA;planPago=20;
+PLAN_SABTB;planPago=23;
+PLAN_SABTT;planPago=35;
+
+
+CONTENT_MANAGER_BCIAUTO;mandato_especial=/BEA Repository/Documentos/Seguros/venta/automotriz/condEspecialesSeguro;mandato_pac=/BEA Repository/Documentos/Seguros/venta/automotriz/mandatoPacPat;vigencia=/BEA Repository/Documentos/Seguros/venta/automotriz/vigenciaSeguro;condPartGeneral=/BEA Repository/Documentos/Seguros/venta/automotriz/condGralesPartSeguro;deducibleProvisorio=/BEA Repository/Documentos/Seguros/venta/automotriz/clausulaDeducibleProvisorio;
+
+PLAN_DE_PAGO_23;codigoCompania=0;descripcionPlanPago=Contado mas 23 cuotas (WEB);cantidadCuotasDesde=1;cantidadCuotasHasta=23;indicadorCuotasGratis=N;cantidadCuotasGratis=0;indicadorPrimerPago=S;indicadorFuturosPagos=S;formasPagoPrimerPago=3,4;formasPagoFuturosPagos=3,4;diasPago=2,10,18,25;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+PLAN_DE_PAGO_35;codigoCompania=0;descripcionPlanPago=Contado mas 35 cuotas (WEB);cantidadCuotasDesde=1;cantidadCuotasHasta=35;indicadorCuotasGratis=N;cantidadCuotasGratis=0;indicadorPrimerPago=S;indicadorFuturosPagos=S;formasPagoPrimerPago=3,4;formasPagoFuturosPagos=3,4;diasPago=2,10,18,25;usuario=MGUTIEF;fecha=2010/06/30 09:35:00;indicadorPagoContado=N;
+
+TEXTO_FONDOS;texto=Importante: Las rentabilidades de los distintos fondos son variables, por lo que no se garantiza que las rentabilidades pasadas se repitan en el futuro.;
+TEXTO_PROYECCION;texto=Esta proyección no es un contrato y, por lo tanto, no genera obligaciones ni derechos de ningún tipo para BCI Seguros Vida S.A. ni para el cliente. Los valores aquí indicados pueden diferir de la realidad dependiendo de variaciones en los aportes de primas, el momento de pago de las mismas, la rentabilidad de la modalidad de inversión y de los gastos de administración de la póliza. Los valores expresados en esta tabla corresponden a valores al final de cada año. Los valores proyectados están determinados bajo el supuesto del pago de prima hasta la edad de 99 años y de una tasa de interés anual del 1,50% real, tasa susceptible de cambio según condiciones de mercado.;
+
+segNoTuxXml;codigos=BCIACOL|BCIACAM;
+textoPlanPago;textoCabecera=Debo y pagaré a BCI Seguros Generales S.A. la prima arriba señalada, incluyendo sus correspondientes intereses, en las cuotas, fechas y por los montos que a continuación se indican:;textoInteres=La prima o saldo insoluto de ella que  ha  sido  documentada  en  virtud  del   presente  instrumento  devenga  interés mensual del {0}%.;
+
+
+#Desarrollo
+#==========================================
+#WSParametros;url=http://b2bdesa.bci.cl/servicios/productos/seguros/documentos/FirmaDePolizaProxyService?WSDL;timeoutSeconds=5;sistema=wlsalsb;sistemaFirma=sistFirm;
+
+#Certificacion
+#==========================================
+#WSParametros;url=http://b2bcert.bci.cl/servicios/productos/seguros/documentos/FirmaDePolizaProxyService?WSDL;timeoutSeconds=5;sistema=wlsalsb;sistemaFirma=sistFirm;
+
+#Produccion
+#==========================================
+WSParametros;url=http://b2b.bci.cl/servicios/productos/seguros/documentos/FirmaDePolizaProxyService?WSDL;timeoutSeconds=5;sistema=wlsalsb;sistemaFirma=sistFirm;
+
+
+
+

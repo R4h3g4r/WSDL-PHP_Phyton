@@ -1,0 +1,181 @@
+<?xml version = "1.0" encoding = "iso-8859-1"?>
+<paleta>
+<vista vista="PERSONA" titulo="Persona">  
+  <aleta nombre="datos" url="/fidenswls/GeneralServlet"></aleta>
+  <aleta nombre="direcciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="CLIENTE" titulo="Cliente">  
+  <aleta nombre="datos" url="/fidenswls/GeneralServlet"></aleta>
+  <aleta nombre="direcciones" url="/fidenswls/GeneralServlet"></aleta>
+  <aleta nombre="contactos" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="SIMULACION" titulo="Cotización">  
+  <aleta nombre="datos" url="/fidenswls/SimulacionServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="COTIZACION" titulo="">  
+  <aleta nombre="datos" url="/fidenswls/CotizacionServlet"></aleta>
+  <aleta nombre="alternativas" url="/fidenswls/CotizacionServlet"></aleta>
+</vista>
+<vista vista="ALTERNATIVA COTIZACION" titulo="Alternativa de Cotización">  
+  <aleta nombre="datos" url="/fidenswls/CotizacionServlet"></aleta>
+  <aleta nombre="item"  url="/fidenswls/CotizacionServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="VIDA" titulo="Materia Asegurada Vida/Salud">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="beneficiarios" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ANIMAL" titulo="Materia Asegurada Animal">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="CASCO AEREO" titulo="Materia Asegurada Casco Aéreo">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="CASCO MARITIMO" titulo="Materia Asegurada Casco Marítimo">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="PRODUCTO FINANCIERO" titulo="Materia Asegurada Producto Financiero">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="CESANTIA" titulo="Materia Asegurada Cesantía">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="EQUIPOS ELECTRONICOS" titulo="Materia Asegurada Equipos Electrónicos">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="EQUIPOS MOVILES" titulo="Materia Asegurada Equipos Móviles">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="INMUEBLE" titulo="Materia Asegurada Inmueble">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="objetos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="mascotas" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="AVERIA MAQUINARIA" titulo="Materia Asegurada Avería de Maquinaria">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="OBJETO VALIOSO" titulo="Materia Asegurada Objeto Valioso">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="REMESA" titulo="Materia Asegurada Remesa">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="AGRICOLA" titulo="Materia Asegurada Seguro Agrícola">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="SEMENTERA" titulo="Materia Asegurada Sementera">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="TODO RIESGO" titulo="Materia Asegurada Todo Riesgo de Construcción">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="TRANSPORTE" titulo="Materia Asegurada Transporte">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="VEHICULO" titulo="Materia Asegurada Vehículo">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="accesorios" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="conductores" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="OTROS" titulo="Materia Asegurada Otros">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="OTROS CREDITO" titulo="Materia Asegurada Otros Garantía">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="MULTIRIESGO" titulo="Materia Asegurada Multiriesgo">  
+  <aleta nombre="datos" url="/fidenswls/MateriaAseguradaServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="DETALLE PRODUCTO" titulo="Detalle de Producto">  
+  <aleta nombre="datos" url="/fidenswls/DetalleProductoServlet"></aleta>
+  <aleta nombre="ramos" url="/fidenswls/DetalleProductoServlet"></aleta>
+  <aleta nombre="coberturas" url="/fidenswls/DetalleProductoSegundoServlet"></aleta>
+  <aleta nombre="deducibles" url="/fidenswls/DetalleProductoSegundoServlet"></aleta>
+  <aleta nombre="comisiones" url="/fidenswls/DetalleProductoSegundoServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/DetalleProductoServlet"></aleta>
+</vista>
+<vista vista="DETALLE PRODUCTO PLAN" titulo="Detalle de Producto Plan">  
+  <aleta nombre="datos" url="/fidenswls/DetalleProductoServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/DetalleProductoServlet"></aleta>
+</vista>
+<vista vista="PROPUESTA PLAN CON PLAN PAGO" titulo="Propuesta de Póliza">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="item" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="PROPUESTA PLAN SIN PLAN PAGO" titulo="Propuesta de Póliza">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="item" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN GENERALES CON PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="inspeccion" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN VIDA CON PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="DPS" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN GARANTIA CON PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN GENERALES SIN PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="inspeccion" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN VIDA SIN PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="DPS" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN GARANTIA SIN PLAN PAGO" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN VIDA CON PLAN PAGO A LA MEDIDA" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="plan_pago" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+<vista vista="ITEM PROPUESTA PLAN VIDA SIN PLAN PAGO A LA MEDIDA" titulo="Item">  
+  <aleta nombre="datos" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="prima" url="/fidenswls/PropuestaPlanServlet"></aleta>
+  <aleta nombre="observaciones" url="/fidenswls/GeneralServlet"></aleta>
+</vista>
+</paleta>

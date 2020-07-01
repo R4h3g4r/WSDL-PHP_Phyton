@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE Grupos SYSTEM "tablas/conosur/xml/dtd/grupos.dtd">
+
+<Grupos>
+
+  <!-- # ======================== -->	
+  <!-- #   SuperCartola           -->	
+  <!-- # ======================== -->	
+
+  <Grupo mostrar="OBJ" key="1">
+    <Nombre>SuperCartolaGrp</Nombre>
+    <Descripcion>Solicitud Productos</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;SuperCartola&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+    <Objetos>
+	    <Objeto>CPR</Objeto>
+		<Objeto>TDC_NOVA</Objeto>
+		<Objeto>TDC</Objeto>
+    </Objetos>
+    <noObjetos>http://www.bancoconosur.cl</noObjetos>
+  </Grupo>
+
+  <!-- # ======================== -->	
+  <!-- #   Créditos               -->	
+  <!-- # ======================== -->	
+    
+  <!--  
+  <Grupo mostrar="SI" key="9">
+    <Nombre>Créditos</Nombre>
+    <Descripcion>Créditos</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Créditos&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+</Grupo>
+  -->
+
+  <!-- # ======================== -->	
+  <!-- #   Cuentas Primas         -->	
+  <!-- # ======================== -->	
+
+  <Grupo mostrar="SI" key="2">
+      <Nombre>chequeraelectrónica</Nombre>
+      <Descripcion>Solicitud Chequera Electrónica</Descripcion>
+    <Objetos>
+            <Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+    </Objetos>
+      <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Cuentas&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+        <noObjetos>http://www.bancoconosur.cl</noObjetos>
+      <Destino>_top</Destino>
+  </Grupo>
+
+  <!-- # ======================== -->	
+  <!-- #   Transferencias         -->	
+  <!-- # ======================== -->	
+
+  <Grupo mostrar="SI" key="3">
+    <Nombre>Transferencia</Nombre>
+    <Objetos>
+       <Objeto>CCT</Objeto>
+       <Objeto>CPR</Objeto>
+    </Objetos>
+    <Descripcion>Transferencias a Terceros</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Transferencia de Fondos&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+    <noObjetos>http://www.bancoconosur.cl</noObjetos>
+  </Grupo>
+  
+  <Grupo mostrar="SI" key="4">
+    <Nombre>RecargaCelulares</Nombre>
+    <Descripcion>Recarga de Celular</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Recarga de Celular&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+  </Grupo>
+  
+  <!-- # ======================== -->	
+  <!-- #   Transantiago           -->	
+  <!-- # ======================== -->	
+    
+  <Grupo mostrar="SI" key="5">
+    <Nombre>TarjetaBip</Nombre>
+    <Descripcion>Tarjeta bip!</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Tarjeta bip!&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+    <!--Objetos>
+      <Objeto>CCT</Objeto>
+      <Objeto>CPR</Objeto>		       						
+    </Objetos-->
+  </Grupo>  
+
+<!-- # =================== -->   
+
+<!-- # Tarjetas de Crédito -->    
+  <!-- # =================== --> 
+
+    <Grupo mostrar="SI" key="7">
+           <Nombre>TarjetaCredito</Nombre>
+           <Descripcion>Solicite Tarjeta de Crédito</Descripcion>
+           <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;tarjeta&lt;/FONT&gt;&lt;FONT color=#000000&gt;decrédito&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+           <Objetos>
+                <Objeto>TDC</Objeto>
+           </Objetos>
+        <noObjetos>/seguridadwls/CheckSession?servicio=SolTarMenu&amp;canal=800</noObjetos>
+            <Destino>servicio</Destino>
+    </Grupo>  
+  <!-- # ======================== -->	
+  <!-- #   Crédito Hipotecario    -->	
+  <!-- # ======================== -->	
+
+ <Grupo mostrar="SI" key="8">
+	<Nombre>NovaHipotecarioGrp</Nombre>
+	<Descripcion>Simule y Solicite su Hipotecario</Descripcion>
+	<Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;crédito &lt;/FONT&gt;&lt;FONT color=#000000&gt;hipotecario&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	<Objetos>
+	  <Objeto>CCT</Objeto>
+	  <Objeto>CPR</Objeto>
+	  <Objeto>TDC_NOVA</Objeto>
+	</Objetos>
+	<noObjetos>/seguridadwls/CheckSession?servicio=hipotecario&amp;canal=800</noObjetos>
+    <Destino>_top</Destino>
+  </Grupo>
+  
+  <!-- # ======================== -->	
+  <!-- #   Seguros               -->	
+  <!-- # ======================== -->	
+    
+  <Grupo mostrar="SI" key="10">
+    <Nombre>Seguros</Nombre>
+    <Descripcion>Seguros</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Seguros&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+  </Grupo>
+</Grupos>

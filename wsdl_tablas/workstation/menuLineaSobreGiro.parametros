@@ -1,0 +1,45 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-LINEA-SOBREGIRO;
+
+################################################################################
+# Definicion del menú MENU-LINEA-SOBREGIRO.
+################################################################################
+MENU-LINEA-SOBREGIRO;tipoNodo=MENU;nombre=Línea Sobregiro;nodosMenu=OPCION-CARTOLA,OPCION-MODIFICAR-CUPO,OPCION-INFORME-INTERESES,OPCION-CONDICIONES;
+
+# Definicion de opción "CARTOLA".
+OPCION-CARTOLA;tipoNodo=OPCION;nombre=Cartola;url=;opcionesPopUp=;nombrePopUp=;
+
+# Definicion de opción "CARTOLA MODIFICAR CUPO".
+OPCION-MODIFICAR-CUPO;tipoNodo=OPCION;nombre=Modificar Cupo;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=modificarcupo&origen=1&numeroCuentaCte=;opcionesPopUp=;nombrePopUp=;vistaValida=CCC_LINEASOBGIR;accionesValidas=VER_AUMCUPLSG;
+
+# Definicion de opción "INFORME INTERESES".
+OPCION-INFORME-INTERESES;tipoNodo=OPCION;nombre=Cobros Asociados;url=/cuentaswls/CartolaLineaSobregiro?periodoLSG=actual&objeto=;opcionesPopUp=si;nombrePopUp=;
+
+# Definicion de opción "CONDICIONES".
+OPCION-CONDICIONES;tipoNodo=OPCION;nombre=Condiciones;url=/cuentaswls/SaldoLineaSobregiro?objeto=;opcionesPopUp=si;nombrePopUp=;
+
+################################################################################
+# Definición de Gloza de Meses
+################################################################################
+LISTADO;1=Enero;2=Febrero;3=Marzo;4=Abril;5=Mayo;6=Junio;7=Julio;8=Agosto;9=Septiembre;10=Octubre;11=Noviembre;12=Diciembre;

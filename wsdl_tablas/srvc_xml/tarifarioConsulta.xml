@@ -1,0 +1,405 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * Consulta la tarifas de sistema Precios segun RUT
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 24/04/2007   Hector Carranza  (BEE) - Version inicial
+ *
+ * </ul>
+ * <p>
+ * <B>Todos los derechos reservados por Banco de Crédito e Inversiones.</B>
+ * <P>
+ */
+-->
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2TrfCon">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.PreciosMulticanalBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutContacto"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "codContacto"
+          middle_name_secondary = "antiguedad"
+        />
+
+        <field
+          java_name = "vrfContacto"
+          type = "char"
+          size = "1"
+          middle_name = "contacto2"
+          middle_name_secondary = "apellidoMatConyuge"
+        />
+
+        <field
+          java_name = "indContacto"
+          type = "char"
+          size = "1"
+          middle_name = "indicadorContacto"
+          middle_name_secondary = "ajusteTtalGarantias"
+        />
+
+        <field
+          java_name = "glsContacto"
+          type = "String"
+          size = "3"
+          middle_name = "glosaContacto"
+          middle_name_secondary = "activoTotalMesAnt"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "codigoConcepto"
+          type = "String"
+          size = "3"
+          middle_name = "control"
+          middle_name_secondary = "cantidadPasivos"
+        />
+
+        <field
+          java_name = "nombreRazon"
+          type = "String"
+          size = "40"
+          middle_name = "nombreOrdenante"
+          middle_name_secondary = "codigo8"
+        />
+
+        <field
+          java_name = "rutContacto"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "codContacto"
+          middle_name_secondary = "antiguedad"
+        />
+
+        <field
+          java_name = "vrfContacto"
+          type = "char"
+          size = "1"
+          middle_name = "contacto2"
+          middle_name_secondary = "apellidoMatConyuge"
+        />
+
+        <field
+          java_name = "indContacto"
+          type = "char"
+          size = "1"
+          middle_name = "indicadorContacto"
+          middle_name_secondary = "ajusteTtalGarantias"
+        />
+
+        <field
+          java_name = "glsContacto"
+          type = "String"
+          size = "3"
+          middle_name = "glosaContacto"
+          middle_name_secondary = "activoTotalMesAnt"
+        />
+
+        <field
+          java_name = "segmento"
+          type = "String"
+          size = "12"
+          middle_name = "segmento"
+          middle_name_secondary = "codApremio5"
+        />
+
+        <field
+          java_name = "rutGrupo"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "grupoEconomico"
+          middle_name_secondary = "cuotasPagAtras9"
+        />
+
+        <field
+          java_name = "digitoGrupo"
+          type = "char"
+          size = "1"
+          middle_name = "verificacion2"
+          middle_name_secondary = "descripApremio4"
+        />
+
+        <field
+          java_name = "indicadorGrupo"
+          type = "char"
+          size = "1"
+          middle_name = "indCliEsp"
+          middle_name_secondary = "ctaDestino2"
+        />
+
+        <field
+          java_name = "glosaGrupo"
+          type = "String"
+          size = "3"
+          middle_name = "glsIdcCliRel"
+          middle_name_secondary = "codigo10"
+        />
+
+        <field
+          java_name = "nombreGrupo"
+          type = "String"
+          size = "39"
+          middle_name = "nombreInformal"
+          middle_name_secondary = "codigo7"
+        />
+
+        <field
+          java_name = "codigoBanca"
+          type = "String"
+          size = "3"
+          middle_name = "codigoUnidad"
+          middle_name_secondary = "cobranzaExport"
+        />
+
+        <field
+          java_name = "indicadorRiesgo"
+          type = "String"
+          size = "3"
+          middle_name = "indClasificRiesgo"
+          middle_name_secondary = "ctaCargo1"
+        />
+
+        <field
+          java_name = "indicadorRentabilidad"
+          type = "String"
+          size = "3"
+          middle_name = "rentabConsumoAuto"
+          middle_name_secondary = "ctaDestino5"
+        />
+
+        <field
+          java_name = "valorRenta"
+          type = "int"
+          size = "11"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "rentabCtaCte"
+          middle_name_secondary = "descripApremio"
+        />
+
+        <field
+          java_name = "fechaNacimiento"
+          type = "Date"
+          size = "8"
+          middle_name = "fechaNominal"
+          middle_name_secondary = "codEjecutivoNeg"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "nivelEducacional"
+          type = "String"
+          size = "3"
+          middle_name = "nivelEducacion"
+          middle_name_secondary = "ctaDestino4"
+        />
+
+        <field
+          java_name = "indicadorCasa"
+          type = "String"
+          size = "5"
+          middle_name = "hogar"
+          middle_name_secondary = "fecEntradaDom"
+        />
+
+        <field
+          java_name = "indicadorLaboral"
+          type = "String"
+          size = "3"
+          middle_name = "trabajaConyuge"
+          middle_name_secondary = "cuotasPagAtras10"
+        />
+
+        <field
+          java_name = "tipoOperacion"
+          type = "String"
+          size = "3"
+          middle_name = "tipoOperacion"
+          middle_name_secondary = "codApremio3"
+        />
+
+        <field
+          java_name = "codigoEvento"
+          type = "String"
+          size = "3"
+          middle_name = "eventoRelac"
+          middle_name_secondary = "cdiEstItr"
+        />
+
+        <field
+          java_name = "codigoTipoCanal"
+          type = "String"
+          size = "3"
+          middle_name = "canalEnvioRef"
+          middle_name_secondary = "idDeductible"
+        />
+
+        <field
+          java_name = "codigoCanal"
+          type = "String"
+          size = "3"
+          middle_name = "canalEnvioNor"
+          middle_name_secondary = "cantPago"
+        />
+
+        <field
+          java_name = "codigoMoneda"
+          type = "String"
+          size = "6"
+          middle_name = "moneda"
+          middle_name_secondary = "codBanco1"
+        />
+
+        <field
+          java_name = "valorMonto"
+          type = "long"
+          size = "14"
+          sign = "no"
+          integers = "11"
+          decimals = "0"
+          middle_name = "montoCobroTx"
+          middle_name_secondary = "cuotasPagadas7"
+        />
+
+        <field
+          java_name = "numeroPlazo"
+          type = "int"
+          size = "5"
+          sign = "no"
+          integers = "5"
+          decimals = "0"
+          middle_name = "plazoVencimiento"
+          middle_name_secondary = "cuotasPagadas2"
+        />
+
+        <field
+          java_name = "indicadorPlazo"
+          type = "char"
+          size = "1"
+          middle_name = "indicadorAplic"
+          middle_name_secondary = "cuotasPagAtras7"
+        />
+
+        <field
+          java_name = "email"
+          type = "String"
+          size = "20"
+          middle_name = "email"
+          middle_name_secondary = "factorActualiz6"
+        />
+
+        <field
+          java_name = "telefonoCasa"
+          type = "String"
+          size = "12"
+          middle_name = "fonoContacto"
+          middle_name_secondary = "codEventoPrimNivel"
+        />
+
+        <field
+          java_name = "telefonoOficina"
+          type = "String"
+          size = "12"
+          middle_name = "fonoComercial"
+          middle_name_secondary = "codGrupoProducto"
+        />
+
+        <field
+          java_name = "telefonoCelular"
+          type = "String"
+          size = "12"
+          middle_name = "fonoCelular"
+          middle_name_secondary = "codEventoSeguNivel"
+        />
+
+        <field
+          java_name = "numeroSegmento"
+          type = "String"
+          size = "4"
+          middle_name = "relacionTipoGar"
+          middle_name_secondary = "bajoPerBaseTasa"
+        />
+
+        <field
+          java_name = "numeroSegmentoAux"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "segmentoCob"
+          middle_name_secondary = "codigo4"
+        />
+
+        <field
+          java_name = "siguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indAval"
+          middle_name_secondary = "cuotasPagAtras1"
+        />
+
+        <field
+          java_name = "numeroIRC"
+          type = "String"
+          size = "4"
+          middle_name = "numeroPlanilla"
+          middle_name_secondary = "porcenEntrada"
+        />
+
+        <field
+          java_name = "numeroIRCAux"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numeroPlantilla"
+          middle_name_secondary = "codigo3"
+        />
+
+  </output>
+
+</service>

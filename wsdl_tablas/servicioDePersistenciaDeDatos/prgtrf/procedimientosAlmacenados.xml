@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="prgtrf.procedimientosAlmacenados">
+<parameterMap id="setConsultaTransferenciasProgramadas" class="java.util.HashMap">
+    <parameter property="estadoTransferencia" jdbcType="NUMERIC" javaType="integer" />
+</parameterMap>
+    
+<resultMap id="getConsultaTransferenciasProgramadas" class="java.util.HashMap">
+    <result property="periodoProceso" column="prg_periodo_proceso" javaType="String" />
+    <result property="idProgramadas" column="prg_id" javaType="integer" />
+    <result property="codBancoDestino" column="banco" javaType="integer" />
+    <result property="tipoCuentaOrigen" column="tpc_id" javaType="String" />
+    <result property="rutOrigen" column="prg_rut_cliente" javaType="String" />
+    <result property="ctaOrigen" column="prg_cuenta_origen" javaType="String" />
+    <result property="monto" column="monto" javaType="double" />
+    <result property="ctaDestino" column="prg_cuenta_destinatario" javaType="String" />
+    <result property="rutDestino" column="prg_rut_destinatario" javaType="String" />
+    <result property="nombreDestino" column="prg_nombre_destinatario" javaType="String" />
+    <result property="eMailDestino" column="prg_mail_destinatario" javaType="String" />
+    <result property="eMailCliente" column="prg_mail_contingencia" javaType="String" />
+    <result property="comentario" column="prg_observacion" javaType="String" />
+    <result property="tipoCuentaDestino" column="prg_dst_tpc_id" javaType="String" />
+</resultMap>
+
+<parameterMap id="setActualizaTransferenciasProgramadas" class="java.util.HashMap">
+    <parameter property="periodoProceso" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="id" jdbcType="NUMERIC" javaType="integer" />
+    <parameter property="estado" jdbcType="NUMERIC" javaType="integer" />
+    <parameter property="descripcion" jdbcType="VARCHAR" javaType="String" />
+</parameterMap>
+    
+<parameterMap id="setInsertaAliasTransferencias" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="rutCliente" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="alias" jdbcType="typ_vc_nombre_ali" javaType="String" />
+    <parameter property="nombre" jdbcType="typ_vc_nombre_ali" javaType="String" />
+    <parameter property="rut" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="numeroCuenta" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigoBanco" jdbcType="typ_in_banco_id_ali" javaType="Integer" />
+    <parameter property="email" jdbcType="typ_vc_email_ali" javaType="String" />
+    <parameter property="tipoCuenta" jdbcType="NUMERIC" javaType="Integer" />
+    <parameter property="idValidacion" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="estado" jdbcType="VARCHAR" javaType="String" />
+</parameterMap>
+
+<parameterMap id="setActualizarAliasTTFF" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigo" jdbcType="typ_nm_key_ali" javaType="Long" />
+    <parameter property="rutCliente" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="alias" jdbcType="typ_vc_nombre_ali" javaType="String" />
+    <parameter property="nombre" jdbcType="typ_vc_nombre_ali" javaType="String" />
+    <parameter property="rut" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="numeroCuenta" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigoBanco" jdbcType="typ_in_banco_id_ali" javaType="Integer" />
+    <parameter property="email" jdbcType="typ_vc_email_ali" javaType="String" />
+    <parameter property="tipoCuenta" jdbcType="NUMERIC" javaType="Integer" />
+    <parameter property="favorito" jdbcType="BIT" javaType="boolean"/>
+</parameterMap>
+    
+<parameterMap id="validaAliasTTFFSeguroMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="rutCliente" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="rut" jdbcType="typ_ch_rut_ali" javaType="String" />
+    <parameter property="numeroCuenta" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigoBanco" jdbcType="typ_in_banco_id_ali" javaType="Integer" />
+    <parameter property="alias" jdbcType="typ_vc_nombre_ali" javaType="String" />
+    <parameter property="ventana" jdbcType="NUMERIC" javaType="Integer" />
+</parameterMap>
+
+<parameterMap id="getListaAliasTTFFMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+</parameterMap>
+
+<resultMap id="setListaAliasTTFFMap" class="java.util.HashMap">
+    <result property="codigo"       column="alt_id"      />
+    <result property="rutCliente"   column="alt_rut_cli" />
+    <result property="alias"        column="alt_ali"     />
+    <result property="nombre"       column="alt_nmb"     />
+    <result property="rut"          column="alt_rut"     />
+    <result property="numeroCuenta" column="alt_num_cue" />
+    <result property="bancoCodigo"  column="alt_bco_id"  />
+    <result property="email"        column="alt_ema"     />
+    <result property="tipoCuentaCodigo"     column="alt_tip_cta" /> 
+</resultMap>
+
+<parameterMap id="getAliasTTFFMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigo" jdbcType="typ_nm_key_ali" javaType="Long" />
+</parameterMap>
+
+<resultMap id="setAliasTTFFMap" class="java.util.HashMap">
+    <result property="codigo"       column="alt_id"      />
+    <result property="rutCliente"   column="alt_rut_cli" />
+    <result property="alias"        column="alt_ali"     />
+    <result property="nombre"       column="alt_nmb"     />
+    <result property="rut"          column="alt_rut"     />
+    <result property="numeroCuenta" column="alt_num_cue" />
+    <result property="bancoCodigo"  column="alt_bco_id"  />
+    <result property="email"        column="alt_ema"     />
+    <result property="tipoCuentaCodigo"     column="alt_tip_cta" /> 
+</resultMap>
+
+
+<parameterMap id="getListaAliasTTFFByRutClienteMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="rutCliente" jdbcType="typ_ch_rut_ali" javaType="String" />
+</parameterMap>
+
+<resultMap id="setListaAliasTTFFByRutClienteMap" class="java.util.HashMap">
+    <result property="codigo"               column="alt_id"         />
+    <result property="rutCliente"           column="alt_rut_cli"    />
+    <result property="alias"                column="alt_ali"        />
+    <result property="nombre"               column="alt_nmb"        />
+    <result property="rut"                  column="alt_rut"        />
+    <result property="numeroCuenta"         column="alt_num_cue"    />
+    <result property="bancoCodigo"          column="alt_bco_id"     />
+    <result property="email"                column="alt_ema"        />
+    <result property="tipoCuentaCodigo"     column="alt_tip_cta"    />
+    <result property="idValidacion"         column="alt_id_con"     />
+    <result property="estado"               column="alt_est"        jdbcType="CHAR" 		javaType="String" />
+    <result property="fechaIngreso"         column="alt_fec_ing"    jdbcType="TIMESTAMP" 	javaType="java.sql.Timestamp"/>
+    <result property="fechaAutorizacion"    column="alt_fec_aut"    jdbcType="TIMESTAMP" 	javaType="java.sql.Timestamp"/>
+    <result property="favorito"             column="alt_favorito"   jdbcType="bit" 			javaType="Boolean"/>
+    <result property="fechaPrimeraTef"      column="alt_fec_ptef"   jdbcType="TIMESTAMP" 	javaType="java.sql.Timestamp"/>
+</resultMap>
+
+<parameterMap id="borrarAliasTTFFMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigo" jdbcType="typ_nm_key_ali" javaType="Long" />
+</parameterMap>
+
+
+<parameterMap id="confirmarAliasTTFFMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigo" jdbcType="typ_nm_key_ali" javaType="Long" />
+    <parameter property="idValidacion" jdbcType="VARCHAR" javaType="String" />
+
+</parameterMap>
+
+<parameterMap id="modificarEstadoAliasTTFFMap" class="java.util.HashMap">
+    <parameter property="calling_proc" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="codigo" jdbcType="typ_nm_key_ali" javaType="Long" />
+    <parameter property="idValidacion" jdbcType="VARCHAR" javaType="String" />
+    <parameter property="estado" jdbcType="VARCHAR" javaType="String" />
+</parameterMap>
+
+
+<procedure id="consultarTransferenciasProgramadas" parameterMap="setConsultaTransferenciasProgramadas" resultMap="getConsultaTransferenciasProgramadas">
+    { CALL sp_consulta_trf_prg_linea_hoy(?) }
+</procedure>
+
+<procedure id="actualizarTransferenciasProgramadas" parameterMap="setActualizaTransferenciasProgramadas" resultClass="int">
+    { CALL sp_actualiza_trf_prg_linea(?,?,?,?) }
+</procedure>
+
+<procedure id="insertaAliasTransferencias" parameterMap="setInsertaAliasTransferencias" resultClass="int">
+    { CALL sp_insert_alt(?,?,?,?,?,?,?,?,?,?,?) }
+</procedure>
+
+<procedure id="actualizarAliasTTFF" parameterMap="setActualizarAliasTTFF" resultClass="int">
+    { CALL sp_update_alt(?,?,?,?,?,?,?,?,?,?,?) }
+</procedure>
+
+<procedure id="validaAliasTTFFSeguro" parameterMap="validaAliasTTFFSeguroMap" resultClass="int">
+    { CALL sp_consulta_alt_seguro(?,?,?,?,?,?,?) }
+</procedure>
+
+
+<procedure id="getListaAliasTTFF" parameterMap="getListaAliasTTFFMap" resultMap="setListaAliasTTFFMap">
+    { CALL sp_select_all_alt(?) }
+</procedure>
+
+<procedure id="getAliasTTFF" parameterMap="getAliasTTFFMap" resultMap="setAliasTTFFMap">
+    { CALL sp_select_key_alt(?,?) }
+</procedure>
+
+<procedure id="getListaAliasTTFFByRutCliente" parameterMap="getListaAliasTTFFByRutClienteMap" resultMap="setListaAliasTTFFByRutClienteMap">
+    { CALL sp_select_alt_by_rut(?,?) }
+</procedure>
+
+<procedure id="borrarAliasTTFF" parameterMap="borrarAliasTTFFMap" resultClass="int">
+    { CALL sp_delete_alt(?,?) }
+</procedure>
+
+<procedure id="confirmarAliasTTFF" parameterMap="confirmarAliasTTFFMap" resultClass="int">
+    { CALL sp_update_est_alt(?,?,?) }
+</procedure>
+
+<procedure id="modificarEstadoAliasTTFF" parameterMap="modificarEstadoAliasTTFFMap" resultClass="int">
+    { CALL sp_update_est_par_alt(?,?,?,?) }
+</procedure>
+
+</sqlMap>

@@ -1,0 +1,323 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="depositariomulticuenta.procedimientosAlmacenados">
+
+  <!-- Clientes -->
+
+	<procedure id="obtenerCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_cliente(#rutCliente#)}
+	</procedure>
+  
+	<procedure id="obtenerClientes" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_clientes(#rutCliente#,#nombreCliente#,#numeroConvenio#,#codigoProveedor#)}
+	</procedure>
+  
+  	<parameterMap id="setGuardarCliente" 	class="java.util.HashMap">
+		<parameter property="rutCliente" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="nombre"				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="direccion"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="idComuna"  			jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<parameter property="idRegion"  			jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<parameter property="contactoHabilitacion"  jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="contactoComercial"  	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="contactoTecnico"   	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="telefono1"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="telefono2"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="celular1"  		 	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="celular2"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="resultado"				jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+		<parameter property="mensaje"				jdbcType="VARCHAR" javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="guardarCliente" parameterMap="setGuardarCliente">
+	   {CALL spr_guardar_cliente(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<!-- Fin Clientes -->
+	
+	
+	<!-- Proveedores -->
+	
+	<procedure id="obtenerProveedor" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_proveedor(#codigoProveedor#)}
+	</procedure>
+  
+	<procedure id="obtenerProveedores" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_proveedores(#codigoProveedor#)}
+	</procedure>
+	
+	<parameterMap id="setGuardarProveedor" 	class="java.util.HashMap">
+		<parameter property="codigoProveedor" 	jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+		<parameter property="nombreProveedor"	jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="emailProveedor"  	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="fonoProveedor"  	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="emailTecnico"  	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="fonoAyuda"  		jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="resultado"			jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="guardarProveedor" parameterMap="setGuardarProveedor">
+	   {CALL spr_guardar_proveedor(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setEliminarProveedor" 	class="java.util.HashMap">
+		<parameter property="codigoProveedor" 	jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+		<parameter property="resultado"			jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="eliminarProveedor" parameterMap="setEliminarProveedor">
+	   {CALL spr_eliminar_proveedor(?, ?)}
+	</procedure>
+	
+	<!-- Fin Proveedores -->
+  
+	<!-- Regiones -->
+  
+	<procedure id="obtenerRegiones" resultClass="java.util.HashMap" >
+		{call spr_obtener_regiones()}
+	</procedure>
+	
+	<!-- Fin regiones -->
+	
+		
+	<!-- Comunas -->
+	
+	<procedure id="obtenerComunas" resultClass="java.util.HashMap" >
+		{call spr_obtener_comunas()}
+	</procedure>
+	
+	<procedure id="obtenerComunasPorRegion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_comunasPorRegion(#idRegion#)}
+	</procedure>
+	
+	<!-- Fin comunas -->
+	
+	<!-- Convenios -->
+	
+	<procedure id="obtenerConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_convenio(#numeroConvenio#)}
+	</procedure>
+	
+	<procedure id="obtenerConveniosPorCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_conveniosCliente(#rutCliente#)}
+	</procedure>
+
+	<parameterMap id="setGuardarConvenio" 	class="java.util.HashMap">
+		<parameter property="rutCliente" 		jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="numeroConvenio"	jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="tarifa"  			jdbcType="NUMERIC" javaType="java.lang.Double" />
+		<parameter property="fechaInicio"  		jdbcType="DATE" />
+		<parameter property="fechaTermino"  	jdbcType="DATE" />
+		<parameter property="usuario"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="resultado"			jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+		<parameter property="mensaje"			jdbcType="VARCHAR" javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="guardarConvenio" parameterMap="setGuardarConvenio">
+		{call spr_guardar_convenio(?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setCambiaEstadoConvenio" 	class="java.util.HashMap">
+		<parameter property="numeroConvenio" 		jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="estado"			jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<parameter property="resultado"			jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="cambiaEstado" parameterMap="setCambiaEstadoConvenio">
+		{call spr_dar_de_baja_convenio(?, ?, ?)}
+	</procedure>
+	
+	<!-- Fin convenios -->
+
+
+	<!-- Agentes -->
+
+	<parameterMap id="setGuardarAgente" 	class="java.util.HashMap">
+		<parameter property="rutCliente" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="rutAgente" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="nombre" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="direccion" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="contactoHabilitacion" 	jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="contactoComercial" 	jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="contactoTecnico" 		jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="telefono" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="celular" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="giro" 					jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="cuentaCargo" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="resultado"				jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+		<parameter property="mensaje"				jdbcType="VARCHAR" javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="guardarAgente" parameterMap="setGuardarAgente">
+		{call spr_guardar_agente_nuevo(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+	<procedure id="obtenerAgente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_agente(#rutAgente#)}
+	</procedure>
+
+	<procedure id="obtenerAgentesPorRutCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_agentePorCliente(#rutCliente#)}
+	</procedure>
+
+	<procedure id="obtenerAgentes" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_agentePorRutNumeroConvenio(#rutAgente#, #numeroConvenio#, #rutCliente#)}
+	</procedure>
+
+	<procedure id="obtenerAgentesPorNumeroConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_agentePorConvenio(#numeroConvenio#)}
+	</procedure>
+	
+	<procedure id="obtenerAgentesPorRutNumeroConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{call spr_obtener_agentePorRutNumeroConvenio(#rutAgente#, #numeroConvenio#, #rutCliente#)}
+	</procedure>
+
+	<!-- Fin Agentes -->
+
+	<!-- Depositarios -->
+
+	<procedure id="obtenerTransaccionesPorPeriodos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_transacciones_periodos(#meses#,#ano#,#filasXPagina#,#ultimaFila#)}
+	</procedure>
+	
+	<procedure id="obtenerCantidadPaginasTransacciones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_cantidad_paginas_transaccion(#meses#,#ano#)}
+	</procedure>	
+
+	<procedure id="obtenerTransaccionesPorFiltro" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_transacciones_por_filtro(#cliente#, #agente#, #maquina#, #fechaInicio#, #fechaTermino#, #filasXPagina#, #ultimaFila#)}
+	</procedure>
+	
+	<procedure id="obtenerCantidadPaginasTransaccionesPorFiltro" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_cantidad_paginas_transaccion_filtro(#cliente#, #agente#, #maquina#, #fechaInicio#, #fechaTermino#)}
+	</procedure>
+
+	<!-- Fin Depositarios -->
+
+	<!-- Maquinas -->
+
+	<parameterMap id="setCambiarEstadoMaquina" 	class="java.util.HashMap">
+		<parameter property="idMaquina" 			jdbcType="BIGINT" javaType="java.lang.Long"/>
+		<parameter property="estado" 			jdbcType="BIT" javaType="java.lang.Integer"/>
+		<parameter property="usuario" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="resultado"				jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+		<parameter property="mensaje"				jdbcType="VARCHAR" javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+
+	<procedure id="cambiarEstadoMaquina" parameterMap="setCambiarEstadoMaquina" >
+		{call spr_cambiar_estado_maquina(?, ?, ?, ?, ?)}
+	</procedure>
+
+	<resultMap id="getObtenerListaMaquinas"  class="java.util.HashMap">
+	    <result property="idMaquina" 					jdbcType="BIGINT" javaType="java.lang.Long"/>
+	    <result property="idMaquinaProveedor" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="direccionMaquinaEnCliente" 	jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="razonSocialCliente" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="fechaPeticionInscripcion" 	jdbcType="DATE"    javaType="java.util.Date"/>
+	    <result property="fechaCambioEstado" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="estadoMaquina" 				jdbcType="BIT" 	   javaType="java.lang.Integer"/>
+	    <result property="codigoProveedor" 				jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+	    <result property="nombreProveedor" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="puedeCambiarEstado" 			jdbcType="BOOLEAN" javaType="java.lang.Boolean"/>
+	</resultMap>
+
+	<procedure id="obtenerListaMaquinas" parameterClass="java.util.HashMap" resultMap="getObtenerListaMaquinas" >
+		{call spr_obtener_maquinas(#codigoProveedor#, #estadoMaquina#)}
+	</procedure>
+
+	<procedure id="obtenerListaMaquinasSinConvenio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_maquinasSinConvenioPorProveedor(#idProveedor#)}
+	</procedure>
+
+	<procedure id="obtenerListaCompletaMaquinas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_maquinas_todas()}
+	</procedure>
+
+	<resultMap id="getObtenerListaMaquinasPorClienteYAgente"  class="java.util.HashMap">
+	    <result property="idMaquina"                    jdbcType="BIGINT" javaType="java.lang.Long"/>
+	    <result property="idMaquinaProveedor"           jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="codigoProveedor"              jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+	    <result property="nombreProveedor"              jdbcType="VARCHAR" javaType="java.lang.String"/>
+	    <result property="estadoMaquina"                jdbcType="BIT" javaType="java.lang.Integer"/>
+	    <result property="estadoConvenioMaquina"        jdbcType="BIT" javaType="java.lang.Integer"/>
+	    <result property="fechaPeticionInscripcion"     jdbcType="DATE" javaType="java.util.Date"/>
+	    <result property="fechaCambioEstado"            jdbcType="VARCHAR" javaType="java.lang.String"/>    
+	</resultMap>
+
+	<procedure id="obtenerListaMaquinasPorClienteYAgente" parameterClass="java.util.HashMap" resultMap="getObtenerListaMaquinasPorClienteYAgente" >
+		{call spr_obtener_maquinas_proveedor(#cliente#, #agente#)}
+	</procedure>
+	
+	<procedure id="obtenerListaMaquinasPorConvenioConMaximoDeposito" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{call spr_obtener_maquinasPorConvenio_maximoDeposito(#numeroConvenio#)}
+	</procedure>
+	
+	<procedure id="obtenerListaMaquinasPorConvenioAgente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{call spr_obtener_maquinasPorConvenioAgente(#numeroConvenio#, #rutAgente#)}
+	</procedure>
+	
+	<!-- Fin Maquinas -->
+
+	<!-- Tipo Maquina -->
+
+	<procedure id="obtenerListaTipoMaquina" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_tipoMaquina}
+	</procedure>
+
+	<!-- Fin Tipo Maquina -->
+
+	<!-- Convenio Maquina -->
+
+	<parameterMap id="setGuardarConvenioMaquina"    class="java.util.HashMap">
+		<parameter property="numeroConvenio" 			jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="idMaquinaProveedor"		jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="codigoProveedor"  			jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<parameter property="estadoConvenioMaquina"  	jdbcType="BIT" javaType="java.lang.Integer" />
+		<parameter property="cuentaAbonoEnLinea"  		jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="cuentaCargoComisiones"  	jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="idTipoMaquina"  			jdbcType="SMALLINT" javaType="java.lang.Integer" />
+		<parameter property="rutAgente"   				jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="maximoDeposito"  			jdbcType="DECIMAL" />
+		<parameter property="resultado"  				jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+		<parameter property="resultadoPreinscripcion"  	jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+
+	<procedure id="guardarConvenioMaquina" parameterMap="setGuardarConvenioMaquina">
+		{call spr_ingresar_maquinaConvenio_maximoDeposito(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+	<procedure id="desasociarConvenioMaquina" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{call spr_desasociar_maquina_convenio_agente(#idMaquinaProveedor#, #numeroConvenio#, #codigoProveedor#)}
+	</procedure>
+
+	<!-- Fin Convenio Maquina -->
+
+	<!-- Usuario -->
+	<parameterMap id="setGuardarUsuario"    class="java.util.HashMap">
+		<parameter property="usuario" 				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="password"				jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="codigoRol"  			jdbcType="NUMERIC" javaType="java.lang.Integer" />
+		<parameter property="nombre"  				jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="apellido"  			jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="email"  				jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="rut"  					jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="estadoUsuario"   		jdbcType="BIT" javaType="java.lang.Integer" />
+		<parameter property="poseeSegundaClave"  	jdbcType="BIT" javaType="java.lang.Integer"/>
+		<parameter property="segundaClave"  		jdbcType="VARCHAR" javaType="java.lang.String" />
+		<parameter property="resultado"  			jdbcType="NUMERIC" javaType="java.lang.Integer" mode="OUT" />
+	</parameterMap>
+
+	<procedure id="guardarUsuario" parameterMap="setGuardarUsuario">
+		{call spr_guardar_usuario(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+	<procedure id="obtenerUsuario" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{call spr_obtener_UsuarioInicioSesion(#usuario#)}
+	</procedure>
+	<!-- Fin Usuario -->
+		
+</sqlMap>

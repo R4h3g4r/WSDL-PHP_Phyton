@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="abonotrf.procedimientosAlmacenados">
+
+<parameterMap id="setConsultaTransferenciasRecibidasCliente" class="java.util.HashMap">
+		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />				
+		<parameter property="cuenta"  		    	jdbcType="CHAR" 		javaType="String" />
+		<parameter property="periodo"		        jdbcType="DATE"    		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />		
+		<parameter property="bloque"		      	jdbcType="NUMERIC" 		javaType="int" />		
+		<parameter property="cantidadRegistros"     jdbcType="NUMERIC" 		javaType="int" />
+	</parameterMap>
+
+	<resultMap id="getConsultaTransferenciasRecibidasCliente" class="java.util.HashMap">
+		<result property="cuentaOrigen"     			column="cuentaOrigen"				jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="tipoCuentaOrigen"     		column="tipoCuentaOrigen" 			jdbcType="CHAR"    	 javaType="String"/>        	
+        <result property="montoTransferido"				column="montoTransferido" 			jdbcType="NUMERIC"   javaType="int" />        	
+	    <result property="cuentaDestino" 				column="cuentaDestino"				jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="nombreDestinatario"     		column="nombreDestinatario"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="rutDestino"					column="rutDestino"					jdbcType="CHAR"    	 javaType="String" />
+	    <result property="dVDestino"					column="dVDestino"					jdbcType="CHAR"    	 javaType="String" />            	
+	    <result property="bancoOrigen"			column="bancoOrigen"				jdbcType="CHAR"    	 javaType="String" />        		        
+		<result property="numeroOperacion"    			column="numeroOperacion"			jdbcType="CHAR"    	 javaType="String" />        	
+		<result property="fechaMovimiento"				column="fechaAbono"					jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />        	
+		<result property="comentarioTransferencia"      column="comentarioTransferencia"	jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="operacion"     				column="operacion"					jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="numerosPagina"				column="numerosPagina"				jdbcType="NUMERIC"   javaType="int" />        		                	
+	    <result property="rutOriginador"				column="rutOriginador"				jdbcType="CHAR"    	 javaType="String" />
+	    <result property="dVOriginador"					column="dVOriginador"				jdbcType="CHAR"    	 javaType="String" />
+	    <result property="nombreOriginador"     		column="nombreOriginador"			jdbcType="CHAR"    	 javaType="String" />
+	</resultMap>
+
+	<procedure id="consultaTransferenciasRecibidasCliente" parameterMap="setConsultaTransferenciasRecibidasCliente" resultMap="getConsultaTransferenciasRecibidasCliente">
+		{ CALL sp_CnsTransLineaAbono( ?, ?, ?, ?, ? ) }
+	</procedure>	
+		
+	<resultMap id="datosComisiones" class="java.util.HashMap">
+	<result property="fecha_adm_lem"     			column="fecha_adm_lem"				jdbcType="DATE"    	 javaType="DATE" />        	
+    <result property="fecha_ren_lem"     		    column="fecha_ren_lem" 			    jdbcType="DATE"    	 javaType="DATE"/>        	
+    <result property="monto_adm_lem" 				column="monto_adm_lem"				jdbcType="DECIMAL"   javaType="Double" />        	
+    <result property="monto_ren_lem"     		    column="monto_ren_lem"			    jdbcType="DECIMAL"   javaType="Double" />
+    <result property="fecha_ren_lsg"     		    column="fecha_ren_lsg" 			    jdbcType="DATE"    	 javaType="DATE"/>        	
+    <result property="monto_ren_lsg" 				column="monto_ren_lsg"				jdbcType="DECIMAL"   javaType="Double" />          	
+
+	</resultMap>
+
+	<procedure id="obtenerUltimoMovimiento" parameterClass="java.util.HashMap" resultMap="datosComisiones">
+		{ CALL sp_cns_ultimos_movimientos( #cuenta#, #tipoProducto#) }
+	</procedure>		
+		
+</sqlMap>

@@ -1,0 +1,23 @@
+Esta tabla contiene los valores a usarse por las solicitudes Fast Track
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 25/06/2007 Romina Canales Cocca (SEnTRA): Se modifican las direcciones de correo donde se envía notificación de rechazo de solicitud de 
+		multicredito, tarjeta de credito fastTack y planes.
+
+. 03/10/2007 Rene Oyarzun P:  Se agregan limites para renta minima y renta gris de solicitud aumento cupo
+
+. 24/10/2007 Rene Oyarzun P:  Se modifica renta minima planes BCI 16 UF
+
+. 28/10/2007 Rene Oyarzun P:  Se modifica renta minima planes BCI 21 UF
+
+. 20/04/2009 Pedro Rebolledo L. (SEnTRA): Se agrega la definición de campaña, producto y sucursal para el ingreso de una Solicitud de Plan
+																				  (LeadPlan ó LeadPlan Telefónico), dependiendo del canal(BCI = 110 ó T-BANC = 100) y el tipo de plan (normal ó telefonico).
+																				  
+. 28/10/2007 Rodrigo González Merino (Imagemaker IT):  Se agrega
+             CODIGOS_AREA_TELEFONICOS la cual contiene los códigos de área de
+             telefonía.
+
+==========================================
+

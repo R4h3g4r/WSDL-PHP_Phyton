@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="PortalMDinero.procedimientosAlmacenados">
+	
+	<parameterMap id="setConsultarMensajesCalendarioPago" class="java.util.HashMap">
+		<parameter property="estado" jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getConsultarMensajesCalendarioPago" class="java.util.HashMap">
+			<result property="identificador"	column="men_id" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="ejecutivo" 		column="men_resp" 	jdbcType="CHAR"		javaType="String"/>
+			<result property="periodicidad"		column="men_perio" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="asunto" 			column="men_asunto" jdbcType="CHAR"		javaType="String"/>	
+			<result property="fecha"			column="men_fec"	jdbcType="DATETIME" javaType="java.util.Date"/>        	
+			<result property="estadoMensaje"	column="est_id" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="consultarMensajesCalendarioPago" parameterMap="setConsultarMensajesCalendarioPago" resultMap="getConsultarMensajesCalendarioPago">		
+	{ CALL cns_msj_cal (?) }	
+	</procedure>
+
+	<parameterMap id="setEliminarMensajeCalendarioPago" class="java.util.HashMap">
+		<parameter property="idMensaje"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="eliminarMensajeCalendarioPago" parameterMap="setEliminarMensajeCalendarioPago" resultClass="int">	
+		{ CALL eli_msj_cal(?) }	
+	</procedure>
+	
+	
+	<parameterMap id="setInsertarMensajeCalendarioPago" class="java.util.HashMap">
+		<parameter property="detalle"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="ejecutivo"		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="periodicidad"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="asunto"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="fechaInicio"	jdbcType="DATETIME" javaType="java.util.Date"/>			
+		<parameter property="estado"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="insertarMensajeCalendarioPago" parameterMap="setInsertarMensajeCalendarioPago" resultClass="int">	
+		{ CALL ins_msj_cal(?,?,?,?,?,?) }	
+	</procedure>	
+	
+	<parameterMap id="setModificarMensajeCalendarioPago" class="java.util.HashMap">
+		<parameter property="idMensaje"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="detalle"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="ejecutivo"		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="periodicidad"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="asunto"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="fechaInicio"	jdbcType="DATETIME" javaType="java.util.Date"/>			
+		<parameter property="estado"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="modificarMensajeCalendarioPago" parameterMap="setModificarMensajeCalendarioPago" resultClass="int">	
+		{ CALL mod_msj_cal(?,?,?,?,?,?,?) }	
+	</procedure>
+
+
+	<parameterMap id="setConsultarDetalleMensajesCalendarioPago" class="java.util.HashMap">
+		<parameter property="idMensaje" jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getConsultarDetalleMensajesCalendarioPago" class="java.util.HashMap">
+			<result property="identificador"	column="men_id" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="ejecutivo" 		column="men_resp" 	jdbcType="CHAR"		javaType="String"/>
+			<result property="periodicidad"		column="men_perio" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="asunto" 			column="men_asunto" jdbcType="CHAR"		javaType="String"/>	
+			<result property="fecha"			column="men_fec"	jdbcType="DATETIME" javaType="java.util.Date"/>        	
+			<result property="estadoMensaje"	column="est_id" 	jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="detalle" 			column="men_gls" 	jdbcType="CHAR"		javaType="String"/>	
+	</resultMap>
+	<procedure id="consultarDetalleMensajesCalendarioPago" parameterMap="setConsultarDetalleMensajesCalendarioPago" resultMap="getConsultarDetalleMensajesCalendarioPago">		
+	{ CALL cns_det_msj_cal (?) }	
+	</procedure>	
+	
+	<parameterMap id="setObtenerRegistroCalendarioPago" class="java.util.HashMap">
+		<parameter property="rut" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="cuenta"  	jdbcType="CHAR"	javaType="String"/>	
+		<parameter property="periodo"  	jdbcType="CHAR"	javaType="String"/>	
+	</parameterMap>
+	<resultMap id="getObtenerRegistroCalendarioPago" class="java.util.HashMap">
+			<result property="identificador"	column="cal_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="fecha"			column="cal_fec"		jdbcType="DATETIME" javaType="java.util.Date"/>   
+			<result property="monto"			column="cal_mto_tot"	jdbcType="money"	javaType="java.math.BigDecimal"/>
+			<result property="idCategoria"		column="cat_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="glosaCategoria"	column="cat_gls" 		jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerRegistroCalendarioPago" parameterMap="setObtenerRegistroCalendarioPago" resultMap="getObtenerRegistroCalendarioPago">		
+	{ CALL cns_reg_cal (?,?,?) }	
+	</procedure>	
+	
+	<parameterMap id="setObtenerCompromisoCalendario" class="java.util.HashMap">
+		<parameter property="id" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerCompromisoCalendario" class="java.util.HashMap">
+			<result property="identificador"	column="com_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="monto"			column="com_mto"		jdbcType="money"	javaType="java.math.BigDecimal"/>
+			<result property="idEstado"			column="est_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="glosaEstado"		column="est_gls" 		jdbcType="CHAR"		javaType="String"/>
+			<result property="idProducto"		column="pro_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="glosaProducto"	column="pro_gls" 		jdbcType="CHAR"		javaType="String"/>
+			<result property="idMovimiento"	    column="com_id_mov" 	jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerCompromisoCalendario" parameterMap="setObtenerCompromisoCalendario" resultMap="getObtenerCompromisoCalendario">		
+	{ CALL cns_comp_cal (?) }	
+	</procedure>
+
+		<parameterMap id="setObtenerDetalleCompromisoCalendario" class="java.util.HashMap">
+		<parameter property="id" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetalleCompromisoCalendario" class="java.util.HashMap">
+			<result property="glosa"		column="det_nom" 		jdbcType="CHAR"		javaType="String"/>
+			<result property="valor"		column="det_valor" 		jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerDetalleCompromisoCalendario" parameterMap="setObtenerDetalleCompromisoCalendario" resultMap="getObtenerDetalleCompromisoCalendario">		
+	{ CALL cns_comp_det (?) }	
+	</procedure>	
+	
+	<parameterMap id="setInsertarEventoCalendario" class="java.util.HashMap">
+		<parameter property="monto"			jdbcType="MONEY" 	javaType="double"/>	
+		<parameter property="periodicidad"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="detalle"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="fecha"			jdbcType="DATETIME" javaType="java.util.Date"/>		
+		<parameter property="cuenta"  		jdbcType="CHAR"  	javaType="String"/>	
+		<parameter property="rut" 			jdbcType="INT"		javaType="java.lang.Integer"/>		
+		<parameter property="fechaHasta"	jdbcType="DATETIME" javaType="java.util.Date"/>
+	</parameterMap>
+	<procedure id="insertarEventoCalendario" parameterMap="setInsertarEventoCalendario" resultClass="int">	
+		{ CALL ins_ing_cal(?,?,?,?,?,?,?) }	
+	</procedure>	
+	
+	<parameterMap id="setObtenerDetalleIngresosCalendario" class="java.util.HashMap">
+		<parameter property="id" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetalleIngresosCalendario" class="java.util.HashMap">
+			<result property="identificador"	column="ing_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="monto"			column="ing_mto"		jdbcType="money"	javaType="java.math.BigDecimal"/>
+			<result property="periodicidad"		column="ing_perio" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="detalle" 			column="ing_desc" 		jdbcType="CHAR"		javaType="String"/>	
+	</resultMap>
+	<procedure id="obtenerDetalleIngresosCalendario" parameterMap="setObtenerDetalleIngresosCalendario" resultMap="getObtenerDetalleIngresosCalendario">		
+	{ CALL cns_ing_cal (?) }	
+	</procedure>
+	
+	<parameterMap id="setObtenerRegistroCalendarioPorId" class="java.util.HashMap">
+		<parameter property="id" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerRegistroCalendarioPorId" class="java.util.HashMap">
+			<result property="identificador"	column="cal_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="fecha"			column="cal_fec"		jdbcType="DATETIME" javaType="java.util.Date"/>   
+			<result property="monto"			column="cal_mto_tot"	jdbcType="money"	javaType="java.math.BigDecimal"/>
+			<result property="idCategoria"		column="cat_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="glosaCategoria"	column="cat_gls" 		jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerRegistroCalendarioPorId" parameterMap="setObtenerRegistroCalendarioPorId" resultMap="getObtenerRegistroCalendarioPorId">		
+	{ CALL cns_reg_cal_por_id (?) }	
+	</procedure>	
+	
+	<parameterMap id="setObtenerProductosPorCategoria" class="java.util.HashMap">
+		<parameter property="id" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerProductosPorCategoria" class="java.util.HashMap">
+			<result property="idProducto"		column="pro_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="glosaProducto"	column="pro_gls" 		jdbcType="CHAR"		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerProductosPorCategoria" parameterMap="setObtenerProductosPorCategoria" resultMap="getObtenerProductosPorCategoria">		
+	{ CALL cns_prod_cat (?) }	
+	</procedure>		
+	
+	<parameterMap id="setObtenerAlertasCalendarioPago" class="java.util.HashMap">
+		<parameter property="rut" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="cuenta"  	jdbcType="CHAR"	javaType="String"/>	
+		<parameter property="periodo"  	jdbcType="CHAR"	javaType="String"/>	
+	</parameterMap>
+	<resultMap id="getObtenerAlertasCalendarioPago" class="java.util.HashMap">
+			<result property="idCalendario"		column="cal_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="fecha"			column="cal_fec"		jdbcType="DATETIME" javaType="java.util.Date"/>   
+			<result property="identificador"	column="ale_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="asunto" 			column="ale_asunto" 	jdbcType="CHAR"		javaType="String"/>	
+			<result property="detalle" 			column="ale_desc" 		jdbcType="CHAR"		javaType="String"/>	
+			<result property="idCompromiso"		column="com_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerAlertasCalendarioPago" parameterMap="setObtenerAlertasCalendarioPago" resultMap="getObtenerAlertasCalendarioPago">		
+	{ CALL cns_ale_cal (?,?,?) }	
+	</procedure>	
+	
+	<parameterMap id="setObtenerAlertaCalendarioPorId" class="java.util.HashMap">
+		<parameter property="idAlerta" 		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerAlertaCalendarioPorId" class="java.util.HashMap">
+			<result property="asunto" 			column="ale_asunto" 	jdbcType="CHAR"		javaType="String"/>	
+			<result property="detalle" 			column="ale_desc" 		jdbcType="CHAR"		javaType="String"/>	
+			<result property="idCompromiso"		column="com_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="idCalendario"		column="cal_id" 		jdbcType="INT" 		javaType="java.lang.Integer"/>
+			<result property="fecha"			column="cal_fec"		jdbcType="DATETIME" javaType="java.util.Date"/>   
+	</resultMap>
+	<procedure id="obtenerAlertaCalendarioPorId" parameterMap="setObtenerAlertaCalendarioPorId" resultMap="getObtenerAlertaCalendarioPorId">		
+	{ CALL cns_ale_cal_id (?) }	
+	</procedure>
+	
+	<parameterMap id="setEliminarIngresoCalendarioPago" class="java.util.HashMap">
+		<parameter property="idIngreso"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="eliminarIngresoCalendarioPago" parameterMap="setEliminarIngresoCalendarioPago" resultClass="int">	
+		{ CALL eli_ing_cal(?) }	
+	</procedure>	
+	
+	<parameterMap id="setModificarIngresoCalendarioPago" class="java.util.HashMap">
+		<parameter property="idIngreso"		jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="monto"			jdbcType="MONEY" 	javaType="double"/>	
+		<parameter property="periodicidad"	jdbcType="INT" 		javaType="java.lang.Integer"/>
+		<parameter property="detalle"  		jdbcType="CHAR"  	javaType="String"/>			
+	</parameterMap>
+	<procedure id="modificarIngresoCalendarioPago" parameterMap="setModificarIngresoCalendarioPago" resultClass="int">	
+		{ CALL mod_ing_cal(?,?,?,?) }	
+	</procedure>	
+</sqlMap>

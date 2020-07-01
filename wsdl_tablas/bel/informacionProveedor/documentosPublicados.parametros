@@ -1,0 +1,7 @@
+# Aqui se parametrizan todos los argumentos correspondientes al servicio de Documentos Publicados.
+
+# Parámetros paginación servicio Documentos Publicados.
+MAX-REG-PAG;valor=100;
+REG-PAGINA;valor=10;
+#MENSAJES DE ERROR
+MJERROR;desc=SERVICIO NO DISPONIBLE;

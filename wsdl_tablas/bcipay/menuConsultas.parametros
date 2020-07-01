@@ -1,0 +1,51 @@
+seleccionTipoBusqueda;val1=Por Nómina;val2=Por Echeck;val3=Por Beneficiario;val4=Nominas por Fechas;val5=Por Documento;val6=Por Vale Vista;
+formasDePagoConsulta;val1=CCT|Abono Cuenta Corriente Bci;val2=AHO|Abono Cuenta Ahorro Bci;val3=OTA|Abono Cuenta Ahorro Otro Banco;val4=OTC|Abono Cuenta Corriente Otro Banco;val5=EFE|Pago en Efectivo;val6=VVD|Vale Vista por Correo Certif. C/Liq;val7=VVC|Vale Vista por Oficina C/Liq;val8=ALL|Todos;total=8;
+
+listaTiposPago;val1=REM|Remuneraciones;val2=DIV|Dividendos;val3=PEN|Pensiones;val4=OTR|Otros Pagos;val5=PRV|Proveedores;val6=TTDD|Transferencias Diferidas;val7=TTRC|Pagos Recibidos;
+totalTiposPago;total=7;
+
+cantidadRegistros;defecto=15;
+
+estadosDePagos;val1=Folios Sin Fondos|FSF;val2=Folios En Proceso Abono|FEPA;val3=Folios Detenidos|FD;val4=Folios Efectuados Sin Fondos|FESF;val5=Folios Efectuados|FE;val6=Pagos Recibidos Normal|PRENO;val7=Pagos Recibidos Intradía|PREIN;val8=Folios Con Problemas|FTO;
+transferenciasDiferidas;value=Transferencias Diferidas;cod=TTDD;
+
+formasPago;AHO=Cuenta Ahorro;CCT=Cuenta Corriente;OTA=Cuenta Ahorro;OTC=Cuenta Corriente;
+viasRendicion;CCA=CCA;FAX=Fax;TRF=Transfer;EDI=Edifast;OTR=Otro;INT=Internet;
+totalEstadosDePago;total=8;
+rangoAnosConsulta;Desc=10;
+
+estadoPagos;val1=REALI|Pagados;val2=RECHZ|No Pagados;val3=COPRB|Con Problemas;
+totalEstadosPago;desc=3;
+
+idAplicacion;web=WEB;pay=PAY;wcn=WCN;
+
+nominasSinConvenioBanele;Desc=03|01;
+
+detalleNomina;rutaXslDetalle=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detalleNomina.xsl;rutaXslDetalleEntrante=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detalleNominaEntrante.xsl;
+detalleNominaPNOL;rutaXslDetalle=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detalleNominaPNOL.xsl;
+detallePagoPNOL;rutaXslDetalle=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detallePagoPNOL.xsl;
+historialPagoPNOL;rutaXslDetalle=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detalleHistorialPNOL.xsl;
+detalleBeneficiario;nombreArchivo=Pago;rutaXslDetalleBenef=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/xsl/detalleBeneficiario.xsl;
+
+estadosProcesoNomina;cantidad=5;
+estadosProcesoNomina_1;modulos=1|2|3;glosa=Originación;
+estadosProcesoNomina_2;modulos=4|5;estadosExcluidos=0001|0002|0004|6203|6404;glosa=En Motor;
+estadosProcesoNomina_3;modulos=3;estados=6203;glosa=Con Problemas;
+estadosProcesoNomina_4;modulos=4;estados=0004|6404;glosa=En Proceso Excepción;
+estadosProcesoNomina_5;modulos=4;estados=0001|0002;glosa=Cargándose;
+
+tipoConsulta;enLinea=enLinea;batch=batch;
+tipoBusqueda;folios=FOL;pagos=PAG;totales=TOT;
+tipoBusquedaNombre;folios=folios;pagos=pagos;totales=totales;retirador=retirador;
+rutPagador;porDefecto=000000000;
+numeroFolio;porDefecto=000000000000;
+glosasAcc;folios=CNHL-Folio;pagos=CNHL-Pago;totales=CNHL-Total;
+tablaAccAfectada;folios=odp;pagos=odp;totales=top;
+nombreArchivoExcel;Desc=ConsultaHistorica;
+nombreArchivoExcelFolios;Desc=ConsultaHistoricaFolios;
+nombreArchivoExcelTotalesPorFolio;Desc=ConsultaHistoricaTotalesPorFolio;
+nombreArchivoExcelPagos;Desc=ConsultaHistoricaPagos;
+indicadorLineaHistorico;enLinea=LIN;historico=HIS;
+cantidadDiasFechas;desdeOnline=365;desdeSolicitud=1825;rangoDiasOnline=31;
+codigosJournal;evento=CNSHIST;subCodigoEventofolios=NOMINA;subCodigoEventopagos=PAGOS;subCodigoEventototales=NOMINA;idProducto=PAGOSM;observacionfolios=Consulta Histórica de Nóminas (Pagos Masivos);observacionpagos=Consulta Histórica de Pagos (Pagos Masivos);observaciontotales=Consulta Histórica de Nóminas (Pagos Masivos);
+descargaDeArchivos;link=/cl/bci/aplicaciones/productos/servicios/pagos/bcipay/descargaDeArchivo/vistaConsultaArchivosDePago.jsf;

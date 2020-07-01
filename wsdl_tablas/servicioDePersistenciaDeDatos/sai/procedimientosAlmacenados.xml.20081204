@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="sai.procedimientosAlmacenados">
+
+    <resultMap id="proyectoSinCodigo" class="java.util.HashMap">
+        <result property="identificador" javaType="String" column="id" jdbcType="numeric"/>
+        <result property="codigo" javaType="String" column="codigo" jdbcType="char" />
+        <result property="nombre" javaType="String" column="nombre" jdbcType="varchar" />
+        <result property="fechaInicio" javaType="java.util.Date" column="inicio" jdbcType="date" />
+        <result property="fechaTermino" javaType="java.util.Date" column="fin" jdbcType="date" />
+        <result property="descripcionDeEstado" javaType="String" column="estado" jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="proyecto" class="java.util.HashMap">
+        <result property="identificador" javaType="String" column="id" jdbcType="numeric"/>
+        <result property="codigo" javaType="String" column="codigo" jdbcType="char" />
+        <result property="nombre" javaType="String" column="nombre" jdbcType="varchar" />
+        <result property="fechaInicio" javaType="java.util.Date" column="inicio" jdbcType="date" />
+        <result property="fechaTermino" javaType="java.util.Date" column="fin" jdbcType="date" />
+        <result property="descripcionDeEstado" javaType="String" column="estado" jdbcType="varchar"/>
+        <result property="tipo" column="tipo" jdbcType="char" />
+        <result property="proyectoPadre" column="padre" javaType="integer" />
+        <result property="estado" column="codigoEtapa" javaType="integer" />
+        <result property="fechaInicioApertura" javaType="java.util.Date" column="inicioAper" jdbcType="date" />
+        <result property="fechaTerminoApertura" javaType="java.util.Date" column="finAper" jdbcType="date" />
+        <result property="descripcion" javaType="String" column="descripcion" />
+        <result property="porcentajeImpacto" javaType="integer" column="porcentajeImpacto" />
+        <result property="cuentaTransitoria" javaType="integer" column="cuentaTransitoria" />
+        <result property="cuentaDefinitiva" javaType="integer" column="cuentaDefinitiva" />
+    </resultMap>
+    
+    <resultMap id="proyectoPorEstado" class="java.util.HashMap">
+        <result property="identificador" javaType="String" column="id" jdbcType="numeric"/>
+        <result property="codigo" javaType="String" column="codigo" jdbcType="char" />
+        <result property="nombre" javaType="String" column="nombre" jdbcType="varchar" />
+        <result property="fechaInicio" javaType="java.util.Date" column="inicio" jdbcType="date" />
+        <result property="fechaTermino" javaType="java.util.Date" column="fin" jdbcType="date" />
+        <result property="descripcionDeEstado" javaType="String" column="estado" jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="listarProyectos">
+        <result property="identificador" column="pry_id_pry" javaType="integer" />
+        <result property="nombre" column="pry_nom_proyecto" javaType="java.lang.String" />
+        <result property="fechaInicio" column="pry_fec_ini" javaType="java.util.Date" />
+	<result property="fechaTermino" column="pry_fec_fin" javaType="java.util.Date" />
+        <result property="proyectoPadre" column="pry_id_padre" javaType="integer" />
+        <result property="estado" column="epr_id_etapa" javaType="integer" />
+        <result property="codigo" column="pry_cod" javaType="java.lang.String" />
+        <result property="identificadorDueno" column="pry_due" javaType="integer" />
+        <result property="descripcion" column="pry_des" javaType="java.lang.String" />
+        <result property="tipo" column="pry_tip" jdbcType="char" />
+        <result property="cuentaDefinitiva" column="pry_cta_def" javaType="integer" />
+        <result property="cuentaTransitoria" column="pry_cta_tra" javaType="integer" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="detalleProyectos">
+        <result property="identificador" column="pry_id_pry" javaType="integer" />
+        <result property="nombre" column="pry_nom_proyecto" javaType="java.lang.String" />
+        <result property="fechaInicio" column="pry_fec_ini" javaType="Date" />
+        <result property="fechaTermino" column="pry_fec_fin" javaType="Date" />
+        <result property="proyectoPadre" column="pry_id_padre" javaType="integer" />
+        <result property="estado" column="epr_id_etapa" javaType="integer" />
+        <result property="codigo" column="pry_cod" javaType="java.lang.String" />
+        <result property="identificadorDueno" column="pry_due" javaType="integer" />
+        <result property="descripcion" column="pry_des" javaType="java.lang.String" />
+        <result property="tipo" column="pry_tip" jdbcType="char" />
+        <result property="porcentajeImpacto" column="pry_por_imp" jdbcType="integer"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="detalleFuncionarios">
+        <result property="identificador" column="pry_id_pry" javaType="integer" />
+        <result property="codigoFuncionario" column="prr_id_rec" jdbcType="integer" />
+        <result property="responsable" column="prr_rec_lid" jdbcType="integer" />
+        <result property="correoEmail" column="prr_rec_cor" jdbcType="integer" />
+        <result property="nombreFuncionario" column="rec_nombre" jdbcType="java.lang.String" />
+        <result property="nombreCorto" column="rec_nom_cor" jdbcType="java.lang.String" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="ultimoProyectoInsertado">
+        <result property="identificador" column="pry_id_pry" javaType="integer" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="estadosProyecto">
+        <result property="codigo" column="epr_id_etapa" javaType="integer" />
+        <result property="descripcion" column="epr_gls_etapa" jdbcType="java.lang.String" />
+        <result property="nombre" column="epr_nom_etapa" jdbcType="java.lang.String" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="buscarSistemas">
+        <result property="codigo" column="sis_id_sistema" javaType="integer" />
+        <result property="descripcion" column="sis_gls_sistema" jdbcType="java.lang.String" />
+        <result property="nombre" column="sis_nom_sistema" jdbcType="java.lang.String" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="buscarPonderacion">
+        <result property="ponderacionInicial" column="pnd_ini_sis" javaType="integer" />
+        <result property="ponderacionFinal" column="pnd_fin_sis" javaType="integer" />
+        <result property="controlPonderacion" column="pnd_apr" javaType="integer" />
+        <result property="codigoSistema" column="sis_id_sistema" javaType="integer" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="actividadesProyecto">
+        <result property="identificador" column="act_id_actividad" javaType="integer" />
+        <result property="descripcion" column="act_gls_actividad" jdbcType="java.lang.String" />
+        <result property="nombre" column="act_nom_actividad" jdbcType="java.lang.String" />
+        <result property="identificadorEstado" column="epr_id_etapa" javaType="integer" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="gestionDeEsfuerzo">
+        <result property="fecha" column="ges_fec" javaType="java.util.Date" />
+        <result property="glosa" column="ges_gls_tarea" jdbcType="java.lang.String" />
+        <result property="actividad" column="act_id_actividad" javaType="integer" />
+        <result property="usuario" column="prr_id_rec" javaType="integer" />
+        <result property="identificadorProyecto" column="pry_id_pry" javaType="integer" />
+        <result property="porcentajeTarea" column="ges_val_esf" javaType="integer" />
+        <result property="identificadorEtapa" column="epr_id_etapa" javaType="integer" />
+        <result property="controlAvance" column="ges_apr" javaType="integer" />
+    </resultMap>
+    
+    <resultMap id="informacionParaActivoFijo" class="java.util.HashMap" >
+        <result property="codigoDeProyecto" javaType="String" column="codigoProyecto" jdbcType="char"/>
+        <result property="cuentaDefinitiva" javaType="Integer" column="cuentaDefinitiva" jdbcType="numeric"/>
+        <result property="codigoDeSistema" javaType="Integer" column="codigoSistema" jdbcType="numeric"/>
+        <result property="monto" javaType="Integer" column="monto" jdbcType="numeric"/>
+        <result property="ponderacion" javaType="Integer" column="ponderacion" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="detalleSemanal">
+        <result property="porcentajePromedio" column="promedioTareas" javaType="double" />
+        <result property="dia" column="dia" javaType="java.lang.String" />
+        <result property="fecha" column="ges_fec" javaType="java.util.Date" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="controlDeEsfuerzo">
+        <result property="fechaGestion" column="ges_fec" javaType="java.util.Date" />
+        <result property="identificadorActividad" column="act_id_actividad" javaType="integer" />
+        <result property="identificadorUsuario" column="prr_id_rec" javaType="integer" />
+        <result property="identificadorProyecto" column="pry_id_pry" javaType="integer" />
+        <result property="porcentajeTarea" column="ges_val_esf" javaType="integer" />
+        <result property="controlAvance" column="ges_apr" javaType="integer" />
+        <result property="identificadorEtapa" column="epr_id_etapa" javaType="integer" />
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="funcionario">
+        <result property="codigoFuncionario" column="rec_rut" javaType="integer" />
+        <result property="dv" column="rec_dv" jdbcType="char" />
+        <result property="nombreFuncionario" column="rec_nombre" jdbcType="java.lang.String" />
+        <result property="nombreCorto" column="rec_nom_cor" jdbcType="java.lang.String" />
+    </resultMap>
+    
+	<resultMap class="java.util.HashMap" id="consultaHorasColaborador">
+        <result property="identificadorFuncionario" column="prr_id_rec" javaType="integer" />
+        <result property="identificadorProyecto" column="pry_id_pry" javaType="integer" />
+        <result property="fechaGestion" column="ges_fec" javaType="java.util.Date" />
+		<result property="codigoProyecto" column="pry_cod" javaType="java.lang.String" />
+		<result property="promedioPorcentajeTarea" column="promedioTareas" javaType="double" />
+    </resultMap>
+	
+    <resultMap id="horasOcupadasEnProyecto" class="java.util.HashMap">
+        <result property="porcentajeTarea" javaType="int" column="valorEsfuerzo" jdbcType="numeric"/>
+        <result property="fecha" javaType="java.util.Date" column="fecha" jdbcType="datetime"/>
+    </resultMap>
+	
+	<resultMap class="java.util.HashMap" id="consultaEstadoProyecto">
+        <result property="identificadorProyecto" column="pry_id_pry" javaType="integer" />
+        <result property="fechaCierreProyecto" column="pry_fec_fin" javaType="java.util.Date" />
+		<result property="codigoProyecto" column="pry_cod" javaType="java.lang.String" />
+		<result property="identificadorEtapa" column="epr_id_etapa" javaType="integer" />
+    </resultMap>
+    
+    <resultMap id="informeValorizacion" class="java.util.HashMap">
+        <result property="periodo" javaType="java.util.Date" column="periodo" jdbcType="datetime"/>
+        <result property="cuenta" javaType="int" column="cuenta" jdbcType="numeric"/>
+        <result property="monto" javaType="long" column="monto" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap class="java.util.HashMap" id="consultarEsfuerzoSalida">
+        <result property="identificadorProyecto" javaType="int" column="idProyecto" jdbcType="numeric"/>
+        <result property="fechaGestion" javaType="java.util.Date" column="fechaGestion" jdbcType="datetime"/>
+        <result property="porcentajeTarea" javaType="int" column="porcentajeEsfuerzo" jdbcType="numeric"/>
+        <result property="controlAvance" javaType="int" column="aprobado" jdbcType="numeric"/>
+        <result property="nombreFuncionario" javaType="String" column="funcionario" jdbcType="char"/>
+        <result property="nombreProyecto" javaType="String" column="nombreProyecto" jdbcType="char"/>
+        <result property="codigoProyecto" javaType="String" column="codigoProyecto" jdbcType="char"/>
+        <result property="identificadorActividad" javaType="int" column="idActividad" jdbcType="numeric"/>
+        <result property="identificadorUsuario" javaType="int" column="idFuncionario" />
+        <result property="identificadorEtapa" javaType="int" column="idEtapa" />
+    </resultMap>
+	
+    <!-- sp_upd_pry_cod(@pry_id, @pry_cod) -->
+    <procedure id="ingresarCodigoDeProyecto" parameterClass="java.util.HashMap">
+        {CALL sp_upd_pry_cod(#identificador#, #codigo#)}
+    </procedure>
+    
+    <!-- sp_cns_pry_scd() -->
+    <procedure id="obtenerProyectosSinCodigo" parameterClass="java.util.HashMap" resultMap="proyectoSinCodigo">
+        {CALL sp_cns_pry_scd()}
+    </procedure>
+    
+    <!-- sp_cns_pry(@pry_id) -->
+    <procedure id="obtenerProyecto" parameterClass="java.util.HashMap" resultMap="proyecto">
+        {CALL sp_cns_pry(#identificador#)}
+    </procedure>
+    
+    <!-- sp_cns_pry_est(@est_id) -->
+    <procedure id="obtenerProyectosPorEstado" parameterClass="java.util.HashMap" resultMap="proyectoPorEstado">
+        {CALL sp_cns_pry_est(#estado#)}
+    </procedure>
+    
+    <!-- sp_upd_pry_est(@id_pry, @est_id, @cta_def) -->
+    <procedure id="cerrarProyecto" parameterClass="java.util.HashMap">
+        {CALL sp_upd_pry_est(#identificador#, #estado#, #cuentaDefinitiva#)}
+    </procedure>
+
+    <!-- sp_listar_proyectos(@codigoUsuario, @tipoUsuario) -->
+    <procedure id="listarProyectos" parameterClass="java.util.HashMap" resultMap="listarProyectos">
+        {CALL sp_listar_proyectos(#codigoUsuario#,#tipoUsuario#)}
+    </procedure>
+
+    <!-- sp_busca_detalle_proyecto(@identificador, @tipoProyecto) -->
+    <procedure id="detalleProyectos" parameterClass="java.util.HashMap" resultMap="detalleProyectos">
+        {CALL sp_busca_detalle_proyecto(#identificador#,#tipoProyecto#)}
+    </procedure>
+    
+    <!-- sp_modificar_proyecto(@identificador, @tipoProyecto,@porcentajeImpacto) -->
+    <procedure id="modificarProyecto" parameterClass="java.util.HashMap" >
+        {CALL sp_modificar_proyecto(#identificador#,#nombre#,#fechaInicio#,#fechaTermino#,#descripcion#,#estado#,#proyectoPadre#,#tipo#, #porcentajeImpacto#)}
+    </procedure>
+    
+    <!-- sp_obtiene_funcionarios(@identificador) -->
+    <procedure id="detalleFuncionarios" parameterClass="java.util.HashMap" resultMap="detalleFuncionarios">
+        {CALL sp_obtiene_funcionarios(#identificador#)}
+    </procedure>
+    
+    <!-- sp_eliminar_funcionario(@identificadorProyecto, @identificadorFuncionario) -->
+    <procedure id="eliminarFuncionario" parameterClass="java.util.HashMap">
+        {CALL sp_eliminar_funcionario(#identificador#, #identificadorFuncionario#)}
+    </procedure>
+    
+    <!-- sp_ingresar_funcionarios(@identificador,@codigoFuncionario,@responsable) -->
+    <procedure id="ingresarFuncionario" parameterClass="java.util.HashMap">
+        {CALL sp_ingresar_funcionario(#identificador#,#codigoFuncionario#,#responsable#)}
+    </procedure>
+    
+    <!-- sp_ingresar_proyecto(@tipo,@nombre,@descripcion,@fechaInicio,@fechaTermino,@estado,@proyectoPadre,@codigoUsuario,@porcentajeImpacto) -->
+    <procedure id="ingresarProyecto" parameterClass="java.util.HashMap">
+        {CALL sp_ingresar_proyecto(#tipo#,#nombre#,#descripcion#,#fechaInicio#,#fechaTermino#,#estado#,#proyectoPadre#,#codigoUsuario#, #identificadorDuenno#, #porcentajeImpacto#)}
+    </procedure>
+         
+    <!-- sp_busca_ID_proyecto() -->
+    <procedure id="buscarIdProyecto" parameterClass="java.util.HashMap" resultMap="ultimoProyectoInsertado">
+        {CALL sp_busca_ID_proyecto()}
+    </procedure>
+    
+    <!-- sp_busca_Estados_proyecto() -->
+    <procedure id="obtenerEstadosProyecto" parameterClass="java.util.HashMap" resultMap="estadosProyecto">
+        {CALL sp_busca_Estados_proyecto()}
+    </procedure>
+    
+    <!-- sp_ingresar_ponderacion(@indentificadorProyecto, @ponderacionInicial, @ponderacionFinal, @codigoSistema,@cuentaTransitoria,@controlPonderacion) -->
+    <procedure id="ingresarPonderacion" parameterClass="java.util.HashMap">
+        {CALL sp_ingresar_ponderacion(#identificadorProyecto#,#ponderacionInicial#,#ponderacionFinal#,#codigoSistema#,#cuentaTransitoria#,#controlPonderacion#)}
+    </procedure>
+    
+    <!-- sp_buscar_sistemas() -->
+    <procedure id="buscarSistemas" parameterClass="java.util.HashMap" resultMap="buscarSistemas">
+        {CALL sp_buscar_sistemas()}
+    </procedure>
+    
+    <!-- sp_buscar_ponderacion(@identificadorProyecto) -->
+    <procedure id="buscarPonderacion" parameterClass="java.util.HashMap" resultMap="buscarPonderacion">
+        {CALL sp_buscar_ponderacion(#identificadorProyecto#)}
+    </procedure>
+    
+    <!-- sp_busca_Actividades_proyecto() -->
+    <procedure id="obtenerActividadesProyecto" parameterClass="java.util.HashMap" resultMap="actividadesProyecto">
+        {CALL sp_busca_Actividades_Proyecto()}
+    </procedure>
+    
+    <!-- sp_busca_Gestiones_Esfuerz(@codigoUsuario, @tipoUsuario, @fechaGestion) -->
+    <procedure id="obtenerGestionDeEsfuerzo" parameterClass="java.util.HashMap" resultMap="gestionDeEsfuerzo">
+        {CALL sp_busca_Gestiones_Esfuerzo(#codigoUsuario#,#tipoUsuario#,#fechaGestion#)}
+    </procedure>
+    
+    <!-- sp_ingresar_Gestion_Esfuerzo(@fecha, @glosa, @idProyecto, @idUsuario, @idActividad, @porcentajeTarea, @estado) -->
+    <procedure id="ingresarGestionEsfuerzo" parameterClass="java.util.HashMap">
+        {CALL sp_ingresar_Gestion_Esfuerzo(#fecha#,#glosa#,#idProyecto#,#idUsuario#,#idActividad#,#porcentajeTarea#, #estado#)}
+    </procedure>
+    
+    <!-- sp_cns_inf_af (@mes,@ano) -->
+    <procedure id="obtenerInformacionParaActivoFijo" parameterClass="java.util.HashMap" resultMap="informacionParaActivoFijo">
+        {CALL sp_cns_inf_af (#mes#,#anyo#)}
+    </procedure>
+    
+    
+    <!-- sp_upd_pry_fech(@pry_id , @pry_ini_ape , @pry_fin_ape ) -->
+    <procedure id="modificarFechasApertura" parameterClass="java.util.HashMap">
+        {CALL sp_upd_pry_fech(#identificador#, #fechaInicioApertura#,#fechaTerminoApertura#)}
+    </procedure>
+    
+    <!-- sp_busca_detalle_Semanal(@fechaInicio, @fechaTermino, @tipoUsuario, @codigoUsuario) -->
+    <procedure id="obtenerDetalleSemanal" parameterClass="java.util.HashMap" resultMap="detalleSemanal">
+        {CALL sp_busca_detalle_Semanal(#fechaInicio#,#fechaTermino#,#tipoUsuario#,#codigoUsuario#)}
+    </procedure>
+    
+    <!-- sp_listar_proyectos_padre() -->
+    <procedure id="obtenerProyectosPadre" parameterClass="java.util.HashMap" resultMap="listarProyectos">
+        {CALL sp_listar_proyectos_padre()}
+    </procedure>
+    
+    <!-- sp_busca_Control_Esfuerzo() -->
+    <procedure id="obtenerControlEsfuerzo" parameterClass="java.util.HashMap" resultMap="controlDeEsfuerzo">
+        {CALL sp_busca_Control_Esfuerzo()}
+    </procedure>
+    
+    <!-- sp_busca_Act_por_topico(@identificadorProyecto) -->
+    <procedure id="obtenerActividadesPorTopico" parameterClass="java.util.HashMap" resultMap="actividadesProyecto">
+        {CALL sp_busca_Act_por_topico(#identificadorProyecto#)}
+    </procedure>
+    
+    <!-- sp_busca_Esfuerzo_Por_fecha(@fechaInicio, @fechaFinal) -->
+    <procedure id="buscarControlEsfuerzoFecha" parameterClass="java.util.HashMap" resultMap="controlDeEsfuerzo">
+        {CALL sp_busca_Esfuerzo_Por_fecha(#fechaInicio#,#fechaFinal#)}
+    </procedure>
+    
+    <!-- sp_busca_Esfuerzo_Por_proyecto(@identificadorProyecto) -->
+    <procedure id="buscarControlEsfuerzoProyecto" parameterClass="java.util.HashMap" resultMap="controlDeEsfuerzo">
+        {CALL sp_busca_Esfuerzo_Por_proyecto(#identificadorProyecto#)}
+    </procedure>
+    
+    <!-- sp_eliminar_proyecto(@identificadorProyecto, @tipoProyecto) -->
+    <procedure id="eliminarProyecto" parameterClass="java.util.HashMap">
+        {CALL sp_eliminar_proyecto(#identificadorProyecto#, #tipoProyecto#)}
+    </procedure>
+    
+    <!-- sp_busca_funcionario(@nombreCorto) -->
+    <procedure id="buscarFuncionario" parameterClass="java.util.HashMap" resultMap="funcionario">
+        {CALL sp_busca_funcionario(#nombreCorto#)}
+    </procedure>
+    
+    <!-- sp_busca_Esfuerzo_Por_Funcionario(@identificadorFuncionario) -->
+    <procedure id="buscarControlEsfuerzoFuncionario" parameterClass="java.util.HashMap" resultMap="controlDeEsfuerzo">
+        {CALL sp_busca_Esf_Por_Funcionario(#identificadorFuncionario#)}
+    </procedure>
+    
+    <!-- sp_modifica_control_Esf(@controlEsfuerzo , @fechaEsfuerzo, @identificadorProyecto, @actividad, @porcentajeTarea )-->
+    <procedure id="modificarControlEsfuerzo" parameterClass="java.util.HashMap">
+        {CALL sp_modifica_control_Esf(#controlEsfuerzo#,#fechaEsfuerzo#, #identificadorProyecto#, #actividad#, #porcentajeTarea#)}
+    </procedure>
+    
+    <!-- sp_busca_Gestiones_Esfuerz(@codigoUsuario, @tipoUsuario, @fechaGestion, @identificadorProyecto) -->
+    <procedure id="obtenerGestionPorProyecto" parameterClass="java.util.HashMap" resultMap="gestionDeEsfuerzo">
+        {CALL sp_busca_Gest_Oportu_Imputa(#codigoUsuario#,#tipoUsuario#,#fechaGestion#,#identificadorProyecto#)}
+    </procedure>
+
+    <!-- sp_obtener_Proy_Venta_Imputa(@codigoUsuario, @tipoUsuario ,@fechaSeleccionada) -->
+    <procedure id="obtenerProyVentanaImputa" parameterClass="java.util.HashMap" resultMap="listarProyectos">
+        {CALL sp_obtener_Proy_Vent_Imputa(#codigoUsuario#,#tipoUsuario#,#fechaSeleccionada#)}
+    </procedure>    
+    
+    <!-- sp_listar_proyectos_Gestion(@codigoUsuario, @tipoUsuario) -->
+    <procedure id="listarProyectosGestion" parameterClass="java.util.HashMap" resultMap="listarProyectos">
+        {CALL sp_listar_proyectos_Gestion(#codigoUsuario#,#tipoUsuario#)}
+    </procedure>
+    
+    <!-- sp_cns_ges_pry (@pry_id, @rec_rut, @fec_ini, @fec_fin)  -->
+    <procedure id="obtenerHorasOcupadasEnProyecto" parameterClass="java.util.HashMap" resultMap="horasOcupadasEnProyecto">
+        {CALL sp_cns_ges_pry(#identificadorProyecto#, #rut#, #desde#, #hasta#)}
+    </procedure>
+    
+    <!-- sp_cns_pry_cod (@pry_cod) -->
+    <procedure id="obtenerIdentificadorDeProyecto" parameterClass="java.util.HashMap" resultClass="Integer">
+        {CALL sp_cns_pry_cod(#codigoProyecto#)}
+    </procedure>
+	
+	<!-- sp_consulta_horas_colaborador(@codigoUsuario,@fechaInicio,@fechaTermino) -->
+	<procedure id="consultaHorasColaborador" parameterClass="java.util.HashMap" resultMap="consultaHorasColaborador">
+	    {CALL sp_consulta_horas_colaborador(#codigoUsuario#,#fechaInicio#,#fechaTermino#)}
+    </procedure> 
+	
+	<!-- sp_consulta_info_estado_Proyec(@fechaInicio,@fechaTermino,@estadoProyecto) -->
+	<procedure id="consultarEstadoDeProyectos" parameterClass="java.util.HashMap" resultMap="consultaEstadoProyecto">
+	    {CALL sp_consulta_info_estado_Proyec(#fechaInicio#,#fechaTermino#,#estadoProyecto#)}
+    </procedure>
+    
+    <!-- sp_cns_val_pry (@pry_id numeric(10), @fec_ini datetime, @fec_fin datetime, @tipo char(1)) -->
+    <procedure id="obtenerInformeValorizacion" parameterClass="java.util.HashMap" resultMap="informeValorizacion">
+        {CALL sp_cns_val_pry (#identificadorProyecto#, #desde#, #hasta#, #tipo#)}
+    </procedure>
+    
+    <!-- sp_cns_ges_ctr(@pry_id numeric(10), @fec_ini datetime, @fec_fin datetime, @rec_id numeric(8)) -->
+    <procedure id="consultarEsfuerzo" parameterClass="java.util.HashMap"  resultMap="consultarEsfuerzoSalida">
+        {CALL sp_cns_ges_ctr(
+            <isNull property="identificadorProyecto">NULL</isNull>
+            <isNotNull property="identificadorProyecto">#identificadorProyecto#</isNotNull>, 
+            <isNull property="fechaInicio">NULL</isNull>
+            <isNotNull property="fechaInicio">#fechaInicio#</isNotNull>, 
+            <isNull property="fechaTermino">NULL</isNull> 
+            <isNotNull property="fechaTermino">#fechaTermino#</isNotNull>, 
+            <isNull property="identificadorFuncionario">NULL</isNull>
+            <isNotNull property="identificadorFuncionario">#identificadorFuncionario#</isNotNull>
+            )}
+    </procedure>
+    
+</sqlMap>    

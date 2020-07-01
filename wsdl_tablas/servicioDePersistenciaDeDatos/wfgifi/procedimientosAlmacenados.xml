@@ -1,0 +1,1523 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="wfgifi.procedimientosAlmacenados">
+
+	<!-- Obtiene las SAOIS segun los parametros de consulta -->
+	<parameterMap id="setObtenerSaois" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_fec_ini" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_fec_fin" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_mda_sac" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_bco_hdr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_sts_sac" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerSaois" class="java.util.HashMap">
+		<result property="indicadorResultado" 	column="wss_result_sw" 		javaType="java.lang.Integer"/>
+		<result property="mensajeResultado" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="trn" 					column="fld_bin_trn_msg" 	javaType="String"/>
+		<result property="fechaIngreso" 		column="fld_bin_fec_ing" 	javaType="String"/>
+		<result property="bicBancoEmisor" 		column="fld_bin_bnk_hdr" 	javaType="String"/>
+		<result property="nombreBancoEmisor" 	column="fld_bin_bnk_nam" 	javaType="String"/>
+		<result property="rutBancoEmisor" 		column="fld_bin_bhr_rut" 	javaType="String"/>
+		<result property="monedaMontoSolicitado" 	column="fld_bin_32b_mda" 	javaType="String"/>
+		<result property="montoSolicitado" 		column="fld_bin_32b_mto" 	javaType="String"/>
+		<result property="nombreBeneficiario" 	column="fld_bin_bnf_nam" 	javaType="String"/>
+		<result property="descripcionEstado" 	column="fld_bin_sts_gls" 	javaType="String"/>
+		<result property="codigoEstado" 		column="fld_bin_sts_sac" 	javaType="String"/>
+		<result property="sysnum" 				column="fld_sac_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="sysnumtsk" 			column="fld_tsk_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="timeStamp" 			column="fld_sac_SysTms" 	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerSaois" parameterMap="setObtenerSaois" resultMap="getObtenerSaois">
+		{ CALL WFGsrv_shw_exi_sac (?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene la informacion de Negocio de una SAOI -->
+	<parameterMap id="setObtenerInformacionNegocioSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerInformacionNegocioSaoi" class="java.util.HashMap">
+		<result property="resultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+		<result property="bicBancoEmisor"			 column="fld_bin_bnk_hdr" 	javaType="String"/>
+		<result property="nombreBancoEmisor" 		column="fld_bin_bnk_nam" 	javaType="String"/>
+		<result property="rutBancoEmisor" 		column="fld_bin_bhr_rut" 	javaType="String"/>
+		<result property="fechaIngreso" 		column="fld_bin_fec_ing" 	javaType="String"/>
+		<result property="horaIngreso" 		column="fld_bin_hra_ing" 	javaType="String"/>
+		<result property="trn" 				column="fld_bin_trn_msg" 	javaType="String"/>
+		<result property="referenciaBancoReceptor"	column="fld_bin_num_ope" 	javaType="String"/>
+		<result property="nombreBeneficiario"	column="fld_bin_bnf_nam" 	javaType="String"/>
+		<result property="tipoDocumento"	column="fld_bin_crd_req" 	javaType="String"/>
+		<result property="garantizante"	column="fld_bin_grt_wth" 	javaType="String"/>
+		<result property="bicBancoReembolsador"	column="fld_bin_bnk_fds" 	javaType="String"/>
+		<result property="clasificacionCartaCredito"	column="fld_bin_ccr_typ" 	javaType="String"/>
+		<result property="sicap"	column="fld_bin_scp_num" 	javaType="String"/>
+		<result property="formaDePago"	column="fld_bin_crd_avl" 	javaType="String"/>
+		<result property="pagadorGastosLC"	column="fld_bin_exp_org" 	javaType="String"/>
+		<result property="monedaMontoSolicitado" 	column="fld_bin_32b_mda" 	javaType="String"/>
+		<result property="montoSolicitado" 		column="fld_bin_32b_mto" 	javaType="String"/>
+		<result property="montoSolicitadoCLP" 		column="fld_bin_32b_clp" 	javaType="String"/>
+		<result property="toleranciaMaxima" 		column="fld_bin_max_amt" 	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoSolicitado" 		column="fld_bin_39a_mto" 	javaType="String"/>
+		<result property="montoMaximoSolicitadoCLP" 		column="fld_bin_39a_clp" 	javaType="String"/>
+		<result property="fechaVencimiento" 		column="fld_bin_31d_dat" 	javaType="String"/>
+		<result property="causalEvento" 		column="fld_bin_txt_eve" 	javaType="String"/>
+		<result property="sysnumtsk" 			column="fld_tsk_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="indicadorGeneral" 	column="fld_sac_sph_bus" 	javaType="String"/>
+		<result property="botonesInformacionNegocio" 	column="fld_sac_frm_but" 	javaType="String"/>
+		<result property="timeStamp" 			column="fld_sac_SysTms" 	javaType="String"/>
+		<result property="presentacionTycComex" column="fld_shw_vin_cmx" javaType="String"/>
+		<result property="presentacionTycGifi" column="fld_shw_vin_gif" javaType="String"/>
+		<result property="presentacionInfoFin" column="fld_shw_vin_fin" javaType="String"/>
+		<result property="presentacionBanRece" column="fld_upd_num_ope" javaType="String"/>
+		
+	</resultMap>
+	<procedure id="obtenerInformacionNegocioSaoi" parameterMap="setObtenerInformacionNegocioSaoi" resultMap="getObtenerInformacionNegocioSaoi">
+		{ CALL WFGsrv_shw_det_bus ( ?,?,?,? ) }
+	</procedure>
+
+	
+	<!-- Obtiene la informacion financiera de una SAOI -->
+	<parameterMap id="setObtenerInformacionFinancieraSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerInformacionFinancieraSaoi" class="java.util.HashMap">
+		<result property="resultadoOperacion" column="wss_result_sw" javaType="Integer"/>
+		<result property="mensajeResultadoOperacion" column="wss_result_msg" javaType="String"/>
+		<result property="descripcionMargenExcedido" column="flg_sac_gls_mex" javaType="String"/>
+		<result property="nombrePais" column="fld_fin_nam_ctr" javaType="String"/>
+		<result property="vigenteGlobalPais" column="fld_fin_lvp_gbl" javaType="String"/>
+		<result property="vigenteAladiPais" column="fld_fin_lvp_cba" javaType="String"/>
+		<result property="vigenteSinAladiPais" column="fld_fin_lvp_csa" javaType="String"/>
+		<result property="vigenteGarantiaPais" column="fld_fin_lvp_grt" javaType="String"/>
+		<result property="utilizadaGlobalPais" column="fld_fin_lup_gbl" javaType="String"/>
+		<result property="utilizadaAladiPais" column="fld_fin_lup_cba" javaType="String"/>
+		<result property="utilizadaSinAladiPais" column="fld_fin_lup_csa" javaType="String"/>
+		<result property="utilizadaGarantiaPais" column="fld_fin_lup_grt" javaType="String"/>
+		<result property="disponibleGlobalPais" column="fld_fin_cdp_gbl" javaType="String"/>
+		<result property="disponibleAladiPais" column="fld_fin_cdp_cba" javaType="String"/>
+		<result property="disponibleSinAladiPais" column="fld_fin_cdp_csa" javaType="String"/>
+		<result property="disponibleGarantiaPais" column="fld_fin_cdp_grt" javaType="String"/>
+		<result property="solicitadaGlobalPais" column="fld_fin_osp_gbl" javaType="String"/>
+		<result property="solicitadaAladiPais" column="fld_fin_osp_cba" javaType="String"/>
+		<result property="solicitadaSinAladiPais" column="fld_fin_osp_csa" javaType="String"/>
+		<result property="solicitadaGarantiaPais" column="fld_fin_osp_grt" javaType="String"/>
+		<result property="finalGlobalPais" column="fld_fin_dfp_gbl" javaType="String"/>
+		<result property="finalAladiPais" column="fld_fin_dfp_cba" javaType="String"/>
+		<result property="finalSinAladiPais" column="fld_fin_dfp_csa" javaType="String"/>
+		<result property="finalGarantiaPais" column="fld_fin_dfp_grt" javaType="String"/>
+		<result property="fechaVencimientoHolding" column="fld_fin_dvl_hld" javaType="String"/>
+		<result property="vigenteGlobalHolding" column="fld_fin_lvh_gbl" javaType="String"/>
+		<result property="vigenteAladiHolding" column="fld_fin_lvh_cba" javaType="String"/>
+		<result property="vigenteSinAladiHolding" column="fld_fin_lvh_csa" javaType="String"/>
+		<result property="vigenteGarantiaHolding" column="fld_fin_lvh_grt" javaType="String"/>
+		<result property="utilizadaGlobalHolding" column="fld_fin_luh_gbl" javaType="String"/>
+		<result property="utilizadaAladiHolding" column="fld_fin_luh_cba" javaType="String"/>
+		<result property="utilizadaSinAladiHolding" column="fld_fin_luh_csa" javaType="String"/>
+		<result property="utilizadaGarantiaHolding" column="fld_fin_luh_grt" javaType="String"/>
+		<result property="disponibleGlobalHolding" column="fld_fin_cdh_gbl" javaType="String"/>
+		<result property="disponibleAladiHolding" column="fld_fin_cdh_cba" javaType="String"/>
+		<result property="disponibleSinAladiHolding" column="fld_fin_cdh_csa" javaType="String"/>
+		<result property="disponibleGarantiaHolding" column="fld_fin_cdh_grt" javaType="String"/>
+		<result property="solicitadaGlobalHolding" column="fld_fin_osh_gbl" javaType="String"/>
+		<result property="solicitadaAladiHolding" column="fld_fin_osh_cba" javaType="String"/>
+		<result property="solicitadaSinAladiHolding" column="fld_fin_osh_csa" javaType="String"/>
+		<result property="solicitadaGarantiaHolding" column="fld_fin_osh_grt" javaType="String"/>
+		<result property="finalGlobalHolding" column="fld_fin_dfh_gbl" javaType="String"/>
+		<result property="finalAladiHolding" column="fld_fin_dfh_cba" javaType="String"/>
+		<result property="finalSinAladiHolding" column="fld_fin_dfh_csa" javaType="String"/>
+		<result property="finalGarantiaHolding" column="fld_fin_dfh_grt" javaType="String"/>
+		<result property="fechaVencimientoBanco" column="fld_fin_dvl_bnk" javaType="String"/>
+		<result property="vigenteGlobalBanco" column="fld_fin_lvb_gbl" javaType="String"/>
+		<result property="vigenteAladiBanco" column="fld_fin_lvb_cba" javaType="String"/>
+		<result property="vigenteSinAladiBanco" column="fld_fin_lvb_csa" javaType="String"/>
+		<result property="vigenteGarantiaBanco" column="fld_fin_lvb_grt" javaType="String"/>
+		<result property="utilizadaGlobalBanco" column="fld_fin_lub_gbl" javaType="String"/>
+		<result property="utilizadaAladiBanco" column="fld_fin_lub_cba" javaType="String"/>
+		<result property="utilizadaSinAladiBanco" column="fld_fin_lub_csa" javaType="String"/>
+		<result property="utilizadaGarantiaBanco" column="fld_fin_lub_grt" javaType="String"/>
+		<result property="disponibleGlobalBanco" column="fld_fin_cdb_gbl" javaType="String"/>
+		<result property="disponibleAladiBanco" column="fld_fin_cdb_cba" javaType="String"/>
+		<result property="disponibleSinAladiBanco" column="fld_fin_cdb_csa" javaType="String"/>
+		<result property="disponibleGarantiaBanco" column="fld_fin_cdb_grt" javaType="String"/>
+		<result property="solicitadaGlobalBanco" column="fld_fin_osb_gbl" javaType="String"/>
+		<result property="solicitadaAladiBanco" column="fld_fin_osb_cba" javaType="String"/>
+		<result property="solicitadaSinAladiBanco" column="fld_fin_osb_csa" javaType="String"/>
+		<result property="solicitadaGarantiaBanco" column="fld_fin_osb_grt" javaType="String"/>
+		<result property="finalGlobalBanco" column="fld_fin_dfb_gbl" javaType="String"/>
+		<result property="finalAladiBanco" column="fld_fin_dfb_cba" javaType="String"/>
+		<result property="finalSinAladiBanco" column="fld_fin_dfb_csa" javaType="String"/>
+		<result property="finalGarantiaBanco" column="fld_fin_dfb_grt" javaType="String"/>
+		<result property="indicadorPais" column="fld_fin_sph_ctr" javaType="String"/>
+		<result property="indicadorHolding" column="fld_fin_sph_hld" javaType="String"/>
+		<result property="indicadorBanco" column="fld_fin_sph_bnk" javaType="String"/>
+		<result property="botonesInformacionFinanciera" column="fld_fin_frm_but" javaType="String"/>
+		<result property="timestamp" column="fld_sac_SysTms" javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerInformacionFinancieraSaoi" parameterMap="setObtenerInformacionFinancieraSaoi" resultMap="getObtenerInformacionFinancieraSaoi">
+		{ CALL WFGsrv_shw_det_fin ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene todos los eventos de una SAOI-->
+	<parameterMap id="setObtenerEventosSaoi" class="java.util.HashMap">
+		<parameter property="fld_sac_sys_num" 	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerEventosSaoi" class="java.util.HashMap">
+		<result property="resultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" column="wss_result_msg" 		javaType="String"/>
+		<result property="fechaEvento" 				 column="fld_wfgeve_fec_eve"	javaType="String"/>
+		<result property="horaEvento"				 column="fld_wfgeve_hrs_eve" 	javaType="String"/>
+		<result property="descripcionEvento" 		 column="fld_wfgeve_des_eve" 	javaType="String"/>
+		<result property="usuarioEvento"			 column="fld_wfgeve_usr_eve" 	javaType="String"/>
+		<result property="ipEvento"					 column="fld_wfgeve_nip_usr" 	javaType="String"/>
+		<result property="textoCausalEvento"		 column="fld_wfgeve_txt_eve" 	javaType="String"/>
+		<result property="correlativoInverso"		 column="fld_wfgeve_cor_eve" 	javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerEventosSaoi" parameterMap="setObtenerEventosSaoi" resultMap="getObtenerEventosSaoi">
+		{ CALL WFGsrv_shw_eve_sac ( ? ) }
+	</procedure>
+
+	<!-- Cambia el estado de una SAOI -->
+	<parameterMap id="setCambiarEstadoSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_num_ope" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_SysTms" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_pre_ack_sts" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_pre_ack_eve" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<parameter property="fld_pre_nak_eve" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<parameter property="fld_pre_etr_pnt" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_pre_stp_cod" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_pre_par_exe" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_pre_ret_rsw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_pre_ret_msg" jdbcType="VARCHAR" javaType="String"/>		
+	</parameterMap>
+	<resultMap id="getCambiarEstadoSaoi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="procedimientoEjecutorActual"	column="fld_cur_srv_exe"	javaType="String"/>
+		<result property="codigoTransaccionRemota" 	column="fld_cur_rtn_cod"	javaType="String"/>
+		<result property="parametrosEjecucion"	column="fld_cur_par_exe"	javaType="String"/>
+		<result property="claveConfirmacionAccion"	column="fld_wfg_ccf_key"	javaType="String"/>
+		<result property="proximoEntryPoint"	column="fld_wfg_etr_pnt"	javaType="String"/>
+		<result property="proximaTransaccionLocal"	column="fld_wfg_stp_cod"	javaType="String"/>
+		<result property="estadoExito"	column="fld_wfg_ack_sts"	javaType="String"/>
+		<result property="codigoEventoPositivo"	column="fld_wfg_ack_eve"	javaType="java.lang.Integer"/>
+		<result property="codigoEventoNegativo"	column="fld_wfg_nak_eve"	javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="cambiarEstadoSaoi" parameterMap="setCambiarEstadoSaoi" resultMap="getCambiarEstadoSaoi">
+		{ CALL WFGsrv_exe_chg_sts ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener Terminos y Condiciones GIFI (grilla) -->
+	<parameterMap id="setObtenerTerminosCondiciones" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_fec_ini" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_fec_fin" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_prd_cod" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_mda_tac" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_bco_hdr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_sts_sac" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_cty_bnk" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerTerminosCondiciones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="sysnum"	column="fld_tac_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="fechaCotizacion"	column="fld_tac_dat_bdg"	javaType="String"/>
+		<result property="monedaMontoSolicitado"	column="fld_tac_32b_mda"	javaType="String"/>
+		<result property="montoSolicitado"	column="fld_tac_32b_mto"	javaType="java.math.BigDecimal"/>
+		<result property="biccod"	column="fld_tac_bnk_hdr"	javaType="String"/>
+		<result property="fechaVencimiento"	column="fld_tac_exp_dat"	javaType="String"/>
+		<result property="rutBanco"	column="fld_tac_bhr_rut"	javaType="String"/>
+		<result property="nombreBanco"	column="fld_tac_bnk_nam"	javaType="String"/>
+		<result property="codigoProducto"	column="fld_tac_crd_req"	javaType="String"/>
+		<result property="nombreProducto"	column="fld_tac_crd_gls"	javaType="String"/>
+		<result property="codigoEstado"	column="fld_tac_sts_sac"	javaType="String"/>
+		<result property="descripcionEstado"	column="fld_tac_sts_gls"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerTerminosCondiciones" parameterMap="setObtenerTerminosCondiciones" resultMap="getObtenerTerminosCondiciones">
+		{ CALL WFGsrv_shw_exi_tac ( ?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener Terminos y Condiciones relacionados a una SAC determinada -->
+	<parameterMap id="setConsultarTycRelSac" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getConsultarTycRelSac" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="sysnum"	column="fld_tac_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="fechaCotizacion"	column="fld_tac_dat_bdg"	javaType="String"/>
+		<result property="monedaMontoSolicitado"	column="fld_tac_32b_mda"	javaType="String"/>
+		<result property="montoSolicitado"	column="fld_tac_32b_mto"	javaType="java.math.BigDecimal"/>
+		<result property="biccod"	column="fld_tac_bnk_hdr"	javaType="String"/>
+		<result property="rutBanco"	column="fld_tac_bhr_rut"	javaType="String"/>
+		<result property="nombreBanco"	column="fld_tac_bnk_nam"	javaType="String"/>
+		<result property="fechaVencimiento"	column="fld_tac_exp_dat"	javaType="String"/>
+		<result property="codigoProducto"	column="fld_tac_crd_req"	javaType="String"/>
+		<result property="nombreProducto"	column="fld_tac_crd_gls"	javaType="String"/>
+		<result property="codigoEstado"	column="fld_tac_sts_sac"	javaType="String"/>
+		<result property="descripcionEstado"	column="fld_tac_sts_gls"	javaType="String"/>
+	</resultMap>
+	<procedure id="consultarTycRelSac" parameterMap="setConsultarTycRelSac" resultMap="getConsultarTycRelSac">
+		{ CALL WFGsrv_chk_qte_adv ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Detallar Terminos y Condiciones GIFI -->
+	<parameterMap id="setDetallarTerminosCondiciones" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getDetallarTerminosCondiciones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="fechaCotizacion"	column="fld_tac_dat_bdg"	javaType="String"/>
+		<result property="monedaMontoSolicitado"	column="fld_tac_32b_mda"	javaType="String"/>
+		<result property="montoSolicitado"	column="fld_tac_32b_mto"	javaType="java.math.BigDecimal"/>
+		<result property="biccod"	column="fld_tac_bnk_hdr"	javaType="String"/>
+		<result property="rutBanco"	column="fld_tac_bhr_rut"	javaType="String"/>
+		<result property="nombreBanco"	column="fld_tac_bnk_nam"	javaType="String"/>
+		<result property="codigoPais"	column="fld_tac_cty_bnk"	javaType="String"/>
+		<result property="fechaVencimiento"	column="fld_tac_31d_dat"	javaType="String"/>
+		<result property="codigoProducto"	column="fld_tac_crd_req"	javaType="String"/>
+		<result property="pagadorGastosLC"	column="fld_tac_exp_org"	javaType="String"/>
+		<result property="idenBeneficario"	column="fld_tac_ide_ben"	javaType="String"/>
+		<result property="nomBeneficiario"	column="fld_tac_nam_ben"	javaType="String"/>
+		<result property="montoTasa"	column="fld_tac_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasa"	column="fld_tac_cur_rat"	javaType="String"/>
+		<result property="tipoTasa"	column="fld_tac_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasa"	column="fld_tac_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasa"	column="fld_tac_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasa"	column="fld_tac_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAviso"	column="fld_tac_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAviso"	column="fld_tac_cur_not"	javaType="String"/>
+		<result property="tipoAviso"	column="fld_tac_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAviso"	column="fld_tac_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAviso"	column="fld_tac_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacion"	column="fld_tac_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacion"	column="fld_tac_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacion"	column="fld_tac_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacion"	column="fld_tac_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacion"	column="fld_tac_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacion"	column="fld_tac_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacion"	column="fld_tac_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacion"	column="fld_tac_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacion"	column="fld_tac_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacion"	column="fld_tac_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProv"	column="fld_tac_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProv"	column="fld_tac_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProv"	column="fld_tac_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProv"	column="fld_tac_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProv"	column="fld_tac_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLibor"	column="fld_tac_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLibor"	column="fld_tac_mda_tlb"	javaType="String"/>
+		<result property="plazoLibor"	column="fld_tac_trm_tlb"	javaType="String"/>
+		<result property="observaciones"	column="fld_tac_txt_obs"	javaType="String"/>
+		<result property="usuarioEvento"	column="fld_tac_usr_eve"	javaType="String"/>
+		<result property="timeStamp"	column="fld_tac_SysTms"		javaType="String"/>
+		<result property="botonesAccion"	column="fld_tac_frm_but"	javaType="String"/>
+		<result property="camposSegmento01"	column="fld_tac_frm_S01"	javaType="String"/>
+		<result property="camposSegmento02"	column="fld_tac_frm_S02"	javaType="String"/>
+		<result property="camposSegmento03"	column="fld_tac_frm_S03"	javaType="String"/>
+		<result property="camposSegmento04"	column="fld_tac_frm_S04"	javaType="String"/>
+		<result property="camposSegmento05"	column="fld_tac_frm_S05"	javaType="String"/>
+		<result property="camposSegmento06"	column="fld_tac_frm_S06"	javaType="String"/>
+		<result property="camposSegmento07"	column="fld_tac_frm_S07"	javaType="String"/>
+		<result property="camposSegmento08"	column="fld_tac_frm_S08"	javaType="String"/>
+	</resultMap>
+	<procedure id="detallarTerminosCondiciones" parameterMap="setDetallarTerminosCondiciones" resultMap="getDetallarTerminosCondiciones">
+		{ CALL WFGsrv_shw_det_tac ( ?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Detallar Terminos y Condiciones relacionada a una SAC -->
+	<parameterMap id="setDetallarTycRelSac" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getDetallarTycRelSac" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="fechaCotizacion"	column="fld_tac_dat_bdg"	javaType="String"/>
+		<result property="monedaMontoSolicitado"	column="fld_tac_32b_mda"	javaType="String"/>
+		<result property="montoSolicitado"	column="fld_tac_32b_mto"	javaType="java.math.BigDecimal"/>
+		<result property="biccod"	column="fld_tac_bnk_hdr"	javaType="String"/>
+		<result property="rutBanco"	column="fld_tac_bhr_rut"	javaType="String"/>
+		<result property="nombreBanco"	column="fld_tac_bnk_nam"	javaType="String"/>
+		<result property="codigoPais"	column="fld_tac_cty_bnk"	javaType="String"/>
+		<result property="fechaVencimiento"	column="fld_tac_31d_dat"	javaType="String"/>
+		<result property="codigoProducto"	column="fld_tac_crd_req"	javaType="String"/>
+		<result property="pagadorGastosLC"	column="fld_tac_exp_org"	javaType="String"/>
+		<result property="montoTasa"	column="fld_tac_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasa"	column="fld_tac_cur_rat"	javaType="String"/>
+		<result property="tipoTasa"	column="fld_tac_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasa"	column="fld_tac_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasa"	column="fld_tac_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasa"	column="fld_tac_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAviso"	column="fld_tac_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAviso"	column="fld_tac_cur_not"	javaType="String"/>
+		<result property="tipoAviso"	column="fld_tac_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAviso"	column="fld_tac_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAviso"	column="fld_tac_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacion"	column="fld_tac_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacion"	column="fld_tac_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacion"	column="fld_tac_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacion"	column="fld_tac_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacion"	column="fld_tac_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacion"	column="fld_tac_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacion"	column="fld_tac_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacion"	column="fld_tac_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacion"	column="fld_tac_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacion"	column="fld_tac_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProv"	column="fld_tac_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProv"	column="fld_tac_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProv"	column="fld_tac_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProv"	column="fld_tac_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProv"	column="fld_tac_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLibor"	column="fld_tac_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLibor"	column="fld_tac_mda_tlb"	javaType="String"/>
+		<result property="plazoLibor"	column="fld_tac_trm_tlb"	javaType="String"/>
+		<result property="observaciones"	column="fld_tac_txt_obs"	javaType="String"/>
+		<result property="usuarioEvento"	column="fld_tac_usr_eve"	javaType="String"/>
+		<result property="timeStamp"	column="fld_tac_SysTms"		javaType="String"/>
+		<result property="botonesAccion"	column="fld_tac_frm_but"	javaType="String"/>
+		<result property="camposSegmento01"	column="fld_tac_frm_S01"	javaType="String"/>
+		<result property="camposSegmento02"	column="fld_tac_frm_S02"	javaType="String"/>
+		<result property="camposSegmento03"	column="fld_tac_frm_S03"	javaType="String"/>
+		<result property="camposSegmento04"	column="fld_tac_frm_S04"	javaType="String"/>
+		<result property="camposSegmento05"	column="fld_tac_frm_S05"	javaType="String"/>
+		<result property="camposSegmento06"	column="fld_tac_frm_S06"	javaType="String"/>
+		<result property="camposSegmento07"	column="fld_tac_frm_S07"	javaType="String"/>
+		<result property="camposSegmento08"	column="fld_tac_frm_S08"	javaType="String"/>
+	</resultMap>
+	<procedure id="detallarTycRelSac" parameterMap="setDetallarTycRelSac" resultMap="getDetallarTycRelSac">
+		{ CALL WFGsrv_shw_det_lnk ( ?,?,?,? ) }
+	</procedure>
+	
+	
+	<!-- Actualizar (Grabar) Terminos y Condiciones GIFI -->
+	<parameterMap id="setActualizarTerminosCondiciones" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		
+		<parameter property="fld_tac_sys_num" jdbcType="INT" javaType="Integer"/>
+		<parameter property="fld_tac_dat_bdg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_crd_req" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_bnk_hdr" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_bnk_nam" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_tac_bhr_rut" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_32b_mda" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_32b_mto" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_31d_dat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_cty_bnk" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_exp_org" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_mto_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_cur_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_typ_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_low_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_hig_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mto_not" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_cur_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_typ_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_low_not" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mto_neg" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_cur_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_typ_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_low_neg" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mto_cnf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_cur_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_typ_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_low_cnf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mto_tsp" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_cur_tsp" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_typ_tsp" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_low_tsp" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mto_tlb" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tac_mda_tlb" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_trm_tlb" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_txt_obs" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_tac_usr_eve" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_SysTms" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_tac_cmd_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_cmd_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_cmd_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_cmd_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_cmd_tsp" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="Integer"/>
+		<parameter property="fld_tac_ide_ben" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_tac_nam_ben" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarTerminosCondiciones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="sysnum"	column="fld_tac_sys_num"		javaType="java.lang.Integer"/>		
+	</resultMap>
+	<procedure id="actualizarTerminosCondiciones" parameterMap="setActualizarTerminosCondiciones" resultMap="getActualizarTerminosCondiciones">
+		{ CALL WFGsrv_upd_det_tac ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener lista de productos Workflow -->
+	<resultMap id="getObtenerProductosWorkflow" class="java.util.HashMap">	
+		<result property="indicadorResultadoOperacion" column="wss_result_sw" javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" column="wss_result_msg" javaType="String"/>
+		<result property="codigoProducto" column="COD_CRDREQ" javaType="String"/>
+		<result property="nombreProducto" column="GLS_CRDREQ" javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerProductosWorkflow" resultMap="getObtenerProductosWorkflow">
+		{ CALL WFGsrv_shw_crd_req () }
+	</procedure>
+	
+	<!-- Obtener lista de Bancos de una cotizacion -->
+	<parameterMap id="setObtenerBancosCotizacion" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>			
+	</parameterMap>
+	<resultMap id="getObtenerBancosCotizacion" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="biccod"	column="fld_tac_bnk_bic"	javaType="String"/>
+		<result property="nombreBanco" 	column="fld_tac_bnk_nam"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerBancosCotizacion" parameterMap="setObtenerBancosCotizacion" resultMap="getObtenerBancosCotizacion">
+		{ CALL WFGsrv_shw_bnk_tac ( ?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener orígenes de gastos -->
+	<resultMap id="getObtenerOrigenesGastos" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoOrigen"	column="COD_EXPORG"	javaType="String"/>
+		<result property="nombreOrigen" column="GLS_EXPORG"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerOrigenesGastos" resultMap="getObtenerOrigenesGastos">
+		{ CALL WFGsrv_shw_exp_org () }
+	</procedure>
+	
+	<!-- Obtener Monedas de la Tasa -->
+	<resultMap id="getObtenerMonedasTasa" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoMoneda"	column="COD_CURRAT"	javaType="String"/>
+		<result property="nombreMoneda" column="GLS_CURRAT"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerMonedasTasa" resultMap="getObtenerMonedasTasa">
+		{ CALL WFGsrv_shw_cur_rat () }
+	</procedure>
+	
+	<!-- Obtener Tipos de Tasa -->
+	<resultMap id="getObtenerTiposTasa" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoTasa"	column="COD_TYPRAT"	javaType="String"/>
+		<result property="nombreTasa" column="GLS_TYPRAT"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerTiposTasa" resultMap="getObtenerTiposTasa">
+		{ CALL WFGsrv_shw_typ_rat () }
+	</procedure>
+	
+	<!-- Obtener Monedas de comision -->
+	<resultMap id="getObtenerMonedasComision" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoMonedaComision"	column="COD_CURCYG"	javaType="String"/>
+		<result property="nombreMonedaComision" column="GLS_CURCYG"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerMonedasComision" resultMap="getObtenerMonedasComision">
+		{ CALL WFGsrv_shw_cur_cyg () }
+	</procedure>
+	
+	<!-- Obtener Tipos de comision -->
+	<resultMap id="getObtenerTiposComision" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoComision" column="COD_TYPCYG"	javaType="String"/>
+		<result property="nombreComision" column="GLS_TYPCYG"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerTiposComision" resultMap="getObtenerTiposComision">
+		{ CALL WFGsrv_shw_typ_cyg () }
+	</procedure>
+	
+	<!-- Obtener Monedas y Plazos Tasa LIBOR -->
+	<resultMap id="getObtenerMonedasPlazosLibor" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoMoneda" column="COD_PYRCUR"	javaType="String"/>
+		<result property="nombreMoneda" column="GLO_PYRCUR"	javaType="String"/>
+		<result property="codigoTasaPlazo" column="COD_PYRPLZ"	javaType="String"/>
+		<result property="nombreTasaPlazo" column="GLS_PYRPLX"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerMonedasPlazosLibor" resultMap="getObtenerMonedasPlazosLibor">
+		{ CALL WFGsrv_shw_cpz_lbr () }
+	</procedure>
+	
+	<!-- Obtener Beneficiario SAOI -->
+	<parameterMap id="setObtenerBeneficiarioSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerBeneficiarioSaoi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw" 		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="rut" column="fld_sac_bnf_rut" javaType="String"/>
+		<result property="nombre" column="fld_sac_bnf_nam" javaType="String"/>
+		<result property="direccion1" column="fld_sac_bnf_dr1" javaType="String"/>
+		<result property="direccion2" column="fld_sac_bnf_dr2" javaType="String"/>
+		<result property="direccion3" column="fld_sac_bnf_dr3" javaType="String"/>
+		<result property="timestamp" column="fld_sac_SysTms" javaType="String"/>
+		<result property="camposFormularios" column="fld_bnf_frm_S01" javaType="String"/>
+		<result property="botonesAccion" column="fld_bnf_frm_but" javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerBeneficiarioSaoi" parameterMap="setObtenerBeneficiarioSaoi" resultMap="getObtenerBeneficiarioSaoi">
+		{ CALL WFGsrv_shw_cde_bnf ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Actualizar Beneficiario SAOI -->
+	<parameterMap id="setActualizarBeneficiarioSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_bnf_rut" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_bnf_nam" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_bnf_dr1" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_bnf_dr2" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_bnf_dr3" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_SysTms" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarBeneficiarioSaoi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" javaType="String"/>
+		<result property="indicadorActualizacion" 	column="wss_ifr_upd_reg" javaType="String"/>
+		<result property="timeStamp" 	column="fld_sac_SysTms" javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarBeneficiarioSaoi" parameterMap="setActualizarBeneficiarioSaoi" resultMap="getActualizarBeneficiarioSaoi">
+		{ CALL WFGsrv_upd_cde_bnf ( ?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Consulta de Estatus de Documentos Solicitud de Linea-->
+	<parameterMap id="setObtenerEstadoDocumentosLC" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_SysTms" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerEstadoDocumentosLC" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+		<result property='trnReferencia' column='fld_sac_trn_msg' javaType='String'/>
+		<result property='bicbancoEmisor' column='fld_sac_bnk_hdr' javaType='String'/>
+		<result property='nombreBancoEmisor' column='fld_sac_bnk_nam' javaType='String'/>
+		<result property='estadoFichaRiesgo' column='fld_sac_sts_srk' javaType='String'/>
+		<result property='estadoBalance' column='fld_sac_sts_bkb' javaType='String'/>
+		<result property='estadoMemo' column='fld_sac_sts_apm' javaType='String'/>
+		<result property='timeStamp' column='fld_sac_SysTms' javaType='String'/>
+		<result property='botonesFormulario' column='fld_sac_frm_but' javaType='String'/>
+	</resultMap>
+	<procedure id="obtenerEstadoDocumentosLC" parameterMap="setObtenerEstadoDocumentosLC" resultMap="getObtenerEstadoDocumentosLC">
+		{ CALL WFGsrv_req_crl_pdc ( ?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Consultar apartados del memorandum -->
+	<parameterMap id="setObtenerSegmentoMemo" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_mms_cod_sec" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerSegmentoMemo" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+		<result property='indicadorSegmentoOmitido' column='fld_mms_omt_sec' javaType='String'/>
+		<result property='direccionArchivos' column='fld_mms_pth_fil' javaType='String'/>
+		<result property='nombreImagen' column='fld_mms_nam_img' javaType='String'/>
+		<result property='nombreArchivoTexto' column='fld_mms_nam_txt' javaType='String'/>
+		<result property='segmentoFormulario' column='fld_mms_frm_seg' javaType='String'/>
+		<result property='botonesFormulario' column='fld_mms_frm_but' javaType='String'/>
+	</resultMap>
+	<procedure id="obtenerSegmentoMemo" parameterMap="setObtenerSegmentoMemo" resultMap="getObtenerSegmentoMemo">
+		{ CALL WFGsrv_shw_sec_mms ( ?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Actualizar apartado del memorandum -->
+	<parameterMap id="setActualizarSegmentoMemo" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_mms_cod_sec" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_mms_omt_sec" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_mms_pth_fil" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mms_nam_img" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mms_nam_txt" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarSegmentoMemo" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+	</resultMap>
+	<procedure id="actualizarSegmentoMemo" parameterMap="setActualizarSegmentoMemo" resultMap="getActualizarSegmentoMemo">
+		{ CALL WFGsrv_upd_sec_mms ( ?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Consultar encabezado del memorandum -->
+	<parameterMap id="setObtenerEncabezadoMemorandum" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerEncabezadoMemorandum" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+		<result property='destinatario' column='fld_mmh_dst_mem' javaType='String'/>
+		<result property='remitenteLinea1' column='fld_mmh_rmt_mm1' javaType='String'/>
+		<result property='remitenteLinea2' column='fld_mmh_rmt_mm2' javaType='String'/>
+		<result property='materiaLinea1' column='fld_mmh_mat_mm1' javaType='String'/>
+		<result property='materiaLinea2' column='fld_mmh_mat_mm2' javaType='String'/>
+		<result property='materiaLinea3' column='fld_mmh_mat_mm3' javaType='String'/>
+		<result property='fecha' column='fld_mmh_dat_mem' javaType='String'/>
+		<result property='peticionario' column='fld_mmh_pet_lcr' javaType='String'/>
+		<result property='montoLineaCredito' column='fld_mmh_mto_lcr' javaType='String'/>
+		<result property='lineaCredito' column='fld_mmh_pzo_lcr' javaType='String'/>
+		<result property='nombreExportador' column='fld_mmh_nam_exp' javaType='String'/>
+		<result property='nombreImportador' column='fld_mmh_nam_imp' javaType='String'/>
+		<result property='descripcionMercaderia' column='fld_mmh_des_mer' javaType='String'/>
+		<result property='clasificacionRiesgoPais' column='fld_mmh_cnt_rcl' javaType='String'/>
+		<result property='provisionRiesgoPais' column='fld_mmh_cnt_rpr' javaType='String'/>
+		<result property='exposicionLinea1Izquierda' column='fld_mmh_exp_ol1' javaType='String'/>
+		<result property='exposicionLinea1Derecha' column='fld_mmh_exp_or1' javaType='String'/>
+		<result property='exposicionLinea2Izquierda' column='fld_mmh_exp_ol2' javaType='String'/>
+		<result property='exposicionLinea2Derecha' column='fld_mmh_exp_or2' javaType='String'/>
+		<result property='exposicionLinea3Izquierda' column='fld_mmh_exp_ol3' javaType='String'/>
+		<result property='exposicionLinea3Derecha' column='fld_mmh_exp_or3' javaType='String'/>
+		<result property='otrasObservacionesLinea1' column='fld_mmh_oth_cm1' javaType='String'/>
+		<result property='otrasObservacionesLinea2' column='fld_mmh_oth_cm2' javaType='String'/>
+		<result property='timeStamp' column='fld_mmh_SysTms' javaType='String'/>
+		<result property='botonesFormulario' column='fld_mmh_frm_but' javaType='String'/>
+		<result property='camposSegmento01' column='fld_mmh_frm_S01' javaType='String'/>
+		<result property='camposSegmento02' column='fld_mmh_frm_S02' javaType='String'/>
+		<result property='camposSegmento03' column='fld_mmh_frm_S03' javaType='String'/>
+	</resultMap>
+	<procedure id="obtenerEncabezadoMemorandum" parameterMap="setObtenerEncabezadoMemorandum" resultMap="getObtenerEncabezadoMemorandum">
+		{ CALL WFGsrv_shw_sec_mmh ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Grabar encabezado del memorandum -->
+	<parameterMap id="setActualizarEncabezadoMemorandum" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_mmh_dst_mem" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_rmt_mm1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_rmt_mm2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_mat_mm1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_mat_mm2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_mat_mm3" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_dat_mem" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_pet_lcr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_mto_lcr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_pzo_lcr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_nam_exp" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_nam_imp" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_des_mer" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_cnt_rcl" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_cnt_rpr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_ol1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_or1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_ol2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_or2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_ol3" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_exp_or3" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_oth_cm1" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_oth_cm2" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_mmh_SysTms"  jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarEncabezadoMemorandum" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+	</resultMap>
+	<procedure id="actualizarEncabezadoMemorandum" parameterMap="setActualizarEncabezadoMemorandum" resultMap="getActualizarEncabezadoMemorandum">
+		{ CALL WFGsrv_upd_sec_mmh ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Confirmacion de un documento de solicitud de línea -->
+	<parameterMap id="setConfirmarSegmento" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_SysTms" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getConfirmarSegmento" class="java.util.HashMap">
+		<result property='indicadorResultadoOperacion' column='wss_result_sw' javaType='Integer'/>
+		<result property='mensajeResultadoOperacion' column='wss_result_msg' javaType='String'/>
+	</resultMap>
+	<procedure id="confirmarSegmento" parameterMap="setConfirmarSegmento" resultMap="getConfirmarSegmento">
+		{ CALL WFGsrv_req_cnf_sgt ( ?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Cotizar Terminos y Condiciones para una SAOI ya definida -->
+	<parameterMap id="setCotizarTycSaoi" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getCotizarTycSaoi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="fechaCotizacion"	column="fld_tac_dat_bdg"	javaType="String"/>
+		<result property="monedaMontoSolicitado"	column="fld_tac_32b_mda"	javaType="String"/>
+		<result property="montoSolicitado"	column="fld_tac_32b_mto"	javaType="java.math.BigDecimal"/>
+		<result property="biccod"	column="fld_tac_bnk_hdr"	javaType="String"/>
+		<result property="rutBanco"	column="fld_tac_bhr_rut"	javaType="String"/>
+		<result property="nombreBanco"	column="fld_tac_bnk_nam"	javaType="String"/>
+		<result property="codigoPais"	column="fld_tac_cty_bnk"	javaType="String"/>
+		<result property="fechaVencimiento"	column="fld_tac_31d_dat"	javaType="String"/>
+		<result property="codigoProducto"	column="fld_tac_crd_req"	javaType="String"/>
+		<result property="pagadorGastosLC"	column="fld_tac_exp_org"	javaType="String"/>
+		<result property="ideBeneficiario"	column="fld_tac_ide_ben"	javaType="String"/>
+		<result property="nomBeneficiario"	column="fld_tac_nam_ben"	javaType="String"/>
+		<result property="montoTasa"	column="fld_tac_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasa"	column="fld_tac_cur_rat"	javaType="String"/>
+		<result property="tipoTasa"	column="fld_tac_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasa"	column="fld_tac_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasa"	column="fld_tac_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasa"	column="fld_tac_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAviso"	column="fld_tac_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAviso"	column="fld_tac_cur_not"	javaType="String"/>
+		<result property="tipoAviso"	column="fld_tac_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAviso"	column="fld_tac_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAviso"	column="fld_tac_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacion"	column="fld_tac_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacion"	column="fld_tac_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacion"	column="fld_tac_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacion"	column="fld_tac_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacion"	column="fld_tac_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacion"	column="fld_tac_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacion"	column="fld_tac_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacion"	column="fld_tac_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacion"	column="fld_tac_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacion"	column="fld_tac_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProv"	column="fld_tac_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProv"	column="fld_tac_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProv"	column="fld_tac_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProv"	column="fld_tac_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProv"	column="fld_tac_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLibor"	column="fld_tac_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLibor"	column="fld_tac_mda_tlb"	javaType="String"/>
+		<result property="plazoLibor"	column="fld_tac_trm_tlb"	javaType="String"/>
+		<result property="observaciones"	column="fld_tac_txt_obs"	javaType="String"/>
+		<result property="usuarioEvento"	column="fld_tac_usr_eve"	javaType="String"/>
+		<result property="timeStamp"	column="fld_tac_SysTms"		javaType="String"/>
+		<result property="botonesAccion"	column="fld_tac_frm_but"	javaType="String"/>
+		<result property="camposSegmento01"	column="fld_tac_frm_S01"	javaType="String"/>
+		<result property="camposSegmento02"	column="fld_tac_frm_S02"	javaType="String"/>
+		<result property="camposSegmento03"	column="fld_tac_frm_S03"	javaType="String"/>
+		<result property="camposSegmento04"	column="fld_tac_frm_S04"	javaType="String"/>
+		<result property="camposSegmento05"	column="fld_tac_frm_S05"	javaType="String"/>
+		<result property="camposSegmento06"	column="fld_tac_frm_S06"	javaType="String"/>
+		<result property="camposSegmento07"	column="fld_tac_frm_S07"	javaType="String"/>
+		<result property="camposSegmento08"	column="fld_tac_frm_S08"	javaType="String"/>
+	</resultMap>
+	<procedure id="cotizarTycSaoi" parameterMap="setCotizarTycSaoi" resultMap="getCotizarTycSaoi">
+		{ CALL WFGsrv_qte_trm_cnd ( ?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Detallar TYC para Ejecutivo Comex -->
+	<parameterMap id="setDetallarTycComex" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getDetallarTycComex" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="montoTasa"	column="fld_tac_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasa"	column="fld_tac_cur_rat"	javaType="String"/>
+		<result property="tipoTasa"	column="fld_tac_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasa"	column="fld_tac_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasa"	column="fld_tac_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasa"	column="fld_tac_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAviso"	column="fld_tac_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAviso"	column="fld_tac_cur_not"	javaType="String"/>
+		<result property="tipoAviso"	column="fld_tac_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAviso"	column="fld_tac_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAviso"	column="fld_tac_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacion"	column="fld_tac_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacion"	column="fld_tac_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacion"	column="fld_tac_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacion"	column="fld_tac_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacion"	column="fld_tac_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacion"	column="fld_tac_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacion"	column="fld_tac_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacion"	column="fld_tac_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacion"	column="fld_tac_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacion"	column="fld_tac_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProv"	column="fld_tac_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProv"	column="fld_tac_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProv"	column="fld_tac_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProv"	column="fld_tac_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProv"	column="fld_tac_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLibor"	column="fld_tac_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLibor"	column="fld_tac_mda_tlb"	javaType="String"/>
+		<result property="plazoLibor"	column="fld_tac_trm_tlb"	javaType="String"/>
+		<result property="observaciones"	column="fld_tac_txt_obs"	javaType="String"/>
+		<result property="usuarioEvento"	column="fld_tac_usr_eve"	javaType="String"/>
+		
+		<result property="montoTasaTdg"	column="fld_tdg_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasaTdg"	column="fld_tdg_cur_rat"	javaType="String"/>
+		<result property="tipoTasaTdg"	column="fld_tdg_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasaTdg"	column="fld_tdg_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasaTdg"	column="fld_tdg_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasaTdg"	column="fld_tdg_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAvisoTdg"	column="fld_tdg_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAvisoTdg"	column="fld_tdg_cur_not"	javaType="String"/>
+		<result property="tipoAvisoTdg"	column="fld_tdg_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAvisoTdg"	column="fld_tdg_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAvisoTdg"	column="fld_tdg_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacionTdg"	column="fld_tdg_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacionTdg"	column="fld_tdg_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacionTdg"	column="fld_tdg_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacionTdg"	column="fld_tdg_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacionTdg"	column="fld_tdg_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacionTdg"	column="fld_tdg_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacionTdg"	column="fld_tdg_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacionTdg"	column="fld_tdg_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacionTdg"	column="fld_tdg_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacionTdg"	column="fld_tdg_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProvTdg"	column="fld_tdg_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProvTdg"	column="fld_tdg_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProvTdg"	column="fld_tdg_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProvTdg"	column="fld_tdg_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProvTdg"	column="fld_tdg_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLiborTdg"	column="fld_tdg_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLiborTdg"	column="fld_tdg_mda_tlb"	javaType="String"/>
+		<result property="plazoLiborTdg"	column="fld_tdg_trm_tlb"	javaType="String"/>
+		<result property="observacionesTdg"	column="fld_tdg_txt_obs"	javaType="String"/>
+		<result property="usuarioEventoTdg"	column="fld_tdg_usr_eve"	javaType="String"/>
+		
+		<result property="timeStamp"	column="fld_tac_SysTms"		javaType="String"/>
+		<result property="botonesAccion"	column="fld_tdg_frm_but"	javaType="String"/>
+		<result property="camposSegmento02"	column="fld_tdg_frm_S02"	javaType="String"/>
+		<result property="camposSegmento03"	column="fld_tdg_frm_S03"	javaType="String"/>
+		<result property="camposSegmento04"	column="fld_tdg_frm_S04"	javaType="String"/>
+		<result property="camposSegmento05"	column="fld_tdg_frm_S05"	javaType="String"/>
+		<result property="camposSegmento06"	column="fld_tdg_frm_S06"	javaType="String"/>
+		<result property="camposSegmento07"	column="fld_tdg_frm_S07"	javaType="String"/>
+		<result property="camposSegmento08"	column="fld_tdg_frm_S08"	javaType="String"/>
+	</resultMap>
+	<procedure id="detallarTycComex" parameterMap="setDetallarTycComex" resultMap="getDetallarTycComex">
+		{ CALL WFGsrv_shw_det_tdg ( ?,?,?,?,? ) }
+	</procedure>
+	
+	
+	<!-- Actualizar Terminos y Condiciones Ejecutivo COMEX -->
+	<parameterMap id="setActualizarTycComex" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="Integer"/>
+		<parameter property="fld_tdg_mto_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_cur_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_typ_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_low_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_hig_rat" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mto_not" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_cur_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_typ_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_low_not" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mto_neg" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_cur_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_typ_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_low_neg" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mto_cnf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_cur_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_typ_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_low_cnf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mto_tsp" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_cur_tsp" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_typ_tsp" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_low_tsp" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mto_tlb" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_tdg_mda_tlb" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_trm_tlb" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_txt_obs" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_tdg_usr_eve" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tac_SysTms" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_txt_eve" jdbcType="VARCHAR" javaType="String"/>
+		
+		<parameter property="fld_tdg_cmd_rat" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_cmd_not" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_cmd_neg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_cmd_cnf" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_tdg_cmd_tsp" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarTycComex" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarTycComex" parameterMap="setActualizarTycComex" resultMap="getActualizarTycComex">
+		{ CALL WFGsrv_upd_det_tdg ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene lista de submenus de una seccion especifica -->
+	<parameterMap id="setObtenerSubmenus" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerSubmenus" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+
+		<result property="submenu"	column="fld_wfg_sbm_cod"	javaType="String"/>
+		<result property="titulo"	column="fld_nam_smn_prd"	javaType="String"/>
+		<result property="cantidad"	column="fld_num_ope_sbn" javaType="java.lang.Integer"/>
+
+	</resultMap>
+	<procedure id="obtenerSubmenus" parameterMap="setObtenerSubmenus" resultMap="getObtenerSubmenus">
+		{ CALL WFGsrv_shw_men_opt ( ?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene lista de submenus de una seccion especifica -->
+	<parameterMap id="setObtenerCargaNodos" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getObtenerCargaNodos" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="titulo"	column="fld_nam_nam_men"	javaType="String"/>
+		<result property="cantidad"	column="fld_num_ope_men" javaType="java.lang.Integer"/>
+		<result property="menu"	column="fld_wfg_men_cod"	javaType="String"/>
+		<result property="submenu"	column="fld_wfg_sbm_cod"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerCargaNodos" parameterMap="setObtenerCargaNodos" resultMap="getObtenerCargaNodos">
+		{ CALL WFGsrv_shw_oth_nds ( ?,?,? ) }
+	</procedure>
+	
+	<!-- Detallar Terminos y Condiciones GIFI y COMEX resumidos asociados a  una SAOI determinada -->
+	<parameterMap id="setObtenerTycsAsociadas" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+
+	</parameterMap>
+	<resultMap id="getObtenerTycsAsociadas" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		
+		<result property="montoTasa"	column="fld_tac_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasa"	column="fld_tac_cur_rat"	javaType="String"/>
+		<result property="tipoTasa"	column="fld_tac_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasa"	column="fld_tac_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasa"	column="fld_tac_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasa"	column="fld_tac_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAviso"	column="fld_tac_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAviso"	column="fld_tac_cur_not"	javaType="String"/>
+		<result property="tipoAviso"	column="fld_tac_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAviso"	column="fld_tac_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAviso"	column="fld_tac_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacion"	column="fld_tac_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacion"	column="fld_tac_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacion"	column="fld_tac_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacion"	column="fld_tac_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacion"	column="fld_tac_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacion"	column="fld_tac_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacion"	column="fld_tac_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacion"	column="fld_tac_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacion"	column="fld_tac_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacion"	column="fld_tac_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProv"	column="fld_tac_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProv"	column="fld_tac_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProv"	column="fld_tac_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProv"	column="fld_tac_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProv"	column="fld_tac_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLibor"	column="fld_tac_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLibor"	column="fld_tac_mda_tlb"	javaType="String"/>
+		<result property="plazoLibor"	column="fld_tac_trm_tlb"	javaType="String"/>
+		<result property="observaciones"	column="fld_tac_txt_obs"	javaType="String"/>
+		<result property="usuarioEvento"	column="fld_tac_usr_eve"	javaType="String"/>
+		
+		<result property="montoTasaTdg"	column="fld_tdg_mto_rat"	javaType="java.math.BigDecimal"/>
+		<result property="monedaTasaTdg"	column="fld_tdg_cur_rat"	javaType="String"/>
+		<result property="tipoTasaTdg"	column="fld_tdg_typ_rat"	javaType="String"/>
+		<result property="modalidadCobroTasaTdg"	column="fld_tdg_cmd_rat"	javaType="String"/>
+		<result property="montoMinimoTasaTdg"	column="fld_tdg_low_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoTasaTdg"	column="fld_tdg_hig_rat"	javaType="java.math.BigDecimal"/>
+		<result property="montoAvisoTdg"	column="fld_tdg_mto_not"	javaType="java.math.BigDecimal"/>
+		<result property="monedaAvisoTdg"	column="fld_tdg_cur_not"	javaType="String"/>
+		<result property="tipoAvisoTdg"	column="fld_tdg_typ_not"	javaType="String"/>
+		<result property="modalidadCobroAvisoTdg"	column="fld_tdg_cmd_not"	javaType="String"/>
+		<result property="montoMinimoAvisoTdg"	column="fld_tdg_low_not"	javaType="java.math.BigDecimal"/>
+		<result property="montoNegociacionTdg"	column="fld_tdg_mto_neg"	javaType="java.math.BigDecimal"/>
+		<result property="monedaNegociacionTdg"	column="fld_tdg_cur_neg"	javaType="String"/>
+		<result property="tipoNegociacionTdg"	column="fld_tdg_typ_neg"	javaType="String"/>
+		<result property="modalidadCobroNegociacionTdg"	column="fld_tdg_cmd_neg"	javaType="String"/>
+		<result property="montoMinimoNegociacionTdg"	column="fld_tdg_low_neg"	javaType="java.math.BigDecimal"/>
+		<result property="montoConfirmacionTdg"	column="fld_tdg_mto_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="monedaConfirmacionTdg"	column="fld_tdg_cur_cnf"	javaType="String"/>
+		<result property="tipoConfirmacionTdg"	column="fld_tdg_typ_cnf"	javaType="String"/>
+		<result property="modalidadCobroConfirmacionTdg"	column="fld_tdg_cmd_cnf"	javaType="String"/>
+		<result property="montoMinimoConfirmacionTdg"	column="fld_tdg_low_cnf"	javaType="java.math.BigDecimal"/>
+		<result property="montoPlazoProvTdg"	column="fld_tdg_mto_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="monedaPlazoProvTdg"	column="fld_tdg_cur_tsp"	javaType="String"/>
+		<result property="tipoPlazoProvTdg"	column="fld_tdg_typ_tsp"	javaType="String"/>
+		<result property="modalidadCobroPlazoProvTdg"	column="fld_tdg_cmd_tsp"	javaType="String"/>
+		<result property="montoMinimoPlazoProvTdg"	column="fld_tdg_low_tsp"	javaType="java.math.BigDecimal"/>
+		<result property="montoLiborTdg"	column="fld_tdg_mto_tlb"	javaType="java.math.BigDecimal"/>
+		<result property="monedaLiborTdg"	column="fld_tdg_mda_tlb"	javaType="String"/>
+		<result property="plazoLiborTdg"	column="fld_tdg_trm_tlb"	javaType="String"/>
+		<result property="observacionesTdg"	column="fld_tdg_txt_obs"	javaType="String"/>
+		<result property="usuarioEventoTdg"	column="fld_tdg_usr_eve"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerTycsAsociadas" parameterMap="setObtenerTycsAsociadas" resultMap="getObtenerTycsAsociadas">
+		{ CALL WFGsrv_shw_det_qte ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener Modalidad de Cobro de la Tasa -->
+	<resultMap id="getObtenerModalidadCobroTasa" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoModalidad"	column="COD_CMDRAT"	javaType="String"/>
+		<result property="nombreModalidad" column="GLS_CMDRAT"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerModalidadCobroTasa" resultMap="getObtenerModalidadCobroTasa">
+		{ CALL WFGsrv_shw_cmd_rat () }
+	</procedure>
+	
+	<!-- Obtener Modalidad de Cobro de la Comisiones -->
+	<resultMap id="getObtenerModalidadCobroComisiones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigoModalidad"	column="COD_CMDCYG"	javaType="String"/>
+		<result property="nombreModalidad" column="GLS_CMDCYG"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerModalidadCobroComisiones" resultMap="getObtenerModalidadCobroComisiones">
+		{ CALL WFGsrv_shw_cmd_cyg () }
+	</procedure>
+	
+		<!-- Obtener Usuario GIFIS-->
+	<resultMap id="getObtenerGifis" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="userId"	column="fld_cod_usr_gfi"	javaType="String"/>
+		<result property="nombre" column="fld_gls_usr_gfi"	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerGifis" resultMap="getObtenerGifis">
+		{ CALL WFGsrv_shw_usr_gfi () }
+	</procedure>
+
+	<!-- Obtiene detalle de un usuario GIFI -->
+	<parameterMap id="setDetallarGifi" class="java.util.HashMap">
+		<parameter property="fld_cod_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getDetallarGifi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="userId"	column="fld_cod_usr_gfi"	javaType="String"/>
+		<result property="nombre"	column="fld_gls_usr_gfi" javaType="String"/>
+		<result property="botonesAccion"	column="fld_gfi_frm_but"	javaType="String"/>
+		<result property="camposFormulario"	column="fld_gfi_frm_fld"	javaType="String"/>
+	</resultMap>
+	<procedure id="detallarGifi" parameterMap="setDetallarGifi" resultMap="getDetallarGifi">
+		{ CALL WFGsrv_shw_det_gfi ( ?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene Zonas Geograficas--> 
+	<resultMap id="getZonasGeograficas" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigo"	column="fld_cod_cts_cod"	javaType="String"/>
+		<result property="nombre"	column="fld_gls_cts_cod" javaType="String"/>
+	</resultMap>
+	<procedure id="zonasGeograficas"  resultMap="getZonasGeograficas">
+		{ CALL WFGsrv_shw_gar_cod ( ) }
+	</procedure>
+	
+	<!-- Obtiene Paises asignados a un GIFI--> 
+	<parameterMap id="setDetallarPaisesAsignados" class="java.util.HashMap">
+		<parameter property="fld_cod_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getDetallarPaisesAsignados" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigo"	column="fld_cod_ctr_cod"	javaType="String"/>
+		<result property="nombre"	column="fld_gls_ctr_cod" javaType="String"/>
+	</resultMap>
+	<procedure id="detallarPaisesAsignados" parameterMap="setDetallarPaisesAsignados" resultMap="getDetallarPaisesAsignados">
+		{ CALL WFGsrv_shw_act_gfi ( ? ) }
+	</procedure>
+	
+	<!-- Obtiene Paises no asignadas a un GIFI --> 
+	<parameterMap id="setDetallarPaisesNoAsignados" class="java.util.HashMap">
+		<parameter property="fld_cod_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_cod_cts_cod" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getDetallarPaisesNoAsignados" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigo"	column="fld_cod_ctr_cod"	javaType="String"/>
+		<result property="nombre"	column="fld_gls_ctr_cod" javaType="String"/>
+	</resultMap>
+	<procedure id="detallarPaisesNoAsignados" parameterMap="setDetallarPaisesNoAsignados" resultMap="getDetallarPaisesNoAsignados">
+		{ CALL WFGsrv_shw_uct_gfi ( ?,? ) }
+	</procedure>	
+	
+	<!-- Actualiza informacion de un GIFI -->
+	<parameterMap id="setActualizarGifi" class="java.util.HashMap">
+		<parameter property="fld_cod_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_gls_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_acc_req" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarGifi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarGifi" parameterMap="setActualizarGifi" resultMap="getActualizarGifi">
+		{ CALL WFGsrv_upd_usr_gfi ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Actualiza Paises GIFI--> 
+	<parameterMap id="setActualizarPaisesGifi" class="java.util.HashMap">
+		<parameter property="fld_cod_usr_gfi" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_cod_ctr_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_acc_req" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarPaisesGifi" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarPaisesGifi" parameterMap="setActualizarPaisesGifi" resultMap="getActualizarPaisesGifi">
+		{ CALL WFGsrv_upd_ctr_gfi ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene la informacion para ingreso manual de una SAC -->
+	<parameterMap id="setConsultarSacIngresoManual" class="java.util.HashMap">
+		<parameter property="fld_sac_trn_msg" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_sac_bnk_hdr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getConsultarSacIngresoManual" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+		<result property="bicBancoEmisor"			 column="fld_bin_bnk_hdr" 	javaType="String"/>
+		<result property="nombreBancoEmisor" 		column="fld_bin_bnk_nam" 	javaType="String"/>
+		<result property="rutBancoEmisor" 		column="fld_bin_bhr_rut" 	javaType="String"/>
+		<result property="fechaIngreso" 		column="fld_bin_fec_ing" 	javaType="String"/>
+		<result property="horaIngreso" 		column="fld_bin_hra_ing" 	javaType="String"/>
+		<result property="trn" 				column="fld_bin_trn_msg" 	javaType="String"/>
+		<result property="nombreBeneficiario"	column="fld_bin_bnf_nam" 	javaType="String"/>
+		<result property="tipoDocumento"	column="fld_bin_crd_req" 	javaType="String"/>
+		<result property="garantizante"	column="fld_bin_grt_wth" 	javaType="String"/>
+		<result property="bicBancoReembolsador"	column="fld_bin_bnk_fds" 	javaType="String"/>
+		<result property="clasificacionCartaCredito"	column="fld_bin_ccr_typ" 	javaType="String"/>
+		<result property="sicap"	column="fld_bin_scp_num" 	javaType="String"/>
+		<result property="formaDePago"	column="fld_bin_crd_avl" 	javaType="String"/>
+		<result property="pagadorGastosLC"	column="fld_bin_exp_org" 	javaType="String"/>
+		<result property="monedaMontoSolicitado" 	column="fld_bin_32b_mda" 	javaType="String"/>
+		<result property="montoSolicitado" 		column="fld_bin_32b_mto" 	javaType="java.math.BigDecimal"/>
+		<result property="toleranciaMaxima" 		column="fld_bin_max_amt" 	javaType="java.math.BigDecimal"/>
+		<result property="montoMaximoSolicitado" 		column="fld_bin_39a_mto" 	javaType="java.math.BigDecimal"/>
+		<result property="fechaVencimiento" 		column="fld_bin_31d_dat" 	javaType="String"/>
+		<result property="instruccionConfirmacion" 		column="fld_bin_cnf_ist" 	javaType="String"/>
+		<result property="sysnum" 			column="fld_sac_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="sysnumtsk" 			column="fld_tsk_sys_num" 	javaType="java.lang.Integer"/>
+		<result property="botonesAccion" 	column="fld_sac_frm_but" 	javaType="String"/>
+		<result property="timeStamp" 			column="fld_sac_SysTms" 	javaType="String"/>
+		<result property="camposFormulario" column="fld_sac_frm_fld" javaType="String"/>
+		
+	</resultMap>
+	<procedure id="consultarSacIngresoManual" parameterMap="setConsultarSacIngresoManual" resultMap="getConsultarSacIngresoManual">
+		{ CALL WFGsrv_shw_det_sme ( ?,? ) }
+	</procedure>
+	
+	<!-- Obtiene Instruccione de confirmacion -->
+	<resultMap id="getObtenerInstruccionesConfirmacion" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"	column="wss_result_sw" 	javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String"/>
+		<result property="codigo"	column="fld_cod_cnf_ist"	javaType="String"/>
+		<result property="nombre"	column="fld_gls_cnf_ist" javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerInstruccionesConfirmacion" resultMap="getObtenerInstruccionesConfirmacion">
+		{ CALL WFGsrv_shw_cnf_ist () }
+	</procedure>
+	
+	<!-- Actualiza el ingreso manual de una SAC -->
+	<parameterMap id="setIngresarSacManual" class="java.util.HashMap">
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="Integer"/>
+		<parameter property="fld_bin_bnk_hdr" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_bnk_nam" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_bhr_rut" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_fec_ing" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_hra_ing" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_trn_msg" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_bnf_nam" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_crd_req" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_grt_wth" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_bnk_fds" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_ccr_typ" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_scp_num" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_crd_avl" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_exp_org" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_bin_32b_mda" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_32b_mto" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_bin_max_amt" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="fld_bin_31d_dat" jdbcType="DATETIME" javaType="String"/>
+		<parameter property="fld_bin_cnf_ist" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_SysTms" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getIngresarSacManual" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+	</resultMap>
+	<procedure id="ingresarSacManual" parameterMap="setIngresarSacManual" resultMap="getIngresarSacManual">
+		{ CALL WFGsrv_upd_det_sme ( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtiene la informacion para ingreso recuperacion de una SAC -->
+	<parameterMap id="setConsultarSacRecuperacion" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_trn_msg" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_sac_bnk_hdr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getConsultarSacRecuperacion" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+		<result property="sysnum" column="fld_sac_sys_num" 	javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="consultarSacRecuperacion" parameterMap="setConsultarSacRecuperacion" resultMap="getConsultarSacRecuperacion">
+		{ CALL WFGsrv_shw_sac_cfr ( ?,?,?,?,? ) }
+	</procedure>
+	
+		<!-- Obtiene la informacion para ingreso recuperacion de una SAC -->
+	<parameterMap id="setObtenerBcoReembolsante" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INT" javaType="Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerBcoReembolsante" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 		 column="wss_result_sw"			javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+		<result property="biccod" 	column="fld_sac_bnk_fds" 		javaType="String"/>
+		<result property="nombre1" 	column="fld_sac_fds_nm1" 		javaType="String"/>
+		<result property="nombre2" 	column="fld_sac_fds_nm2" 		javaType="String"/>
+		<result property="timestamp" 	column="fld_sac_SysTms" 		javaType="String"/>
+		<result property="camposFormulario" 	column="fld_bnf_frm_S01" 		javaType="String"/>
+		<result property="botonesFormulario" 	column="fld_bnf_frm_but" 		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerBcoReembolsante" parameterMap="setObtenerBcoReembolsante" resultMap="getObtenerBcoReembolsante">
+		{ CALL WFGsrv_shw_cde_rbk ( ?,?,?,? ) }
+	</procedure>
+	
+	<!-- Obtener Atribuciones -->
+	<resultMap id="getObtenerAtribuciones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 		 column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+		<result property="montoR01" column="fld_atr_mto_r01" 	javaType="java.lang.Integer"/>
+		<result property="montoR02" column="fld_atr_mto_r02" 	javaType="java.lang.Integer"/>
+		<result property="montoR03" column="fld_atr_mto_r03" 	javaType="java.lang.Integer"/>
+		<result property="montoR04" column="fld_atr_mto_r04" 	javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerAtribuciones" resultMap="getObtenerAtribuciones" >
+		{ CALL WFGsrv_shw_atr_rmt() }
+	</procedure>
+	
+	<!-- Actualizar Atribuciones -->
+	<parameterMap id="setActualizarAtribuciones" class="java.util.HashMap">
+		<parameter property="fld_atr_mto_r01" jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+		<parameter property="fld_atr_mto_r02" jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+		<parameter property="fld_atr_mto_r03" jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getActualizarAtribuciones" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion"  column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 		javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarAtribuciones" resultMap="getActualizarAtribuciones" parameterMap="setActualizarAtribuciones" >
+		{ CALL WFGsrv_upd_atr_rmt(?, ?, ?) }
+	</procedure>
+	
+	<!-- Obtiene listado de switch  -->
+	<resultMap id="getObtenerSwitch" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="codigoSwitch" 				column="COD_LEVINT" 		javaType="String"/>
+		<result property="nombreSwitch" 				column="GLS_LEVINT" 		javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerSwitch" resultMap="getObtenerSwitch">
+		{ CALL WFGsrv_shw_lev_cra () }
+	</procedure>
+	
+	<!-- Obtiene consulta switch -->
+	<resultMap id="getConsultarSwitch" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="codigoSwitch" 				column="COD_LEVINT" 		javaType="String"/>
+	</resultMap>
+	<procedure id="consultarSwitch" resultMap="getConsultarSwitch">
+		{ CALL WFGsrv_shw_swt_cra () }
+	</procedure>
+	
+	<!-- Guarda  switch -->
+	<parameterMap id="setGuardarSwitch" class="java.util.HashMap">
+		<parameter property="COD_LEVINT" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getGuardarSwitch" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+	</resultMap>
+	<procedure id="guardarSwitch" parameterMap="setGuardarSwitch" resultMap="getGuardarSwitch">
+		{ CALL WFGsrv_upd_swt_cra (?) }
+	</procedure>
+	
+		<!-- Actualizar Banco reembolsante -->
+	<parameterMap id="setActualizarBcoReembolsante" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_bnk_fds" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_bin_nam_fds" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_sac_SysTms" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarBcoReembolsante" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="timestamp" 	column="fld_sac_SysTms" 	javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarBcoReembolsante" parameterMap="setActualizarBcoReembolsante" resultMap="getActualizarBcoReembolsante">
+		{ CALL WFGsrv_upd_cde_rbk (?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+		<!-- Obtener Motivos de Rechazo -->
+	<resultMap id="getObtenerMotivosRechazo" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="codigoCausal" column="fld_wfg_cod_crj" 	javaType="String"/>
+		<result property="tipoCausal" column="fld_wfg_typ_crj" 	javaType="String"/>
+		<result property="descripcionCausal" column="fld_wfg_gls_crj" javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerMotivosRechazo" resultMap="getObtenerMotivosRechazo">
+		{ CALL WFGsrv_shw_crj_ecx () }
+	</procedure>
+
+	<!-- Obtener Origen de Gastos -->
+	<parameterMap id="setObtenerOrigenDeGastos" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerOrigenDeGastos" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="origenGastos" 	column="fld_sac_exp_org" 	javaType="String"/>
+		<result property="camposFormulario" column="fld_bnf_frm_S01" 	javaType="String"/>
+		<result property="botonesAccion" 	column="fld_bnf_frm_but" 	javaType="String"/>
+		<result property="timestamp" 		column="fld_sac_SysTms" 	javaType="String"/>
+	</resultMap>
+	<procedure id="obtenerOrigenDeGastos" parameterMap="setObtenerOrigenDeGastos" resultMap="getObtenerOrigenDeGastos">
+		{ CALL WFGsrv_shw_cde_cyg (?,?,?,?) }
+	</procedure>
+	
+	<!-- Actualizar Origen de Gastos -->
+	<parameterMap id="setActualizarOrigenDeGastos" class="java.util.HashMap">
+		<parameter property="fld_wfg_cod_sys" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_men_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_sbm_cod" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_wfg_tip_acc" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_sys_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fld_sac_exp_org" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fld_sac_SysTms"  jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_usr_eve" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_wfg_nip_usr" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getActualizarOrigenDeGastos" class="java.util.HashMap">
+		<result property="indicadorResultadoOperacion" 	column="wss_result_sw"		javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" 	column="wss_result_msg" 	javaType="String"/>
+		<result property="timestamp" 		column="fld_sac_SysTms" 	javaType="String"/>
+	</resultMap>
+	<procedure id="actualizarOrigenDeGastos" parameterMap="setActualizarOrigenDeGastos" resultMap="getActualizarOrigenDeGastos">
+		{ CALL WFGsrv_upd_cde_cyg (?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+</sqlMap> 
+

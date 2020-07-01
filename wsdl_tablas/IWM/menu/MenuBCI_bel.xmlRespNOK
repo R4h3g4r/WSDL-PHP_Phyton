@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bcimenu>
+    <opcion id="Accesos Directos">
+        <titulo>Accesos Directos</titulo>
+        <url>AccesosDirectos</url>
+        <opcion id="N_">
+            <titulo>Cerrar Sesión</titulo>
+            <url>vistaCierre</url>
+        </opcion>
+    </opcion>
+    <opcion id="Pestanas">
+        <titulo>Pestañas</titulo>
+        <url>Pestanas</url>
+        <opcion id="N_1000">
+            <titulo>Pagos</titulo>
+            <textoReemplazo/>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/homeResumenPagos.jsf</url>
+            <opcion id="N_1001">
+                <titulo>Pagos Masivos</titulo>
+                <listaDesplegableAsociada>listaTiposPago</listaDesplegableAsociada>
+                <opcion id="resumenPagos">
+                    <titulo>Resumen de Pagos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/homeResumenPagos.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="iniciarPago">
+                    <titulo>Iniciar Pago</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/ingresoTipoPagos.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="N_1004">
+                    <titulo>Provisión de Fondos</titulo>
+                    <opcion id="crearEcheck">
+                        <titulo>Crear E-Check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaCreaEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="firmarEcheck">
+                        <titulo>Firmar E-Check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaFirmaEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaEcheck">
+                        <titulo>Consultar E-check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaConsultarEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1005">
+                    <titulo>Autorización Masiva</titulo>
+                    <opcion id="autorizacionMultiEmpresa">
+                        <titulo>Todas las Empresas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaAutorizacionMultiempresa.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="autorizacionMasiva">
+                        <titulo>Todos los tipos de pago</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaAutorizacionMasiva.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1006">
+                    <titulo>Firma Masiva</titulo>
+                    <opcion id="firmaMultiEmpresa">
+                        <titulo>Todas las Empresas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaFirmaMultiempresa.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="firmaMasiva">
+                        <titulo>Todos los tipos de pago</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaFirmaMasiva.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1007">
+                    <titulo>Consultas</titulo>
+                    <opcion id="consultaPagos">
+                        <titulo>Consulta de Pagos</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaDePagos.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaVV">
+                        <titulo>Consulta de Vales Vista</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaValesVistas.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaCertificados">
+                        <titulo>Certificados</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaDeCertificados.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1008">
+                    <titulo>Bloqueo o Cambio Receptor SVP</titulo>
+                    <opcion id="cargaPlanillaBCR">
+                        <titulo>Bloqueo o Cambio Receptor SVP</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/bloqueosycambioreceptor/vistaCargaPlanillaBloqueoCambioReceptor.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="estadoBCR">
+                        <titulo>ConsultaBloqueo o Cambio Receptor SVP</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/bloqueosycambioreceptor/vistaEstadoBloqueoCambioReceptor.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1009">
+                    <titulo>Configuración</titulo>
+                    <opcion id="admPlantillas">
+                        <titulo>Formato de Nominas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/listadoPlantillasNominas.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="confTablaConv">
+                        <titulo>Tablas de Conversión</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/listadoTablasDeConversion.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1100">
+            <titulo>TTFFMXOtrosBancos</titulo>
+            <textoReemplazo />
+            <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/panoramaDeTransferenciasMonex.jsf</url>
+            <opcion id="volverPortalComex">
+                <titulo>Volver portal comex</titulo>
+                <url>/belwls/portalcomex/comun/volverComex.jsp</url>
+            </opcion>
+            <opcion id="N_1101">
+                <titulo>Transferencias a Otros Bancos</titulo>
+                <opcion id="panoramaTransferencias">
+                    <titulo>Transferencias pendientes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/panoramaDeTransferenciasMonex.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="transferirFondos">
+                    <titulo>Transferir Fondos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/ingresarTransferenciaMonex.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="N_1102">
+                <titulo>Mis destinatarios</titulo>
+                    <opcion id="ingresoBeneficiario">
+                        <titulo>Ingreso de Beneficiario</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/ingresarBeneficiarioMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="administradorBeneficiarios">
+                        <titulo>Administración de Beneficiarios</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/beneficiariosInscritosMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1103">
+                <titulo>Cartola TTFF al extranjero</titulo>
+                    <opcion id="cartolaTTFFExtranjero">
+                        <titulo>Cartola TTFF al extranjero</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/cartolaTransferenciasMonex.jsf?navegacion=Menu</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="movimientosFondosProvisionados">
+                        <titulo>Movimientos Fondos Provisionados</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/cartolaFondosProvisionadosMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1200"> 
+            <titulo>Cuenta/Cheque Informado</titulo>
+            <opcion id="resumenCuentaCheque"> 
+                <titulo>Resumen</titulo> 
+                <url>/cl/bci/aplicaciones/productos/servicios/pagodecheques/vistas/vistaResumenCuentaCheque.jsf</url> 
+                <tipoEdicionMenu>servicioActivo</tipoEdicionMenu> 
+            </opcion> 
+            <opcion id="cargaNominaCheque"> 
+                <titulo>Ingreso</titulo> 
+                <url>/cl/bci/aplicaciones/productos/servicios/pagodecheques/vistas/vistaCargaNominaCheque.jsf</url> 
+                <tipoEdicionMenu>servicioActivo</tipoEdicionMenu> 
+            </opcion> 
+            <opcion id="administracionContactoCheque"> 
+                <titulo>Administración de Contactos</titulo> 
+                <url>/cl/bci/aplicaciones/productos/servicios/pagodecheques/vistas/administracionContacto.jsf</url> 
+                <tipoEdicionMenu>servicioActivo</tipoEdicionMenu> 
+            </opcion> 
+        </opcion>
+        <opcion id="N_1300">
+            <titulo>Factoring</titulo>
+            <url>/cl/bci/aplicaciones/productos/factoring/vista/layoutPrincipalPanoramaFactoring.jsf</url>
+            <opcion id="N_1201">
+                <titulo>Factoring</titulo>
+                <opcion id="factoring_panorama">
+                    <titulo>Resumen de Financiamiento</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/layoutPrincipalPanoramaFactoring.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_formulario">
+                    <titulo>Cartera</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/documentosVigentes.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_operaciones">
+                    <titulo>Operaciones</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/OperacionesRecientesFactoring.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_excedentes">
+                    <titulo>Excedentes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/ExcedentesDisponibles.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_pagos_realizados">
+                    <titulo>Informe de Pagos Realizados</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/InformePagosRealizados.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_prorroga">
+                    <titulo>Prórroga en Línea</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/prorroga.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="repositorio_facturas_comision">
+                    <titulo>Repositorio Facturas de Comisión</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/repositorioFacturasComision.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_documentos_frecuentes">
+                    <titulo>Documentos Frecuentes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/documentosFrecuentes.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_elect">
+                    <titulo>Factoring Electrónico</titulo>
+                    <url>/belwls/factoringElectronicoIndexa/factoringElectronicoIndexaAction.do?codProducto=Prod01</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1400">
+            <titulo>Transferencias Alto Valor</titulo>
+            <opcion id="pagos_soma">
+                <titulo>Pagos SOMA</titulo>
+                <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+                <opcion id="pagos_soma_ingreso">
+                    <titulo>Ingresar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/ingreso.jsf</url>
+                </opcion>
+                <opcion id="pagos_soma_firma_eli">
+                    <titulo>Firmar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/firmar.jsf</url>
+                </opcion>
+                <opcion id="pagos_soma_liberar">
+                    <titulo>Liberar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/liberar.jsf</url>
+                </opcion>
+                <opcion id="pagos_soma_resumen">
+                    <titulo>Resumen</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+                </opcion>
+            </opcion>
+        </opcion>
+		</opcion>
+		<opcion id="N_1500">
+			<titulo>Pagos</titulo>
+			<opcion id="pagoPrevired">
+				<titulo>Pagos Pague Directo</titulo>
+				<url>/cl/bci/aplicaciones/productos/servicios/pagos/paguedirecto/multimoneda/vista/autorizaPagosPagueDirectoMultimoneda.jsf</url>
+      <opcion id="pagos_pague_directo_autorizar">
+                      <titulo>Autorizar Pagos</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/pagos/paguedirecto/multimoneda/vista/autorizaPagosPagueDirectoMultimoneda.jsf</url>
+				</opcion>
+      <opcion id="pagos_pague_directo_en_proceso">
+                    <titulo>Pagos en Proceso</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/paguedirecto/multimoneda/vista/consultaPagosPagueDirectoMultimoneda.jsf</url>
+		    </opcion>
+      <opcion id="pagos_pague_directo_realizados">
+                      <titulo>Pagos Realizados</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/pagos/paguedirecto/multimoneda/vista/consultaPagosRealizadosPagueDirectoMultimoneda.jsf</url>
+                </opcion>
+			</opcion>
+		</opcion>
+    </opcion>
+</bcimenu>

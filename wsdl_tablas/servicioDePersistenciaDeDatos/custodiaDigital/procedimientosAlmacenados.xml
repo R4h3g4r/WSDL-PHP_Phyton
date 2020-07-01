@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="custodiaDigital.procedimientosAlmacenados">
+
+	<procedure id="retornaTipoProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_tipoproducto()}
+	</procedure>
+	<procedure id="retornaOrigenDigitalizacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_origendigitalizacion()}
+	</procedure>
+	<procedure id="retornaEstado" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_estados()}
+	</procedure>
+	<procedure id="retornaEstadoDocumentos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_crg_documentos_ope(#inicioPeriodo#,#finPeriodo#,#tipoProducto#,#origenDigitalizacion#,#estado#)}
+	</procedure>
+	<procedure id="retornaOperacionesCanceladas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_bus_operacion(#inicioPeriodo#,#finPeriodo#,#tipoProducto#,#estadoCancelacion#,#cadenaNumeroOperacion#)}
+	</procedure>
+	<procedure id="modificaEstadoOperacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_mod_vigencia_ope(#idOperacionCustodia#,#vigencia#)}
+	</procedure>
+	<procedure id="retornaSlaBancasPorProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_sla_bancas_producto(#tipoProducto#)}
+	</procedure>
+	<procedure id="retornaTipoDocumentos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_tipodocumentos(#idProducto#)}
+	</procedure>
+	<procedure id="retornaCelulaDocumentoProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_cel_doc_producto(#idProducto#,#idDocumento#,#codRegion#)}
+	</procedure>
+	<procedure id="retornaProveedores" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_proveedores()}
+	</procedure>
+	<procedure id="retornaCelulas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_celulas_prv(#idProveedor#)}
+	</procedure>
+	<procedure id="retornaSLABancaProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_sla_banca_producto(#idProducto#,#idBanca#)}
+	</procedure>
+	<procedure id="modificaSlaBancaProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_act_sla_banca_producto(#idProducto#,#idBanca#,#cntDiasRM#,#cntDiasRE#,#habilitado#)}
+	</procedure>
+	<procedure id="retornaBancasNoAsociadas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_bancas_no_asoc_producto(#idProducto#)}
+	</procedure>
+	<procedure id="ingresaSlaBancaProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_sla_banca_producto(#idProducto#,#idBanca#,#cntDiasRM#,#cntDiasRE#)}
+	</procedure>
+	<procedure id="modificaCelulaDocumentoProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_act_cel_doc_producto(#idCelula#,#idProducto#,#idDocumento#,#codRegion#,#grupoCorreo#,#idCelulaModificada#,#idProveedor#)}
+	</procedure>
+	<procedure id="ingresaCelulaDocumentoProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_cel_doc_producto(#idCelula#,#idProducto#,#idDocumento#,#codRegion#)}
+	</procedure>
+    <procedure id="retornaDocumentosControlDia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_doc_ctr_calidad_dia(#fechaDia#)}
+	</procedure>
+	<procedure id="retornaDocumentoControl" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_doc_ctr_calidad(#idDocControl#)}
+	</procedure>
+	<procedure id="modificaEstadoDocumentoControl" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_act_est_doc_ctr_calidad(#idDocControl#, #estadoRevision#)}
+	</procedure>
+	<procedure id="retornaDocumentosProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_documentos_producto(#idProducto#)}
+		</procedure>	
+<procedure 
+id="retornaDocumentoProducto" 
+parameterClass="java.util.HashMap" 
+resultClass="java.util.HashMap"
+>
+		{CALL sp_obt_documento_producto(#idProducto#,#idDocumento#)}
+
+	</procedure>	
+
+<procedure id="modificaDocumentoProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+		{CALL sp_act_documento_producto (#idProducto#, #idDocumento#,#nombreDocumento#,#nombreSimbolico#,#opcional#,#habilitado#)}
+</procedure>
+
+	<procedure 
+id="retornaDocumentosNoAsociados" 
+parameterClass="java.util.HashMap" 
+resultClass="java.util.HashMap"
+>
+		{CALL sp_cns_documentos_no_asoc_prod(#idProducto#)}
+
+	</procedure>
+
+<procedure id="obtenerTiposDeProductoCustodia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_tipoproducto()}
+	</procedure>
+	<procedure id="obtenerTipoDeProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obt_tipoproducto_por_cod(#codProducto#)}
+	</procedure>
+	<procedure id="modificarMontosMonedasPorProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_act_mto_producto(#codProducto#, #montoUF#, #montoCLP#, #montoEUR#, #montoUSD#)}
+	</procedure>
+		<procedure id="ingresarNuevoDocumentoPorProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_nvo_doc_producto(#idProducto#, #nombreDocumento#, #nombreSimbolico#, #tipoDocumento#)}
+	</procedure>
+			<procedure id="ingresarDocumentoPorProducto" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_doc_producto(#idProducto#, #idDocumento#)}
+	</procedure>
+	
+</sqlMap>

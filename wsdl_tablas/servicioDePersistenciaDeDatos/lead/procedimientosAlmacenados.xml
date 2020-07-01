@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="lead.procedimientosAlmacenados">
+
+  <!-- ========================================================================================== ==
+    == consultaEstadoCivil
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codEstadoCivil"      jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desEstadoCivil"      jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaEstadoCivil" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaTarjeta
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codTarjeta"  jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desTarjeta"  jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaTarjeta" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaTipoVivienda
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codVivienda" jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desVivienda" jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaTipoVivienda" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaNacionalidad
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codNacionalidad"   jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desNacionalidad"   jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaNacionalidad" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaTipoActividad
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codActividadLab"  jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desActividadLab"  jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaTipoActividad" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaActividadIndependiente
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codActividadLabInd"    jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desActividadLabInd"    jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaActividadIndependiente" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataActLab(#actividad#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaActividadDependiente
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codActividadLabDep"   jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desActividadLabDep"   jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaActividadDependiente" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataActLab(#actividad#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaActividadPasivo
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codActividadLabPas"   jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desActividadLabPas"   jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaActividadPasivo" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataActLab(#actividad#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaBancos
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codBanco" jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desBanco" jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaBancos" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaRegiones
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codRegion" jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desRegion" jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaRegiones" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaComunas
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codRegion"       jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="codComuna"       jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desComuna"       jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaComunas" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataComunas(#tabla#) }
+  </procedure>
+
+  <!-- ========================================================================================== ==
+    == consultaNivelEstudios
+    == ========================================================================================== -->
+
+  <resultMap id="ResultEvaluacionCrediticiaServ" class="java.util.HashMap">
+    <result property="codNivelEstudios"   jdbcType="VARCHAR" javaType="java.lang.String" />
+    <result property="desNivelEstudios"   jdbcType="VARCHAR" javaType="java.lang.String" />
+  </resultMap>
+
+  <procedure id="consultaNivelEstudios" resultMap="ResultEvaluacionCrediticiaServ">
+     { call SP_RescataData(#tabla#) }
+  </procedure>
+
+    
+  <resultMap id="ResultConsultarOfertaTarjetaCredito" class="java.util.HashMap">
+    <result property="cupoPesos"  jdbcType="String" javaType="java.lang.String" />
+	<result property="cupoDolares"  jdbcType="String" javaType="java.lang.String" />
+	<result property="estadoOferta"  jdbcType="String" javaType="java.lang.String" />
+  </resultMap>
+
+    <procedure id="consultarOfertaTarjetaCredito" resultMap="ResultConsultarOfertaTarjetaCredito">
+     { call sp_cns_ofe_tar_cre(#rut#) }
+  </procedure>  
+
+<!-- ========================================================================================== ==
+    == Consulta Oferta Vigente
+    == ========================================================================================== -->  
+  
+<resultMap id="getConsultaOferta" class="java.util.HashMap">
+    <result property="clirut"           jdbcType="char" javaType="String" />
+    <result property="fecha_exp"        jdbcType="DATE" javaType="java.util.Calendar"  typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+    <result property="monto_liq"        jdbcType="int"  javaType="int" />
+    <result property="monto_compra"     jdbcType="int"  javaType="int" />
+    <result property="cupo"             jdbcType="int"     javaType="int" />
+    <result property="pla_min"             jdbcType="int"     javaType="int" />
+    <result property="pla_max"            jdbcType="int"     javaType="int" />   
+    <result property="nombreEmpresa"    jdbcType="char" javaType="String" />
+    <result property="RutEmp"            jdbcType="char" javaType="String" />
+    <result property="oferta_estado"    jdbcType="int"  javaType="int" />   
+  <result property="direccion"    jdbcType="char"  javaType="String" />   
+    <result property="ciudad"    jdbcType="char"  javaType="String" />   
+    <result property="comuna"    jdbcType="char"  javaType="String" />   
+  </resultMap>
+
+  <procedure id="consultaOferta" resultMap="getConsultaOferta">
+     { call sp_consultar_oferta_vigente(#rut# ) }
+  </procedure> 
+	
+	<!--  Actualiza estado de la Oferta -->
+	
+	 <parameterMap id="setActualizaOferta" class="java.util.HashMap">
+		<parameter property="rutCliente"	jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="estadoOferta"	jdbcType="int"		javaType="int" />
+	</parameterMap>
+ 	<procedure id="actualizaOferta" parameterMap="setActualizaOferta" resultClass="int">
+     { call sp_actualizar_oferta(?, ?) }
+	</procedure>
+
+</sqlMap>

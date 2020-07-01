@@ -1,0 +1,15 @@
+monedas;codes=0999,0998;
+monedas0999;desc=Pesos;
+monedas0998;desc=UF;
+
+rutasDatos;urlpdf=tablas/impresion/xslt/;urlimage=/export/weblogic/bea/wlsplatform/extras/workstationpdf/imagenes/;logo=LogoCorporativo.JPG;archivoXsl=certificadoDeudaLey20130.xsl;
+
+consultasMasivas;tipoComandoOpe=EMI,ASO;tipoComando=EMI,ASO,ING;
+campoTipoComando;EMI=emitidos;ASO=utilizados;ING=siningreso;
+
+valGlosa;rFecha1=01/07/2005;rFecha2=30/06/2007;rFecha3=01/07/2007;mostrarGls1=parrafo1;mostrarGls2=parrafo2;mostrarGls3=parrafo3;mostrarGls4=parrafo4;
+
+#journalizacion
+#El campo Evento es enviado directo desde los action.
+journalizacion150;producto=L20130;evento=;subEvento=CERTIF;nombre=CERTDEUDA;medio=;estadoEventoNegocio=P;
+journalizacion151;producto=L20130;evento=;subEvento=CERTIF;nombre=CERTDEUDA;medio=;estadoEventoNegocio=P;

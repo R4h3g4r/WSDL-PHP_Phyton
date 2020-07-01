@@ -1,0 +1,10 @@
+searchBasePersonas;valor=ou=personas,o=bci.cl;
+#activeDirectory;servidor=ldap://161.131.197.156;claseLdap=com.sun.jndi.ldap.LdapCtxFactory;tipoAuntetificacion=simple;nombreDominio=@dom_bci_prod.cl;
+activeDirectory;servidor=ldap://161.131.140.31;claseLdap=com.sun.jndi.ldap.LdapCtxFactory;tipoAuntetificacion=simple;nombreDominio=@corporacioncert.cl;
+
+
+
+
+
+
+

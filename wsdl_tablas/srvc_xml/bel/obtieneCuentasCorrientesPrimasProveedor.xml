@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name = "sp_CEII_obtieneCtasCctCpr">
+  <context>
+
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+
+    <joltpool_name value="wcorp.bprocess.bciexpress.infoproveedor.DummyFacadeImpl" />
+
+  </context>
+  <input>
+		
+        <field
+          java_name = "rutEmpresaProveedora"
+          type = "String"
+          size = "12"
+          middle_name = "emp_num_rut"
+        />
+		
+        <field
+          java_name = "numeroDeConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "cnv_num"
+        />
+		
+  </input>
+  <output>
+       <struct struct_size="0" class_name="CtasCctCprProveedorVO" var_name="ctasCctCprProveedorVO">
+        <field
+          java_name = "numeroDeCta"
+          type = "String"
+          size = "12"
+          middle_name = "numeroDeCta"
+        />
+
+        <field
+          java_name = "tipoDeCta"
+          type = "String"
+          size = "4"
+          middle_name = "tipoDeCta"
+        />
+
+        <field
+          java_name = "glosaCta"
+          type = "String"
+          size = "25"
+          middle_name = "glosaCta"
+        />
+		
+	   <field
+          java_name = "montoMaxCta"
+          type = "double"
+          size = "20"
+          integers = "15"
+          decimals = "5"
+          middle_name = "montoMaxCta"
+        />
+
+	   <field
+          java_name = "montoDiario"
+          type = "double"
+          size = "20"
+          integers = "15"
+          decimals = "5"
+          middle_name = "montoDiario"
+        />
+	   
+	   </struct>  
+  </output>    
+</service>  

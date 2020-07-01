@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_car_cli_emp">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field middle_name="cod_eje" type="String" size="0" java_name="ejecutivo"/>
+		<field middle_name="cod_ofi" type="String" size="0" java_name="oficina"/>
+		<field middle_name="can_reg" type="int" size="0" java_name="cantidadRegistros"/>
+		<field middle_name="rut" type="long" size="0" java_name="rut"/>
+        <field middle_name="ind_pag" type="int" size="0" java_name="indicadorPagina"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="DatosClienteEmpresaTO" var_name="datosClientes">
+			<field middle_name="rut" type="long" size="0" java_name="rut"/>
+			<field middle_name="dv" type="char" size="0" java_name="digitoVerificador"/>
+			<field middle_name="nom" type="String" size="0" java_name="nombre"/>
+			<field middle_name="eje" type="String" size="0" java_name="ejecutivo"/>
+			<field middle_name="prm_dvn" type="double" size="0" java_name="vistasPromedioMonedaNacional" default_value="0"/>
+			<field middle_name="prm_dvx" type="double" size="0" java_name="vistasPromedioMonedaExtranjera" default_value="0"/>
+			<field middle_name="prm_col" type="double" size="0" java_name="colocacionesPromedioTotales" default_value="0"/>
+			<field middle_name="mfi_col" type="double" size="0" java_name="margenBrutoColocacionesTotales" default_value="0"/>
+			<field middle_name="mfi_dvn" type="double" size="0" java_name="margenBrutoDepositosVista" default_value="0"/>
+			<field middle_name="deu_sbe" type="double" size="0" java_name="deudaSuper" default_value="0"/>
+			<field middle_name="can_tot" type="long" size="0" java_name="cantidadTotal" default_value="0"/>
+		</struct>
+	</output>
+</service>

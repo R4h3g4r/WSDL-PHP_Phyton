@@ -1,0 +1,29 @@
+# ALERTA ACTIVACION MULTILINEA                                  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=PASOS A SEGUIR ALERTA PROGRAMA MULTILINEA.;
+GLOSA1;mensaje=Este cliente, puede cursar su próximo crédito por Internet a través de la Multilínea.;
+GLOSA2;mensaje=Para esto, debe contar con los siguientes requisitos:;
+GLOSA3;mensaje=Creación de la línea (Cliente Nuevo, Célula de Activación – Cliente Vigente, Célula de Reactivación);
+GLOSA4;mensaje=Firmar documentación (Formulario de Solicitud de Crédito, Condiciones Generales, Pagaré en $, Artículo 85, *FOGAPE en caso de ser necesario*).;                
+GLOSA5;mensaje=Acceso a Internet: Convenio Bci Express o E-pyme.;            
+GLOSA6;mensaje=Ingresar Avales a Lotus Asistente Garantía.;
+
+#Glosa para desplegar por pdf
+
+GLOSAPDF0;mensaje=PASOS A SEGUIR ALERTA PROGRAMA MULTILINEA.;
+GLOSAPDF1;mensaje=Este cliente, puede cursar su próximo crédito por Internet a través de la Multilínea.;
+GLOSAPDF2;mensaje=Para esto, debe contar con los siguientes requisitos:;
+GLOSAPDF3;mensaje=Creación de la línea (Cliente Nuevo, Célula de Activación – Cliente Vigente, Célula de Reactivación).;
+GLOSAPDF4;mensaje=Firmar documentación (Formulario de Solicitud de Crédito, Condiciones Generales, Pagaré en $, Artículo 85, *FOGAPE en caso de ser necesario*).;                
+GLOSAPDF5;mensaje=Acceso a Internet: Convenio Bci Express o E-pyme.;            
+GLOSAPDF6;mensaje=Ingresar Avales a Lotus Asistente Garantía.;
+
+#Viñeta Explicativa
+VINETA;calcula=ACTIVACION MULTILINEA.;periodo= QUINCENAL.;fuente= .;
+
+
+
+
+
+
+

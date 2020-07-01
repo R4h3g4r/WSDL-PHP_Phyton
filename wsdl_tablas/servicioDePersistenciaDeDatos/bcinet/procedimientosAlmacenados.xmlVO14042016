@@ -1,0 +1,621 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bcinetkpi.procedimientosAlmacenados">
+
+	<resultMap id="getDatosContactoContKPI" class="java.util.HashMap">
+		<result  property="act_id_ejecutivo" jdbcType="char"  javaType="java.lang.String" column="act_id_ejecutivo" />
+		<result  property="act_total_porcentaje" jdbcType="decimal"  javaType="double" column="act_total_porcentaje" />
+		<result  property="act_cant_renta_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_renta_actualizar" />
+		<result  property="act_cant_celular_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_celular_actualizar" />
+		<result  property="act_cant_correo_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_correo_actualizar" />
+		<result  property="act_cant_direccion_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_direccion_actualizar" />
+		<result  property="act_fec_actualizacion_correo" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_correo" />
+		<result  property="act_fec_actualizacion_renta" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_renta" />
+		<result  property="act_fec_actualizacio_direccion" jdbcType="smallint"  javaType="int" column="act_meses_actualizacio_direcci" />
+		<result  property="act_fec_actualizacion_celular" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_celula" />
+		<result  property="act_fec_carga_datos_desde_dw" jdbcType="datetime"  javaType="java.util.Date" column="act_fec_carga_datos_desde_dw" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteCelular" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_num_celular_cliente" jdbcType="char" javaType="java.lang.String" column="add_num_celular_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteCorreo" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_correo_cliente" jdbcType="char" javaType="java.lang.String" column="add_correo_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteDireccion" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_direccion_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_direccion_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteRenta" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_mnt_renta_cliente" jdbcType="decimal" javaType="double" column="add_mnt_renta_cliente" />
+	</resultMap>
+
+	<procedure id="consultaDatosContactoContKPI" parameterClass="java.util.HashMap" resultMap="getDatosContactoContKPI">
+		{ CALL sp_cns_contadores_kpi(#idEjecutivo#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesCorreo" parameterClass="java.util.HashMap" resultMap="getDetalleClienteCorreo">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesRenta" parameterClass="java.util.HashMap" resultMap="getDetalleClienteRenta">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesDireccion" parameterClass="java.util.HashMap" resultMap="getDetalleClienteDireccion">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesCelular" parameterClass="java.util.HashMap" resultMap="getDetalleClienteCelular">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+	
+	<parameterMap id="setConsultaDatosCliente" class="java.util.HashMap">
+    <parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+ </parameterMap>
+ 
+ <resultMap id="getConsultaDatosCliente" class="java.util.HashMap">
+    <result  property="nombre_cliente"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_cliente" />
+    <result  property="apellido_paterno"           jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno" />
+    <result  property="apellido_materno"           jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno" />
+    <result  property="meses_antiguedad"           jdbcType="TINYINT" javaType="java.lang.Integer" column="meses_antiguedad" />
+    <result  property="empresa_trabajo"            jdbcType="varchar" javaType="java.lang.String"  column="empresa_trabajo" />
+    <result  property="fecha_nacimiento"           jdbcType="DATE"    javaType="java.util.Date"    column="fecha_nacimiento" />
+    <result  property="estado_civil"               jdbcType="varchar" javaType="java.lang.String"  column="estado_civil" />
+    <result  property="rut_conyuge"                jdbcType="NUMERIC" javaType="java.lang.Long"    column="rut_conyuge" />
+    <result  property="dv_conyuge"                 jdbcType="CHAR"    javaType="java.lang.String"  column="dv_conyuge" />
+    <result  property="nombre_conyuge"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_conyuge" />
+    <result  property="apellido_paterno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno_conyuge" />
+    <result  property="apellido_materno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno_conyuge" />
+    <result  property="profesion_cliente"          jdbcType="varchar" javaType="java.lang.String"  column="profesion_cliente" />
+    <result  property="situacion_laboral"          jdbcType="varchar" javaType="java.lang.String"  column="situacion_laboral" />
+    
+    <result  property="renta_fija"                 jdbcType="DECIMAL" javaType="java.lang.Double"  column="renta_fija" />
+    <result  property="renta_variable"             jdbcType="DECIMAL" javaType="java.lang.Double"  column="renta_variable" />
+    <result  property="fecha_actualizacion_renta_fij" jdbcType="DATE" javaType="java.util.Date"    column="fecha_actualizacion_renta_fij" />
+    <result  property="fecha_actualizacion_renta_var" jdbcType="DATE" javaType="java.util.Date"    column="fecha_actualizacion_renta_var" />
+    <result  property="telefono_cliente"           jdbcType="varchar" javaType="java.lang.String"  column="telefono_cliente" />
+    <result  property="email_cliente"              jdbcType="varchar" javaType="java.lang.String"  column="email_cliente" />
+    <result  property="celular_cliente"            jdbcType="varchar" javaType="java.lang.String"  column="celular_cliente" />
+    <result  property="banca_cliente"              jdbcType="varchar" javaType="java.lang.String"  column="banca_cliente" />
+    <result  property="segmento_cliente"           jdbcType="varchar" javaType="java.lang.String"  column="segmento_cliente" />
+    <result  property="plan_cliente"               jdbcType="varchar" javaType="java.lang.String"  column="plan_cliente" />
+    <result  property="ind_abono_remuneracion"     jdbcType="varchar" javaType="java.lang.String"  column="ind_abono_remuneracion" />
+    <result  property="indicador_convenio"         jdbcType="varchar" javaType="java.lang.String"  column="indicador_convenio" />
+    <result  property="pac_contratados"            jdbcType="TINYINT" javaType="java.lang.Integer" column="pac_contratados" />
+    <result  property="pat_contratados"            jdbcType="TINYINT" javaType="java.lang.Integer" column="pat_contratados" />
+    <result  property="login_ejecutivo"            jdbcType="varchar" javaType="java.lang.String"  column="login_ejecutivo" />
+    <result  property="nombre_ejecutivo"           jdbcType="varchar" javaType="java.lang.String"  column="nombre_ejecutivo" />
+    <result  property="codigo_oficina"             jdbcType="INT"     javaType="java.lang.Integer" column="codigo_oficina" />
+    <result  property="nombre_oficina"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_oficina" />
+    <result  property="numero_cta_corriente_antigua"  jdbcType="varchar" javaType="java.lang.String"  column="numero_cta_corriente_antigua" />
+    <result  property="numero_cta_corriente_antigua2" jdbcType="varchar" javaType="java.lang.String"  column="numero_cta_corriente_antigua2" />
+    <result  property="cantidad_cuentas_corrientes"   jdbcType="TINYINT" javaType="java.lang.Integer" column="cantidad_cuentas_corrientes" />
+    <result  property="condicion_cct_antigua"         jdbcType="varchar" javaType="java.lang.String"  column="condicion_cct_antigua" />
+    <result  property="condicion_cct_antigua2"         jdbcType="varchar" javaType="java.lang.String"  column="condicion_cct_antigua2" />
+    <result  property="nacionalidad_cliente"         jdbcType="varchar" javaType="java.lang.String"  column="nacionalidad_cliente" />
+ </resultMap>
+	
+ <procedure id="consultaDatosCliente" parameterMap="setConsultaDatosCliente" resultMap="getConsultaDatosCliente">
+    { CALL sp_cns_bloquecliente(?) }
+ </procedure>
+    
+<!--     consulta de informacion para tabCliente -->
+
+	<parameterMap id="setConsultaInformacionPersonal" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+	</parameterMap>
+ 
+	<resultMap id="getConsultaInformacionPersonal" class="java.util.HashMap">
+		<result  property="fecha_nacimiento"           jdbcType="DATE"    javaType="java.util.Date"    column="fecha_nacimiento" />
+		<result  property="nacionalidad_cliente"       jdbcType="varchar" javaType="java.lang.String"  column="nacionalidad_cliente" />
+		<result  property="rut_conyuge"                jdbcType="NUMERIC" javaType="java.lang.Long"    column="rut_conyuge" />
+		<result  property="dv_conyuge"                 jdbcType="CHAR" 	  javaType="java.lang.String"  column="dv_conyuge" />
+		<result  property="nombre_conyuge"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_conyuge" />
+		<result  property="apellido_paterno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno_conyuge" />
+		<result  property="apellido_materno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno_conyuge" />
+		<result  property="regimen_conyugal"           jdbcType="varchar" javaType="java.lang.String"  column="regimen_conyugal" />
+		<result  property="situacion_laboral"          jdbcType="varchar" javaType="java.lang.String"  column="situacion_laboral" />
+		<result  property="situacion_vivienda"         jdbcType="varchar" javaType="java.lang.String"  column="situacion_vivienda" />
+		<result  property="nivel_educacional"          jdbcType="varchar" javaType="java.lang.String"  column="nivel_educacional" />
+		<result  property="direccion_principal_cli"    jdbcType="varchar" javaType="java.lang.String"  column="direccion_principal_cli" />
+		<result  property="cliente_con_transfer"       jdbcType="varchar" javaType="java.lang.String"  column="cliente_con_transfer" />
+	</resultMap>
+	
+	<procedure id="consultaInformacionPersonal" parameterMap="setConsultaInformacionPersonal" resultMap="getConsultaInformacionPersonal">
+		{ CALL sp_cns_datosbasicos(?) }
+	</procedure>
+<!-- 	fin consulta de informacion para tabcliente -->
+
+<!--     consulta de sociedades relacionadas a cliente titular -->
+
+    <parameterMap id="setConsultaSociedadesRutTitular" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaSociedadesRutTitular" class="java.util.HashMap">
+        <result  property="rut_original"           jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_original" />
+        <result  property="rut_padre"              jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_padre" />
+        <result  property="rut_vinculado"          jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_vinculado" />
+        <result  property="nombre_vinculado"       jdbcType="varchar"    javaType="java.lang.String"   column="scd_nombre_vinculado" />
+        <result  property="tipo_vinculacion"       jdbcType="varchar"    javaType="java.lang.String"   column="scd_tipo_vinculacion" />
+        <result  property="nivel"                  jdbcType="INT"        javaType="java.lang.Integer"  column="scd_nivel_relacion" />
+        <result  property="cantidad_sociedades"    jdbcType="INT"        javaType="java.lang.Integer"  column="scd_cantidad_sociedades" />
+        <result  property="esClienteBci"           jdbcType="bit"        javaType="Boolean"            column="esClienteBci" />
+        <result  property="poseePropiedades"       jdbcType="bit"        javaType="Boolean"            column="poseePropiedades" />
+        <result  property="poseeVehiculos"         jdbcType="bit"        javaType="Boolean"            column="poseeVehiculos" />
+        <result  property="fecha_actualizacion"    jdbcType="DATE"       javaType="java.util.Date"     column="scd_fecha_actualizacion" />
+    </resultMap>
+    
+    <procedure id="consultaSociedadesRutTitular" parameterMap="setConsultaSociedadesRutTitular" resultMap="getConsultaSociedadesRutTitular">
+        { CALL sp_cns_relacionados_titular(?) }
+    </procedure>
+<!--    fin consulta de sociedades relacionadas a cliente titular-->
+
+<!--     consulta de propiedades relacionadas a cliente titular -->
+
+    <parameterMap id="setConsultaPropiedadesPersona" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaPropiedadesPersona" class="java.util.HashMap">
+        <result  property="rut"                 jdbcType="NUMERIC"  javaType="java.lang.Long"       column="pro_rut" />
+        <result  property="dv"                  jdbcType="CHAR"     javaType="java.lang.String"     column="pro_dv" />
+        <result  property="rol_manzana"         jdbcType="CHAR"     javaType="java.lang.String"     column="pro_rol_manzana" />
+        <result  property="rol_predio"          jdbcType="CHAR"     javaType="java.lang.String"     column="pro_rol_predio" />
+        <result  property="tipo_propiedad"      jdbcType="varchar"  javaType="java.lang.String"     column="pro_tipo_propiedad" />
+        <result  property="direccion"           jdbcType="varchar"  javaType="java.lang.String"     column="pro_direccion" />
+        <result  property="avaluo"              jdbcType="NUMERIC"  javaType="java.lang.Long"       column="pro_avaluo" />
+        <result  property="destino"             jdbcType="varchar"  javaType="java.lang.String"     column="pro_destino" />
+        <result  property="fecha_actualizacion" jdbcType="DATE"     javaType="java.util.Date"       column="pro_fecha_actualizacion" />
+        <result  property="comuna"              jdbcType="varchar"  javaType="java.lang.String"     column="pro_glosa_comuna" />
+        <result  property="ciudad"              jdbcType="varchar"  javaType="java.lang.String"     column="pro_glosa_ciudad" />
+    </resultMap>
+    
+    <procedure id="consultaPropiedadesPersona" parameterMap="setConsultaPropiedadesPersona" resultMap="getConsultaPropiedadesPersona">
+        { CALL sp_cns_propiedades_persona(?) }
+    </procedure>
+<!--    fin consulta de propiedades relacionadas a cliente titular-->
+
+<!--     consulta de vehiculos relacionadas a un rut-->
+
+    <parameterMap id="setConsultaVehiculosPersona" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaVehiculosPersona" class="java.util.HashMap">
+        <result  property="rut"                 jdbcType="NUMERIC"      javaType="java.lang.Long"        column="veh_rut" />
+        <result  property="dv"                  jdbcType="CHAR"         javaType="java.lang.String"      column="veh_dv" />
+        <result  property="nombre"              jdbcType="varchar"      javaType="java.lang.String"      column="veh_nombre" />
+        <result  property="patente"             jdbcType="varchar"      javaType="java.lang.String"      column="veh_patente" />
+        <result  property="dv_patente"          jdbcType="varchar"      javaType="java.lang.String"      column="veh_dv_patente" />
+        <result  property="marca"               jdbcType="varchar"      javaType="java.lang.String"      column="veh_marca" />
+        <result  property="tipo_vehiculo"       jdbcType="varchar"      javaType="java.lang.String"      column="veh_tipo_vehiculo" />
+        <result  property="modelo"              jdbcType="varchar"      javaType="java.lang.String"      column="veh_modelo" />
+        <result  property="anyo_fabricacion"    jdbcType="INT"          javaType="java.lang.Integer"     column="veh_anyo_fabricacion" />
+        <result  property="fecha_actualizacion" jdbcType="DATE"         javaType="java.util.Date"        column="veh_fecha_actualizacion" />
+	<result  property="tasacion"            jdbcType="NUMERIC"      javaType="java.lang.Long"        column="veh_tasacion" />
+        <result  property="veh_numero_motor"    jdbcType="varchar"      javaType="java.lang.String"      column="veh_numero_motor" />
+        <result  property="veh_numero_chasis"   jdbcType="varchar"      javaType="java.lang.String"      column="veh_numero_chasis" />
+    </resultMap>
+    
+    <procedure id="consultaVehiculosPersona" parameterMap="setConsultaVehiculosPersona" resultMap="getConsultaVehiculosPersona">
+        { CALL sp_cns_vehiculos_persona(?) }
+    </procedure>
+<!--    fin consulta de vehiculos relacionadas a un rut-->
+
+<!-- Ini Alerta Marketing Cliente -->
+
+	<parameterMap id="setAlertaMarketing" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+	</parameterMap>
+
+	<resultMap id="getAlertaMarketing" class="java.util.HashMap">
+		<result property="mensaje" jdbcType="varchar" javaType="java.lang.String"  column="mensaje" />
+	</resultMap>
+	
+	<procedure id="alertaMarketing" parameterMap="setAlertaMarketing" resultMap="getAlertaMarketing">
+		{ CALL sp_cns_alerta_marketing(?) }
+	</procedure>
+	
+<!-- Fin Alerta Marketing Cliente -->
+
+<!-- INICIO CONSULTA EJECUTIVOS RITMO DE VENTA -->
+
+    <parameterMap id="setEjecutivosRitmoVenta" class="java.util.HashMap">
+        <parameter property="codOficina"  jdbcType="CHAR"  javaType="java.lang.String" />
+        <parameter property="tipoRitmo"  jdbcType="CHAR"  javaType="java.lang.String" />
+    </parameterMap>
+
+    <resultMap id="ejecutivosRitmoVenta" class="java.util.HashMap">
+        <result property="eje"    javaType="java.lang.String"   column="eje"   jdbcType="CHAR" />
+        <result property="prd"    javaType="java.lang.String"   column="prd"   jdbcType="CHAR" />
+        <result property="prdDes"   javaType="java.lang.String"      column="prd_des"  jdbcType="CHAR" />
+        <result property="vtaNta"   javaType="double"      column="vta_nta"  jdbcType="DECIMAL" />
+        <result property="pptoNta"   javaType="double"      column="ppto_nta"  jdbcType="DECIMAL" />
+        <result property="cumpNta"   javaType="double"      column="cump_nta"  jdbcType="DECIMAL" />
+        <result property="vtaBrt"   javaType="double"      column="vta_brt"  jdbcType="DECIMAL" />
+        <result property="pptoBrt"   javaType="double"      column="ppto_brt"  jdbcType="DECIMAL" />
+        <result property="cumpBrt"   javaType="double"      column="cump_brt"  jdbcType="DECIMAL" />
+        <result property="anoMesDia"   javaType="java.util.Date"      column="ano_mes_dia"  jdbcType="DATETIME" />
+    </resultMap>
+
+    <procedure id="consultaEjecutivosRitmoVenta" parameterMap="setEjecutivosRitmoVenta" resultMap="ejecutivosRitmoVenta">
+        {CALL sp_cns_ritmo_venta_eje_por_ofi( ?, ? ) }
+    </procedure>
+<!-- FIN CONSULTA EJECUTIVOS RITMO DE VENTA -->
+    
+    
+    
+<!-- INICIO CONSULTA RITMO DE VENTA POR OFICINA -->
+
+    <parameterMap id="setRitmoVentaPorOficina" class="java.util.HashMap">
+        <parameter property="codOficina"  jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+
+    <resultMap id="ritmoVentaPorOficina" class="java.util.HashMap">
+        <result property="prd"    javaType="String"   column="prd"   jdbcType="CHAR" />
+        <result property="prdDes"   javaType="String"      column="prd_des"  jdbcType="CHAR" />
+        <result property="sumVtaNta"   javaType="double"      column="sum_vta_nta"  jdbcType="DECIMAL" />
+        <result property="sumPptoNta"   javaType="double"      column="sum_ppto_nta"  jdbcType="DECIMAL" />
+        <result property="sumCumpNta"   javaType="double"      column="sum_cump_nta"  jdbcType="DECIMAL" />
+        <result property="sumVtaBrt"   javaType="double"      column="sum_vta_brt"  jdbcType="DECIMAL" />
+        <result property="sumPptoBrt"   javaType="double"      column="sum_ppto_brt"  jdbcType="DECIMAL" />
+        <result property="sumCumpBrt"   javaType="double"      column="sum_cump_brt"  jdbcType="DECIMAL" />
+        <result property="anoMesDia"   javaType="java.util.Date"      column="ano_mes_dia"  jdbcType="DATETIME" />
+    </resultMap>
+
+    <procedure id="consultaRitmoVentaPorOficina" parameterMap="setRitmoVentaPorOficina" resultMap="ritmoVentaPorOficina">
+        {CALL sp_cns_ritmo_venta_por_ofi(?)}
+    </procedure>
+<!-- FIN CONSULTA RITMO DE VENTA POR OFICINA -->
+<!-- ini consulta comportamiento de deudas seg??a SBIF del cliente -->
+<parameterMap id="setDeudaSBIFCliente" class="java.util.HashMap">
+    <parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+ </parameterMap>
+ 
+ <resultMap id="getDeudaSBIFCliente" class="java.util.HashMap">
+    <result  property="rut_cliente"                jdbcType="NUMERIC"  javaType="java.lang.Long"    column="rut_cliente" />
+    <result  property="dv_cliente"                 jdbcType="CHAR"     javaType="java.lang.String"  column="dv_cliente" />
+    <result  property="fecha_actualizacion"        jdbcType="DATE"     javaType="java.util.Date"    column="fecha_actualizacion" />
+    <result  property="periodo_01"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_01" />
+    <result  property="vig_directa_01"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_01" />
+    <result  property="vig_consumo_01"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_01" />
+    <result  property="vig_acreedores_01"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_01" />
+    <result  property="vig_comercial_01"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_01" />
+    <result  property="vig_hipotecaria_01"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_01" />
+    <result  property="vig_indirecta_01"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_01" />
+    <result  property="mor_monto_01"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_01" />
+    <result  property="ven_directa_01"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_01" />
+    <result  property="ven_indirecta_01"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_01" />
+    <result  property="cas_directa_01"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_01" />
+    <result  property="cas_indirecta_01"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_01" />
+    <result  property="lin_credito_01"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_01" />
+    <result  property="periodo_02"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_02" />
+    <result  property="vig_directa_02"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_02" />
+    <result  property="vig_consumo_02"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_02" />
+    <result  property="vig_acreedores_02"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_02" />
+    <result  property="vig_comercial_02"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_02" />
+    <result  property="vig_hipotecaria_02"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_02" />
+    <result  property="vig_indirecta_02"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_02" />
+    <result  property="mor_monto_02"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_02" />
+    <result  property="ven_directa_02"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_02" />
+    <result  property="ven_indirecta_02"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_02" />
+    <result  property="cas_directa_02"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_02" />
+    <result  property="cas_indirecta_02"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_02" />
+    <result  property="lin_credito_02"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_02" />
+    <result  property="periodo_03"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_03" />
+    <result  property="vig_directa_03"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_03" />
+    <result  property="vig_consumo_03"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_03" />
+    <result  property="vig_acreedores_03"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_03" />
+    <result  property="vig_comercial_03"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_03" />
+    <result  property="vig_hipotecaria_03"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_03" />
+    <result  property="vig_indirecta_03"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_03" />
+    <result  property="mor_monto_03"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_03" />
+    <result  property="ven_directa_03"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_03" />
+    <result  property="ven_indirecta_03"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_03" />
+    <result  property="cas_directa_03"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_03" />
+    <result  property="cas_indirecta_03"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_03" />
+    <result  property="lin_credito_03"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_03" />
+    <result  property="periodo_04"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_04" />
+    <result  property="vig_directa_04"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_04" />
+    <result  property="vig_consumo_04"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_04" />
+    <result  property="vig_acreedores_04"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_04" />
+    <result  property="vig_comercial_04"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_04" />
+    <result  property="vig_hipotecaria_04"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_04" />
+    <result  property="vig_indirecta_04"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_04" />
+    <result  property="mor_monto_04"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_04" />
+    <result  property="ven_directa_04"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_04" />
+    <result  property="ven_indirecta_04"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_04" />
+    <result  property="cas_directa_04"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_04" />
+    <result  property="cas_indirecta_04"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_04" />
+    <result  property="lin_credito_04"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_04" />
+    <result  property="periodo_05"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_05" />
+    <result  property="vig_directa_05"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_05" />
+    <result  property="vig_consumo_05"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_05" />
+    <result  property="vig_acreedores_05"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_05" />
+    <result  property="vig_comercial_05"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_05" />
+    <result  property="vig_hipotecaria_05"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_05" />
+    <result  property="vig_indirecta_05"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_05" />
+    <result  property="mor_monto_05"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_05" />
+    <result  property="ven_directa_05"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_05" />
+    <result  property="ven_indirecta_05"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_05" />
+    <result  property="cas_directa_05"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_05" />
+    <result  property="cas_indirecta_05"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_05" />
+    <result  property="lin_credito_05"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_05" />
+    <result  property="periodo_06"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_06" />
+    <result  property="vig_directa_06"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_06" />
+    <result  property="vig_consumo_06"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_06" />
+    <result  property="vig_acreedores_06"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_06" />
+    <result  property="vig_comercial_06"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_06" />
+    <result  property="vig_hipotecaria_06"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_06" />
+    <result  property="vig_indirecta_06"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_06" />
+    <result  property="mor_monto_06"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_06" />
+    <result  property="ven_directa_06"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_06" />
+    <result  property="ven_indirecta_06"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_06" />
+    <result  property="cas_directa_06"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_06" />
+    <result  property="cas_indirecta_06"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_06" />
+    <result  property="lin_credito_06"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_06" />
+    <result  property="periodo_07"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_07" />
+    <result  property="vig_directa_07"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_07" />
+    <result  property="vig_consumo_07"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_07" />
+    <result  property="vig_acreedores_07"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_07" />
+    <result  property="vig_comercial_07"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_07" />
+    <result  property="vig_hipotecaria_07"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_07" />
+    <result  property="vig_indirecta_07"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_07" />
+    <result  property="mor_monto_07"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_07" />
+    <result  property="ven_directa_07"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_07" />
+    <result  property="ven_indirecta_07"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_07" />
+    <result  property="cas_directa_07"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_07" />
+    <result  property="cas_indirecta_07"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_07" />
+    <result  property="lin_credito_07"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_07" />
+    <result  property="periodo_08"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_08" />
+    <result  property="vig_directa_08"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_08" />
+    <result  property="vig_consumo_08"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_08" />
+    <result  property="vig_acreedores_08"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_08" />
+    <result  property="vig_comercial_08"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_08" />
+    <result  property="vig_hipotecaria_08"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_08" />
+    <result  property="vig_indirecta_08"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_08" />
+    <result  property="mor_monto_08"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_08" />
+    <result  property="ven_directa_08"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_08" />
+    <result  property="ven_indirecta_08"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_08" />
+    <result  property="cas_directa_08"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_08" />
+    <result  property="cas_indirecta_08"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_08" />
+    <result  property="lin_credito_08"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_08" />
+    <result  property="periodo_09"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_09" />
+    <result  property="vig_directa_09"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_09" />
+    <result  property="vig_consumo_09"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_09" />
+    <result  property="vig_acreedores_09"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_09" />
+    <result  property="vig_comercial_09"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_09" />
+    <result  property="vig_hipotecaria_09"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_09" />
+    <result  property="vig_indirecta_09"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_09" />
+    <result  property="mor_monto_09"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_09" />
+    <result  property="ven_directa_09"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_09" />
+    <result  property="ven_indirecta_09"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_09" />
+    <result  property="cas_directa_09"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_09" />
+    <result  property="cas_indirecta_09"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_09" />
+    <result  property="lin_credito_09"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_09" />
+    <result  property="periodo_10"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_10" />
+    <result  property="vig_directa_10"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_10" />
+    <result  property="vig_consumo_10"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_10" />
+    <result  property="vig_acreedores_10"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_10" />
+    <result  property="vig_comercial_10"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_10" />
+    <result  property="vig_hipotecaria_10"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_10" />
+    <result  property="vig_indirecta_10"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_10" />
+    <result  property="mor_monto_10"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_10" />
+    <result  property="ven_directa_10"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_10" />
+    <result  property="ven_indirecta_10"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_10" />
+    <result  property="cas_directa_10"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_10" />
+    <result  property="cas_indirecta_10"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_10" />
+    <result  property="lin_credito_10"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_10" />
+    <result  property="periodo_11"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_11" />
+    <result  property="vig_directa_11"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_11" />
+    <result  property="vig_consumo_11"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_11" />
+    <result  property="vig_acreedores_11"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_11" />
+    <result  property="vig_comercial_11"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_11" />
+    <result  property="vig_hipotecaria_11"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_11" />
+    <result  property="vig_indirecta_11"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_11" />
+    <result  property="mor_monto_11"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_11" />
+    <result  property="ven_directa_11"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_11" />
+    <result  property="ven_indirecta_11"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_11" />
+    <result  property="cas_directa_11"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_11" />
+    <result  property="cas_indirecta_11"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_11" />
+    <result  property="lin_credito_11"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_11" />
+    <result  property="periodo_12"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_12" />
+    <result  property="vig_directa_12"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_12" />
+    <result  property="vig_consumo_12"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_12" />
+    <result  property="vig_acreedores_12"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_12" />
+    <result  property="vig_comercial_12"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_12" />
+    <result  property="vig_hipotecaria_12"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_12" />
+    <result  property="vig_indirecta_12"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_12" />
+    <result  property="mor_monto_12"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_12" />
+    <result  property="ven_directa_12"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_12" />
+    <result  property="ven_indirecta_12"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_12" />
+    <result  property="cas_directa_12"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_12" />
+    <result  property="cas_indirecta_12"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_12" />
+    <result  property="lin_credito_12"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_12" />
+    <result  property="periodo_13"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_13" />
+    <result  property="vig_directa_13"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_13" />
+    <result  property="vig_consumo_13"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_13" />
+    <result  property="vig_acreedores_13"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_13" />
+    <result  property="vig_comercial_13"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_13" />
+    <result  property="vig_hipotecaria_13"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_13" />
+    <result  property="vig_indirecta_13"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_13" />
+    <result  property="mor_monto_13"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_13" />
+    <result  property="ven_directa_13"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_13" />
+    <result  property="ven_indirecta_13"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_13" />
+    <result  property="cas_directa_13"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_13" />
+    <result  property="cas_indirecta_13"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_13" />
+    <result  property="lin_credito_13"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_13" />
+    <result  property="periodo_14"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_14" />
+    <result  property="vig_directa_14"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_14" />
+    <result  property="vig_consumo_14"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_14" />
+    <result  property="vig_acreedores_14"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_14" />
+    <result  property="vig_comercial_14"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_14" />
+    <result  property="vig_hipotecaria_14"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_14" />
+    <result  property="vig_indirecta_14"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_14" />
+    <result  property="mor_monto_14"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_14" />
+    <result  property="ven_directa_14"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_14" />
+    <result  property="ven_indirecta_14"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_14" />
+    <result  property="cas_directa_14"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_14" />
+    <result  property="cas_indirecta_14"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_14" />
+    <result  property="lin_credito_14"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_14" />
+    <result  property="periodo_15"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_15" />
+    <result  property="vig_directa_15"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_15" />
+    <result  property="vig_consumo_15"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_15" />
+    <result  property="vig_acreedores_15"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_15" />
+    <result  property="vig_comercial_15"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_15" />
+    <result  property="vig_hipotecaria_15"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_15" />
+    <result  property="vig_indirecta_15"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_15" />
+    <result  property="mor_monto_15"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_15" />
+    <result  property="ven_directa_15"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_15" />
+    <result  property="ven_indirecta_15"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_15" />
+    <result  property="cas_directa_15"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_15" />
+    <result  property="cas_indirecta_15"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_15" />
+    <result  property="lin_credito_15"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_15" />
+    <result  property="periodo_16"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_16" />
+    <result  property="vig_directa_16"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_16" />
+    <result  property="vig_consumo_16"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_16" />
+    <result  property="vig_acreedores_16"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_16" />
+    <result  property="vig_comercial_16"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_16" />
+    <result  property="vig_hipotecaria_16"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_16" />
+    <result  property="vig_indirecta_16"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_16" />
+    <result  property="mor_monto_16"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_16" />
+    <result  property="ven_directa_16"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_16" />
+    <result  property="ven_indirecta_16"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_16" />
+    <result  property="cas_directa_16"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_16" />
+    <result  property="cas_indirecta_16"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_16" />
+    <result  property="lin_credito_16"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_16" />
+    <result  property="periodo_17"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_17" />
+    <result  property="vig_directa_17"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_17" />
+    <result  property="vig_consumo_17"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_17" />
+    <result  property="vig_acreedores_17"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_17" />
+    <result  property="vig_comercial_17"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_17" />
+    <result  property="vig_hipotecaria_17"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_17" />
+    <result  property="vig_indirecta_17"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_17" />
+    <result  property="mor_monto_17"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_17" />
+    <result  property="ven_directa_17"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_17" />
+    <result  property="ven_indirecta_17"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_17" />
+    <result  property="cas_directa_17"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_17" />
+    <result  property="cas_indirecta_17"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_17" />
+    <result  property="lin_credito_17"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_17" />
+    <result  property="periodo_18"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_18" />
+    <result  property="vig_directa_18"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_18" />
+    <result  property="vig_consumo_18"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_18" />
+    <result  property="vig_acreedores_18"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_18" />
+    <result  property="vig_comercial_18"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_18" />
+    <result  property="vig_hipotecaria_18"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_18" />
+    <result  property="vig_indirecta_18"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_18" />
+    <result  property="mor_monto_18"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_18" />
+    <result  property="ven_directa_18"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_18" />
+    <result  property="ven_indirecta_18"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_18" />
+    <result  property="cas_directa_18"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_18" />
+    <result  property="cas_indirecta_18"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_18" />
+    <result  property="lin_credito_18"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_18" />
+    <result  property="periodo_19"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_19" />
+    <result  property="vig_directa_19"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_19" />
+    <result  property="vig_consumo_19"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_19" />
+    <result  property="vig_acreedores_19"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_19" />
+    <result  property="vig_comercial_19"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_19" />
+    <result  property="vig_hipotecaria_19"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_19" />
+    <result  property="vig_indirecta_19"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_19" />
+    <result  property="mor_monto_19"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_19" />
+    <result  property="ven_directa_19"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_19" />
+    <result  property="ven_indirecta_19"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_19" />
+    <result  property="cas_directa_19"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_19" />
+    <result  property="cas_indirecta_19"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_19" />
+    <result  property="lin_credito_19"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_19" />
+    <result  property="periodo_20"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_20" />
+    <result  property="vig_directa_20"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_20" />
+    <result  property="vig_consumo_20"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_20" />
+    <result  property="vig_acreedores_20"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_20" />
+    <result  property="vig_comercial_20"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_20" />
+    <result  property="vig_hipotecaria_20"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_20" />
+    <result  property="vig_indirecta_20"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_20" />
+    <result  property="mor_monto_20"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_20" />
+    <result  property="ven_directa_20"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_20" />
+    <result  property="ven_indirecta_20"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_20" />
+    <result  property="cas_directa_20"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_20" />
+    <result  property="cas_indirecta_20"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_20" />
+    <result  property="lin_credito_20"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_20" />
+    <result  property="periodo_21"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_21" />
+    <result  property="vig_directa_21"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_21" />
+    <result  property="vig_consumo_21"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_21" />
+    <result  property="vig_acreedores_21"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_21" />
+    <result  property="vig_comercial_21"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_21" />
+    <result  property="vig_hipotecaria_21"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_21" />
+    <result  property="vig_indirecta_21"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_21" />
+    <result  property="mor_monto_21"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_21" />
+    <result  property="ven_directa_21"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_21" />
+    <result  property="ven_indirecta_21"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_21" />
+    <result  property="cas_directa_21"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_21" />
+    <result  property="cas_indirecta_21"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_21" />
+    <result  property="lin_credito_21"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_21" />
+    <result  property="periodo_22"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_22" />
+    <result  property="vig_directa_22"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_22" />
+    <result  property="vig_consumo_22"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_22" />
+    <result  property="vig_acreedores_22"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_22" />
+    <result  property="vig_comercial_22"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_22" />
+    <result  property="vig_hipotecaria_22"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_22" />
+    <result  property="vig_indirecta_22"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_22" />
+    <result  property="mor_monto_22"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_22" />
+    <result  property="ven_directa_22"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_22" />
+    <result  property="ven_indirecta_22"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_22" />
+    <result  property="cas_directa_22"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_22" />
+    <result  property="cas_indirecta_22"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_22" />
+    <result  property="lin_credito_22"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_22" />
+    <result  property="periodo_23"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_23" />
+    <result  property="vig_directa_23"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_23" />
+    <result  property="vig_consumo_23"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_23" />
+    <result  property="vig_acreedores_23"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_23" />
+    <result  property="vig_comercial_23"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_23" />
+    <result  property="vig_hipotecaria_23"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_23" />
+    <result  property="vig_indirecta_23"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_23" />
+    <result  property="mor_monto_23"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_23" />
+    <result  property="ven_directa_23"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_23" />
+    <result  property="ven_indirecta_23"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_23" />
+    <result  property="cas_directa_23"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_23" />
+    <result  property="cas_indirecta_23"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_23" />
+    <result  property="lin_credito_23"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_23" />
+    <result  property="periodo_24"                 jdbcType="INT"      javaType="java.lang.Integer"  column="periodo_24" />
+    <result  property="vig_directa_24"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_directa_24" />
+    <result  property="vig_consumo_24"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_consumo_24" />
+    <result  property="vig_acreedores_24"          jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_acreedores_24" />
+    <result  property="vig_comercial_24"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_comercial_24" />
+    <result  property="vig_hipotecaria_24"         jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_hipotecaria_24" />
+    <result  property="vig_indirecta_24"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="vig_indirecta_24" />
+    <result  property="mor_monto_24"               jdbcType="DECIMAL"  javaType="java.lang.Double"  column="mor_monto_24" />
+    <result  property="ven_directa_24"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_directa_24" />
+    <result  property="ven_indirecta_24"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="ven_indirecta_24" />
+    <result  property="cas_directa_24"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_directa_24" />
+    <result  property="cas_indirecta_24"           jdbcType="DECIMAL"  javaType="java.lang.Double"  column="cas_indirecta_24" />
+    <result  property="lin_credito_24"             jdbcType="DECIMAL"  javaType="java.lang.Double"  column="lin_credito_24" />
+ </resultMap>
+    
+ <procedure id="obtenerComportamientoDeudaSBIF" parameterMap="setDeudaSBIFCliente" resultMap="getDeudaSBIFCliente">
+    { CALL sp_cns_deuda_sbif(?) }
+ </procedure>
+ <!-- fin consulta comportamiento de deudas seg??a SBIF del cliente -->
+</sqlMap>

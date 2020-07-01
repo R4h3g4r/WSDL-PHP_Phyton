@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_get_rol_sig"> <!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "bancaCliente"
+          type = "char"
+          size = "1"
+          middle_name = "codBanca"
+        />
+
+        <field
+          java_name = "idRol"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "identificador2"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "idRolSiguiente"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "pr_ban_sig"
+        />
+
+  </output>
+
+</service>

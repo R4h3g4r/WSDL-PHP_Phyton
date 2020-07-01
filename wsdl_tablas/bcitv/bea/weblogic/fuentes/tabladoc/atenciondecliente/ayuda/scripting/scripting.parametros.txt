@@ -1,0 +1,57 @@
+Tabla que contiene datos para ser utilizados por la aplicación
+Scripting, relacionada con procedimientos.
+
+Glosas estado.
+~~~~~~~~~~~~~~
+
+Las glosas registradas en esta sección corresponden a la descripción de los 
+estados de los procedimientos y novedades relacionadas con los mismos. 
+Estas glosas son las que finalmente aparecerán en pantalla y son llamadas 
+mediante su código que es traído desde la base de datos de Scripting: ProcAtenTele.
+Por ejemplo:
+
+----------------------------------------------------------
+estado;0=No vigente;1=Vigente;ACT=Activado;DES=Desactivado;
+----------------------------------------------------------
+
+Glosas autentificación.
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Las glosas registradas en esta sección corresponden a la descripción de los 
+tipos de autentificación requerida para manejo de los procedimientos.
+Estas glosas son las que finalmente aparecerán en pantalla y son llamadas 
+mediante su código que es traído desde la base de datos de Scripting: ProcAtenTele.
+Por ejemplo:
+
+-------------------------------------------------------------------------------------------------------------------------------------
+autentificacion;IVR=Autentificacion IVR;MA1=Autentificacion Manual Nivel 1;MA2=Autentificacion Manual Nivel 2;SNA=Sin Autentificacion;
+-------------------------------------------------------------------------------------------------------------------------------------
+
+Tipo de novedad.
+~~~~~~~~~~~~~~~~
+
+Los tipos de novedad indican, como bien dice su nombre, el tipo que puede
+ser una novedad asociada a un procedimientos. Estas descripciones serán
+utilizadas para el despliegue de los datos de un procedimiento. Por ejemplo:
+
+-------------------------------------
+tipo;TDA=Tip de Atencion;NOV=Novedad;
+-------------------------------------
+
+Indicadores de autenticación.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Esta sección define los tipos de autentificación existentes para el manejo
+de procedimientos. Se enumeran asociando su código correspondiente y se especifica
+la cantidad de autentificaciones. Esta enumeración se utiliza para recorrer esta
+sección de acuerdo a la cantidad indicada y luego ser desplegada como lista por
+pantalla.
+
+
+[REGISTRODEVERSIONES]
+=========================================================
+
+. 05/05/2009  Francisca Craig (ADA Ltda): versión inicial.
+. 07/05/2010  Alfonso Sanchez (BCI): Se cambia Autentificacion Manual  por Autentificación Manual Nivel 1 y  Autentificación Manual Nivel 2
+
+=========================================================

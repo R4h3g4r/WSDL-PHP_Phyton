@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="gestbol.procedimientosAlmacenados">
+  	<parameterMap id="setObtenerCartera" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />				
+	</parameterMap>
+	<resultMap id="getObtenerCartera" class="java.util.HashMap">		
+		<result property="cuenta"				column="secuencia"				jdbcType="CHAR" javaType="String" />		
+	</resultMap>
+	<procedure id="obtenerCartera" parameterMap="setObtenerCartera" resultMap="getObtenerCartera">
+		{ CALL dbo.sp_web_secuencias_por_rut (?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaOperacionRentaVariable" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaInicio"  		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaFin"	   		   	jdbcType="CHAR" 		javaType="String" />				
+	</parameterMap>
+	<resultMap id="getConsultaOperacionRentaVariable" class="java.util.HashMap">		
+		<result property="fechaOperacion"		column="fecha"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="tipoBolsa"	     	column="bolsa"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="tipoOperacion"		column="tipo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="indicadorPlazo"		column="a_plazo"				nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="nemotecnico"     		column="nemo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="cantidadNominal"		column="cantidad"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="valorInicial"			column="valorinicial"			nullValue="0" 		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="tasaPrecio"			column="tasaprecio"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="valorFinal"			column="monto"					nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="fechaVencimiento"		column="fechapago"				nullValue=""		jdbcType="CHAR" javaType="String" />		
+	</resultMap>
+	<procedure id="consultaOperacionRentaVariable" parameterMap="setConsultaOperacionRentaVariable" resultMap="getConsultaOperacionRentaVariable">
+		{ CALL dbo.sp_web_oper_compravta_RV (?, ?, ?, ?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaOperacionRentaFija" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaInicio"  		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaFin"	   		   	jdbcType="CHAR" 		javaType="String" />				
+	</parameterMap>
+	<resultMap id="getConsultaOperacionRentaFija" class="java.util.HashMap">	
+		<result property="fechaOperacion"		column="fecha"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="indicadorBolsa"		column="bolsa"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="tipoOperacion"		column="tipo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="indicadorPlazo"		column="a_plazo"				nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="nemotecnico"     		column="nemo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="cantidadNominal"		column="cantidad"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="valorInicial"			column="valorinicial"			nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="tasaPrecio"			column="tasaprecio"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="valorFinal"			column="monto"					nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="fechaVencimiento"		column="fechapago"				nullValue=""		jdbcType="CHAR" javaType="String" />		
+	</resultMap>
+	<procedure id="consultaOperacionRentaFija" parameterMap="setConsultaOperacionRentaFija" resultMap="getConsultaOperacionRentaFija">
+		{ CALL dbo.sp_web_oper_compravta_RF (?, ?, ?, ?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaOperacionIntermediacionFinanciera" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaInicio"  		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaFin"	   		   	jdbcType="CHAR" 		javaType="String" />				
+	</parameterMap>
+	<resultMap id="getConsultaOperacionIntermediacionFinanciera" class="java.util.HashMap">		
+		<result property="fechaOperacion"		column="fecha"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="indicadorBolsa"		column="bolsa"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="tipoOperacion"		column="tipo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="indicadorPlazo"		column="a_plazo"				nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="nemotecnico"     		column="nemo"					nullValue=""		jdbcType="CHAR" javaType="String" />
+		<result property="cantidadNominal"		column="cantidad"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="valorInicial"			column="valorinicial"			nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="tasaPrecio"			column="tasaprecio"				nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal" />
+		<result property="valorFinal"    		column="monto"					nullValue="0"		jdbcType="DECIMAL" javaType="java.math.BigDecimal"  />
+		<result property="fechaVencimiento"		column="fechapago"				nullValue=""		jdbcType="CHAR" javaType="String" />		
+	</resultMap>
+	<procedure id="consultaOperacionIntermediacionFinanciera" parameterMap="setConsultaOperacionIntermediacionFinanciera" resultMap="getConsultaOperacionIntermediacionFinanciera">
+		{ CALL dbo.sp_web_oper_compravta_IF (?, ?, ?, ?) }
+	</procedure>
+	<parameterMap id="setConsultaMovimientosGarantia" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaInicio"  		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaFin"	   		   	jdbcType="CHAR" 		javaType="String" />				
+
+	</parameterMap>
+
+	<resultMap id="getConsultaMovimientosGarantia" class="java.util.HashMap" >		
+		<result property="indicadorBolsa"   nullValue=""		column="IND_BOLSA"			jdbcType="CHAR" javaType="String" />
+		<result property="rut"				nullValue=""	    column="RUT_CLI"			jdbcType="CHAR" javaType="String" />
+		<result property="movimentonAsocia"	nullValue=""	    column="sec_movto_asoc"		jdbcType="CHAR" javaType="String" />
+		<result property="movimiento"   	nullValue=""	    column="sec_movto"			jdbcType="CHAR" javaType="String" />
+		<result property="fechaMovimiento"	nullValue=""	    column="fec_mvto"			jdbcType="CHAR" javaType="String" />
+		<result property="nemotecnico"     	nullValue=""	    column="NEMO"				jdbcType="CHAR" javaType="String" />
+		<result property="cantidad"			nullValue="0"	    column="CANTIDAD"			jdbcType="DECIMAL" javaType="String"  />
+		<result property="codigoMovimiento"	nullValue=""	    column="cod_movto"			jdbcType="DECIMAL" javaType="String" />
+		<result property="conceptoMov"		nullValue=""	    column="concepto_mvto"		jdbcType="DECIMAL" javaType="String" />
+		<result property="descripcionMov"	nullValue=""   	    column="DESCRIP_MOVTO"		jdbcType="DECIMAL" javaType="String"  />
+		<result property="ingreso"		    nullValue="0"	    column="ingreso"			jdbcType="DECIMAL" javaType="String" />		
+		<result property="retiro"		    nullValue="0"       column="retiro"				jdbcType="DECIMAL" javaType="String" />
+
+	</resultMap>
+	
+	<procedure id="consultaMovimientosGarantia" parameterMap="setConsultaMovimientosGarantia" resultMap="getConsultaMovimientosGarantia">
+		{ CALL dbo.sp_web_valores_garantia (?, ?, ?, ?) }
+	</procedure>
+
+	<parameterMap id="setConsultaMovCtaCorrienteMercantil" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaInicio"  		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="fechaFin"	   		   	jdbcType="CHAR" 		javaType="String" />				
+
+	</parameterMap>
+
+	<resultMap id="getConsultaMovCtaCorrienteMercantil" class="java.util.HashMap" >		
+		<result property="fechaOperacion"		nullValue=""	     column="fec_mvto"				jdbcType="CHAR" javaType="String" />
+		<result property="tipoOperacion"	    nullValue=""	     column="tipo_comp_adj"			jdbcType="CHAR" javaType="String" />
+		<result property="numeroOperacion"		nullValue="0"	     column="folio_comp_adj"		jdbcType="DECIMAL" javaType="String"  />
+		<result property="descripcion"			nullValue=""	     column="descrip_movto"			jdbcType="CHAR" javaType="String" />
+		<result property="abonos"				nullValue="0"	     column="abono"					jdbcType="DECIMAL" javaType="String" />		
+		<result property="cargos"				nullValue="0"        column="cargo"					jdbcType="DECIMAL" javaType="String" />
+	</resultMap>
+	
+	<procedure id="consultaMovCtaCorrienteMercantil" parameterMap="setConsultaMovCtaCorrienteMercantil" resultMap="getConsultaMovCtaCorrienteMercantil">
+		{ CALL dbo.sp_web_mov_cta_merc (?, ?, ?, ?) }
+	</procedure>
+
+	<parameterMap id="setConsultaValoresGarantia" class="java.util.HashMap">
+  		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />
+  		<parameter property="cuenta"	   		   	jdbcType="CHAR" 		javaType="String" />
+  	</parameterMap>
+
+	<resultMap id="getConsultaValoresGarantia" class="java.util.HashMap" >		
+		<result property="mercado"   			nullValue=""		column="mercado"				jdbcType="CHAR" javaType="String" />		
+		<result property="nemotecnico" 			nullValue=""	    column="nemo"					jdbcType="CHAR" javaType="String" />
+		<result property="cantidadGarantia"		nullValue="0"	    column="can_garantia"			jdbcType="DECIMAL" javaType="String"  />		
+	</resultMap>
+	
+	<procedure id="consultaValoresGarantia" parameterMap="setConsultaValoresGarantia" resultMap="getConsultaValoresGarantia">
+		{ CALL dbo.sp_web_saldos_garantia (?, ?) }
+	</procedure>
+
+
+</sqlMap>
+		

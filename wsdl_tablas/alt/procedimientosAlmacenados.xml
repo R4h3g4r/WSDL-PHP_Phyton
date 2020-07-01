@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="alt.procedimientosAlmancenados">	
+	<resultMap id="indicadorAlertaSeguro"	class="java.util.HashMap">
+			<result property="indicador"		column="indicador"		/>
+	</resultMap>
+
+	<resultMap id="listadoPolizasMora"	class="java.util.HashMap">
+			<result property="Tipo_Documento"		column="Tipo_Documento" />
+			<result property="Nro_Documento"		column="Nro_Documento" />
+			<result property="Des_Ramo_Producto"	column="Des_Ramo_Producto"	 />
+			<result property="Des_Medio_Pago"		column="Des_Medio_Pago"	 />
+			<result property="Num_Cuota"			column="num_Cuota"	 />		
+			<result property="Monto_Cuota"			column="Monto_Cuota"	 />
+			<result property="Cod_Moneda"			column="Cod_Moneda"		 />
+			<result property="Fecha_Vencimiento"	column="Fecha_Vencimiento"	 />
+			<result property="Fecha_Cancelacion"	column="Fecha_Cancelacion"		 />
+	</resultMap>
+
+	<resultMap id="listadoNumeroPoliza"	class="java.util.HashMap">
+			<result property="Nro_Documento"		column="Nro_Documento" />
+			<result property="Nro_Item"			column="Nro_Item"	 />
+			<result property="Cod_Tipo_Materia_Asegurada"	column="Cod_Tipo_Materia_Asegurada"	 />
+			<result property="descripcion"			column="descripcion"	 />		
+	</resultMap>
+
+	<resultMap id="listadoMedioPago"	class="java.util.HashMap">
+		<result property="Tipo_Documento"	column="Tipo_Documento" />
+		<result property="Nro_Documento"	column="Nro_Documento"	 />
+		<result property="Des_Medio_Pago"	column="Des_Medio_Pago"	 />
+		<result property="Num_Cuenta"		column="Num_Cuenta"	 />		
+		<result property="Des_Institucion"	column="Des_Institucion"	 />		
+	</resultMap>
+	
+	<resultMap id="categoriasAlertas" class="java.util.HashMap">
+		<result property="codigoCategoria" javaType="String" column="cat_codigo" jdbcType="char"/>
+		<result property="nombreCategoria" javaType="String" column="cat_nombre" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="AlertasJOF" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+		<result property="alerta" javaType="String" column="alerta" jdbcType="char"/>
+		<result property="cantidad" javaType="String" column="cantidad" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="AlertasEJE" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+		<result property="alerta" javaType="String" column="alerta" jdbcType="char"/>
+		<result property="cantidad" javaType="String" column="cantidad" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="AlertasCLI" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+		<result property="alerta" javaType="String" column="alerta" jdbcType="char"/>
+		<result property="cantidad" javaType="String" column="cantidad" jdbcType="char"/>
+	</resultMap>
+
+	<resultMap id="AlertasGRE" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+		<result property="alerta" javaType="String" column="alerta" jdbcType="char"/>
+		<result property="cantidad" javaType="String" column="cantidad" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="AlertasClienteUnico" class="java.util.HashMap">
+		<result property="nombre" javaType="String" column="nombre" jdbcType="char"/>
+		<result property="rut" javaType="int" column="rut" jdbcType="int"/>
+		<result property="dv" javaType="String" column="dv" jdbcType="char"/>
+		<result property="telefono" javaType="String" column="telefono" jdbcType="char"/>
+		<result property="direccion" javaType="String" column="direccion" jdbcType="char"/>
+		<result property="codEjecutivo" javaType="String" column="codigo_ejecutivo" jdbcType="char"/>
+		<result property="ofiEjecutivo" javaType="String" column="oficina_ejecutivo" jdbcType="char"/>
+		<result property="codGestion" javaType="String" column="codigo_gestion" jdbcType="char"/>
+		<result property="infoExtra" javaType="String" column="info_extra" jdbcType="char"/>
+		<result property="cuentaCorriente" javaType="String" column="cct" jdbcType="char"/>
+		<result property="encabezado" javaType="String" column="encabezado" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="AlertasEjeCLI" class="java.util.HashMap">
+		<result property="nombre" javaType="String" column="nombre" jdbcType="char"/>
+		<result property="rut" javaType="int" column="rut" jdbcType="int"/>
+		<result property="dv" javaType="String" column="dv" jdbcType="char"/>
+		<result property="telefono" javaType="String" column="telefono" jdbcType="char"/>
+		<result property="direccion" javaType="String" column="direccion" jdbcType="char"/>
+		<result property="codEjecutivo" javaType="String" column="codigo_ejecutivo" jdbcType="char"/>
+		<result property="ofiEjecutivo" javaType="String" column="oficina_ejecutivo" jdbcType="char"/>
+		<result property="codGestion" javaType="String" column="codigo_gestion" jdbcType="char"/>
+		<result property="infoExtra" javaType="String" column="infoExtra" jdbcType="char"/>
+		<result property="cuentaCorriente" javaType="String" column="cct" jdbcType="char"/>
+		<result property="encabezado" javaType="String" column="encabezado" jdbcType="char"/>
+	</resultMap>
+	
+	
+	<resultMap id="AlertasEjeJOF" class="java.util.HashMap">
+		<result property="nombre" javaType="String" column="nombre" jdbcType="char"/>
+		<result property="rut" javaType="int" column="rut" jdbcType="int"/>
+		<result property="dv" javaType="String" column="dv" jdbcType="char"/>
+		<result property="telefono" javaType="String" column="telefono" jdbcType="char"/>
+		<result property="direccion" javaType="String" column="direccion" jdbcType="char"/>
+		<result property="codEjecutivo" javaType="String" column="codigo_ejecutivo" jdbcType="char"/>
+		<result property="ofiEjecutivo" javaType="String" column="oficina_ejecutivo" jdbcType="char"/>
+		<result property="codGestion" javaType="String" column="codigo_gestion" jdbcType="char"/>
+		<result property="infoExtra" javaType="String" column="infoExtra" jdbcType="char"/>
+		<result property="cuentaCorriente" javaType="String" column="cct" jdbcType="char"/>
+		<result property="encabezado" javaType="String" column="encabezado" jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="alertasPorCategorias" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+		<result property="alerta" javaType="String" column="alerta" jdbcType="char"/>
+		<result property="cantidad" javaType="String" column="cantidad" jdbcType="char"/>
+	</resultMap>
+
+	<resultMap id="alertasHistoricasCalificacion" class="java.util.HashMap">
+		<result property="fechaAlerta"	javaType="Date"		column="fecha_alerta" 	jdbcType="datetime"/>
+		<result property="codigoAlerta"	javaType="String" 	column="codigo_alerta" 	jdbcType="char"/>
+		<result property="motivoAlerta" 	javaType="String" 	column="motivo_alerta" 	jdbcType="char"/>
+	</resultMap>
+	
+	<resultMap id="gestionesHistoricasCalificacion" class="java.util.HashMap">
+		<result property="fechaGestion" 	javaType="Date" 	column="fecha_gestion" 	jdbcType="datetime"/>
+		<result property="codigoAlerta" 	javaType="String" 	column="codigo_alerta" 	jdbcType="char"/>
+		<result property="estadoGestion" 	javaType="String" 	column="estado" 		jdbcType="char"/>
+		<result property="ejecutivo" 		javaType="String" 	column="ejecutivo" 		jdbcType="char"/>
+		<result property="motivoAlerta" 	javaType="String" 	column="motivo_alerta" 	jdbcType="char"/>
+	</resultMap>
+	<resultMap id="comentarioGestion" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo_gestion" jdbcType="char"/>
+		<result property="gestion" javaType="String" column="nombre_gestion" jdbcType="char"/>
+		<result property="comentario" javaType="String" column="comentario" jdbcType="char"/>
+		<result property="usuario" javaType="String" column="codigo_ejecutivo" jdbcType="char"/>
+		<result property="fecha" javaType="String" column="fecha_gestion" jdbcType="DATE"/>
+	</resultMap>
+	
+	<resultMap id="obtieneTipoGestionMap" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="eve_cod_gst" jdbcType="char"/>
+		<result property="gestion" javaType="String" column="eve_gls_gst" jdbcType="char"/>
+	</resultMap>
+
+	<resultMap id="obtieneOFIConAlertasMap" class="java.util.HashMap">
+		<result property="codigoOficina" javaType="String" column="codigoOficina" jdbcType="char"/>
+	</resultMap>
+
+	<resultMap id="obtieneOficinasConAlertas" class="java.util.HashMap">
+		<result property="codigo" javaType="String" column="codigo" jdbcType="char"/>
+	</resultMap>
+	
+	<procedure id="alertaSeguro" parameterClass="java.util.HashMap" resultMap="indicadorAlertaSeguro">
+		{CALL sp_cns_ext_pol(#rut#)}
+	</procedure>
+
+	<procedure id="mediosDePago" parameterClass="java.util.HashMap" resultMap="listadoMedioPago">
+		{CALL sp_cns_med_pag(#rut#)}
+	</procedure>
+
+	<procedure id="itemsDePolizas" parameterClass="java.util.HashMap" resultMap="listadoNumeroPoliza">
+		{CALL sp_cns_num_pol(#nrodocumento#)}
+	</procedure>
+
+	<procedure id="polizasEnMora" parameterClass="java.util.HashMap" resultMap="listadoPolizasMora">
+		{CALL sp_cns_pol_seg(#rut#)}
+	</procedure>
+	
+	<procedure id="obtieneCategoriasAlertas" resultMap="categoriasAlertas" parameterClass="java.util.HashMap">
+		{CALL sp_cns_categoria_alerta()}
+	</procedure>
+	
+	<procedure id="obtieneAlertasJOF" resultMap="AlertasJOF" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ale_jof(#ejecutivos#, #codigo#)}
+	</procedure>
+	
+	<procedure id="obtieneAlertasEJE" resultMap="AlertasEJE" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ale_eje(#usuario#, #codigo#)}
+	</procedure>
+	
+	<procedure id="obtieneAlertasCLI" resultMap="AlertasCLI" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ale_cli(#usuario#, #codigo#)}
+	</procedure>
+	
+	<procedure id="obtieneClienteUnico" resultMap="AlertasClienteUnico" parameterClass="java.util.HashMap">
+		{CALL sp_cns_cli(#usuario#, #codigo#)}
+	</procedure>
+		
+	<procedure id="obtieneClientesEjeALE" resultMap="AlertasEjeCLI" parameterClass="java.util.HashMap">
+		{CALL sp_cns_cli_eje(#usuario#, #codigo#, #orden#)}
+	</procedure>
+	
+	<procedure id="obtieneClientesJofALE" resultMap="AlertasEjeJOF" parameterClass="java.util.HashMap">
+		{CALL sp_cns_cli_jof(#usuario#, #codigo#, #orden#, #codigoOficina#, #ejecutivos#)}
+	</procedure>
+	
+        <procedure id="obtenerAlertasPorCategoria" resultMap="alertasPorCategorias" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ale_cat(#usuario#, #codigo#)}
+	</procedure>
+	
+	<procedure id="ingresarGestionAlerta" parameterClass="java.util.HashMap">
+		{CALL sp_ins_gst_ale(#codigoAle#, #rutCliente#,#dvCliente#,#codigoEje#,#ofiEje#,#codigoGestion#,#comentario#)}
+	</procedure>
+	
+	<procedure id="obtenerComentarioGestion" resultMap="comentarioGestion" parameterClass="java.util.HashMap">
+		{CALL sp_cns_com_gst(#codigoAle#, #rutCliente#,#filtro#)}
+	</procedure>
+	
+	<procedure id="obtieneTipoGestion" resultMap="obtieneTipoGestionMap" parameterClass="java.util.HashMap">
+		{CALL sp_cns_tip_gst()}
+	</procedure>
+	
+	<procedure id="obtenerHistoricoAlertasCalificaciones" resultMap="alertasHistoricasCalificacion" parameterClass="java.util.HashMap">
+		{CALL sp_calificacion_cns_alt_hst(#rut_cliente#,#codigo#)}
+	</procedure>
+	
+	<procedure id="obtenerHistoricoGestionesCalificaciones" resultMap="gestionesHistoricasCalificacion" parameterClass="java.util.HashMap">
+		{CALL sp_calificacion_cns_gst_hst(#rut_cliente#,#codigo#)}
+	</procedure>
+	
+	<procedure id="obtieneOFIConAlertas" resultMap="obtieneOFIConAlertasMap" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ofi_con_ale(#codigoOficina#, #codigoAlerta#)}
+	</procedure>
+	
+	<procedure id="obtieneAlertasGRE" resultMap="AlertasGRE" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ale_defecto(#codigo#)}
+	</procedure>
+	
+	<procedure id="obtieneClientesGerALE" resultMap="AlertasEjeJOF" parameterClass="java.util.HashMap">
+		{CALL sp_cns_cli_ger(#usuario#, #codigo#, #orden#, #codigoOficina#)}
+	</procedure>	
+	
+	<procedure id="obtieneContadorClientesEjeALE" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cont_cli_eje(#usuario#, #codigo#)}
+	</procedure>
+
+</sqlMap>	

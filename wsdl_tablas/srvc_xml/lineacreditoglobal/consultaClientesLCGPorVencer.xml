@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_alr_lcg_xvc">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field middle_name="lcg_bca" type="char" size="0" java_name="tipoBanca"/>
+		<field middle_name="lcg_rol" type="String" size="0" java_name="tipoColaborador"/>
+		<field middle_name="lcg_eje" type="String" size="0" java_name="codigoEjecutivo"/>
+		<field middle_name="lcg_ofi" type="String" size="0" java_name="codigoOficina"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="ClienteLCGTO" var_name="clientes">
+			<field middle_name="lcg_cli_idc" type="String" size="0" java_name="rut" default_value="0"/>
+			<field middle_name="lcg_cli_vrf" type="char" size="0" java_name="digitoVerificador" default_value=""/>
+			<field middle_name="lcg_nom_cli" type="String" size="0" java_name="nombre" default_value=""/>
+			<field middle_name="lcg_fec_vnc" type="String" size="0" java_name="fechaVencimientoCodificada" default_value="0"/>
+			<field middle_name="lcg_tel_cli" type="String" size="0" java_name="telefonoContacto" default_value=""/>
+			<field middle_name="lcg_des_eje" type="String" size="0" java_name="ejecutivoCabecera" default_value=""/>
+			<field middle_name="lcg_des_ofi" type="String" size="0" java_name="oficinaCabecera" default_value=""/>
+		</struct>
+	</output>
+</service>
+

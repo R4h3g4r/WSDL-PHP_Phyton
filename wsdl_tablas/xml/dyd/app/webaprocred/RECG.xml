@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 25-11-2003 -->
+<DB>
+<SPECIAL str="1" typeId="REC" template="@+fecRec+SEP1+nomPer+SEP1+idOp+SEP1+indAtr+SEP1+nomRol+SEP1+taskName+SEP1+obs+SEP1+obs2+SEP1+obs3+SEP1+obs4+SEP1+obs5"></SPECIAL>
+<QRY NTx="AprCreConRec" LBL="N">
+    <SEPAR SEP1="~" SEP2="" SEP3="" SEPV=""></SEPAR>
+    <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+        <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+    </INPUT>
+    <OUTPUT>
+        <field FF="fecRec" LF="10" POS="0" COD="" TD="" PREF="">fecha</field>
+        <field FF="nomPer" LF="40" POS="1" COD="" TD="" PREF="">nombre</field>
+        <field FF="idOp0" LF="30" POS="2" COD="" TD="" PREF="">recomendacion</field>
+        <field FF="obs" LF="210" POS="6" COD="" TD="" PREF="">glosa</field>
+        <field FF="obs2" LF="210" POS="7" COD="" TD="" PREF="">glosa2</field>
+        <field FF="obs3" LF="210" POS="8" COD="" TD="" PREF="">glosa3</field>
+        <field FF="obs4" LF="210" POS="9" COD="" TD="" PREF="">glosa4</field>
+        <field FF="obs5" LF="210" POS="10" COD="" TD="" PREF="">glosa5</field>
+        <field FF="indRec" LF="1" POS="" COD="" TD="" PREF="">indicadorEnvio</field>
+        <field FF="nomRol" LF="35" POS="4" COD="" TD="" PREF="">rol</field>
+        <field FF="indAtr" LF="1" POS="3" COD="" TD="" PREF="">indicador</field>
+        <field FF="taskName" LF="50" POS="5" COD="" TD="" PREF="">actividad</field>
+    </OUTPUT>
+</QRY>
+</DB>

@@ -1,0 +1,53 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_pre_sel">
+   <context>
+      
+   </context>
+   <input>
+		<field
+         java_name = "identificadorSorteo"
+         type = "long"
+	     size = "4"
+         middle_name = "pre_sor_ids"
+		/>
+   </input>
+   <output>
+         <field
+         java_name = "identificadorPremiado"
+         type = "long"
+	     size = "4"
+         middle_name = "pre_idp"
+		/>
+		<field
+         java_name = "identificadorSorteo"
+         type = "long"
+	     size = "4"
+         middle_name = "pre_sor_ids"
+		/>
+		<field
+         java_name = "comprobantePremiado"
+          type = "long"
+	     size = "4"
+         middle_name = "pre_com_pre"
+         />
+		<field
+         java_name = "negocio"
+         type = "String"
+		 size = "15"
+         middle_name = "pre_neg"
+         />
+		 <field
+         java_name = "montoPremio"
+         type = "Double"
+	     size = "8"
+         middle_name = "pre_mnt"
+         />
+		<field
+         java_name = "fechaEjecucion"
+         type = "Date"
+	     size = "4"
+         middle_name = "pre_fec_eje"
+		/>
+   </output>
+</service>

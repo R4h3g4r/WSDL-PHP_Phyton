@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service name="sp_act_prd">
+
+	<context>
+
+		<boolean_false value="1"/>
+
+		<boolean_true value="0"/>
+
+		<general_exception_codigo value="ESPECIAL"/>
+
+		<have_multi_environment value="no"/>
+
+		<outputfield_attr value="no"/>
+
+		<req_num_param value="no"/>
+
+		<translator value="RORPPTPG"/>
+
+		<campo_indica_cantidad value=""/>
+
+		<status_throw_exception value="yes"/>
+
+		<joltpool_name value=""/>
+
+	</context>
+  <!-- InputConsultaDetalleMensajeDTO -->
+	<input>
+	<field
+          java_name = "codigo"
+          type = "int"
+          size = "9"
+          middle_name = "Prd_Cod_req_enc" 
+	/>		<!-- Prd_Cod_req_enc -->
+   
+     <field 
+        java_name="identificador" 
+        type="int" 
+        size="9" 
+        middle_name="Prd_Cod_enc_msg" 
+        />    	    <!-- Prd_Cod_enc_msg --> 
+             
+       <field 
+        java_name="respondido" 
+        type="int" 
+        size="9" 
+        middle_name="Prd_Txt_env" 
+        />    	    <!-- Prd_Txt_env -->   
+	</input>
+
+	 <output>
+	
+  </output>
+</service>

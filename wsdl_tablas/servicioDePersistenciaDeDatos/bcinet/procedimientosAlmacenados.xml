@@ -1,0 +1,579 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bcinetkpi.procedimientosAlmacenados">
+    
+	<resultMap id="getDatosContactoContKPI" class="java.util.HashMap">
+		<result  property="act_id_ejecutivo" jdbcType="char"  javaType="java.lang.String" column="act_id_ejecutivo" />
+		<result  property="act_total_porcentaje" jdbcType="decimal"  javaType="double" column="act_total_porcentaje" />
+		<result  property="act_cant_renta_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_renta_actualizar" />
+		<result  property="act_cant_celular_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_celular_actualizar" />
+		<result  property="act_cant_correo_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_correo_actualizar" />
+		<result  property="act_cant_direccion_actualizar" jdbcType="smallint"  javaType="int" column="act_cant_direccion_actualizar" />
+		<result  property="act_fec_actualizacion_correo" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_correo" />
+		<result  property="act_fec_actualizacion_renta" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_renta" />
+		<result  property="act_fec_actualizacio_direccion" jdbcType="smallint"  javaType="int" column="act_meses_actualizacio_direcci" />
+		<result  property="act_fec_actualizacion_celular" jdbcType="smallint"  javaType="int" column="act_meses_actualizacion_celula" />
+		<result  property="act_fec_carga_datos_desde_dw" jdbcType="datetime"  javaType="java.util.Date" column="act_fec_carga_datos_desde_dw" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteCelular" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_num_celular_cliente" jdbcType="char" javaType="java.lang.String" column="add_num_celular_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteCorreo" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_correo_cliente" jdbcType="char" javaType="java.lang.String" column="add_correo_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteDireccion" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_direccion_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_direccion_cliente" />
+	</resultMap>
+
+	<resultMap id="getDetalleClienteRenta" class="java.util.HashMap">
+		<result  property="add_cli_rut" jdbcType="int" javaType="int" column="add_cli_rut" />
+		<result  property="add_cli_dv" jdbcType="char" javaType="java.lang.String" column="add_cli_dv" />
+		<result  property="add_id_ejecutivo" jdbcType="char" javaType="java.lang.String" column="add_id_ejecutivo" />
+		<result  property="add_nombre_cliente" jdbcType="varchar" javaType="java.lang.String" column="add_nombre_cliente" />
+		<result  property="add_mnt_renta_cliente" jdbcType="decimal" javaType="double" column="add_mnt_renta_cliente" />
+	</resultMap>
+
+	<procedure id="consultaDatosContactoContKPI" parameterClass="java.util.HashMap" resultMap="getDatosContactoContKPI">
+		{ CALL sp_cns_contadores_kpi(#idEjecutivo#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesCorreo" parameterClass="java.util.HashMap" resultMap="getDetalleClienteCorreo">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesRenta" parameterClass="java.util.HashMap" resultMap="getDetalleClienteRenta">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesDireccion" parameterClass="java.util.HashMap" resultMap="getDetalleClienteDireccion">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+
+	<procedure id="consultaDetalleClientesCelular" parameterClass="java.util.HashMap" resultMap="getDetalleClienteCelular">
+		{ CALL sp_cns_det_cli_x_concep(#idEjecutivo#, #tipoConcepto#) }
+	</procedure>
+	
+	<parameterMap id="setConsultaDatosCliente" class="java.util.HashMap">
+    <parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+ </parameterMap>
+ 
+ <resultMap id="getConsultaDatosCliente" class="java.util.HashMap">
+    <result  property="nombre_cliente"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_cliente" />
+    <result  property="apellido_paterno"           jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno" />
+    <result  property="apellido_materno"           jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno" />
+    <result  property="meses_antiguedad"           jdbcType="TINYINT" javaType="java.lang.Integer" column="meses_antiguedad" />
+    <result  property="empresa_trabajo"            jdbcType="varchar" javaType="java.lang.String"  column="empresa_trabajo" />
+    <result  property="fecha_nacimiento"           jdbcType="DATE"    javaType="java.util.Date"    column="fecha_nacimiento" />
+    <result  property="estado_civil"               jdbcType="varchar" javaType="java.lang.String"  column="estado_civil" />
+    <result  property="rut_conyuge"                jdbcType="NUMERIC" javaType="java.lang.Long"    column="rut_conyuge" />
+    <result  property="dv_conyuge"                 jdbcType="CHAR"    javaType="java.lang.String"  column="dv_conyuge" />
+    <result  property="nombre_conyuge"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_conyuge" />
+    <result  property="apellido_paterno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno_conyuge" />
+    <result  property="apellido_materno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno_conyuge" />
+    <result  property="profesion_cliente"          jdbcType="varchar" javaType="java.lang.String"  column="profesion_cliente" />
+    <result  property="situacion_laboral"          jdbcType="varchar" javaType="java.lang.String"  column="situacion_laboral" />
+    
+    <result  property="renta_fija"                 jdbcType="DECIMAL" javaType="java.lang.Double"  column="renta_fija" />
+    <result  property="renta_variable"             jdbcType="DECIMAL" javaType="java.lang.Double"  column="renta_variable" />
+    <result  property="fecha_actualizacion_renta_fij" jdbcType="DATE" javaType="java.util.Date"    column="fecha_actualizacion_renta_fij" />
+    <result  property="fecha_actualizacion_renta_var" jdbcType="DATE" javaType="java.util.Date"    column="fecha_actualizacion_renta_var" />
+    <result  property="telefono_cliente"           jdbcType="varchar" javaType="java.lang.String"  column="telefono_cliente" />
+    <result  property="email_cliente"              jdbcType="varchar" javaType="java.lang.String"  column="email_cliente" />
+    <result  property="celular_cliente"            jdbcType="varchar" javaType="java.lang.String"  column="celular_cliente" />
+    <result  property="banca_cliente"              jdbcType="varchar" javaType="java.lang.String"  column="banca_cliente" />
+    <result  property="segmento_cliente"           jdbcType="varchar" javaType="java.lang.String"  column="segmento_cliente" />
+    <result  property="plan_cliente"               jdbcType="varchar" javaType="java.lang.String"  column="plan_cliente" />
+    <result  property="ind_abono_remuneracion"     jdbcType="varchar" javaType="java.lang.String"  column="ind_abono_remuneracion" />
+    <result  property="indicador_convenio"         jdbcType="varchar" javaType="java.lang.String"  column="indicador_convenio" />
+    <result  property="pac_contratados"            jdbcType="TINYINT" javaType="java.lang.Integer" column="pac_contratados" />
+    <result  property="pat_contratados"            jdbcType="TINYINT" javaType="java.lang.Integer" column="pat_contratados" />
+    <result  property="login_ejecutivo"            jdbcType="varchar" javaType="java.lang.String"  column="login_ejecutivo" />
+    <result  property="nombre_ejecutivo"           jdbcType="varchar" javaType="java.lang.String"  column="nombre_ejecutivo" />
+    <result  property="codigo_oficina"             jdbcType="INT"     javaType="java.lang.Integer" column="codigo_oficina" />
+    <result  property="nombre_oficina"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_oficina" />
+    <result  property="numero_cta_corriente_antigua"  jdbcType="varchar" javaType="java.lang.String"  column="numero_cta_corriente_antigua" />
+    <result  property="numero_cta_corriente_antigua2" jdbcType="varchar" javaType="java.lang.String"  column="numero_cta_corriente_antigua2" />
+    <result  property="cantidad_cuentas_corrientes"   jdbcType="TINYINT" javaType="java.lang.Integer" column="cantidad_cuentas_corrientes" />
+    <result  property="condicion_cct_antigua"         jdbcType="varchar" javaType="java.lang.String"  column="condicion_cct_antigua" />
+    <result  property="condicion_cct_antigua2"         jdbcType="varchar" javaType="java.lang.String"  column="condicion_cct_antigua2" />
+    <result  property="nacionalidad_cliente"         jdbcType="varchar" javaType="java.lang.String"  column="nacionalidad_cliente" />
+    <result  property="tasa_riesgo"                jdbcType="DECIMAL" javaType="java.lang.Double"  column="tasa_riesgo" />
+ </resultMap>
+	
+ <procedure id="consultaDatosCliente" parameterMap="setConsultaDatosCliente" resultMap="getConsultaDatosCliente">
+    { CALL sp_cns_bloquecliente(?) }
+ </procedure>
+    
+<!--     consulta de informacion para tabCliente -->
+
+	<parameterMap id="setConsultaInformacionPersonal" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+	</parameterMap>
+ 
+	<resultMap id="getConsultaInformacionPersonal" class="java.util.HashMap">
+		<result  property="fecha_nacimiento"           jdbcType="DATE"    javaType="java.util.Date"    column="fecha_nacimiento" />
+		<result  property="nacionalidad_cliente"       jdbcType="varchar" javaType="java.lang.String"  column="nacionalidad_cliente" />
+		<result  property="rut_conyuge"                jdbcType="NUMERIC" javaType="java.lang.Long"    column="rut_conyuge" />
+		<result  property="dv_conyuge"                 jdbcType="CHAR" 	  javaType="java.lang.String"  column="dv_conyuge" />
+		<result  property="nombre_conyuge"             jdbcType="varchar" javaType="java.lang.String"  column="nombre_conyuge" />
+		<result  property="apellido_paterno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_paterno_conyuge" />
+		<result  property="apellido_materno_conyuge"   jdbcType="varchar" javaType="java.lang.String"  column="apellido_materno_conyuge" />
+		<result  property="regimen_conyugal"           jdbcType="varchar" javaType="java.lang.String"  column="regimen_conyugal" />
+		<result  property="situacion_laboral"          jdbcType="varchar" javaType="java.lang.String"  column="situacion_laboral" />
+		<result  property="situacion_vivienda"         jdbcType="varchar" javaType="java.lang.String"  column="situacion_vivienda" />
+		<result  property="nivel_educacional"          jdbcType="varchar" javaType="java.lang.String"  column="nivel_educacional" />
+		<result  property="direccion_principal_cli"    jdbcType="varchar" javaType="java.lang.String"  column="direccion_principal_cli" />
+		<result  property="cliente_con_transfer"       jdbcType="varchar" javaType="java.lang.String"  column="cliente_con_transfer" />
+	</resultMap>
+	
+	<procedure id="consultaInformacionPersonal" parameterMap="setConsultaInformacionPersonal" resultMap="getConsultaInformacionPersonal">
+		{ CALL sp_cns_datosbasicos(?) }
+	</procedure>
+<!-- 	fin consulta de informacion para tabcliente -->
+
+<!--     consulta de sociedades relacionadas a cliente titular -->
+
+    <parameterMap id="setConsultaSociedadesRutTitular" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaSociedadesRutTitular" class="java.util.HashMap">
+        <result  property="rut_original"           jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_original" />
+        <result  property="rut_padre"              jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_padre" />
+        <result  property="rut_vinculado"          jdbcType="NUMERIC"    javaType="java.lang.Long"     column="scd_rut_vinculado" />
+        <result  property="nombre_vinculado"       jdbcType="varchar"    javaType="java.lang.String"   column="scd_nombre_vinculado" />
+        <result  property="tipo_vinculacion"       jdbcType="varchar"    javaType="java.lang.String"   column="scd_tipo_vinculacion" />
+        <result  property="nivel"                  jdbcType="INT"        javaType="java.lang.Integer"  column="scd_nivel_relacion" />
+        <result  property="cantidad_sociedades"    jdbcType="INT"        javaType="java.lang.Integer"  column="scd_cantidad_sociedades" />
+        <result  property="esClienteBci"           jdbcType="bit"        javaType="Boolean"            column="esClienteBci" />
+        <result  property="poseePropiedades"       jdbcType="bit"        javaType="Boolean"            column="poseePropiedades" />
+        <result  property="poseeVehiculos"         jdbcType="bit"        javaType="Boolean"            column="poseeVehiculos" />
+        <result  property="fecha_actualizacion"    jdbcType="DATE"       javaType="java.util.Date"     column="scd_fecha_actualizacion" />
+    </resultMap>
+    
+    <procedure id="consultaSociedadesRutTitular" parameterMap="setConsultaSociedadesRutTitular" resultMap="getConsultaSociedadesRutTitular">
+        { CALL sp_cns_relacionados_titular(?) }
+    </procedure>
+<!--    fin consulta de sociedades relacionadas a cliente titular-->
+
+<!--     consulta de propiedades relacionadas a cliente titular -->
+
+    <parameterMap id="setConsultaPropiedadesPersona" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaPropiedadesPersona" class="java.util.HashMap">
+        <result  property="rut"                 jdbcType="NUMERIC"  javaType="java.lang.Long"       column="pro_rut" />
+        <result  property="dv"                  jdbcType="CHAR"     javaType="java.lang.String"     column="pro_dv" />
+        <result  property="rol_manzana"         jdbcType="CHAR"     javaType="java.lang.String"     column="pro_rol_manzana" />
+        <result  property="rol_predio"          jdbcType="CHAR"     javaType="java.lang.String"     column="pro_rol_predio" />
+        <result  property="tipo_propiedad"      jdbcType="varchar"  javaType="java.lang.String"     column="pro_tipo_propiedad" />
+        <result  property="direccion"           jdbcType="varchar"  javaType="java.lang.String"     column="pro_direccion" />
+        <result  property="avaluo"              jdbcType="NUMERIC"  javaType="java.lang.Long"       column="pro_avaluo" />
+        <result  property="destino"             jdbcType="varchar"  javaType="java.lang.String"     column="pro_destino" />
+        <result  property="fecha_actualizacion" jdbcType="DATE"     javaType="java.util.Date"       column="pro_fecha_actualizacion" />
+        <result  property="comuna"              jdbcType="varchar"  javaType="java.lang.String"     column="pro_glosa_comuna" />
+        <result  property="ciudad"              jdbcType="varchar"  javaType="java.lang.String"     column="pro_glosa_ciudad" />
+    </resultMap>
+    
+    <procedure id="consultaPropiedadesPersona" parameterMap="setConsultaPropiedadesPersona" resultMap="getConsultaPropiedadesPersona">
+        { CALL sp_cns_propiedades_persona(?) }
+    </procedure>
+<!--    fin consulta de propiedades relacionadas a cliente titular-->
+
+<!--     consulta de vehiculos relacionadas a un rut-->
+
+    <parameterMap id="setConsultaVehiculosPersona" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+ 
+    <resultMap id="getConsultaVehiculosPersona" class="java.util.HashMap">
+        <result  property="rut"                 jdbcType="NUMERIC"      javaType="java.lang.Long"        column="veh_rut" />
+        <result  property="dv"                  jdbcType="CHAR"         javaType="java.lang.String"      column="veh_dv" />
+        <result  property="nombre"              jdbcType="varchar"      javaType="java.lang.String"      column="veh_nombre" />
+        <result  property="patente"             jdbcType="varchar"      javaType="java.lang.String"      column="veh_patente" />
+        <result  property="dv_patente"          jdbcType="varchar"      javaType="java.lang.String"      column="veh_dv_patente" />
+        <result  property="marca"               jdbcType="varchar"      javaType="java.lang.String"      column="veh_marca" />
+        <result  property="tipo_vehiculo"       jdbcType="varchar"      javaType="java.lang.String"      column="veh_tipo_vehiculo" />
+        <result  property="modelo"              jdbcType="varchar"      javaType="java.lang.String"      column="veh_modelo" />
+        <result  property="anyo_fabricacion"    jdbcType="INT"          javaType="java.lang.Integer"     column="veh_anyo_fabricacion" />
+        <result  property="fecha_actualizacion" jdbcType="DATE"         javaType="java.util.Date"        column="veh_fecha_actualizacion" />
+        <result  property="veh_numero_motor"    jdbcType="varchar"      javaType="java.lang.String"      column="veh_numero_motor" />
+        <result  property="veh_numero_chasis"   jdbcType="varchar"      javaType="java.lang.String"      column="veh_numero_chasis" />
+		<result  property="tasacion"            jdbcType="NUMERIC"      javaType="java.lang.Long"        column="veh_tasacion" nullValue="0" />
+    </resultMap>
+    
+    <procedure id="consultaVehiculosPersona" parameterMap="setConsultaVehiculosPersona" resultMap="getConsultaVehiculosPersona">
+        { CALL sp_cns_vehiculos_persona(?) }
+    </procedure>
+<!--    fin consulta de vehiculos relacionadas a un rut-->
+
+<!-- Ini Alerta Marketing Cliente -->
+
+	<parameterMap id="setAlertaMarketing" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="NUMERIC"  javaType="java.lang.Long" />
+	</parameterMap>
+
+	<resultMap id="getAlertaMarketing" class="java.util.HashMap">
+		<result property="mensaje" jdbcType="varchar" javaType="java.lang.String"  column="mensaje" />
+	</resultMap>
+	
+	<procedure id="alertaMarketing" parameterMap="setAlertaMarketing" resultMap="getAlertaMarketing">
+		{ CALL sp_cns_alerta_marketing(?) }
+	</procedure>
+	
+<!-- Fin Alerta Marketing Cliente -->
+
+
+
+
+<!-- INICIO CONSULTA EJECUTIVOS RITMO DE VENTA -->
+
+    <parameterMap id="setEjecutivosRitmoVenta" class="java.util.HashMap">
+        <parameter property="codOficina"  jdbcType="CHAR"  javaType="java.lang.String" />
+        <parameter property="tipoRitmo"  jdbcType="CHAR"  javaType="java.lang.String" />
+    </parameterMap>
+
+    <resultMap id="ejecutivosRitmoVenta" class="java.util.HashMap">
+        <result property="eje"    javaType="java.lang.String"   column="eje"   jdbcType="CHAR" />
+        <result property="prd"    javaType="java.lang.String"   column="prd"   jdbcType="CHAR" />
+        <result property="prdDes"   javaType="java.lang.String"      column="prd_des"  jdbcType="CHAR" />
+        <result property="vtaNta"   javaType="double"      column="vta_nta"  jdbcType="DECIMAL" />
+        <result property="pptoNta"   javaType="double"      column="ppto_nta"  jdbcType="DECIMAL" />
+        <result property="cumpNta"   javaType="double"      column="cump_nta"  jdbcType="DECIMAL" />
+        <result property="vtaBrt"   javaType="double"      column="vta_brt"  jdbcType="DECIMAL" />
+        <result property="pptoBrt"   javaType="double"      column="ppto_brt"  jdbcType="DECIMAL" />
+        <result property="cumpBrt"   javaType="double"      column="cump_brt"  jdbcType="DECIMAL" />
+        <result property="anoMesDia"   javaType="java.util.Date"      column="ano_mes_dia"  jdbcType="DATETIME" />
+    </resultMap>
+
+    <procedure id="consultaEjecutivosRitmoVenta" parameterMap="setEjecutivosRitmoVenta" resultMap="ejecutivosRitmoVenta">
+        {CALL sp_cns_ritmo_venta_eje_por_ofi( ?, ? ) }
+    </procedure>
+<!-- FIN CONSULTA EJECUTIVOS RITMO DE VENTA -->
+
+<!-- INICIO CONSULTA RITMO DE VENTA POR OFICINA -->
+
+    <parameterMap id="setRitmoVentaPorOficina" class="java.util.HashMap">
+        <parameter property="codOficina"  jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+
+    <resultMap id="ritmoVentaPorOficina" class="java.util.HashMap">
+        <result property="prd"    javaType="String"   column="prd"   jdbcType="CHAR" />
+        <result property="prdDes"   javaType="String"      column="prd_des"  jdbcType="CHAR" />
+        <result property="sumVtaNta"   javaType="double"      column="sum_vta_nta"  jdbcType="DECIMAL" />
+        <result property="sumPptoNta"   javaType="double"      column="sum_ppto_nta"  jdbcType="DECIMAL" />
+        <result property="sumCumpNta"   javaType="double"      column="sum_cump_nta"  jdbcType="DECIMAL" />
+        <result property="sumVtaBrt"   javaType="double"      column="sum_vta_brt"  jdbcType="DECIMAL" />
+        <result property="sumPptoBrt"   javaType="double"      column="sum_ppto_brt"  jdbcType="DECIMAL" />
+        <result property="sumCumpBrt"   javaType="double"      column="sum_cump_brt"  jdbcType="DECIMAL" />
+        <result property="anoMesDia"   javaType="java.util.Date"      column="ano_mes_dia"  jdbcType="DATETIME" />
+    </resultMap>
+
+    <procedure id="consultaRitmoVentaPorOficina" parameterMap="setRitmoVentaPorOficina" resultMap="ritmoVentaPorOficina">
+        {CALL sp_cns_ritmo_venta_por_ofi(?)}
+    </procedure>
+<!-- FIN CONSULTA RITMO DE VENTA POR OFICINA -->
+<!-- Consultas de clientes con mora asociados a un ejecutivo-->
+	<parameterMap id="setConsContClienteMora" class="java.util.HashMap">
+        <parameter property="codEjecutivo" jdbcType="varchar"  javaType="java.lang.String" />
+		<parameter property="tipoMora"    jdbcType="varchar"  javaType="java.lang.String" />
+    </parameterMap>
+	<resultMap id="resultConsContClienteMora" class="java.lang.Integer">
+        <result property="resultado"                  javaType="java.lang.Integer"    jdbcType="int"          column="cont_morosos"/>
+    </resultMap>
+    <procedure id="consContClienteMora" parameterMap="setConsContClienteMora" resultMap="resultConsContClienteMora">
+        {CALL sp_cns_cnt_cli_mora(?,?)}
+    </procedure>
+	
+	<parameterMap id="setConsDetClienteMora" class="java.util.HashMap">
+		<parameter property="codOficina"  jdbcType="int"      javaType="java.lang.Integer" />
+        <parameter property="codEjecutivo" jdbcType="varchar"  javaType="java.lang.String" />
+		<parameter property="tipoMora"    jdbcType="varchar"  javaType="java.lang.String" />
+		<parameter property="tramoMora"   jdbcType="varchar"  javaType="java.lang.String" />
+    </parameterMap>
+	<resultMap id="resultConsDetClienteMora" class="java.util.HashMap">
+        <result property="rut_cli"                 javaType="java.lang.Integer"   jdbcType="INT"          column="rut_cli"/>
+		<result property="dv_cli"                  javaType="java.lang.String"    jdbcType="char"         column="dv_cli"/>
+		<result property="nom_cli"                 javaType="java.lang.String"    jdbcType="varchar"      column="nom_cli"/>
+		<result property="cmh_deu_tot_cons"            javaType="java.lang.Long"      jdbcType="NUMERIC"      column="cmh_deu_tot_cons"/>
+		<result property="cmh_cta_cte"                 javaType="java.lang.Integer"      jdbcType="bit"      column="cmh_cta_cte"/>
+		<result property="cmh_cnt_dia_snp"             javaType="java.lang.Integer"      jdbcType="int"      column="cmh_cnt_dia_snp"/>
+		<result property="cmh_mnt_snp"                 javaType="java.lang.Long"      jdbcType="NUMERIC"      column="cmh_mnt_snp"/>
+		<result property="cmh_pdt_may_mora"            javaType="java.lang.String"      jdbcType="char"      column="cmh_pdt_may_mora"/>
+		<result property="cmh_mnt_tot_mora"            javaType="java.lang.Long"      jdbcType="NUMERIC"      column="cmh_mnt_tot_mora"/>
+		<result property="cmh_camp_riesgo"             javaType="java.lang.Integer"      jdbcType="bit"      column="cmh_camp_riesgo"/>
+		<result property="cmh_mnt_deu_hipo"            javaType="java.lang.Long"      jdbcType="NUMERIC"      column="cmh_mnt_deu_hipo"/>
+		<result property="cmh_mnt_mora_hipo"           javaType="java.lang.Long"      jdbcType="NUMERIC"      column="cmh_mnt_mora_hipo"/>
+		<result property="cmh_max_dia_mora_hipo"       javaType="java.lang.Integer"   jdbcType="INT"          column="cmh_max_dia_mora_hipo"/>
+		<result property="cmh_gestion_cli"             javaType="java.lang.Integer"   jdbcType="bit"          column="cmh_gestion_cli"/>
+		<result property="cmh_tramo_mora"              javaType="java.lang.String"    jdbcType="char"         column="cmh_tramo_mora"/>
+		<result property="id_ejecutivo"          javaType="java.lang.String"    jdbcType="char"         column="id_ejecutivo"/>
+		<result property="cmh_fecha_carga"             javaType="java.util.Date"      jdbcType="datetime"     column="cmh_fecha_carga"/>
+    </resultMap>
+    <procedure id="consDetClienteMora" parameterMap="setConsDetClienteMora" resultMap="resultConsDetClienteMora">
+        {CALL sp_cns_det_cli_mora(?,?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setGestClienteMora" class="java.util.HashMap">
+		<parameter property="codOficina"                 jdbcType="int"         javaType="java.lang.Integer" />
+        <parameter property="rutCliente"                 jdbcType="long"         javaType="java.lang.Long" />
+        <parameter property="idEjecutivo"                jdbcType="varchar"     javaType="java.lang.String" />
+        <parameter property="tipoMora"                   jdbcType="varchar"     javaType="java.lang.String" />
+        <parameter property="idEjecutivoSeleccionado"    jdbcType="varchar"     javaType="java.lang.String" />
+        
+    </parameterMap>
+    <procedure id="gestClienteMora" parameterMap="setGestClienteMora" >
+        {CALL act_gest_cli_mora_mora_hip(?,?,?,?,?)}
+    </procedure>
+	
+	<parameterMap id="setConsContClienteMoraEje" class="java.util.HashMap">
+		<parameter property="codOficina"  jdbcType="int"      javaType="java.lang.Integer" />
+        <parameter property="codEjecutivo" jdbcType="varchar"  javaType="java.lang.String" />
+		<parameter property="tipoMora"    jdbcType="varchar"  javaType="java.lang.String" />
+		<parameter property="tramoMora"   jdbcType="varchar"  javaType="java.lang.String" />
+    </parameterMap>
+    <resultMap id="resultConsContClienteMoraEje" class="java.lang.Integer">
+        <result property="resultado"                  javaType="java.lang.Integer"    jdbcType="int"/>
+    </resultMap>
+	<procedure id="consContClienteMoraEje" parameterMap="setConsContClienteMoraEje" resultMap="resultConsContClienteMoraEje">
+        {CALL sp_cns_cnt_cli_mora_eje(?,?,?,?)}
+    </procedure>
+    
+<!-- Fin Consultas de clientes con mora asociados a un ejecutivo-->
+<!--     Recordatorios Ejecutivo-->
+
+    <parameterMap id="setObtenerRecordatorios" class="java.util.HashMap">
+        <parameter property="idRecordatorio" jdbcType="INT"  javaType="java.lang.Integer" />
+        <parameter property="idEjecutivo" jdbcType="char"  javaType="java.lang.String" />
+        <parameter property="maxRecordatorios" jdbcType="INT"  javaType="java.lang.Integer" />
+    </parameterMap>
+ 
+    <resultMap id="getObtenerRecordatorios" class="java.util.HashMap">
+        <result  property="idRecordatorio"      jdbcType="INT"      javaType="java.lang.Integer"        column="id_recordatorio" />
+        <result  property="idEjecutivo"         jdbcType="char"      javaType="java.lang.String"      column="id_ejecutivo" />
+        <result  property="texto"               jdbcType="varchar"      javaType="java.lang.String"      column="texto" />
+        <result  property="fechaRecordatorio"   jdbcType="DATE"         javaType="java.util.Date"        column="fecha" />
+    </resultMap>
+    
+    <procedure id="obtenerRecordatorios" parameterMap="setObtenerRecordatorios" resultMap="getObtenerRecordatorios">
+        { CALL sp_consulta_recordatorio(?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setAgregarRecordatorio" class="java.util.HashMap">
+        <parameter property="idEjecutivo" jdbcType="char"  javaType="java.lang.String" />
+        <parameter property="texto"       jdbcType="varchar"  javaType="java.lang.String" />
+        <parameter property="maxRecordatorios" jdbcType="INT"  javaType="java.lang.Integer" />
+    </parameterMap>
+    
+    <procedure id="agregarRecordatorio" parameterMap="setAgregarRecordatorio" resultClass="java.lang.Integer">
+        { CALL sp_agregar_recordatorios(?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setEliminarRecordatorio" class="java.util.HashMap">
+        <parameter property="idEjecutivo" jdbcType="char"  javaType="java.lang.String" />
+        <parameter property="idRecordatorio" jdbcType="INT"  javaType="java.lang.Integer" />
+    </parameterMap>
+    
+    <procedure id="eliminarRecordatorio" parameterMap="setEliminarRecordatorio" resultClass="java.lang.Integer">
+        { CALL sp_eliminar_recordatorio(?, ?) }
+    </procedure>
+    
+    <parameterMap id="setEditarRecordatorio" class="java.util.HashMap">
+        <parameter property="idEjecutivo" jdbcType="char"  javaType="java.lang.String" />
+        <parameter property="idRecordatorio" jdbcType="INT"  javaType="java.lang.Integer" />
+        <parameter property="texto"       jdbcType="varchar"  javaType="java.lang.String" />
+    </parameterMap>
+    
+    <procedure id="editarRecordatorio" parameterMap="setEditarRecordatorio" resultClass="java.lang.Integer">
+        { CALL sp_editar_recordatorio(?, ?, ?) }
+    </procedure>
+<!--    Fin Recordatorios Ejecutivo-->
+<!--  clientes con DAP fijo vencido -->
+    <parameterMap id="setObtenerContadorClientesDapFijoVencido" class="java.util.HashMap">
+        <parameter property="sucursal" jdbcType="char"  javaType="java.lang.String" />
+    </parameterMap>
+
+    <resultMap id="getObtenerContadorClientesDapFijoVencido" class="java.util.HashMap">
+		<result property="contador" jdbcType="INT" javaType="java.lang.Integer"  column="cantidad" />
+	</resultMap>
+	
+    <procedure id="obtenerContadorClientesDapFijoVencido" parameterMap="setObtenerContadorClientesDapFijoVencido" resultMap="getObtenerContadorClientesDapFijoVencido">
+        { CALL sp_cant_dap_fijo_venc(?) }
+    </procedure>
+	
+    <parameterMap id="setObtenerClientesDapFijoVencido" class="java.util.HashMap">
+        <parameter property="sucursal" jdbcType="char"  javaType="java.lang.String" />
+    </parameterMap>
+ 
+    <resultMap id="getObtenerClientesDapFijoVencido" class="java.util.HashMap">
+        <result  property="id"   jdbcType="NUMERIC"         javaType="java.lang.Double"        column="dap_id" />
+        <result  property="nombre"      jdbcType="varchar"      javaType="java.lang.String"        column="dap_nombre" />
+        <result  property="rut"         jdbcType="INT"      javaType="java.lang.Long"      column="dap_rut" />
+        <result  property="dv"               jdbcType="char"      javaType="java.lang.String"      column="dap_dv" />
+        <result  property="nroOperacion"   jdbcType="char"         javaType="java.lang.String"        column="dap_op" />
+        <result  property="tipoDAP"   jdbcType="char"         javaType="java.lang.String"        column="dap_tipo" />
+        <result  property="monedaCaptacion"   jdbcType="char"         javaType="java.lang.String"        column="dap_glosa_moneda" />
+        <result  property="fechaCaptacion"   jdbcType="DATE"         javaType="java.util.Date"        column="dap_fcapta" />
+        <result  property="fechaVencimiento"   jdbcType="DATE"         javaType="java.util.Date"        column="dap_fvenc" />
+        <result  property="dias"   jdbcType="INT"         javaType="java.lang.Integer"        column="dap_dias" />
+        <result  property="montoVencimiento"   jdbcType="DECIMAL"         javaType="java.lang.Double"        column="dap_monto" />
+        <result  property="tasaUltimaRenovacion"   jdbcType="DECIMAL"         javaType="java.lang.Double"        column="dap_tasa" />
+        <result  property="diferenciaDias"   jdbcType="INT"         javaType="java.lang.Integer"        column="dap_dif_dias" />
+    </resultMap>
+    
+    <procedure id="obtenerClientesDapFijoVencido" parameterMap="setObtenerClientesDapFijoVencido" resultMap="getObtenerClientesDapFijoVencido">
+        { CALL sp_cns_cli_dap_fijo_venc(?) }
+    </procedure>
+<!--  -->
+
+	<resultMap id="getObtenerClientesVencimientoDAP" class="java.util.HashMap">
+        <result property="dap_id" jdbcType="numeric"  javaType="java.lang.Long" />
+        <result property="dap_nombre" jdbcType="varchar"  javaType="java.lang.String" />
+        <result property="dap_rut" jdbcType="int"  javaType="java.lang.Integer" />
+        <result property="dap_dv" jdbcType="char"  javaType="java.lang.String" />        
+        <result property="dap_op" jdbcType="varchar"  javaType="java.lang.String" />        
+        <result property="dap_tipo" jdbcType="varchar"  javaType="java.lang.String" />        
+        <result property="dap_moneda" jdbcType="varchar"  javaType="java.lang.String" />        
+        <result property="dap_fcapta" jdbcType="date"  javaType="java.util.Date" />
+        <result property="dap_fvenc" jdbcType="date"  javaType="java.util.Date" />        
+        <result property="dap_dias" jdbcType="int"  javaType="java.lang.Integer" />        
+        <result property="dap_monto" jdbcType="decimal"  javaType="java.lang.Double" />
+        <result property="dap_tasa" jdbcType="decimal"  javaType="java.lang.Double" />        
+    </resultMap>
+        
+	<resultMap id="getObtenerContClientesVencimientoDAP" class="java.util.HashMap">
+        <result property="cantidad" jdbcType="numeric"  javaType="java.lang.Long" />
+    </resultMap>    
+    
+    <procedure id="obtenerClientesVencimientoDAP" parameterClass="java.util.HashMap" resultMap="getObtenerClientesVencimientoDAP">
+        { CALL sp_obt_venc_dap(#codOficina#, #fechaInicio#, #fechaFin#) }
+    </procedure>
+    
+    <procedure id="obtenerContClientesVencimientoDAP" parameterClass="java.util.HashMap" resultMap="getObtenerContClientesVencimientoDAP">
+        { CALL sp_obt_cant_venc_dap(#codOficina#, #fechaInicio#, #fechaFin#) }
+    </procedure>
+
+    <!-- DAP -->
+    <parameterMap id="setAumVtaNetaDAP" class="java.util.HashMap">
+        <parameter property="idEjecutivo" jdbcType="char"  javaType="java.lang.String" />
+    </parameterMap>
+    <resultMap id="getAumVtaNetaDAP" class="java.util.HashMap">
+        <result property="dapAum"       jdbcType="decimal"  javaType="java.lang.Double" column="dap_aum" />
+        <result property="dapVtaNeta"   jdbcType="decimal"  javaType="java.lang.Double" column="dap_venta_neta" />
+        <result property="dapFecha"     jdbcType="datetime" javaType="java.util.Date"   column="dap_fcierre" />
+    </resultMap>
+    <procedure id="obtenerAumVtaNetaDAP" parameterMap="setAumVtaNetaDAP" resultMap="getAumVtaNetaDAP" >
+        { CALL sp_cns_aum_vta_neta(?)}
+    </procedure>
+    <!--  FIN DAP -->
+	<!-- Inicio Pivote legacy -->
+	<parameterMap id="datosUsuarioToken" class="java.util.HashMap">
+		<parameter property="token" jdbcType="CHAR" javaType="String" />
+		<parameter property="url" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="flag_valido" jdbcType="NUMERIC" javaType="java.lang.Long" />
+		<parameter property="usuario_id" jdbcType="VARCHAR"
+			javaType="String" />
+		<parameter property="usuario_rut" jdbcType="NUMERIC"
+			javaType="java.lang.Long" />
+		<parameter property="usuario_dv" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+
+	<procedure id="insertUsuarioToken" parameterMap="datosUsuarioToken"
+		resultClass="Boolean">
+		{ CALL sp_ins_pivote_legacy (?, ?, ?, ?, ?, ?) }
+	</procedure>
+
+	<resultMap id="getUsuarioToken" class="java.util.HashMap">
+		<result property="url" column="piv_url" javaType="String"/>
+		<result property="valido" column="piv_valido" javaType="java.lang.Long"/>
+		<result property="idUsuario" column="piv_usuario_id" javaType="String"/>
+		<result property="rutCliente" column="piv_usuario_rut" javaType="Long"/>
+		<result property="digitoVerif" column="piv_usuario_dv" javaType="String" />
+		<result property="time" column="piv_fechahora" javaType="java.util.Date"/>
+	</resultMap>
+	<parameterMap id="consultarToken" class="java.util.HashMap">
+		<parameter property="token" jdbcType="CHAR" javaType="String"/>
+		<parameter property="delta" jdbcType="NUMERIC" javaType="java.lang.Long"/>
+	</parameterMap>	
+	<procedure id="rescataUsuario" parameterMap="consultarToken"
+		resultMap="getUsuarioToken">
+		{ CALL sp_cns_pivote_legacy (?, ?) }
+	</procedure>
+	
+	<parameterMap id="cambiarFlag" class="java.util.HashMap">
+		<parameter property="token" jdbcType="CHAR" javaType="String"/>
+		<parameter property="flag_valido" jdbcType="NUMERIC" javaType="java.lang.Long"/>
+	</parameterMap>	
+	<procedure id="actualizarFlag" parameterMap="cambiarFlag"
+		resultClass="Boolean">
+		{ CALL sp_act_pivote_legacy (?, ?) }
+	</procedure>
+	<!-- Fin Pivote legacy -->
+    
+    <resultMap id="getConsultaFechasDeActualizacion" class="java.util.HashMap">
+        <result property="fechaPropiedades"          column="fechaPropiedades"                jdbcType="varchar"    javaType="java.lang.String" />
+        <result property="fechaSociedades"          column="fechaSociedades"                jdbcType="varchar"    javaType="java.lang.String" />
+        <result property="fechaVehiculos"          column="fechaVehiculos"                jdbcType="varchar"    javaType="java.lang.String" />
+    </resultMap>
+    <procedure id="consultaFechasDeActualizacion" resultMap="getConsultaFechasDeActualizacion">
+        {CALL sp_cns_fecha_act()}
+    </procedure>
+<!-- Inicio Autenticacion -->
+	    <parameterMap id="setVerificarIngresoEjecutivo"  class="java.util.HashMap">
+	        <parameter property="rutCliente"         jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="idEjecutivo"		 jdbcType="VARCHAR"     javaType="String" />
+	        <parameter property="cantidadIntentos"   jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="lapsoTiempo"        jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="sistema"		     jdbcType="VARCHAR"     javaType="String" />
+	    </parameterMap>
+	    <procedure id="verificarIngresoEjecutivo" parameterMap="setVerificarIngresoEjecutivo"  resultClass="Integer">
+	        {CALL sp_ver_ing_eje(?, ?, ?, ?, ?)}
+	    </procedure>
+	    
+	     <parameterMap id="setRegistrarIngresoEjecutivo"  class="java.util.HashMap">
+	        <parameter property="rutCliente"         jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="idEjecutivo"		 jdbcType="VARCHAR"     javaType="String" />
+	        <parameter property="cantidadIntentos"   jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="lapsoTiempo"        jdbcType="INT"     	javaType="Integer" />
+	        <parameter property="sistema"		     jdbcType="VARCHAR"     javaType="String" />
+	     
+	    </parameterMap>
+	    <procedure id="registrarIngresoEjecutivo" parameterMap="setRegistrarIngresoEjecutivo"  resultClass="Integer">
+	        {CALL sp_upd_ing_eje(?, ?, ?, ?, ?)}
+	    </procedure>
+	    
+    	<parameterMap id="setConsultarClienteAltoPatrimonio" class="java.util.HashMap">
+			<parameter property="rutCliente"   	        jdbcType="NUMERIC"  javaType="Long" />
+		</parameterMap>
+		
+		 <resultMap id="getConsultarClienteAltoPatrimonio" class="java.util.HashMap">
+	       <result property="cli_rut" jdbcType="NUMERIC" javaType="Long"  />
+	       <result property="tipo_clas" jdbcType="VARCHAR" javaType="String"  />
+	     </resultMap>
+		
+		<procedure id="consultarClienteAltoPatrimonio" parameterMap="setConsultarClienteAltoPatrimonio" resultMap="getConsultarClienteAltoPatrimonio">
+			{ CALL sp_cns_cli_altopatrimonio(?) }
+		</procedure>
+	    
+	<!-- Fin Autenticacion -->
+</sqlMap>

@@ -1,0 +1,41 @@
+#filtro para registrar evento en CEP
+#HUK;usuarios=*;excluye=false;
+#FDT;usuarios=*;excluye=false;
+#FUO;usuarios=*;excluye=false;
+#FVV;usuarios=*;excluye=false;
+#KKC;usuarios=*;excluye=false;
+#KKD;usuarios=*;excluye=false;
+#KKE;usuarios=*;excluye=false;
+#KKF;usuarios=*;excluye=false;
+#KKG;usuarios=*;excluye=false;
+#KKH;usuarios=*;excluye=false;
+#KKI;usuarios=*;excluye=false;
+#KKJ;usuarios=*;excluye=false;
+#KKK;usuarios=*;excluye=false;
+#KKL;usuarios=*;excluye=false;
+#KPI;usuarios=*;excluye=false;
+#LDY;usuarios=*;excluye=false;
+*;usuarios=*;excluye=false;
+
+
+#Prefijo correspondiente a Cambio de Estado
+modificacion;prefijo=CE;
+
+#Filtro para registrar eventos Cierres de Cuenta en CEP
+#CEHUK;estados=*;excluye=false;
+#CEFDT;estados=*;excluye=false;
+#CEFUO;estados=*;excluye=false;
+#CEFVV;estados=*;excluye=false;
+#CEKKC;estados=*;excluye=false;
+#CEKKD;estados=*;excluye=false;
+#CEKKE;estados=*;excluye=false;
+#CEKKF;estados=*;excluye=false;
+#CEKKG;estados=*;excluye=false;
+#CEKKH;estados=*;excluye=false;
+#CEKKI;estados=*;excluye=false;
+#CEKKJ;estados=*;excluye=false;
+#CEKKK;estados=*;excluye=false;
+#CEKKL;estados=*;excluye=false;
+#CEKPI;estados=*;excluye=false;
+#CELDY;estados=*;excluye=false;
+CE*;estados=*;excluye=false;

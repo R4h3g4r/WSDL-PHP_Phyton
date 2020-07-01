@@ -1,0 +1,34 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_exs_ven">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+
+   <input>
+      <field
+            java_name = "indicador"
+            type = "String"
+            size = "12"
+            middle_name = "indicador"
+      />      
+   </input>
+   <output>
+        <struct struct_size="0" class_name="ResultConsultaExistenciaMensajeDTO" var_name="consultaExistenciaMensajeDTO">
+      <field
+            java_name = "respuesta"
+            type = "String"
+            size = "250"
+            middle_name = "respuesta"/>      
+         </struct>
+   </output>
+</service>

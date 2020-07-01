@@ -1,0 +1,85 @@
+#Solicitud de talonario a domicilio
+
+Talonarios-27;prohibir=SI;autoriza=00;
+
+#Ingreso ONP
+Talonarios-15;prohibir=SI;autoriza=00;
+
+#Solicitud de traslado de talonario
+Talonarios-25;prohibir=SI;autoriza=00;
+
+#Modificacion de direcciones (excepto particulares)
+Direcciones-7;prohibir=SI;autoriza=00,01,02,80;
+Direcciones-8;prohibir=SI;autoriza=00,01,02,80;
+Direcciones-9;prohibir=SI;autoriza=00,01,02,80;
+Direcciones-10;prohibir=SI;autoriza=00,01,02,80;
+Direcciones-11;prohibir=SI;autoriza=00,01,02,80;
+
+#Cambio de direccion envio de correspondencia TC
+DireccionesTDC-2;prohibir=SI;autoriza=00,01,02;
+
+#Cambio de fecha de pago de TC
+ModalidadPago-2;prohibir=SI;autoriza=00;
+
+#Solicitud de aumento de cupo TC
+CambioCupoTDC-2;prohibir=SI;autoriza=00;
+
+#Transferencia terceros BCI
+TransferenciaTercerosBCI;prohibir=SI; autoriza=XX;
+
+#Transferencia otros bancos
+TransferenciasOtrosBancos;prohibir=SI; autoriza=XX;
+
+#Transferencia desde CtaCte a LSG
+TransferenciaEntreCuentas_CCTaLSG;prohibir=SI;autoriza=00,80;
+
+#Transferencia desde CtaCte a TDC
+TransferenciaEntreCuentas_CCTaTDC;prohibir=SI;autoriza=00;
+
+#Transferencia desde CtaCte a Cta de Ahorro
+TransferenciaEntreCuentas_CCTaAHO;prohibir=SI;autoriza=00;
+
+#Transferencia desde CtaCte a Cuenta Prima/Cte
+TransferenciaEntreCuentas_CCTaCPR;prohibir=SI;autoriza=00;
+
+#Transferencia desde Cta de Ahorro a Cuenta corriente
+TransferenciaEntreCuentas_AHOaCCT;prohibir=SI;autoriza=00;
+
+#Servicio dummy para restricciones
+ServicioSensitivo;prohibir=SI;autoriza=00,02,03,82,92;
+
+#Transferencia desde TDC a CtaCte
+TransferenciaEntreCuentas_TDCaCCT;prohibir=SI;autoriza=00;
+
+#Avance MultiCrédito
+MultiCreditoAvanceCartola-4;prohibir=SI;autoriza=00;
+
+#Servicios TOKEN
+MantenerToken;prohibir=SI;
+ConfigurarToken-habilitartoken;prohibir=SI;
+ActivarToken-habilitartoken;prohibir=SI;
+OperarToken-sincrinizacion1;prohibir=SI;
+OperarToken-desbloqueo;prohibir=SI;
+
+#Creditos
+IngresoCancelacion; prohibir=SI; autoriza=00;
+ReingenieriaDeCancelacionesContextualizacion;prohibir=SI;autoriza=00;
+
+#Perfil de cartola
+PerfilDeCartola-1;prohibir=SI;autoriza=00,01,02;
+PerfilDeCartola-3;prohibir=SI;autoriza=00,01,02;
+
+#PersonalizacionChequera
+PersonalizacionChequera-1;prohibir=SI;autoriza=00,01,02;
+PersonalizacionChequera-2;prohibir=SI;autoriza=00,01,02;
+
+#AumentoCupoLineaSobregiro
+AumentoCupoLineaSobregiro-2;prohibir=SI;autoriza=00;
+
+#Solicita aumento linea global 
+SolicitaCreditos-3;prohibir=SI;autoriza=00;
+
+#Pago de la Consulta
+PagoConsulta;       prohibir=SI;autoriza=00,01,02;
+
+

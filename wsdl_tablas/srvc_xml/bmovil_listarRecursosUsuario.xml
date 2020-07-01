@@ -1,0 +1,85 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * SP para obtener el listado de recursos asociado a un usuario
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 25/09/2007 Felipe Concha M. - Version inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * 
+ * Base de datos : bsptest
+ 
+ * @Felipe Concha M. <B>Neoris Chile Ltda.</B>
+ * @version 1.0
+ */
+-->
+
+<service name = "sp_recursos_usuario">
+
+  <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <have_multi_environment value="no" />
+    <outputfield_attr value="no" />
+    <req_num_param value="no" />
+    <translator value="RORPPTPG" />
+    <campo_indica_cantidad value="" />
+    <status_throw_exception value="yes" />
+    <joltpool_name value="wcorp.serv.bancaMovil.ServiciosBancaMovilBean" />
+  </context>
+  
+  <input>
+  	<field 
+		java_name = "idUsuario"	
+		type = "Integer"	
+		size = "10"	
+		middle_name = "id_usuario"
+	/>
+  </input>
+  <output>
+  <struct struct_size="0" class_name="RegistroRecursosUsuarioDTO" var_name="recursosUsuario">
+	 <field
+          java_name = "codigoRecurso"
+          type = "Integer"
+          size = "24"
+          middle_name = "id_recurso"
+        />
+	 <field
+          java_name = "aliasRecurso"
+          type = "String"
+          size = "30"
+          middle_name = "alias_recurso"
+        />
+     <field
+          java_name = "valorRecurso"
+          type = "String"
+          size = "20"
+          middle_name = "valor_recurso"
+        />
+     <field
+          java_name = "fechaActualizacion"
+          type = "String"
+          size = "15"
+          middle_name = "fecha_actualizacion"
+        />        
+     <field
+          java_name = "idTipoRecurso"
+          type = "Integer"
+          size = "24"
+          middle_name = "id_tipo_recurso"
+        />        
+	 <field
+          java_name = "descTipoRecurso"
+          type = "String"
+          size = "50"
+          middle_name = "desc_tipo_recurso"
+        />        
+  </struct>
+  </output>
+
+</service>
+
+

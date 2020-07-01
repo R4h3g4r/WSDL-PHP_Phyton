@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="clasifica.procedimientosAlmacenados">
+
+    <resultMap id="listadoHistoricoFN" class="java.util.HashMap">
+        <result property="fechaIngreso" column="rcz_fec_ing" />
+        <result property="fuente" column="rcz_fte_inf" />
+        <result property="motivo" column="mrz_des_mot" />
+        <result property="semaforo" column="mrz_smf" />
+    </resultMap>
+
+    <resultMap id="reglaTasaRiesgo" class="java.util.HashMap">
+            <result property="calificacion"     column="id_calificacion"    />
+            <result property="regla"            column="regla"  />
+            <result property="tasa"         column="t_riesgo"   />
+    </resultMap>
+
+    <resultMap id="tasaRiesgo"  class="java.util.HashMap">
+            <result property="tasaRiesgo"           column="t_riesgo"   />
+    </resultMap>
+
+    <resultMap id="calificacionesActuales"  class="java.util.HashMap">
+            <result property="idCalificacion"       javaType="Long"             column="id"     jdbcType="numeric"/>
+            <result property="fechaInicio"          javaType="java.util.Date"   column="inicio" jdbcType="smalldatetime"/>
+            <result property="lineaCalificacion"    javaType="int"              column="linea"  jdbcType="numeric"/>
+            <result property="tipoCalificacion"     javaType="int"              column="tipo"   jdbcType="numeric"/>
+            <result property="valorCalificacion"    javaType="String"           column="calif"  jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="historialCalificacion"   class="java.util.HashMap">
+            <result property="idCalificacion"       javaType="Long"             column="idCalificacion"     jdbcType="numeric"/>
+            <result property="fechaHito"            javaType="java.util.Date"   column="fechaHito"          jdbcType="smalldatetime"/>
+            <result property="codigoEstado"         javaType="int"              column="codigoEstado"       jdbcType="numeric"/>
+            <result property="codigoNuevoEstado"    javaType="int"              column="codigoNuevoEstado"  jdbcType="numeric"/>
+            <result property="ejecutivo"            javaType="String"           column="ejecutivo"          jdbcType="varchar"/>
+            <result property="codigoEjecutivo"      javaType="String"           column="codigoEjecutivo"    jdbcType="varchar"/>
+    </resultMap>    
+    
+    <resultMap id="historialCalificacionCliente"    class="java.util.HashMap">
+            <result property="idCalificacion"       javaType="Long"             column="idCalificacion"     jdbcType="numeric"/>
+            <result property="fechaHito"            javaType="java.util.Date"   column="fechaHito"          jdbcType="smalldatetime"/>
+            <result property="fechaBalance"         javaType="java.util.Date"   column="fechaBalance"       jdbcType="smalldatetime"/>
+            <result property="riesgoPuro"           javaType="String"           column="riesgoPuro"         jdbcType="varchar"/>
+            <result property="lineaCortoPlazo"      javaType="String"           column="lineaCortoPlazo"    jdbcType="varchar"/>
+            <result property="lineaLargoPlazo"      javaType="String"           column="lineaLargoPlazo"    jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="itemTablaCalificaion"    class="java.util.HashMap">
+            <result property="idItem"               javaType="Long"             column="ID_ITEM"            jdbcType="numeric"/>
+            <result property="posicionFila"         javaType="Long"             column="HORIZONTAL"         jdbcType="numeric"/>
+            <result property="posicionColumna"      javaType="Long"             column="VERTICAL"           jdbcType="numeric"/>
+            <result property="anchoItem"            javaType="Long"             column="ANCHO"              jdbcType="numeric"/>
+            <result property="altoItem"             javaType="Long"             column="ALTO"               jdbcType="numeric"/>
+            <result property="esCheck"              javaType="Long"             column="ES_CHECK"           jdbcType="numeric"/>
+            <result property="texto"                javaType="String"           column="TEXTO"              jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="cabeceraTablaCalificaion"    class="java.util.HashMap">
+            <result property="idItem"               javaType="Long"             column="ID_ITEM"            jdbcType="numeric"/>
+            <result property="posicionColumna"      javaType="Long"             column="VERTICAL"           jdbcType="numeric"/>
+            <result property="anchoItem"            javaType="Long"             column="ANCHO"              jdbcType="numeric"/>
+            <result property="altoItem"             javaType="Long"             column="ALTO"               jdbcType="numeric"/>
+            <result property="texto"                javaType="String"           column="TEXTO"              jdbcType="varchar"/>
+    </resultMap>
+
+    <resultMap id="pasosCalificacion2"  class="java.util.HashMap">
+            <result property="idCalificacion"           javaType="Long"     column="idCalificacion"             jdbcType="numeric"/>
+            <result property="idPaso"                   javaType="Long"     column="idPaso"                     jdbcType="numeric"/>
+            <result property="calificacionPaso"         javaType="Long"     column="calificacionPaso"           jdbcType="numeric"/>
+            <result property="numeroPaso"               javaType="Long"     column="numeroPaso"                 jdbcType="numeric"/>
+            <result property="calificacionAcumulada"    javaType="Long"     column="calificacionAcumulada"      jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="detallePasosCalificacion"    class="java.util.HashMap">
+            <result property="idDetallePaso"        javaType="Long"             column="idDetallePaso"      jdbcType="numeric"/>
+            <result property="idPaso"               javaType="Long"             column="idPaso"             jdbcType="numeric"/>
+            <result property="valor"                javaType="Long"             column="valor"              jdbcType="numeric"/>
+            <result property="letra"                javaType="Long"             column="letra"              jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="infoCalificacion"    class="java.util.HashMap">
+            <result property="idInfoCalificacion"       javaType="Long"             column="idInfoCalificacion"     jdbcType="numeric"/>
+            <result property="fechaHito"                javaType="java.util.Date"   column="fechaHito"              jdbcType="smalldatetime"/>
+            <result property="fechaBalance"             javaType="java.util.Date"   column="fechaBalance"           jdbcType="smalldatetime"/>
+            <result property="fechaCreacion"            javaType="java.util.Date"   column="fechaCreacion"          jdbcType="smalldatetime"/>
+            <result property="codigoEstado"             javaType="Long"             column="codigoEstado"           jdbcType="numeric"/>
+            <result property="tipo"                     javaType="Long"             column="tipo"                   jdbcType="numeric"/>
+            <result property="pi"                       javaType="Double"           column="pi"                     jdbcType="float"/>
+            <result property="rutCliente"               javaType="Long"             column="rutCliente"             jdbcType="numeric"/>
+            <result property="nombreCliente"            javaType="String"           column="nombreCliente"          jdbcType="String"/>
+            <result property="digitoVerificador"        javaType="String"           column="digitoVerificador"      jdbcType="varchar"/>
+            <result property="codigoUnidadNegocio"      javaType="String"           column="codigoUnidadNegocio"    jdbcType="varchar"/>
+            <result property="nombreUnidadNegocio"      javaType="String"           column="nombreUnidadNegocio"    jdbcType="varchar"/>
+            <result property="idCreador"                javaType="String"           column="idCreador"              jdbcType="varchar"/>
+            <result property="nombreCreador"            javaType="String"           column="nombreCreador"          jdbcType="varchar"/>
+            <result property="idAprobador"              javaType="String"           column="idAprobador"            jdbcType="varchar"/>
+            <result property="nombreAprobador"          javaType="String"           column="nombreAprobador"        jdbcType="varchar"/>
+            <result property="idEjecutivo"              javaType="String"           column="idEjecutivo"            jdbcType="varchar"/>
+            <result property="nombreEjecutivo"          javaType="String"           column="nombreEjecutivo"        jdbcType="varchar"/>
+            <result property="tendencia"                javaType="String"           column="tendencia"              jdbcType="varchar"/>
+            <result property="vigencia"                 javaType="Long"             column="vigencia"               jdbcType="numeric"/>
+            <result property="aprocred"                 javaType="Long"             column="aprocred"               jdbcType="numeric"/>
+            <result property="idOficina"                javaType="String"           column="idOficina"              jdbcType="varchar"/>
+            <result property="nombreOficina"            javaType="String"           column="nombreOficina"          jdbcType="varchar"/>
+            <result property="idGrupo"                  javaType="String"           column="idGrupo"                jdbcType="varchar"/>
+            <result property="nombreGrupo"              javaType="String"           column="nombreGrupo"            jdbcType="varchar"/>
+            <result property="idRegional"               javaType="String"           column="idRegional"             jdbcType="varchar"/>
+            <result property="nombreRegional"           javaType="String"           column="nombreRegional"         jdbcType="varchar"/>
+            <result property="idActividad"              javaType="String"           column="idActividad"            jdbcType="varchar"/>
+            <result property="nombreActividad"          javaType="String"           column="nombreActividad"        jdbcType="varchar"/>
+    </resultMap>
+
+    <resultMap id="calificacionesDeInfo"    class="java.util.HashMap">
+            <result property="idInfoCalificacion"   javaType="Long"     column="idInfoCalificacion"     jdbcType="numeric"/>
+            <result property="idCalificacion"       javaType="Long"     column="idCalificacion"         jdbcType="numeric"/>
+            <result property="calificacionLinea"    javaType="Long"     column="calificacionLinea"      jdbcType="numeric"/>
+            <result property="linea"                javaType="Long"     column="linea"                  jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="listadoCalificacion" class="java.util.HashMap">
+            <result property="idCalificacion"           javaType="Long"             column="idCalificacion"             jdbcType="numeric"/>
+            <result property="fechaBalance"             javaType="java.util.Date"   column="fechaBalance"               jdbcType="smalldatetime"/>
+            <result property="fechaHito"                javaType="java.util.Date"   column="fechaHito"                  jdbcType="smalldatetime"/>
+            <result property="estadoCalificacion"       javaType="Long"             column="estadoCalificacion"         jdbcType="numeric"/>
+            <result property="tipo"                     javaType="Long"             column="tipo"                       jdbcType="numeric"/>
+            <result property="rutCliente"               javaType="Long"             column="rutCliente"                 jdbcType="numeric"/>
+            <result property="nombreCliente"            javaType="String"           column="nombreCliente"              jdbcType="varchar"/>
+            <result property="dvCliente"                javaType="String"           column="dvCliente"                  jdbcType="varchar"/>
+            <result property="codigoUnidNegocio"        javaType="String"           column="codigoUnidNegocio"          jdbcType="varchar"/>
+            <result property="codigoNombreUnidNegocio"  javaType="String"           column="codigoNombreUnidNegocio"    jdbcType="varchar"/>
+            <result property="valorRiesgoPuro"          javaType="Long"             column="valorRiesgoPuro"            jdbcType="numeric"/>
+            <result property="valorCortoPlazo"          javaType="Long"             column="valorCortoPlazo"            jdbcType="numeric"/>
+            <result property="valorLargoPlazo"          javaType="Long"             column="valorLargoPlazo"            jdbcType="numeric"/>
+            <result property="cantidadRegistros"        javaType="Long"             column="cantidadRegistros"          jdbcType="numeric"/>
+            <result property="idEjecutivo"              javaType="String"           column="idEjecutivo"                jdbcType="varchar"/>
+            <result property="fechaCreacion"           javaType="java.util.Date"    column="fechaCreacion"              jdbcType="smalldatetime"/>
+    </resultMap>
+    <resultMap id="listadoCalificacionEncargado"    class="java.util.HashMap">
+            <result property="idCalificacion"           javaType="Long"             column="idCalificacion"             jdbcType="numeric"/>
+            <result property="fechaBalance"             javaType="java.util.Date"   column="fechaBalance"               jdbcType="smalldatetime"/>
+            <result property="fechaHito"                javaType="java.util.Date"   column="fechaHito"                  jdbcType="smalldatetime"/>
+            <result property="estadoCalificacion"       javaType="Long"             column="estadoCalificacion"         jdbcType="numeric"/>
+            <result property="tipo"                     javaType="Long"             column="tipo"                       jdbcType="numeric"/>        
+            <result property="rutCliente"               javaType="Long"             column="rutCliente"                 jdbcType="numeric"/>            
+            <result property="dvCliente"                javaType="String"           column="dvCliente"                  jdbcType="varchar"/>
+            <result property="nombreCliente"            javaType="String"           column="nombreCliente"              jdbcType="varchar"/>
+            <result property="codigoUnidNegocio"        javaType="String"           column="codigoUnidNegocio"          jdbcType="varchar"/>
+            <result property="codigoNombreUnidNegocio"  javaType="String"           column="codigoNombreUnidNegocio"    jdbcType="varchar"/>
+            <result property="valorRiesgoPuro"          javaType="Long"             column="valorRiesgoPuro"            jdbcType="numeric"/>
+            <result property="valorCortoPlazo"          javaType="Long"             column="valorCortoPlazo"            jdbcType="numeric"/>
+            <result property="valorLargoPlazo"          javaType="Long"             column="valorLargoPlazo"            jdbcType="numeric"/>
+            <result property="cantidadRegistros"        javaType="Long"             column="cantidadRegistros"          jdbcType="numeric"/>
+            <result property="idEjecutivo"              javaType="String"           column="idEjecutivo"                jdbcType="varchar"/>            
+    </resultMap>
+        
+    <resultMap id="listadoCalificacionTotal"    class="java.util.HashMap">
+            <result property="idCalificacion"           javaType="Long"             column="idCalificacion"             jdbcType="numeric"/>
+            <result property="fechaBalance"             javaType="java.util.Date"   column="fechaBalance"               jdbcType="smalldatetime"/>
+            <result property="fechaHito"                javaType="java.util.Date"   column="fechaHito"                  jdbcType="smalldatetime"/>
+            <result property="estadoCalificacion"       javaType="Long"             column="estadoCalificacion"         jdbcType="numeric"/>
+            <result property="tipo"                     javaType="Long"             column="tipo"                       jdbcType="numeric"/>        
+            <result property="rutCliente"               javaType="Long"             column="rutCliente"                 jdbcType="numeric"/>            
+            <result property="nombreCliente"            javaType="String"           column="nombreCliente"              jdbcType="varchar"/>
+            <result property="dvCliente"                javaType="String"           column="dvCliente"                  jdbcType="varchar"/>
+            <result property="codigoUnidNegocio"        javaType="String"           column="codigoUnidNegocio"          jdbcType="varchar"/>
+            <result property="codigoNombreUnidNegocio"  javaType="String"           column="codigoNombreUnidNegocio"    jdbcType="varchar"/>
+            <result property="valorRiesgoPuro"          javaType="Long"             column="valorRiesgoPuro"            jdbcType="numeric"/>
+            <result property="valorCortoPlazo"          javaType="Long"             column="valorCortoPlazo"            jdbcType="numeric"/>
+            <result property="valorLargoPlazo"          javaType="Long"             column="valorLargoPlazo"            jdbcType="numeric"/>
+            <result property="cantidadRegistros"        javaType="Long"             column="cantidadRegistros"          jdbcType="numeric"/>
+            <result property="idEjecutivo"              javaType="String"           column="idEjecutivo"                jdbcType="varchar"/>
+            <result property="aprocred"     javaType="Long"             column="aprocred"                   jdbcType="numeric"/>
+            <result property="fechaCreacion"           javaType="java.util.Date"    column="fechaCreacion"              jdbcType="smalldatetime"/>
+    </resultMap>    
+    
+    <resultMap id="evaluacionesCalificacion"    class="java.util.HashMap">
+            <result property="evaluacion"           javaType="String"               column="EVALUACION"             jdbcType="varchar"/>
+    </resultMap>
+
+    <resultMap id="itemEvaluacionCalificaion"   class="java.util.HashMap">
+            <result property="idItem"               javaType="Long"             column="idItem"                     jdbcType="numeric"/>
+            <result property="posicionFila"         javaType="Long"             column="posicionFila"               jdbcType="numeric"/>
+            <result property="posicionColumna"      javaType="Long"             column="posicionColumna"            jdbcType="numeric"/>
+            <result property="columnaCalificacion"  javaType="Long"             column="columnaCalificacion"        jdbcType="numeric"/>
+            <result property="texto"                javaType="String"           column="texto"                      jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="idInfoCalificacion"  class="java.util.HashMap">
+            <result property="idInfoCalificacion"       javaType="Long"             column="idInfoCalificacion"     jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="grupoEconomico"  class="java.util.HashMap">
+            <result property="idGrupo"      javaType="String"               column="id_grupo"       jdbcType="varchar"/>
+            <result property="descGrupo"    javaType="String"               column="desc_grupo"     jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="observacionInfoCalificacion" class="java.util.HashMap">
+            <result property="idInfoCalificacion"   javaType="Long"     column="id_info_calificacion"       jdbcType="numeric"/>
+            <result property="idObservacion"        javaType="Long"     column="id_observacion"             jdbcType="numeric"/>
+            <result property="observacion"          javaType="String"   column="observacion"                jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="adjuntoCalificacionActual"   class="java.util.HashMap">
+            <result property="idAdjunto"            javaType="Long"     column="id_adjunto"                 jdbcType="numeric"/>
+            <result property="idInfoCalificacion"   javaType="Long"     column="id_info_calificacion"       jdbcType="numeric"/>
+            <result property="nombre"               javaType="String"   column="nombre"                     jdbcType="varchar"/>
+            <result property="desc"                 javaType="String"   column="descripcion"                jdbcType="varchar"/>
+            <result property="url"                  javaType="String"   column="url"                        jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="itemPasosCalificacion"   class="java.util.HashMap">
+            <result property="calificacionPaso"      javaType="Long"   column="calificacionPaso"      jdbcType="numeric"/>
+            <result property="numeroPaso"            javaType="Integer"   column="numeroPaso"             jdbcType="numeric"/>
+            <result property="calificacionAcumulada" javaType="Long"   column="calificacionAcumulada" jdbcType="numeric"/>
+            <result property="idPaso"                javaType="Long"   column="idPaso" jdbcType="numeric"/>
+            <result property="linea"                 javaType="Long"   column="linea" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="infoAval"    class="java.util.HashMap">
+            <result property="idAval"           javaType="Long"     column="rut_cliente"        jdbcType="numeric"/>
+            <result property="dv"               javaType="String"   column="digito_verificador" jdbcType="varchar"/>
+            <result property="garante"          javaType="String"   column="nombre_cliente"     jdbcType="varchar"/>
+            <result property="calificacionAval" javaType="Long"     column="calificacion"       jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="infoCalificacionAval"    class="java.util.HashMap">
+            <result property="idAval"           javaType="Long"     column="id_aval"        jdbcType="numeric"/>
+            <result property="calificacionAval" javaType="Long"     column="calificacion_aval"      jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="calificacionFinal"   class="java.util.HashMap">
+            <result property="calificacion" javaType="Long"     column="calificacion"       jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="adjuntoCalificacion" class="java.util.HashMap">
+            <result property="idInfoCalificacion"   javaType="Long"     column="id_info_calificacion"       jdbcType="numeric"/>
+            <result property="nombre"               javaType="String"   column="nombre"                     jdbcType="varchar"/>
+            <result property="desc"                 javaType="String"   column="descripcion"                jdbcType="varchar"/>
+            <result property="url"                  javaType="String"   column="url"                        jdbcType="varchar"/>
+            <result property="riesgoPuro"           javaType="Long"     column="riesgoPuro"                 jdbcType="numeric"/>
+            <result property="lineaLargoPlazo"      javaType="Long"     column="lineaLargoPlazo"             jdbcType="numeric"/>
+            <result property="lineaCortoPlazo"      javaType="Long"     column="lineaCortoPlazo"            jdbcType="numeric"/>
+            <result property="fechaAprobacion"      jdbcType="DATE" javaType="java.util.Calendar" column="fechaAprobacion"
+             typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+    </resultMap>
+
+    <resultMap id="consultarPasoCompleto"   class="java.util.HashMap">
+            <result property="valorPasoCompleto"    javaType="Long"   column="paso_completo"      jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="piCliente"   class="java.util.HashMap">
+            <result property="pi"   column="pi" />
+    </resultMap>
+
+    <resultMap id="HistoricoAlertas"    class="java.util.HashMap">
+            <result property="pi"   column="pi" />
+    </resultMap>
+
+    <resultMap id="HistoricoGestionesAlertas"   class="java.util.HashMap">
+            <result property="pi"   column="pi" />
+    </resultMap>
+
+    <resultMap id="calificacionAprocred"    class="java.util.HashMap">
+            <result property="idInfoCalificacion"   column="ID_INFO_CALIFICACION"/>
+            <result property="codigoEstado"         column="ESTADO" />
+            <result property="codigoAprocred"       column="APROCRED"/>
+            <result property="fechaHito"            column="FECHA_HITO"/>
+    </resultMap>
+
+    <resultMap id="idCalificacionDuplicada" class="java.util.HashMap">
+            <result property="nuevaIdInfoCalificacion"  javaType="Long" column="NUEVO_ID_INFO_CALIFICACION" jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="notaCalificacionAprocred"    class="java.util.HashMap">
+            <result property="notaDeudor" column="NOTA_DEUDOR"/>
+            <result property="notaSuperintendencia" column="NOTA_SUPER"/>
+            <result property="estado" column="ESTADO"/>
+    </resultMap>
+
+    <resultMap id="escalaCalificacion"  class="java.util.HashMap">
+            <result property="notaSuperintendencia" column="NOTA_SUPER"/>
+            <result property="incumplimiento" column="INCUMPLIMIENTO"/>
+            <result property="provision" column="PROVISION"/>
+    </resultMap>
+
+    <resultMap id="aprobarAprocred" class="java.util.HashMap">
+            <result property="resultado" column="RESULTADO"/>
+    </resultMap>
+
+    <resultMap id="calificacionModelo"  class="java.util.HashMap">
+            <result property="calificacionModelo"   javaType="Long" column="CALIF_MODELO" jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="combos"  class="java.util.HashMap">
+            <result property="calificacion" javaType="Long" column="CALIFICACION" jdbcType="numeric"/>
+            <result property="descripcion"  javaType="String" column="DESCRIPCION" jdbcType="varchar"/>
+            <result property="piDesde"  javaType="Double" column="PI_DESDE" jdbcType="float"/>
+            <result property="piHasta"  javaType="Double" column="PI_HASTA" jdbcType="float"/>
+    </resultMap>
+    
+    <resultMap id="infoHistorial"   class="java.util.HashMap">
+            <result property="fechaAprobacion"  javaType="java.util.Date" column="FECHA_APROBACION"        jdbcType="smalldatetime"/>
+            <result property="fechaBalance"     javaType="java.util.Date" column="FECHA_ULT_BALANCE"       jdbcType="smalldatetime"/>
+            <result property="calificacion"     javaType="String"         column="CALIFICACION_ACTUAL"     jdbcType="char"/>
+            <result property="ejecutivo"        javaType="String"         column="EJECUTIVO_CLIENTE"       jdbcType="char"/>
+            <result property="aprobadoPor"      javaType="String"         column="ID_EJECUTIVOMODIFICADOR" jdbcType="char"/>
+    </resultMap>
+    
+    <resultMap id="obtenerAdjuntos" class="java.util.HashMap">
+            <result property="nombre"       javaType="String" column="NOMBRE"       jdbcType="varchar"/>
+            <result property="descripcion"  javaType="String" column="DESCRIPCION"  jdbcType="varchar"/>
+            <result property="url"          javaType="String" column="URL"          jdbcType="varchar"/>
+    </resultMap>
+       
+    <resultMap id="resultInformeRiesgo"    class="java.util.HashMap">
+            <result property="informe"  javaType="String" column="INFORME_EVALUACION_RIESGO"  jdbcType="text"/>
+    </resultMap>
+    
+    <resultMap id="resultCalificaciones"   class="java.util.HashMap">
+            <result property="idCalificacion"           javaType="Long"           column="ID_CALIFICACION"          jdbcType="numeric"/>
+            <result property="fechaCreacion"            javaType="java.util.Date" column="FECHA_CREACION"           jdbcType="smalldatetime"/>
+            <result property="fechaAprobacion"          javaType="java.util.Date" column="FECHA_APROBACION"         jdbcType="smalldatetime"/>
+            <result property="rutCliente"               javaType="Long"           column="RUT"                      jdbcType="numeric"/>
+            <result property="digVerificador"           javaType="String"         column="DIGITO_VERIFICADOR"       jdbcType="char"/>
+            <result property="nombre"                   javaType="String"         column="NOMBRE_CLIENTE"           jdbcType="char"/>
+            <result property="unidadNegocio"            javaType="String"         column="COD_BANCA"                jdbcType="char"/>
+            <result property="regional"                 javaType="String"         column="REGIONAL"                 jdbcType="char"/>
+            <result property="calificacion"             javaType="String"         column="CALIFICACION_ACTUAL"      jdbcType="char"/>
+            <result property="calificacionSugerida"     javaType="String"         column="CALIF_SUGERIDA_EJECUTIVO" jdbcType="char"/>
+            <result property="descRegional"             javaType="String"         column="REGIONAL_DESCRIPCION"     jdbcType="char"/>
+            <result property="ejecutivoAprobador"       javaType="String"         column="ID_EJECUTIVOMODIFICADOR"  jdbcType="char"/>
+            <result property="estado"                   javaType="Long"           column="ESTADO"                   jdbcType="numeric"/>
+            <result property="ejecutivo"                javaType="String"         column="EJECUTIVO_CLIENTE"        jdbcType="char"/>
+            <result property="aprocred"                 javaType="Long"           column="APROCRED"                 jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="datosActividades" class="java.util.HashMap">
+            <result property="codigo"       javaType="String" column="ID_ACTIVIDAD" jdbcType="numeric"/>
+            <result property="descripcion"  javaType="String" column="ACTIVIDAD_ECO_DESC"  jdbcType="varchar"/>
+    </resultMap>
+    
+     <resultMap id="riesgoFactores" class="java.util.HashMap">
+            <result property="descripcion"  javaType="String" column="FACTOR_RIESGO_DESC"  jdbcType="varchar"/>
+    </resultMap>
+
+    <resultMap id="productosBCI" class="java.util.HashMap">
+            <result property="producto"  javaType="String" column="DESCRIPCION" jdbcType="varchar"/>
+            <result property="garantia"  javaType="String" column="DESC_GARANTIA"    jdbcType="char"/>
+    </resultMap>
+    
+     <resultMap id="preguntasCAR" class="java.util.HashMap">
+            <result property="idPregunta"        javaType="Long"    column="ID_PREGUNTA"   		jdbcType="numeric"/>
+            <result property="pregunta"          javaType="String"  column="PREGUNTA_CAR"  		jdbcType="varchar"/>
+            <result property="rango"             javaType="String"  column="RANGO_CAR"     		jdbcType="varchar"/>
+            <result property="tipo"              javaType="Long"    column="TIPO_CAR"      		jdbcType="numeric"/>
+            <result property="valor1"            javaType="float"   column="VALOR1"        		jdbcType="numeric"/>
+            <result property="valor2"            javaType="float"   column="VALOR2"        		jdbcType="numeric"/>
+            <result property="flagDescripcion"   javaType="String"  column="FLAG_DESC"     		jdbcType="varchar"/>
+            <result property="codigoDescripcion" javaType="String"  column="CODIGO_DESCRIPCION" jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="consSemaforo" class="java.util.HashMap">
+            <result property="semaforo"  javaType="String" column="SEMAFORO"  jdbcType="char"/>
+    </resultMap>
+    
+    <resultMap id="equivaleEscala" class="java.util.HashMap">
+            <result property="escalaCE"  javaType="String" column="ESCALA_CE"  jdbcType="char"/>
+    </resultMap>
+    
+    <resultMap id="equivaleBanca" class="java.util.HashMap">
+            <result property="equivalente"  javaType="String" column="CODIGO_BANCA_CE"  jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="idCalificacionDuplicadaAprocred" class="java.util.HashMap">
+            <result property="nuevaIdInfoCalificacion"  javaType="Long" column="NUEVO_ID_CALIFICACION" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="idCalificacionAprocredObtenida"    class="java.util.HashMap">
+            <result property="idCalificacion"       column="ID_CALIFICACION"/>
+            <result property="codigoEstado"         column="ESTADO" />
+            <result property="codigoAprocred"       column="APROCRED"/>
+            <result property="fechaHito"            column="FECHA_HITO"/>
+    </resultMap>
+    
+    <resultMap id="resultAprobarAprocred" class="java.util.HashMap">
+            <result property="resultado" column="RESULTADO"/>
+    </resultMap>
+    
+    <resultMap id="resultInsertarCalificacion" class="java.util.HashMap">
+            <result property="idCalificacion" javaType="Long" column="NUEVO_ID_CALIFICACION" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="resultDuplicaCalificacion" class="java.util.HashMap">
+            <result property="idCalificacion" javaType="Long" column="NUEVO_ID_CALIFICACION" jdbcType="numeric"/>
+    </resultMap>
+    
+    <resultMap id="respuestasCE" class="java.util.HashMap">
+            <result property="idPregunta" javaType="Long" column="ID_PREGUNTA" jdbcType="numeric"/>
+            <result property="respuesta" javaType="String" column="RESPUESTA_CRITERIO" jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="resultObtenerUltimoAval" class="java.util.HashMap">
+            <result property="calificacion" javaType="String" column="CALIFICACION_AVAL" jdbcType="char"/>
+            <result property="fechaCalificacion" javaType="java.util.Date" column="FECHA_CALIF_AVAL" jdbcType="smalldatetime"/>
+    </resultMap>
+    
+    <resultMap id="datosCliente"  class="java.util.HashMap">
+        <result property="idActividad"          javaType="Long"             column="ID_ACTIVIDAD"             jdbcType="numeric"/>
+        <result property="actividadEconomica"   javaType="String"           column="ACTIVIDAD_DESCRIPCION"    jdbcType="varchar"/>
+        <result property="idAval"               javaType="Long"             column="ID_AVAL"                  jdbcType="numeric"/>
+        <result property="rut"                  javaType="int"              column="RUT"                      jdbcType="numeric"/>
+        <result property="dv"                   javaType="String"           column="DIGITO_VERIFICADOR"       jdbcType="char"/>
+        <result property="nombreCliente"        javaType="String"           column="NOMBRE_CLIENTE"           jdbcType="char"/>
+        <result property="califActual"          javaType="String"           column="CALIFICACION_ACTUAL"      jdbcType="char"/>
+        <result property="fechaCalifActual"     javaType="java.util.Date"   column="FECHA_CALIF_ACTUAL"       jdbcType="smalldatetime"/>
+        <result property="argAprobacionEjec"    javaType="String"           column="ARG_APROBACION_EJEC"      jdbcType="varchar"/>
+        <result property="codBanca"             javaType="String"           column="COD_BANCA"                jdbcType="char"/>
+        <result property="regionalCodigo"       javaType="String"           column="REGIONAL"                 jdbcType="char"/>
+        <result property="nombreRegional"       javaType="String"           column="REGIONAL_DESCRIPCION"     jdbcType="char"/>
+        <result property="oficina"              javaType="String"           column="OFICINA"                  jdbcType="char"/>
+        <result property="ejecCliente"          javaType="String"           column="EJECUTIVO_CLIENTE"        jdbcType="char"/>
+        <result property="ejecCalificador"      javaType="String"           column="EJECUTIVO_CALIFICADOR"    jdbcType="char"/>
+        <result property="fechaCreacion"        javaType="java.util.Date"   column="FECHA_CREACION"           jdbcType="smalldatetime"/>
+        <result property="fechaAprobacion"      javaType="java.util.Date"   column="FECHA_APROBACION"         jdbcType="smalldatetime"/>
+        <result property="califSugeridaArea"    javaType="String"           column="CALIF_SUGERIDA_AREA"      jdbcType="varchar"/>
+        <result property="califSugeridaEjec"    javaType="String"           column="CALIF_SUGERIDA_EJECUTIVO" jdbcType="varchar"/>
+        <result property="fechaUltimoBalance"   javaType="java.util.Date"   column="FECHA_ULT_BALANCE"        jdbcType="smalldatetime"/>
+        <result property="proyecto"             javaType="String"           column="PROYECTO"                 jdbcType="char"/>
+        <result property="califCriterioExp"     javaType="String"           column="CALIF_PROP_CRITERIO_EXPERTO"  jdbcType="char"/>
+        <result property="obsCriterioExp"       javaType="String"           column="OBS_PROP_CRITERIO_EXPERTO"    jdbcType="varchar"/>
+        <result property="califCar"             javaType="String"           column="CALIF_CAR"                    jdbcType="char"/>
+        <result property="argRecSugEjec"        javaType="String"           column="ARG_RECOMENDACION_EJEC"       jdbcType="varchar"/>
+        <result property="recEjecutivo"         javaType="String"           column="RECOMENDACION_SUG_EJEC"       jdbcType="varchar"/>
+        <result property="estado"               javaType="String"           column="ESTADO"                       jdbcType="varchar"/>
+        <result property="aprocred"             javaType="String"           column="APROCRED"                     jdbcType="varchar"/>
+        <result property="pi_cliente"           javaType="String"           column="PI_CLIENTE"                   jdbcType="char"/>
+        <result property="ejecutivoAprobador"   javaType="String"           column="EJECUTIVO_APROBADOR"          jdbcType="varchar"/>
+        <result property="calificacionActualVisacion"   javaType="String"           column="CALIFICACION_ACTUAL_VISACION"          jdbcType="varchar"/>
+        <result property="fechaCalificacionVisacion"   javaType="Date"           column="FECHA_CALIFICACION_VISACION"          jdbcType="date"/>
+        <result property="calificacionAjustada"   javaType="String"           column="CALIFICACION_AJUSTADA"          jdbcType="varchar"/>
+        <result property="score"   javaType="Integer"           column="SCORE"          jdbcType="numeric"/>
+    </resultMap>
+    
+      <resultMap id="datosAval"  class="java.util.HashMap">
+        <result property="califAval"  javaType="String"  column="CALIFICACION_AVAL"  jdbcType="char"/>
+        <result property="fecha"  javaType="java.util.Date"  column="FECHA_CALIF_AVAL"  jdbcType="smalldatetime"/>
+    </resultMap>
+    
+    <resultMap id="preguntasCE"  class="java.util.HashMap">
+        <result property="idPregunta"    javaType="Long"     column="ID_PREGUNTA"            jdbcType="numeric"/>
+        <result property="pregunta"      javaType="String"   column="PREGUNTA_CRITERIO"      jdbcType="varchar"/>
+        <result property="grupo"         javaType="Long"     column="GRUPO"                  jdbcType="numeric"/>
+    </resultMap>
+
+    <resultMap id="respuestaInfo5C"  class="java.util.HashMap">
+        <result property="tipo"  javaType="String"  column="TIPO_EVALUACION_ESTRATEGIA"  jdbcType="varchar"/>
+        <result property="respuesta"  javaType="String"  column="RESPUESTA_EVALUACION"  jdbcType="varchar"/>
+        <result property="observacion"  javaType="String"  column="OBSERVACION_EVALUACION"  jdbcType="text"/>
+    </resultMap>
+    
+    <resultMap id="respuestaEvaluacionClienteEstrategia"  class="java.util.HashMap">
+        <result property="evaluacion"  javaType="String"  column="RESPUESTA_EVALUACION"  jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="respuestaEvaluacionesEstrategia"  class="java.util.HashMap">
+        <result property="evaluacion"  javaType="String"  column="RESPUESTA_EVALUACION"  jdbcType="varchar"/>
+    </resultMap>
+    
+    <resultMap id="respuestaRegionales"  class="java.util.HashMap">
+        <result property="codigo"        javaType="String"  column="CODIGO_REGIONAL"       jdbcType="char"/>
+        <result property="descRegional"  javaType="String"  column="REGIONAL_DESCRIPCION"  jdbcType="char"/>
+    </resultMap>
+    <resultMap id="detRespCar" class="java.util.HashMap">
+            <result property="idDetRespCar"      javaType="Long"    column="ID_DET_RESP_CAR"   jdbcType="numeric"/>
+            <result property="descripcion"   javaType="String"  column="DET_RESP_CAR"     jdbcType="varchar"/>
+            <result property="idDetRespCarPos"      javaType="Long"    column="DET_RESP_CAR_POS"   jdbcType="numeric"/>
+            <result property="detDesCarVal"      javaType="Long"    column="DET_RESP_CAR_VAL"   jdbcType="numeric"/>
+    </resultMap>
+
+    <procedure id="guardarEventoFileNegativo" parameterClass="java.util.HashMap">
+        {CALL proc_guardar_evt_file_neg(#rut#,#dv#,#cod_motivo#,#glosa_ext_idc#,#fuente#)}
+    </procedure>
+
+    <procedure id="consultarPi" parameterClass="java.util.HashMap" resultMap="piCliente">
+        {CALL sp_calificacion_cns_pi(#rut#)}
+    </procedure>
+
+    <procedure id="guardarHistoricoFileNegativo" parameterClass="java.util.HashMap">
+        {CALL proc_historico_file_neg(#rut#,#cod_motivo#)}
+    </procedure>
+
+    <procedure id="obtenerHistoricoFileNegativo" parameterClass="java.util.HashMap" resultMap="listadoHistoricoFN   ">
+        {CALL proc_cns_fn_hist(#rut#)}
+    </procedure>
+
+    <procedure id="consultarReglasTasaRiesgo" parameterClass="java.util.HashMap" resultMap="reglaTasaRiesgo">
+        {CALL proc_cns_reg_triesgo()}
+    </procedure>
+
+    <procedure id="consultarTasaRiesgoCliente" parameterClass="java.util.HashMap" resultMap="tasaRiesgo">
+        {CALL proc_cns_tasa_riesgo(#rut#)}
+    </procedure>
+
+    <procedure id="actualizarReglasTasasDeRiesgo" parameterClass="java.util.HashMap">
+        {CALL proc_act_reg_triesgo(#id_calificacion#,#regla#,#tasa#)}
+    </procedure>
+
+    <procedure id="selectorCalificaciones" parameterClass="java.util.HashMap" resultMap="calificacionesActuales">
+        {CALL sp_calificaciones_cns_actuales(#rut#,#aprocred#)}
+    </procedure>
+    
+    <procedure id="historialDeCalificacion" parameterClass="java.util.HashMap" resultMap="historialCalificacion">
+        {CALL sp_calificacion_cns_historia(#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="historialDeCalificacionesCliente" parameterClass="java.util.HashMap" resultMap="historialCalificacionCliente">
+        {CALL sp_calificacion_cns_hist_clien(#rutCliente#)}
+    </procedure>
+    
+    <procedure id="pasosCalificacion" parameterClass="java.util.HashMap" resultMap="pasosCalificacion2">
+        {CALL sp_calificacion_cns_paso(#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="detallePasosCalificacion" parameterClass="java.util.HashMap" resultMap="detallePasosCalificacion">
+        {CALL sp_calificacion_cns_det_paso(#identPaso#)}
+    </procedure>
+    
+    <procedure id="obtInfoCalificacion" parameterClass="java.util.HashMap" resultMap="infoCalificacion">
+        {CALL sp_calificacion_cns_info_calif(#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="obtCalificaciones" parameterClass="java.util.HashMap" resultMap="calificacionesDeInfo">
+        {CALL sp_calificacion_cns_calif(#idInfoCalificacion#)}
+    </procedure>
+    
+    <procedure id="listadoDeCalificacion" parameterClass="java.util.HashMap" resultMap="listadoCalificacion">
+        {CALL sp_calificacion_cns_busqueda(#tipoBusqueda#,#rut#,#areaNeg#,#pidesde#,#pihasta#,#califdesde#,#califhasta#,#estado#,#numpag#,#cantreg#,#campo_orden#,#orden#,#regional#,#oficina#,#ejecutivo#,<isNotNull property="fechaDesde">#fechaDesde#</isNotNull><isNull property="fechaDesde">NULL</isNull>,<isNotNull property="fechaHasta">#fechaHasta#</isNotNull><isNull property="fechaHasta">NULL</isNull>)}
+    </procedure>
+    <procedure id="listadoDeCalificacionEncargado" parameterClass="java.util.HashMap" resultMap="listadoCalificacionEncargado">
+        {CALL sp_calificacion_cns_bus_enc(#rut#,#areaNeg#,#pidesde#,#pihasta#,#califdesde#,#califhasta#,#estado#,#numpag#,#cantreg#,#campo_orden#,#orden#,#regional#,#oficina#,#ejecutivo#)}
+    </procedure>
+    <procedure id="listadoDeCalificacionTotal" parameterClass="java.util.HashMap" resultMap="listadoCalificacionTotal">
+        {CALL sp_calificacion_cns_bus_tot(#rut#,#areaNeg#,#pidesde#,#pihasta#,#califdesde#,#califhasta#,#estado#,#numpag#,#cantreg#,#campo_orden#,#orden#,#regional#,#oficina#,#ejecutivo#,<isNotNull property="fechaDesde">#fechaDesde#</isNotNull><isNull property="fechaDesde">NULL</isNull>,<isNotNull property="fechaHasta">#fechaHasta#</isNotNull><isNull property="fechaHasta">NULL</isNull>)}
+    </procedure>
+    <procedure id="obtItemsEvaluacionxPaso" parameterClass="java.util.HashMap" resultMap="itemEvaluacionCalificaion">
+        {CALL sp_calificacion_cns_eval_paso(#idPaso#)}
+    </procedure>
+
+    <procedure id="cabeceraTablaItem" parameterClass="java.util.HashMap" resultMap="cabeceraTablaCalificaion">
+        {CALL sp_calificacion_cns_cab_item(#tipo_cal#,#paso#)}
+    </procedure>
+
+    <procedure id="cuerpoTablaItem" parameterClass="java.util.HashMap" resultMap="itemTablaCalificaion">
+        {CALL sp_calificacion_cns_tab_item(#tipo_cal#,#paso#)}
+    </procedure>
+
+    <procedure id="evaluacionesPorCalificacion" parameterClass="java.util.HashMap" resultMap="evaluacionesCalificacion">
+        {CALL sp_calificacion_cns_eval(#id_info_cal#,#linea_cal#,#num_paso#)}
+    </procedure>
+
+    <procedure id="guardarCalificacionPaso" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_ins_paso(#id_info_calificacion#,#linea#,#calif_paso#,#calif_acumulada#,#nro_paso#,#detalle1#,#detalle2#,#detalle3#,#evaluacion#,#id_aval#,#calificacion_aval#)}
+    </procedure>
+
+    <procedure id="pasoCompleto" parameterClass="java.util.HashMap" resultMap="consultarPasoCompleto">
+        {CALL sp_calificacion_cns_rec_paso(#id_info_calificacion#,#linea_cal#,#nro_paso#)}
+    </procedure>
+
+    <procedure id="ingresarInfoCalificacion" parameterClass="java.util.HashMap" resultMap="idInfoCalificacion">
+        {CALL sp_calificacion_ins_info_calif(
+        <isNotNull property="fechaBalance">#fechaBalance#</isNotNull>
+        <isNull property="fechaBalance">NULL</isNull>,  #codigoEstado#,#tipo#,#pi#,#tendencia#,#rutCliente#,#digitoVerificador#,#nombreCliente#,#codigoUnidadNegocio#,#nombreUnidadNegocio#,#idCreador#,#nombreCreador#,
+        <isNotNull property="idAprobador">#idAprobador#</isNotNull>
+        <isNull property="idAprobador">NULL</isNull>,
+        <isNotNull property="nombreAprobador">#nombreAprobador#</isNotNull>
+        <isNull property="nombreAprobador">NULL</isNull>,   #idEjecutivo#,#nombreEjecutivo#,#vigencia#,
+        <isNotNull property="aprocred">#aprocred#</isNotNull>
+        <isNull property="aprocred">NULL</isNull>,#idOficina#,#nombreOficina#,#idGrupo#,#nombreGrupo#,#idRegional#,#nombreRegional#,#idActividad#,#nombreActividad#)}
+    </procedure>
+
+    <procedure id="modificarInfoCalificacion" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_mdf_info_calif(#idInfoCalificacion#,#codigoEstado#,#tendencia#,
+        <isNotNull property="idAprobador">#idAprobador#</isNotNull>
+        <isNull property="idAprobador">NULL</isNull>,
+        <isNotNull property="nombreAprobador">#nombreAprobador#</isNotNull>
+        <isNull property="nombreAprobador">NULL</isNull>)}
+    </procedure>
+
+    <procedure id="ingresarObservacionInfoCalificacion" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_ins_obs_infcal(#idInfoCalificacion#,#idObservacion#,#observacion#)}
+    </procedure>
+
+    <procedure id="modificarObservacionInfoCalificacion" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_mdf_obs_infcal(#idInfoCalificacion#,#idObservacion#,#observacion#)}
+    </procedure>
+
+    <procedure id="obtenerGruposEconomicos" parameterClass="java.util.HashMap" resultMap="grupoEconomico">
+        {CALL sp_calificacion_cns_grp_eco()}
+    </procedure>
+
+    <procedure id="obtenerGrupoEconomicoDelCliente" parameterClass="java.util.HashMap" resultMap="grupoEconomico">
+        {CALL sp_calificacion_cns_grp_eco_cl(#rutCliente#)}
+    </procedure>
+
+    <procedure id="obtenerObservacionesInfoCalificacion" parameterClass="java.util.HashMap" resultMap="observacionInfoCalificacion">
+        {CALL sp_calificacion_cns_obs_infcal(#idInfoCalificacion#)}
+    </procedure>
+
+    <procedure id="ingresarArchivoAdjunto" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_ins_archivo(#idCalificacion#,#nombre#,
+        <isNotNull property="descripcion">#descripcion#</isNotNull>
+        <isNull property="descripcion">NULL</isNull>,#url#)}
+    </procedure>
+
+    <procedure id="obtenerAdjuntosCalificacionActual" parameterClass="java.util.HashMap" resultMap="adjuntoCalificacionActual">
+        {CALL sp_calificacion_cns_cal_actual(#idInfoCalificacion#)}
+    </procedure>
+
+    <procedure id="obtenerCalificacionPasos" parameterClass="java.util.HashMap" resultMap="itemPasosCalificacion">
+        {CALL sp_calificacion_cns_acum(#idInfoCalificacion#,#linea#)}
+    </procedure>
+
+    <procedure id="modificarValorCalificacionPaso" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_mdf_cal_paso(#idPaso#,#calif_paso#,#calif_acumulada#)}
+    </procedure>
+
+    <procedure id="obtenerAval" parameterClass="java.util.HashMap" resultMap="infoAval">
+        {CALL sp_calificacion_cns_aval(#rut_cliente#)}
+    </procedure>
+
+    <procedure id="insertarAval" parameterClass="java.util.HashMap" >
+        {CALL sp_calificacion_ins_aval(#idInfoCalificacion#,#id_aval#,#calificacion_aval#,#linea#)}
+    </procedure>
+
+    <procedure id="obtenerAvaldeCalificacion" parameterClass="java.util.HashMap" resultMap="infoCalificacionAval">
+        {CALL sp_calificacion_cns_avalCalif(#idInfoCalificacion#,#linea#)}
+    </procedure>
+
+    <procedure id="modificarCalificacion" parameterClass="java.util.HashMap" >
+        {CALL sp_calificacion_mdf_calif(#idInfoCalificacion#,#linea#,#calificacion#)}
+    </procedure>
+
+    <procedure id="obtenerCalificacionFinal" parameterClass="java.util.HashMap" resultMap="calificacionFinal">
+        {CALL sp_calificacion_cns_calif_fin(#idInfoCalificacion#,#linea#)}
+    </procedure>
+
+    <procedure id="obtenerAdjuntosHistoricos" parameterClass="java.util.HashMap" resultMap="adjuntoCalificacion">
+        {CALL sp_calificacion_cns_hist_adj(#rutCliente#,#idInfoCalificacion#)}
+    </procedure>
+
+    <procedure id="eliminarArchivoAdjunto" parameterClass="java.util.HashMap">
+        {CALL sp_calificacion_eli_arc_actual(#idAdjunto#)}
+    </procedure>
+
+    <procedure id="obtenerIdInfoCalificacionAprocred" parameterClass="java.util.HashMap" resultMap="calificacionAprocred">
+        {CALL sp_calificacion_cns_aprocred(#rut#,#codigoAprocred#)}
+    </procedure>
+
+    <procedure id="duplicarCalificacion" parameterClass="java.util.HashMap" resultMap="idCalificacionDuplicada">
+        {CALL sp_calificacion_dup_calif(#idInfoCalificacionActual#,#codigoAprocred#,#idActividad#,#nombreActividad#,#idCreador#,#nombreCreador#,#idOficina#,#nombreOficina#,#idRegional#,#nombreRegional#)}
+    </procedure>
+
+    <procedure id="obtenerNotaCalificacionAprocred" parameterClass="java.util.HashMap" resultMap="notaCalificacionAprocred">
+        {CALL sp_calificacion_cns_nota_apro(#rut#,#solicitudAprocred#,#tipoCalificacion#)}
+    </procedure>
+
+    <procedure id="obtenerEscalaCalificacion" parameterClass="java.util.HashMap" resultMap="escalaCalificacion">
+        {CALL sp_calificacion_cns_escala(#calificacion#)}
+    </procedure>
+
+    <procedure id="aprobarCalificacionAprocred" parameterClass="java.util.HashMap" resultMap="aprobarAprocred">
+        {CALL sp_calificacion_apr_aprocred(#rut#,#solicitudAprocred#,#idAprobador#,#nombreAprobador#)}
+    </procedure>
+
+    <procedure id="obtenerCalificacionModelo" parameterClass="java.util.HashMap" resultMap="calificacionModelo">
+        {CALL sp_calificacion_cns_modelo(#incumplimiento#)}
+    </procedure>
+
+    <procedure id="obtenerCombos" parameterClass="java.util.HashMap" resultMap="combos">
+        {CALL sp_calificacion_cns_combos()}
+    </procedure>
+    
+    <procedure id="obtenerRutCalificacionAprocred" parameterClass="java.util.HashMap">
+          {CALL sp_cns_cal_aprocred(#codigoAprocred#)}
+    </procedure>
+    
+    <parameterMap id="setRegistrosDeTab" class="java.util.HashMap">
+        <parameter property="tab_cod_ttab" jdbcType="VARCHAR" javaType="String" />  
+    </parameterMap>
+    <resultMap id="getRegistrosDeTab" class="java.util.HashMap">
+        <result  property="tab_cod_ctab" column="tab_cod_ctab" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_fec_trn" jdbcType="DATE"  javaType="Date" />
+        <result  property="tab_ind_vig" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_idn_usu_trn" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_cic_tabl" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_cic_ctab" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_ext_ttab" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_ext_ctab" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_gls_dcor" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_gls_abrv" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_gls_desc" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_gls_data" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_snx_ttab" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tab_snx_ctab" jdbcType="VARCHAR"  javaType="String" />       
+    </resultMap>
+    <procedure id="consultaMasivaDeRegistrosDeTab"  parameterMap="setRegistrosDeTab"   resultMap="getRegistrosDeTab">
+       {CALL sp_lee_regtab50(?)}
+    </procedure>
+    
+    <procedure id="obtenerCalificacionBCI" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_lee_cal50(#rut#, #digito#, #indicador#, #glosa#)}
+    </procedure>
+
+    <resultMap id="getConsultarConstantesMEE" class="java.util.HashMap">
+        <result property="nombreConstante" column="nombre_constante" jdbcType="CHAR" javaType="String"/>
+        <result property="valorConstante"  column="valor_constante"  jdbcType="float" javaType="Double"/>
+    </resultMap>
+    <parameterMap id="setModificarConstantesMEE" class="java.util.HashMap">
+        <parameter property="margenSeguridad"    javaType="Double" jdbcType="Double" />
+        <parameter property="recuperoIncobrable" javaType="Double" jdbcType="Double" />
+        <parameter property="factorDeAjuste"     javaType="Double" jdbcType="Double" />
+        <parameter property="nombreUsuario"      javaType="String" jdbcType="CHAR"   />
+    </parameterMap>
+    <procedure id="consultarConstantesMEE" parameterClass="java.util.HashMap" resultMap="getConsultarConstantesMEE">
+        { CALL sp_cns_constantesMEE() }
+    </procedure>    
+    <procedure id="modificarConstantesMEE" parameterMap="setModificarConstantesMEE" resultClass="String">
+        { CALL sp_mod_constantesMEE( ?, ?, ?, ? ) }
+    </procedure>    
+
+   <resultMap id="idCalificacion"   class="java.util.HashMap">
+            <result property="idCalificacion"   javaType="Long" column="idCalificacion" jdbcType="numeric"/>
+    </resultMap>
+        
+    <procedure id="obtenerUltimaCalificacionAprobada" parameterClass="java.util.HashMap" resultMap="idCalificacion">
+        {CALL sp_calificacion_cns_cal_aprob(#rutCliente#)}
+    </procedure>
+    
+   <resultMap id="idCalificacionClonada"    class="java.util.HashMap">
+            <result property="nuevaIdInfoCalificacion"  javaType="Long" column="NUEVO_ID_INFO_CALIFICACION" jdbcType="numeric"/>
+    </resultMap>
+    
+    <procedure id="duplicarUltimaCalificacionAprobada" parameterClass="java.util.HashMap" resultMap="idCalificacionClonada">
+        {CALL sp_calificacion_dup_aprob(#idInfoCalificacionActual#,#idActividad#,#nombreActividad#,#idCreador#,#nombreCreador#,#idOficina#,#nombreOficina#,#idRegional#,#nombreRegional#)}
+    </procedure>
+
+    <procedure id="retornaRiesgoCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_prv_cns_rie_cli(#rutCliente#)}
+    </procedure>
+
+    <resultMap id="resultado"   class="java.util.HashMap">
+            <result property="Incumplimiento" javaType="Double" column="Incumplimiento" jdbcType="numeric"/>
+    </resultMap>
+    <procedure id="consultarProbabilidadDeIncumplimiento" parameterClass="java.util.HashMap" resultMap="resultado">
+        {CALL sp_cns_PI_pyme( #rutCliente# )}
+    </procedure>
+    <parameterMap id="setConsultaPI" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="NUMERIC" javaType="long" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaPI" class="java.util.HashMap">
+        <result property="pi" column="mat_psv_vpi" jdbcType="float" javaType="double" />
+    </resultMap>
+
+    <procedure id="consultaPI" parameterMap="setConsultaPI"  resultMap="getConsultaPI" >
+            { CALL SP_ConsultaPI(?) }
+    </procedure>
+    
+    <procedure id="retornaPerdidasEsperadasPorCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_cab_sel_per_esp(#rutCliente#)}
+    </procedure>
+    <procedure id="retornaDeudaGarantiaPorCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_cab_sel_deu_gar(#rutCliente#)}
+    </procedure>
+    <procedure id="retornaRelacionDeudaGarantia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_cab_rel_deu_gar(#rutCliente#)}
+    </procedure>
+    <procedure id="retornaProvisiones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_cab_sel_prov(#rutCliente#)}
+    </procedure>
+    <procedure id="retornaDetallePerdidaEsperada" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_sel_per_esp(#rutCliente#,#fecha#,#codigoFuente#)}
+    </procedure>
+    <procedure id="retornaDetalleDeudaGarantia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_sel_deu_gar(#rutCliente#,#fecha#,#codigoFuente#)}
+    </procedure>
+    <procedure id="retornaDetalleDeudaGarantiaGrupal" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_rel_deu_gar(#rutCliente#,#fecha#)}
+    </procedure>    
+    <procedure id="retornaDetalleProvisiones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_sel_prov(#rutCliente#,#fecha#)}
+    </procedure>
+    <procedure id="retornaDeudaBanco" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_sub_deu_ban(#rutCliente#,#fecha#,#codigoFuente#)}
+    </procedure>
+    <procedure id="retornaDeudaLeasing" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rie_det_sub_deu_lea(#rutCliente#,#fecha#,#codigoFuente#)}
+    </procedure>
+
+    <statement id="informeRiesgo" parameterClass="java.util.HashMap" resultClass="int">
+        <![CDATA[
+        IF EXISTS (SELECT 1 FROM CALIFICACIONES WHERE ID_CALIFICACION = #identificador#)
+		BEGIN
+			  UPDATE CALIFICACIONES SET INFORME_EVALUACION_RIESGO = #informe#
+			  WHERE ID_CALIFICACION = #identificador#
+		END  
+		SELECT @@ERROR as value
+		]]>          
+    </statement>
+    
+    <procedure id="historial" parameterClass="java.util.HashMap" resultMap="infoHistorial">
+        {CALL sp_califica_cns_historialcalif(#rutCliente#)}
+    </procedure>
+    
+    <procedure id="obtenerAdjuntos" parameterClass="java.util.HashMap" resultMap="obtenerAdjuntos">
+        {CALL sp_califica_cns_archivos(#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="obtieneInformeRiesgo" parameterClass="java.util.HashMap" resultMap="resultInformeRiesgo">
+        {CALL sp_califica_cns_inf_riesgo(#idCalificacion#)}
+    </procedure>
+    
+     <procedure id="busquedaCalificaciones" parameterClass="java.util.HashMap" resultMap="resultCalificaciones">
+        {CALL sp_califica_cns_calificaciones(
+            #calificacionDe#,
+            #calificaciona#,
+            #rut#,
+            #subBanca#,
+            #fechaDe#,
+            #fechaa#,
+            #usuario#,
+            #estado#,
+            #tipoBusqueda#,
+            #ejecutivo#,
+            <isNull property="solicitudAprocred">0</isNull><isNotNull property="solicitudAprocred">#solicitudAprocred#</isNotNull>
+        )}
+    </procedure>
+    
+    <procedure id="guardarArchivoCalificaciones" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_archivo_calf(#idCalificacion#,#nombreArchivo#,#descripcionArchivo#,#rutaArchivo#)}
+    </procedure>
+    
+    <procedure id="obtenerActividades" parameterClass="java.util.HashMap" resultMap="datosActividades">
+        {CALL sp_califica_obtener_actividad()}
+    </procedure>
+    
+     <procedure id="buscarInformacionADesplegar" parameterClass="java.util.HashMap" resultMap="riesgoFactores">
+        {CALL sp_califica_cns_riesgoFactor(#tipoBusqueda#,#actividadComercial#)}
+    </procedure>
+    
+    <procedure id="buscarProductos" parameterClass="java.util.HashMap" resultMap="productosBCI">
+        {CALL sp_califica_cns_productosbci(#actividadEconomica#)}
+    </procedure>    
+    
+    <procedure id="buscarCar" parameterClass="java.util.HashMap" resultMap="preguntasCAR">
+        {CALL sp_califica_cns_car(#actividadComercial#)}
+    </procedure>          
+    
+    <procedure id="guardarArgumentacionCAR" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_argumentocar(#idCalificacion#,#argumentacion#,#resultadoCar#,#recomendacion#,#idActividad#)}
+    </procedure>
+    
+    <procedure id="guardarRespuestasCar" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_respuestacar(#idCalificacion#,#idPregunta#,#resultado#)}
+    </procedure>  
+    
+    <procedure id="consColorSemaforo" parameterClass="java.util.HashMap" resultMap="consSemaforo">
+        {CALL sp_califica_cns_semaforo(#idActividad#)}
+    </procedure>          
+    
+    <procedure id="consEquivalenteEscala" parameterClass="java.util.HashMap" resultMap="equivaleEscala">
+        {CALL sp_califica_cns_equi_escala(#calificacion#)}
+    </procedure>
+          
+    <procedure id="consEquivalenteBanca" parameterClass="java.util.HashMap" resultMap="equivaleBanca">
+        {CALL sp_califica_cns_equi_banca(#banca#)}
+    </procedure>
+    
+    <procedure id="guardaHistoriaCalificacion" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_historia_calif(#idCalificacion#,#estado#,#nuevoEstado#,#fechaHito#,#idEjecutivo#,#nombreEjecutivo#)}
+    </procedure>
+    
+    <procedure id="duplicarCalificacionAprocred" parameterClass="java.util.HashMap" resultMap="idCalificacionDuplicadaAprocred">
+        {CALL sp_califica_dup_calif_aprocred(#idCalificacionActual#,#codigoAprocred#,#idActividad#,#idCreador#,#idOficina#,#idRegional#)}
+    </procedure>
+    
+    <procedure id="obtenerIdCalificacionAprocred" parameterClass="java.util.HashMap" resultMap="idCalificacionAprocredObtenida">
+        {CALL sp_califica_cns_aprocred(#rut#,#codigoAprocred#)}
+    </procedure>
+    
+    <procedure id="aprobarCalifAprocred" parameterClass="java.util.HashMap" resultMap="resultAprobarAprocred">
+        {CALL sp_califica_aprobar_aprocred(#rut#,#solicitudAprocred#,#idAprobador#,#nombreAprobador#)}
+    </procedure>
+    
+    <procedure id="eliminarAdjunto" parameterClass="java.util.HashMap">
+        {CALL sp_califica_borrar_adjunto(#nombreArchivo#)}
+    </procedure>
+    
+    <procedure id="insertaNuevaCalificacion" parameterClass="java.util.HashMap" resultMap="resultInsertarCalificacion">
+        {CALL sp_califica_ins_nueva_calif(#rut#,#digito#,#nombre#,#actividad#,#ejecutivo#,#fechaCreacion#,#banca#,#oficina#,#regional#,#ejecutivocalificador#,#nombreRegional#,#aprocred#)}
+    </procedure>
+    
+    <procedure id="duplicaCalificacion" parameterClass="java.util.HashMap" resultMap="resultDuplicaCalificacion">
+        {CALL sp_califica_dup_calificacion(#rut#,#ejecutivo#,#aprocred#)}
+    </procedure>
+    
+    <procedure id="aprobarCalificacionEjecutivo" parameterClass="java.util.HashMap">
+        {CALL sp_califica_aprobar_calif(#idCalificacion#,#calificacion#,#argumentacion#,#ejecutivo#)}
+    </procedure>
+    
+    <procedure id="obtenerRespuestasCE" parameterClass="java.util.HashMap" resultMap="respuestasCE">
+        {CALL sp_califica_cns_respuesta_ce(#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="obtenerUltimoAval" parameterClass="java.util.HashMap" resultMap="resultObtenerUltimoAval">
+        {CALL sp_califica_cns_ultimo_aval(#idCalificacion#)}
+    </procedure>
+    
+    <resultMap id="obtenerEvaluacionEstrategiaResult" class="java.util.HashMap">
+            <result property="RESPUESTA_EVALUACION" 	javaType="String"	 column="RESPUESTA_EVALUACION"/>
+            <result property="OBSERVACION_EVALUACION"  	javaType="String" 	 column="OBSERVACION_EVALUACION"/>
+    </resultMap>
+    
+    <procedure id="obtenerEvaluacionEstrategia" parameterClass="java.util.HashMap" resultMap="obtenerEvaluacionEstrategiaResult">
+        {CALL sp_califica_cns_estrategia(#idCalificacion#,#tipo#)}
+    </procedure>
+
+    <procedure id="obtenerDatosCliente" parameterClass="java.util.HashMap" resultMap="datosCliente">
+        {CALL sp_califica_cns_cliente(#idCliente#)}
+    </procedure>
+
+    <procedure id="obtenerDatosAval" parameterClass="java.util.HashMap" resultMap="datosAval">
+        {CALL sp_califica_cns_aval(#rutAval#,#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="descartarAval" parameterClass="java.util.HashMap">
+        {CALL sp_califica_del_aval(#rutAval#,#idCalificacion#)}
+    </procedure>
+    
+    <procedure id="obtenerPreguntasCE" parameterClass="java.util.HashMap" resultMap="preguntasCE">
+        {CALL sp_califica_cns_preguntas_ce(#codBanca#)}
+    </procedure>
+    
+    <procedure id="sp_calificaciones_ins_califcli" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_califcli(#idCalificacion#,#calificacion#,#argumentacion#,#estado#,#proyecto#,#calificacionArea#,#ejecutivoCalif#,#califEjecutivo#,#calificacionAjustada#,#score#)}
+    </procedure>
+    
+    <procedure id="sp_calificaciones_ins_resp" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_resp(#idCalificacion#,#idPregunta#,#respuesta#)}
+    </procedure>
+
+    <procedure id="sp_calificaciones_cons_5c" parameterClass="java.util.HashMap" resultMap="respuestaInfo5C">
+        {CALL sp_califica_cns_5c(#idCalificacion#,#tipoEvaluacion#)}
+    </procedure>
+    
+    <procedure id="sp_calificaciones_ins_eval5c" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_eval5c(
+         	<isNull property="observacion">NULL</isNull>
+         	<isNotNull property="observacion">#observacion#</isNotNull>,
+         	<isNull property="respuesta">NULL</isNull>
+         	<isNotNull property="respuesta">#respuesta#</isNotNull>,
+         	<isNull property="tipo">NULL</isNull>
+         	<isNotNull property="tipo">#tipo#</isNotNull>,
+         	<isNull property="idCalificacion">NULL</isNull>
+         	<isNotNull property="idCalificacion">#idCalificacion#</isNotNull>,
+         	<isNull property="evaluacion">NULL</isNull>
+         	<isNotNull property="evaluacion">#evaluacion#</isNotNull>,
+         	<isNull property="tipoEvaluacion">NULL</isNull>
+         	<isNotNull property="tipoEvaluacion">#tipoEvaluacion#</isNotNull>
+         )}
+    </procedure>
+
+    <procedure id="sp_calificaciones_cons_cal_est" parameterClass="java.util.HashMap" resultMap="respuestaEvaluacionClienteEstrategia">
+        {CALL sp_califica_cns_cal_est(#idCalificacion#,#tipoEvaluacion#)}
+    </procedure>
+    
+    <procedure id="sp_calificaciones_ins_evalind" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_evalind(#idCalificacion#,#observacion#,#evaluacion#,#tipoEvaluacion#)}
+    </procedure>
+    
+    <procedure id="sp_calificaciones_ins_evalpart" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_evalpart(#idCalificacion#,#observacion#,#evaluacion#,#tipoEvaluacion#)}
+    </procedure>
+
+    <procedure id="sp_calificaciones_con_evalestr" parameterClass="java.util.HashMap" resultMap="respuestaEvaluacionesEstrategia">
+        {CALL sp_califica_cns_evalestr(#idCalificacion#,#tipoEvaluacion#)}
+    </procedure>
+    
+     <procedure id="eliminarCalificacion" parameterClass="java.util.HashMap">
+        {CALL sp_califica_del_calif(#idCalificacion#)}
+    </procedure>
+         <procedure id="obtenerRegionales" parameterClass="java.util.HashMap" resultMap="respuestaRegionales">
+        {CALL sp_califica_cns_regionales(#subBanca#)}
+    </procedure>
+     <procedure id="guardarDetalleRespuestasCar" parameterClass="java.util.HashMap">
+        {CALL sp_califica_ins_det_respcar(#idPregunta#,#idCalificacion#,#det_desc_resp#,#det_desc_resp_pos#,#det_desc_resp_val#)}
+    </procedure>
+    <procedure id="buscarDetRespCar" parameterClass="java.util.HashMap" resultMap="detRespCar">
+        {CALL sp_califica_cns_detresp(#idCalificacion#,#idPregunta#)}
+    </procedure>  
+    
+    <resultMap id="obtenerRespuestasCarResult" class="java.util.HashMap">
+            <result property="idCalificacion"  javaType="Long" column="ID_CALIFICACION"   jdbcType="numeric"/>
+            <result property="idPregunta"  javaType="Long" column="ID_PREGUNTA"   jdbcType="numeric"/>
+            <result property="respuesta"   javaType="String" column="RESPUESTA_CAR"   jdbcType="char"/>
+    </resultMap>
+    
+     <procedure id="obtenerRespuestasCar" parameterClass="java.util.HashMap" resultMap="obtenerRespuestasCarResult">
+        {CALL sp_califica_cns_respuesta_car(#idCalificacion#, #idPregunta#)}
+    </procedure>
+    
+    <!-- Control de cambios integracion de sistemas -->
+    
+    <resultMap id="obtenerParametroCalificacionResultado" class="java.util.HashMap">
+            <result property="valor"  javaType="String" column="VALOR"   jdbcType="char"/>
+    </resultMap>
+    
+     <procedure id="obtenerParametroCalificacion" parameterClass="java.util.HashMap" resultMap="obtenerParametroCalificacionResultado">
+        {CALL sp_califica_cns_parametro(#concepto#)}
+    </procedure>
+    
+    <!-- FIN Control de cambios integracion de sistemas -->
+    
+    <resultMap id="obtenerComboUsuariosResult" class="java.util.HashMap">
+            <result property="ejecutivo"  javaType="String" column="EJECUTIVO"   jdbcType="char"/>
+    </resultMap>
+    
+     <procedure id="obtenerComboUsuarios" parameterClass="java.util.HashMap" resultMap="obtenerComboUsuariosResult">
+        {CALL sp_califica_cns_combo_usuario(#tipo_combo#)}
+    </procedure>
+
+    <!-- Control de cambios integracion aprocred -->
+    <resultMap id="resConsImpresionAprocred" class="java.util.HashMap">
+        <result property="RUT"                      javaType="Long"             column="RUT"                        jdbcType="numeric"/>
+        <result property="DIGITO_VERIFICADOR"       javaType="String"           column="DIGITO_VERIFICADOR"         jdbcType="VARCHAR"/>
+        <result property="NOMBRE_CLIENTE"           javaType="String"           column="NOMBRE_CLIENTE"             jdbcType="VARCHAR"/>
+        <result property="ESTADO"                   javaType="Long"             column="ESTADO"                     jdbcType="numeric"/>
+        <result property="EJECUTIVO_CLIENTE"        javaType="String"           column="EJECUTIVO_CLIENTE"          jdbcType="VARCHAR"/>
+        <result property="EJECUTIVO_CALIFICADOR"    javaType="String"           column="EJECUTIVO_CALIFICADOR"      jdbcType="VARCHAR"/>
+        <result property="FECHA_APROBACION"         javaType="java.util.Date"   column="FECHA_APROBACION"           jdbcType="datetime"/>
+        <result property="REGIONAL_DESCRIPCION"     javaType="String"           column="REGIONAL_DESCRIPCION"       jdbcType="VARCHAR"/>
+        <result property="OFICINA"                  javaType="String"           column="OFICINA"                    jdbcType="datetime"/>
+        <result property="FECHA_BALANCE"            javaType="java.util.Date"   column="FECHA_BALANCE"              jdbcType="datetime"/>
+        <result property="FECHA_CREACION"           javaType="java.util.Date"   column="FECHA_CREACION"             jdbcType="datetime"/>
+        <result property="ID_CALIFICACION"          javaType="Long"             column="ID_CALIFICACION"            jdbcType="numeric"/>
+    </resultMap>
+    <procedure id="consImpresionAprocred" parameterClass="java.util.HashMap" resultMap="resConsImpresionAprocred">
+        {CALL sp_califica_cns_imp_cal_aproc(#id#)}
+    </procedure>
+    <!-- FIN Control de cambios integracion aprocred -->
+
+    <resultMap id="obtenerCalificacionActualResult" class="java.util.HashMap">
+            <result property="calificacionActual"  javaType="String" column="CALIFICACION_ACTUAL"   jdbcType="char"/>
+    </resultMap>
+     <procedure id="obtenerCalificacionActual" parameterClass="java.util.HashMap" resultMap="obtenerCalificacionActualResult">
+        {CALL sp_califica_cns_calif_act(#rutCliente#)}
+    </procedure>
+
+    <procedure id="obtenerDatosProvisiones" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_dat_pi(#rutCliente#)}
+	</procedure>    
+    
+    
+    
+	<!-- Obtención PI Cliente -->
+	
+	<resultMap id="getObtenerPICliente" class="java.util.HashMap">
+        <result property="rut"                      javaType="Long"      column="rut_cliente"           jdbcType="numeric"/>
+        <result property="digito_verificador"       javaType="String"    column="dv_cliente"         	jdbcType="char"/>
+        <result property="pi_modelo"                javaType="String"    column="pi_modelo"             jdbcType="varchar"/>
+        <result property="clasificacion_modelo"     javaType="String"    column="clasificacion_modelo"  jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerPICliente" parameterClass="java.util.HashMap" resultMap="getObtenerPICliente">
+        {CALL sp_cns_pi_cliente(#rutCliente#)}
+    </procedure>
+    <!-- Fin Obtención PI Cliente -->
+    
+    <!-- Obtención Pregunas Cliente -->
+	
+	<resultMap id="getObtenerPreguntasCliente" class="java.util.HashMap">
+        <result property="codPregunta"    javaType="Long"      column="cod_pregunta"        jdbcType="numeric"/>
+        <result property="codGrupo"       javaType="Long"      column="cod_grupo"         	jdbcType="numeric"/>
+        <result property="descPregunta"   javaType="String"    column="desc_pregunta"       jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerPreguntasCliente" parameterClass="java.util.HashMap" resultMap="getObtenerPreguntasCliente">
+        {CALL sp_cns_preguntas(#banca#)}
+    </procedure>
+    <!-- Fin Obtención Pregunas Cliente -->
+
+	<!-- Obtención preguntas antecedentes financieros y combos-->
+	
+	<resultMap id="getObtenerAntFinancieros" class="java.util.HashMap">
+        <result property="codAntecedente"   javaType="Long"      column="cod_antecedente"     jdbcType="numeric"/>
+        <result property="descAntecedente"  javaType="String"    column="desc_antecedente"    jdbcType="varchar"/>
+        <result property="codCombo"         javaType="Long"      column="cod_combo"           jdbcType="numeric"/>
+        <result property="descTooltip"      javaType="String"    column="desc_tooltip"        jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerAntFinancieros" parameterClass="java.util.HashMap" resultMap="getObtenerAntFinancieros">
+        {CALL sp_cns_ant_financieros(#banca#)}
+    </procedure>
+    
+    <resultMap id="getObtenerOpcionesCombo" class="java.util.HashMap">
+        <result property="codOpcion"    javaType="Long"      column="cod_opcion"        jdbcType="numeric"/>
+        <result property="codCombo"     javaType="Long"      column="cod_combo"         jdbcType="numeric"/>
+        <result property="descOpcion"   javaType="String"    column="desc_opcion"       jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerOpcionesCombo" parameterClass="java.util.HashMap" resultMap="getObtenerOpcionesCombo">
+        {CALL sp_cns_opciones_combo(#codCombo#)}
+    </procedure>
+    <!-- Fin Obtención preguntas antecedentes financieros y combos-->
+    
+    <!-- Obtención Carteras paso 1 y paso 2 de nueva ficha -->
+	<resultMap id="getObtenerCarterasPasos" class="java.util.HashMap">
+        <result property="codCartera"    javaType="String"    column="cod_cartera"        jdbcType="varchar"/>
+        <result property="descCartera"   javaType="String"    column="desc_cartera"       jdbcType="varchar"/>
+        <result property="opcionCartera" javaType="String"    column="opcion_cartera"     jdbcType="char"/>
+        <result property="pasoCartera"   javaType="String"    column="paso_cartera"       jdbcType="char"/>
+    </resultMap>
+    <procedure id="obtenerCarterasPasos" parameterClass="java.util.HashMap" resultMap="getObtenerCarterasPasos">
+        {CALL sp_cns_carteras(#paso#)}
+    </procedure>
+    <!-- Fin Obtención Carteras paso 1 y paso 2 de nueva ficha -->
+    
+    <!-- Guardar Selección Cliente -->
+    <procedure id="guardarSeleccionCliente" parameterClass="java.util.HashMap" resultClass="int">
+        {CALL sp_guarda_datos_ficha(#idCalificacion#, #banca#, #carteras#, #carterasPaso2#,#antCliente#, #antFinancieros#, #mes#, #ano#, #proyecto#,#finanzas#)}
+    </procedure>
+    
+    <statement id="guardarArgumentacionExperto" parameterClass="java.util.HashMap" resultClass="int">
+        <![CDATA[
+        DECLARE @fecha DATETIME
+        SET @fecha = GETDATE()
+        
+        IF EXISTS (SELECT 1 FROM FICHA_CALIFICACIONES_CLIENTE WHERE cod_ficha = #idCalificacion#)
+		BEGIN
+    		  UPDATE FICHA_CALIFICACIONES_CLIENTE SET 
+		      fecha_modificacion=@fecha,
+		      arg_criterio_experto = #argCriterioExperto#
+			  WHERE cod_ficha = #idCalificacion#
+  			END 
+		SELECT @@ERROR as value
+		]]>          
+     </statement>
+     <statement id="guardarArgumentacionEjecutivo" parameterClass="java.util.HashMap" resultClass="int">
+        <![CDATA[
+        DECLARE @fecha DATETIME
+        SET @fecha = GETDATE()
+        
+        IF EXISTS (SELECT 1 FROM FICHA_CALIFICACIONES_CLIENTE WHERE cod_ficha = #idCalificacion#)
+  			BEGIN
+		      UPDATE FICHA_CALIFICACIONES_CLIENTE SET 
+		      fecha_modificacion=@fecha,
+		      arg_aprobacion = #argAprobacion#
+			  WHERE cod_ficha = #idCalificacion#
+			END
+		SELECT @@ERROR as value
+		]]>          
+     </statement>
+      
+    <!-- Fin Guardar Selección Cliente -->
+    
+    
+    <!-- Obtención Selección Cliente -->
+	<resultMap id="getObtenerDatosFicha" class="java.util.HashMap">
+	    <result property="idCalificacion"    		javaType="Long"    column="cod_ficha"           jdbcType="numeric"/>
+        <result property="banca"    				javaType="String"  column="desc_banca"          jdbcType="varchar"/>
+        <result property="seleccionCarteras"   		javaType="String"  column="sel_carteras"        jdbcType="varchar"/>
+        <result property="seleccionCarterasPaso2"	javaType="String"  column="sel_carteras_paso_2" jdbcType="varchar"/>
+        <result property="seleccionAntCliente" 		javaType="String"  column="ant_cliente" 	    jdbcType="varchar"/>
+        <result property="seleccionAntFinanciero"   javaType="String"  column="ant_financieros"     jdbcType="varchar"/>
+        <result property="mes"                      javaType="String"  column="mes_balance"         jdbcType="varchar"/>
+        <result property="ano"                      javaType="String"  column="ano_balance"         jdbcType="varchar"/>
+        <result property="proyecto"                 javaType="String"  column="proyecto"            jdbcType="varchar"/>
+        <result property="finanzas"                 javaType="String"  column="finanzas"            jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerDatosFicha" parameterClass="java.util.HashMap" resultMap="getObtenerDatosFicha">
+        {CALL sp_cns_datos_ficha(#idCalificacion#)}
+    </procedure>
+    
+    <resultMap id="getObtenerArgumentacionesFicha" class="java.util.HashMap">
+        <result property="argCriterioExperto" javaType="String"  column="arg_criterio_experto"  jdbcType="TEXT"/>
+        <result property="argAprobacion"      javaType="String"  column="arg_aprobacion"        jdbcType="TEXT"/>
+    </resultMap>
+    <procedure id="obtenerArgumentacionesFicha" parameterClass="java.util.HashMap" resultMap="getObtenerArgumentacionesFicha">
+        SELECT arg_criterio_experto, arg_aprobacion FROM FICHA_CALIFICACIONES_CLIENTE WHERE cod_ficha = #idCalificacion#
+    </procedure>
+    <!-- Fin Obtención Selección Cliente -->
+
+    <!-- Obtención equivalencia calificacion -->
+	<resultMap id="getObtenerEquivalenciaCalif" class="java.util.HashMap">
+	    <result property="score"    			  javaType="int"    column="score"         jdbcType="numeric"/>
+        <result property="calificacionExperto"    javaType="String"  column="calificacion_experto"      jdbcType="varchar"/>
+    </resultMap>
+    <procedure id="obtenerEquivalenciaCalificacion" parameterClass="java.util.HashMap" resultMap="getObtenerEquivalenciaCalif">
+        {CALL sp_equi_calif_cns_equivalencia(#calificacionAjustada#)}
+    </procedure>
+    <!-- Fin obtención equivalencia calificacion -->
+    
+    
+    	<!-- Obtención de equivalencia del mismo grupo -->
+	
+	<resultMap id="getEquivalenciaMismoGrupo" class="java.util.HashMap">
+        <result property="calificacionAjustada"                      javaType="String"      column="CALIFICACION_AJUSTADA"           jdbcType="char"/>
+    </resultMap>
+    <procedure id="obtenerEquivalenciaMismoGrupo" parameterClass="java.util.HashMap" resultMap="getEquivalenciaMismoGrupo">
+        {CALL sp_equi_calif_cns_todascalif(#calificacion#)}
+    </procedure>
+    <!-- Fin Obtención de equivalencia del mismo grupo -->
+
+    <resultMap id="getClasificacionCalificacion" class="java.util.HashMap">
+		<result property="clasificacion"  		jdbcType="CHAR" 	javaType="String"/>
+		<result property="calificacion"  	    jdbcType="CHAR" 	javaType="String"/>
+    </resultMap>
+
+    <parameterMap id="setClasificacionCalificacion" class="java.util.HashMap">
+	<parameter property="cic"			    jdbcType="CHAR" javaType="String" />
+    </parameterMap>
+
+    <procedure id="clasificacionCalificacion" parameterMap="setClasificacionCalificacion" resultMap="getClasificacionCalificacion">
+		{CALL sp_bus_clasi_calif (?)}
+    </procedure>
+</sqlMap>

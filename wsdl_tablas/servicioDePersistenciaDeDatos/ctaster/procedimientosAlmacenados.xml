@@ -1,0 +1,572 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="ctaster.procedimientosAlmacenados">
+
+	<parameterMap id="setConsultaTransferenciasRecibidasBancoBCI" class="java.util.HashMap">
+		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />		
+			<parameter property="dv"		   	jdbcType="CHAR" 		javaType="String" />
+		<parameter property="cuenta"      	        jdbcType="CHAR" 		javaType="String" />
+		<parameter property="periodo"		        jdbcType="DATE"    		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />		
+		<parameter property="bloque"		      	jdbcType="NUMERIC" 		javaType="int" />		
+		<parameter property="cantidadRegistros"    	jdbcType="NUMERIC" 		javaType="int" />	
+	</parameterMap>
+
+		<resultMap id="getConsultaTransferenciasRecibidasBancoBCI" class="java.util.HashMap">
+					<result property="cuentaOrigen"     			column="cuentaOrigen"				jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="tipoCuentaOrigen"     		column="tipoCuentaOrigen" 			jdbcType="CHAR"    	 javaType="String"/>        	
+			        <result property="montoTransferido"				column="montoTransferido" 			jdbcType="NUMERIC"   javaType="int"/>        	
+			        <result property="cuentaDestino" 				column="cuentaDestino"				jdbcType="CHAR"    	 javaType="String" />
+		        <result property="tipo" 			column="tipoCuentaDestino"   	jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="nombreDestinatario"     		column="nombreDestinatario"			jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="rutDestino"					column="rutDestino"					jdbcType="CHAR"    	 javaType="String" />
+					<result property="numeroOperacion"    			column="numeroOperacion"			jdbcType="CHAR"    	 javaType="String" />        	
+					<result property="fechaMovimiento"				column="fechaAbono"					jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />        	
+					<result property="comentarioTransferencia"      column="comentarioTransferencia"	jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="operacion"     				column="operacion"					jdbcType="CHAR"    	 javaType="String" />        	
+	       		    <result property="numerosPagina"				column="numerosPagina"				jdbcType="NUMERIC"   javaType="int" /> 
+		   	<result property="rutOriginador"			column="rutOriginador"		jdbcType="CHAR"    	 javaType="String" />
+		   	
+	</resultMap>
+
+		<procedure id="consultaTransferenciasRecibidasBancoBCI" parameterMap="setConsultaTransferenciasRecibidasBancoBCI" resultMap="getConsultaTransferenciasRecibidasBancoBCI">
+			{ CALL sp_CtasTransEnvClien( ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+		
+<parameterMap id="setConsultaTransferenciasRecibidasBancoBCIPorPeriodo" class="java.util.HashMap">
+        <parameter property="rut"                   jdbcType="CHAR"         javaType="String" />        
+            <parameter property="dv"                jdbcType="CHAR"         javaType="String" />
+        <parameter property="cuenta"                jdbcType="CHAR"         javaType="String" />
+        <parameter property="periodo"               jdbcType="DATE"         javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />       
+        <parameter property="bloque"                jdbcType="NUMERIC"      javaType="int" />       
+        <parameter property="cantidadRegistros"     jdbcType="NUMERIC"      javaType="int" />
+        <parameter property="flagPeriodo"           jdbcType="CHAR"         javaType="String" />
+    </parameterMap>
+
+        <resultMap id="getConsultaTransferenciasRecibidasBancoBCIPorPeriodo" class="java.util.HashMap">
+                    <result property="cuentaOrigen"                 column="cuentaOrigen"               jdbcType="CHAR"      javaType="String" />           
+                    <result property="tipoCuentaOrigen"             column="tipoCuentaOrigen"           jdbcType="CHAR"      javaType="String"/>            
+                    <result property="montoTransferido"             column="montoTransferido"           jdbcType="NUMERIC"   javaType="int"/>           
+                    <result property="cuentaDestino"                column="cuentaDestino"              jdbcType="CHAR"      javaType="String" />
+                    <result property="tipo"             column="tipoCuentaDestino"      jdbcType="CHAR"      javaType="String" />           
+                    <result property="nombreDestinatario"           column="nombreDestinatario"         jdbcType="CHAR"      javaType="String" />           
+                    <result property="rutDestino"                   column="rutDestino"                 jdbcType="CHAR"      javaType="String" />
+                    <result property="numeroOperacion"              column="numeroOperacion"            jdbcType="CHAR"      javaType="String" />           
+                    <result property="fechaMovimiento"              column="fechaAbono"                 jdbcType="DATE"      javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />           
+                    <result property="comentarioTransferencia"      column="comentarioTransferencia"    jdbcType="CHAR"      javaType="String" />           
+                    <result property="operacion"                    column="operacion"                  jdbcType="CHAR"      javaType="String" />           
+                    <result property="numerosPagina"                column="numerosPagina"              jdbcType="NUMERIC"   javaType="int" /> 
+            <result property="rutOriginador"            column="rutOriginador"      jdbcType="CHAR"      javaType="String" />
+            
+    </resultMap>
+
+        <procedure id="consultaTransferenciasRecibidasBancoBCIPorPeriodo" parameterMap="setConsultaTransferenciasRecibidasBancoBCIPorPeriodo" resultMap="getConsultaTransferenciasRecibidasBancoBCIPorPeriodo">
+            { CALL sp_CtasTransEnvClienPorPe( ?, ?, ?, ?, ?, ?, ? ) }
+    </procedure>
+	<parameterMap id="setConsultaTransferenciasEnviadasCliente" class="java.util.HashMap">
+		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />		
+		<parameter property="cuenta"      	        jdbcType="CHAR" 		javaType="String" />
+		<parameter property="periodo"		        jdbcType="DATE"    		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />		
+		<parameter property="bloque"		      	jdbcType="NUMERIC" 		javaType="int" />		
+		<parameter property="cantidadRegistros"    	jdbcType="NUMERIC" 		javaType="int" />	
+	</parameterMap>
+
+	<resultMap id="getConsultaTransferenciasEnviadasCliente" class="java.util.HashMap">
+					<result property="cuentaOrigen"     			column="cuentaOrigen"				jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="tipoCuentaOrigen"     		column="tipoCuentaOrigen" 			jdbcType="CHAR"    	 javaType="String"/>        	
+			        <result property="montoTransferido"				column="montoTransferido" 			jdbcType="NUMERIC"   javaType="int"/>        	
+			        <result property="cuentaDestino" 				column="cuentaDestino"				jdbcType="CHAR"    	 javaType="String" />
+			        <result property="tipoCuentaDestino" 			column="tipoCuentaDestino"   		jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="nombreDestinatario"     		column="nombreDestinatario"			jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="rutDestino"					column="rutDestino"					jdbcType="CHAR"    	 javaType="String" />
+			        <result property="bancoDestino"					column="bancoDestino"				jdbcType="CHAR"    	 javaType="String" />        		        
+					<result property="numeroOperacion"    			column="numeroOperacion"			jdbcType="CHAR"    	 javaType="String" />        	
+					<result property="fechaMovimiento"				column="fechaAbono"					jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />        	
+					<result property="comentarioTransferencia"      column="comentarioTransferencia"	jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="operacion"     				column="operacion"					jdbcType="CHAR"    	 javaType="String" />        	
+	       		    <result property="numerosPagina"				column="numerosPagina"				jdbcType="NUMERIC"   javaType="int" /> 
+	<result property="registrosTotales"				column="registrosTotales"			jdbcType="NUMERIC"   javaType="int" />  
+	</resultMap>
+
+	<procedure id="consultaTransferenciasEnviadasCliente" parameterMap="setConsultaTransferenciasEnviadasCliente" resultMap="getConsultaTransferenciasEnviadasCliente">
+		{ CALL sp_CnsTransLineaCargo( ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+	<procedure id="obtenerInhPacTdc" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        	{CALL sp_cns_inh_pac(#cta_dst#, #fechaInicio#, #fechaFin#)}
+    	</procedure>
+	
+	<procedure id="GuardarInhibicionPac" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_ins_pac_inh(#tra_cli_idc#, #tra_tip_cta_ori#, #tra_cta_ori#, #tra_mto_trf#, #tra_fec_car#, #tra_cod_est#, #tra_fec_abo#, #tra_tip_cta_dst#, #tra_cta_des#, #tra_rut_des#, #tra_bco_des#, #tra_cnl#, #tra_cod_nem#, #tra_nom_bnf#, #tra_usu_cmb_est#, #tra_num_ope#)}
+    </procedure>
+    <parameterMap id="setIniciaPagoInterbancario" class="java.util.HashMap">	
+		<parameter property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="rut_cliente" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+		<parameter property="dv_cliente"					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="token_trx"					    jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="ip_origen"						jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="fecha_solicitud" 				jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="cod_banco" 					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="monto_pago"					jdbcType="NUMERIC" 	javaType="Double" />
+		<parameter property="tip_usuario"					jdbcType="NUMERIC" 	javaType="integer" />
+		<parameter property="fecha_cca" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+		<parameter property="trace_number"					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="ciclo_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<parameter property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<parameter property="producto_trx" 				    jdbcType="VARCHAR" 	javaType="String" />	
+		<parameter property="fecha_pago" 				    jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="cod_autorizacion" 				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="cuenta_pago" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="num_producto" 					jdbcType="VARCHAR" 	javaType="String" />
+	<parameter property="url_pagador" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="filter_1" 				        jdbcType="VARCHAR" 	javaType="String" />
+	<parameter property="filter_2"			 			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="filter_3" 						jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="canal" 						jdbcType="NUMERIC" 	javaType="integer" />
+	</parameterMap>
+	
+ 	<procedure id="iniciaPagoInterbancario" parameterMap="setIniciaPagoInterbancario"  resultClass="int">
+		{ CALL spIniciaPagoInterbancario(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizaPagoInterbByIdTrx" class="java.util.HashMap">	
+    	<parameter property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="fecha_pago" 				    jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="cod_autorizacion" 				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="cuenta_pago" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+	</parameterMap>
+	 	 	<procedure id="actualizaPagoInterbByIdTrx" parameterMap="setActualizaPagoInterbByIdTrx" resultClass="int">
+		{ CALL spActualizaTrxPago(?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizaEstadoByIdTrx" class="java.util.HashMap">	
+    	<parameter property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+    </parameterMap>
+	 	 	<procedure id="actualizaEstadoByIdTrx" parameterMap="setActualizaEstadoByIdTrx" resultClass="int">
+		{ CALL spActualizaEstadoByIdTrxPago(?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizaEstadoByTicket" class="java.util.HashMap">	
+    	<parameter property="ticket_trx" 					jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+    	<parameter property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="fecha_pago" 					jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+    </parameterMap>
+	 	 	<procedure id="actualizaEstadoByTicket" parameterMap="setActualizaEstadoByTicket" resultClass="int">
+		{ CALL spActualizaEstadoByTicket(?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setObtenerPagoInterbByIdTrx" class="java.util.HashMap">	
+		<parameter property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerPagoInterbByIdTrx" class="java.util.HashMap">
+	    <result property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="rut_cliente" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+		<result property="dv_cliente"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="token_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ip_origen"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="fecha_solicitud" 				jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_banco" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="monto_pago"					jdbcType="NUMERIC" 	javaType="Double" />
+		<result property="tip_usuario"					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="fecha_cca" 					jdbcType="NUMERIC" 	javaType="java.math.BigDecimal" />
+		<result property="trace_number"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ciclo_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="producto_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="fecha_pago" 				    jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_autorizacion" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="cuenta_pago" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="num_producto" 				jdbcType="VARCHAR" 	javaType="String" />
+	<result property="url_pagador" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_1" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_2"			 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_3" 					jdbcType="VARCHAR" 	javaType="String" />
+	</resultMap>
+ 	<procedure id="obtenerPagoInterbByIdTrx" parameterMap="setObtenerPagoInterbByIdTrx" resultMap="getObtenerPagoInterbByIdTrx">
+		{ CALL spConsultaByTrxPago(?) }
+	</procedure>
+	
+	<parameterMap id="setObtenerPagoInterbByTicket" class="java.util.HashMap">	
+		<parameter property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerPagoInterbByTicket" class="java.util.HashMap">
+	    <result property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="rut_cliente" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+		<result property="dv_cliente"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="token_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ip_origen"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="fecha_solicitud" 				jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_banco" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="monto_pago"					jdbcType="NUMERIC" 	javaType="Double" />
+		<result property="tip_usuario"					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="fecha_cca" 					jdbcType="NUMERIC" 	javaType="java.math.BigDecimal" />
+		<result property="trace_number"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ciclo_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="producto_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="fecha_pago" 				    jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_autorizacion" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="cuenta_pago" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="num_producto" 				jdbcType="VARCHAR" 	javaType="String" />
+	<result property="url_pagador" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_1" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_2"			 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_3" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="canal" 						jdbcType="NUMERIC" 	javaType="integer" />
+	</resultMap>
+ 	<procedure id="obtenerPagoInterbByTicket" parameterMap="setObtenerPagoInterbByTicket" resultMap="getObtenerPagoInterbByTicket">
+		{ CALL spConsultaByTicket(?) }
+	</procedure>
+			<parameterMap id="setObtenerMntTotalPagoInterbancByRut" class="java.util.HashMap">	
+    	<parameter property="rut_cliente" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+    	<parameter property="fecha_consulta" 				jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />
+    </parameterMap>
+	
+ 	<procedure id="obtenerMntTotalPagoInterbancByRut" parameterMap="setObtenerMntTotalPagoInterbancByRut" resultClass="java.lang.Double">
+		{ CALL spObtenerMntTotalDiarioByRut(?,?,?) }
+	</procedure>
+		
+	<parameterMap id="setObtenerPagoInterbByTicketYotros" class="java.util.HashMap">	
+		<parameter property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="fecha_solicitud" 				jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="cod_banco" 					jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="monto_pago"					jdbcType="NUMERIC" 	javaType="Double" />
+		
+	</parameterMap>
+	<resultMap id="getObtenerPagoInterbByTicketYotros" class="java.util.HashMap">
+	    <result property="ticket_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="rut_cliente" 					jdbcType="NUMERIC" 	javaType="java.lang.Long" />
+		<result property="dv_cliente"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="token_trx"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ip_origen"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="fecha_solicitud" 				jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_banco" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="monto_pago"					jdbcType="NUMERIC" 	javaType="Double" />
+		<result property="tip_usuario"					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="fecha_cca" 					jdbcType="NUMERIC" 	javaType="java.math.BigDecimal" />
+		<result property="trace_number"					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="id_trx_pago" 					jdbcType="VARCHAR" 	javaType="String" />
+		<result property="ciclo_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="modalidad_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="estado_trx" 					jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="producto_trx" 				jdbcType="VARCHAR" 	javaType="String" />	
+		<result property="fecha_pago" 				    jdbcType="DATETIME" javaType="java.util.Date" />
+		<result property="cod_autorizacion" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="cuenta_pago" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="trace_number_tandem" 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="num_producto" 				jdbcType="VARCHAR" 	javaType="String" />
+		<result property="url_pagador" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_1" 				    jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_2"			 			jdbcType="VARCHAR" 	javaType="String" />
+		<result property="filter_3" 					jdbcType="VARCHAR" 	javaType="String" />
+	</resultMap>
+ 	<procedure id="obtenerPagoInterbByTicketYotros" parameterMap="setObtenerPagoInterbByTicketYotros" resultMap="getObtenerPagoInterbByTicketYotros">
+		{ CALL spConsultaByTicketYotros(?,?,?,?,?) }
+	</procedure>
+
+	<parameterMap id="setObtenerTraceNumber" class="java.util.HashMap">
+		<parameter property="codigo"	jdbcType="CHAR"		javaType="String" />		
+	</parameterMap>
+
+	<procedure id="obtenerTraceNumber" parameterMap="setObtenerTraceNumber" resultClass="int">
+		{ CALL sp_getSecuenciaSemilla( ? ) }
+	</procedure>
+			
+	<parameterMap id="setConsultaEstadoTraCli24Hrs" class="java.util.HashMap">
+	    <parameter property="rutCliente" jdbcType="CHAR" javaType="String"/>
+	    <parameter property="montoTTFF" jdbcType="NUMERIC" javaType="Double"/>
+	    <parameter property="rutCuentaDestino" jdbcType="CHAR" javaType="String"/>
+	    <parameter property="cuentaDestino" jdbcType="CHAR" javaType="String"/>
+	    <parameter property="codigoBancoDestino" jdbcType="CHAR" javaType="String"/>
+    </parameterMap>
+	
+	<resultMap id="getConsultaEstadoTraCli24Hrs" class="java.util.HashMap">
+    <result property="fechaCreacion" column="tra_fec_cre" javaType="java.sql.Timestamp" />
+	    <result property="tipoCuentaDestino" column="tra_tip_cta_dst" javaType="String"/>
+	    <result property="cuentaDestino" column="tra_cta_dst" javaType="String"/>
+	    <result property="rutCuentaDestino" column="tra_rut_cta_dst" javaType="String"/>
+	    <result property="nombreBeneficiario" column="tra_nom_bnf" javaType="String"/>
+	    <result property="folSip" column="tra_fol_sip" javaType="String"/>
+	    <result property="codigoBancoDestino" column="tra_cod_bco_dst" javaType="String"/>
+	    <result property="canal" column="tra_cnl" javaType="String"/>
+	    <result property="glsErr" column="tra_gls_err" javaType="String"/>
+	    <result property="codEst" column="tra_cod_est" javaType="String"/>
+    </resultMap>
+
+<parameterMap id="setInsEveDup" class="java.util.HashMap">
+    <parameter property="rutAutorizador" jdbcType="CHAR" javaType="String"/>
+    <parameter property="rutCuentaOrigen" jdbcType="CHAR" javaType="String"/>
+    <parameter property="cuentaOrigen" jdbcType="CHAR" javaType="String"/>
+    <parameter property="montoTTFF" jdbcType="NUMERIC" javaType="Double"/>
+    <parameter property="canal" jdbcType="NUMERIC" javaType="integer"/>
+    <parameter property="convenio" jdbcType="CHAR" javaType="String"/>
+    <parameter property="traceNumber" jdbcType="CHAR" javaType="String"/>
+    <parameter property="fechaAnterior" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+    <parameter property="fechaActual" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+    <parameter property="rutCuentaDestino" jdbcType="CHAR" javaType="String"/>
+    <parameter property="cuentaDestino" jdbcType="CHAR" javaType="String"/>
+    <parameter property="codigoBancoDestino" jdbcType="CHAR" javaType="String"/>
+</parameterMap>
+
+<procedure id="insEveDup" parameterMap="setInsEveDup" resultClass="int">
+    { CALL sp_ins_eve_dup (?,?,?,?,?,?,?,?,?,?,?,?) }
+</procedure>
+
+<procedure id="lstEstTraCli24Hrs" parameterMap="setConsultaEstadoTraCli24Hrs" resultMap="getConsultaEstadoTraCli24Hrs">
+    { CALL sp_lst_est_tra_cli_24hrs (?,?,?,?,?) }
+</procedure>
+
+	<parameterMap id="setInsertarPagoMovil" class="java.util.HashMap">
+		<parameter property="tip_trx_id"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="tip_pag_id"   		jdbcType="INTEGER" javaType="int" />
+		<parameter property="est_pag_id"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_id_trx"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_fec_ope"   	jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="pag_cod_bco_ori"   jdbcType="INTEGER" javaType="int" />
+		<parameter property="pag_nom_bco_ori"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cta_ori"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_tip_cta_ori"   jdbcType="INTEGER" javaType="int" />
+		<parameter property="pag_nom_cli_ori"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_ema_cli_ori"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_rut_cli_ori"   jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="pag_dv_cli_ori"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cod_bco_des"   jdbcType="INTEGER" javaType="int" />
+		<parameter property="pag_nom_bco_des"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cta_des"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_tip_cta_des"   jdbcType="INTEGER" javaType="int" />
+		<parameter property="pag_nom_cli_des"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_ema_cli_des"   jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_rut_cli_des"   jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="pag_dv_cli_des"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_mnt"   		jdbcType="DECIMAL" javaType="java.lang.Double" numericScale="4"/>
+		<parameter property="pag_cmt"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_grup"   		jdbcType="INTEGER" javaType="int" />
+		<parameter property="pag_sco_wfd"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cod_mac"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_tra_num"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_fec_car"   	jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="pag_cnl"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cod_err"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_id_dis"   		jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="insertarPagoMovil" parameterMap="setInsertarPagoMovil" resultClass="java.math.BigDecimal">
+		{ CALL sp_insertarPago(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizarPagoMovil" class="java.util.HashMap">
+		<parameter property="pag_id"   			jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<parameter property="est_pag_id"   		jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_sco_wfd"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_cod_mac"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_tra_num"   	jdbcType="CHAR" javaType="String" />
+		<parameter property="pag_fec_car"   	jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="pag_cod_err"   	jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="actualizarPagoMovil" parameterMap="setActualizarPagoMovil" resultClass="int">
+		{ CALL sp_actualizarPago(?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setObtenerPagoMovil" class="java.util.HashMap">
+		<parameter property="pag_id_trx" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerPagoMovil" class="java.util.HashMap">
+		<result property="pag_id"			column="pag_id"				jdbcType="NUMERIC"   javaType="java.math.BigDecimal" />
+		<result property="tip_trx_id"		column="tip_trx_id"			jdbcType="CHAR"    	 javaType="String"/>
+		<result property="tip_pag_id"		column="tip_pag_id"			jdbcType="INTEGER"   javaType="int"/>
+		<result property="est_pag_id"		column="est_pag_id"			jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_id_trx"		column="pag_id_trx"   		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_fec_ope"		column="pag_fec_ope"		jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="pag_cod_bco_ori"	column="pag_cod_bco_ori"	jdbcType="INTEGER"   javaType="int" />
+		<result property="pag_nom_bco_ori"	column="pag_nom_bco_ori"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_cta_ori"		column="pag_cta_ori"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_tip_cta_ori"	column="pag_tip_cta_ori"	jdbcType="INTEGER"   javaType="int" />
+		<result property="pag_nom_cli_ori"	column="pag_nom_cli_ori"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_ema_cli_ori"	column="pag_ema_cli_ori"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_rut_cli_ori"	column="pag_rut_cli_ori"	jdbcType="INTEGER"   javaType="java.lang.Long" />
+		<result property="pag_dv_cli_ori"	column="pag_dv_cli_ori"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_cod_bco_des"	column="pag_cod_bco_des"	jdbcType="INTEGER"   javaType="int" />
+		<result property="pag_nom_bco_des"	column="pag_nom_bco_des"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_cta_des"		column="pag_cta_des"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_tip_cta_des"	column="pag_tip_cta_des"	jdbcType="INTEGER"   javaType="int" />
+		<result property="pag_nom_cli_des"	column="pag_nom_cli_des"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_ema_cli_des"	column="pag_ema_cli_des"	jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_rut_cli_des"	column="pag_rut_cli_des"	jdbcType="INTEGER"   javaType="java.lang.Long" />
+		<result property="pag_dv_cli_des"	column="pag_dv_cli_des"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_mnt"			column="pag_mnt"			jdbcType="DECIMAL"   javaType="java.lang.Double" />
+		<result property="pag_cmt"			column="pag_cmt"			jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_grup"			column="pag_grup"			jdbcType="INTEGER"   javaType="int" />
+		<result property="pag_sco_wfd"		column="pag_sco_wfd"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_cod_mac"		column="pag_cod_mac"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_tra_num"		column="pag_tra_num"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_fec_car"		column="pag_fec_car"		jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="pag_cnl"			column="pag_cnl"			jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_cod_err"		column="pag_cod_err"		jdbcType="CHAR"    	 javaType="String" />
+		<result property="pag_fec_act"		column="pag_fec_act"		jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	</resultMap>
+	
+	<procedure id="obtenerPagoMovil" parameterMap="setObtenerPagoMovil" resultMap="getObtenerPagoMovil">
+		{ CALL sp_obtiene_pago(?) }
+	</procedure>
+	
+	<parameterMap id="setObtenerClienteEnroladoRut" class="java.util.HashMap">
+		<parameter property="enr_rut_cli" jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerClienteEnroladoRut" class="java.util.HashMap">
+		<result property="enr_id"			column="enr_id"			jdbcType="NUMERIC"	javaType="java.math.BigDecimal" />
+		<result property="tip_cta_cod"		column="tip_cta_cod"	jdbcType="INTEGER"	javaType="int"/>
+		<result property="est_cod"			column="est_cod"		jdbcType="CHAR"		javaType="String"/>
+		<result property="enr_rut_cli"		column="enr_rut_cli"	jdbcType="INTEGER"	javaType="java.lang.Long" />
+		<result property="enr_dig_cli"		column="enr_dig_cli"	jdbcType="CHAR"    	javaType="String" />
+		<result property="enr_cta_cli"		column="enr_cta_cli"	jdbcType="CHAR"    	javaType="String" />
+		<result property="enr_fec_ini"		column="enr_fec_ini"	jdbcType="DATE"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="enr_fec_act"		column="enr_fec_act"	jdbcType="DATE"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="enr_id_dis"		column="enr_id_dis"		jdbcType="CHAR"		javaType="String" />
+		<result property="enr_cel_cli"		column="enr_cel_cli"	jdbcType="CHAR"		javaType="String" />
+		<result property="enr_id_sms"		column="enr_id_sms"		jdbcType="CHAR"		javaType="String" />
+		<result property="enr_email_cli"	column="enr_email_cli"	jdbcType="CHAR"		javaType="String" />
+		<result property="enr_sis_ope"		column="enr_sis_ope"	jdbcType="CHAR"		javaType="String" />
+		<result property="enr_sub_ban"		column="enr_sub_ban"	jdbcType="INTEGER"	javaType="int" />
+		<result property="enr_mod_cel"		column="enr_mod_cel"	jdbcType="CHAR"		javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerClienteEnroladoRut" parameterMap="setObtenerClienteEnroladoRut" resultMap="getObtenerClienteEnroladoRut">
+		{ CALL sp_obtiene_cliente_enrol_rut(?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaTTFFDuplicada" class="java.util.HashMap">
+		<parameter property="rutCliente"		   		jdbcType="VARCHAR" 		javaType="String"  />		
+		<parameter property="fechadesde"      	        jdbcType="DATE" 		javaType="DATE" />
+		<parameter property="fechahasta"		        jdbcType="DATE"    		javaType="DATE" />		
+	</parameterMap>
+		
+	<resultMap id="getConsultaTTFFDuplicada" class="java.util.HashMap">
+					<result property="rutCliente"     		column="RutCliente"				jdbcType="CHAR"  	 javaType="String"/>         	
+			        <result property="ctaOrigen"     		column="CtaOrigen" 				jdbcType="CHAR"    	 javaType="String"/>        	
+			        <result property="monto"				column="Monto" 					jdbcType="float"     javaType="Double"/>        	
+			        <result property="canal" 				column="Canal"					jdbcType="int"    	 javaType="int" />
+			        <result property="tracerNumber" 		column="TracerNumber"   		jdbcType="CHAR"    	 javaType="String" />        	
+			        <result property="fecha"     			column="Fecha"					jdbcType="DATETIME"  javaType="java.util.Date" />        	
+			        <result property="rutDestino"			column="RutDestino"				jdbcType="CHAR"   	 javaType="String"/>
+			        <result property="ctaDestino"			column="CtaDestino"				jdbcType="CHAR"    	 javaType="String" />        		        
+					<result property="bancoDestino"    		column="BancoDestino"			jdbcType="CHAR"    	 javaType="String" />        		
+	</resultMap>
+	
+	<procedure id="consultaTTFFDuplicada" parameterMap="setConsultaTTFFDuplicada" resultMap="getConsultaTTFFDuplicada">
+		{ CALL sp_consult_ttff_dup( ?, ?, ? ) }
+	</procedure>
+		
+	<parameterMap id="setObtenerClienteAlcanciaRut" class="java.util.HashMap">
+		<parameter property="alc_rut_cli" jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerClienteAlcanciaRut" class="java.util.HashMap">
+		<result property="alc_rut_cli"		column="alc_rut_cli"	jdbcType="INTEGER"	javaType="java.lang.Long" />
+		<result property="alc_dig_cli"		column="alc_dig_cli"	jdbcType="CHAR"    	javaType="String" />
+		<result property="est_id"			column="est_id"			jdbcType="INTEGER"	javaType="int"/>
+		<result property="alc_cta_ori"		column="alc_cta_ori"	jdbcType="CHAR"    	javaType="String" />
+		<result property="alc_cta_des"		column="alc_cta_des"	jdbcType="CHAR"    	javaType="String" />
+		<result property="alc_fec_enr"		column="alc_fec_enr"	jdbcType="DATE"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="alc_fec_act"		column="alc_fec_act"	jdbcType="DATE"		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="alc_id_dis"		column="alc_id_dis"		jdbcType="CHAR"		javaType="String" />
+		<result property="alc_cel_cli"		column="alc_cel_cli"	jdbcType="CHAR"		javaType="String" />
+		<result property="alc_email_cli"	column="alc_email_cli"	jdbcType="CHAR"		javaType="String" />
+		<result property="alc_sis_ope"		column="alc_sis_ope"	jdbcType="CHAR"		javaType="String" />
+		<result property="alc_mod_cel"		column="alc_mod_cel"	jdbcType="CHAR"		javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerClienteAlcanciaRut" parameterMap="setObtenerClienteAlcanciaRut" resultMap="getObtenerClienteAlcanciaRut">
+		{ CALL sp_obtiene_cliente_alcancia(?) }
+	</procedure>
+	
+	<parameterMap id="setActualizarClienteAlcancia" class="java.util.HashMap">
+		<parameter property="alc_rut_cli"	jdbcType="INTEGER" javaType="java.lang.Long"/>
+		<parameter property="est_id"   		jdbcType="INTEGER" javaType="int" />
+	</parameterMap>
+	
+	<procedure id="actualizarClienteAlcancia" parameterMap="setActualizarClienteAlcancia" resultClass="int">
+		{ CALL sp_actualizar_enrol_alcancia(?,?) }
+	</procedure>
+	
+	<parameterMap id="setObtenerMovimientoAlcancia" class="java.util.HashMap">
+		<parameter property="alc_rut_cli" jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerMovimientoAlcancia" class="java.util.HashMap">
+		<result property="mov_id"			column="mov_id"				jdbcType="NUMERIC"   javaType="java.math.BigDecimal" />
+		<result property="tip_mov_id"		column="tip_mov_id"			jdbcType="INTEGER"	javaType="int"/>
+		<result property="est_mov_id"		column="est_mov_id"			jdbcType="INTEGER"	javaType="int"/>
+		<result property="alc_rut_cli"		column="alc_rut_cli"		jdbcType="INTEGER"	javaType="java.lang.Long" />
+		<result property="mov_fec_ope"		column="mov_fec_ope"		jdbcType="DATETIME"	javaType="Date" />
+		<result property="mov_mnt"			column="mov_mnt"			jdbcType="DECIMAL"	javaType="java.lang.Double" />
+		<result property="mov_tra_num"		column="mov_tra_num"		jdbcType="CHAR"    	javaType="String" />
+		<result property="mov_mnt_sal"		column="mov_mnt_sal"		jdbcType="DECIMAL"	javaType="java.lang.Double" />
+	</resultMap>
+	
+	<procedure id="obtenerMovimientoAlcancia" parameterMap="setObtenerMovimientoAlcancia" resultMap="getObtenerMovimientoAlcancia">
+		{ CALL sp_obtiene_mov_alcancia(?) }
+	</procedure>
+
+	<parameterMap id="setInsertarMovimientoAlcancia" class="java.util.HashMap">
+		<parameter property="tip_mov_id"   		jdbcType="INTEGER" javaType="int" />
+		<parameter property="est_mov_id"   		jdbcType="INTEGER" javaType="int" />
+		<parameter property="alc_rut_cli"   	jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="mov_fec_ope"   	jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="mov_mnt"   		jdbcType="DECIMAL"	javaType="java.lang.Double" />
+		<parameter property="mov_tra_num"   	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="ext_id"   			jdbcType="DECIMAL"	javaType="int" />
+	</parameterMap>
+	
+	<procedure id="insertarMovimientoAlcancia" parameterMap="setInsertarMovimientoAlcancia" resultClass="java.math.BigDecimal">
+		{ CALL sp_insertarMovimientoAlcancia(?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizaMovimientoAlcancia" class="java.util.HashMap">
+		<parameter property="mov_id"   		jdbcType="NUMERIC"   javaType="java.math.BigDecimal"  />
+		<parameter property="mov_tra_num"   jdbcType="CHAR" javaType="String" />
+		<parameter property="est_mov_id"   	jdbcType="INTEGER" javaType="int" />
+	</parameterMap>
+	
+	<procedure id="actualizaMovimientoAlcancia" parameterMap="setActualizaMovimientoAlcancia" resultClass="int">
+		{ CALL sp_actualizaMovimientoAlcancia(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setEnrolarClienteAlcancia" class="java.util.HashMap">
+		<parameter property="alc_rut_cli"   	jdbcType="INTEGER" 	javaType="java.lang.Long" />
+		<parameter property="alc_dig_cli"   	jdbcType="CHAR" 	javaType="String" />
+		<parameter property="alc_id_dis"		jdbcType="VARCHAR" 	javaType="String"  />
+		<parameter property="alc_sis_ope"		jdbcType="VARCHAR" 	javaType="String"  />
+		<parameter property="alc_mod_cel"		jdbcType="VARCHAR" 	javaType="String"  />
+		<parameter property="est_id"   			jdbcType="INTEGER" 	javaType="int" />
+		<parameter property="alc_cta_ori"		jdbcType="CHAR"    	javaType="String" />
+		<parameter property="alc_email_cli"		jdbcType="VARCHAR" 	javaType="String"  />
+		<parameter property="alc_cta_des"		jdbcType="CHAR"    	javaType="String" />
+	</parameterMap>
+	
+	<procedure id="enrolarClienteAlcancia" parameterMap="setEnrolarClienteAlcancia" resultClass="int">
+		{ CALL sp_enrolamientoAlcancia(?,?,?,?,?,?,?,?,?) }
+	</procedure>
+		
+</sqlMap>

@@ -1,0 +1,690 @@
+<?xml version='1.0' encoding='ISO-8859-1'?>
+
+<!DOCTYPE Menu SYSTEM "file:///export/weblogic/bea/wlsplatform/tablas/tbanc/xml/dtd/menu.dtd">
+
+<Menu>
+	<MenuItem mostrar="" key="1">
+		<NombreServicio>MarketingOfertas</NombreServicio>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="2">
+		<NombreServicio>CerrarSesion</NombreServicio>
+		<Descripcion>Cerrar Sesión</Descripcion>
+		<Servicio>/seguridadwls/CerrarSesion</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="3">
+		<NombreServicio>GeneracionMenu</NombreServicio>
+		<Descripcion>Generacion de Menu BciNet</Descripcion>
+	</MenuItem>
+
+	<MenuItem mostrar="" key="4">
+		<NombreServicio>EnviaMail</NombreServicio>
+		<Descripcion>Envia Mail Genérico</Descripcion>
+		<Servicio>/commonwls/EnviaMail</Servicio>
+	</MenuItem>
+
+	<!-- # -->
+ 	<!-- # Servicios -->
+ 	<!-- # ======================== -->
+ 	<MenuItem mostrar="SI" key="5">
+		<NombreServicio>Direcciones</NombreServicio>
+		<Descripcion>Actualiza tus Direcciones</Descripcion>
+		<Servicio>/clienteswls/Direcciones</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="6">
+		<NombreServicio>SubscripcionBancaMovil</NombreServicio>
+		<Descripcion>TBanc SMS</Descripcion>
+		<Servicio>/bancamovilwls/SubscripcionBancaMovil?paso=0</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="7">
+		<NombreServicio>CrearClave</NombreServicio>
+		<Descripcion>TBanc WAP</Descripcion>
+		<Servicio>/seguridadwls/CrearClave</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="8">
+		<NombreServicio>Agenda</NombreServicio>
+		<Descripcion>Agenda TBanc</Descripcion>
+        <Servicio>/agendawls/AgendaTBanc?paso=0</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="9">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitud de Mensajero</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=28</Servicio>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Cuentas Corrientes/Prima -->	
+        <!-- # ======================== -->	
+	<MenuItem mostrar="OBJ" key="10">
+		<NombreServicio>SuperCartola</NombreServicio>
+		<Descripcion>Super Cartola</Descripcion>
+		<Servicio>/cuentaswls/SuperCartola</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="11">
+		<NombreServicio>CartolaLinea</NombreServicio>
+		<Descripcion>Cartola</Descripcion>
+		<Servicio>/cuentaswls/ControladorCuentas?opcion=CTACTECARTOLA</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="12">
+		<NombreServicio>MiniCartolaCtaCte</NombreServicio>
+		<Descripcion>Minicartola</Descripcion>
+		<Servicio>/cuentaswls/MiniCartolaCtaCte</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="13">
+		<NombreServicio>CartolaHistorica</NombreServicio>
+		<Descripcion>Cartola Histórica</Descripcion>
+		<Servicio>/cuentaswls/ControladorCuentas?opcion=CTACTECARTOLAHISTORICA</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="14">
+		<NombreServicio>ConsultaTalonario</NombreServicio>
+		<Descripcion>Consulta y Activación de Talonario</Descripcion>
+		<Servicio>/cuentaswls/Talonarios?paso=4&amp;idMedio=2</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="15">
+		<NombreServicio>ChequesCobrados</NombreServicio>
+		<Descripcion>Cheques Cobrados</Descripcion>
+		<Servicio>/cuentaswls/Cheques</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="16">
+		<NombreServicio>TalonarioAutomatico</NombreServicio>
+		<Descripcion>Talonario Automático</Descripcion>
+		<Servicio>/cuentaswls/Talonarios?paso=2&amp;idMedio=2</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="69">
+		<NombreServicio>DisenoTalonario</NombreServicio>
+                <Descripcion>&lt;font color=#cc0000 &gt; Talonario con Diseño (Nuevo) &lt;/font&gt;</Descripcion>
+		<Servicio>/cuentaswls/DisTalon?paso=0</Servicio>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="17">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitudes y Reposiciones</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=32</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+        <MenuItem mostrar="OBJ" key="58">
+                <NombreServicio>CartolaEmail</NombreServicio>
+                <Descripcion>TBancMail</Descripcion>
+		<Servicio>/cuentaswls/email/Email</Servicio>
+                <Parametros>
+                     <Parametro>objeto</Parametro>
+                </Parametros>
+        </MenuItem>
+
+        <MenuItem mostrar="OBJ" key="59">
+                <NombreServicio>VistaCheques</NombreServicio>
+                <Descripcion>Imágenes de Cheques</Descripcion>
+		<Servicio>/visualdocswls/Cheques</Servicio>
+                <Parametros>
+                     <Parametro>objeto</Parametro>
+                </Parametros>
+        </MenuItem>
+
+    <MenuItem mostrar="SI" key="66">
+		<NombreServicio>InteresesCtaCte</NombreServicio>
+		<Descripcion>Intereses Pagados</Descripcion>
+		<Servicio>/cuentaswls/InteresesCtaCte?paso=0</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="67">
+		<NombreServicio>ComisionesCtaCte</NombreServicio>
+		<Descripcion>Servicios Utilizados</Descripcion>
+		<Servicio>/cobroswls/Comisiones?paso=0</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+	<!-- # -->
+        <!-- # Línea de Sobregiro -->	
+        <!-- # ================== -->	
+	<MenuItem mostrar="OBJ" key="18">
+		<NombreServicio>CartolaLineaSobregiro</NombreServicio>
+		<Descripcion>Cartola Línea de Sobregiro</Descripcion>
+		<Servicio>/cuentaswls/CartolaLineaSobregiro</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="19">
+		<NombreServicio>AbonoLineaSobregiro</NombreServicio>
+		<Descripcion>Abono a Línea de Sobregiro</Descripcion>
+		<Servicio>/cuentaswls/AbonoLineaSobregiro</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="20">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitudes</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=31</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Tbanc Pagos en Linea -->	
+        <!-- # ========= -->	
+	<MenuItem mostrar="OBJ" key="21">
+		<NombreServicio>PortalPagos</NombreServicio>
+		<Descripcion>Cartola de Pagos &lt;FONT color=#ff0000&gt;&lt;small&gt;&lt;b&gt;nuevo&lt;/b&gt;&lt;/small&gt;&lt;/FONT&gt;</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=cartola&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="22">
+		<NombreServicio>EfectuarPagos</NombreServicio>
+		<Descripcion>Efectuar Pagos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=pagoEnLinea&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Tbanc Pagos Automático -->	
+        <!-- # ==================== -->	
+	<MenuItem mostrar="OBJ" key="23">
+		<NombreServicio>BciPagoSuscripcion</NombreServicio>
+                <Descripcion>Contratar Servicios</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=inscribirPagosAutomaticos&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="25">
+		<NombreServicio>BciPagoCuentasPorPagar</NombreServicio>
+		<Descripcion>Cuentas Por Pagar</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=revisarDetenerPagos&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="26">
+		<NombreServicio>BciPagoConsultar</NombreServicio>
+                <Descripcion>Consulta Servicios Contratados</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=revisarCambiarPagosInscritos&amp;urlPopup=si</Servicio>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Transferencias a Terceros -->	
+        <!-- # ========================= -->	
+	<MenuItem mostrar="OBJ" key="28">
+		<NombreServicio>TransferenciaOtrosBancos</NombreServicio>
+		<Descripcion>A Otros Bancos</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="29">
+		<NombreServicio>TransferenciaTerceros</NombreServicio>
+		<Descripcion>A Cuentas de Terceros</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="30">
+		<NombreServicio>TrfCuentas</NombreServicio>
+		<Descripcion>Entre Ctas. Ctes. y Ctas. primas</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="68">
+		<NombreServicio>TrfFondosCtaAhorroTerc</NombreServicio>
+		<Descripcion>A Cuentas de Ahorro Terceros</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=transferencia&amp;urlPopup=si</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+        <Destino>top</Destino>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Consulta Créditos -->	
+        <!-- # ================= -->	
+	<MenuItem mostrar="SI" key="31">
+		<NombreServicio>ConsultaCreditos</NombreServicio>
+		<Descripcion>Consulta Créditos</Descripcion>
+		<Servicio>/creditoswls/CreditosConsultar</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="32">
+		<NombreServicio>SimuladoresCreditos</NombreServicio>
+		<Descripcion>Simuladores de Créditos</Descripcion>
+        <Servicio>/seguridadwls/CheckSession?servicio=SolicitudesCreditos&amp;canal=100</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="33">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitudes de Crédito</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=30</Servicio>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Cuenta de Ahorro -->	
+        <!-- # ================ -->	
+	<MenuItem mostrar="OBJ" key="34">
+		<NombreServicio>MinicartolaAhorro</NombreServicio>
+		<Descripcion>Minicartola</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=100&amp;tipoPagina=3&amp;srcMenu=%2Ftbancwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/GoCartola&amp;nameServicio=cuerpo&amp;srcTop=%2Ftbancwls%2FbancoLinea%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+                <Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="35">
+		<NombreServicio>GiroAhorro</NombreServicio>
+		<Descripcion>Transf. de Ahorro a Cta. Cte.</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=100&amp;tipoPagina=3&amp;srcMenu=%2Ftbancwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/Giro&amp;nameServicio=cuerpo&amp;srcTop=%2Ftbancwls%2FbancoLinea%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="36">
+		<NombreServicio>DepositoAhorro</NombreServicio>
+		<Descripcion>Transf. de Cta. Cte. a Ahorro</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=GenericoWLS&amp;canal=100&amp;tipoPagina=3&amp;srcMenu=%2Ftbancwls%2Fportalinvwls%2Fmenu.jsp&amp;srcServicio=/inversioneswls/ahorro/Deposito&amp;nameServicio=cuerpo&amp;srcTop=%2Ftbancwls%2FbancoLinea%2Farriba.jsp%3Ftab%3D2&amp;nameTop=arriba</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+		<Destino>top</Destino>
+	</MenuItem>
+
+
+	<!-- # -->	
+        <!-- # Tarjetas de Crédito -->	
+        <!-- # =================== -->	
+	<MenuItem mostrar="OBJ" key="37">
+		<NombreServicio>SaldoCtaCred</NombreServicio>
+		<Descripcion>Saldo</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/ConsultaSaldoAction.do?method=obtieneResumenSaldo</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="38">
+		<NombreServicio>EstadoNacional</NombreServicio>
+		<Descripcion>Estado de Cuenta Nacional</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/EstadoCuentaNacionalAction.do?method=obtieneEstadoCuentaNacional</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+
+	<MenuItem mostrar="OBJ" key="39">
+		<NombreServicio>EstadoInternacional</NombreServicio>
+		<Descripcion>Estado de Cuenta Internacional</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/EstadoCuentaInternacionalAction.do?method=obtieneEstadoCuentaInternacional</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="40">
+		<NombreServicio>ComprasNoFacturadasNac</NombreServicio>
+		<Descripcion>Ultimos Movimientos</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/MovNoFacturadosAction.do?method=mostrarUltimosMovimientos&amp;nacint=N</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="70">
+		<NombreServicio>ComprasNoFacturadasInt</NombreServicio>
+		<Descripcion>Tarjetas Adicionales</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/cuentaCreditoAction.do?method=mostrarTarjetas</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="41">
+		<NombreServicio>PagoCtaCred</NombreServicio>
+		<Descripcion>Pago Tarjeta Crédito</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/pagoNacionalAction.do?method=solicitar</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="42">
+		<NombreServicio>AvanceCtaCred</NombreServicio>
+		<Descripcion>Avance a Cuenta Corriente</Descripcion>
+		<Servicio>/tbancwls/tarjetasonline/avanceEfectivoAction.do?method=solicitar</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="43">
+		<NombreServicio>PagoDeudaDolares</NombreServicio>
+		<Descripcion>Pago Deuda Internacional</Descripcion>
+		<Servicio>/tarjetaswls/PagoDeudaDolares</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="46">
+		<NombreServicio>CatalogoSonrisas</NombreServicio>
+		<Descripcion>Catálogo PESO$ONRISASBci</Descripcion>
+		<Servicio>/tbancwls/tarjetas/sonrisas/catalogoPrivado.html</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="47">
+		<NombreServicio>PesosSonrisas</NombreServicio>
+		<Descripcion>Consulta Saldo Peso$onrisas</Descripcion>
+		<Servicio>/tarjetaswls/CatalogoSonrisas?paso=2</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="48">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitudes y Reposiciones</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=33</Servicio>
+		<Parametros>
+			<Parametro>objeto</Parametro>
+		</Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="49">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitud Tarjeta Visa</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=16</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="50">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitud Tarjeta MasterCard</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=17</Servicio>
+	</MenuItem>
+
+
+	<MenuItem mostrar="OBJ" key="71">
+		<NombreServicio>ConsultaBloqueoTarjeta</NombreServicio>
+		<Descripcion>Consulta Bloqueo Tarjetas</Descripcion>
+		<Servicio>/tarjetaswls/Bloqueo?titulo=Consulta%20Estado%20Bloqueo%20Tarjetas&amp;opcion=Consulta</Servicio>
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="72">
+		<NombreServicio>BloqueoTarjeta</NombreServicio>
+		<Descripcion>Bloqueo de Tarjetas</Descripcion>
+		<Servicio>/tarjetaswls/Bloqueo?titulo=Bloqueo%20Tarjetas&amp;opcion=Bloqueo</Servicio>
+	</MenuItem>
+        
+        <MenuItem mostrar="OBJ" key="88">
+		<NombreServicio>PagosPat</NombreServicio>
+		<Descripcion>Pago Automático TCredito (PAT)</Descripcion>
+		<Servicio>/common/pago.htm</Servicio>
+	</MenuItem>
+
+	<!-- # -->	
+        <!-- # Tbanc Inversiones -->
+        <!-- # =================== -->	
+	<MenuItem mostrar="SI" key="51">
+		<NombreServicio>Dap</NombreServicio>
+		<Descripcion>Depósitos a Plazo</Descripcion>
+		<Servicio>https://objetos.bci.cl/portalinvwls/portal.html</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="52">
+		<NombreServicio>FondosMutuos</NombreServicio>
+		<Descripcion>Fondos Mutuos</Descripcion>
+		<Servicio>https://objetos.bci.cl/portalinvwls/portal.html</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="53">
+		<NombreServicio>AhorroInversiones</NombreServicio>
+		<Descripcion>Ahorro</Descripcion>
+		<Servicio>https://objetos.bci.cl/portalinvwls/portal.html</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="54">
+		<NombreServicio>Acciones</NombreServicio>
+		<Descripcion>Acciones</Descripcion>
+		<Servicio>https://objetos.bci.cl/portalinvwls/portal.html</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="55">
+		<NombreServicio>Dolares</NombreServicio>
+		<Descripcion>Dólares</Descripcion>
+		<Servicio>https://objetos.bci.cl/portalinvwls/portal.html</Servicio>
+		<Destino>top</Destino>
+	</MenuItem>
+
+	<MenuItem mostrar="OBJ" key="56">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitud Ahorro Electrónico</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=15</Servicio>
+	</MenuItem>
+
+	<!-- MultiCredito -->
+
+	<MenuItem mostrar="SI" key="60">
+		<NombreServicio>MultiCreditoAvanceCartola</NombreServicio>
+        <Descripcion>&lt;font color=#cc0000 &gt; Avance TBancMulticrédito &lt;/font&gt;</Descripcion>
+		<Servicio>/tbancwls/common/enespera.jsp?path=/creditoswls&amp;servlet=MultiCredito&amp;paso=2</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="61">
+		<NombreServicio>MultiCreditoAvanceCartola2</NombreServicio>
+		<Descripcion>Cartola de Créditos</Descripcion>
+		<Servicio>/tbancwls/common/enespera.jsp?path=/creditoswls&amp;servlet=MultiCredito&amp;paso=0</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="62">
+		<NombreServicio>AumentoCupo</NombreServicio>
+		<Descripcion>Aumento Cupo</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=34</Servicio>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="63">
+		<NombreServicio>SolicitudesTbanc</NombreServicio>
+		<Descripcion>Solicitudes</Descripcion>
+		<Servicio>/solicitudeswls/SolicitudesSegurasTbanc?paso=30</Servicio>
+	</MenuItem>
+
+        <MenuItem mostrar="OBJ" key="87">
+		        <NombreServicio>TarjetaVirtual</NombreServicio>
+		        <Descripcion>&lt;FONT color=#ff0000&gt;&lt;small&gt;&lt;b&gt;Tarjet@Virtual&lt;/b&gt;&lt;/small&gt;&lt;/FONT&gt;</Descripcion>
+		        <Servicio>/tbancwls/tarjetas/virtual/TarjetaVirtual</Servicio>
+		        <Parametros>
+		            <Parametro>objeto</Parametro>
+		        </Parametros>
+	</MenuItem>
+
+	<MenuItem mostrar="SI" key="64">
+		<NombreServicio>InformacionMultiCredito</NombreServicio>
+		<Descripcion>Información</Descripcion>
+		<Servicio>http://www.tbanc.cl/servicios/c_multicredito.htm</Servicio>
+		<!-- <Destino>top</Destino>  -->
+	</MenuItem>
+
+  <!-- # -->
+	<!-- Pago automatico con tarjeta de credito -->
+	<!-- # ====================== -->	
+	<MenuItem mostrar="SI" key="65">
+		<NombreServicio>PagosPat</NombreServicio>
+		<Descripcion>Pagos con Tarjeta de Crédito</Descripcion>
+		<Servicio>/seguridadwls/CheckSession?servicio=WLSBciPago&amp;canal=100&amp;paramTBanc=pagosConTarjetaDeCredito&amp;urlPopup=si</Servicio>
+        <Destino>top</Destino>
+	</MenuItem>	
+
+
+ <!-- Plan Medico 09-02-2004 -->
+ <!-- # ====================== -->
+
+<!-- Cartola -->
+ <MenuItem mostrar="OBJ" key="73">
+ 	<NombreServicio>CartolaMedica</NombreServicio>
+  <Descripcion>Cartola M&#0233;dica</Descripcion>
+  <Servicio>/planmedicowls/CartolaMedica</Servicio>
+  <Parametros>
+   <Parametro>objeto</Parametro>
+  </Parametros>
+ </MenuItem>
+
+<!-- MiniCartola -->
+	<MenuItem mostrar="OBJ" key="74">
+ 	<NombreServicio>MiniCartolaMedica</NombreServicio>
+  <Descripcion>Minicartola M&#0233;dica</Descripcion>
+  <Servicio>/planmedicowls/MiniCartolaMedica</Servicio>
+  <Parametros>
+    <Parametro>objeto</Parametro>
+  </Parametros>
+	</MenuItem>
+
+<!-- Cartera -->
+	<MenuItem mostrar="OBJ" key="75">
+ 	<NombreServicio>CarteraDocumentos</NombreServicio>
+  <Descripcion>Cartera Documentos en Cobranza</Descripcion>
+  <Servicio>/planmedicowls/CarteraDocumentos</Servicio>
+  <Parametros>
+    <Parametro>objeto</Parametro>
+  </Parametros>
+	</MenuItem>
+
+<!-- Fin Plan Medico -->
+<!-- ************************** -->
+
+	<!-- 23-12-2003. Apolo.   -->
+	<!-- Consulta de Seguros. -->
+	<MenuItem mostrar="SI" key="76">
+				<NombreServicio>PostVentaSeguros</NombreServicio>
+				<Descripcion>Consultar P&#0243;lizas Vigentes</Descripcion>
+				<Servicio>/seguroswls/ResumenProductos</Servicio>			
+	</MenuItem>
+
+<!-- 26-02-2004. Apolo.   -->
+	<!-- Venta de Seguros. -->
+	<MenuItem mostrar="OBJ" key="77">
+		<NombreServicio>VentaSeguros</NombreServicio>
+		<Descripcion>Venta de Seguro MultiProtecci&#0243;n</Descripcion>
+		<Servicio>/ventaseguroswls/VentadeSeguros</Servicio>			
+	</MenuItem>
+	
+	<MenuItem mostrar="OBJ" key="78">
+		<NombreServicio>PagoFlexible</NombreServicio>
+		<Descripcion>Pago Cuota Flexible</Descripcion>
+		<Servicio>/creditoswls/PagoFlexible?paso=0</Servicio>
+		<TipoCliente>P</TipoCliente>
+		<TipoUsuario>T</TipoUsuario>
+	</MenuItem>
+	
+    <MenuItem mostrar="SI" key="80"> 
+        <NombreServicio>CuentasVinculadas</NombreServicio> 
+            <Descripcion>Generar Mandato</Descripcion> 
+        <Servicio>/cuentasvinculadaswls/Inscripcion?paso=0</Servicio> 
+        <TipoCliente>P</TipoCliente> 
+        <TipoUsuario>T</TipoUsuario> 
+    </MenuItem> 
+    
+    <MenuItem mostrar="SI" key="81"> 
+        <NombreServicio>CuentasVinculadas</NombreServicio> 
+        <Descripcion>Consulta Cuentas Inscritas</Descripcion> 
+        <Servicio>/cuentasvinculadaswls/Consulta?paso=0</Servicio> 
+        <TipoCliente>P</TipoCliente> 
+        <TipoUsuario>T</TipoUsuario> 
+    </MenuItem>
+
+       <MenuItem mostrar="OBJ" key="79">
+                <NombreServicio>AvanceCtaCred</NombreServicio>
+                <Descripcion>Avance en Cuotas  &lt;FONT color=#ff0000&gt;&lt;strong&gt;nuevo&lt;/strong&gt;&lt;/FONT&gt;</Descripcion>
+                <Servicio>/tbancwls/tarjetasonline/avanceCuotasAction.do?method=solicitar</Servicio>
+               <Parametros>
+		            <Parametro>objeto</Parametro>
+        	</Parametros>		
+                <TipoCliente>P</TipoCliente>
+                <TipoUsuario>T</TipoUsuario>
+        </MenuItem>
+        
+        
+        <MenuItem mostrar="SI" key="82">				
+        	<NombreServicio>hipotecario</NombreServicio>		
+        	<Descripcion>Duplicado Dividendo Hipotecario</Descripcion>		
+        	<Servicio>/tbancwls/hipotecario/GetOperacionesChip.do</Servicio>		
+        	<TipoCliente>P</TipoCliente>		
+        	<TipoUsuario>T</TipoUsuario>	
+        </MenuItem>
+
+
+       <MenuItem mostrar="SI" key="122">				
+        	<NombreServicio>hipotecario</NombreServicio>		
+        	<Descripcion>Certificado Hipotecario para SII</Descripcion>		
+        	<Servicio>/tbancwls/hipotecario/GetOperacionesChip.do?_cmd=Certificado</Servicio>		
+        	<TipoCliente>P</TipoCliente>		
+        	<TipoUsuario>T</TipoUsuario>	
+        </MenuItem>
+
+        <!-- 01/2005 Novared S.A. -->
+        <!-- Tbanc Movil -->
+        <MenuItem mostrar="SI" key="98">
+                <NombreServicio>solicitudTbancMovil</NombreServicio>
+                <Descripcion>Solicitar Avisos al Celular</Descripcion>
+                <Servicio>/tbancwls/TbancMovil/solicitud.do?method=despliega</Servicio>
+        </MenuItem>
+        
+        <MenuItem mostrar="SI" key="99">
+                <NombreServicio>cartolaTbancMovil</NombreServicio>
+                <Descripcion>Cartola Avisos al Celular</Descripcion>
+                <Servicio>/tbancwls/TbancMovil/cartola.do?method=despliega</Servicio>
+        </MenuItem>
+        
+</Menu>

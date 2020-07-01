@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_mov_car">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="double" middle_name="cta" size="0" java_name="numeroCuentaCorriente"/>
+	</input>
+	<output>
+	<struct struct_size="0" class_name="ConsultaMovimientosCuentaCorrienteMonedaExtranjeraTO" var_name="movimientosCuentaCorriente">
+			<field type="Date" middle_name="fecha" size="0" java_name="fecha"/>
+			<field type="Double" middle_name="serial" size="0" java_name="serial"/>
+			<field type="Integer" middle_name="codigo" size="0" java_name="codigo"/>
+			<field type="String" middle_name="cmov_ind_mov" size="0" java_name="indicadorMovimiento"/>
+			<field type="Double" middle_name="monto" size="0" java_name="monto"/>
+			<field type="String" middle_name="newhora" size="0" java_name="hora"/>
+			<field type="Integer" middle_name="sucorig" size="0" java_name="codigoSucursalOrigen"/>
+			<field type="Double" middle_name="ncolilla" size="0" java_name="numeroColilla"/>
+			<field type="Integer" middle_name="diasretencion" size="0" java_name="diasRetencion"/>
+			<field type="String" middle_name="cmov_tip" size="0" java_name="tipoMovimiento"/>
+	</struct>
+	</output>
+</service>

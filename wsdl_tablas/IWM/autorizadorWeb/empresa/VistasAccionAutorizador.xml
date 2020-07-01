@@ -1,0 +1,2117 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<vistasAcciones>
+  <vista nombreVista="pruebaReglaSimple">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>ClienteSinConvenio</regla>
+            </accion>
+        </vista>
+        <vista nombreVista="pestanas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>
+        <vista nombreVista="pagosMasivos">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>      
+        <vista nombreVista="remuneraciones">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene7ServiciosAsignados</regla>
+                <parametro>T35OPE</parametro>
+                <parametro>T42OPE</parametro>
+                <parametro>T43OPE</parametro>
+                <parametro>T31OPE</parametro>
+                <parametro>T34OPE</parametro>
+                <parametro>T33OPE</parametro>
+                <parametro>T32OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="proveedores">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene7ServiciosAsignados</regla>
+                <parametro>PPCON110</parametro>
+                <parametro>PPAFN106</parametro>
+                <parametro>PPAFN105</parametro>
+                <parametro>PPCON106</parametro>
+                <parametro>PPCON109</parametro>
+                <parametro>PPCON108</parametro>
+                <parametro>PPCON107</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="dividendos">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene7ServiciosAsignados</regla>
+                <parametro>T54OPE</parametro>
+                <parametro>T47OPE</parametro>
+                <parametro>T48OPE</parametro>
+                <parametro>T49OPE</parametro>
+                <parametro>T53OPE</parametro>
+                <parametro>T52OPE</parametro>
+                <parametro>T51OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="pensiones">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene7ServiciosAsignados</regla>
+                <parametro>T64OPE</parametro>
+                <parametro>T57OPE</parametro>
+                <parametro>T58OPE</parametro>
+                <parametro>T59OPE</parametro>
+                <parametro>T63OPE</parametro>
+                <parametro>T62OPE</parametro>
+                <parametro>T61OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="otrosPagos">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene7ServiciosAsignados</regla>
+                <parametro>T74OPE</parametro>
+                <parametro>T67OPE</parametro>
+                <parametro>T68OPE</parametro>
+                <parametro>T69OPE</parametro>
+                <parametro>T73OPE</parametro>
+                <parametro>T72OPE</parametro>
+                <parametro>T71OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="autorizacionMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T36OPE</parametro>
+                <parametro>T36OPE</parametro>
+                <parametro>T36OPE</parametro>
+                <parametro>PPAFN103</parametro>
+                <parametro>T36OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPAFN103</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T36OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T36OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T36OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T36OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Autorizar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneAlgun5Servicios</regla>
+                <parametro>T36OPE</parametro>
+                <parametro>T36OPE</parametro>
+                <parametro>T36OPE</parametro>
+                <parametro>PPAFN103</parametro>
+                <parametro>T36OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="todosLosTiposDePagoAutorizacionMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>T36OPE</parametro>
+                <parametro>PPAFN103</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="todasLasEmpresasAutorizacionMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>T37OPE</parametro>
+                <parametro>PPAFN103</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="firmaMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T38OPE</parametro>
+                <parametro>T38OPE</parametro>
+                <parametro>T38OPE</parametro>
+                <parametro>PPAFN104</parametro>
+                <parametro>T38OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T38OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T38OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T38OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T38OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPAFN104</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Firmar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoYTieneAlgun5Servicios</regla>
+                <parametro>T38OPE</parametro>
+                <parametro>T38OPE</parametro>
+                <parametro>T38OPE</parametro>
+                <parametro>PPAFN104</parametro>
+                <parametro>T38OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="todosLosTiposDePagoFirmaMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>T38OPE</parametro>
+                <parametro>PPAFN104</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="todasLasEmpresasFirmaMasiva">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>T39OPE</parametro>
+                <parametro>PPAFN104</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="eCheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>
+        <vista nombreVista="panoramaEcheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>CHECK003</parametro>
+                <parametro>CHECK006</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="crearEcheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>CHECK001</parametro>
+                <parametro>CHECK001</parametro>
+                <parametro>CHECK001</parametro>
+                <parametro>CHECK004</parametro>
+                <parametro>CHECK001</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK001</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK001</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK001</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK004</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK001</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="consultarEcheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene2ServiciosAsignados</regla>
+                <parametro>CHECK003</parametro>
+                <parametro>CHECK006</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="formatoArchivos">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>
+        <vista nombreVista="estructurasDeCargaDeArchivos">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="crearEstructuraDeCargaDeArchivo">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="tablasDeConversion">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T13OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="crearTablaDeConversion">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T13OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="calendariosDePagoProveedores">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T91OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="crearCalendarioDePagoProveedores">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T92OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="consultas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>
+        <vista nombreVista="consultaDePago">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTiene5ServiciosAsignados</regla>
+                <parametro>T44OPE</parametro>
+                <parametro>T50OPE</parametro>
+                <parametro>T60OPE</parametro>
+                <parametro>T70OPE</parametro>
+                <parametro>PPCON111</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="consultaValeVistas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T30OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="certificadosDePago">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T94OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="consultasHistoricas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T94OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="rendiciones">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+            </accion>
+        </vista>
+        <vista nombreVista="descargarArchivosRendiciones">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T95OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="perioricidadRendiciones">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T93OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="resumen_pagos">
+            <accion>
+                <nombreAccion>VerUrgenteAPOyCON</nombreAccion>
+                <regla>esApoderadoOContralor</regla>
+            </accion>
+            <accion>
+                <nombreAccion>VerUrgenteOPR</nombreAccion>
+                <regla>UsuarioEsOperador</regla>
+            </accion>
+        </vista>
+        <vista nombreVista="admPlantillas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneAlguno2Servicios</regla>
+                <parametro>T06OPE</parametro>
+				<parametro>PPCNV108</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPCNV108</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T06OPE</parametro>
+            </accion>            
+        </vista>
+        <vista nombreVista="cargaNominaAchivo">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T55OPE</parametro>
+                <parametro>T40OPE</parametro>
+                <parametro>T65OPE</parametro>
+                <parametro>PPNDP105</parametro>
+                <parametro>T45OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ingresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T55OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T40OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T65OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPNDP105</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T45OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="cargarNominaManual">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>serviciosAsignadosPenRemOtrDiv</regla>
+                <parametro>T56OPE</parametro>
+                <parametro>T41OPE</parametro>
+                <parametro>T66OPE</parametro>
+                <parametro>T46OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T56OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T41OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T66OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T46OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="reutilizarNomina">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>serviciosAsignadosPenRemOtrDiv</regla>
+                <parametro>T56OPE</parametro>
+                <parametro>T41OPE</parametro>
+                <parametro>T66OPE</parametro>
+                <parametro>T46OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T56OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T41OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T66OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T46OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="autorizacionMultiEmpresas">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T55OPE</parametro>
+                <parametro>T40OPE</parametro>
+                <parametro>T65OPE</parametro>
+                <parametro>PPNDP101</parametro>
+                <parametro>T45OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPAFN103</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="firmarEcheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoYTieneAlgun5Servicios</regla>
+                <parametro>CHECK002</parametro>
+                <parametro>CHECK002</parametro>
+                <parametro>CHECK002</parametro>
+                <parametro>CHECK005</parametro>
+                <parametro>CHECK002</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>CHECK002</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>CHECK002</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>CHECK002</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>CHECK005</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>CHECK002</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="consultaEcheck">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>CHECK003</parametro>
+                <parametro>CHECK003</parametro>
+                <parametro>CHECK003</parametro>
+                <parametro>CHECK006</parametro>
+                <parametro>CHECK003</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK003</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK003</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK003</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK006</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>CHECK003</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="puedeAutorizar">
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+                <parametro>T42OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+                <parametro>T47OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+                <parametro>T57OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+                <parametro>T67OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+                <parametro>PPAFN105</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneAlgun5Servicios</regla>
+                <parametro>T57OPE</parametro>
+                <parametro>T42OPE</parametro>
+                <parametro>T67OPE</parametro>
+                <parametro>T47OPE</parametro>
+                <parametro>PPAFN105</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="puedeFirmar">
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>T43OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>T48OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>T58OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>T68OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+                <parametro>PPAFN106</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoYTieneAlgun5Servicios</regla>
+                <parametro>T58OPE</parametro>
+                <parametro>T43OPE</parametro>
+                <parametro>T68OPE</parametro>
+                <parametro>T48OPE</parametro>
+                <parametro>PPAFN106</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="resumenPagos">
+            <accion>
+                <nombreAccion>VerUrgenteOPR</nombreAccion>
+                <regla>UsuarioEsOperador</regla>
+            </accion>
+            <accion>
+                <nombreAccion>VerUrgenteAPOyCON</nombreAccion>
+                <regla>UsuarioEsApoderadoOContralor</regla>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T64OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T35OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T54OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPCON110</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T64OPE</parametro>
+                <parametro>T35OPE</parametro>
+                <parametro>T74OPE</parametro>
+                <parametro>T54OPE</parametro>
+                <parametro>PPCON110</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T74OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="pagosAnticipados">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                   <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPCON112</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="autorizacionMultiEmpresa">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T37OPE</parametro>
+                <parametro>T37OPE</parametro>
+                <parametro>T37OPE</parametro>
+                <parametro>T37OPE</parametro>
+                <parametro>PPAFN103</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T37OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPAFN103</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Autorizar</nombreAccion>
+                <regla>UsuarioApoderadoAutorizadoOContralorAutorizadoYTiene2ServiciosAsignados</regla>
+                <parametro>T37OPE</parametro>
+                <parametro>PPAFN103</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="firmaMultiEmpresa">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>todosServiciosPagosAsignados</regla>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>PPAFN104</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T39OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T39OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T39OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T39OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPAFN104</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>Firmar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizadoYTieneAlgun5Servicios</regla>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>T39OPE</parametro>
+                <parametro>PPAFN104</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="iniciarPago">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioTieneAlgun9ServiciosAsignados</regla>
+                <parametro>T55OPE</parametro>
+                <parametro>T40OPE</parametro>
+                <parametro>T65OPE</parametro>
+                <parametro>PPNDP105</parametro>
+                <parametro>T45OPE</parametro>
+        <parametro>T56OPE</parametro>
+                <parametro>T41OPE</parametro>
+                <parametro>T66OPE</parametro>                
+                <parametro>T46OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPEN</nombreAccion>
+                <regla>UsuarioTieneAlguno2Servicios</regla>
+                <parametro>T55OPE</parametro>
+                <parametro>T56OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarREM</nombreAccion>
+                <regla>UsuarioTieneAlguno2Servicios</regla>
+                <parametro>T40OPE</parametro>
+        <parametro>T41OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarOTR</nombreAccion>
+                <regla>UsuarioTieneAlguno2Servicios</regla>
+                <parametro>T65OPE</parametro>
+        <parametro>T66OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPNDP105</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>IngresarDIV</nombreAccion>
+                <regla>UsuarioTieneAlguno2Servicios</regla>
+                <parametro>T45OPE</parametro>
+        <parametro>T46OPE</parametro>
+            </accion>
+        </vista>
+        <vista nombreVista="accionesNomina">
+            <accion>
+                <nombreAccion>DetenerPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T29OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>DetenerREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T29OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>DetenerOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T29OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>DetenerDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T29OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>DetenerPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>PPADN103</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ReactivarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T20OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ReactivarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T20OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ReactivarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T20OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ReactivarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T20OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ReactivarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>PPADN104</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>EliminarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T27OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>EliminarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T27OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>EliminarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T27OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>EliminarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T27OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>EliminarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>PPADN101</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ModificarPEN</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T03OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ModificarREM</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T03OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ModificarDIV</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T03OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ModificarOTR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>T03OPE</parametro>
+            </accion>
+            <accion>
+                <nombreAccion>ModificarPPR</nombreAccion>
+                <regla>UsuarioTieneServicioAsignado</regla>
+                <parametro>PPCON101</parametro>
+            </accion>
+            </vista>
+                <vista nombreVista="confTablaConv">
+                    <accion>
+                        <nombreAccion>IngresarPEN</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T13OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarREM</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T13OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarOTR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T13OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarDIV</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T13OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarPPR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>PPCNV104</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>todosServiciosPagosAsignados</regla>
+                        <parametro>T13OPE</parametro>
+                        <parametro>T13OPE</parametro>
+                        <parametro>T13OPE</parametro>
+                        <parametro>T13OPE</parametro>
+                        <parametro>PPCNV104</parametro>
+                    </accion>
+                </vista>
+                <vista nombreVista="crearPlantillas">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T06OPE</parametro>
+                    </accion>
+                </vista>
+                <vista nombreVista="consultaCertificados">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T94OPE</parametro>
+                    </accion>
+                </vista>
+                <vista nombreVista="eliminarDocumento">
+                    <accion>
+                        <nombreAccion>eliminarAPOoCON</nombreAccion>
+                        <regla>UsuarioEsApoderadoOContralor</regla>
+                    </accion>
+                    <accion>
+                        <nombreAccion>eliminarAPO</nombreAccion>
+                        <regla>UsuarioEsApoderado</regla>
+                    </accion>
+                </vista>
+                <vista nombreVista="consultaVV">
+                    <accion>
+                        <nombreAccion>IngresarPEN</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T30OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarREM</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T30OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarDIV</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T30OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarOTR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T30OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarPPR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>PPCON105</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>todosServiciosPagosAsignados</regla>
+                        <parametro>T30OPE</parametro>
+                        <parametro>T30OPE</parametro>
+                        <parametro>T30OPE</parametro>
+                        <parametro>T30OPE</parametro>
+                        <parametro>PPCON105</parametro>
+                    </accion>
+                </vista>
+                <vista nombreVista="consultaPagos">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>todosServiciosPagosAsignados</regla>
+                        <parametro>T60OPE</parametro>
+                        <parametro>T44OPE</parametro>
+                        <parametro>T70OPE</parametro>
+                        <parametro>T50OPE</parametro>
+                        <parametro>PPCON111</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarPEN</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T60OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarREM</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T44OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarOTR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T70OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarDIV</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T50OPE</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>IngresarPPR</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>PPCON111</parametro>
+                    </accion>
+                </vista>
+               <vista nombreVista="consultaPagosHistoricos">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>UsuarioTieneAlguno2Servicios</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>ValidarAutorizacionREM</nombreAccion>
+                        <regla>UsuarioTieneAutorizacionServicio</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                        <parametro>REM</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>ValidarAutorizacionDIV</nombreAccion>
+                        <regla>UsuarioTieneAutorizacionServicio</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                        <parametro>DIV</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>ValidarAutorizacionPEN</nombreAccion>
+                        <regla>UsuarioTieneAutorizacionServicio</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                        <parametro>PEN</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>ValidarAutorizacionOTR</nombreAccion>
+                        <regla>UsuarioTieneAutorizacionServicio</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                        <parametro>OTR</parametro>
+                    </accion>
+                    <accion>
+                        <nombreAccion>ValidarAutorizacionPPR</nombreAccion>
+                        <regla>UsuarioTieneAutorizacionServicio</regla>
+                        <parametro>T90OPE</parametro>
+                        <parametro>PPCON118</parametro>
+                        <parametro>PPR</parametro>
+                    </accion>
+                </vista>                
+                <vista nombreVista="cargaPlanillaBCR">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T91OPE</parametro>
+                    </accion>
+                </vista>
+                <vista nombreVista="estadoBCR">
+                    <accion>
+                        <nombreAccion>Ingresar</nombreAccion>
+                        <regla>UsuarioTieneServicioAsignado</regla>
+                        <parametro>T92OPE</parametro>
+                    </accion>
+                </vista>
+                
+                <vista nombreVista="transferencias-Monex-1a1">
+        <accion>
+            <nombreAccion>Autorizar</nombreAccion>
+            <regla>UsuarioEsApoderado</regla>
+        </accion>
+     </vista> 
+     
+      <vista nombreVista="validacionFirmaYPoderes">
+        <accion>
+            <nombreAccion>Autorizar</nombreAccion>
+            <regla>ClienteDebeConsultarFirmaYPoderes</regla>
+        </accion>
+     </vista>
+                <vista nombreVista="vistaDetalleNomina">
+            <accion>
+                <nombreAccion>Firmar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+    <vista nombreVista="vistaAutorizarNominaChequeSeguro">
+            <accion>
+                <nombreAccion>Firmar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+    <vista nombreVista="cuentaCorrienteNacional">
+        <accion>
+            <nombreAccion>ConsultarSaldo</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>x01ope</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>ConsultarMinicartola</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>X60OPE</parametro>
+        </accion>
+    </vista>
+    <vista nombreVista="pagoImpuestos">
+        <accion>
+            <nombreAccion>Autorizar</nombreAccion>
+            <regla>UsuarioTieneAlguno2Servicios</regla>
+            <parametro>X82OPE</parametro>
+            <parametro>X159OPE</parametro>
+        </accion>
+    </vista>
+    <vista nombreVista="transferencias">
+        <accion>
+            <nombreAccion>Firmar</nombreAccion>
+            <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+            <parametro>x19ope</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>Registrar</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>X48OPE</parametro>
+        </accion>
+    </vista>
+<vista nombreVista="panoramaTransferencias">
+       <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+<vista nombreVista="transferirFondos">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+<vista nombreVista="ingresoBeneficiario">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+<vista nombreVista="administradorBeneficiarios">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+<vista nombreVista="cartolaTTFFExtranjero">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+<vista nombreVista="movimientosFondosProvisionados">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>TRFMX008</parametro>
+       </accion>
+</vista>
+
+<vista nombreVista="cargaNominaCheque"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>CHQS001</parametro> 
+  </accion> 
+</vista> 
+<vista nombreVista="estadoNominaCheque"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>CHQS002</parametro> 
+   </accion>
+</vista> 
+    <vista nombreVista="firmarNominaCheque"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>CHQS003</parametro> 
+    </accion> 
+</vista>
+<vista nombreVista="consultarNominaCheque"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>CHQS004</parametro> 
+    </accion> 
+</vista>
+<vista nombreVista="administracionContactos"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>CHQS005</parametro> 
+    </accion> 
+</vista>
+
+<vista nombreVista="panoramaAlertasEmpresas">        
+        <accion>
+            <nombreAccion>servicioAsignado</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+        </accion>        
+    </vista>
+    
+<vista nombreVista="panoramaAlertasEmpresas">        
+                <accion>
+            <nombreAccion>apoderadoAutorizado</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+    </vista>
+    
+<vista nombreVista="panoramaAlertasEmpresasPaso1">        
+        <accion>
+            <nombreAccion>apoderadoAutorizado</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+    </vista>    
+
+<vista nombreVista="administracionAltosMontos">
+        <accion>
+            <nombreAccion>apoAutoAdminBeneficiario</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+    </vista>
+    <vista nombreVista="vistaEstadoClaves">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+    <vista nombreVista="vistaCambioClaveInternet">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+    <vista nombreVista="vistaSincronizacionMultipass">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+    <vista nombreVista="vistaBloqueoMultipass">
+            <accion>
+                <nombreAccion>Ingresar</nombreAccion>
+                <regla>UsuarioEsApoderadoAutorizado</regla>
+            </accion>
+    </vista>
+ <vista nombreVista="activacionBeneficiariosNomina">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioEsApoderado</regla>
+    </accion>
+    <accion>
+        <nombreAccion>NoActivar</nombreAccion>
+        <regla>UsuarioEsApoderado</regla>
+    </accion>
+ </vista> 
+<vista nombreVista="inscribirBeneficiarios">
+    <accion>
+        <nombreAccion>Firmar</nombreAccion>
+        <regla>UsuarioEsApoderadoAutorizado</regla>
+    </accion>
+</vista>
+
+ <vista nombreVista="pagarDiferida">
+    <accion>
+        <nombreAccion>Pagar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X48OPE</parametro> 
+    </accion>
+</vista>
+<vista nombreVista="firmarTransferencia">
+    <accion>
+        <nombreAccion>FirmarCuentaPropia</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>x19ope</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>FirmarMismoBanco</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X52OPE</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>FirmarOtroBanco</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X52OPE</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>Firmar</nombreAccion>
+        <regla>UsuarioEsApoderadoAutorizado</regla>
+    </accion>
+</vista>
+  <vista nombreVista="iniciarCartola">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X22OPE</parametro>
+    </accion>
+ </vista>
+ 
+ 
+ <vista nombreVista="ingresarTransferencia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X48OPE</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="reutilizarTransferencia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X48OPE</parametro>
+    </accion>
+  </vista>
+  
+    <vista nombreVista="ingresarCuentaPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>x17ope</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="generarCertificadoTransferencia">
+    <accion>
+        <nombreAccion>Generar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>TRF07</parametro>
+    </accion>
+ </vista>
+ 
+<vista nombreVista="iniciarConsultaTransferencia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X22OPE</parametro>
+    </accion>
+ </vista>
+<vista nombreVista="iniciarPagoPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneAlguno3Servicios</regla>
+        <parametro>PAG01</parametro>
+        <parametro>PAG02</parametro>
+        <parametro>PAG10</parametro>
+    </accion>
+</vista>
+
+<vista nombreVista="cargaNominaArchivoPnol"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>PAG01</parametro> 
+    </accion> 
+</vista>
+
+<vista nombreVista="cargarNominaManualPnol"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>PAG02</parametro> 
+    </accion> 
+</vista>
+
+<vista nombreVista="reutilizarNominaPnol"> 
+   <accion> 
+    <nombreAccion>Ingresar</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>PAG10</parametro> 
+    </accion> 
+</vista>
+
+<vista nombreVista="activacionBeneficiariosNomina">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>PAG11</parametro>
+    </accion>
+ </vista>
+ 
+ <vista nombreVista="consultaPagosPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla> 
+        <parametro>PAG04</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="consultaCertificadosPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>PAG09</parametro>
+    </accion>
+ </vista>
+ 
+ 
+   <vista nombreVista="rendicionNominaPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla> 
+        <parametro>PAG12</parametro>
+    </accion>
+ </vista>
+ 
+  
+   <vista nombreVista="estadoNominaPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla> 
+        <parametro>PAG05</parametro>
+    </accion>
+ </vista>
+ 
+    <vista nombreVista="pagarNominaDiferidaPnol">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla> 
+        <parametro>PAG13</parametro>
+    </accion>
+ </vista>
+<vista nombreVista="listaOdpsRecibidas">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>CX140</parametro>
+        </accion>
+    </vista>
+    <vista nombreVista="confirmarAbonoOdpCct">
+        <accion>
+            <nombreAccion>LiquidarOdp</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>
+    </vista>
+
+<vista nombreVista="servicioAPPBasico">
+	<accion>
+    	<nombreAccion>Consultar</nombreAccion>
+        <regla>ConvenioTieneProductoServicioContratado</regla>
+        <parametro>Prod34       </parametro>
+	    <parametro>       
+	    X60OPE1
+	    </parametro>
+	</accion>
+</vista>
+<vista nombreVista="eliminarTransferencia">
+    <accion>
+        <nombreAccion>Eliminar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X115OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="compraVentaDivisas">
+    <accion>
+        <nombreAccion>ConsultarPendientes</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>CVD001</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>Firmar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>CVD001</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>CVD001</parametro>
+    </accion>
+</vista> 
+
+<vista nombreVista="autorizarPagosPagueDirectoEmpresasPaso1">        
+        <accion>
+            <nombreAccion>apoderadoAutorizado</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+</vista>
+<vista nombreVista="autorizarPagosPagueDirectoEmpresasPaso1"> 
+   <accion> 
+    <nombreAccion>apoderadoTieneServicioFirmarPagueDirecto</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>XPDIR03</parametro> 
+   </accion>
+</vista>
+<vista nombreVista="consultaPagosRealizadosPagueDirecto">        
+        <accion>
+            <nombreAccion>apoderadoAutorizado</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+</vista>
+<vista nombreVista="consultaPagosPendientesPagueDirecto">        
+        <accion>
+            <nombreAccion>apoderadoAutorizado</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+</vista>
+<vista nombreVista="consultaPagosRealizadosPagueDirecto"> 
+   <accion> 
+    <nombreAccion>apoderadoTieneServicioFirmarPagueDirecto</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>XPDIR03</parametro> 
+   </accion>
+</vista>
+<vista nombreVista="consultaPagosPendientesPagueDirecto"> 
+   <accion> 
+    <nombreAccion>apoderadoTieneServicioFirmarPagueDirecto</nombreAccion> 
+    <regla>UsuarioTieneServicioAsignado</regla> 
+    <parametro>XPDIR03</parametro> 
+   </accion>
+</vista>
+ <vista nombreVista="iniciarTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTiene2ServiciosAsignados</regla>
+        <parametro>TR01OPE</parametro>
+        <parametro>TR08OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="ingresarTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR01OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="reutilizarTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR01OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="cargaMasivaTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR08OPE</parametro>
+    </accion>
+ </vista>
+ 
+ <vista nombreVista="firmarTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR03OPE</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>Firmar</nombreAccion>
+        <regla>UsuarioEsApoderadoAutorizado</regla>
+    </accion>
+ </vista>
+ <vista nombreVista="pagarTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR11OPE</parametro>
+    </accion>
+    <accion>
+        <nombreAccion>Eliminar</nombreAccion>
+        <regla>UsuarioEsOperadorOContralorOApoderado</regla>
+    </accion>
+ </vista>
+ <vista nombreVista="consultarTransferenciasAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneAlguno3Servicios</regla>
+        <parametro>TR04OPE</parametro>
+        <parametro>TR05OPE</parametro>
+        <parametro>TR07OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="cartolaTransferenciasAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTiene2ServiciosAsignados</regla>
+        <parametro>TR05OPE</parametro>
+        <parametro>TR04OPE</parametro>
+    </accion>
+ </vista>
+<vista nombreVista="certificadoTransferenciaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>TR12OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="eliminarNominaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioEsOperadorOContralorOApoderado</regla>
+    </accion>
+ </vista>
+   <vista nombreVista="eliminarPagoAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioEsApoderado</regla>
+    </accion>
+ </vista>
+  <vista nombreVista="modificarNominaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR01OPE</parametro>
+        <parametro>TR03OPE</parametro>
+    </accion>
+ </vista>
+  <vista nombreVista="estadoNominaAM">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>TR02OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="creacionCuentaPrima">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPCREA</parametro>
+       </accion>
+</vista>
+<vista nombreVista="vinculacionDesvinculacionCta">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPVINDES</parametro>
+       </accion>
+</vista>
+<vista nombreVista="consultaEstados">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPCONEST</parametro>
+       </accion>
+</vista>
+<vista nombreVista="autorizarSolicitudes">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPAUTFIR</parametro>
+       </accion>
+</vista>
+<vista nombreVista="consultaCarteraVigente">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPCARVIG</parametro>
+       </accion>
+</vista>
+<vista nombreVista="condicionesConvenio">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPCNDCNV</parametro>
+       </accion>
+</vista>
+<vista nombreVista="consultaFacturacion">
+    <accion>
+           <nombreAccion>Ingresar</nombreAccion>
+           <regla>UsuarioTieneServicioAsignado</regla>
+           <parametro>CPCONFAC</parametro>
+       </accion>
+</vista>
+<vista nombreVista="aumCupoTDCPend">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>UsuarioEsApoderadoAutorizado</regla>
+        </accion>        
+</vista>
+
+ <vista nombreVista="pagos_soma_resumen">
+        <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>SOMA04</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="pagos_soma_ingreso">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>SOMA01</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="pagos_soma_firma_eli">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>SOMA02</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="pagos_soma_liberar">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>SOMA03</parametro>
+        </accion>        
+</vista>
+ <vista nombreVista="cargaArchivoPAC">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P08OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="agregarDeudorPAC">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P14OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="cargaManualPAC">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P14OPE</parametro>
+    </accion>
+ </vista>
+<vista nombreVista="ingresoTipoPagos">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+</vista>
+<vista nombreVista="consultaNominasListaParaProcesar">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="consultaNominasObservadas">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="consultaNominasRechazadas">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="consultaProcesosTerminados">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="autorizarPAC">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioEsApoderadoAutorizadoOContralorYTieneUnServicio</regla>
+        <parametro>P11OPE</parametro>
+    </accion>    
+ </vista>
+ <vista nombreVista="consultaCargosMandatos">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ <vista nombreVista="homeDebitoPac">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+  <vista nombreVista="detalleNomina">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>P06OPE</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="perfilUsuarioEmpresa">
+    <accion>
+         <nombreAccion>EditarDatosUsuario</nombreAccion>
+         <regla>UsuarioEsApoderadoAutorizado</regla>
+    </accion>
+    <accion>
+         <nombreAccion>VerApoderadosVigentes</nombreAccion>
+         <regla>UsuarioEsApoderadoAutorizado</regla>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="generarCertificadoTransferenciaCtaPropia">
+    <accion>
+        <nombreAccion>Generar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>TRF07</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="consultarCartolaTefCtaPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X116OPE</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="consultarPanelTefCtaPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X22OPE</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="cargaNominaArchivoTefPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>x17ope</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="cargarNominaManualTefPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>x17ope</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="reutilizarNominaTefPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>x17ope</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="eliminarTransferenciaPropia">
+    <accion>
+        <nombreAccion>Ingresar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>X115OPE</parametro>
+    </accion>
+ </vista>
+ 
+  <vista nombreVista="firmarTransferenciaPropia">
+    <accion>
+        <nombreAccion>Firmar</nombreAccion>
+        <regla>UsuarioApoderadoAutorizadoTiene1Servicio</regla>
+        <parametro>x19ope</parametro>
+    </accion>
+ </vista>
+
+  <vista nombreVista="pagarDiferidaTefPropia">
+    <accion>
+        <nombreAccion>Pagar</nombreAccion>
+        <regla>UsuarioTieneServicioAsignado</regla>
+        <parametro>X48OPE</parametro>
+    </accion>
+ </vista>
+ 
+<vista nombreVista="consultaSaldosCorporativos">
+ 	<accion>
+ 		<nombreAccion>Ingresar</nombreAccion>
+        	<regla>UsuarioTieneServicioAsignado</regla> 
+        <parametro>CORP01</parametro>
+    </accion>
+ </vista>
+ 
+ <!-- Menu Fondos Mutuos -->
+	<vista nombreVista="cartola_inversiones">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV01</parametro>
+		</accion>
+	</vista>
+	
+ <vista nombreVista="resumen_carteras">
+ 	<accion>
+ 		<nombreAccion>Ingresar</nombreAccion>
+        	<regla>UsuarioTieneServicioAsignado</regla> 
+        	<parametro>INV01</parametro>
+    </accion>
+ </vista>
+	<vista nombreVista="cartola_saldos_ffmm">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV02</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="cartola_mov_ffmm">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV02</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="valores_cuota_ffmm">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV02</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="cartola_privada">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV10</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="deposito_plazo">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV08</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="acciones">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV04</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="renta_fija">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV05</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="pactos">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV06</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="simultaneas">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV07</parametro>
+		</accion>
+	</vista>
+
+	<vista nombreVista="vencimientos">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioTieneServicioAsignado</regla>
+			<parametro>INV09</parametro>
+		</accion>
+	</vista>
+  <!-- Fin Menu Fondos Mutuos -->
+  	<vista nombreVista="informacionFinanciera">
+		<accion>
+        	<nombreAccion>PermiteCargaArchivo</nombreAccion>
+            <regla>TienePuertaAsignada</regla>
+            <parametro>BCF|WSGINGAR/SAR</parametro> 
+        </accion>
+	</vista>
+	<vista nombreVista="ingresarCVDConTransferencia">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>UsuarioEsApoderadoAutorizado</regla>
+		</accion>
+	</vista>
+	<vista nombreVista="reintegroVV">
+        <accion>
+            <nombreAccion>ReintegrarPPR</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>PPADN105</parametro>
+        </accion>
+             <accion>
+            <nombreAccion>ReintegrarPRV</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>PPADN105</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>ReintegrarREM</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T84OPE</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>ReintegrarDIV</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T84OPE</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>ReintegrarPEN</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T84OPE</parametro>
+        </accion>
+        <accion>
+            <nombreAccion>ReintegrarOTR</nombreAccion>
+            <regla>UsuarioTieneServicioAsignado</regla>
+            <parametro>T84OPE</parametro>
+        </accion>      
+  </vista>
+</vistasAcciones>

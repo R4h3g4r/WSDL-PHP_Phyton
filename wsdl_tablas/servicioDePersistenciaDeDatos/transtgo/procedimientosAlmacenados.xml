@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="transtgo.procedimientosAlmacenados">	
+	
+	<resultMap id="getDatos" class="java.util.HashMap">
+		<result property="num_ext" jdbcType="NUMERIC" javaType="integer" />
+		<result property="num_int" jdbcType="VARCHAR" javaType="String"/>
+	</resultMap>
+	<procedure id="get_codigos_tarjeta_bip" parameterClass="java.util.HashMap" resultMap="getDatos">
+				   {CALL sp_cns_num_ext_int(#num_pan#)}
+	</procedure>
+
+	<parameterMap id="inputConvenioEmpresa" class="java.util.HashMap">
+		<parameter property="ecv_cta_emp"	jdbcType="char" javaType="java.lang.String"  />
+	</parameterMap>
+	
+	<parameterMap id="inputConvenioRar" class="java.util.HashMap">
+		<parameter property="cnr_idn_ctx" 	jdbcType="NUMERIC" javaType="java.lang.Long"/>
+		<parameter property="cnr_cta_cte"	jdbcType="VARCHAR" javaType="java.lang.String"  />
+		<parameter property="cnr_num_emp"   jdbcType="INTEGER" javaType="java.lang.Integer"  />
+		<parameter property="cnr_fec_ing"  	javaType="DATE" />
+		<parameter property="cnr_est_crg_emp"  		jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="cnr_num_ra" 	jdbcType="NUMERIC" javaType="java.lang.Long"/>
+		<parameter property="cnr_fec_crg"	javaType="DATE"  />
+		<parameter property="cnr_fec_con"   javaType="DATE" />
+		<parameter property="cnr_mon" 	    jdbcType="NUMERIC" javaType="java.lang.Long"/>
+	</parameterMap>
+	
+	<resultMap id="recargasConConvenio" class="java.util.HashMap">
+		<result property="identificadorTransaccionGenerado" column="cnr_idn_ctx"      javaType="java.lang.Long"   jdbcType="NUMERIC"/>
+		<result property="cuentaCorriente"  column="cnr_cta_cte"   					  javaType="java.lang.String"  jdbcType="VARCHAR"/>
+		<result property="numeroOperacionEmpresaEnConvenio"      column="cnr_num_emp" javaType="java.lang.Long"    jdbcType="INTEGER"/>
+		<result property="fechaIngreso"  column="cnr_fec_ing"   					  javaType="Date"/>
+	    <result property="estadoRecargaEmpresa"  column="cnr_est_crg_emp"			  javaType="java.lang.Integer" jdbcType="INTEGER"/>
+		<result property="identificadorDeLaCompra"  column="cnr_num_ra" 			  javaType="java.lang.Long"    jdbcType="NUMERIC"/>
+	    <result property="fechaDeCargo"    column="cnr_fec_crg"						  javaType="Date"/>
+		<result property="fechaContable"   column="cnr_fec_con" 					  javaType="Date"/>
+	    <result property="montoRecarga"    column="cnr_mon"							  javaType="java.lang.Long"    jdbcType="NUMERIC"/>
+	</resultMap>
+
+	<procedure id="actualizarConvenioEmpresa" parameterMap="inputConvenioRar" resultClass="java.util.HashMap">
+		{CALL sp_act_cnv_rar (?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<procedure id="consultaConvenioEmpresa" parameterMap="inputConvenioEmpresa"  resultClass="java.util.HashMap">
+		{CALL sp_cns_emp_cnv(?)}
+	</procedure>
+
+	<parameterMap id="inputBusquedaConvenioRar" class="java.util.HashMap">
+		<parameter property="fechaConsulta"  	javaType="DATE" />
+		<parameter property="cnr_est_crg_emp"  		jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>							
+
+	<!--    consulta de recarga de tarjetas bip por estado.  -->
+	<procedure id="obtenerListadoDeRecargasConConvenio" parameterMap="inputBusquedaConvenioRar"   resultMap="recargasConConvenio"> 
+		{CALL sp_cns_cnv_rar (?,  ?)}
+    </procedure>
+
+    <resultMap id="outputEstadoClienteCR" class="java.util.HashMap">
+        <result property="rut"              columnIndex="1"/>
+        <result property="digito"           columnIndex="2" />
+        <result property="estadoDeCliente"  columnIndex="3" />
+        <result property="numeroDeTarjeta"  columnIndex="6" />
+        <result property="numeroDeCuenta"   columnIndex="7"/>
+        <result property="mensajeResultado" columnIndex="8"/>
+    </resultMap>
+
+    <!-- Consulta/actualizacion de estado de cliente cuentarut. -->
+    <procedure id="obtenerActualizarEstadoDeCliente" parameterClass="java.util.HashMap" resultMap="outputEstadoClienteCR">
+        { CALL sp_est_cta_rut(
+            #rut#,
+            #digito#,
+            <isNull property="estadoDeCliente">NULL</isNull><isNotNull property="estadoDeCliente">#estadoDeCliente#</isNotNull>,
+            <isNull property="numeroDeTarjeta">NULL</isNull><isNotNull property="numeroDeTarjeta">#numeroDeTarjeta#</isNotNull>,
+            <isNull property="numeroDeCuenta">NULL</isNull><isNotNull property="numeroDeCuenta">#numeroDeCuenta#</isNotNull>)
+        }
+    </procedure>	<!--    Modificaciones por fraude recarga tarjeta Bip  -->
+	<procedure id="ingresarConvenioEmpresa" parameterMap="inputConvenioRar" resultClass="java.util.HashMap">
+		{CALL sp_ins_cnv_rar (?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+	<procedure id="modificaConvenioEmpresa" parameterMap="inputConvenioRar" resultClass="java.util.HashMap">
+		{CALL sp_mod_cnv_rar (?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<!--Transacciones SMS-->
+	<procedure id="consultaAliasTarjeta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cons_alias_tarjeta(#rutCliente#, #digito#)}
+    </procedure>
+	
+	<procedure id="actualizaRecargaTarjetaSMS" parameterClass="java.util.HashMap" resultClass="int"> 
+		{CALL sp_upd_alias_tarjeta_sms(#rutCliente#, #estadoAliasSMS#, #cuentaCargoSMS#, #aliasRecargaSMS#, #numeroTarjeta#)}
+    </procedure>
+	
+	<procedure id="obtenerTarjetasPorAlias" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cons_tarjetas_alias(#rutCliente#, #aliasRecargaSMS#)}
+    </procedure>
+	
+	<procedure id="obtenerEstadoAliasTarjeta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_cons_est_alias_tarjeta(#rutCliente#, #aliasTarjetaSMS#)}
+    </procedure>
+	
+<procedure id="desactivarAliasRecarga" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+		{CALL sp_upd_desactivar_alias(#rutCliente#)}
+</procedure>
+
+
+ <parameterMap id="setRelacionClienteTarjeta" class="java.util.HashMap">
+  		<parameter property="numExternoTarjeta"   jdbcType="VARCHAR"			javaType="String" />
+  		<parameter property="rutCliente"	      jdbcType="VARCHAR"			javaType="String" />
+		<parameter property="dvCliente"	          jdbcType="CHAR"				javaType="String" />		
+		<parameter property="codAlias"	          jdbcType="VARCHAR"			javaType="String" />
+		<parameter property="fechaCreacionRel"    jdbcType="DATETIME"           javaType="java.util.Date" />
+		<parameter property="estadoRel"           jdbcType="VARCHAR"			javaType="String" />
+		<parameter property="mailAlias"           jdbcType="VARCHAR"			javaType="String" />
+	</parameterMap>
+	
+	<procedure id="relacionClienteTarjeta" parameterMap="setRelacionClienteTarjeta" resultClass="int">
+		{ CALL sp_ins_rel_tarjeta ( ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+</sqlMap>

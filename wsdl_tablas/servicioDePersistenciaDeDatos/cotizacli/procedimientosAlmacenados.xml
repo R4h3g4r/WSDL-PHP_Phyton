@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="cotizacli.procedimientosAlmacenados">	
+
+<parameterMap id="setGrabaCotizaciones" class="java.util.HashMap">
+	<parameter property="identificador"	 	jdbcType="INTEGER" 	javaType="Integer" />
+	<parameter property="numeroFolio"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="codigoCanal"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="servicio"		    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoRenta"	    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoError"    		jdbcType="CHAR"		javaType="String" />
+	<parameter property="renta"		    	jdbcType="DECIMAL"	javaType="double" />
+	<parameter property="montoRentaFija"	jdbcType="DECIMAL"		javaType="double" />
+	<parameter property="montoRentaVariable" jdbcType="DECIMAL"		javaType="double" />
+	<parameter property="flagRegistroRTA"   jdbcType="INTEGER"		javaType="Integer" />
+	<parameter property="firma"		    	jdbcType="CHAR"		javaType="String" />
+</parameterMap>
+<procedure id="grabaCotizacion" parameterMap="setGrabaCotizaciones" resultClass="int">
+	{ CALL sp_pre_ing_inf( ?,?,?,?,?,?,?,?,?,?,?) }
+</procedure>
+	
+	
+<parameterMap id="setGrabaDetalleCotizaciones" class="java.util.HashMap">	
+	<parameter property="numeroFolio"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="periodo"		 	jdbcType="DATE"    	javaType="Date" />
+	<parameter property="remuneracionImponible" 	jdbcType="DECIMAL" 	javaType="double" />
+	<parameter property="montoCotizado"	 	jdbcType="DECIMAL" 	javaType="double" />
+	<parameter property="fechaPago"		 	jdbcType="DATE" 	javaType="Date" />
+	<parameter property="tipoMovimiento"	    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="rutCliente"	    	jdbcType="INTEGER"	javaType="Integer" />
+	<parameter property="digitoVerificador"		jdbcType="CHAR"		javaType="String" />
+	<parameter property="afp"		    	jdbcType="CHAR"		javaType="String" />	
+</parameterMap>
+	
+<procedure id="grabaDetalleCotizacion" parameterMap="setGrabaDetalleCotizaciones" resultClass="int">	
+	{ CALL sp_pre_ing_det( ?,?,?,?,?,?,?,?,?) }	
+</procedure>
+
+
+<parameterMap id="setGrabaErrorCotizacion" class="java.util.HashMap">	
+	<parameter property="identificador"	 	jdbcType="INTEGER" 	javaType="Integer" />
+	<parameter property="numeroFolio"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="codigoCanal"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="servicio"	    		jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoRenta"	    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoError"		jdbcType="CHAR"		javaType="String" />
+	<parameter property="codigoError"        	jdbcType="CHAR"		javaType="String" />	
+	<parameter property="detalleError"        	jdbcType="CHAR"		javaType="String" />		
+</parameterMap>
+	
+<procedure id="grabaErrorCotizacion" parameterMap="setGrabaErrorCotizacion" resultClass="int">	
+	{ CALL sp_pre_err_ing( ?,?,?,?,?,?,?,?) }	
+</procedure>
+
+<parameterMap id="setGrabaEncabezadoCotizaciones" class="java.util.HashMap">
+	<parameter property="fechaConsulta"	 	jdbcType="DATE"    	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<parameter property="rutCliente"	 	jdbcType="INTEGER" 	javaType="Integer" />
+	<parameter property="digitoVerificador" 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="codigoCanal"	 	jdbcType="CHAR" 	javaType="String" />
+	<parameter property="servicio"		    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoRenta"	    	jdbcType="CHAR"		javaType="String" />
+	<parameter property="estadoError"    		jdbcType="CHAR"		javaType="String" />
+</parameterMap>
+<procedure id="grabaEncabezadoCotizacion" parameterMap="setGrabaEncabezadoCotizaciones" resultClass="int">
+	{ CALL sp_pre_ing_cab( ?,?,?,?,?,?,?) }
+</procedure>
+
+<parameterMap id="setObtieneEncabezadoUltimoRegistro" class="java.util.HashMap">
+	<parameter property="rutCliente" 	jdbcType="INTEGER"	javaType="Integer" />
+	<parameter property="fechaValidez" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />		
+</parameterMap>
+<resultMap id="getObtieneEncabezadoUltimoRegistro" class="java.util.HashMap">
+	<result property="canal" column="canal" jdbcType="CHAR" javaType="String" />
+	<result property="rutCliente" column="rutCliente" jdbcType="INTEGER" javaType="Integer" />
+	<result property="dv" column="dv" jdbcType="CHAR" javaType="String" />
+	<result property="estadoRenta" column="estadoRenta" jdbcType="CHAR"		javaType="String" />
+	<result property="estadoError" column="estadoError" jdbcType="CHAR"		javaType="String" />
+	<result property="fechaConsulta" column="fechaConsulta" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<result property="folio" column="folio"	jdbcType="CHAR" 	javaType="String" />
+	<result property="identificador" column="identificador"	 	jdbcType="INTEGER" 	javaType="Integer" />
+	<result property="servicio"	column="servicio" jdbcType="CHAR"		javaType="String" />
+	<result property="remuneracionImponible" column="renta"	jdbcType="DECIMAL" 	javaType="double" />
+</resultMap>
+<procedure id="obtieneEncabezadoUltimoRegistro" parameterMap="setObtieneEncabezadoUltimoRegistro" resultMap="getObtieneEncabezadoUltimoRegistro">
+	{ CALL sp_fec_ult_enc_cli( ?,?) }
+</procedure>
+
+<parameterMap id="setObtieneDetalleCotizaciones" class="java.util.HashMap">
+	<parameter property="folio" 	jdbcType="CHAR"		javaType="String" />
+</parameterMap>
+<resultMap id="getObtieneDetalleCotizaciones" class="java.util.HashMap">
+	<result property="periodo" column="periodo"		 	jdbcType="DATE"    	javaType="Date" />
+	<result property="remuneracion" column="remuneracion" 	jdbcType="DECIMAL" 	javaType="double" />
+	<result property="montoCotizacion" column="montoCotizacion"	 	jdbcType="DECIMAL" 	javaType="double" />
+	<result property="fechaPago" column="fechaPago"		 	jdbcType="DATE" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<result property="tipoMovimiento" column="tipoMovimiento"	    	jdbcType="CHAR"		javaType="String" />
+	<result property="rutE" column="rutE"	    	jdbcType="INTEGER"	javaType="Integer" />
+	<result property="dvE" column="dvE"		jdbcType="CHAR"		javaType="String" />
+	<result property="afp" column="afp"		    	jdbcType="CHAR"		javaType="String" />	
+</resultMap>
+<procedure id="obtieneDetalleCotizaciones" parameterMap="setObtieneDetalleCotizaciones" resultMap="getObtieneDetalleCotizaciones">
+	{ CALL sp_det_cot_cli( ?) }
+</procedure>
+
+<parameterMap id="setActualizaEstadoEncabezado" class="java.util.HashMap">
+	<parameter property="identificador" 	jdbcType="INTEGER" 	javaType="Integer" />
+	<parameter property="estado" 	jdbcType="CHAR"		javaType="String" />
+</parameterMap>
+<procedure id="actualizaEstadoEncabezado" parameterMap="setActualizaEstadoEncabezado" resultClass="int">
+	{ CALL sp_act_est_rta( ?,?) }
+</procedure>
+
+<parameterMap id="setRegistraActualizacionRenta" class="java.util.HashMap">
+	<parameter property="rut" 			jdbcType="INT" 	    javaType="Integer" />
+	<parameter property="dv" 			jdbcType="CHAR"		javaType="String" />
+	<parameter property="cod_epiphany" 	jdbcType="CHAR"		javaType="String" />
+	<parameter property="cod_ejec" 	     jdbcType="CHAR"		javaType="String" />
+	<parameter property="cod_result_act" jdbcType="CHAR"		javaType="String" />
+	<parameter property="origen" 		jdbcType="CHAR"		javaType="String" />
+</parameterMap>
+<procedure id="registraActualizacionRenta" parameterMap="setRegistraActualizacionRenta">
+	{ CALL sp_ins_reg_det_act( ?,?,?,?,?,?) }
+</procedure>
+
+<parameterMap id="setIngresarRenta" class="java.util.HashMap">
+	<parameter property="act_rut" 	jdbcType="INTEGER"	javaType="Integer" />
+	<parameter property="act_dv" 	jdbcType="CHAR"	javaType="String" />
+	<parameter property="act_atm" 	jdbcType="CHAR"	javaType="String" />
+	<parameter property="act_id_canal" 	jdbcType="CHAR"	javaType="String" />
+	<parameter property="act_id_campana" 	jdbcType="INTEGER"	javaType="Integer" />
+	<parameter property="act_iteracion" 	jdbcType="INTEGER"	javaType="Integer" />
+	<parameter property="act_respuesta" 	jdbcType="CHAR"	javaType="String" />
+	<parameter property="act_cod_error" 	jdbcType="CHAR"	javaType="String" />
+	<parameter property="act_glosa_error" 	jdbcType="CHAR"	javaType="String" />			
+</parameterMap>
+<procedure id="ingresarRegistroActualizacionRenta" parameterMap="setIngresarRenta" resultClass="int">
+	{ CALL sp_ins_reg_act_renta( ?,?,?,?,?,?,?,?,?) }
+</procedure>
+</sqlMap>	

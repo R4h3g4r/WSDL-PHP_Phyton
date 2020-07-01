@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="notificacionesWEB.procedimientosAlmacenados">
+
+    <resultMap id="listaCriticidad"   class="java.util.HashMap">
+        <result property="cri_id" column="cri_id"     jdbcType="NUMERIC" javaType="int"/>                 
+        <result property="cri_gls" column="cri_gls"   jdbcType="VARCHAR" javaType="String"/>         
+    </resultMap>
+    
+    <procedure id="obtenerCriticidad" parameterClass="java.util.HashMap" resultMap="listaCriticidad">
+        {CALL sp_cns_cri_not()}
+    </procedure>
+    
+    <parameterMap id="setObtenerEstados" class="java.util.HashMap">
+        <parameter property="idSistema"        jdbcType="NUMERIC" javaType="int" />
+    </parameterMap>
+     
+    <resultMap id="listaEstados"   class="java.util.HashMap">
+        <result property="est_cod"      column="est_cod"       jdbcType="NUMERIC" javaType="int"/>                 
+        <result property="est_dsc"      column="est_dsc"       jdbcType="VARCHAR" javaType="String"/>         
+        <result property="est_sis_tpo"  column="est_sis_tpo"   jdbcType="VARCHAR" javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerEstados" parameterMap="setObtenerEstados" resultMap="listaEstados">
+        {CALL sp_cns_est_sis(?)}
+    </procedure>
+    
+    <parameterMap id="setNotificacionesConFiltro" class="java.util.HashMap">
+        <parameter property="fecha"         jdbcType="DATE"     javaType="Date"/>
+        <parameter property="estado"        jdbcType="NUMERIC"  javaType="integer" />
+        <parameter property="criticidad"    jdbcType="NUMERIC"  javaType="integer" />
+        <parameter property="sistema"       jdbcType="NUMERIC"  javaType="integer" />
+        <parameter property="canal"         jdbcType="VARCHAR"  javaType="string" />
+        <parameter property="pagina"        jdbcType="int"      javaType="int" />
+        <parameter property="cantRegistros" jdbcType="int"      javaType="int" />
+    </parameterMap> 
+    
+    <resultMap id="listaNotificacionesConFiltro"   class="java.util.HashMap">
+            <result property="msj_id"           column="msj_id"             jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="not_neg_id"       column="not_neg_id"         jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="msj_dsc"          column="msj_dsc"            jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="msj_fec_ini_gst"  column="msj_fec_ini_gst"    jdbcType="DATE"     javaType="Date"/>
+            <result property="msj_fec_fin_gst"  column="msj_fec_fin_gst"    jdbcType="DATE"     javaType="Date"/>
+            <result property="not_id"           column="not_id"             jdbcType="NUMERIC"  javaType="int"/>
+            <result property="not_gls_dom"      column="not_gls_dom"        jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="not_dsc"          column="not_dsc"            jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="not_ind_gst"      column="not_ind_gst"        jdbcType="VARCHAR"  javaType="String"/>
+            <result property="cri_id"           column="cri_id"             jdbcType="NUMERIC"  javaType="int"/>
+            <result property="cri_gls"          column="cri_gls"            jdbcType="VARCHAR"  javaType="String"/>
+            <result property="est_cod"          column="est_cod"            jdbcType="NUMERIC"  javaType="int"/>
+            <result property="est_dsc"          column="est_dsc"            jdbcType="VARCHAR"  javaType="String"/>
+            <result property="msj_fec_gen"      column="msj_fec_gen"        jdbcType="DATETIME" javaType="Date"/>
+            <result property="cantidadPaginas"  column="cantidadPaginas"    jdbcType="int"      javaType="int"/>
+    </resultMap>
+    
+    <procedure id="consultaNotificacionesConFiltro" parameterMap="setNotificacionesConFiltro" resultMap="listaNotificacionesConFiltro">
+        {CALL sp_cns_msj_not_fil( ?, ?, ?, ?, ?, ?, ? )}
+    </procedure>
+    
+    <parameterMap id="setDetalleMensajeNotificacion" class="java.util.HashMap">
+        <parameter property="idMensaje"        jdbcType="VARCHAR" javaType="String" />
+    </parameterMap> 
+    
+    <resultMap id="listaDetalleMensajeNotificacion"   class="java.util.HashMap">
+            <result property="det_msj_nom"         column="det_msj_nom"           jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="det_msj_valor"       column="det_msj_valor"         jdbcType="VARCHAR"  javaType="String"/>   
+    </resultMap>
+    
+    <procedure id="consultarDetalleMensajeNotificacion" parameterMap="setDetalleMensajeNotificacion" resultMap="listaDetalleMensajeNotificacion">
+        {CALL sp_cns_det_not( ? )}
+    </procedure>
+    
+    <parameterMap id="setConsultaGestionMensajeNotificacion" class="java.util.HashMap">
+        <parameter property="idMensaje"        jdbcType="VARCHAR" javaType="String" />
+    </parameterMap> 
+    
+    <resultMap id="listaConsultaGestionMensajeNotificacion"   class="java.util.HashMap">
+            <result property="gst_id"           column="gst_id"         jdbcType="NUMERIC"  javaType="int"/>   
+            <result property="est_cod"          column="est_cod"        jdbcType="NUMERIC"  javaType="int"/>
+            <result property="est_dsc"          column="est_dsc"        jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="acc_id"           column="acc_id"         jdbcType="NUMERIC"  javaType="int"/>  
+            <result property="gst_usu_act"      column="gst_usu_act"    jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="gst_dsc"          column="gst_dsc"        jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="gst_fec_gen"      column="gst_fec_gen"    jdbcType="DATETIME"     javaType="Date"/>     
+    </resultMap>
+    
+    <procedure id="consultarGestionMensajeNotificacion" parameterMap="setConsultaGestionMensajeNotificacion" resultMap="listaConsultaGestionMensajeNotificacion">
+        {CALL sp_cns_gst_msj_not( ? )}
+    </procedure>
+    
+    <parameterMap id="setConsultarAccionNotificacion" class="java.util.HashMap">
+        <parameter property="idNotificacion"        jdbcType="VARCHAR" javaType="String" />
+    </parameterMap> 
+    
+    <resultMap id="listaConsultarAccionNotificacion"   class="java.util.HashMap">
+            <result property="acc_id"           column="acc_id"         jdbcType="NUMERIC"  javaType="int"/>   
+            <result property="acc_dsc"          column="acc_dsc"        jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="acc_ord"          column="acc_ord"        jdbcType="NUMERIC"  javaType="int"/>   
+    </resultMap>
+    
+    <procedure id="consultarAccionNotificacion" parameterMap="setConsultarAccionNotificacion" resultMap="listaConsultarAccionNotificacion">
+        {CALL sp_cns_acc_not( ? )}
+    </procedure>
+    
+    <parameterMap id="setInsertarGestionMensaje" class="java.util.HashMap">
+        <parameter property="id_estado"    jdbcType="NUMERIC" javaType="int" />
+        <parameter property="id_mensaje"   jdbcType="VARCHAR" javaType="String" />
+        <parameter property="usuario"      jdbcType="VARCHAR" javaType="String" />
+        <parameter property="descripcion"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="fecha"        jdbcType="DATETIME"    javaType="Date" />
+    </parameterMap> 
+    
+    <procedure id="insertarGestionMensaje" parameterMap="setInsertarGestionMensaje" resultClass="int">
+        {CALL sp_ins_gst_msj_not( ?, ?, ?, ?, ? )}
+    </procedure>
+
+    <parameterMap id="setActualizaGestionMensaje" class="java.util.HashMap">
+        <parameter property="id_gestion"    jdbcType="NUMERIC"  javaType="int"/>
+        <parameter property="id_estado"     jdbcType="NUMERIC"  javaType="int"/>
+        <parameter property="usuario"       jdbcType="VARCHAR"  javaType="String"/>
+        <parameter property="descripcion"   jdbcType="VARCHAR"  javaType="String"/>
+        <parameter property="fecha"         jdbcType="DATETIME"     javaType="Date"/>
+    </parameterMap> 
+    
+    <procedure id="actualizaGestionMensaje" parameterMap="setActualizaGestionMensaje" resultClass="int">
+        {CALL sp_upd_gst_msj_not( ?, ?, ?, ?, ? )}
+    </procedure>
+    
+    <parameterMap id="setEliminaGestionMensaje" class="java.util.HashMap">
+        <parameter property="id_gestion"    jdbcType="NUMERIC"  javaType="int"/>
+    </parameterMap> 
+    
+    <procedure id="eliminaGestionMensaje" parameterMap="setEliminaGestionMensaje" resultClass="int">
+        {CALL sp_eli_gst_msj_not( ? )}
+    </procedure>
+    
+    <parameterMap id="setConsultarMensajePorId" class="java.util.HashMap">
+        <parameter property="identificador"        jdbcType="VARCHAR" javaType="String" />
+    </parameterMap> 
+    
+    <resultMap id="listaConsultarMensajePorId"   class="java.util.HashMap">
+            <result property="msj_id"           column="msj_id"             jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="not_neg_id"       column="not_neg_id"         jdbcType="VARCHAR"  javaType="String"/>
+            <result property="msj_dsc"          column="msj_dsc"            jdbcType="VARCHAR"  javaType="String"/>   
+            <result property="msj_fec_ini_gst"  column="msj_fec_ini_gst"    jdbcType="DATETIME" javaType="Date"/>  
+            <result property="msj_fec_fin_gst"  column="msj_fec_fin_gst"    jdbcType="DATETIME" javaType="Date"/>   
+            <result property="not_id"           column="not_id"             jdbcType="NUMERIC"  javaType="int"/>   
+            <result property="not_gls_dom"      column="not_gls_dom"        jdbcType="VARCHAR"  javaType="String"/>     
+            <result property="not_dsc"          column="not_dsc"            jdbcType="VARCHAR"  javaType="String"/>
+            <result property="not_ind_gst"      column="not_ind_gst"        jdbcType="VARCHAR"  javaType="String"/>
+    </resultMap>
+    
+    <procedure id="consultarMensajePorId" parameterMap="setConsultarMensajePorId" resultMap="listaConsultarMensajePorId">
+        {CALL sp_cns_msj_not_id( ? )}
+    </procedure>
+
+    <parameterMap id="setActualizarMensajeNotificacion" class="java.util.HashMap">
+        <parameter property="id_mensaje"            jdbcType="VARCHAR"    javaType="String" />
+        <parameter property="estado"                jdbcType="NUMERIC"    javaType="int"/>
+        <parameter property="descripcion"           jdbcType="VARCHAR"    javaType="String"/>
+        <parameter property="fechaInicioGestion"    jdbcType="DATETIME"   javaType="Date"/>
+        <parameter property="fechaFinGestion"       jdbcType="DATETIME"   javaType="Date"/>
+    </parameterMap>
+    <procedure id="actualizarMensajeNotificacion" parameterMap="setActualizarMensajeNotificacion" resultClass="int">
+        { CALL sp_upd_msj_not(?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setCalculaNuevoCorrelativo" class="java.util.HashMap">
+        <parameter property="codigo_semilla"            jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="calculaNuevoCorrelativo" parameterMap="setCalculaNuevoCorrelativo" resultClass="int">
+        {CALL sp_cns_id_sem( ? )}
+    </procedure>
+    
+    <parameterMap id="setInsertaMensajeNotificacion" class="java.util.HashMap">
+        <parameter property="id_mensaje"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="id_negocio"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="canal"                 jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="estado"                jdbcType="NUMERIC"  javaType="int" />
+        <parameter property="fecha"                 jdbcType="DATETIME"     javaType="Date" />
+        <parameter property="descripcion"           jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaInicioGestion"    jdbcType="DATE"     javaType="Date" />
+        <parameter property="fechaFinGestion"       jdbcType="DATE"     javaType="Date" />
+    </parameterMap>
+    
+    <procedure id="insertaMensajeNotificacion" parameterMap="setInsertaMensajeNotificacion" resultClass="int">
+        {CALL sp_ins_msj_not( ?, ?, ?, ?, ?, ?, ?, ? )}
+    </procedure>
+    
+    <parameterMap id="setInsertaDetallleMensajeNotificacion" class="java.util.HashMap">
+        <parameter property="id_mensaje"       jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="glosa"            jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="valor"            jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="insertaDetalleMensajeNotificacion" parameterMap="setInsertaDetallleMensajeNotificacion" resultClass="int">
+        {CALL sp_ins_det_not( ?, ?, ? )}
+    </procedure>
+    
+    <parameterMap id="setEliminaMensajeYdetalleNotificacion" class="java.util.HashMap">
+        <parameter property="id_mensaje"       jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <procedure id="eliminaMensajeYdetalleNotificacion" parameterMap="setEliminaMensajeYdetalleNotificacion" resultClass="int">
+        {CALL sp_eli_msj_not( ? )}
+    </procedure>
+    
+    
+</sqlMap>

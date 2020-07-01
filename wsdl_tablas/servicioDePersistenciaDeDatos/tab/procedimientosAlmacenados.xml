@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="tab.procedimientosAlmacenados">
+	
+	<resultMap id="getComunas" class="java.util.HashMap">
+		<result  property="tab_cod_tbl" jdbcType="VARCHAR"  javaType="java.lang.String" />
+		<result  property="tab_des_cra" jdbcType="VARCHAR"  javaType="java.lang.String" />
+		<result  property="tab_dat_anx" jdbcType="VARCHAR"  javaType="java.lang.String" />
+	</resultMap>
+	<procedure id="consultaGetComunas" resultMap="getComunas">
+		{ CALL dbo.sp_obtiene_comunas() }
+	</procedure>
+	
+	<resultMap id="concepto" class="java.util.HashMap">
+		<result property="codigo" column="codigo" />
+		<result property="descripcion" column="descripcion" />
+	</resultMap>
+
+	<procedure id="obtenerOrigen" resultMap="concepto" parameterClass="java.util.HashMap">
+		{CALL sp_cns_ci_ger_suc(#concepto#,#codigo#)}
+	</procedure>
+
+	<!-- busca_ofi(@codigo char(3)) -->
+	<procedure id="obtenerSucursales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL busca_ofi(#codigo#)}
+	</procedure>
+
+  <procedure id="consultarListaEjecutivos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_ejecutivo(#ofi_cod_ofi:VARCHAR#, #usr_idn:VARCHAR#)}
+  </procedure>
+
+        <procedure id="recuperaEjecutivoPorRut" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    	{call sp_busca_usr_rut(#rut_ejec:VARCHAR#)}
+  	</procedure>
+  	
+	<procedure id="recuperaEjecutivoPorUyP" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    	{call sp_gesban_listar_usr(#cod_ejec:VARCHAR#)}
+  	</procedure>
+
+	<!-- 
+		busca_usr (@tipusr char(3),@ident char(12))
+	 -->
+	<procedure id="obtenerNombreEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL busca_usr(#tipoUsuario#, #codigoEjecutivo#)}
+	</procedure>
+
+
+	<!-- 
+		sp_butab(@tipo char(3),@codigo varchar(12)
+	 -->
+	<procedure id="obtenerParametros" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_butab(#tipoParametro#, #codigoParametro#)}
+	</procedure>
+
+    <resultMap id="salidaConsultarEjecutivoProservice" class="java.util.HashMap">
+        <result property="rut" javaType="String" column="ejp_rut" jdbcType="char" />
+        <result property="cargo" javaType="String" column="ejp_cgo" jdbcType="char" />
+    </resultMap> 
+        
+    <!-- sp_cns_ejec_pserv(@loginejecutivo char(12)) -->
+    <procedure id="consultarEjecutivoProservice" parameterClass="java.util.HashMap" resultMap="salidaConsultarEjecutivoProservice">
+        {CALL sp_cns_ejec_pserv(#codEjecutivo#)}
+    </procedure> 	
+
+    <procedure id="consultaValorDeCambio" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_val_cam(#fecha#, #moneda#)}
+    </procedure>
+    
+    <procedure id="obtenerEjecutivosOficina" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_eje_ofi(#codigoOficina#, #tipoColaborador#)}
+    </procedure>
+    
+    <parameterMap id="setObtieneOficina" class="java.util.HashMap">
+		<parameter property="codigoOficina" jdbcType="VARCHAR" javaType="String" />			
+	</parameterMap>
+	
+		<resultMap id="getObtieneOficina" class="java.util.HashMap">
+		        <result property="estado" column="ofi_ind_vig" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="descripcionOficina" column="ofi_des" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="direccionOficina" column="ofi_dir" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="codigoComuna" column="ofi_cod_com" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="codigoPlaza" column="ofi_cod_pza" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="telefonoUno" column="ofi_tlf_1" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="telefonoDos" column="ofi_tlf_2" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="anexoUno" column="ofi_anx_1" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="anexoDos" column="ofi_anx_2" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="cuentaContableOficina" column="ofi_cta_ctb" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="digitoCuentaContableOficina" column="ofi_vrt_cta_ctb" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="cuentaCorrienteOficina" column="ofi_cct" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="digitoCuentaCorrienteOficina" column="ofi_vrt_cct" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="codigoJefeOficina" column="ofi_idn_jof" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="codigoJefeOperaciones" column="ofi_idn_jop" jdbcType="VARCHAR" javaType="String"/>
+		        <result property="codigoModelo" column="ofi_cod_mod" jdbcType="VARCHAR" javaType="String"/>   
+		        <result property="codigo" column="ofi_cod_ofi" jdbcType="VARCHAR" javaType="String"/>
+		</resultMap>
+    
+    
+    <procedure id="obtieneOficina" parameterMap="setObtieneOficina" resultMap="getObtieneOficina">
+        {CALL sp_buofi(?)}
+    </procedure>
+    
+    <resultMap id="getConsultaCanales" class="java.util.HashMap">
+		<result property="canalCampana" column="tab_cod_tbl" javaType="String" />
+	</resultMap>
+	 
+	<procedure id="consultaCanales" resultMap="getConsultaCanales">
+		{ CALL SP_Busca_Canales() }
+	</procedure>
+	
+	<resultMap class="java.util.HashMap" id="getConsultaEjecutivo">
+		<result property="codigoEjecutivo" column="usr_idn" javaType="java.lang.String" />
+		<result property="nombreUsuario" column="usr_des" javaType="java.lang.String" />
+	</resultMap>
+	
+	<procedure id="sp_cns_eje" parameterClass="java.util.HashMap" resultMap="getConsultaEjecutivo">
+		{CALL sp_cns_eje(#ejecutivo#)}
+	</procedure>
+	
+    <resultMap id="dirOficinaEjecutivo" class="java.util.HashMap" >
+        <result property="idUsuario"        column="usr_idn"   javaType="java.lang.String" />
+        <result property="nombreUsuario"    column="usr_des"   javaType="java.lang.String" />
+        <result property="codigoOficina"    column="usr_cod_ofi" javaType="java.lang.String" />
+        <result property="nombreOficina"    column="ofi_des"   javaType="java.lang.String" />
+        <result property="direccionOficina" column="ofi_dir"   javaType="java.lang.String" />
+        <result property="comunaOficina"    column="comuna"    javaType="java.lang.String" />
+        <result property="ciudadOficina"    column="ciudad"    javaType="java.lang.String" />
+        <result property="provinciaOficina" column="provincia" javaType="java.lang.String" />
+        <result property="regionOficina"    column="region"    javaType="java.lang.String" />
+    </resultMap>
+    
+    <procedure id="obtenerDirOficinaEjecutivo" parameterClass="java.util.HashMap" resultMap="dirOficinaEjecutivo">
+        {CALL sp_cns_dir_ofi_ejecutivo(#idEjecutivo#)}
+    </procedure>
+
+    <resultMap id="listadoOficinas" class="java.util.HashMap">
+        <result property="codigoOficina" javaType="String" column="ofi_cod_ofi"/>
+        <result property="nombreOficina" javaType="String" column="ofi_des"/>
+        <result property="direccionOficina" javaType="String" column="ofi_dir"/>
+        
+    </resultMap>
+    
+    <procedure id="obtener_oficinas_por_comuna" parameterClass="java.util.HashMap" resultMap="listadoOficinas">
+    {CALL sp_cns_oficinas_comuna(#codComuna#)}
+    </procedure>
+	
+	<resultMap id="listadoOficinasPorComuna" class="java.util.HashMap">
+        <result property="codigoOficina"     javaType="String" column="ofi_cod_ofi"/>
+        <result property="nombreOficina"     javaType="String" column="ofi_des"/>
+        <result property="direccionOficina"  javaType="String" column="ofi_dir"/>
+        
+    </resultMap>
+    
+    <procedure id="obtener_todas_oficinas_por_comuna" parameterClass="java.util.HashMap" resultMap="listadoOficinasPorComuna">
+    {CALL sp_cns_all_oficinas_comuna(#codComuna#)}
+    </procedure>
+
+    <resultMap id="resultado_obtener_centro_costo" class="java.util.HashMap" >
+        <result property="tab_cod_tbl"        column="tab_cod_tbl"   javaType="java.lang.String" />
+    </resultMap>
+    
+    <procedure id="obtener_centro_de_costo" parameterClass="java.util.HashMap" resultMap="resultado_obtener_centro_costo">
+        {CALL sp_cns_centro_costo(#sucursal#)}
+    </procedure>
+
+	<resultMap id="getObtener_oficinas_vigentes" class="java.util.HashMap">
+			<result property="codigoOficina"		column="tab_cod_tbl"		jdbcType="CHAR" 	javaType="String" />
+			<result property="direccionOficina"		column="tab_des"			jdbcType="CHAR" 	javaType="String" />
+			<result property="anexoOficina"		    column="tab_dat_anx"		jdbcType="CHAR"  	javaType="String"/>
+			
+	</resultMap>
+		<procedure id="obtener_oficinas_vigentes" resultMap="getObtener_oficinas_vigentes">
+			{ CALL sp_tab_cns_tab_vig() }
+	</procedure> 
+	
+		<resultMap id="getObtenerSucursalesPorRegion" class="java.util.HashMap">
+             <result property="ofi_cod_ofi"  jdbcType="VARCHAR" javaType="String"/>
+             <result property="ofi_des"  jdbcType="VARCHAR" javaType="String"/>
+             <result property="ofi_dir"  jdbcType="VARCHAR" javaType="String"/>
+             <result property="ofi_cod_com"  jdbcType="VARCHAR" javaType="String"/>
+             <result property="ofi_idn_usu_trn"  jdbcType="VARCHAR" javaType="String"/>
+     </resultMap>
+        
+    <parameterMap id="setObtenerSucursalesPorRegion" class="java.util.HashMap">
+        <parameter property="cod_region" jdbcType="INT" javaType="Integer" />            
+    <parameter property="cod_subtipo" jdbcType="VARCHAR" javaType="String" />		
+    </parameterMap>
+    
+    <procedure id="obtenerSucursalesPorRegion" parameterMap="setObtenerSucursalesPorRegion" resultMap="getObtenerSucursalesPorRegion">
+        {CALL sp_obtiene_sucursales_region(?,?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerSucursalesVigentes" class="java.util.HashMap">
+	    <parameter property="cod_tbl" jdbcType="VARCHAR" javaType="String" />		
+    </parameterMap>
+    
+    <procedure id="obtener_sucursales_vigentes"  parameterMap="setObtenerSucursalesVigentes" resultMap="getObtener_oficinas_vigentes">
+			{ CALL sp_tab_cns_tab_vigentes(?) }
+	</procedure> 
+	
+</sqlMap>

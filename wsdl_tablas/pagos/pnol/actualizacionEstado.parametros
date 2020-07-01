@@ -1,0 +1,175 @@
+
+#####################################################
+#	Utiles para servicioDeConversiones de XML 		#
+#####################################################
+mappingXml;path=/actualizaEstadoOnl/mappingEstadoPago.xml;
+
+
+#################################################################
+#	Asignación de colas JMS de proceso segun tipo de evento		#
+#################################################################
+PROCESO_CARGA_NOMINA;tipoEvento=actualizacionDirecta;
+TRX_ROUTING;tipoEvento=actualizacionDirecta;
+TRX_ROUTING_SAF_DEVOLUCION;tipoEvento=actualizacionDirecta;
+TRX_CCA;tipoEvento=actualizacionDirecta;
+TRX_CCA_SAF_CONSULTA;tipoEvento=actualizacionDirecta;
+TRX_CCA_ERROR_CARGO;tipoEvento=actualizacionDirecta;
+TRX_CCA_SAF_REVERSA;tipoEvento=actualizacionDirecta;
+TRX_CCA_SAF_DEVOLUCION;tipoEvento=actualizacionDirecta;
+TRX_BCI;tipoEvento=actualizacionDirecta;
+TRX_BCI_SAF_REVERSA;tipoEvento=actualizacionDirecta;
+TRX_BCI_SAF_DEVOLUCION;tipoEvento=actualizacionDirecta;
+
+
+#####################################################
+#	Jndi para publicar en colas JMS internas BCI.	#
+#####################################################
+
+actualizacionDirecta;jndi_cf=jms.cf.actualizaEstadoOnl;jndi_dst=jms.dst.queue.actualizarOnl;
+actualizacionConDependenciaDeEstado;jndi_cf=jms.cf.revActualizaEstadoOnl;jndi_dst=jms.dst.queue.revActualizarOnl;
+notificacion;jndi_cf=jms.cf.notificacionOnl;jndi_dst=jms.dst.queue.notificacionOnl;
+
+#####################################################
+#	 Codigo error validacion estado.				#
+#####################################################
+
+codigoError;codigo=PMB2001;desc=Estado no valido para actualizacion.
+codigoErrorGenerico;codigo=PMB2011;desc=Error sistema no catalogado.
+
+
+#####################################################
+#	 destino alertas.								#
+#####################################################
+
+destinoAlertas;cantidad=1;prefijo=ONL;
+destinoAlertas_0;canalDestino=270;canalHTTP=/BCINETCORP/servicios/pagos/pagosmasivos/alertas;
+destinoAlertas_1;canalDestino=;
+destinoAlertas_2;canalDestino=;
+
+#####################################################
+
+codTransaccionExito;desc=0000;
+codigoEnvioNotiTransaccionOtroBanco;desc=2013;
+codigoEnvioNotiTransaccionNoRuteada;desc=2012;
+
+###############################################
+# Correspondencia Estados OPF a Originacion.  #
+###############################################
+PROCESO_CARGA_NOMINA-0000;codigoEstado=1000;desc=Instrucción validada queda en estado Aceptado en OPF;
+PROCESO_CARGA_NOMINA-2001;codigoEstado=2001;desc=Falta Información del Mensaje;codErrorNotificacion=2001;
+PROCESO_CARGA_NOMINA-2002;codigoEstado=2002;desc=Ruta y/o Nombre del Archivo Erróneo;codErrorNotificacion=2002;
+PROCESO_CARGA_NOMINA-2003;codigoEstado=2003;desc=Acceso al Archivo;codErrorNotificacion=2003;
+PROCESO_CARGA_NOMINA-2004;codigoEstado=2004;desc=Ruta Backup Errónea;codErrorNotificacion=2004;
+PROCESO_CARGA_NOMINA-2005;codigoEstado=2005;desc=Acceso al Backup;codErrorNotificacion=2005;
+PROCESO_CARGA_NOMINA-4100;codigoEstado=4100;desc=Información errónea en alguno de los campos JMS;codErrorNotificacion=4100;
+PROCESO_CARGA_NOMINA-2006;codigoEstado=2006;desc=Estructura del Intercambio. Rechaza Intercambio;codErrorNotificacion=2006;
+PROCESO_CARGA_NOMINA-2007;codigoEstado=2007;desc=Validación fecha de pago;codErrorNotificacion=2007;
+PROCESO_CARGA_NOMINA-2008;codigoEstado=2008;desc=Validación cantidad total de transacciones;codErrorNotificacion=2008;
+PROCESO_CARGA_NOMINA-2009;codigoEstado=2009;desc=Error de monto total de transacciones;codErrorNotificacion=2009;
+PROCESO_CARGA_NOMINA-2010;codigoEstado=2010;desc=Instrucción duplicada;codErrorNotificacion=2010;
+PROCESO_CARGA_NOMINA-2011;codigoEstado=2011;desc=Error en validación de categoryPurpose;codErrorNotificacion=2011;
+TRX_ROUTING-2012;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio;codErrorNotificacion=3800;
+TRX_ROUTING_SAF_DEVOLUCION-0000;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio. Transacción en SAF devolución Erronea;codErrorNotificacion=3000;
+TRX_ROUTING_SAF_DEVOLUCION-0001;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio. Transacción en SAF devolución Erronea;codErrorNotificacion=3000;
+TRX_ROUTING_SAF_DEVOLUCION-ERROR_SAF_OPF;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio. Transacción en SAF devolución Erronea;codErrorNotificacion=3000;
+TRX_ROUTING_SAF_DEVOLUCION-TIMEOUT_SAF;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio. Transacción en SAF devolución Erronea;codErrorNotificacion=3000;
+TRX_ROUTING_SAF_DEVOLUCION-ERROR_REGISTRO_SAF;estado=REC;codigoEstado=W200;desc=No encuentra condición de intercambio. Transacción en SAF devolución Erronea;codErrorNotificacion=3000;
+TRX_CCA-0000;estado=PRO;codigoEstado=0000;desc=Abono CCA ok. Cargo PNOL ok;
+TRX_CCA-2013;estado=REC;codigoEstado=W200;desc=Error en Abono CCA. Errores en la validación de la MAC;codErrorNotificacion=3700;
+TRX_CCA-ERROR_GENERA_MAC;estado=REC;codigoEstado=W200;desc=Error en Abono CCA. Errores en la generación de la MAC;codErrorNotificacion=3700;
+TRX_CCA-RECHAZO_MAC_OK;estado=REC;codigoEstado=W200;desc=Error en Abono CCA. MAC rechazada correctamente;codErrorNotificacion=3700;
+TRX_CCA_SAF_CONSULTA-0000;estado=ENP;codigoEstado=0000;glosa=SAF;desc=Transacción en consulta SAF;
+TRX_CCA_SAF_CONSULTA-0001;estado=ENP;codigoEstado=0000;glosa=ERR;desc=Transacción en consulta SAF Erronea;codErrorNotificacion=3200;
+TRX_CCA_SAF_CONSULTA-ERROR_SAF_OPF;estado=ENP;codigoEstado=0000;glosa=ERR;desc=Transacción en consulta SAF Erronea;codErrorNotificacion=3200;
+TRX_CCA_SAF_CONSULTA-TIMEOUT_SAF;estado=ENP;codigoEstado=0000;glosa=ERR;desc=Transacción en consulta SAF Erronea;codErrorNotificacion=3200;
+TRX_CCA_SAF_CONSULTA-ERROR_REGISTRO_SAF;estado=ENP;codigoEstado=0000;glosa=ERR;desc=Transacción en consulta SAF Erronea;codErrorNotificacion=3200;
+TRX_CCA_ERROR_CARGO-0000;estado=PRO;codigoEstado=0000;desc=Abono CCA ok. Cargo PNOL nook;codErrorNotificacion=3900;
+TRX_CCA_ERROR_CARGO-0003;estado=PRO;codigoEstado=0000;desc=Abono CCA ok. Cargo PNOL nook;codErrorNotificacion=3900;
+TRX_CCA_SAF_REVERSA-0000;estado=REC;codigoEstado=W200;glosa=SAF;desc=Reversa CCA en SAF;
+TRX_CCA_SAF_REVERSA-0001;estado=REC;codigoEstado=W200;desc=Reversa CCA en SAF Erronea;codErrorNotificacion=3300;
+TRX_CCA_SAF_REVERSA-ERROR_SAF_OPF;estado=REC;codigoEstado=W200;desc=Reversa CCA en SAF Erronea;codErrorNotificacion=3300;
+TRX_CCA_SAF_REVERSA-TIMEOUT_SAF;estado=REC;codigoEstado=W200;desc=Reversa CCA en SAF Erronea;codErrorNotificacion=3300;
+TRX_CCA_SAF_REVERSA-ERROR_REGISTRO_SAF;estado=REC;codigoEstado=W200;desc=Reversa CCA en SAF Erronea;codErrorNotificacion=3300;
+TRX_CCA_SAF_DEVOLUCION-0000;estado=REC;codigoEstado=W200;glosa=SAF;desc=Devolución otro banco en SAF;
+TRX_CCA_SAF_DEVOLUCION-0001;estado=REC;codigoEstado=W200;desc=Devolución otro banco en SAF Erronea;codErrorNotificacion=3400;
+TRX_CCA_SAF_DEVOLUCION-ERROR_SAF_OPF;estado=REC;codigoEstado=W200;desc=Devolución otro banco en SAF Erronea;codErrorNotificacion=3400;
+TRX_CCA_SAF_DEVOLUCION-TIMEOUT_SAF;estado=REC;codigoEstado=W200;desc=Devolución otro banco en SAF Erronea;codErrorNotificacion=3400;
+TRX_CCA_SAF_DEVOLUCION-ERROR_REGISTRO_SAF;estado=REC;codigoEstado=W200;desc=Devolución otro banco en SAF Erronea;codErrorNotificacion=300;
+TRX_BCI-0000;estado=PAG;codigoEstado=0000;desc=Abono BCI ok;
+TRX_BCI-0001;estado=REC;codigoEstado=W200;desc=Abono BCI nook;
+TRX_BCI_SAF_REVERSA-0000;estado=REC;codigoEstado=W200;glosa=SAF;desc=Reversa BCI en SAF;codErrorNotificacion=3500;
+TRX_BCI_SAF_REVERSA-0001;estado=REC;codigoEstado=W200;desc=Reversa BCI en SAF Erronea;codErrorNotificacion=3500;
+TRX_BCI_SAF_REVERSA-ERROR_SAF_OPF;estado=REC;codigoEstado=W200;desc=Reversa BCI en SAF Erronea;codErrorNotificacion=3500;
+TRX_BCI_SAF_REVERSA-TIMEOUT_SAF;estado=REC;codigoEstado=W200;desc=Reversa BCI en SAF Erronea;codErrorNotificacion=3500;
+TRX_BCI_SAF_REVERSA-ERROR_REGISTRO_SAF;estado=REC;codigoEstado=W200;desc=Reversa BCI en SAF Erronea;codErrorNotificacion=3500;
+TRX_BCI_SAF_DEVOLUCION-0000;estado=REC;codigoEstado=W200;glosa=SAF;desc=Devolución BCI en SAF;
+TRX_BCI_SAF_DEVOLUCION-0001;estado=REC;codigoEstado=W200;desc=Devolución BCI en SAF Erronea;codErrorNotificacion=3600;
+TRX_BCI_SAF_DEVOLUCION-ERROR_SAF_OPF;estado=REC;codigoEstado=W200;desc=Devolución BCI en SAF Erronea;codErrorNotificacion=3600;
+TRX_BCI_SAF_DEVOLUCION-TIMEOUT_SAF;estado=REC;codigoEstado=W200;desc=Devolución BCI en SAF Erronea;codErrorNotificacion=3600;
+TRX_BCI_SAF_DEVOLUCION-ERROR_REGISTRO_SAF;estado=REC;codigoEstado=W200;desc=Devolución BCI en SAF Erronea;codErrorNotificacion=3600;
+
+TRX_BCI_ERRORES_TANDEM;estado=REC;
+
+##########################################################
+#	Correspondencia Estados de rechazo CCA a Originacion.#
+##########################################################
+TRX_CCA-0001;estado=REC;codigoEstado=W200;desc=Sistema no disponible;
+TRX_CCA-0011;estado=REC;codigoEstado=C011;desc=Mensaje inválido;
+TRX_CCA-0012;estado=REC;codigoEstado=C012;desc=No existe Transacción a reversar;
+TRX_CCA-0013;estado=REC;codigoEstado=C013;desc=Transacción a reversar no está aprobada;
+TRX_CCA-0014;estado=REC;codigoEstado=C014;desc=Ya existe Reversa previa;
+TRX_CCA-0015;estado=REC;codigoEstado=C015;desc=MAC rechazado por Banco IFR;
+TRX_CCA-0016;estado=REC;codigoEstado=C016;desc=MAC rechazado por Switch Operador;
+TRX_CCA-0017;estado=REC;codigoEstado=C017;desc=Cuenta Destino Inhabilitada para recibir TEF;
+TRX_CCA-0018;estado=REC;codigoEstado=C018;desc=Transacción Consultada No Existe;
+TRX_CCA-0020;estado=REC;codigoEstado=C020;desc=Nro. Cuenta Origen sin informar;
+TRX_CCA-0021;estado=REC;codigoEstado=C021;desc=Nro. Cuenta Destino sin informar;
+TRX_CCA-0025;estado=REC;codigoEstado=C025;desc=Rut Destino sin informar;
+TRX_CCA-0028;estado=REC;codigoEstado=C028;desc=Monto sin informar;
+TRX_CCA-0029;estado=REC;codigoEstado=C029;desc=Monto inválido;
+TRX_CCA-0031;estado=REC;codigoEstado=C031;desc=Banco Origen sin informar;
+TRX_CCA-0032;estado=REC;codigoEstado=C032;desc=Banco Destino sin informar;
+TRX_CCA-0033;estado=REC;codigoEstado=C033;desc=Banco Origen inválido;
+TRX_CCA-0034;estado=REC;codigoEstado=C034;desc=Banco Destino inválido;
+TRX_CCA-0035;estado=REC;codigoEstado=C035;desc=Código de Transacción Sin Informar;
+TRX_CCA-0036;estado=REC;codigoEstado=C036;desc=Código de Transacción Inválido;
+TRX_CCA-0037;estado=REC;codigoEstado=C037;desc=Timeout de Banco Destino;
+TRX_CCA-0038;estado=REC;codigoEstado=C038;desc=Banco sin servicio por mantención programada;
+TRX_CCA-0041;estado=REC;codigoEstado=C041;desc=Cuenta Destino Incorrecta;
+TRX_CCA-0042;estado=REC;codigoEstado=C042;desc=Cuenta Destino Cerrada;
+TRX_CCA-0043;estado=REC;codigoEstado=C043;desc=Identificador IFR Incorrecto;
+TRX_CCA-0045;estado=REC;codigoEstado=C045;desc=Rut Beneficiario Incorrecto;
+TRX_CCA-0046;estado=REC;codigoEstado=C046;desc=Relación Rut/Cuenta Corriente Inválida;
+TRX_CCA-0047;estado=REC;codigoEstado=C047;desc=Código de Transacción Incorrecto;
+TRX_CCA-0048;estado=REC;codigoEstado=C048;desc=Secuencia de Transacción Incorrecta;
+TRX_CCA-0050;estado=REC;codigoEstado=C050;desc=Tipo de Cuenta no Habilitado;
+TRX_CCA-0051;estado=REC;codigoEstado=C051;desc=Cuenta Beneficiario no Existe;
+TRX_CCA-0056;estado=REC;codigoEstado=C056;desc=Error en Campo Monto;
+TRX_CCA-0057;estado=REC;codigoEstado=C057;desc=Rut Origen Inválido;
+TRX_CCA-0058;estado=REC;codigoEstado=C058;desc=Transacción Duplicada;
+TRX_CCA-0059;estado=REC;codigoEstado=C059;desc=Error Campo Obligatorio;
+TRX_CCA-0060;estado=REC;codigoEstado=C060;desc=Error en Número de Trace;
+TRX_CCA-0061;estado=REC;codigoEstado=C061;desc=Producto-Cuenta no Habilitado;
+TRX_CCA-0062;estado=REC;codigoEstado=C062;desc=Monto Excede el Máximo Permitido;
+TRX_CCA-0063;estado=REC;codigoEstado=C063;desc=Servicio no disponible por IFR;
+TRX_CCA-0064;estado=REC;codigoEstado=C064;desc=Cuenta Destino con restricción de Abono;
+TRX_CCA-0065;estado=REC;codigoEstado=C065;desc=Numero Trace duplicado / Transacción no duplicada;
+TRX_CCA-0091;estado=REC;codigoEstado=C091;desc=Host IFR no disponible;
+
+
+######ENVIO DE EMAIL####################
+
+PROD
+envioEmail;wsdlUrl=http://alsb.bci.cl/servicios/infraestructura/mensajeria/mail/EnvioDeCorreoProxyService?wsdl;timeOut=10;
+CERT:
+#envioEmail;wsdlUrl=http://161.131.140.137:9050/servicios/infraestructura/mensajeria/mail/EnvioDeCorreoProxyService?wsdl;timeOut=10;
+INTE
+#envioEmail;wsdlUrl=http://161.131.184.123:9050/servicios/infraestructura/mensajeria/mail/EnvioDeCorreoProxyService?wsdl;timeOut=10;
+
+
+###########COD ERROR GENERAL####################
+
+codErrorGeneralActEstado;desc=ONL5000;
+
+########### Numero del codigo mayor soportado para obtener estados ####################
+codigoMenorControlado;desc=2;

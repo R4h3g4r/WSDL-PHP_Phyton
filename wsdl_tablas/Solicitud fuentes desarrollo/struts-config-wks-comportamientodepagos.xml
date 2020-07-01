@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+                               "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+<struts-config>
+  <data-sources/>
+    <form-beans>             
+      <form-bean name="listadoCreditoForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="listaCreditosExtranjeros" type="java.util.Collection"/>
+        <form-property name="listaCreditosNacionales" type="java.util.Collection"/>
+        <form-property name="listaCreditosRUT" type="java.util.Collection"/>
+        <form-property name="fechaHora" type="java.util.Date"/>
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+      </form-bean>
+  
+      <form-bean name="detalleCreditoForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="numeroOperacion" type="java.lang.String"/>
+        <form-property name="montoCredito" type="java.lang.Double"/>
+        <form-property name="saldoCredito" type="java.lang.Double"/>
+        <form-property name="montoProximoVencimiento" type="java.lang.Double"/>
+        <form-property name="proximaCuotaAPagar" type="java.lang.Integer"/>
+        <form-property name="tipoTasaInteres" type="java.lang.String"/>
+        <form-property name="tasaInteres" type="java.lang.Double"/>
+        <form-property name="spread" type="java.lang.Double"/>
+        <form-property name="montoReajusteDevengado" type="java.lang.Double"/>
+        <form-property name="montoIntereses" type="java.lang.Double"/>
+        <form-property name="numVencimientosOriginales" type="java.lang.Integer"/>
+        <form-property name="numVencimientosVigentes" type="java.lang.Integer"/>
+        <form-property name="moneda" type="java.lang.String"/>
+        <form-property name="fechaCurse" type="java.util.Date"/>
+        <form-property name="tipoOperacion" type="java.lang.String"/>
+        <form-property name="fechaProximaCuota" type="java.util.Date"/>
+        <form-property name="fechaVencimientoMax" type="java.util.Date"/>
+        <form-property name="fechaDevengo" type="java.util.Date"/>
+        <form-property name="indSituacionContable" type="java.lang.String"/>
+        <form-property name="fechaColocacion" type="java.util.Date"/>
+        <form-property name="fechaContable" type="java.util.Date"/>
+        <form-property name="tipoCargo" type="java.lang.String"/>
+        <form-property name="condicionGarantia" type="java.lang.String"/>
+        <form-property name="fechaHora" type="java.util.Date"/>
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+      </form-bean>
+  
+      <form-bean name="detalleCreditoMXForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="glosaDetalle" type="java.lang.String"/>
+        <form-property name="listaTasas" type="java.util.Collection"/>
+        <form-property name="listaPlandePagos" type="java.util.Collection"/>
+        <form-property name="listaProrrogas" type="java.util.Collection"/>
+        <form-property name="fechaHora" type="java.util.Date"/>
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+        <form-property name="numeroOperacion" type="java.lang.String"/>
+        <form-property name="montoCuota" type="java.lang.Double"/>
+        <form-property name="saldoTotal" type="java.lang.Double"/>
+        <form-property name="tasa" type="java.lang.Double"/>
+        <form-property name="cuotas" type="java.lang.String"/>
+        <form-property name="montoCuotaUs" type="java.lang.Double"/>
+        <form-property name="tipo" type="java.lang.String"/>
+        <form-property name="inicio" type="java.lang.String"/>                
+        <form-property name="interesesUs" type="java.lang.Double"/>   
+		<form-property name="montoOperacion" type="java.lang.Double"/>   
+		<form-property name="montoCapitalVigente" type="java.lang.Double"/> 
+		<form-property name="divisaCapitalVigente" type="java.lang.String"/>
+		<form-property name="divisaMontoOperacion" type="java.lang.String"/>  	
+      </form-bean>
+  
+      <form-bean name="comportamientoPagosForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="numeroOperacion" type="java.lang.String"/>
+        <form-property name="listaPagos" type="java.util.Collection"/>
+        <form-property name="fechaHora" type="java.util.Date"/>
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="numeroTotalPagos" type="java.lang.Integer"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+      </form-bean>
+   
+      <form-bean name="comportamientoPagosDetalleForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="numeroOperacion" type="java.lang.String"/>
+        <form-property name="listaCancelaciones" type="java.util.Collection"/>
+        <form-property name="listaGlosasCancelaciones" type="java.util.ArrayList"/>
+        <form-property name="fechaHora" type="java.util.Date"/>
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="numeroCancelaciones" type="java.lang.Integer"/>
+        <form-property name="numeroVencimiento" type="java.lang.Integer"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+      </form-bean>     
+      
+ 	  <form-bean name="simulacionMXForm" type="org.apache.struts.action.DynaActionForm">
+        <form-property name="mensajeError" type="java.lang.String"/>
+        <form-property name="rutCliente" type="java.lang.String"/>
+        <form-property name="nombreCliente" type="java.lang.String"/>
+        <form-property name="nombreEjecutivo" type="java.lang.String"/>
+        <form-property name="numeroOperacion" type="java.lang.String"/>
+        <form-property name="montoCuota" type="java.lang.Double"/>
+        <form-property name="monedaOrigen" type="java.lang.String"/>
+        <form-property name="fechaPago" type="java.lang.String"/>
+        <form-property name="fechaInicio" type="java.util.Date"/>  
+        <form-property name="tasa" type="java.lang.Double"/>
+        <form-property name="cuotas" type="java.lang.String"/>
+        <form-property name="fechaVencimiento" type="java.util.Date"/> 
+        <form-property name="capitalOrig" type="java.lang.Double"/>   
+        <form-property name="interesesOrig" type="java.lang.Double"/>   
+		<form-property name="totalOrig" type="java.lang.Double"/>   
+        <form-property name="capitalUS" type="java.lang.Double"/>   
+        <form-property name="interesesUS" type="java.lang.Double"/>   
+		<form-property name="totalUS" type="java.lang.Double"/>   
+      </form-bean>
+ 	
+    </form-beans>
+ 
+<global-exceptions/>
+<global-forwards>
+
+  <!-- Errores -->
+  <forward contextRelative="true" name="error_sistema" path="/workstationwls/comportamientodepagos/error-sistema.jsp"/>
+  <forward contextRelative="true" name="error_informacion_entrada" path="/workstationwls/comportamientodepagos/error-info.jsp"/>
+  
+  <!-- Creditos -->
+  <forward contextRelative="true" name="credito" path="/workstationwls/comportamientodepagos/ListaCreditos.jsp"/>
+  <forward contextRelative="true" name="credito_historico" path="/workstationwls/comportamientodepagos/ListaCreditosHistoricos.jsp"/>
+  <forward contextRelative="true" name="detalle_credito" path="/workstationwls/comportamientodepagos/DetalleCredito.jsp"/>
+  <forward contextRelative="true" name="detalle_credito_MX" path="/workstationwls/comportamientodepagos/DetalleCreditoMX.jsp"/>
+  <forward contextRelative="true" name="comportamiento_pagos" path="/workstationwls/comportamientodepagos/ComportamientoPagos.jsp"/>
+  <forward contextRelative="true" name="comportamiento_pagos_detalle" path="/workstationwls/comportamientodepagos/ComportamientoPagosDetalle.jsp"/>
+  <forward contextRelative="true" name="simulacion_MX" path="/workstationwls/comportamientodepagos/SimulacionMX.jsp"/>
+   
+ </global-forwards>
+ 
+ <action-mappings>
+   <action name="listadoCreditoForm" path="/credito" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.CreditoAction"/>
+  
+   <action name="detalleCreditoForm" path="/detalleCredito" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.DetalleCreditoAction"/>
+  
+   <action name="comportamientoPagosForm" path="/comportamientoPagos" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.ComportamientoPagosAction"/>
+  
+   <action name="comportamientoPagosDetalleForm" path="/comportamientoPagosDetalle" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.ComportamientoPagosDetalleAction"/>
+ 
+   <action name="detalleCreditoMXForm" path="/detalleCreditoMX" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.DetalleCreditoMXAction"/>
+
+   <action name="simulacionMXForm" path="/simulacionMX" scope="request"
+   type="wcorp.comportamientodepagos.ui.action.SimulacionMXAction"/>
+    <action
+      parameter="accion"
+      path="/cuotasCredito"
+      type="wcorp.comportamientodepagos.ui.action.CuotasCreditoVigenteAction">
+      <forward
+        name="continuarFlexible"
+        path="/creditosglobaleswls/reingenieriaDeCancelacionesContextualizacion"
+        contextRelative="true" />
+      <forward
+        name="continuarSinNegociacion"
+        path="/creditoswls/CalculoValoresCancelacion"
+        contextRelative="true" />
+    </action>
+  
+ </action-mappings> 
+ 
+ <controller contentType="text/html" debug="0" processorClass="org.apache.struts.action.RequestProcessor"/>
+</struts-config>

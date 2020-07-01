@@ -1,0 +1,2521 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Language" content="en-us">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>customizing_netimex</title>
+<style>
+<!--
+h1           { font-family: Arial; font-size: 18pt; font-weight: bold }
+h1           {  }
+h1           { font-family: Arial; font-size: 18pt; font-weight: bold }
+heading 1    { font-family: Arial; font-size: 18pt; margin-top: 6; margin-bottom: 12 }
+-->
+</style>
+</head>
+
+<body background="grnitbkg.gif" text="#000080">
+
+<h2><font face="Arial" size="4"><b>Bank Maintenance</b></font></h2>
+<p><font face="Arial" size="2">Bank Maintenance is a function that is reserved
+for the Bank only to use in adapting and updating the functions to its specific
+requirements. Clicking on each topic link accesses each function.</font></p>
+<p class="picture0"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:276pt;
+ height:373.5pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.gif" o:title="IG Bank Maintenance"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom130.gif" v:shapes="_x0000_i1025" width="370" height="500"></span></p>
+<p><font face="Arial" size="2">The following areas can be edited in this
+section:</font></p>
+<p><font face="Arial" size="2"><b>Group</b> – Different Customers can be
+related by an umbrella organization known as a group. This section allows the
+user to view or edit the lists of customers and their super organizations.&nbsp;&nbsp;</font></p>
+<p><font face="Arial" size="2"><b>Group by Customer ID </b>– This search field
+provides an alternative way of finding out to which group a customer belongs.</font></p>
+<p><font face="Arial" size="2"><b>New Language</b> – This function allows the
+Bank to define a new language in the system.</font></p>
+<p><font face="Arial" size="2"><b>Delete Languag</b>e – This function is used
+to delete a language in the system.</font></p>
+<p><font face="Arial" size="2"><b>Tables Translation</b> – The tables in the
+system originated in IMEX. This function translates IMEX tables to compatible
+formats in NetIMEX form.</font></p>
+<p><font face="Arial" size="2"><b>Titles Translation </b>– This function
+allows the Bank to edit any of the headings of program.</font></p>
+<p><font face="Arial" size="2"><b>General Parameters</b> – This function
+allows the Bank to customize different parameters that appear on each page.</font></p>
+<p><font face="Arial" size="2"><b>Deal Number for Department</b> – This
+function configures the deal number generation.</font></p>
+<p><font face="Arial" size="2"><b>Help Page Configuration</b> – This function
+specifies a Help page or Help application for each NetIMEX page different than
+the Help page delivered with NetIMEX making it unnecessary to override the
+supplied Help pages with the Bank’s Help pages.</font></p>
+<p><font face="Arial" size="2"><b>Audit Trail</b> – This function allows the
+Bank to configure activity logging and generate an inquiry regarding the
+activity in NetIMEX.</font></p>
+<p><font face="Arial" size="2"><b>PO Integration</b> – This function allows
+NetIMEX to perform operations related to acceptance of Purchase Orders from an
+external portal.</font></p>
+<p><font face="Arial" size="2"><b>Set Up Dynamic Fields</b> – This function
+allows the Bank to configure which of the Dynamic Fields for each transaction
+will appear as mandatory fields in NetIMEX.</font></p>
+<h3><font face="Arial" size="3">Group</font></h3>
+<p><font face="Arial" size="2">A Group consists of a super organization that may
+contain several subdivisions that we define as Customers. Users belong to Groups
+and are authorized to enter transactions at the Bank on behalf of specific
+Customers.</font></p>
+<p><font face="Arial" size="2">Click on the Group link on the Bank Maintenance
+Option Page to display the list of Groups and their customers. In this section
+the user can define and edit the groups, and their users.</font></p>
+<p class="picture0"><img src="custom16.gif" v:shapes="_x0000_i1027" width="503" height="294"></p>
+<p><font face="Arial" size="2"><b>Group ID</b> – This is the Group ID code by
+which the group is identified within the system.</font></p>
+<p><font face="Arial" size="2"><b>Group Name </b>– This is the full Group
+name.</font></p>
+<p><font face="Arial" size="2"><b>Customer Name</b> – This link allows the
+user to view the customers within the group.</font></p>
+<p><font face="Arial" size="2"><b>Delete</b> – Clicking on this icon erases
+the group from the system.</font></p>
+<p><font face="Arial" size="2"><b>Edit</b> – This function allows the user to
+make changes to the customer, users or group details.</font></p>
+<h4><font face="Arial" size="2"><b>Group ID</b></font></h4>
+<p><font face="Arial" size="2">Clicking on the Group ID field in the Group list
+allows the user to view the Group Details.</font></p>
+<p class="screencaptures"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:345.75pt;
+ height:151.5pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG Group Details Form"
+  cropright="9100f"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom127.gif" v:shapes="_x0000_i1025" width="463" height="204"></span></p>
+<p><font face="Arial" size="2"><b>Group ID </b>– This field lists the Group ID
+code.</font></p>
+<p><font face="Arial" size="2"><b>Group Name</b> – This field lists the full
+Group Name.</font></p>
+<p><font face="Arial" size="2"><b>Group Contact Person</b> – Other Group
+Details such as the contact person or other pertinent information is listed in
+this and succeeding fields.</font></p>
+<h4><font size="2" face="Arial"><b>Customers per Group</b></font></h4>
+<p><font face="Arial" size="2">This page allows the user to view, edit or delete
+customer and user details. Click on the &quot;Customers Per Group&quot; link in
+the Group List Form to enter this screen.</font></p>
+<p class="screencaptures"><img src="custom18.gif" v:shapes="_x0000_i1028" width="480" height="267"></p>
+<p><font face="Arial" size="2">The customer section of the page consists of two
+parts: The customer ID field and the Authorization field.</font></p>
+<p><font face="Arial" size="2"><b>Customer ID </b>– This field identifies the
+customer</font></p>
+<p><font face="Arial" size="2"><b>Authorization </b>– This field indicates
+what transactions the customer may perform.</font></p>
+  <h5><font face="Arial">Customer Authorization</font></h5>
+  <h5><img src="custom19.gif" v:shapes="_x0000_i1029" width="472" height="328"></h5>
+  <p><font face="Arial" size="2"><b>Transaction</b> – Each transaction that
+  the Bank may allow a customer to perform is listed on this table.</font></p>
+  <p><font face="Arial" size="2"><b>Authorization</b> – The Authorization
+  field indicates whether or not the customer may perform that transaction. The
+  Bank can restrict the authorization of Bank Users causing Segregation of
+  Duties. This will be effective when the Limit Bank User Authorizations field
+  is “Yes” for the Entity in the Customize Entity window. The pages will be
+  different depending on whether the Segregation of Duties exists for the
+  entity.</font></p>
+  <p><font face="Arial" size="2">The user section of the page consists of two
+  parts: The User Id field and the Supervisor field.</font></p>
+  <p><font face="Arial" size="2"><b>User Id </b>- This field identifies the
+  user.</font></p>
+  <p><font face="Arial" size="2"><b>Supervisor</b> - This field indicates
+  whether or not the user is a supervisor and what transactions, as a result,
+  the user may perform.</font></p>
+  <h5><font face="Arial" size="2">User Authorization / User Disable Option</font></h5>
+  <p><font face="Arial" size="2">This page indicates whether or not the user is
+  a supervisor and provided with the level of authorization that it entails.&nbsp;
+  Click on the User-id link or the pencil icon in the User area on the User and
+  Customers Details Form&nbsp; to enter this screen.&nbsp; NetIMEX will not
+  allow a user that signed transactions to be deleted so his details will remain
+  in the system for the purpose of auditing the signatures, therefore it is also
+  possible to disable a user.&nbsp; Check the Disable box on the user profile
+  screen to flag the user as disabled.&nbsp; As a result, disabled users will
+  not appear in the Supervisor's user maintenance function.</font></p>
+  <p><font face="Arial" size="2"><i><b>Note: </b>Disabling a user in NetIMEX
+  should be performed in parallel to revoking the user's access rights in the
+  bank's security system.</i></font></p>
+  <p class="screencaptures"><img src="custom21.gif" v:shapes="_x0000_i1047" width="463" height="222"></p>
+  <h5><font size="2" face="Arial"><b>User Details With Segregation of Duties</b></font></h5>
+  <p><font face="Arial" size="2">Click on the &quot;Authorization&quot; link to
+  enter this screen. When Segregation of Duties exists for this entity the
+  authorization of the Bank users are split into two types of Bank Users for the
+  entity:</font></p>
+    <p><font face="Arial" size="2"><b>1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Supervisor Bank User</b></font></p>
+    <p><font face="Arial" size="2">A supervisor has the following
+    authorizations:</font></p>
+      <ul>
+        <li><font face="Arial" size="2">Authorized to create, delete or edit any
+          Supervisor Bank Users or Regular Bank Users. For Regular Bank Users
+          the Supervisor must set the authorization for specific functions e.g.
+          configuration, audit trail access, translation.</font></li>
+        <li><font face="Arial" size="2">Can change a Regular Bank User to become
+          a supervisor Bank User by setting the supervisor checkbox. The
+          original Bank User permissions will be deleted.</font></li>
+        <li><font face="Arial" size="2">Can only perform specific functions,
+          i.e., all items under Inquiry, Customize Preferences, Languages,
+          Users, Customers, Bank Maintenance – Group only. When a Supervisor
+          Bank User logs in to NetIMEX only these functions will</font> be
+          available.</li>
+        <li><font face="Arial" size="2">Does not have permission for
+          transactions therefore the signature level for the Bank is “Not
+          Authorized”.</font></li>
+      </ul>
+      <ul>
+        <li><font face="Arial" size="2">The supervisor cannot carry out any of
+          these Bank functions and define any Customer Users.</font></li>
+      </ul>
+    <p><font face="Arial" size="2"><b>2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Regular
+    Bank User</b></font></p>
+    <p><font face="Arial" size="2">A regular Bank User can work according to the
+    authorization set by the supervisor. Cannot create any Bank Users, not as a
+    supervisor nor as a regular Bank user and cannot give any regular Bank User
+    authorization.</font></p>
+    <p class="picture0"><img src="custom22.gif" v:shapes="_x0000_i1030" width="548" height="268"></p>
+    <p><font face="Arial" size="2"><b>User</b> <b>Details</b> – Defines the
+    User ID and Name</font></p>
+    <p><font face="Arial" size="2"><b>Supervisor</b> – When checked indicates
+    that the user is a supervisor. Even if the permissions are changed to allow
+    they will saved as not allowed.</font></p>
+    <p><font face="Arial" size="2"><b>Disable</b> – Check the Disable box to
+    flag the user as disabled. As a result, disabled users will not appear in
+    the Supervisor's user maintenance function. Disabling a user in NetIMEX
+    should be performed in parallel to revoking the user's access rights in the
+    bank's security system.</font></p>
+    <p><font face="Arial" size="2"><b>Permissions</b> – The following
+    permissions can be given to the Customer Service or Bank User Functions:</font></p>
+    <ul>
+      <li><font face="Arial" size="2">Allow: Allow to access and update</font></li>
+      <li><font face="Arial" size="2">View: View only, allowed to access but not
+        update</font></li>
+      <li><font face="Arial" size="2">Not Allow: Not authorized, no access to
+        the function</font></li>
+    </ul>
+    <p><font face="Arial" size="2">Only a Regular Bank User can be given
+    permission for these functionalities:</font></p>
+    <p><font face="Arial" size="2"><b>Change</b> <b>Customer</b> – In
+    Edit/Create/Delete Mode the Regular Bank User can do the following for the
+    bank customer user: Transaction inquiry, View signature level, Create/Update
+    templates, View banks, Handle parties, Clauses and Purge. In View Mode the
+    Regular Bank User can do the following for the bank customer user: View
+    Banks, Parties, Clauses, Purge, Transaction inquiry, signature level,
+    templates (cannot create/edit/update templates, will not see any
+    transactions from the menu and in “Customization Templates” the edit and
+    delete icons will be disabled).</font></p>
+    <p><font face="Arial" size="2"><b>User</b> <b>Management</b> – (Group,
+    delete add update view, Group by customer, Customer per group,
+    Delete/Update/View Customer and User). Only in view mode the user will see
+    all the relevant pages. In Edit/Create/Delete Mode Bank users that do not
+    have the permission will not be able to see the group in the bank
+    maintenance page.</font></p>
+    <p><font face="Arial" size="2"><b>Translations</b> – (New Language, Delete
+    Language, Tables Translation, Titles Translation). In view mode it is only
+    relevant for table translation and title translation. In Edit/Create/Delete
+    Mode Bank users that do not have the permission will not be able to see the
+    languages related in the bank maintenance page.</font></p>
+    <p><font face="Arial" size="2"><b>Configuration</b> – (General Parameters,
+    Deal Number for Department, Help Page Configuration, Signature level,
+    Clauses, Customize template). In Edit/Create/Delete Mode Bank users that do
+    not have the permission will not be able to see the configuration pages in
+    the bank maintenance page</font></p>
+    <p><font face="Arial" size="2"><b>Audit Trail</b> – In Edit/Create/Delete
+    Mode Bank users that do not have the permission will not be able to see the
+    audit trail page in the bank maintenance page.</font></p>
+    <p><font face="Arial" size="2"><b>PO Integration</b> – In
+    Edit/Create/Delete Mode Bank users that do not have the permission will not
+    be able to see the 'PO Integration page in the bank maintenance page.</font></p>
+  <h4><font face="Arial" size="2"><b>Group by Customer ID</b></font></h4>
+  <p><font face="Arial" size="2">This function allows the user to find out to
+  which group a customer belongs by entering the customer ID and performing a
+  search.</font></p>
+  <p class="screencaptures"><img src="custom23.gif" v:shapes="_x0000_i1031" width="466" height="147"></p>
+<p><font face="Arial" size="2">Enter the Customer ID and click on the Customer
+ID link. The User and Customer page appears.</font></p>
+<p><font face="Arial" size="2"><b>Defining a New User</b></font></p>
+<p><font face="Arial" size="2">Defining a New User requires two separate steps.
+The first step in defining a New User is authorization and is performed by the
+Bank. The second step in defining a New User is assigning the User to the
+Customer and is performed by the Supervisor User at the Customer location.</font></p>
+<font face="Arial" size="2">A Group consists of a super organization that may
+contain several subdivisions that we define as Customers. Users belong to Groups
+and are authorized to enter transactions at the Bank on behalf of specific
+Customers.</font>
+<p><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:318.75pt;
+ height:243pt' o:ole="" fillcolor="window">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.wmz" o:title=""/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom102.gif" v:shapes="_x0000_i1025" width="427" height="326"><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="PowerPoint.Slide.8" ShapeID="_x0000_i1025"
+  DrawAspect="Content" ObjectID="_1120394800">
+ </o:OLEObject>
+</xml><![endif]-->
+</span></p>
+<h3><font face="Arial" size="3">New Language</font></h3>
+<p><font face="Arial" size="2">In order to accommodate the needs of its
+customers, NetIMEX is available in many languages. This section is used to add
+new languages to those available to the Bank’s customers.</font></p>
+<p><font face="Arial" size="2">To Add a Language:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Click on the New Language option on the
+    Bank’s Maintenance Form.</font></li>
+  <li><font face="Arial" size="2">Click on the desired link on the New Language
+    Form and the language selected will be loaded to the system.</font></li>
+</ul>
+<p class="screencaptures"><img src="custom24.gif" v:shapes="_x0000_i1032" width="509" height="446"></p>
+<h3><font face="Arial" size="3">Delete Language</font></h3>
+<p><font face="Arial" size="2">This function allows the user to delete a
+language from the list of languages available to the Bank’s customers.</font></p>
+<p><font face="Arial" size="2">To Delete a Language:</font></p>
+<dir>
+  <li><font size="2" face="Arial">Click on the Delete Language option on the
+    Bank’s Maintenance Form.</font></li>
+  <li><font size="2" face="Arial">Select the relevant language to be deleted on
+    the Delete Language Form and the language selected will be deleted from the
+    list of New Languages.</font></li>
+  <li><font size="2" face="Arial">Click on the Delete button.</font></li>
+</dir>
+<p class="screencaptures"><a name="_Ref482001436"><img src="custom25.gif" v:shapes="_x0000_i1033" width="391" height="199"></a></p>
+<p class="screencaptures"><img src="custom26.gif" v:shapes="_x0000_i1034" width="391" height="142"></p>
+<h3><font face="Arial" size="3">Tables Translations</font></h3>
+<p><font face="Arial" size="2">This option allows the Bank to translate NetIMEX
+tables to the languages provided by the Bank for its customers.</font></p>
+<p class="screencaptures"><img src="custom27.gif" v:shapes="_x0000_i1035" width="466" height="294"></p>
+<p><font face="Arial" size="2">After clicking on the Tables Translation Option
+on the Bank’s Maintenance Form, choose a language to which you wish to
+translate the tables. When the customer chooses to work in this language, only
+the tables that are translated in this option will be translated and will appear
+in that language. Click on the name of the table that you wish to translate e.g.
+Draft After Table. A list of the selected table’s fields appears on the
+screen.</font></p>
+<p class="screencaptures"><img src="custom28.gif" v:shapes="_x0000_i1036" width="495" height="264"></p>
+<p><font face="Arial" size="2">Translate each of the fields in this table into
+the way you want them to appear in that language’s version.</font></p>
+<p><font face="Arial" size="2">Click on the next table and continue this process
+until all the relevant tables have been translated.</font></p>
+<h3><font face="Arial" size="3">Titles Translation</font></h3>
+<p><font face="Arial" size="2">This option allows the Bank to translate the menu
+options to the language chosen by the customer.</font></p>
+<p class="screencaptures"><img src="custom29.gif" v:shapes="_x0000_i1037" width="496" height="263"></p>
+<p><font face="Arial" size="2">After clicking on the Titles Translation Option
+on the Bank’s Maintenance Form, choose a language to which you wish to
+translate the Menu options. When the customer chooses to work in this language,
+only the menu options that are translated in this option will be translated and
+will appear in that language. Click on the name of the option that you wish to
+translate. A list of that option’s headings appears on the screen.</font></p>
+<p><font face="Arial" size="2">Translate each of the headings in this option
+into however you want them to appear in that language’s version.</font></p>
+<p><font face="Arial" size="2">Click on the next option and continue this
+process until all the relevant titles and headings have been translated.</font></p>
+<h3><font face="Arial" size="3">General Parameters</font></h3>
+<p><font face="Arial" size="2">To update the NetIMEX general parameters, select
+General Parameters from the Banks Maintenance option, in the Customize section
+of the main menu.</font></p>
+<p class="screencaptures"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:418.5pt;
+ height:273pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG General Parameters1"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom94.gif" v:shapes="_x0000_i1025" width="560" height="365"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:418.5pt;
+ height:279pt' o:borderleftcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG General Parameters2"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom95.gif" v:shapes="_x0000_i1025" width="560" height="372"></span></p>
+<h4><font face="Arial" size="2"><b>Working Under a Frame</b></font></h4>
+<p><font face="Arial" size="2">NetIMEX automatically detects if the application
+is operating within a frame. If working under the Bank’s frame the Bank has
+the following options:</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Header</b>: Check to include the NetIMEX
+    Header GIFs in the NetIMEX pages.</font></li>
+  <li><font face="Arial" size="2"><b>Header</b> <b>Links</b>: Check to include
+    the Links GIF (bottom GIF) of the header in the NetIMEX pages.</font></li>
+  <li><font face="Arial" size="2"><b>Home</b> <b>Button</b>: Check to activate
+    the Home Link in the NetIMEX header.</font></li>
+  <li><font face="Arial" size="2"><b>Disable</b> <b>User</b> <b>Links</b>: Check
+    to deactivate the User Link in the NetIMEX header</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Logoff Option</b></font></h4>
+<p><font face="Arial" size="2">The General Parameters form defines whether the
+logoff option is used or not. Check the Logoff Button checkbox in order to use
+the logoff option.</font></p>
+<p><font face="Arial" size="2">An option in the NetIMEX footer allows you to
+explicitly request logging off from the session. The logoff option can be found
+on the bottom of any screen enabling you to exit at any time. Any attempt to
+access a NetIMEX page after logging off will route you back to the login page.&nbsp;</font></p>
+<p class="screencaptures"><img src="custom33.gif" v:shapes="_x0000_i1040" width="494" height="194"></p>
+<h4><font face="Arial" size="2"><b>Changing Bank Links</b></font></h4>
+<p><font face="Arial" size="2">The NetIMEX footer contains links that may be
+customized by the Bank within the General Parameters Form.</font></p>
+<p><font face="Arial" size="2">The links are as follows:</font></p>
+<table border="0" cellspacing="0" cellpadding="0" style="margin-left:pt;
+ border-collapse:collapse;mso-table-layout-alt:fixed;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="138" valign="top" style="width:103.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2"><b>Home
+      Page Name</b></font></td>
+    <td width="381" valign="top" style="width:285.75pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Defines
+      which IMEX page will be the NetIMEX homepage.&nbsp; The user can bypass
+      the homepage and go directly to the page of your choice (i.e. Inbox) by
+      typing the name in the &quot;Home Page Name&quot; parameter.</font></td>
+  </tr>
+  <tr>
+    <td width="138" valign="top" style="width:103.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2"><b>What's
+      New</b></font></td>
+    <td width="381" valign="top" style="width:285.75pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Specifies
+      the page (form) to which NetIMEX will link when the What's New option is
+      selected.</font></td>
+  </tr>
+  <tr>
+    <td width="138" valign="top" style="width:103.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2"><b>Feedback</b></font></td>
+    <td width="381" valign="top" style="width:285.75pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Specifies
+      the page (form) to which NetIMEX will link when the Feedback option is
+      selected.</font></td>
+  </tr>
+  <tr>
+    <td width="138" valign="top" style="width:103.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2"><b>E-Mail
+      </b></font></td>
+    <td width="381" valign="top" style="width:285.75pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Specifies
+      the page (form) to which NetIMEX will link when the E-Mail option is
+      selected.</font></td>
+  </tr>
+  <tr>
+    <td width="138" valign="top" style="width:103.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2"><b>Company
+      Name</b></font></td>
+    <td width="381" valign="top" style="width:285.75pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Allows
+      the user to specify a company name.</font></td>
+  </tr>
+</table>
+<h4><font face="Arial" size="2"><b>Transactions Per Page</b></font></h4>
+<p><font face="Arial" size="2">The number of transaction per page can be
+determined (it can be less than one).</font></p>
+<p><font face="Arial" size="2">The pages that need this parameter are: Amend
+Letter of Credit, Amend Guarantee, Deal Message List, Transaction Status, Clause
+List, Deal Select and Copy From List.</font></p>
+<h4><font face="Arial" size="2"><b>Generate Deal Number</b></font></h4>
+<p><font face="Arial" size="2">The user can determine when to generate the Deal
+Number in one of the following ways:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Not At All</font></li>
+  <li><font face="Arial" size="2">After Last Signature</font></li>
+  <li><font face="Arial" size="2">After Any Signature</font></li>
+  <li><font face="Arial" size="2">In Any Case</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Allow Collection Letter Printing</b></font></h4>
+<p><font face="Arial" size="2">The Collection Letter Printing feature allows the
+Bank to configure when the user can generate the Collection Letter for direct
+Export Collections.</font></p>
+<p><font face="Arial" size="2">One of the following options must be selected to
+indicate when or if the Collection Letter will be generated:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Not At All: Will not be generated</font></li>
+  <li><font face="Arial" size="2">After Last Signature: When all signatures that are required have been entered</font></li>
+  <li><font face="Arial" size="2">After Any Signature: At least one signature is required</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Allow Cover Letter Printing</b></font></h4>
+<p><font face="Arial" size="2">The Cover Letter Printing feature allows the Bank
+to configure when the user can generate the Cover Letter for regular Export
+Collections. The Cover Letter may be generated, printed and attached to the set
+of documents sent to the Bank.</font></p>
+<p><font face="Arial" size="2">One of the following options must be selected to
+indicate when or if the Cover Letter will be generated:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Not At All - Cannot print</font></li>
+  <li><font face="Arial" size="2">After Sign - Can only print after all the required signatures have been entered</font></li>
+  <li><font face="Arial" size="2">After Save - Can print after save even prior to final signature.</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Allow Printing Items</b></font></h4>
+<p><font face="Arial" size="2">This feature allow the Bank to specify when or if
+the user can print specifically tailored applications form for Letter of Credit,
+Amendment Letter of Credit and/or Remittance as follows:</font></p>
+<p><font face="Arial" size="2">Not At All - Cannot print</font></p>
+<p><font face="Arial" size="2">After Sign - Can only print after all the required signatures have been entered</font></p>
+<p><font face="Arial" size="2">After Save - Can print after save even prior to final signature.</font></p>
+<h4><font face="Arial" size="2"><b>Copy From</b></font></h4>
+<p><font face="Arial" size="2">Selection of the relevant radio button on the
+General Parameters screen will determine what is displayed in the Copy from
+results:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Customer side</font></li>
+  <li><font face="Arial" size="2">Bank side</font></li>
+  <li><font face="Arial" size="2">Both sides</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Generate Reference Letter</b></font></h4>
+<p><font face="Arial" size="2">When the Generate Reference Number checkbox is
+checked, if the user indicates that the Reference Number is not required, the
+system will automatically generate the Deal Identification Number.</font></p>
+<h4><font face="Arial" size="2"><b>Disable Bulk Signatures</b></font></h4>
+<p><font face="Arial" size="2">The user is allowed to sign a group of
+transactions within the specific authorization levels. If this checkbox is
+checked the Bulk Signatures function will be disabled and the user will not be
+allowed to sign a group of transactions.</font></p>
+<h4><font face="Arial" size="2"><b>Disable Bulk Signing of Transactions in
+Process</b></font></h4>
+<p><font face="Arial" size="2">The user is allowed to sign a group of
+transactions in process within the specific authorization levels. If this
+checkbox is checked this function will be disabled and the user will not be
+allowed to sign a group of transactions in process.</font></p>
+<h4><font face="Arial" size="2"><b>Disable Bulk Payment / Acceptance</b></font></h4>
+<font face="Arial" size="2">The user is allowed to process a group of payment
+and acceptance steps within the specific authorization levels. If this checkbox
+is checked this function will be disabled and the user will not be allowed to
+process bulk payment and acceptances.</font>
+<h4><font face="Arial" size="2"><b>PO Integration Enable</b></font></h4>
+<p><font face="Arial" size="2">Check the checkbox in order to indicate that
+NetIMEX is connected to an external portal to receive Purchase Orders.</font></p>
+<h4><font face="Arial" size="2"><b>Open Help Page In New Window</b></font></h4>
+<p><font face="Arial" size="2">Check if NetIMEX help (after clicking on the HELP
+button) should be displayed on a new browser window.</font></p>
+<h4><font face="Arial" size="2"><b>Open Incoming Correspondence in New Window</b></font></h4>
+<p class="Text"><font face="Arial" size="2">Check to display Incoming
+Correspondence in a separate browser window.</font></p>
+<h4><font face="Arial" size="2"><b>Release Period For Locking Transaction</b></font></h4>
+<font face="Arial" size="2">Enables a user to lock a transaction for a defined
+period of time, between 0 - 9999 minutes.<br>
+The default value of the release period is ‘0’.<br>
+If the release period is ‘0’ only the user that locked the transaction can
+open it.<br>
+If the release period is, for example, ‘10’, the user has placed a lock on
+the transaction for 10 minutes, and other users cannot edit the transaction for
+that period of time. After 10 minutes, the transaction is automatically
+unlocked, enabling all users to edit the transaction.</font>
+<h4><font face="Arial" size="2"><b>Restrict Supervisor Authorization</b></font></h4>
+<p><font face="Arial" size="2">Check the checkbox in order to allow the user to
+restrict the authorization of customer supervisors as follows:</font></p>
+<blockquote>
+  <p><font face="Arial" size="2">Supervisor cannot process transactions. Authorization of supervisors for
+transaction is always “Not Authorized”.</font></p>
+  <p><font face="Arial" size="2">Supervisors cannot sign transactions; therefore supervisors cannot be given an
+attribute of super user.</font></p>
+</blockquote>
+<h4><font face="Arial" size="2"><b>Import New Remittance</b></font></h4>
+<p><font face="Arial" size="2">When checked indicates that Remittance will be
+displayed on the Menu.</font></p>
+<h4><font face="Arial" size="2">Regional Settings</font></h4>
+<p><font face="Arial" size="2">Allows the Bank to define specific regional
+settings for each entity as follows:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Decimal Symbol</font></li>
+  <li><font face="Arial" size="2">Grouping Symbol</font></li>
+  <li><font face="Arial" size="2">Date Delimiter</font></li>
+  <li><font face="Arial" size="2">Date Format</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Number of Digits After Decimal Point</b></font></h4>
+<p><font face="Arial" size="2">Allows the Bank to define in the Inquiries how
+many digits to display after the decimal point in the Amounts. It can be set in
+either of the following ways:</font></p>
+<ul>
+  <li><font face="Arial" size="2">According to Currency</font></li>
+  <li><font face="Arial" size="2">Two Digits</font></li>
+</ul>
+<h3><font face="Arial" size="3"><span style="mso-bookmark: _Toc11576550">Deal
+Number for Department</span></font>
+</h3>
+<p><font face="Arial" size="2">NetIMEX allows for the automatic generation of
+the host deal number at the time of transaction initiation.&nbsp; The deal
+number is generated prior to sending it to the host and receiving a return
+acknowledgement.</font></p>
+<p><font face="Arial" size="2">The deal number generation is based on the
+following logic:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Each customer is assigned a department ID, per deal type as part of the
+customer's details, which are downloaded, from the host.</font></li>
+  <li><font face="Arial" size="2">For each department NetIMEX maintains a per deal type numerator.</font></li>
+  <li><font face="Arial" size="2">At transaction initiation the relevant department per deal type numerator is
+incremented accordingly.</font></li>
+</ul>
+<p><font face="Arial" size="2">This function is used to setup the initial value
+of the numerator. Click on the Deal Number for Department link.&nbsp; The list
+of departments is displayed. The list includes the department numbers and names.</font></p>
+<p class="screencaptures">
+<img src="custom34.gif" v:shapes="_x0000_i1041" width="476" height="232"></p>
+<h4><font face="Arial" size="2"><b>Updating the Department Numbers</b></font></h4>
+<p><font face="Arial" size="2">From the department click on the Edit icon&nbsp; <img src="custom35.gif" v:shapes="_x0000_i1048" width="38" height="32">.</font></p>
+<p><font face="Arial" size="2">The Deal Number for Department maintenance page
+is displayed.</font></p>
+<p class="screencaptures">
+<img src="custom36.gif" v:shapes="_x0000_i1042" width="476" height="180"></p>
+<p><font face="Arial" size="2">The Deal Number for Department maintenance page
+displays a number of fields which show the current numerator for all
+transactions that can be initiated in NetIMEX: Import Letter of Credit,
+Guarantees, Remittance, Documentary Collections, Clean Collections.</font></p>
+<p><font face="Arial" size="2">Enter the new value for the required deal type(s)
+and click on the Save button&nbsp; <img src="custom37.gif" v:shapes="_x0000_i1049" width="68" height="29"></font></p>
+<p><font face="Arial" size="2"><i><b>Note:</b> To specify that no deal number should be
+generated for a deal type, leave the deal type number field empty.</i></font></p>
+<h4><font face="Arial" size="2"><b>Viewing the Department Numerators</b></font></h4>
+<p><font face="Arial" size="2">From the department list, click on the department
+name link.&nbsp; The Deal Number for Department page is displayed.</font></p>
+<p class="screencaptures">&nbsp;
+<img src="custom38.gif" v:shapes="_x0000_i1043" width="474" height="166"></p>
+<h3><font face="Arial" size="3">Help Page Configuration</font></h3>
+<p><font face="Arial" size="2">NetIMEX can specify a Help page or Help
+application for each NetIMEX page different than the Help page delivered with
+Net IMEX making it unnecessary to override the supplied Help pages with the
+Bank’s Help pages.</font></p>
+<p><font face="Arial" size="2">The special Help Path item allows the Bank to
+specify where the Help page is located is so that the NetIMEX Help installation
+location can remain intact. In the Help Path specification a special token
+&lt;Lang&gt; defines if the new location is language sensitive (having a
+specific directory for each NetIMEX language defined) or it is a only one
+Language (in this case the &lt;Lang&gt; sub-path does not need to be specified
+in the Help Path specification).</font></p>
+<p><font face="Arial" size="2">An additional parameter in the General
+configuration page allows the Bank to specify whether Help pages are displayed
+in a separate window.</font></p>
+<p class="screencaptures">
+<img src="custom39.gif" v:shapes="_x0000_i1044" width="489" height="274"></p>
+<h3><font face="Arial" size="3">Audit Trail</font></h3>
+<p><font face="Arial" size="2">The Bank can configure what type of activities
+are to be logged and can generate an inquiry on the audited information.</font></p>
+<p><font face="Arial" size="2">A manual purge facility allows the bank to delete
+audit information from the database using flexible criteria. There is also a
+background service for automatic purge based on a retention period.</font></p>
+<p><font face="Arial" size="2">The following activities can be logged:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Transaction Processing</font></li>
+  <li><font face="Arial" size="2">User Profile Maintenance</font></li>
+  <li><font face="Arial" size="2">User authorization changes</font></li>
+  <li><font face="Arial" size="2">Signature Levels Changes</font></li>
+  <li><font face="Arial" size="2">Banks and Parties Maintenance</font></li>
+  <li><font face="Arial" size="2">Bank General Parameters Maintenance</font></li>
+  <li><font face="Arial" size="2">Translation</font></li>
+</ul>
+<h4><font face="Arial" size="2"><b>Audit Trail Inquiry</b></font></h4>
+<p><font face="Arial" size="2">The Bank can inquire upon the audited information
+using a flexible search facility for the following criteria: Activity, Customer,
+User and/or Dates From and To. In order to display a list of all the audited
+information the user must leave all the criteria fields empty and click on the
+search button.</font></p>
+<p class="picture0">
+<img src="custom40.gif" v:shapes="_x0000_i1045" width="547" height="157"></p>
+<h4><font face="Arial" size="2">Audit Trail List</font></h4>
+<p><font face="Arial" size="2">The user can sort the list per column by clicking
+on the column heading.</font></p>
+<p class="picture0">
+<img src="custom41.gif" v:shapes="_x0000_i1025" width="563" height="262"></p>
+<h4><font face="Arial" size="2"><b>Configure Log Activities</b></font></h4>
+<p><font face="Arial" size="2">In order to specify the activities to be logged:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Click on the Customize Icon&nbsp; <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:22.5pt;
+ height:21pt'>
+ <v:imagedata src="custom96.gif" o:title="Icon Customize"/>
+</v:shape><![endif]-->
+    <img src="custom96.gif" v:shapes="_x0000_i1025" width="30" height="28"></span>&nbsp;on
+the previous screen to view all the items.</font></li>
+  <li><font face="Arial" size="2">Check the relevant activities. To check all the
+items check the Select All checkbox.</font></li>
+  <li><font face="Arial" size="2">Click on the Save button to save the changes.</font></li>
+  <li><font face="Arial" size="2">Click on the Cancel button to return to the
+previous screen without saving any changes.</font></li>
+</ul>
+<p class="picture0"> <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:420pt;
+ height:171pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="Audit Trail Select All"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom9.gif" v:shapes="_x0000_i1025" width="562" height="230"></span></p>
+<h4><font face="Arial" size="2"><b>Clear Log Activities</b></font></h4>
+<p><font face="Arial" size="2">The user may clear the Log Activities for an
+Activity, Customer and/or User for a specific period.</font></p>
+<p><font face="Arial" size="2">In order to clear Log Activities:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Click on the Delete Icon&nbsp; <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:18pt;
+ height:20.25pt'>
+ <v:imagedata src="custom10.gif" o:title="Icon Delete"/>
+</v:shape><![endif]-->
+    <img src="custom10.gif" v:shapes="_x0000_i1025" width="24" height="27"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:18pt;
+ height:20.25pt'>
+ <v:imagedata src="custom97.gif" o:title="Icon Delete"/>
+</v:shape><![endif]-->
+    <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:18pt;
+ height:20.25pt'>
+ <v:imagedata src="custom103.gif" o:title="Icon Delete"/>
+</v:shape><![endif]-->
+    </span>&nbsp;on
+the previous screen.</font></li>
+  <li><font face="Arial" size="2">Select the relevant criteria.</font></li>
+  <li><font face="Arial" size="2">Click on the Delete button.</font></li>
+</ul>
+<p class="picture0">&nbsp;<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><img src="custom11.gif" v:shapes="_x0000_i1025" width="549" height="203"></span></p>
+<h4><font face="Arial" size="2"><b>PO Integration</b></font></h4>
+<p><font face="Arial" size="2">The integration of NetIMEX with PO systems is
+specifically tailored for each Bank.</font></p>
+<p><font face="Arial" size="2">One of the integration functions is the ability
+to send details of NetIMEX templates to the PO system so it can generate L/C
+applications based on a specific template. The forwarding of the template
+details to the PO system is a background ongoing process.</font></p>
+<p><font face="Arial" size="2">This function allows the retransmission of the
+template details to the PO system.</font></p>
+<p><font face="Arial" size="2">In order to send NetIMEX templates to the PO
+system:</font></p>
+<ul>
+  <li><font face="Arial" size="2"> Click on the PO Integration link on the Bank
+Maintenance page to display the Bulk Templates Transfer Request Window.</font></li>
+  <li><font face="Arial" size="2"> Select a Customer or ‘All’ for the whole
+list of customers.</font></li>
+  <li><font face="Arial" size="2">Click on the Send button.</font></li>
+</ul>
+<p class="picture0">&nbsp; <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:350.25pt;
+ height:114.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="PO Int"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom12.gif" v:shapes="_x0000_i1025" width="469" height="155"></span></p>
+<h3><font face="Arial" size="3">Set Up Dynamic Fields</font></h3>
+<p><font face="Arial" size="2">The setup dynamic fields window displays a list
+of all the dynamic fields which will be displayed in NetIMEX according to the
+Deal Type. The Bank can configure which of these Dynamic fields for each
+transaction will be mandatory.</font></p>
+<p><font face="Arial" size="2">To indicate that a Dynamic Field is mandatory,
+check the checkbox next to the Dynamic Field to be included in the relevant Deal
+Type. Do not check the checkbox if the Dynamic Field should not be mandatory.</font></p>
+<p><font face="Arial" size="2">Check the checkbox at the top of the column to
+indicate that all the Dynamic Fields are mandatory.</font></p>
+<p class="screencaptures">
+<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:344.25pt;
+ height:4in' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="B Dynamic Fields"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:344.25pt;
+ height:4in' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="B Dynamic Fields"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:344.25pt;
+ height:4in' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="B Dynamic Fields"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:344.25pt;
+ height:4in' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="B Dynamic Fields"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom108.gif" v:shapes="_x0000_i1025" width="461" height="386"></span></p>
+<h2><font face="Arial" size="4"><b>Style Configuration</b></font></h2>
+<p><font face="Arial" size="2">The styles of objects on NetIMEX pages can be
+configured.</font></p>
+<p><font face="Arial" size="2">The style files are stored in the file
+Jnetimex_css.css. A sample file can be seen in Appendix B of this Installation
+Guide.</font></p>
+<p><font face="Arial" size="2">Each Entity has its own style file that can be
+found at: [Web project context folder] \ CSS \ [Entity folder]</font></p>
+<p><font face="Arial" size="2">For Example, the style file for entity 000 can be
+found at:</font></p>
+<p><font face="Arial" size="2">Jnetimex\CSS\Entity000\Jnetimex_css.css</font></p>
+<p><font face="Arial" size="2">The style configuration can be edited with any
+text editor.</font></p>
+<p><font face="Arial" size="2">The styles’ definition in the CSS includes
+various attributes for each style. The only attributes the bank is allowed to
+change are the background colors and fonts. Other attributes such as width
+should not be changed.</font></p>
+<p><font face="Arial" size="2">Following is the list of styles</font></p>
+<table border="1" cellspacing="0" cellpadding="0" style="margin-left:pt;
+ border-collapse:collapse;mso-table-layout-alt:fixed;border:none;mso-border-alt:
+ solid windowtext .5pt;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  background:silver;padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">Objects</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border:solid windowtext .5pt;
+  border-left:none;mso-border-left-alt:solid windowtext .5pt;background:silver;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">CSS
+      Classes to be Modified</font></td>
+  </tr>
+  <tr style="height:15.75pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:15.75pt"><font face="Arial" size="2">Tables background and width.</font>
+      <p><font face="Arial" size="2">&nbsp;&nbsp;
+      </font></p>
+    </td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:15.75pt"><font face="Arial" size="2">TransactionPage</font>
+      <p><font face="Arial" size="2">Page1</font></p>
+      <p><font face="Arial" size="2">Page3</font></p>
+      <p><font face="Arial" size="2">TableHeader</font></p>
+      <p><font face="Arial" size="2">justBackGround</font></p>
+    </td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Mandatory labels</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">MandatoryLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Regular Labels</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">RegularLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Incoming correspondence Text –
+      font color</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">BlackLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Net2PO and Incoming correspondence
+      Text – main title color and size</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">BigtitleLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">All the systems titles and sub
+      titles</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">titleLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">GrayColor</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">disableLabel</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Outside of table Buttons
+      background color</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">buttons</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Page Header background color and
+      width</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">header</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Login page dialog background color</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">login</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Tables font size and style</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">tdFont</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">General background color</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">BODY</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">General Font style and size</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">FONT</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">HomePage background color and
+      width</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">homepage</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Footer section background color,
+      width and text align</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">footer</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Bold Changes</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">changedcolor</font></td>
+  </tr>
+  <tr style="height:16.55pt">
+    <td width="276" valign="top" style="width:207.0pt;border:solid windowtext .5pt;
+  border-top:none;mso-border-top-alt:solid windowtext .5pt;padding:0cm 5.4pt 0cm 5.4pt;
+  height:16.55pt"><font face="Arial" size="2">Internal CSS classes – for
+      internal system Use only</font></td>
+    <td width="258" valign="top" style="width:193.6pt;border-top:none;border-left:
+  none;border-bottom:solid windowtext .5pt;border-right:solid windowtext .5pt;
+  mso-border-top-alt:solid windowtext .5pt;mso-border-left-alt:solid windowtext .5pt;
+  padding:0cm 5.4pt 0cm 5.4pt;height:16.55pt"><font face="Arial" size="2">footer2</font>
+      <p><font face="Arial" size="2">menu</font></p>
+      <p><font face="Arial" size="2">page2</font></p>
+      <p><font face="Arial" size="2">centerMe</font></p>
+      <p><font face="Arial" size="2">header2</font></p>
+      <p><font face="Arial" size="2">valign</font></p>
+      <p><font face="Arial" size="2">docs</font></p>
+    </td>
+  </tr>
+</table>
+<h2><font face="Arial" size="4"><b>Clauses</b></font></h2>
+<p><font face="Arial" size="2">The Bank can create standard clauses or text
+library, which can be used by the customer to facilitate the data entry in the
+Text Windows on the Transaction.</font></p>
+<p><font face="Arial" size="2">The Bank creates the text of clauses and defines
+to which of the text windows and transactions each clause is relevant.</font></p>
+<p><font face="Arial" size="2">In the Text section of the transaction, the Open
+Clause Library icon <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:13.5pt;
+ height:18.75pt'>
+ <v:imagedata src="custom106.gif" o:title="Clause Icon"/>
+</v:shape><![endif]-->
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:13.5pt;
+ height:18.75pt'>
+ <v:imagedata src="custom107.gif" o:title="Clause Icon"/>
+</v:shape><![endif]-->
+<img src="custom107.gif" v:shapes="_x0000_i1025" width="18" height="25"></span>&nbsp;indicates
+that there are clauses relevant to the window. When clicking on this icon a list
+of defined clauses relevant for the window are displayed. After selecting the
+required clauses the contents of the clause is copied to the window.</font></p>
+<p><font face="Arial" size="2">Select Clause from the Customize section of the
+Inbox to display the Customize Clauses Search Screen.</font> <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:396pt;
+ height:204.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="Customize Clauses List"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:396pt;
+ height:204.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="Customize Clauses List"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom109.gif" v:shapes="_x0000_i1025" width="530" height="275"></span></p>
+<p><font face="Arial" size="2">The user has the following options:</font></p>
+<ul>
+  <li><font face="Arial" size="2">Create a
+new clause by clicking on the Add button.</font></li>
+  <li><font face="Arial" size="2">Search for
+a specific Clause by entering the Identification Code of the relevant Clause in
+the Clause ID field and clicking on the Search button.</font></li>
+  <li><font face="Arial" size="2">Display a
+list of all existing clauses by leaving the Clause ID field empty and clicking
+on the Search button.</font></li>
+</ul>
+<p><font face="Arial" size="2">On the list of existing clauses the user can
+carry out the following options:</font></p>
+<p><font face="Arial" size="2">Edit an
+existing clause by clicking on the Edit <i style="mso-bidi-font-style:normal"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:24pt;
+ height:26.25pt' fillcolor="window">
+ <v:imagedata src="custom97.gif" o:title="Icon-Edit"/>
+</v:shape><![endif]--> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:24pt;
+ height:26.25pt' fillcolor="window">
+ <v:imagedata src="custom103.gif" o:title="Icon-Edit"/>
+</v:shape><![endif]--> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:24pt;
+ height:26.25pt' fillcolor="window">
+ <v:imagedata src="custom110.gif" o:title="Icon-Edit"/>
+</v:shape><![endif]-->
+<img src="custom110.gif" v:shapes="_x0000_i1025" width="32" height="35"></span></i>
+icon.&nbsp;</font></p>
+<p><font face="Arial" size="2">Delete an
+existing clause by clicking on the Delete <i style="mso-bidi-font-style:normal"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;mso-fareast-font-family:
+&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:EN-US;
+mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:21.75pt;
+ height:25.5pt' fillcolor="window">
+ <v:imagedata src="custom97.gif" o:title="Icon-Delete"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:21.75pt;
+ height:25.5pt' fillcolor="window">
+ <v:imagedata src="custom103.gif" o:title="Icon-Delete"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:21.75pt;
+ height:25.5pt' fillcolor="window">
+ <v:imagedata src="custom111.gif" o:title="Icon-Delete"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:21.75pt;
+ height:25.5pt' fillcolor="window">
+ <v:imagedata src="custom126.gif" o:title="Icon-Delete"/>
+</v:shape><![endif]-->
+<img src="custom126.gif" v:shapes="_x0000_i1025" width="29" height="34"></span></i>&nbsp;ico<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:414.75pt;
+ height:222.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="Clause Details Window-1"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->n. &nbsp;&nbsp;</font><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="custom112.gif" v:shapes="_x0000_i1025" width="555" height="298"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:415.5pt;
+ height:228.75pt' o:borderleftcolor="this" o:borderbottomcolor="this"
+ o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="Clause Details Window-2"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><img src="custom113.gif" v:shapes="_x0000_i1025" width="558" height="293"></span></p>
+<p><font face="Arial" size="2">How to add a clause:</font></p>
+<p><font face="Arial" size="2">1.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click on
+the <b> Add</b> button on the Customize Clause Criteria screen to display the Clause
+Details Screen.</font></p>
+<p><font face="Arial" size="2">2.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter the
+Clause ID.</font></p>
+<p><font face="Arial" size="2">3.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter the
+Clause Description.</font></p>
+<p><font face="Arial" size="2">4.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Enter the
+Clause Text. If the text of the clause is more than 4 lines click on the Zoom
+Text Icon to view/edit all the data.</font></p>
+<p><font face="Arial" size="2">5.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; In the
+Clause Availability section check the relevant checkboxes. This will indicate on
+which window and in which transaction the clause will be available.</font></p>
+<p><font face="Arial" size="2">6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Click on
+the <b> Save</b> button.</font></p>
+<h3><font face="Arial" size="3">Defined Clause Descriptions</font></h3>
+<p><font face="Arial" size="2">An additional option exists to display clauses as
+defined in the clauses form, which the user can select by selecting the desired
+checkboxes. This replaces the use of the Clause Library and free text windows.</font></p>
+<p class="screencaption"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:447pt;
+ height:84.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="phases"
+  cropleft="545f"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom98.gif" v:shapes="_x0000_i1025" width="598" height="115"></p>
+<p><font face="Arial" size="2">There are two options for this function, which is
+established during bank setup:</font></p>
+<ul>
+  <li><font face="Arial" size="2">The user can select more than one clause from
+    one text window.</font></li>
+  <li><font face="Arial" size="2">The user can select only one clause from one
+    text window.</font></li>
+</ul>
+<p><font face="Arial" size="2">In a text window which is marked as mandatory, a
+validity check is performed to ensure that at least one clause is selected.</font></p>
+<h2><b><font face="Arial" size="4">Purge</font></b></h2>
+<p><font face="Arial" size="2">The Purge function in NetIMEX allows the Bank to
+purge old data. To access the Purge operation, click on the <i> Purge</i> option from
+the Customize section of the main menu.</font></p>
+<p><font face="Arial" size="2">Purge is allowed for the following items:</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Closed Deals</b><br>
+    </font></li>
+  <li><font face="Arial" size="2"><b>Rejected Deals</b><br>
+    </font></li>
+  <li><font face="Arial" size="2"><b>Incoming Correspondence Items</b><br>
+    </font></li>
+  <li><font face="Arial" size="2"><b>Unsent Transactions</b></font></li>
+</ul>
+<p><font face="Arial" size="2">For each object type, you are presented with the
+following selection criteria request.&nbsp;</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Deal Type</b> - Identifies the type of deal.&nbsp; Leave this field blank to select
+all the deal types.</font></li>
+  <li><font face="Arial" size="2"><b>Range Dates</b> - Range of expiry dates (for relevant deal types).</font></li>
+  <li><font face="Arial" size="2"><b>Search all Customers</b> - When checked the items of all the customers are
+displayed.</font></li>
+</ul>
+<p><font face="Arial" size="2">After selecting the object type and criteria,
+click on the Search button to display; the list of items matching the criteria
+will be displayed.</font></p>
+<p class="Picture">
+<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:409.5pt;
+ height:86.25pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG Purge"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:409.5pt;
+ height:86.25pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG Purge"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--> <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:409.5pt;
+ height:86.25pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG Purge"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:409.5pt;
+ height:86.25pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="IG Purge"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom114.gif" v:shapes="_x0000_i1025" width="548" height="117"></span></p>
+<p><i><font face="Arial" size="2"><b>Note: </b> Items are purged physically. You can restore the
+  data by re-transmitting the relevant deal steps from the back office system.</font></i></p>
+<h3><font face="Arial" size="3">Purge - Rejected Deals</font></h3>
+<p><font face="Arial" size="2">The following screen illustrates the Purge
+function with <i>Rejected Deals</i> as the object type.&nbsp; The Purge criteria will include
+Deals according to combinations of:</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Deal Type</b> - Identifies the type of deal.&nbsp; Leave this field blank to select
+all the deal types.</font></li>
+  <li><font face="Arial" size="2"><b>Range dates</b> - Range of expiry dates (for relevant deal types).</font></li>
+</ul>
+<p class="Picture">
+<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:417.75pt;
+ height:213pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="C Purge Rej"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]--><img src="custom115.gif" v:shapes="_x0000_i1025" width="559" height="286"></span></p>
+<p><font face="Arial" size="2">Select the items to purge by clicking the check
+box to the left of the entry (or select all the items), and request the purge
+function to be executed by clicking on the Purge button.</font></p>
+<p><font face="Arial" size="2"><b>Deal No. </b> - Identifies the Deal number.</font></p>
+<p><font face="Arial" size="2"><b>Reference No</b> - A unique deal identification
+number.&nbsp;
+</font></p>
+<p><font face="Arial" size="2"><b>ISS/EFF Date</b> - The issuance or effective date of
+the deal.</font></p>
+<p><font face="Arial" size="2"><b>Mat/Exp Date</b> - Specifies the maturity or expiry
+date of the deal.</font></p>
+<table border="0" cellspacing="0" cellpadding="0" style="margin-left:0pt;
+ border-collapse:collapse;mso-table-layout-alt:fixed;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal" style="margin-left:0cm"><font face="Arial" size="2">&nbsp;
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom99.gif" o:title="butpurge"/>
+</v:shape><![endif]-->
+      <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom103.gif" o:title="butpurge"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom116.gif" o:title="butpurge"/>
+</v:shape><![endif]-->
+      <img src="custom116.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></font></p>
+    </td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal" style="margin-left:0cm"><font face="Arial" size="2">Purges the selected entries
+      in the list.</font></p>
+    </td>
+  </tr>
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal" style="margin-left:0cm"><font face="Arial" size="2">&nbsp;
+      <span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom99.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]-->
+      <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom117.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]-->
+      <img src="custom117.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></font></p>
+    </td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt">
+      <p class="MsoNormal" style="margin-left:0cm"><font face="Arial" size="2">Returns to the previous
+      screen without making any changes.</font></p>
+    </td>
+  </tr>
+</table>
+<h3><font face="Arial" size="3">Purge - Incoming Correspondence</font></h3>
+<p><font face="Arial" size="2">The following screen illustrates the Purge
+function with <i> Incoming Correspondence</i> as the object type. The Purge criteria
+will include Incoming Correspondence according to combinations of:</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Text Type</b> - Identifies the text type.&nbsp; Leave
+this field blank to select all the text types.</font></li>
+  <li><font face="Arial" size="2"><b>Range dates</b> - Range of transmission dates.</font></li>
+</ul>
+<p class="Picture">
+<span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:408.75pt;
+ height:246pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="C Purge Inc Cor"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+ <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:408.75pt;
+ height:246pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="C Purge Inc Cor"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom118.gif" v:shapes="_x0000_i1025" width="547" height="330"></span></p>
+<p><font face="Arial" size="2">Transaction Name - Name of the transaction.</font></p>
+<p><font face="Arial" size="2"><b>Deal No.</b> - Identifies the Deal number.</font></p>
+<p><font face="Arial" size="2"><b>Reference No</b> - A unique deal identification
+number.</font></p>
+<p><font face="Arial" size="2"><b>Drw. No.</b> - Identifies the drawing number.&nbsp;
+The Drawing Number indicates how many actions have been performed on the deal
+application process.</font></p>
+<p><font face="Arial" size="2"><b>Text Type </b> - Identifies the selection criteria.</font></p>
+<p><font face="Arial" size="2"><b>Currency/Amount </b> - Specifies currency / amount of
+the deal, if any.</font></p>
+<p><font face="Arial" size="2"><b>Date </b> - Specifies the correspondence date.</font></p>
+<table border="0" cellspacing="0" cellpadding="0" style="margin-left:0pt;
+ border-collapse:collapse;mso-table-layout-alt:fixed;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom101.gif" o:title="butpurge"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom103.gif" o:title="butpurge"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom119.gif" o:title="butpurge"/>
+</v:shape><![endif]-->
+      <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom121.gif" o:title="butpurge"/>
+</v:shape><![endif]-->
+      <img src="custom121.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Purges
+      the selected entries in the list.</font></td>
+  </tr>
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom101.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom120.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]-->
+      <!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom122.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]-->
+      <img src="custom122.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Returns
+      to the previous screen without making any changes.</font></td>
+  </tr>
+</table>
+<h2><font face="Arial" size="3">Purge - Unsent Transactions</font></h2>
+<p><font face="Arial" size="2">The following screen illustrates the Purge
+function with <i> Unsent Transactions</i> as the object type. The Purge criteria will
+include Unsent Transactions according to combinations of:</font></p>
+<ul>
+  <li><font face="Arial" size="2"><b>Transaction Type </b> - Identifies the type of
+transaction.&nbsp; Leave this field blank to select all the transaction types.</font></li>
+  <li><font face="Arial" size="2"><b>Range dates</b> - Range of status dates.</font></li>
+</ul>
+<p class="text0" style="margin-top:6.0pt;margin-right:0cm;margin-bottom:0cm;
+margin-left:0cm;margin-bottom:.0001pt"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA">&nbsp;<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:408.75pt;
+ height:237.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="C Purge Unsent Trans"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:408.75pt;
+ height:237.75pt' o:bordertopcolor="this" o:borderleftcolor="this"
+ o:borderbottomcolor="this" o:borderrightcolor="this">
+ <v:imagedata src="file:///C:/TEMP/msoclip1/01/clip_image001.png" o:title="C Purge Unsent Trans"/>
+ <w:bordertop type="single" width="4"/>
+ <w:borderleft type="single" width="4"/>
+ <w:borderbottom type="single" width="4"/>
+ <w:borderright type="single" width="4"/>
+</v:shape><![endif]-->
+<img src="custom123.gif" v:shapes="_x0000_i1025" width="547" height="319"></span>
+</p>
+<p><font face="Arial" size="2"><b>Reference No </b> - A unique deal identification
+number.</font></p>
+<p><font face="Arial" size="2"><b>Deal No.</b> - Identifies the Deal number.</font></p>
+<p><font face="Arial" size="2"><b>Transaction Type </b> - Identifies the selection
+criteria.</font></p>
+<p><font face="Arial" size="2"><b>Tran. Date</b> - Specifies the transaction date.</font></p>
+<table border="0" cellspacing="0" cellpadding="0" style="margin-left:0pt;
+ border-collapse:collapse;mso-table-layout-alt:fixed;mso-padding-alt:0cm 5.4pt 0cm 5.4pt">
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom101.gif" o:title="butpurge"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom103.gif" o:title="butpurge"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom124.gif" o:title="butpurge"/>
+</v:shape><![endif]-->
+      <img src="custom124.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Purges
+      the selected entries in the list.</font></td>
+  </tr>
+  <tr>
+    <td width="90" valign="top" style="width:67.5pt;padding:0cm 5.4pt 0cm 5.4pt"><span style="font-size:12.0pt;font-family:&quot;Times New Roman&quot;;
+mso-fareast-font-family:&quot;Times New Roman&quot;;mso-ansi-language:EN-US;mso-fareast-language:
+EN-US;mso-bidi-language:AR-SA"><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom101.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]--><!--[if gte vml 1]><v:shapetype id="_x0000_t75"
+ coordsize="21600,21600" o:spt="75" o:preferrelative="t" path="m@4@5l@4@11@9@11@9@5xe"
+ filled="f" stroked="f">
+ <v:stroke joinstyle="miter"/>
+ <v:formulas>
+  <v:f eqn="if lineDrawn pixelLineWidth 0"/>
+  <v:f eqn="sum @0 1 0"/>
+  <v:f eqn="sum 0 0 @1"/>
+  <v:f eqn="prod @2 1 2"/>
+  <v:f eqn="prod @3 21600 pixelWidth"/>
+  <v:f eqn="prod @3 21600 pixelHeight"/>
+  <v:f eqn="sum @0 0 1"/>
+  <v:f eqn="prod @6 1 2"/>
+  <v:f eqn="prod @7 21600 pixelWidth"/>
+  <v:f eqn="sum @8 21600 0"/>
+  <v:f eqn="prod @7 21600 pixelHeight"/>
+  <v:f eqn="sum @10 21600 0"/>
+ </v:formulas>
+ <v:path o:extrusionok="f" gradientshapeok="t" o:connecttype="rect"/>
+ <o:lock v:ext="edit" aspectratio="t"/>
+</v:shapetype><v:shape id="_x0000_i1025" type="#_x0000_t75" style='width:48pt;
+ height:18.75pt' fillcolor="window">
+ <v:imagedata src="custom125.gif" o:title="Button-Cancel"/>
+</v:shape><![endif]-->
+      <img src="custom125.gif" v:shapes="_x0000_i1025" width="64" height="25"></span></td>
+    <td width="462" valign="top" style="width:346.5pt;padding:0cm 5.4pt 0cm 5.4pt"><font face="Arial" size="2">Returns
+      to the previous screen without making any changes.</font></td>
+  </tr>
+</table>
+<p class="MsoNormal">&nbsp;
+</p>
+
+</body>
+
+</html>

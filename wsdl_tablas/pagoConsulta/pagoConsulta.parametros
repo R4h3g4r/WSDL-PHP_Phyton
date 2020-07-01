@@ -1,0 +1,24 @@
+PagoConsultaXSLT;cartaCierre=pagoconsulta/cartaDeCierrrePagoDeLaConsulta;listadoChq=pagoConsultaEjecutivoComercialImpresionListado;
+PagoConsultaGenerarXML;cartaCierre=cl.bci.aplicaciones.ejecutivos.pagoconsulta.pdf.GenerarXMLCartaCierre;listadoChq=cl.bci.aplicaciones.ejecutivos.pagoconsulta.pdf.GenerarXMLImprimirListado;
+ChequeAutoXSLT;listadoChq=pagoConsultaEjecutivoComercialImpresionListadoPagoProtesto;
+ChequeAutoGenerarXML;listadoChq=cl.bci.aplicaciones.ejecutivos.pagoconsulta.pdf.GenerarXMLImprimirListadoAuto;
+
+
+Mensajes;msgErrorAccion=Error al realizar la acción;msgErrorTerceroIni=No Tiene Asociado al Ejecutivo ';msgErrorTerceroFin=' para Realizar Pago Consulta;NDConsulta=No hay datos para consulta del Ejecutivo: ;errorTerceros=Error al obtener los datos de la consulta;errorUsuarioNoAsociado= Ejecutivo no existe, favor validar usuario ingresado.;
+
+# Pago Consulta Journal
+###########################
+pagar;codEventoNegocio=PAGAR;subCodEventoNegocio=APLICACION;idProducto=PagConPagar;
+protestar;codEventoNegocio=PROTESTAR;subCodEventoNegocio=APLICACION;idProducto=PagConProtestar;
+pagoTerceros;codEventoNegocio=CONSULTA;subCodEventoNegocio=APLICACION;idProducto=PagConTerceros;
+ingresoCNS;codEventoNegocio=CNS;subCodEventoNegocio=EJE;idProducto=PAGCON;
+
+
+# Validacion horario
+#Integracion y certificacion
+#SERVICIO;horaTermino=21:00;
+#Produccion
+#SERVICIO;horaTermino=09:35;
+#FormatoDeNumeros
+FORMATO;country=cl;language=es;
+

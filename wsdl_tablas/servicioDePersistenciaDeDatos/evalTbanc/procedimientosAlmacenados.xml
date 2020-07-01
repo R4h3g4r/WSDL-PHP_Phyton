@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	 
+<sqlMap namespace="evalTbanc.procedimientosAlmacenados">	
+
+	<parameterMap id="setGuardarSolicitudCliente" 	class="java.util.HashMap">
+		<parameter property="rutCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="dvCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="nombreCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="apellidoPaterno"		jdbcType="CHAR" javaType="String" />
+		<parameter property="apellidoMaterno"		jdbcType="CHAR" javaType="String" />
+		<parameter property="fechaNacimiento"			jdbcType="DATETIME" javaType="Date" />
+		<parameter property="sexoCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="estadoCivil"		jdbcType="CHAR" javaType="String" />
+		<parameter property="nacionalidadCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="direccionCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="comuna"			jdbcType="CHAR" javaType="String" />
+		<parameter property="semaforo"			jdbcType="CHAR" javaType="String" />
+		<parameter property="posibilidadCtaCte"	jdbcType="CHAR" javaType="String" />
+		<parameter property="codigoRechazo"		jdbcType="CHAR" javaType="String" />
+		<parameter property="telefonoIngresado"		jdbcType="CHAR" javaType="String" />
+		<parameter property="canalBCI"			jdbcType="CHAR" javaType="String" />
+		<parameter property="canalProced"			jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+
+    <procedure id="guardarSolicitudCliente" parameterMap="setGuardarSolicitudCliente" resultClass="int">
+		 {CALL eval_ctacte_movil (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setConsultaSolicitudCliente" 	class="java.util.HashMap">
+		<parameter property="rutCliente"			jdbcType="CHAR" javaType="String" />
+		<parameter property="dvCliente"			jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+	 <resultMap id="getConsultaSolicitudCliente" class="java.util.HashMap">    
+        <result property="cantidadRegistros"             column="cant_reg"    javaType="String" />
+    </resultMap>
+	
+	<procedure id="puedeRealizarConsulta" parameterMap="setConsultaSolicitudCliente" resultMap="getConsultaSolicitudCliente">
+		 {CALL get_eval_ctacte_movil (?, ?)}
+	</procedure>
+
+    
+</sqlMap>	

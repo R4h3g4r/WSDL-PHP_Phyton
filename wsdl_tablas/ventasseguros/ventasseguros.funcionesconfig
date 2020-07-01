@@ -1,0 +1,75 @@
+ELT;IIT=iit;LFT=lft;ITD=itd;LTD=ltd;
+
+TIPO;FN_TIPO_DOMINIO=1;FN_TIPO_DATOS=2;
+
+FUNCIONMAPEO;TIPO_PARAM_IN=i;TIPO_PARAM_OUT=o;
+
+FUNCIONES;CODES=REGION|CIUDAD|CIUDADES POR REGION|COMUNA|RUT|RUTCTA|EDAD|EDAD ACTUARIAL|EDAD ACTUARIAL 2|SIGEN|SIGENAACH|MARCA|MODELO|COLOR|PERSONA|VEHICULO|VIVIENDA|USO HOGAR|INSPECCION|INSPECCION DETALLE|PARENTEZCO|CONSTRUCCION|USO VEHICULO|PROFESION ASEGURADO|SECTOR HOGAR FLEXIBLE|CONSTRUCCION HOGAR FLEXIBLE|VIVIENDA HOGAR FLEXIBLE|SEXO|ESTADO CIVIL|AUTO DEDUCIBLE|AUTO USO|ACTIVIDAD BCINCE|TIPO PAGO|MES DESCUENTO|AFP|AFP DETALLE|SUMA_2|SUMA_3|CALCULAR_TIEMPO;
+
+CIUDAD;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=TBConsCiudadesV;USAR_CACHE=SI;COD_OUT=ciudad;OUT=descripcion;DESC=Recupera las ciudades;
+
+COMUNA;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetComCiu;USAR_CACHE=SI;COD_OUT=comuna;IN=ciudad;ciudadMask=0000;OUT=descripcion;COD_AGRUPA=ciudad;TIPO_EJEC=JS;JS_FUNC=fnCargaLlenaCombo;JS_TUX=IBARetComCiuAlV;JS_CLASS=wcorp.util.ventasseguros.FuncionDominioJS;JS_FUNC_DATOS=llenarCombo.jsp;DESC=Recupera las comunas a partir de una ciudad;
+
+EDAD;CLASS=wcorp.serv.ventasseguros.FunctionEdad;TIPO=2;IN=fecha;OUT=edad;TIPO_EJEC=JS;JS_FUNC=fnCargaCalcularEdad;DESC=Calcula la edad a hoy a partir de la fecha;
+
+RUT;CLASS=wcorp.serv.ventasseguros.FunctionValuesMapRut;TIPO=2;IN=rut;OUT=nombres|apellidoPaterno|apellidoMaterno|email|contacto1|fonoCelular|ejecutivoContacto|idCliente|direccion|direccionComercial|ciudad|ciudadComercial|comuna|comunaComercial|fono|fonoComercial|sucursalOperacion|grupo|sexo|fecha|tipoCliente|nombreRazonSocial|nombreFantasia|naturalezaJuridica;DESC=Recupera los datos del cliente a partir del RUT;
+
+SIGEN;CLASS=wcorp.serv.ventasseguros.FunctionValuesMap;TIPO=2;TUX=IBARetSgnAut;IN=rut;OUT=valor;DESC=Recupera la cantidad de siniestros a partir del RUT;
+SIGENAACH;CLASS=wcorp.serv.ventasseguros.FunctionValuesMapSiniestro;TIPO=2;IN=rut;OUT=cantidadSiniestros;TUX=IBARetSgnAut;TUXG=IBAUpdSin;codigoConsulta=BCI2;tipoConsulta=1;rutCia=099147000k;usuario=admbci;clave=poi19;nomUser=Administrador;obsUser=NewSales;wsactivo=0;DESC=Recupera la cantidad de siniestros a partir del RUT desde http://aach.cl;
+
+RUTCTA;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=CtaCteConsRut;OUT=cuenta;DESC=Recupera la CtaCteBCI a partir del RUT;
+
+MARCA;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetAtoMca;USAR_CACHE=SI;USAR_COD_COMPANIA=SI;COD_OUT=codigo;OUT=descripcion;DESC=Recupera las MARCAS DE AUTOS;
+
+MODELO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetAtoMod;USAR_CACHE=SI;USAR_COD_COMPANIA=SI;COD_OUT=codigo;IN=marca;marcaMask=0000;OUT=descripcion;COD_AGRUPA=marca;TIPO_EJEC=JS;JS_FUNC=fnCargaLlenaCombo;JS_TUX=IBARetAtoModAll;JS_CLASS=wcorp.util.ventasseguros.FuncionDominioJS;JS_FUNC_DATOS=llenarCombo.jsp;DESC=Recupera los modelos a partir de una marca;
+
+DSEXO;0=MASCULINO;1=FEMENINO;DESC=glosa a retornar para sexo;
+############################# Funciones que retnan datos de la tabla de parámetros #############################
+
+COLOR;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO COLOR;OUT=descripcion;DESC=Recupera TIPO COLOR;
+PERSONA;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO PERSONA;OUT=descripcion;DESC=Recupera TIPO PERSONA;
+VEHICULO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO VEHICULO;OUT=descripcion;DESC=Recupera TIPO VEHICULO;
+VIVIENDA;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO VIVIENDA;OUT=descripcion;DESC=Recupera TIPO VIVIENDA;
+USO HOGAR;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO USO HOGAR;OUT=descripcion;DESC=Recupera TIPO USO HOGAR;
+PARENTEZCO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO PARENTEZCO;OUT=descripcion;DESC=Recupera TIPO PARENTEZCO;
+CONSTRUCCION;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO CONSTRUCCION;OUT=descripcion;DESC=Recupera TIPO CONSTRUCCION;
+USO VEHICULO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO USO VEHICULO;OUT=descripcion;DESC=Recupera TIPO USO VEHICULO;
+PROFESION ASEGURADO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO PROFESION ASEGURADO;OUT=descripcion;DESC=Recupera TIPO PROFESION ASEGURADO;
+SEXO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO SEXO;OUT=descripcion;DESC=Recupera TIPO SEXO;
+ESTADO CIVIL;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO ESTADO CIVIL;OUT=descripcion;DESC=Recupera TIPO ESTADO CIVIL;
+TIPO PAGO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO PAGO;OUT=descripcion;DESC=Recupera TIPO PAGO;
+
+#################### Para llenar parámetros de la funciones de Tarifa para HOGAR FLEXIBLE ######################
+SECTOR HOGAR FLEXIBLE;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO SECTOR HOGFLE;OUT=descripcion;DESC=Recupera TIPO SECTOR HOGFLE;
+CONSTRUCCION HOGAR FLEXIBLE;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO CONSTRU HOGFLE;OUT=descripcion;DESC=Recupera TIPO CONSTRU HOGFLE;
+VIVIENDA HOGAR FLEXIBLE;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO VIVIENDA HOGFLE;OUT=descripcion;DESC=Recupera TIPO VIVIENDA HOGFLE;
+
+#################### Para llenar parámetros de la funcion de Tarifa para AUTO ######################
+AUTO DEDUCIBLE;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO AUTO DEDUCIBLE;OUT=descripcion;DESC=Recupera TIPO AUTO DEDUCIBLE;
+AUTO USO;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO AUTO USO;OUT=descripcion;DESC=Recupera TIPO AUTO USO;
+EDAD ACTUARIAL;CLASS=wcorp.serv.ventasseguros.FunctionValuesMap;TIPO=2;TUX=IBARetEdaAct;IN=tipoPago|fecha;OUT=edad;DESC=Calcula la edad actuarial;
+EDAD ACTUARIAL 2;CLASS=wcorp.serv.ventasseguros.FunctionValuesMap;TIPO=2;TUX=IBAUlvRetEdaAct;IN=fecha;OUT=edad;DESC=Calcula la edad actuarial;
+
+REGION;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetRegV;USAR_CACHE=SI;COD_OUT=region;OUT=descripcion;DESC=Recupera las regiones;
+CIUDADES POR REGION;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetCiuReg;USAR_CACHE=SI;COD_OUT=ciudad;IN=region;regionMask=00;OUT=descripcion;COD_AGRUPA=region;TIPO_EJEC=JS;JS_FUNC=fnCargaLlenaCombo;JS_TUX=IBARetCiuRegAll;JS_CLASS=wcorp.util.ventasseguros.FuncionDominioJS;JS_FUNC_DATOS=llenarCombo.jsp;DESC=Recupera las ciudades a partir de una region;
+
+#################### Para llenar parámetros del seguro INCENDIO ######################
+ACTIVIDAD BCINCE;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;USAR_CACHE=SI;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO ACTIVIDAD BCINCE;OUT=descripcion;DESC=Recupera TIPO ACTIVIDAD BCINCE;
+
+#################### Centros de inspeccion ######################
+##INSPECCION;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetPrmFnc;COD_OUT=codigo;FIX_IN=codParametro;codParametro=TIPO INSPECCION;OUT=descripcion;DESC=Recupera TIPO INSPECCION;
+INSPECCION;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBARetCin;USAR_CACHE=SI;USAR_COD_COMPANIA=SI;COD_OUT=codigo;OUT=descripcion;DESC=Recupera los centros de nispeccion;
+INSPECCION DETALLE;CLASS=wcorp.serv.ventasseguros.FunctionValuesMap;TIPO=2;TUX=IBARetCinDet;USAR_CACHE=SI;USAR_COD_COMPANIA=SI;IN=centroAsig;centroAsigMask=00000;OUT=descripcion|ciudad|contacto1|direccionContacto|fonoContacto|horario;COD_AGRUPA=centroAsig;TIPO_EJEC=JS;JS_FUNC=fnCargaLlenaDatos;JS_TUX=IBARetCinDetAll;JS_CLASS=wcorp.util.ventasseguros.FuncionDatosJS;JS_FUNC_DATOS=llenarDatos.jsp;DESC=Recupera los datos de un centro de inspeccion;
+
+
+#################### Funcion para obtener el mes sgte al mes en curso (especificamente para el mes de la toma del seguro)
+MES DESCUENTO;CLASS=wcorp.serv.ventasseguros.FunctionPrimerMesDescuento;TIPO=2;FIX_IN=codParametro;codParametro=hoy;OUT=mes;DESC=Entrega mes asociado al primer descuento;
+
+#################### AFPs ######################
+AFP;CLASS=wcorp.serv.ventasseguros.FunctionDomainMap;TIPO=1;TUX=IBAConGenEmp;FIX_IN=codigo;codigo=AFP;COD_OUT=codEmpresa;OUT=nombre;DESC=Recupera las AFP;
+AFP DETALLE;CLASS=wcorp.serv.ventasseguros.FunctionValuesMap;TIPO=2;TUX=IBAInfoAFP;IN=codigo;codigoMask=00000;OUT=montoComision;COD_AGRUPA=codigo;TIPO_EJEC=JS;JS_FUNC=fnCargaLlenaDatos;JS_TUX=IBAInfoAFPAll;JS_CLASS=wcorp.util.ventasseguros.FuncionDatosJS;JS_FUNC_DATOS=llenarDatos.jsp;DESC=Recupera los datos de una AFP;
+
+SUMA_2;CLASS=wcorp.serv.ventasseguros.FunctionValuesMapSuma;TIPO=2;FIX_IN=CANT_MONTOS;CANT_MONTOS=2;IN=MONTO_1|MONTO_2;OUT=TOTAL;TIPO_EJEC=JS;JS_FUNC=fnCargaSuma;DESC=Realiza la suma de 2 montos;
+SUMA_3;CLASS=wcorp.serv.ventasseguros.FunctionValuesMapSuma;TIPO=2;FIX_IN=CANT_MONTOS;CANT_MONTOS=3;IN=MONTO_1|MONTO_2|MONTO_3;OUT=TOTAL;TIPO_EJEC=JS;JS_FUNC=fnCargaSuma;DESC=Realiza la suma de 3 montos;
+
+CALCULAR_TIEMPO;CLASS=wcorp.util.ventasseguros.FuncionCalculaTiempo;TIPO=2;IN=FECHA_INICIO|FECHA_FIN;OUT=TIEMPO_DIAS;DESC=Calcula el tiempo en días entre la fecha de inicio y de fin;

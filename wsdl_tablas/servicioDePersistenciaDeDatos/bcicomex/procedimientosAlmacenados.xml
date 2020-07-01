@@ -1,0 +1,982 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bcicomex.procedimientosAlmacenados">
+  	  	<parameterMap id="setConsultaConfiguracionMensajesSwift" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="CHAR" javaType="String"/>
+		<parameter property="numeroCtaCte" jdbcType="CHAR" javaType="java.lang.Double"/>
+		<parameter property="codigoMoneda" jdbcType="CHAR" javaType="java.lang.Integer"/>
+		<parameter property="tipoServicio" jdbcType="CHAR" javaType="String"/>
+
+	</parameterMap>
+	<resultMap id="getConsultaConfiguracionMensajesSwift" class="java.util.HashMap">
+		<result property="movimientoCartola" column="fld_icl_car_smo" javaType="String"/>
+		<result property="bancodestinatario" column="fld_icl_bic_dst" javaType="String"/>
+		<result property="estado" column="fld_icl_est" javaType="String"/>
+		<result property="tipoCliente" column="fld_icl_tip_cli" javaType="String"/>
+		<result property="fechaActualizada" column="fld_icl_fec_act" javaType="String"/>
+		<result property="nombreBanco" column="fld_cor_nom_suc" javaType="String"/>
+	</resultMap>
+	<procedure id="consultaConfiguracionMensajesSwift" parameterMap="setConsultaConfiguracionMensajesSwift" resultMap="getConsultaConfiguracionMensajesSwift">
+		{ CALL sp_cns_cfg_mje ( ?, ?, ?, ? ) }
+	</procedure>
+	  	<parameterMap id="setConsultaraConfiguracionCartolaElectronica" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="CHAR" javaType="String"/>
+		<parameter property="numeroCtaCte" jdbcType="CHAR" javaType="java.lang.Double"/>
+		<parameter property="codigoMoneda" jdbcType="CHAR" javaType="java.lang.Integer"/>
+		<parameter property="tipoServicio" jdbcType="CHAR" javaType="String"/>
+
+	</parameterMap>
+	<resultMap id="getConsultaraConfiguracionCartolaElectronica" class="java.util.HashMap">
+		<result property="estado" column="fld_icl_est" javaType="String"/>
+		<result property="tipoCliente" column="fld_icl_tip_cli" javaType="String"/>
+		<result property="fechaActualizada" column="fld_icl_fec_act" javaType="String"/>
+		<result property="envioCorreo" column="fld_icl_env_car" javaType="String"/>
+		<result property="correo" column="fld_icl_mail" javaType="String"/>
+	</resultMap>
+	<procedure id="consultaraConfiguracionCartolaElectronica" parameterMap="setConsultaraConfiguracionCartolaElectronica" resultMap="getConsultaraConfiguracionCartolaElectronica">
+		{ CALL sp_cns_cfg_car ( ?, ?, ?, ? ) }
+	</procedure>
+	
+    <parameterMap id="setObtieneCantidadTTFFalExtranjerPorMes" class="java.util.HashMap">
+			<parameter property="mes" jdbcType="NUMERIC" javaType="java.lang.Integer" />
+			<parameter property="rutCliente" jdbcType="NUMERIC" javaType="java.lang.Integer" />
+    </parameterMap>
+		
+	<procedure id="obtieneCantidadTTFFalExtranjerPorMes" parameterMap="setObtieneCantidadTTFFalExtranjerPorMes" resultClass="java.lang.Integer">
+			{ CALL sp_ttff_ext_mes_actul(?,?) }
+	</procedure>
+	
+		<parameterMap id="setActualizaConfiguracionMensajeSwift" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="CHAR" javaType="String"/>
+		<parameter property="tipoServicio" jdbcType="CHAR" javaType="String"/>
+		<parameter property="numeroCtaCte" jdbcType="DECIMAL" javaType="java.lang.Double"/>
+		<parameter property="moneda" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="cartola" jdbcType="CHAR" javaType="String"/>
+		<parameter property="bicBanco" jdbcType="CHAR" javaType="String"/>
+		<parameter property="estado" jdbcType="CHAR" javaType="String"/>
+		<parameter property="tipoCliente" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fecha" jdbcType="DATATIME" javaType="java.util.Date"/>
+		<parameter property="numeroConvenio" jdbcType="CHAR" javaType="String"/>
+		<parameter property="nombreEmpresa" jdbcType="CHAR" javaType="String"/>
+
+	</parameterMap>
+	<procedure id="actualizaConfiguracionMensajeSwift" parameterMap="setActualizaConfiguracionMensajeSwift" resultClass="int">
+		{ CALL sp_act_cfg_mje ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+		<parameterMap id="setActualizaConfiguracionCartolaElectronica" class="java.util.HashMap">
+		<parameter property="rutCliente" jdbcType="CHAR" javaType="String"/>
+		<parameter property="tipoServicio" jdbcType="CHAR" javaType="String"/>
+		<parameter property="numeroCtaCte" jdbcType="DECIMAL" javaType="java.lang.Double"/>
+		<parameter property="moneda" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="estado" jdbcType="CHAR" javaType="String"/>
+		<parameter property="fecha" jdbcType="DATATIME" javaType="java.util.Date"/>
+		<parameter property="numeroConvenio" jdbcType="CHAR" javaType="String"/>
+		<parameter property="nombreEmpresa" jdbcType="CHAR" javaType="String"/>
+		<parameter property="email" jdbcType="CHAR" javaType="String"/>
+		<parameter property="envioEmail" jdbcType="CHAR" javaType="String"/>
+
+	</parameterMap>
+	<procedure id="actualizaConfiguracionCartolaElectronica" parameterMap="setActualizaConfiguracionCartolaElectronica" resultClass="int">
+		{ CALL sp_act_cfg_car ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+		<!-- Inicio Transferencia Monex Masivo-->
+		
+	<parameterMap id="setObtenerNumeroProceso" class="java.util.HashMap">
+		<parameter property="fld_fbp_num_job" jdbcType="NUMERIC" javaType="java.lang.Integer" mode="INOUT"/>
+		<parameter property="wss_result_sw" jdbcType="int" javaType="java.lang.Integer" mode="INOUT"/>
+		<parameter property="wss_result_msg" jdbcType="varchar" javaType="String" mode="INOUT"/>
+		</parameterMap>
+		<procedure id="obtenerNumeroProceso" parameterMap="setObtenerNumeroProceso">
+		{ CALL FBPsrv_sol_njb_web(?,?,?)}
+	</procedure>
+		<!-- Obtener listado de nominas -->
+	<resultMap id="getObtenerListadoNominas" class="java.util.HashMap">
+		<result property="wss_result_sw" column="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" column="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_num_job" column="fld_ndphdr_num_job" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndphdr_fec_cga" column="fld_ndphdr_fec_cga" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+		<result property="fld_ndphdr_nro_fol" column="fld_ndphdr_nro_fol" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_yrs_fol" column="fld_ndphdr_yrs_fol" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndphdr_mda_itf" column="fld_ndphdr_mda_itf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpctr_mto_inf" column="fld_ndpctr_mto_inf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndphdr_sts_ndp" column="fld_ndphdr_sts_ndp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_sys_num" column="fld_ndphdr_sys_num" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	<result property="fld_ndphdr_hrs_cga" column="fld_ndphdr_hrs_cga" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+		<parameterMap id="setObtenerListadoNominas" class="java.util.HashMap">
+		<parameter property="fld_ndp_tip_apr" jdbcType="CHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbp_rut_ord" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbp_nro_fol" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndp_fec_ini" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+		<parameter property="fld_ndp_fec_fin" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+	</parameterMap>
+	<procedure id="obtenerListadoNominas" parameterMap="setObtenerListadoNominas" resultMap="getObtenerListadoNominas">
+				{ CALL FBPsrv_shh_ndp_web(?, ?, ?, ?, ?) }
+	</procedure>
+	<!-- Obtener encabezado detalle de nominas -->
+	<parameterMap id="setObtenerEncabezadoDetalleNomina" class="java.util.HashMap">
+		<parameter property="fld_ndp_tip_apr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_tip_acc" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerEncabezadoDetalleNomina" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_num_job" jdbcType="NUMERIC" javaType="java.lang.Integer"/>
+		<result property="fld_ndphdr_rut_ord" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_nom_ord" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_nro_fol" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_yrs_fol" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndphdr_for_ndp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_bco_cor" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_mda_itf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_fec_ope" jdbcType="DATE" javaType="java.util.Date"/>
+		<result property="fld_ndphdr_cta_orf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_mda_orf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_mto_orf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndphdr_est_nom" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="fld_ndphdr_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerEncabezadoDetalleNomina" parameterMap="setObtenerEncabezadoDetalleNomina" resultMap="getObtenerEncabezadoDetalleNomina">
+				{ CALL FBPsrv_rnp_hdt_web (?,?,?) }
+	</procedure>
+	<!-- Obtener detalle de nominas -->
+	<parameterMap id="setObtenerDetalleNomina" class="java.util.HashMap">
+		<parameter property="fld_ndp_tip_apr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_tip_acc" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_sys_num" jdbcType="int" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetalleNomina" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_cor_pag" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="fld_ndpdet_cod_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nbn_ln1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_fec_val" jdbcType="VARCHAR" javaType="java.util.Date"/>
+		<result property="fld_ndpdet_mto_pag" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndpdet_ctr_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_bco_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_num_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_bic_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_bco_cor" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_est_itf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerDetalleNomina" parameterMap="setObtenerDetalleNomina" resultMap="getObtenerDetalleNomina">
+				{ CALL FBPsrv_rnp_hdt_web (?,?,?) }
+	</procedure>
+	<!-- Obtener totales detalle de nominas -->
+	<parameterMap id="setObtenerTotalesDetalleNomina" class="java.util.HashMap">
+		<parameter property="fld_ndp_tip_apr" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_tip_acc" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerTotalesDetalleNomina" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpctr_num_inf" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="fld_ndpctr_mto_inf" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndpctr_num_rch" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="fld_ndpctr_mto_rch" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndpctr_num_app" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="fld_ndpctr_mto_app" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+	</resultMap>
+	<procedure id="obtenerTotalesDetalleNomina" parameterMap="setObtenerTotalesDetalleNomina" resultMap="getObtenerTotalesDetalleNomina">
+				{ CALL FBPsrv_rnp_hdt_web (?,?,?) }
+	</procedure>
+	<!-- Obtener detalle de pago de nóminas -->
+	<parameterMap id="setObtenerDetallePagoNomina" class="java.util.HashMap">
+		<parameter property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_ndpdet_cor_pag" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetallePagoNomina" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_tip_ope" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_cod_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_ctr_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_num_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nbn_ln1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nbn_ln2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nbn_ln3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nbn_ln4" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_eml_dr1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_eml_dr2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_eml_dr3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_bco_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_rpg_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd1_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd2_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd3_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd4_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_bic_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_rpg_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd1_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd2_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd3_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nd4_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_fec_val" jdbcType="DATE" javaType="java.util.Date"/>
+		<result property="fld_ndpdet_mto_pag" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndpdet_det_gto" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_inf_rem" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nak_cod" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_nak_det" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_cod_cmb" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndpdet_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerDetallePagoNomina" parameterMap="setObtenerDetallePagoNomina" resultMap="getObtenerDetallePagoNomina">
+				{ CALL FBPsrv_shw_det_nom_web (?,?) }
+	</procedure>
+	<!-- Obtener detalle de posición de cambio de nóminas -->
+	<parameterMap id="setObtenerDetallePosicionCambio" class="java.util.HashMap">
+		<parameter property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_ndpdet_cor_pag" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<parameter property="fld_ndpdet_cod_cmb" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetallePosicionCambio" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_gls_cmb" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_obs_ope" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_ind_der" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_num_cdv" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_fec_cdv" jdbcType="DATETIME" javaType="java.util.Date"/>
+		<result property="fld_ndppoc_ind_srf" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_for_pag" jdbcType="TINYINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndppoc_mto_fob" jdbcType="VARCHAR" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_mto_flt" jdbcType="VARCHAR" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_mto_seg" jdbcType="VARCHAR" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_fec_vop" jdbcType="DATETIME" javaType="java.util.Date"/>
+		<result property="fld_ndppoc_num_cpg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_sec_ben" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndppoc_sec_inv" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndppoc_fin_ext" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndppoc_num_ins" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_vto_cap" jdbcType="DATETIME" javaType="java.util.Date"/>
+		<result property="fld_ndppoc_fec_des" jdbcType="DATETIME" javaType="java.util.Date"/>
+		<result property="fld_ndppoc_opr_cip" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_ndppoc_opr_fpp" jdbcType="DATETIME" javaType="java.util.Date"/>
+		<result property="fld_ndppoc_opr_npp" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="fld_ndppoc_pzo_vto" jdbcType="NUMERIC" javaType="java.math.BigDecimal"/>
+		<result property="fld_ndppoc_nom_com" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerDetallePosicionCambio" parameterMap="setObtenerDetallePosicionCambio" resultMap="getObtenerDetallePosicionCambio">
+				{ CALL FBPsrv_shw_det_poc_web (?,?,?) }
+	</procedure>
+	<!-- Grabar nómina -->
+	<resultMap id="getGrabarNominaPorLinea" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="int" javaType="int"/>
+		<result property="wss_result_msg" jdbcType="varchar" javaType="String"/>
+	</resultMap>
+	<parameterMap id="setGrabarNominaPorLinea" class="java.util.HashMap">
+		<parameter property="fld_fbp_num_job" jdbcType="NUMERIC" javaType="java.lang.Integer" mode="IN"/>
+		<parameter property="fld_ief_cor_lin" jdbcType="int" javaType="int" mode="IN"/>
+		<parameter property="fld_ief_lin_det11" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det12" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det13" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det14" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det15" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det16" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det17" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det21" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det22" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det23" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det24" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det25" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det26" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det27" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det31" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det32" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det33" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det34" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det35" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det36" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det37" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det41" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det42" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det43" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det44" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det45" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det46" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det47" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det51" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det52" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det53" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det54" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det55" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det56" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det57" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det61" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det62" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det63" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det64" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det65" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det66" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det67" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det71" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det72" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det73" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det74" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det75" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det76" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det77" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det81" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det82" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det83" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det84" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det85" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det86" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="fld_ief_lin_det87" jdbcType="char" javaType="String" mode="IN"/>
+		<parameter property="wss_result_sw" jdbcType="int" javaType="java.lang.Integer" mode="INOUT"/>
+		<parameter property="wss_result_msg" jdbcType="varchar" javaType="java.lang.String" mode="INOUT"/>
+	</parameterMap>
+	<procedure id="grabarNominaPorLinea" parameterMap="setGrabarNominaPorLinea" resultMap="getGrabarNominaPorLinea">
+		{ CALL FBPsrv_bcp_fil_web(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+	</procedure>
+	<!-- cambiar estado nóminas -->
+	<parameterMap id="setCambiarEstadoNomina" class="java.util.HashMap">
+		<parameter property="fld_ndphdr_sys_num" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="fld_ndphdr_tip_apr" jdbcType="CHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_tip_acc" jdbcType="CHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_usr_eve" jdbcType="varchar" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_nip_usr" jdbcType="varchar" javaType="java.lang.String"/>
+		<parameter property="fld_fbpeve_txt_eve" jdbcType="varchar" javaType="java.lang.String" nullValue=" "/>
+	</parameterMap>
+	<resultMap id="getCambiarEstadoNomina" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_ndphdr_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="cambiarEstadoNomina" parameterMap="setCambiarEstadoNomina" resultMap="getCambiarEstadoNomina">
+		{CALL FBPsrv_chg_sts_ndp_web(?,?,?,?,?,?,?)}
+	</procedure>
+	<!-- validar nóminas -->
+	<parameterMap id="setValidarNomina" class="java.util.HashMap">
+		<parameter property="fld_fbp_num_job" jdbcType="numeric" javaType="java.lang.Integer" mode="IN"/>
+		<parameter property="fld_fbp_usr_eve" jdbcType="varchar" javaType="java.lang.String" mode="IN"/>
+		<parameter property="fld_fbp_nip_usr" jdbcType="varchar" javaType="java.lang.String" mode="IN"/>
+	</parameterMap>
+	<procedure id="validarNomina" parameterMap="setValidarNomina">
+		{CALL FBPsrv_imp_fil_web(?,?,?)}
+	</procedure>
+	<!-- validar disponibilidad cuenta -->
+	<parameterMap id="setValidarDisponibilidadCuenta" class="java.util.HashMap">
+		<parameter property="fld_ndphdr_rut_ord" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_mda_orf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_cta_orf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_ndphdr_mto_orf" jdbcType="NUMERIC" javaType="java.math.BigDecimal" numericScale="2"/>
+	</parameterMap>
+	<resultMap id="getValidarDisponibilidadCuenta" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="validarDisponibilidadCuenta" parameterMap="setValidarDisponibilidadCuenta" resultMap="getValidarDisponibilidadCuenta">
+		{CALL FBPsrv_chk_cmx_web(?,?,?,?)}
+	</procedure>
+	<!-- obtener listado beneficiario -->
+	<parameterMap id="setObtenerListadoBeneficiario" class="java.util.HashMap">
+		<parameter property="fld_fbpcln_rut_emp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerListadoBeneficiario" class="java.util.HashMap">
+		<result property="fld_fbpben_ide_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_ctr_ben" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_ctr_nam" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_mda_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nbn_ln1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_num_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_bco_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_rpg_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerListadoBeneficiario" parameterMap="setObtenerListadoBeneficiario" resultMap="getObtenerListadoBeneficiario">
+		{CALL FBPsrv_shw_csb_web(?)}
+	</procedure>
+	<!-- obtener detalle beneficiario -->
+	<parameterMap id="setObtenerDetalleBeneficiario" class="java.util.HashMap">
+		<parameter property="fld_fbpcln_rut_emp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ide_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_mda_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ctr_ben" jdbcType="CHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerDetalleBeneficiario" class="java.util.HashMap">
+		<result property="fld_fbpben_nbn_ln1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nbn_ln2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nbn_ln3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nbn_ln4" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_num_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_bco_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_rpg_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd1_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd2_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd3_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd4_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_bic_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_rpg_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd1_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd2_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd3_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_nd4_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_eml_dr1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_eml_dr2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_eml_dr3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_fbpben_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerDetalleBeneficiario" parameterMap="setObtenerDetalleBeneficiario" resultMap="getObtenerDetalleBeneficiario">
+		{CALL FBPsrv_shw_dbn_web(?,?,?,?)}
+	</procedure>
+	<!-- actualizar beneficiario -->
+	<parameterMap id="setCrearActualizarBeneficiario" class="java.util.HashMap">
+		<parameter property="fld_fbpcln_rut_emp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ide_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_mda_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ctr_ben" jdbcType="CHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nbn_ln1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nbn_ln2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nbn_ln3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nbn_ln4" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_num_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_bco_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_rpg_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd1_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd2_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd3_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd4_bbn" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_bic_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_rpg_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd1_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd2_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd3_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_nd4_bin" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_eml_dr1" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_eml_dr2" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_eml_dr3" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getCrearActualizarBeneficiario" class="java.util.HashMap">
+		<result property="fld_fbpben_SysTms " jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="crearActualizarBeneficiario" parameterMap="setCrearActualizarBeneficiario" resultMap="getCrearActualizarBeneficiario">
+		{CALL FBPsrv_upd_ben_web(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)}
+	</procedure>
+	<!-- eliminar beneficiario -->
+	<parameterMap id="setEliminarBeneficiario" class="java.util.HashMap">
+		<parameter property="fld_fbpcln_rut_emp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ide_ben" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_mda_cta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_ctr_ben" jdbcType="CHAR" javaType="java.lang.String"/>
+		<parameter property="fld_fbpben_SysTms" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getEliminarBeneficiario" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="eliminarBeneficiario" parameterMap="setEliminarBeneficiario" resultMap="getEliminarBeneficiario">
+		{CALL FBPsrv_del_dbn_web(?,?,?,?,?)}
+	</procedure>
+	<!-- obtener listado paises -->
+	<resultMap id="getObtenerPaises" class="java.util.HashMap">
+		<result property="CTR_ISOCTY" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="CTR_CTYNAM" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerPaises" resultMap="getObtenerPaises">
+		{CALL FBPsrv_shw_cnr_web()}
+	</procedure>
+	<!-- obtener listado paises de residencia de beneficiario -->
+    <resultMap id="getObtenerPaisesResidencia" class="java.util.HashMap">
+        <result property="wss_result_sw" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+        <result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="fld_cod_ctr_res" jdbcType="VARCHAR" javaType="java.lang.String"/>
+        <result property="fld_nam_ctr_res" jdbcType="VARCHAR" javaType="java.lang.String"/>
+    </resultMap>
+    <procedure id="obtenerPaisesResidencia" resultMap="getObtenerPaisesResidencia">
+        {CALL FBPsrv_shw_cnr_res()}
+    </procedure>
+	<!-- obtener banco por codigo swift -->
+	<parameterMap id="setObtenerBancoPorSwift" class="java.util.HashMap">
+		<parameter property="fld_cor_dir_swf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerBancoPorSwift" class="java.util.HashMap">
+		<result property="fld_cor_nom_suc" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_dir_bco" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_nom_plz" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_ctr_nam" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerBancoPorSwift" parameterMap="setObtenerBancoPorSwift" resultMap="getObtenerBancoPorSwift">
+		{CALL FBPsrv_shw_bic_web(?)}
+	</procedure>
+	<!-- obtener listado ciudades -->
+	<parameterMap id="setObtenerListadoCiudades" class="java.util.HashMap">
+		<parameter property="CTR_ISOCTY" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerListadoCiudades" class="java.util.HashMap">
+		<result property="fld_cor_cod_plz" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+		<result property="fld_cor_nom_plz" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerListadoCiudades" parameterMap="setObtenerListadoCiudades" resultMap="getObtenerListadoCiudades">
+		{CALL FBPsrv_shw_bsq_web(?)}
+	</procedure>
+	<!-- obtener listado bancos -->
+	<parameterMap id="setObtenerListadoBancos" class="java.util.HashMap">
+		<parameter property="fld_cor_cod_plz" jdbcType="SMALLINT" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getObtenerListadoBancos" class="java.util.HashMap">
+		<result property="fld_cor_dir_swf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_nom_suc" jdbcType="CHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_dir_bco" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_nom_plz" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cor_ctr_nam" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerListadoBancos" parameterMap="setObtenerListadoBancos" resultMap="getObtenerListadoBancos">
+		{CALL FBPsrv_shw_bpz_web(?)}
+	</procedure>
+	<!-- obtener listado ruta pagos -->
+	<parameterMap id="setObtenerListadoRutaPago" class="java.util.HashMap">
+		<parameter property="CTR_ISOCTY" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getObtenerListadoRutaPago" class="java.util.HashMap">
+		<result property="PRT_CODPRT" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="PRT_NAMCTY" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+		<procedure id="obtenerListadoRutaPago" parameterMap="setObtenerListadoRutaPago" resultMap="getObtenerListadoRutaPago">
+		{CALL FBPsrv_shw_rpy_web(?)}
+	</procedure>
+		<!-- obtener listado monedas -->
+	<resultMap id="getObtenerListadoMonedas" class="java.util.HashMap">
+		<result property="COD_MDANDP" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="GLO_MDANDP" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+		<procedure id="obtenerListadoMonedas" resultMap="getObtenerListadoMonedas">
+		{CALL FBPsrv_shw_cdf_web()}
+	</procedure>
+	<!-- FIN Transferencia Monex Masivo-->
+	<!-- CompraVenta de Divisas -->
+	<!-- obtiene el listado de monedas permitidas para operar en CV de divisas -->
+	<resultMap id="getMonedasPermitidas" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="COD_MDANDP" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="GLO_MDANDP" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="MTO_MAXIMO" jdbcType="VARCHAR" javaType="java.lang.Double"/>
+	</resultMap>
+	<procedure id="obtenerMonedasPermitidas" resultMap="getMonedasPermitidas">
+		{CALL CVDsrv_shw_cur_vps()}
+	</procedure>
+	<!-- obtenerFondosProvisionados obtiene los fondos provisionados a partir de un rut y una moneda -->
+	<resultMap id="getFondosProvisionados" class="java.util.HashMap">
+		<result property="wss_result_sw" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="wss_result_msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cvd_cod_orf" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fld_cvd_sdo_vig" jdbcType="VARCHAR" javaType="java.lang.Double"/>
+	</resultMap>
+	<parameterMap id="setFondosProvisionados" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="moneda" jdbcType="CHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<procedure id="obtenerFondosProvisionados" parameterMap="setFondosProvisionados" resultMap="getFondosProvisionados">
+		{CALL CVDsrv_shw_sdo_fpv(?,?)}
+	</procedure>
+	
+	<!-- Obtener ListadoOperacionesCompraVenta -->
+	<parameterMap id="setListarOperacionesCompraVenta" class="java.util.HashMap">
+		<parameter property="origenSolicitud" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="tipo" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="rut" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fechaInicio" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="fechaTermino" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="mdaOrigen" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="mdaDestino" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="estado" jdbcType="VARCHAR" javaType="String"/>
+		<parameter property="numeroOperacion" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getListadoOperacionesCompraVenta" class="java.util.HashMap">
+		<result property="resultadoOperacion" column="wss_result_sw" javaType="java.lang.Integer"/>
+		<result property="mensajeResultadoOperacion" column="wss_result_msg" javaType="String"/>
+		<result property="fld_cvd_fec_ope" column="fld_cvd_fec_ope" javaType="String"/>
+		<result property="fld_cvd_nop_web" column="fld_cvd_nop_web" javaType="String"/>
+		<result property="fld_cvd_mda_orf" column="fld_cvd_mda_orf" javaType="String"/>
+		<result property="fld_cvd_mto_orf" column="fld_cvd_mto_orf" javaType="java.math.BigDecimal"/>
+		<result property="fld_cvd_mda_dtf" column="fld_cvd_mda_dtf" javaType="String"/>
+		<result property="fld_cvd_mto_dtf" column="fld_cvd_mto_dtf" javaType="java.math.BigDecimal"/>
+		<result property="fld_cvd_cod_orf" column="fld_cvd_cod_orf" javaType="String"/>
+		<result property="fld_cvd_cta_orf" column="fld_cvd_cta_orf" javaType="String"/>
+		<result property="fld_cvd_cod_dtf" column="fld_cvd_cod_dtf" javaType="String"/>
+		<result property="fld_cvd_cta_dtf" column="fld_cvd_cta_dtf" javaType="String"/>
+		<result property="fld_cvd_sts_gls" column="fld_cvd_sts_gls" javaType="String"/>
+		<result property="fld_cvd_rut_cln" column="fld_cvd_rut_cln" javaType="java.lang.Integer"/>
+		<result property="fld_cvd_dvr_cln" column="fld_cvd_dvr_cln" javaType="String"/>
+		<result property="fld_cvd_nam_cln" column="fld_cvd_nam_cln" javaType="String"/>
+		<result property="fld_cvd_tip_ope" column="fld_cvd_tip_ope" javaType="String"/>
+		<result property="fld_cvd_ncm_typ" column="fld_cvd_ncm_typ" javaType="String"/>
+		<result property="fld_cvd_ncm_mmy" column="fld_cvd_ncm_mmy" javaType="java.lang.Integer"/>
+		<result property="fld_cvd_cod_cmb" column="fld_cvd_cod_cmb" javaType="String"/>
+		<result property="fld_cvd_sts_pay" column="fld_cvd_sts_pay" javaType="String"/>
+		<result property="fld_cvd_sys_num" column="fld_cvd_sys_num" javaType="String"/>
+		<result property="fld_cvd_exc_rar" column="fld_cvd_exc_rar" javaType="java.math.BigDecimal"/>
+		<result property="fld_cvd_SysTms" column="fld_cvd_SysTms" javaType="String"/>
+		<result property="fld_cvd_frm_but" column="fld_cvd_frm_but" javaType="String"/>
+		</resultMap>
+	<procedure id="obtenerOperacionesCompraVenta" parameterMap="setListarOperacionesCompraVenta" resultMap="getListadoOperacionesCompraVenta">
+		{ CALL CVDsrv_shw_sol_cvd ( ?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<!-- Registrar Firma Operación por Compromiso -->
+	<parameterMap id="setRegistrarFirmaOperacionCompraVenta" class="java.util.HashMap">
+  		<parameter property="fld_cvd_sys_num"	jdbcType="INTEGER"	javaType="java.lang.Integer" />
+		<parameter property="fld_cvd_tip_apr"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="fld_cvd_SysTms"	jdbcType="VARCHAR"	javaType="String" />
+		<parameter property="fld_cvd_usr_eve"	jdbcType="VARCHAR"	javaType="String" />
+		<parameter property="fld_cvd_nip_usr"	jdbcType="VARCHAR"	javaType="String" />
+		<parameter property="fld_cvd_txt_eve"	jdbcType="VARCHAR"	javaType="String" />
+	</parameterMap>
+	<resultMap id="getRegistrarFirmaOperacionCompraVenta" class="java.util.HashMap">
+		<result property="resultadoOperacion"			column="wss_result_sw"		javaType="java.lang.Integer" />
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"		javaType="String" />
+		<result property="timeStamp"					column="fld_cvd_SysTms"		javaType="String" />
+	</resultMap>
+	<procedure id="registrarFirmaOperacionCompraVenta" parameterMap="setRegistrarFirmaOperacionCompraVenta" resultMap="getRegistrarFirmaOperacionCompraVenta">
+		{ CALL CVDsrv_reg_sig_ope ( ?, ?, ?, ?, ?, ? ) }
+	</procedure>
+	
+<!-- obtiene la hora d eingreso CV de divisas -->
+	<parameterMap id="setHoraIngreso" class="java.util.HashMap">
+		<parameter property="numeroOperacion"	jdbcType="VARCHAR"	javaType="String" />
+	</parameterMap>
+	<resultMap id="getHoraIngreso" class="java.util.HashMap">
+		<result property="horaIngreso" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="consultaHoraIngreso" parameterMap="setHoraIngreso" resultMap="getHoraIngreso">
+		{CALL sp_cns_hora_ingreso_CVD(?)}
+	</procedure>
+	<!-- FIN CompraVenta de Divisas -->
+
+	<parameterMap id="setInsertarTracking" class="java.util.HashMap">
+       <parameter property="rut"					 jdbcType="Long"          javaType="java.lang.Long" />
+       <parameter property="dv"						 jdbcType="String"		  javaType="java.lang.String"	/>
+	   <parameter property="tipoAplicacion"			 jdbcType="String"        javaType="java.lang.String" />
+       <parameter property="fechaHora"				 jdbcType="DateTime"      javaType="java.util.Date" />
+       <parameter property="accion"					 jdbcType="String"        javaType="java.lang.String"	/>
+	   <parameter property="nombreCompleto"          jdbcType="String"        javaType="java.lang.String"	/>
+	   <parameter property="nombreEjecutivo"         jdbcType="String"        javaType="java.lang.String"	/>
+	   <parameter property="telefono"				 jdbcType="String"        javaType="java.lang.String"	/>
+	   <parameter property="direccion"				 jdbcType="String"        javaType="java.lang.String" />
+       <parameter property="numeroDeLaTransferencia" jdbcType="String"	 	  javaType="java.lang.String" />	   
+    </parameterMap>
+    <procedure id="insertarTracking" parameterMap="setInsertarTracking" resultClass="Integer">
+        { CALL sp_ins_trf_trk( ? , ? , ?, ? , ? , ? , ? , ?, ?, ?) }
+    </procedure> 
+	
+	
+	<parameterMap id="setInsertarTransferencia" class="java.util.HashMap">
+        <parameter property="numeroDeLaTransferencia"		jdbcType="String"	 javaType="java.lang.String" />
+		<parameter property="tipoDeConvenio"                jdbcType="String"    javaType="java.lang.String" />
+		<parameter property="estadoTransferencia"           jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="cuentaSeleccionada"            jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="fechaHoraSolicitud"            jdbcType="DateTime"  javaType="java.util.Date"   />
+        <parameter property="tipoDeTransferencia"           jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="rutDelCliente"                 jdbcType="Long"      javaType="java.lang.Long"   />
+        <parameter property="dvDelCliente"                  jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="direccionDelCliente"           jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="emailDelCliente"               jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="telefonoDelCliente"            jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="nombreDelCliente"              jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="codigoPaisDelBeneficiario"     jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="codigoCiudadDelBeneficiario"   jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="nombreDelBeneficiario"         jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="codigoBancoBeneficiario"       jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="codigoSwiftBeneficiario"       jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="cuentaDestino"                 jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="direccionDelBeneficiario"      jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="emailDelBeneficiario"          jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="codigoBancoIntermediario"      jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="codigoSwiftIntermediario"      jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="tipoDeCuenta"                  jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="montoDeLaTransaccion"          jdbcType="Money"     javaType="java.lang.Float" />
+        <parameter property="codigoDeMoneda"				jdbcType="Integer"    javaType="java.lang.Integer" />
+		<parameter property="fechaValuta"                   jdbcType="DateTime"  javaType="java.util.Date"   />
+        <parameter property="gastosEnELExterior"            jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="motivoDePago"                  jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="motivoDeLaTransferencia"       jdbcType="String"    javaType="java.lang.String" />
+		<parameter property="canalCliente"					jdbcType="String"    javaType="java.lang.String" />
+    <parameter property="codigoAba"			    jdbcType="String"    javaType="java.lang.String" />
+	<parameter property="codigoCuit"		    jdbcType="String"    javaType="java.lang.String" />
+	<parameter property="idPersonal"		    jdbcType="String"    javaType="java.lang.String" />
+    </parameterMap>
+    <procedure id="insertarTransferencia" parameterMap="setInsertarTransferencia" resultClass="String">
+        { CALL sp_ins_trf( ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ? , ?, ?, ?, ?) }
+    </procedure> 
+
+
+    <parameterMap id="setConsultarSolicitudes" class="java.util.HashMap">
+        <parameter property="tipoDeConvenio"                jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="estadoDelConvenio"             jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="fechaInicial"             		jdbcType="DateTime"  javaType="Date" />
+		<parameter property="fechaFinal"             		jdbcType="DateTime"  javaType="Date" />
+    </parameterMap>
+    <resultMap id="getConsultarSolicitudes" class="java.util.HashMap">
+        <result property="numeroDeLaTransferencia"          column="tme_num_tra"     javaType="String"/>
+        <result property="fechaHoraSolicitud"               column="tme_fec_sol"     javaType="Date"   />
+        <result property="estadoDeLaTransferencia"          column="tme_est_tra"     javaType="String" />
+        <result property="nombreDelCliente"                 column="rem_nom_cli"     javaType="String" />
+        <result property="rut"                              column="rem_cli_rut"     javaType="Integer"/>
+        <result property="digito"                           column="rem_cli_dv"     javaType="String" />
+        <result property="emailDelBeneficiario"             column="ben_ema_cli"     javaType="String" />
+    </resultMap>
+    <procedure id="consultarSolicitudes" parameterMap="setConsultarSolicitudes" resultMap="getConsultarSolicitudes">
+        { CALL sp_con_conv ( ? ,? , ?, ?) }
+    </procedure> 
+
+    <parameterMap id="setModificaSolicitud" class="java.util.HashMap">
+        <parameter property="numeroDeLaTransferencia"      jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="estadoTransferencia"          jdbcType="String"     javaType="java.lang.String"  />
+    </parameterMap>
+    <procedure id="modificarSolicitud" parameterMap="setModificaSolicitud" resultClass="Integer">
+        { CALL sp_mod_sol( ?, ?) }
+    </procedure> 
+
+      
+    <parameterMap id="setDetallarLaTransferencia" class="java.util.HashMap">
+        <parameter property="idTransferencia"             jdbcType="String"    javaType="java.lang.String"/>
+    </parameterMap>
+    <resultMap id="getDetallarLaTransferencia" class="java.util.HashMap">
+        <result property="numeroDeLaTransferencia"        column="tme_num_tra"      javaType="String"/>
+        <result property="fechaSolicitud"                 column="tme_fec_sol"      javaType="Date"   />
+        <result property="tipoDeTransferencia"            column="tme_tip_tra"      javaType="String" />
+        <result property="rutDelCliente"                  column="rem_cli_rut"      javaType="Integer"/>
+        <result property="dvDelCliente"                   column="rem_cli_dv"      javaType="String" />
+        <result property="nombreDelCliente"               column="rem_nom_cli"      javaType="String" />
+        <result property="direccionDelCliente"            column="rem_cli_dir"      javaType="String" />
+        <result property="telefonoDelCliente"             column="rem_cli_fon"      javaType="String" />
+        <result property="emailDelCliente"                column="rem_cli_ema"      javaType="String" />
+        <result property="nombreDelBeneficiario"          column="ben_nom_cli"      javaType="String" />
+        <result property="direccionDelBeneficiario"       column="ben_dir_cli"      javaType="String" />
+        <result property="emailDelBeneficiario"           column="ben_ema_cli"      javaType="String" />
+        <result property="codigoPaisBeneficiario"		  column="ben_cod_pai"	    javaType="Integer" />
+        <result property="codigoCiudadDelBeneficiario"    column="ben_cod_ciu"      javaType="Integer" />
+        <result property="codigoBancoBeneficiario"        column="ben_cod_ban"  	javaType="Integer" />
+        <result property="codigoSwiftBeneficiario"        column="ben_cod_swf"  	javaType="String" />
+        <result property="codigoBancoIntermediario"       column="ben_cod_ban_int"  javaType="Integer" />
+        <result property="codigoSwiftIntermediario"       column="ben_cod_ban_swf"  javaType="String" />
+        <result property="cuentaDestino"                  column="ben_cta_des"      javaType="String" />
+        <result property="tipoDeCuenta"                   column="ben_tip_cta"      javaType="String" />
+        <result property="montoDeLaTransaccion"           column="tme_mto_tra"      javaType="Float" />
+        <result property="tipoDeMoneda"                   column="tme_cod_mon"      javaType="Integer" />
+        <result property="fechaValuta"                    column="tme_fec_val"      javaType="Date"   />
+        <result property="gastosEnELExterior"             column="tme_gas_ext"      javaType="String" />
+        <result property="motivoDePago"                   column="ben_mtv_pag"      javaType="Integer" />
+        <result property="motivoDeLaTransferencia"        column="ben_mtv_tra"      javaType="String" />
+        <result property="cuentaSeleccionada"             column="rem_cli_cta"      javaType="String" />
+		<result property="canalCliente"             	  column="tme_cnl_org"      javaType="String" />
+    <result property="codigoAba"             	  column="ben_cod_aba"      javaType="String" />
+	<result property="codigoCuit"             	  column="ben_cod_cui"      javaType="String" />
+	<result property="idPersonal"             	  column="ben_id_per"      javaType="String" />
+    </resultMap>
+    <procedure id="detallarLaTransferencia" parameterMap="setDetallarLaTransferencia" resultMap="getDetallarLaTransferencia">
+        { CALL sp_con_det_tran( ? ) }
+    </procedure>
+
+
+    <parameterMap id="setTransferenciasDelUsuario" class="java.util.HashMap">
+        <parameter property="rutDelCliente"               jdbcType="Long"       javaType="java.lang.Long"/>
+        <parameter property="dvDelCliente"                jdbcType="String"     javaType="java.lang.String" />
+    </parameterMap>
+    <resultMap id="getTransferenciasDelUsuario" class="java.util.HashMap">
+        <result property="numeroDeLaTransferencia"        column="tme_num_tra"      javaType="String"/>
+        <result property="fechaHoraSolicitud"             column="tme_fec_sol"      javaType="Date"   />
+        <result property="estadoDeLaTransferencia"        column="tme_est_tra"      javaType="String" />
+        <result property="nombreDelBeneficiario"          column="ben_nom_cli"      javaType="String" />
+        <result property="fechaValuta"                    column="tme_fec_val"      javaType="Date"   />
+		<result property="codigoDeMoneda"                   column="tme_cod_mon"      javaType="Integer" />
+        <result property="montoDeLaTransaccion"           column="tme_mto_tra"      javaType="Float" />
+    </resultMap>
+    <procedure id="transferenciasDelUsuario" parameterMap="setTransferenciasDelUsuario" resultMap="getTransferenciasDelUsuario">
+        { CALL sp_con_usu( ? , ? ) }
+    </procedure>
+	
+
+	<resultMap id="getObtenerPaisesTransferenciaAlExtranjero" class="java.util.HashMap">
+			<result property="codigo"			column="CTR_BCHCTY"  javaType="Integer" />
+			<result property="nombre"			column="CTR_CTYNAM"  javaType="String" />
+			<result property="sigla"			column="CTR_ISOCTY"  javaType="String" />
+			<result property="idiomaCorreo"     column="CTR_OFFLAN"  javaType="String" />
+	</resultMap>
+	<procedure id="obtenerPaisesTransferenciaAlExtranjero" resultMap="getObtenerPaisesTransferenciaAlExtranjero">
+			{ CALL sp_bus_pai() }
+	</procedure>
+
+	<parameterMap id="setConsultarSolicitudesPorFecha" class="java.util.HashMap">
+        <parameter property="tipoDeConvenio"                jdbcType="String"    javaType="String" />
+        <parameter property="estadoDelConvenio"             jdbcType="String"    javaType="String" />
+        <parameter property="fechaDeBusqueda"               jdbcType="DateTime"  javaType="Date" />
+    </parameterMap>
+    <resultMap id="getConsultarSolicitudesPorFecha" class="java.util.HashMap">
+        <result property="numeroDeLaTransferencia"          column="tme_num_tra"     javaType="String"/>
+        <result property="fechaHoraSolicitud"               column="tme_fec_sol"     javaType="Date"   />
+        <result property="estadoDeLaTransferencia"          column="tme_est_tra"     javaType="String" />
+        <result property="nombreDelCliente"                 column="rem_nom_cli"     javaType="String" />
+        <result property="rut"                              column="rem_cli_rut"     javaType="Integer"/>
+        <result property="digito"                           column="rem_cli_dv"     javaType="String" />
+        <result property="emailDelBeneficiario"             column="ben_ema_cli"     javaType="String" />
+    </resultMap>
+    <procedure id="consultarSolicitudesPorFecha" parameterMap="setConsultarSolicitudesPorFecha" resultMap="getConsultarSolicitudesPorFecha">
+        { CALL sp_con_por_fecha ( ?, ?, ?) }
+    </procedure> 
+    
+    
+    <parameterMap id="setIdiomaDelPais" class="java.util.HashMap">
+        <parameter property="codigoDelPais"					jdbcType="INTEGER"		javaType="java.lang.Integer"/>
+    </parameterMap>
+    <procedure id="idiomaDelPais" parameterMap="setIdiomaDelPais" resultClass="String">
+        { CALL sp_con_idi( ? ) }
+    </procedure>
+    
+    <parameterMap id="setObtenerCorrelativo" class="java.util.HashMap">
+       	   <parameter property="tipo"	jdbcType="String"        javaType="java.lang.String" />
+    </parameterMap>
+    <procedure id="obtenerCorrelativo" parameterMap="setObtenerCorrelativo" resultClass="Integer">
+        { CALL sp_con_crr( ? ) }
+    </procedure>     
+
+    <parameterMap id="setObtenerDetalleRechazoTransferencia" class="java.util.HashMap">
+        <parameter property="idTransferencia"             jdbcType="String"    javaType="java.lang.String"/>
+    </parameterMap>
+    <resultMap id="getObtenerDetalleRechazoTransferencia" class="java.util.HashMap">
+        <result property="fechaSolicitud"                 column="eac_fec_rcp"      javaType="Date"   />
+        <result property="codigoErrorConvenio" 		      column="ccr_cod"      	javaType="String"/>		
+        <result property="glosaErrorConvenio"             column="ccr_descripcion"  javaType="String" />
+        <result property="codigoCampoFormulario"          column="rcr_cod"          javaType="String"/>
+        <result property="glosaCampoFormulario"           column="rcr_descripcion"  javaType="String" />
+    </resultMap>
+    <procedure id="obtenerDetalleRechazoTransferencia" parameterMap="setObtenerDetalleRechazoTransferencia" resultMap="getObtenerDetalleRechazoTransferencia">
+        { CALL sp_con_det_rcz( ? ) }
+    </procedure>	
+	
+    <parameterMap id="setModificarDetalleSolicitud" class="java.util.HashMap">
+        <parameter property="numeroDeLaTransferencia"     jdbcType="String"    javaType="java.lang.String" />
+        <parameter property="nombreCliente"		          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="fonoCliente"		          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="correoCliente"		          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="direccionCliente"	          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="nombreBeneficiario"          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="correoBeneficiario"          jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="direccionBeneficiario"       jdbcType="String"    javaType="java.lang.String"  />
+		<parameter property="cuentaDestino"			      jdbcType="String"    javaType="java.lang.String"  />
+        <parameter property="montoDeLaTransaccion"        jdbcType="Money"    javaType="java.lang.Float" />		
+        <parameter property="motivoDeLaTransferencia"     jdbcType="String"    javaType="java.lang.String" />		
+        <parameter property="tipoDeCuenta"                jdbcType="String"    javaType="java.lang.String" />		
+        <parameter property="codigoCiudadDelBeneficiario" jdbcType="Integer"    javaType="java.lang.Integer" />
+        <parameter property="codigoBancoBeneficiario"     jdbcType="Integer"    javaType="java.lang.Integer" />
+    </parameterMap>
+    <procedure id="modificarDetalleSolicitud" parameterMap="setModificarDetalleSolicitud" resultClass="Integer">
+        { CALL sp_upd_det_sol( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure> 
+	
+	<parameterMap id="setObtenerListadoLiquidacion" class="java.util.HashMap">
+        <parameter property="numeroNomina"             jdbcType="Integer"    javaType="java.lang.Integer"/>
+    </parameterMap>
+    <resultMap id="getObtenerListadoLiquidacion" class="java.util.HashMap">
+        <result property="resultadoOperacion"                 column="wss_result_sw"      javaType="Integer"   />
+        <result property="mensajeResultadoOperacion" 		  column="wss_result_msg"     javaType="String"/>		
+        <result property="texto"                              column="fld_ndp_txt_lin"    javaType="String" />
+    </resultMap>
+    <procedure id="obtenerListadoLiquidacion" parameterMap="setObtenerListadoLiquidacion" resultMap="getObtenerListadoLiquidacion">
+        { CALL FBPsrv_shw_liq_ndp_web( ? ) }
+    </procedure>	
+	
+	<parameterMap id="setObtenerListadoMsjSwift" class="java.util.HashMap">
+        <parameter property="numeroOperacionNDP"             jdbcType="Integer"    javaType="java.lang.Integer"/>
+		<parameter property="lineaDetallePago"             jdbcType="Integer"    javaType="java.lang.Integer"/>
+    </parameterMap>
+    <resultMap id="getObtenerListadoMsjSwift" class="java.util.HashMap">
+        <result property="resultadoOperacion"                 column="wss_result_sw"      javaType="Integer"   />
+        <result property="mensajeResultadoOperacion" 		  column="wss_result_msg"     javaType="String"/>		
+        <result property="texto"                              column="fld_ndp_txt_lin"    javaType="String" />
+    </resultMap>
+    <procedure id="obtenerListadoMsjSwift" parameterMap="setObtenerListadoMsjSwift" resultMap="getObtenerListadoMsjSwift">
+        { CALL FBPsrv_shw_swf_msg_web( ?,? ) }
+    </procedure>	
+	
+ 	<!-- Financiamiento Comex -->
+	<parameterMap id="setListadoCreditosVigentes" class="java.util.HashMap">
+  		<parameter property="rut" jdbcType="VARCHAR" javaType="String"/>
+	</parameterMap>
+	<resultMap id="getListadoCreditosVigentes" class="java.util.HashMap">
+		<result property="resultadoOperacion" 			column="wss_result_sw"	javaType="java.lang.Integer" />
+		<result property="mensajeResultadoOperacion"	column="wss_result_msg"	javaType="String" />
+		<result property="moneda" 						column="fld_fex_mda_cre" javaType="String" />
+		<result property="tipoColoc"					column="fld_fex_rel_ctg" javaType="String" />
+		<result property="tipoCredito"					column="fld_fex_tip_cre" javaType="String" />
+		<result property="cantidadOperaciones"			column="fld_fex_cnt_ope" javaType="String" />
+		<result property="montoAdeudado"				column="fld_fex_mto_ade" javaType="java.math.BigDecimal" />
+		<result property="montoProxVenc"				column="fld_fex_mto_prx" javaType="java.math.BigDecimal" />
+		<result property="fechaProxVenc"				column="fld_fex_vto_prx" javaType="String" />
+	</resultMap>
+	<procedure id="obtenerListadoCreditosVigentes" parameterMap="setListadoCreditosVigentes" resultMap="getListadoCreditosVigentes">
+		{ CALL BCXsrv_bel_fin_mex ( ? ) }
+	</procedure>
+	<!-- FIN -->
+	
+	<!--  setear y leer parámetros genéricos de extractores -->
+	<parameterMap id="setExtractor" class="java.util.HashMap">
+		<parameter property="ofi_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fec_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="usr_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_ini" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_fin" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="cod_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tx_tx" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getExtractor" class="java.util.HashMap">
+		<result property="fechaProceso" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaOrigen" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaDestino" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaContable" jdbcType="VARCHAR" javaType="String" />
+		<result property="vigente" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaCorriente" jdbcType="VARCHAR" javaType="String" />
+		<result property="montoImputacion" jdbcType="VARCHAR" javaType="String" />
+		<result property="numeroTransaccion" jdbcType="VARCHAR"	javaType="String" />
+		<result property="transaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="correlativo" jdbcType="VARCHAR" javaType="String" />
+		<result property="nombreBeneficiario" jdbcType="VARCHAR" javaType="String" />
+		<result property="rut" jdbcType="VARCHAR" javaType="String" />
+		<result property="glosaComentario" jdbcType="VARCHAR" javaType="String" />
+		<result property="mnemonico" jdbcType="VARCHAR" javaType="String" />
+		<result property="moneda" jdbcType="VARCHAR" javaType="String" />
+		<result property="usuarioTransaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="activador" jdbcType="VARCHAR" javaType="String" />
+		<result property="HoraTransaccion" jdbcType="VARCHAR" javaType="String" />
+	</resultMap>
+	
+	<!-- Extractor Meco Compra -->
+	<procedure id="obtenerExtractorMecoCompra" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL BCXsrv_get_cmp_meco(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<!-- Extractor Meco Venta -->
+	<procedure id="obtenerExtractorMecoVenta" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL BCXsrv_get_vta_meco(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+</sqlMap>
+		

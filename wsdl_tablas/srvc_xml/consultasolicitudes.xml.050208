@@ -1,0 +1,40 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+
+<service name = "sp_consultaSolicitudCtaFamilia">
+  <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <have_multi_environment value="no" />
+    <outputfield_attr value="no" />
+    <req_num_param value="no" />
+    <translator value="RORPPTPG" />
+    <campo_indica_cantidad value="" />
+    <status_throw_exception value="yes" />
+    <joltpool_name value="cl.bci.integracion.daotuxedo.dummy.facade.DummyFacadeImpl" />
+  </context>
+
+  <input>
+        <field java_name = "rut_cli_sol" type = "Long" size = "100" middle_name = "rut_cli_sol"/>
+        <field java_name = "rut_cli_sol_dv" type = "Character" size = "1" middle_name = "rut_cli_sol_dv"/>
+        <field java_name = "tipo_asociacion" type = "String" size = "3" middle_name = "tipo_asociacion"/>
+  </input>
+
+<output>
+	<struct struct_size="0" class_name="ConsultaSolicitudesDTO" var_name="consultaSolicitudes"> 
+		
+	<field java_name = "SAF_NRO_SOL" type = "Integer" size = "100" middle_name = "SAF_NRO_SOL"/>
+	<field java_name = "SAF_RUT_USR_ASC" type = "Integer" size = "100" middle_name = "SAF_RUT_USR_ASC"/>
+	<field java_name = "SAF_RUT_USR_ASC_DV" type = "String" size = "1" middle_name = "SAF_RUT_USR_ASC_DV"/>
+	<field java_name = "SAF_TIP_CTA_ASC" type = "String" size = "3" middle_name = "SAF_TIP_CTA_ASC"/>
+	<field java_name = "SAF_TIP_ASC" type = "String" size = "3" middle_name = "SAF_TIP_ASC"/>
+	<field java_name = "SAF_FEC_SOL" type = "Date" size = "200" middle_name = "SAF_FEC_SOL"/>
+	<field java_name = "SAF_ESTADO" type = "String" size = "3" middle_name = "SAF_ESTADO"/>
+	<field java_name = "SAF_NOM_ASC" type = "String" size = "30" middle_name = "SAF_NOM_ASC"/>
+	<field java_name = "SAF_APE_PAT_ASC" type = "String" size = "20" middle_name = "SAF_APE_PAT_ASC"/>
+	<field java_name = "SAF_APE_MAT_ASC" type = "String" size = "20" middle_name = "SAF_APE_MAT_ASC"/>
+	<field java_name = "SAF_ALI_USR_ASC" type = "String" size = "12"  middle_name = "SAF_ALI_USR_ASC"/>
+	</struct> 
+  </output>
+</service>

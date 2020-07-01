@@ -1,0 +1,65 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CU_actualiza_estado_cred"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+          <field
+            java_name = "idCarreraEstudiante"
+            type = "long"
+            size = "10"
+            sign = "no"
+            integers = "10"
+            decimals = "0"
+            middle_name = "identificador"
+          />  
+
+        <field
+          java_name = "codigoEstadoCarr"
+          type = "String"
+          size = "12"
+          middle_name = "codigoEstadoCarr"
+        />
+        
+        <field
+          java_name = "codigoUsuarioActualiza"
+          type = "String"
+          size = "12"
+          middle_name = "codigo5"
+        />        
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

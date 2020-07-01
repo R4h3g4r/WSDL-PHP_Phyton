@@ -1,0 +1,145 @@
+SaldoCtaCteEmp;                 Desc=Saldo CtaCte Empresa;                              Objetos=CCT;
+CartolaHistorica;               Desc=Cartola Historica;                                 Objetos=CCT&CPR&CCX;
+MiniCartMx;				                        Desc=Minicartola monex; 				                Objetos=CCX;
+CtaMxCarME;                     Desc=Cartola Moneda Extranjera;                         Objetos=CCT&CCX;
+AbonoLineaSobregiro;            Desc=Abona Linea Sobregiro;                             Objetos=CCT;
+EmpreRecau;                     Desc=Pac;                                               Objetos=CCT;
+ConCtaXPagProDia;               Desc=Pac;                                               Objetos=CCT;
+CtasXPagar;                     Desc=Pac;                                               Objetos=CCT;
+CtasPagadas;                    Desc=Pac;                                               Objetos=CCT;
+CtasRechazadas;                 Desc=Pac;                                               Objetos=CCT;
+EspDesIdent;                    Desc=Pac;                                               Objetos=CCT;
+VerFacturasEnCashexpress;       Desc=Ver Facturas;
+DiccionarioDeCuentas;           Desc=Diccionario De Cuentas;
+
+#Servlet de Certificados
+Certificados;                Desc=Impresión de Certificados;
+
+#Recarga Celular
+#=============================
+IngresarRecargaCelular;         Desc=Ingresa Recarga de Celulares;     Objetos=CCT&CPR;
+AutorizarRecargaCelular;        Desc=Autoriza las Recarga de Celulares;     Objetos=CCT&CPR;
+
+AvanceMultilinea;               Desc=Avance Multilinea;
+ConsultaOperClienteAmp;         Desc=Cartola Multilinea;
+RenovacionMultilinea;           Desc=Renovacion Multilinea;
+CreMltConOpe;                   Desc=Operaciones Pendientes Multilinea;
+ProrrogarMultilinea;            Desc=Prorrogar Multilinea;
+
+#Certificados de Vigencia
+#=============================
+GenerarCertificadoVigencia;         Desc=Generar y recuperar certificados de vigencia de cuentas corrientes y primas;     Objetos=CCT&CPR;
+
+ConsolidadoPagos;                               Desc=cartola de pagos consolidados;
+
+FactoringElectronicoIndexa;     Desc=Factoring electronico en sitio de Indexa;
+Factoring;                      Desc=Factoring;
+
+
+OrdenNoPago;                    Desc=Ordenes de No Pago;                                Objetos=CCT;
+pagoNacionalAction;             Desc=Pago de TDC;
+
+# *********************************************************
+# Ordenes de no Pago
+# *********************************************************
+OrdenNoPagoAction;                     Desc=Ordenes no pago;                         Objetos=CCT;
+
+
+# *********************************************************
+# Inversiones
+# *********************************************************
+PortFolioInv;                         Desc=Mi PortFolio;
+TomarDAPInv;                          Desc=Tomar un Deposito;                        Objetos=CCT&CPR;
+
+#InversionesWLS
+InversionesWLS;                                 Desc=Inversiones;
+GeneralApp;                                     Desc=Servicio de Entrada Aplicativo;
+
+ConsInversionesInv;                             Desc=Consulta de Inversiones;
+ExpMiniCartola;                 Desc=Minicartola Monex;                                 Objetos=CCT&CCX;
+EstadoSeguridad;                                Desc=Informacion de claves del usuario;
+CambiarClave;                                   Desc=Cambio de Clave;
+
+# Pagos Recibidos
+#==========================================
+ConsultarPagosRecibidos;        Desc=Servicio para consultar Pagos Recibidos;
+
+# Configuración Bloqueo Multipass
+#==========================================
+ValidaTarjetaMultipass;    Desc=Valida tarjeta Redbanc para autorizar bloqueo de multipass;
+BloquearMultipass;         Desc=Bloquear Multipass;
+
+#Emergencias
+#=============================
+Emergencias;             Desc=Emergencias;
+
+#Visualizacion firma cliente
+#==========================================
+VisualizacionFirmaCliente; Desc=Imagen firma cliente en pagina de direcciones;
+
+#Direcciones en Web
+#=========================================
+Direcciones;                               Desc=Direcciones;                                    Objetos=CCT&CPR;
+DireccionesWeb; Desc=DireccionesWeb; Objetos=CCT&CPR&TDC&LDE;
+PerfilCliente;                             Desc=PerfilCliente;                                  Objetos=CCT&CPR;
+
+#Tarjeta de Credito
+tarjetasonline;   Desc=Tarjetas de Credito; Objetos=CCT&CPR&TDC; CheckAnd=TDC; CheckOr=CCT&CPR;
+
+
+#gestor
+#=============================
+GestorPagos;                                    Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorAliasTransferencias;            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorTransferencias;                           Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasActivar;               Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasEliminar;              Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorPagosNuevoPel;                            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+GestorPagosPelRegistrado;                       Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+TransferenciasProgramadasDesactivar;            Desc=Cartola de Pagos;                                  Objetos=CCT&CPR;
+
+# ***************** Rediseño Transferencia de Fondos ******************* #
+TransIngreso;                         Desc=Ingreso de Transferencias;
+TransConsulta;                        Desc=Consulta de Transferencias;
+TransCtasInscritas;                   Desc=Consulta Cuentas Inscritas;
+TransFirmar;                          Desc=Firmar Transferencia;
+PerfilDeCartola;                      Desc=Perfil de Cartola;                         Objetos=CCT;              variable=paso;
+TransCargaMasiva;                     Desc=Carga Masiva de Transferencias;
+TransCertificados;                    Desc=Generación de Certificados;
+IngresaSMS;                     	  Desc=Suscripcion a la Alerta SMS para activación de cuentas no inscritas;
+activarCuentasNoInscritas;            Desc=Activar cuentas no inscritas;
+
+CtaConTraGen;                   Desc=Consulta Transferencias Generadas;                 Objetos=CCT&CPR;
+CtaConTraGenCon;                Desc=Consulta Transferencias Generadas;                 Objetos=CCT&CPR;
+CtaConTraGenBP;                 Desc=Consulta Transferencias Generadas BCIPagos;
+CtaConTraGenBPCon;              Desc=Consulta Transferencias Generadas BCIPagos;
+
+CtaConTraEnc;                   Desc=Consulta Encabezado Transferencia;
+CtaConTraEncCon;                Desc=Consulta Encabezado Transferencia;
+CtaConTraEncMas;                Desc=Consulta Encabezado Transferencia Masiva;
+CtaConTraEncBP;                 Desc=Consulta Encabezado Transferencia BCIPagos;
+CtaConTraEncBPCon;              Desc=Consulta Encabezado Transferencia BCIPagos;
+
+CtaConTraDet;                   Desc=Lista Detalle Transferencias;                      Objetos=CCT;
+CtaIngTraEncDet;                Desc=Copiar Transferencia Encabezado Detalle;           Objetos=CCT;
+CtaEliTraGen;                   Desc=Borrar Transferencia;                              Objetos=CCT;
+CopiarPagos;                    Desc=Copiar BCIPagos;                                   Objetos=CCT;
+CtaCteConFilSob;                Desc=Consulta Linea de Sobregiro (Mes Anterior);        Objetos=CCT;
+
+CtaConApoFirBP;                 Desc=Consulta Apoderados Que Han Firmado BCIPagos;
+CtaConApoFir;                   Desc=Consulta Apoderados Que Han Firmado;
+CtaConApoFirTerceros;           Desc=Consulta Apoderados Que Han Firmado Terceros;
+CtaConApoFirLBTR;               Desc=Consulta Apoderados Que Han Firmado LBTR;
+
+AdmSupervisores;                      Desc=Supervisores;
+
+Marketing121DespliegueOfertas;        Desc=Sistema DespliegueOfertas Marketing 121;
+CtaConCtaOriDes;                Desc=Extrae Cuentas Origen Destino;                     Objetos=CCT;
+CtaIngTraEncDet;                Desc=Copiar Transferencia Encabezado Detalle;           Objetos=CCT;
+
+CerrarSesion;                                   Desc=Cerrar Sesión;
+
+CartaAutorizacion;              Desc=CartaAutorizacion;
+CtaConTraGen; Desc=Firmar Transferencias;        Objetos=CCT;
+PagoDividendos;     Desc=Pago en Línea Dividendo;       Objetos=CCT&CPR&TDC;
+

@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="ivr.procedimientosAlmacenados">
+
+	<parameterMap id="setConsultaTelefonoContacto" class="java.util.HashMap">
+  		<parameter property="rutCliente"   	        jdbcType="INTEGER"			javaType="java.lang.Long" />
+		<parameter property="dv"	        	jdbcType="CHAR"				javaType="String" />
+	</parameterMap>
+	<resultMap id="getConsultaTelefonoContacto" class="java.util.HashMap">
+		<result property="rutCliente"			column="tlf_rut"			javaType="java.lang.Integer" />
+		<result property="dv"				column="tlf_dig"			javaType="String" />
+		<result property="fonoContacto"			column="tlf_num"			javaType="String" />
+		<result property="cantidad"  		  	column="tlf_can"			javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="consultaTelefonoContacto" parameterMap="setConsultaTelefonoContacto" resultMap="getConsultaTelefonoContacto">
+		{ CALL dbo.sp_ConsultaTelefonoContacto ( ?, ? ) }
+	</procedure>
+	
+
+
+	
+	
+	
+	<parameterMap id="inMantendorIpAnexosSelect" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anexo" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="ip" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="outMantendorIpAnexosSelect" class="java.util.HashMap">
+		<result  property="COD_USUARIO" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="IND_USUARIO" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ANEXO" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="DIREC_IP" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="FI_LLER" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	<procedure id="selectIpAnexos" parameterMap="inMantendorIpAnexosSelect" resultMap="outMantendorIpAnexosSelect">
+	   {CALL sp_MantendorIpAnexosSelect(?, ?, ?)}
+	</procedure>
+	
+	
+	
+	
+	<parameterMap id="inMantendorIpAnexosInsert" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anexo" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="ip" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="outMantendorIpAnexosInsert" class="java.util.HashMap">
+		<result property="respuesta" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="insertIpAnexos" parameterMap="inMantendorIpAnexosInsert" resultMap="outMantendorIpAnexosInsert">
+	   {CALL sp_MantendorIpAnexosInsert(?, ?, ?)}
+	</procedure>
+	
+	
+	
+	
+	<parameterMap id="inMantendorIpAnexosDelete" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anexo" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="ip" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="outMantendorIpAnexosDelete" class="java.util.HashMap">
+		<result property="respuesta" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="deleteIpAnexos" parameterMap="inMantendorIpAnexosDelete" resultMap="outMantendorIpAnexosDelete">
+	   {CALL sp_MantendorIpAnexosDelete(?, ?, ?)}
+	</procedure>
+	
+	
+	
+
+	<parameterMap id="inMantendorIpAnexosUpdate" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anexo" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="ip" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anexo_ant" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="ip_ant" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="outMantendorIpAnexosUpdate" class="java.util.HashMap">
+		<result property="respuesta" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="updateIpAnexos" parameterMap="inMantendorIpAnexosUpdate" resultMap="outMantendorIpAnexosUpdate">
+	   {CALL sp_MantendorIpAnexosUpdate(?, ?, ?, ?, ?)}
+	</procedure>
+</sqlMap>

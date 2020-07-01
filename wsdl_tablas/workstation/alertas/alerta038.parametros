@@ -1,0 +1,19 @@
+# Calificacion Empeorada
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Debe ingresar al Sistema de Calificaciones.;
+GLOSA1;mensaje=2.- Una vez en el Sistema debe escoger la pestaña "Buscar".;
+GLOSA2;mensaje=3.- Debe elegir los criterios más adecuados para encontrar la calificación en cuestión.;
+GLOSA3;mensaje=4.- Debe revisar paso a paso el motivo por el que la calificación se vió empeorada.;
+GLOSA4;mensaje=5.- Debe gestionar esta alerta.;
+
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Debe ingresar al Sistema de Calificaciones.;
+GLOSAPDF1;mensaje=2.- Una vez en el Sistema debe escoger la pestaña "Buscar".;
+GLOSAPDF2;mensaje=3.- Debe elegir los criterios más adecuados para encontrar la calificación en cuestión.;
+GLOSAPDF3;mensaje=4.- Debe revisar paso a paso el motivo por el que la calificación se vió empeorada.;
+GLOSAPDF4;mensaje=5.- Debe gestionar esta alerta.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=Esta alerta se activa cuando la calificación del cliente empeora con respecto a la anterior, sólo se calcula con respecto a las calificaciones debidamente aprobadas.;periodo= 30 días;fuente= Indeterminados;

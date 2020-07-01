@@ -1,0 +1,168 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-CLIENTE,MENU-SIMULADORES-VENTA,MENU-PRODUCTOS-VIGENTES,MENU-RIESGO;
+
+################################################################################
+# Definicion del menú MENU-CLIENTE.
+################################################################################
+MENU-CLIENTE;tipoNodo=MENU;nombre=CLIENTE;nodosMenu=OPCION-DATOS-BASICOS,OPCION-RELACIONADOS,OPCION-DIRECCIONES,OPCION-EVENTOS,OPCION-RESUMEN-CLIENTE,OPCION-VALIDACIONES_ACA;
+
+# Definicion de opción "Datos Básicos".
+OPCION-DATOS-BASICOS;tipoNodo=OPCION;nombre=Datos Básicos;
+
+# Definicion de opción "Socios y Empresas Relacionadas".
+OPCION-RELACIONADOS;tipoNodo=OPCION;nombre=Socios y Empresas Relacionadas;
+
+# Definicion de opción "Direcciones".
+OPCION-DIRECCIONES;tipoNodo=OPCION;nombre=Direcciones;
+
+# Definicion de opción "Eventos".
+OPCION-EVENTOS;tipoNodo=OPCION;nombre=Eventos;
+
+# Definicion de opción "Resumen Cliente".
+OPCION-RESUMEN-CLIENTE;tipoNodo=OPCION;nombre=Resumen Cliente;
+
+# Definición de opción "Declaración Pers. Salud".
+OPCION-DPS;tipoNodo=OPCION;nombre=Declaración Pers. Salud;
+
+# Definicion de opción "Panel Validaciones ACA"
+OPCION-VALIDACIONES_ACA;tipoNodo=OPCION;nombre=Panel Validaciones ACA;url=/cl/bci/aplicaciones/productos/colocaciones/creditos/panelintegradoaca/vista/vistaPanelIntegradoACA.jsf;nombrePopUp=pop4;opcionesPopUp=scrollbars=yes,width=1098,height=613;
+
+################################################################################
+# Definicion del menú MENU-SIMULADORES-VENTA.
+################################################################################
+MENU-SIMULADORES-VENTA;tipoNodo=MENU;nombre=SIMULADORES Y VENTA;nodosMenu=OPCION-CAMPANA,OPCION-CREDITO-CONSUMO,OPCION-CREDITO-HIPOTECARIO-DOS,OPCION-CALCULADORA-RORAC;
+
+# Definicion de opción "Campañas".
+OPCION-CAMPANA;tipoNodo=OPCION;nombre=Campañas;url=/portalwls/campanas/clienteCampana.do;vistaValida=PCE_DETALLE;accionesValidas=ABRIR;nombrePopUp=pop16;opcionesPopUp=scrollbars=yes,width=720,height=485;
+
+# Definicion de opción "Crédito de Consumo".
+OPCION-CREDITO-CONSUMO;tipoNodo=OPCION;nombre=Crédito de Consumo;url=/workstationwls/creditosweb/IngresoSimulacionCredito.do?Marca=BCI;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Crédito Hipotecario".
+#OPCION-CREDITO-HIPOTECARIO;tipoNodo=OPCION;nombre=Crédito Hipotecario;url=/portalwls/chip/cargarDatosSimulacionAction.do;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Calculadora Rorac".                                                                                                                                                              
+OPCION-CALCULADORA-RORAC;tipoNodo=OPCION;nombre=Calculadora Rorac;
+
+# Definicion de opción "Crédito Hipotecario 2.0".
+OPCION-CREDITO-HIPOTECARIO-DOS;tipoNodo=OPCION;nombre=Crédito Hipotecario 2.0;url=/cl/bci/aplicaciones/productos/colocaciones/simulacion/hipotecario/vista/vistaSimuladorHipotecario.jsf;vistaValida=ETE_SIMULADOR;accionesValidas=ABRIR_CTO_HIP;nombrePopUp=BCIHOME;opcionesPopUp=status=yes,scrollbars=yes,width=1280,height=720;tipo=7;
+
+################################################################################
+# Definicion del menú MENU-PRODUCTOS-VIGENTES.
+################################################################################
+MENU-PRODUCTOS-VIGENTES;tipoNodo=MENU;nombre=PRODUCTOS VIGENTES;nodosMenu=OPCION-RESUMEN-PRODUCTOS,OPCION-NEGOCIOS-VIGENTES,OPCION-CUENTA-CORRIENTE,OPCION-CUENTA-PRIMA,OPCION-TARJETA-BCI,OPCION-CREDITOS-VIGENTES,OPCION-CREDITOS-MNX,OPCION-LINEA-SOBREGIRO,OPCION-CREDITOS-HIPOTECARIOS,OPCION-TARJETA-CREDITO,OPCION-PAC,OPCION-BEL,OPCION-INVERSIONES,OPCION-FACTORING;
+
+# Definicion de opción "Resumen de Productos".
+OPCION-RESUMEN-PRODUCTOS;tipoNodo=OPCION;nombre=Resumen de Productos;
+
+# Definicion de opción "Negocios Vigentes".
+OPCION-NEGOCIOS-VIGENTES;tipoNodo=OPCION;nombre=Negocios Vigentes;
+
+# Definicion de opción "Cuenta Corriente Mn".
+OPCION-CUENTA-CORRIENTE;tipoNodo=OPCION;nombre=Cuenta Corriente Mn;
+
+# Definicion de opción "Cuenta Prima".
+OPCION-CUENTA-PRIMA;tipoNodo=OPCION;nombre=Cuenta Prima ;
+# Definicion de opción "Tarjeta Bci".
+OPCION-TARJETA-BCI;tipoNodo=OPCION;nombre=Tarjeta Bci;
+
+# Definicion de opción "Créditos Mn".
+OPCION-CREDITOS-VIGENTES;tipoNodo=OPCION;nombre=Créditos Mn;
+
+# Definicion de opción "Créditos Moneda Nacional y Moneda Extranjera".
+OPCION-CREDITOS-MNMX;tipoNodo=OPCION;nombre=Créditos Mn / Mx;
+
+# Definicion de opción "Créditos Mn / Mx".
+OPCION-CREDITOS-MNX;tipoNodo=OPCION;nombre=Créditos Mn / Mx;
+# Definicion de opción "Línea de Sobregiro".
+OPCION-LINEA-SOBREGIRO;tipoNodo=OPCION;nombre=Línea de Sobregiro;
+
+# Definicion de opción "Créditos Hipotecarios".
+OPCION-CREDITOS-HIPOTECARIOS;tipoNodo=OPCION;nombre=Creditos Hipotecarios;
+
+# Definicion de opción "Tarjetas de Crédito".
+OPCION-TARJETA-CREDITO;tipoNodo=OPCION;nombre=Tarjeta de Crédito;
+
+# Definicion de opción "PAC".
+OPCION-PAC;tipoNodo=OPCION;nombre=PAC;
+
+# Definicion de opción "Bci Seguros".
+OPCION-BCI-SEGUROS;tipoNodo=OPCION;nombre=Bci Seguros;
+
+# Definicion de opción "BEL".
+OPCION-BEL;tipoNodo=OPCION;nombre=BEL;
+
+# Definicion de opción "Detalle Inversiones".
+OPCION-INVERSIONES;tipoNodo=OPCION;nombre=Inversiones;
+
+# Definicion de opción "Factoring".
+OPCION-FACTORING;tipoNodo=OPCION;nombre=Factoring;url=/workstationwls/factoring/vistaGeneralClienteFactoring.do;vistaValida=ETE_PROD_VIG;accionesValidas=LINK_BEFACT;nombrePopUp=factoring;opcionesPopUp=scrollbars=yes,width=746,height=500;
+
+################################################################################
+# Definicion del menú RIESGO.
+################################################################################
+MENU-RIESGO;tipoNodo=MENU;nombre=RIESGO;nodosMenu=OPCION-PAGO-CONSULTA,OPCION-VISACION,OPCION-MARGEN-GLOBAL,OPCION-GARANTIAS,OPCION-RIESGO-CLIENTE,OPCION-RIESGO-PI,OPCION-RIESGO-PE,OPCION-RIESGO-GAR,OPCION-RIESGO-CAL,OPCION-APROCRED;
+
+# Definicion de opción "Pago de la Consulta".
+OPCION-PAGO-CONSULTA;tipoNodo=OPCION;nombre=Pago de la Consulta;
+
+# Definicion de opción "Visación".
+OPCION-VISACION;tipoNodo=OPCION;nombre=Visación;url=/workstationwls/visacion/ConsultaVisacion.do?;nombrePopUp=visacion;opcionesPopUp=scrollbars=yes,width=750,height=550;
+
+# Definicion de opción "Margen Global".
+OPCION-MARGEN-GLOBAL;tipoNodo=OPCION;nombre=Margen Global;
+
+# Definicion de opción "Garantías".
+OPCION-GARANTIAS;tipoNodo=OPCION;nombre=Garantias;
+
+# Definicion de opción "Detalle de Riesgo Cliente".
+OPCION-RIESGO-CLIENTE;tipoNodo=OPCION;nombre=Detalle Riesgo por Cliente;
+
+# Definicion de opción "Prob. de Incumplimiento".
+OPCION-RIESGO-PI;tipoNodo=OPCION;nombre=Prob. de Incumplimiento;
+
+# Definicion de opción "Pérdida Esperada".
+OPCION-RIESGO-PE;tipoNodo=OPCION;nombre=Pérdida Esperada;
+
+# Definicion de opción "Deuda Garantía".
+OPCION-RIESGO-GAR;tipoNodo=OPCION;nombre=Deuda Garantía;
+
+# Definicion de opción "Calificación".
+OPCION-RIESGO-CAL;tipoNodo=OPCION;nombre=Calificación;
+
+# Definicion de opción "Aprocred".
+#OPCION-APROCRED;tipoNodo=OPCION;nombre=Aprocred;url=/webAprocred/Contened.jsp;nombrePopUp=aprocred;opcionesPopUp=resizable=yes,scrollbars=yes,status=yes,width=900,height=650;
+
+################################################################################
+# Definicion del menú MENU-INVERSIONES
+################################################################################
+MENU-INVERSIONES;tipoNodo=MENU;nombre=INVERSIONES;nodosMenu=OPCION-INVERSIONES-DET;
+
+# Definicion de opción "Detalle Inversiones".
+OPCION-INVERSIONES-DET;tipoNodo=OPCION;nombre=Detalle Inversiones;
+
+################################################################################
+# Definicion del menú CERCANIA CON EL CLIENTE.
+################################################################################
+MENU-CERCANIA;tipoNodo=MENU;nombre=CERCANÍA CON EL CLIENTE;nodosMenu=;

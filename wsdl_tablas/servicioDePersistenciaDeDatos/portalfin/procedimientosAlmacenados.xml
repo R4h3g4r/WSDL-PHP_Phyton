@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="portalfin.procedimientosAlmacenados"> 
+
+	<parameterMap id="consultarCertificadosParameterMap" class="java.util.HashMap">
+		<parameter property="rutCliente" 	jdbcType="INTEGER"  javaType="long" />
+		<parameter property="dvCliente" 	jdbcType="CHAR"     javaType="java.lang.String" />
+		<parameter property="vigente" 		jdbcType="CHAR"  	javaType="java.lang.String" />
+	</parameterMap>
+	
+	<resultMap id="consultarCertificadosResultMap" class="java.util.HashMap">
+		<result property="rut" 				column="rut" 				javaType="long" />
+		<result property="dv" 				column="dv" 				javaType="String" />
+		<result property="numeroOperacion" 	column="numero_operacion" 	javaType="String" />
+		<result property="fechaInicio" 		column="fecha_inicio" 		javaType="String" />
+		<result property="fechaVencimiento" column="fecha_vencimiento" 	javaType="String" />
+		<result property="moneda1" 			column="currency1" 			javaType="String" />
+		<result property="nominal" 			column="nominal" 			javaType="String" />
+		<result property="moneda2" 			column="currency2" 			javaType="String" />		
+		<result property="montoCotizacion" 	column="quote_amount" 		javaType="String" />
+		<result property="tasa" 			column="deal_rate" 			javaType="String" />
+		<result property="precioMercado"	column="precio_mercado" 	javaType="String" />
+		<result property="valorComercial"	column="market_value" 		javaType="String" />
+		<result property="modalidadDePago" 	column="modalidad_pago" 	javaType="String" />
+		<result property="tipoProducto" 	column="tipoProducto" 		javaType="String" />
+		<!-- Eliminado segun solicitud 12/10/2010 
+		<result property="contratoVencido" 	column="contrato_vencido" 	javaType="String" />
+		 -->
+	</resultMap>
+	
+	<procedure id="consultarCertificados"
+		parameterMap="consultarCertificadosParameterMap" 
+		resultMap="consultarCertificadosResultMap">
+		{ call sp_consultar_certificados ( ?, ?, ? ) }
+	</procedure>
+	
+	
+	<parameterMap id="consultarContratosParameterMap" class="java.util.HashMap">
+		<parameter property="rutCliente" 	jdbcType="INTEGER"  javaType="long" />
+		<parameter property="dvCliente" 	jdbcType="CHAR"     javaType="java.lang.String" />
+		<parameter property="vigente" 		jdbcType="CHAR"  	javaType="java.lang.String" />
+		<parameter property="fecha_i" 		jdbcType="DATE"  	javaType="java.util.Date" />
+		<parameter property="fecha_f" 		jdbcType="DATE"  	javaType="java.util.Date" />
+		<parameter property="operacion"		jdbcType="INTEGER" 	javaType="long" />
+	</parameterMap>
+	
+	<resultMap id="consultarCertificadosResultMap" class="java.util.HashMap">
+		<result property="rut" 				column="rut" 				javaType="long" />
+		<result property="dv" 				column="dv" 				javaType="String" />
+		<result property="numeroOperacion" 	column="numero_operacion" 	javaType="String" />
+		<result property="tipoOperacion"	column="tipo_operacion"		javaType="String" />
+		<result property="moneda" 			column="moneda" 			javaType="String" />
+		<result property="nominal" 			column="nominal" 			javaType="String" />
+		<result property="precFutPactado"	column="precio_futuro_pactado"	javaType="String" />
+		<result property="fechaInicio" 		column="fecha_inicio" 		javaType="String" />
+		<result property="fechaVencimiento" column="fecha_vencimiento" 	javaType="String" />
+		<result property="dolarObservado"	column="dolar_observado"	javaType="String" />
+		<result property="modalidadDePago" 	column="modalidad_pago" 	javaType="String" />		
+		<result property="monto" 			column="monto" 				javaType="String" />
+		<result property="tipoProducto" 	column="Nombre" 			javaType="String" />
+		<result property="compraOVenta" 	column="compra_venta" 		javaType="String" />
+	</resultMap>
+	
+	<procedure id="consultarContratos"
+		parameterMap="consultarContratosParameterMap" 
+		resultMap="consultarCertificadosResultMap">
+		{ call sp_consultar_contratos ( ?, ?, ?, ?, ?, ?) }
+	</procedure>
+	
+</sqlMap>

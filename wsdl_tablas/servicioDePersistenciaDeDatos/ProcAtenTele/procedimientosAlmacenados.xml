@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ProcAtenTele.procedimientosAlmacenados">
+
+	<resultMap id="getCuestionariosProcedimientos" class="java.util.HashMap">
+		<result property="idCuestionario"		column="ope_id_cuestionario"	jdbcType="INT"  javaType="java.lang.Integer"/>
+		<result property="codProducto"			column="prd_cod_aut" 			jdbcType="CHAR" javaType="String"/>
+		<result property="cntConsObligatoria"	column="ope_cnt_cns_obl" 		jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="cntConsNormal"		column="ope_cnt_cns_nor" 		jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="cntRespNormal"		column="ope_cnt_rsp_nor" 		jdbcType="INT" javaType="java.lang.Integer"/>
+	</resultMap>
+	<parameterMap id="setCuestionariosProcedimientos" class="java.util.HashMap">
+		<parameter property="procedimiento"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="nivel"			jdbcType="CHAR"	javaType="String" />
+	</parameterMap>
+	<procedure id="obtenerCuestionarioProcedimiento" parameterMap="setCuestionariosProcedimientos" resultMap="getCuestionariosProcedimientos">
+		{ CALL sp_cns_cuest_proc_prod(?,?) }
+	</procedure>
+	
+	<resultMap id="getConsultasCuestionario" class="java.util.HashMap">
+		<result property="idConsulta"			column="ope_id_cns"				jdbcType="INT"  javaType="java.lang.Integer"/>
+		<result property="glsConsulta"			column="ope_gls_cns" 			jdbcType="CHAR" javaType="String"/>
+		<result property="codRespuesta"			column="ope_cod_rsp" 			jdbcType="CHAR" javaType="String"/>
+		<result property="cntGlosaRespuesta"	column="ope_cnt_gls_rsp" 		jdbcType="INT" javaType="java.lang.Integer"/>
+	</resultMap>
+	<parameterMap id="setConsultasCuestionario" class="java.util.HashMap">
+		<parameter property="idCuestionario"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="tipoConsultas"		jdbcType="CHAR"	javaType="String" />
+	</parameterMap>
+	<procedure id="obtenerConsultasCuestionario" parameterMap="setConsultasCuestionario" resultMap="getConsultasCuestionario">
+		{ CALL sp_cns_preg_cuest(?,?) }
+	</procedure>	
+	
+	
+	
+	<resultMap id="getGlosaRespuesta" class="java.util.HashMap">
+		<result property="glsRespuesta"			column="ope_gls_rsp" 			jdbcType="CHAR" javaType="String"/>
+	</resultMap>
+	<parameterMap id="setGlosaRespuesta" class="java.util.HashMap">
+		<parameter property="idPregunta"	jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="obtenerGlosasRespuesta" parameterMap="setGlosaRespuesta" resultMap="getGlosaRespuesta">
+		{ CALL sp_cns_gls_rsp(?) }
+	</procedure>		
+	
+	<parameterMap id="setRegistrarAutenticacionCliente" class="java.util.HashMap">
+		<parameter property="idLlamada"			jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="codEjecutivo"		jdbcType="CHAR"	javaType="String"/>
+		<parameter property="fecha"				jdbcType="DATETIME"	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<parameter property="codEstado"			jdbcType="CHAR"	javaType="String"/>
+		<parameter property="idCuestionario"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="rutCliente"		jdbcType="INT"	javaType="java.lang.Long" />
+		<parameter property="procedimiento"		jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="registrarAutenticacionCliente" parameterMap="setRegistrarAutenticacionCliente" resultClass="int">
+		{ CALL sp_ins_reg_aut(?, ?, ?, ?, ?, ?, ?) }
+	</procedure>
+
+	<parameterMap id="setRegistrarRespuestasCliente" class="java.util.HashMap">
+		<parameter property="idRegistroAutenticacion"	jdbcType="INT"	javaType="java.lang.Integer"/>
+		<parameter property="idPregunta"		jdbcType="INT"	javaType="java.lang.Integer" />
+		<parameter property="respuesta"			jdbcType="INT"	javaType="java.lang.Integer"/>
+	</parameterMap>
+	<procedure id="registrarRespuestasCliente" parameterMap="setRegistrarRespuestasCliente" resultClass="int">
+		{ CALL sp_ins_reg_rsp(?, ?, ?) }
+	</procedure>	
+	
+	<parameterMap id="setActualizarRegistrarAutenticacion" class="java.util.HashMap">
+		<parameter property="idRegistroAutenticacion"	jdbcType="INT"	javaType="java.lang.Integer" />
+		<parameter property="codEstado"					jdbcType="CHAR"	javaType="String"/>
+	</parameterMap>
+	<procedure id="actualizarRegistrarAutenticacion" parameterMap="setActualizarRegistrarAutenticacion" resultClass="int">
+		{ CALL sp_act_est_reg_aut(?, ?) }
+	</procedure>
+	
+	<resultMap id="getObtenerRespuestasRegistradas" class="java.util.HashMap">
+		<result property="idRegistroAutenticacion"	column="cli_id_aut" 			jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="idPregunta"				column="ope_id_cns" 			jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="respuesta"				column="ope_rsp_cns" 			jdbcType="INT" javaType="java.lang.Integer"/>
+	</resultMap>
+	<parameterMap id="setObtenerRespuestasRegistradas" class="java.util.HashMap">
+		<parameter property="idLlamada"	jdbcType="INT"	javaType="java.lang.Integer" />
+	</parameterMap>
+	<procedure id="obtenerRespuestasRegistradas" parameterMap="setObtenerRespuestasRegistradas" resultMap="getObtenerRespuestasRegistradas">
+		{ CALL sp_cns_reg_res(?) }
+	</procedure>	
+	
+	<parameterMap id="setRegistrarHistoricoAutenticacion" class="java.util.HashMap">
+		<parameter property="rutCliente"		jdbcType="INT"	javaType="java.lang.Long" />
+	</parameterMap>
+	<procedure id="registrarHistoricoAutenticacion" parameterMap="setRegistrarHistoricoAutenticacion" resultClass="int">
+		{ CALL sp_ins_reg_aut_hist(?) }
+	</procedure>	
+
+	<resultMap id="getObtenerOpcionesAutenticacion" class="java.util.HashMap">
+		<result property="idCuestionario" column="id_cuestionario" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="producto" column="producto" jdbcType="varchar" javaType="String" />
+		<result property="orden" column="orden" jdbcType="INT" javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="obtenerOpcionesAutenticacion" resultMap="getObtenerOpcionesAutenticacion">
+		{ CALL sp_cns_opc_aut_bnet() }
+	</procedure>
+
+	<resultMap id="getObtenerPreguntasPorTipo" class="java.util.HashMap">
+		<result property="idPregunta" column="id_pregunta" jdbcType="INT" javaType="java.lang.Integer"/>
+		<result property="pregunta" column="pregunta" jdbcType="varchar" javaType="String" />
+		<result property="tipo" column="tipo" jdbcType="varchar" javaType="String" />
+		<result property="orden" column="orden" jdbcType="INT" javaType="java.lang.Integer" />
+	</resultMap>
+	<parameterMap id="setObtenerPreguntasPorTipo" class="java.util.HashMap">
+		<parameter property="idCuestionario" jdbcType="INT" javaType="java.lang.Integer" />
+		<parameter property="tipo" jdbcType="varchar" javaType="String" />
+	</parameterMap>
+	<procedure id="obtenerPreguntasPorTipo" parameterMap="setObtenerPreguntasPorTipo" resultMap="getObtenerPreguntasPorTipo">
+		{ CALL sp_cns_cue_pro_bnet(?,?) }
+	</procedure>
+	
+	<resultMap id="getRegistrarAutenticacion" class="java.util.HashMap">
+		<result property="idAutenticacion"  column="id_autenticacion" jdbcType="INT" javaType="java.lang.Integer" />
+	</resultMap>
+	<parameterMap id="setRegistrarAutenticacion" class="java.util.HashMap">
+		<parameter property="idCuestionario" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="rut"  jdbcType="INT" javaType="java.lang.Long" />
+		<parameter property="dv"  jdbcType="varchar" javaType="String" />
+		<parameter property="estado"  jdbcType="varchar" javaType="String" />
+	</parameterMap>
+	<procedure id="registrarAutenticacion" parameterMap="setRegistrarAutenticacion" resultMap="getRegistrarAutenticacion">
+		{ CALL sp_ins_reg_aut_bnet(?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setRegistrarRespuesta" class="java.util.HashMap">
+		<parameter property="idPregunta" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="idAutenticacion"  jdbcType="INT" javaType="java.lang.Integer" />
+		<parameter property="respuesta"  jdbcType="INT" javaType="java.lang.Integer" />
+	</parameterMap>
+	<procedure id="registrarRespuesta" parameterMap="setRegistrarRespuesta">
+		{ CALL sp_ins_res_aut(?,?,?) }
+	</procedure>
+
+	<parameterMap id="setActualizacionRegistroAutenticacion" class="java.util.HashMap">
+		<parameter property="idAutenticacion" jdbcType="INT" javaType="java.lang.Integer"/>
+		<parameter property="estado"  jdbcType="varchar" javaType="String" />
+	</parameterMap>
+	<procedure id="actualizarRegistroAutenticacion" parameterMap="setActualizacionRegistroAutenticacion">
+		{ CALL sp_upd_reg_aut_bnet(?,?) }
+	</procedure>
+</sqlMap>

@@ -1,0 +1,362 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_graba_pago_trf"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerifEmp"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "pagTipo"
+          type = "String"
+          size = "3"
+          middle_name = "ptr_fmt"
+        />
+
+        <field
+          java_name = "numFolio"
+          type = "String"
+          size = "12"
+          middle_name = "numFolio"
+        />
+
+        <field
+          java_name = "pagFecha"
+          type = "Date"
+          size = "20"
+          middle_name = "fechaPago"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "secNombre"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "nombreSeguro"
+        />
+
+        <field
+          java_name = "pagCrr"
+          type = "String"
+          size = "7"
+          middle_name = "diaPago"
+        />
+
+        <field
+          java_name = "rutBeneficiario"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "rutBenef2"
+        />
+
+        <field
+          java_name = "benefDiv"
+          type = "char"
+          size = "1"
+          middle_name = "cicCliente"
+        />
+
+        <field
+          java_name = "benefApPaterno"
+          type = "String"
+          size = "15"
+          middle_name = "identBenef1"
+        />
+
+        <field
+          java_name = "benefApMaterno"
+          type = "String"
+          size = "15"
+          middle_name = "apellidoMatConyuge"
+        />
+
+        <field
+          java_name = "benefNombre"
+          type = "String"
+          size = "15"
+          middle_name = "nombreBenef"
+        />
+
+        <field
+          java_name = "benefDireccion"
+          type = "String"
+          size = "12"
+          middle_name = "direccionBenef"
+        />
+
+        <field
+          java_name = "codCom"
+          type = "String"
+          size = "4"
+          middle_name = "codComision"
+        />
+
+        <field
+          java_name = "viaRen"
+          type = "String"
+          size = "3"
+          middle_name = "renta"
+        />
+
+        <field
+          java_name = "pagForma"
+          type = "String"
+          size = "3"
+          middle_name = "formaPago"
+        />
+
+        <field
+          java_name = "codTipDoc"
+          type = "String"
+          size = "3"
+          middle_name = "codigo3"
+        />
+
+        <field
+          java_name = "bcoNombre"
+          type = "String"
+          size = "35"
+          middle_name = "relBanco"
+        />
+
+        <field
+          java_name = "codOficina"
+          type = "String"
+          size = "3"
+          middle_name = "codigoOficina"
+        />
+
+        <field
+          java_name = "ctaAbono"
+          type = "String"
+          size = "3"
+          middle_name = "ctaAbono"
+        />
+
+        <field
+          java_name = "numDocumento"
+          type = "String"
+          size = "25"
+          middle_name = "numeroDocumento"
+        />
+
+        <field
+          java_name = "pagOrden"
+          type = "String"
+          size = "10"
+          middle_name = "ordenPago"
+        />
+
+        <field
+          java_name = "ordenCompra"
+          type = "String"
+          size = "9"
+          middle_name = "tipoCompra"
+        />
+
+        <field
+          java_name = "monCod"
+          type = "String"
+          size = "6"
+          middle_name = "monto"
+        />
+
+        <field
+          java_name = "docValor"
+          type = "String"
+          size = "13"
+          middle_name = "saldoValorCapital"
+        />
+
+        <field
+          java_name = "docDescripcion"
+          type = "String"
+          size = "30"
+          middle_name = "descripcion"
+        />
+
+        <field
+          java_name = "pagDoc"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "monedaDocum"
+        />
+
+        <field
+          java_name = "monOriginal"
+          type = "String"
+          size = "13"
+          middle_name = "capitalOrig"
+        />
+
+        <field
+          java_name = "modIndicador"
+          type = "char"
+          size = "1"
+          middle_name = "codModoCob"
+        />
+
+        <field
+          java_name = "pagEstado"
+          type = "char"
+          size = "1"
+          middle_name = "estado2"
+        />
+
+        <field
+          java_name = "pagGlosa"
+          type = "String"
+          size = "200"
+          middle_name = "glosa"
+        />
+
+        <field
+          java_name = "retirador1Rut"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "rutDestin"
+        />
+
+        <field
+          java_name = "ret1Div"
+          type = "char"
+          size = "1"
+          middle_name = "digVerAdicional"
+        />
+
+        <field
+          java_name = "ret1ApePaterno"
+          type = "String"
+          size = "15"
+          middle_name = "apellidoPaterno"
+        />
+
+        <field
+          java_name = "ret1ApeMaterno"
+          type = "String"
+          size = "15"
+          middle_name = "apellidoMaterno"
+        />
+
+        <field
+          java_name = "ret1Nombre"
+          type = "String"
+          size = "15"
+          middle_name = "nombreRamo"
+        />
+
+        <field
+          java_name = "retirador2Rut"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "rutDestin2"
+        />
+
+        <field
+          java_name = "ret2Div"
+          type = "char"
+          size = "1"
+          middle_name = "digVerCliRel"
+        />
+
+        <field
+          java_name = "ret2ApePaterno"
+          type = "String"
+          size = "15"
+          middle_name = "apellidoPaternoRel"
+        />
+
+        <field
+          java_name = "ret2ApeMaterno"
+          type = "String"
+          size = "15"
+          middle_name = "apellidoMaternoRel"
+        />
+
+        <field
+          java_name = "ret2Nombre"
+          type = "String"
+          size = "15"
+          middle_name = "nombrePropietario"
+        />
+
+        <field
+          java_name = "liqIndicador"
+          type = "char"
+          size = "1"
+          middle_name = "indLiquidacion"
+        />
+
+        <field
+          java_name = "origenNomina"
+          type = "char"
+          size = "1"
+          middle_name = "codOrigen"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "salida"
+          type = "String"
+          size = "102"
+          middle_name = "resumen"
+        />
+
+  </output>
+
+</service>

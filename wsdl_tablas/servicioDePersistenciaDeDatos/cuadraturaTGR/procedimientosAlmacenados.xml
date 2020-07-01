@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="cuadraturaTGR.procedimientosAlmacenados">     
+    
+     <parameterMap id="setObtieneRezagos" class="java.util.HashMap">
+        <parameter property="cid"				jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="monto"     		jdbcType="DECIMAL"  javaType="Double" />
+        <parameter property="sucursal"			jdbcType="CHAR"     javaType="String" />
+        <parameter property="fecha1"			jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="fecha2"			jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="flagManual"		jdbcType="INT"      javaType="Integer" />
+        <parameter property="fechaRecaudacion"	jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="likeCid"		    jdbcType="INT"      javaType="Integer" />
+        <parameter property="likeSucursal"		jdbcType="INT"      javaType="Integer" />
+    </parameterMap>
+  	<resultMap id="getRezagos" class="java.util.HashMap">
+  		<result property="id_rezago"     		jdbcType="NUMERIC" 	javaType="Long" />
+    	<result property="cid"     				jdbcType="VARCHAR" 	javaType="String" />
+        <result property="monto"  				jdbcType="DECIMAL" 	javaType="Double"/>
+        <result property="sucursal"   			jdbcType="CHAR" 	javaType="String" />
+        <result property="fecha_recaudacion"    jdbcType="DATE" 	javaType="java.util.Date"/>
+        <result property="fecha_rendicion"      jdbcType="DATE" 	javaType="java.util.Date"/>
+        <result property="id_archivo"      		jdbcType="NUMERIC" 	javaType="Long" />
+        <result property="flag_aprobacion"		jdbcType="CHAR"      javaType="String" />
+        <result property="fecha_modificacion_estado"      jdbcType="DATE" 	javaType="java.util.Date"/>
+    </resultMap>
+    <procedure id="obtieneRezagos" parameterMap="setObtieneRezagos" resultMap="getRezagos">
+        { CALL sp_sel_rezagos (?, ?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <resultMap id="getArchivosRezagos" class="java.util.HashMap">
+  		<result property="id_archivo"     		jdbcType="NUMERIC" 	javaType="Long" />
+  		<result property="fecha_carga"    		jdbcType="DATETIME" javaType="java.util.Date"/>
+    	<result property="usuario"     			jdbcType="CHAR" 	javaType="String" />
+    	<result property="fecha_rendicion"      jdbcType="DATE" 	javaType="java.util.Date"/>
+        <result property="nombre_archivo"   	jdbcType="VARCHAR" 	javaType="String" />
+        <result property="num_rezagos"   		jdbcType="INT" 		javaType="Integer" />
+        <result property="num_correctos"   		jdbcType="INT" 		javaType="Integer" />
+        <result property="num_errores"   		jdbcType="INT" 		javaType="Integer" />
+    </resultMap>
+     <parameterMap id="setObtieneArchivosRezagos" class="java.util.HashMap">
+        <parameter property="usuario"			jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+    <procedure id="obtieneArchivosRezagos" parameterMap="setObtieneArchivosRezagos" resultMap="getArchivosRezagos">
+        { CALL sp_sel_archivos_rezagos (?) }
+    </procedure>
+    
+    <parameterMap id="setInsertarRezago" class="java.util.HashMap">
+        <parameter property="cid"				jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="monto"     		jdbcType="DECIMAL"  javaType="Double" />
+        <parameter property="sucursal"			jdbcType="CHAR"  javaType="String" />
+        <parameter property="fechaRecaudacion"	jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="fechaRendicion"	jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="idArchivo"			jdbcType="NUMERIC"  javaType="Long" />
+    </parameterMap>
+    <procedure id="insertarRezago" parameterMap="setInsertarRezago"	resultClass="int">
+        {CALL sp_ins_rezago (?, ?, ?, ?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setEliminarRezago" class="java.util.HashMap">
+        <parameter property="idRezago"			jdbcType="NUMERIC"  javaType="Long" />
+    </parameterMap>
+    <procedure id="eliminarRezago" parameterMap="setEliminarRezago"	resultClass="int">
+        {CALL sp_del_rezago (?)}
+    </procedure>
+    
+    <parameterMap id="setCambiarEstado" class="java.util.HashMap">
+        <parameter property="idRezago"			jdbcType="NUMERIC"  javaType="Long" />
+        <parameter property="flagAprobacion"	jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+    <procedure id="cambiarEstado" parameterMap="setCambiarEstado"	resultClass="int">
+        {CALL sp_upd_estado_rezago (?,?)}
+    </procedure>
+    
+    <procedure id="reversarDiaAnterior" resultClass="int" parameterClass="java.util.HashMap">
+        {CALL sp_upd_reversa_rezagos}
+    </procedure>
+     
+    <parameterMap id="setObtieneRezagoCid" class="java.util.HashMap">
+        <parameter property="cid"				jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    <procedure id="obtieneRezagoCid" parameterMap="setObtieneRezagoCid" resultMap="getRezagos">
+        { CALL sp_sel_rezago_cid (?) }
+    </procedure>
+           
+    <parameterMap id="setInsertarArchivoRezagos" class="java.util.HashMap">
+        <parameter property="usuario"			jdbcType="CHAR"  javaType="String" />
+        <parameter property="nombreArchivo"     jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaRendicion"	jdbcType="DATE"  	javaType="java.util.Date" />
+        <parameter property="numRezagos"   		jdbcType="INT" 		javaType="Integer" />
+        <parameter property="numCorrectos"   	jdbcType="INT" 		javaType="Integer" />
+        <parameter property="numErrores"   		jdbcType="INT" 		javaType="Integer" />
+    </parameterMap>
+    <procedure id="insertarArchivoRezagos" parameterMap="setInsertarArchivoRezagos"	resultClass="int">
+        {CALL sp_ins_archivo_rezagos (?, ?, ?, ?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setEliminarArchivoRezagos" class="java.util.HashMap">
+        <parameter property="idArchivo"			jdbcType="NUMERIC"  javaType="Long" />
+    </parameterMap>
+    <procedure id="eliminarArchivoRezagos" parameterMap="setEliminarArchivoRezagos"	resultClass="int">
+        {CALL sp_del_archivo_rezagos (?)}
+    </procedure>
+    
+    
+    <parameterMap id="setActualizarTotalesArchivo" class="java.util.HashMap">
+        <parameter property="idArchivo"			jdbcType="NUMERIC"  javaType="Long" />
+        <parameter property="numRezagos"   		jdbcType="INT" 		javaType="Integer" />
+        <parameter property="numCorrectos"   	jdbcType="INT" 		javaType="Integer" />
+        <parameter property="numErrores"   		jdbcType="INT" 		javaType="Integer" />
+    </parameterMap>
+    <procedure id="actualizarTotalesArchivo" parameterMap="setActualizarTotalesArchivo"	resultClass="int">
+        {CALL sp_upd_totales_archivo (?, ?, ?, ?)}
+    </procedure>
+</sqlMap>   

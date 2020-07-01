@@ -1,0 +1,16 @@
+MinicartolaCtaCte;Desc=Minicartola Cta. Cte.;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/Minicartola;
+CartolaLinea;Desc=Cartola en Línea;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/CartoLinea;
+CartolaHistorica;Desc=Cartola Histórica;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/ListaCartolaHistoricaCtaCte.jsp;
+SaldoCtaCte;Desc=Saldo Cuenta;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/SaldoCuenta;
+SuperCartola;Desc=Super Cartola;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/SuperCartola;
+AbonoLineaSobregiro;Desc=Abono Línea de Sobregiro;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/AbonoLineaSobregiro;
+ConsultaLineadeSobregiro;Desc=Consulta Línea de Sobregiro;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/ConsultaLineaSobregiro.jsp;
+ChequesCobrados;Desc=Cheques Cobrados;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/ListaTalonariosEstadoCheques.jsp;
+TransferenciaFondosEntreCtasCteYCtasPrimas;Desc=Transferencia de Fondos entre Cuentas Corriente y Cuentas Primas;Grupos=Cuenta Corriente;Servicio=/webcorpwls/autoservicio/cuentas/ListaTransFondosCtaCtePrima.jsp;
+SaldoVisa;Desc=Saldo Visa;Grupos=Tarjeta VISA;Servicio=/webcorpwls/autoservicio/cuentas/SaldoVisa;
+CartolasAhorro;Desc=Minicartola Ahorro;Grupos=Ahorro Electrónico;Servicio=/webcorpwls/autoservicio/ahorro/GoCartola;
+SaldoAhorro;Desc=Saldo Ahorro;Grupos=Ahorro Electrónico;Servicio=/webcorpwls/autoservicio/ahorro/GoSaldo;
+TransferenciaACuentasTerceros;Desc=Transferencia a Cuentas de Terceros;Grupos=Cuenta Corriente;
+TransferenciaFondosACuentaCorriente;Desc=Transferencia de Fondos a Cuenta Corriente;Grupos=Ahorro Electrónico;
+TransferenciaDesdeCuentaCorriente;Desc=Transferencia desde Cuenta Corriente;Grupos=Ahorro Electrónico;
+SaldoDAP;Desc=Consulta Depósito a Plazo;Grupos=Depósito a Plazo;Servicio=/webcorpwls/autoservicio/dap/Consulta;

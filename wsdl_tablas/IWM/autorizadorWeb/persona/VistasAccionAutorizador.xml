@@ -1,0 +1,2365 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vistasAcciones>
+	<!-- Prueba regla Persona -->
+    <vista nombreVista="pruebaPersona">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentista</regla>
+        </accion>
+    </vista>
+	<!-- ////Fin prueba//// -->
+	
+	<!--Prueba persona Sin Regla -->
+    <vista nombreVista="pruebaNoRegla">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+	<!-- ////Fin prueba//// -->
+	
+    <!--Prueba Dominio -->
+    <vista nombreVista="pruebaDominio">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>EnDominioIntranet</regla>
+        </accion>
+    </vista>
+    <!-- ////Fin prueba//// -->
+    
+
+	<!--Prueba persona Regla Con Parametros -->
+    <vista nombreVista="pruebaReglaParametros">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento("?")</regla>
+        </accion>
+    </vista>
+	<!-- ////Fin prueba//// -->
+	
+	<!--Prueba persona Regla Compleja -->
+    <vista nombreVista="pruebaReglaCompleja">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceABancaPrivadaOBancaPreferencial</regla>
+            <parametro>PR</parametro>
+            <parametro>PBP</parametro>
+        </accion>
+    </vista>
+	<!-- ////Fin prueba//// -->
+	
+	
+	<!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
+    <vista nombreVista="cierre">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="cerrrarSesion">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+	
+	<!--Accesos Directos -->
+    <vista nombreVista="accesosDirectos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="accesoSeguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    
+    <!--seguridad -->
+    <vista nombreVista="seguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="estadoClaves">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    
+    <!-- Configuracion seguridad -->
+    <vista nombreVista="configuracionSeguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+
+    <vista nombreVista="configuracionMultipass">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConMultipass</regla>
+        </accion>
+    </vista>
+
+    <vista nombreVista="sincronizacionMultipass">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConMultipass</regla>
+        </accion>
+    </vista>
+    
+    <vista nombreVista="sincronizacionMovilpass">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConMultipass</regla>
+        </accion>
+    </vista>
+    <!-- ///////configuracion seguridad//////// -->
+   
+    <vista nombreVista="solicitudDeClaves">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="solicitudClaveTelefonica">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    
+    <!-- informacion seguridad -->
+    <vista nombreVista="informacionSeguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+
+    <vista nombreVista="queEsMultipass">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+
+    <vista nombreVista="queEsMovilpass">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+
+    <vista nombreVista="queEsClaveTelefonica">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+
+    <vista nombreVista="politicasDeSeguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="mandatoDeCanalesRemotos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <!-- ////informacion seguridad//// -->
+    
+    <vista nombreVista="bloqueoTarjetasDeDebito">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+  <!-- ////////////////Seguridad////////////////////// -->  
+    
+  <!-- Acceso emergencias -->
+    <vista nombreVista="accesoEmergencias">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="emergenciasSeguridad">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    
+    <!-- emergencias seguridad -->
+    <vista nombreVista="emergenciasOrdenDeNoPago">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="emergenciaCambiarClaveDeInternet">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bloqueoMultipass">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConMultipass</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="emergenciaBloqueoMovilpass">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="emergenciaDesbloquearClaveTelefonica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Emergencias seguridad//// -->
+    <!-- ////Acceso emergencias//// -->
+    
+    <vista nombreVista="ejecutivo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    
+    <vista nombreVista="servicioAtencionAlCliente">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- //////////Acceso directo -->
+    
+    <!-- Pestanas -->
+    <vista nombreVista="pestanas">
+		
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+		
+    </vista>
+    <!-- Banca Privada -->
+    <vista nombreVista="bancaPrivada">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- consulta vencimientos -->
+    <vista nombreVista="consultaVencimientos">
+		
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+		
+    </vista>
+    <vista nombreVista="bancaPrivadaDAP">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaPactos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaSimultaneas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaRentaFija">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaTotalVencimientos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Consulta Vencimientos//// -->
+    <vista nombreVista="balancePatrimonial">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- Balance patrimonial -->
+    
+    <vista nombreVista="bancaPrivadaSuperCartola">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaResumenDeInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaCartola">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaCartolaDeInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaAdministracionDeCartera">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaFondoDeInversionPrivado">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Balance Patrimonial//// -->
+   
+   <!---Detalle de Inversiones -->
+    <vista nombreVista="bancaPrivadadetalleDeInversion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaDepositoAPlazo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaCuentaDeAhorro">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaInvRentaFija">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaInvPactos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Detalle de Inversiones -->
+    
+    <!-- Acciones -->
+    <vista nombreVista="bancaPrivadaAcciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaDetalleAcciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaOperacionesHistoricas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaValoresEnGarantia">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaMovimientosCtaMercantil">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ///Acciones//// -->
+    <vista nombreVista="bancaPrivadaEstudios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaAnalisisYDocumentacion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaIndFinancieros">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="indicadoresFinancieros">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    
+    <!-- Sitios Relacionados -->
+    <vista nombreVista="bancaPrivadaSitiosRelacionados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaPershing">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaMiami">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Sitios Relacionados//// -->
+    
+    <!-- Otros servicios -->
+    <vista nombreVista="bancaPrivadaOtrosServicios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaCertificadosTributarios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaProgramarInversion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bancaPrivadaVerInversionProgramada">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClientePerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Otros Servicios//// -->
+    <!--//// Banca Privada ////-->
+    
+    <!-- Mi Banco -->
+    <vista nombreVista="miBanco">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="superCartola">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- Cuenta Corriente -->
+    <vista nombreVista="cuentaCorriente">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- Cartola -->
+    <vista nombreVista="cuentaCorrienteCartola">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saldoYUltimosMovimientos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="CartolaActualEHistorica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cartola//// -->
+    
+    <!-- Cheques -->
+    <vista nombreVista="cheques">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="consultaDeCheques">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="talonariosADomicilio">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cuentaOrdenDeNoPago">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cheques//// -->
+    
+    
+    <vista nombreVista="depositos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    
+    <!-- Certificados -->
+    <vista nombreVista="certificados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="impresionDeCertificados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="certificadosEcologicos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Certificados//// -->
+    
+    <!-- Moneda Extranjera -->
+    <vista nombreVista="monedaExtranjera">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrienteOCtaPrimaConCtaMonex</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saldosYUltimosMovimientosMonex">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrienteOCtaPrimaConCtaMonex</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Moneda Extranjera//// -->
+    <!-- ////Cuenta Corriente//// -->
+
+    <!-- Cuenta Corriente Sin Producto -->
+    <vista nombreVista="cuentaCorrienteSinProducto">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="monedaExtranjeraSinProducto">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrimaConCtaMonex</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="SaldosYUltimosMovimientosMonexSinCct">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrimaConCtaMonex</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cuenta Corriente Sin Producto//// -->
+    
+    <!-- Linea Sobregiro -->
+    <vista nombreVista="lineaSobregiro">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaConLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saldoYUltimosMovimientosLSG">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaConLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoAbonosLSG">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaConLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="lineaDeEmergenciaLSG">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaConLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Linea Sobregiro//// -->
+    <!-- Linea Sobregiro Sin Producto -->
+    <vista nombreVista="lineaDeSobregiroSinProducto">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaSinLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="solicitarLineaSobregiro">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaSinLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Linea Sobregiro Sin Producto//// -->
+    
+    <!-- Datos Personales -->
+    <vista nombreVista="datosPersonales">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="actualizacionDeDirecciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="actualizacionDeRenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="DireccionEnvioCorrespondencia">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="BoletasElectronicas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="misPreferencias">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Datos Personales//// -->
+    
+    <!-- Planes -->
+    <vista nombreVista="planes">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- Cuenta Medica -->
+    <vista nombreVista="cuentaMedica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saldoCtaMedica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="ultimosMovimientosCtaMedica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="carteraDocumentosEnCobranzaCtaMedica">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cuenta Medica//// -->
+    
+    <!-- Cuentas Vinculadas -->
+    <vista nombreVista="cuentasVinculadas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="mandatoCtaVinculada">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="ctaVinculadaInscrita">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cuentas Vinculadas//// -->
+    
+    <!-- Cuenta Familia -->
+    <vista nombreVista="cuentaFamilia">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cuentaFamiliaResumen">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cuentaFamiliaMovimientos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cuenta Familia//// -->
+    
+    <vista nombreVista="interesesPagados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConInteresesPagados</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Planes//// -->
+    <!-- ////Mi Banco//// -->
+    
+    <!-- Pagos Servicios -->
+    <vista nombreVista="pagosYServicios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- Pago De Cuentas -->
+    <vista nombreVista="pagoDeCuentas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagosEnLinea">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoEnLineaSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaDePagos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaDePagosSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrimaSinTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="PAC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="PACSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="PAT">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="PATSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Pago De Cuentas//// -->
+    
+    <!-- Mensajeria Celular -->
+    <vista nombreVista="mensajeriaCelular">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="avisoDepositoSueldo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="avisoDepositoSueldoSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Mensajeria Celular//// -->
+    
+    <vista nombreVista="servicioPorRedesSociales">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    
+    <!-- Servicios Recarga -->
+    <vista nombreVista="servicioDeRecargas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaCelular">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaCelularFrecuentes">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaCelularSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaTarjetaBip">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaTarjetaBipFrecuente">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="recargaTarjetaBipSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Servicio De Recargas//// -->
+    
+    <!-- Pago Productos BCI -->
+    <vista nombreVista="pagoProductosBCI">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoLSG">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaConLineaSobregiro</regla>
+        </accion>
+        
+    </vista>
+    <!-- Pago Tarjetas De Credito -->
+    <vista nombreVista="tarjetaDeCreditoNacional">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="tarjetaDeCreditoInternacional">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Tarjetas De Credito//// -->
+    
+    <vista nombreVista="pagoCreditoDeConsumo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoCreditoHipotecario">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Pago Productos BCI -->
+    
+    <!-- Cotizacion Previsional -->
+    <vista nombreVista="cotizacionPrevisional">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="administrarPagos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="consultarPagos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="condicionesServicios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaOConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cotizaciones previsional//// -->
+    
+    <vista nombreVista="pacIglesia">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pacIglesiaSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Pago Servicios//// -->
+    
+    <!-- TTFF -->
+    <vista nombreVista="transferencias">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- TTFF2 -->
+    <vista nombreVista="transferenciasTTFF2">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="transferenciasFondosEnLinea">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="transferenciasFondosEnLineaSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="transferenciasProgramadas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="transferenciasProgramadasSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="misDestinatarios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="misDestinatariosSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////TTFF2//// -->
+    
+    <!-- Catolas TTFF -->
+    <vista nombreVista="cartolasTTFF">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolasTTFFRealizadas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolasTTFFRealizadasSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolasTTFFRecibias">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolasTTFFRecibidasSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Cartola TTFF//// -->
+    
+    <vista nombreVista="aporteSolidario">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOCtaPrimista</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="aporteSolidarioSinCuenta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinCtaCorrienteSinCtaPrima</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////TTFF//// -->
+    
+    <!-- Tarjetas -->
+    <vista nombreVista="tarjetasDeCredito">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    
+    <!-- TDC -->
+    <vista nombreVista="TDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- Estado De Cuenta TDC -->
+    <vista nombreVista="estadoDeCuentaTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saldoTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="ultimosMovimientosTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="estadoCuentaNacionalTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="estadoDeCuentaInternacionalTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="estadoDeCuentaHistorico">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Estado De Cuenta TDC//// -->
+    
+    <vista nombreVista="avanceACuentaCorriente">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="efectivoEnCuotas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    
+    <!-- Pago Abono TDC -->
+    <vista nombreVista="pagoAbonoTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoDeudaNacional">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagoDeudaInternacional">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteCtaCorrentistaOPrimistaConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Pago Abono TDC//// -->
+    
+    <vista nombreVista="tarjetaVirtual">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="patPass">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="otrasSolicitudesTDC">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    
+    <!-- Programas Beneficios -->
+    <vista nombreVista="programaBeneficios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="puntosBeneficios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="programasOpenSky">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="programaYoNeutralizo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Programa Beneficios//// -->
+    
+    <vista nombreVista="activacionTarjeta">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="generacionOCambioPinPass">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////TDC//// -->
+    <vista nombreVista="TDCSinProducto">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteSinTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="solicitarTarjetaDeCredito">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteConTDC</regla>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="TDCNoDisponible">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>Error_ClienteTC</regla>
+        </accion>
+        
+    </vista>
+    <!-- ////Tarjetas//// -->
+    
+    <!-- Creditos -->
+    <vista nombreVista="creditos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="creditoConsumo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- Credito De Consumo -->
+    <vista nombreVista="pidaSuCredito">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagarPostergarCuota">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="consolidarDeuda">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="consultarCreditos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaCreditos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="aumentoDeCredito">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="certificadosCredito">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Credito De Consumo//// -->
+    
+    <!-- Credito Hipotecario -->
+    <vista nombreVista="creditoHipotecario">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="simuleCreditoHipotecario">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pagarDividendos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="estadoSolicitud">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="dividendosCancelados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="duplicadoDividendo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="certificadosDividendo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Credito Hipotecario//// -->
+    <!-- ////Creditos////-->
+    
+    <!-- Inversiones -->
+    <vista nombreVista="inversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    
+    <!-- Resumen Inversiones -->
+    <vista nombreVista="resumen">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="resumenInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Resumen Inversiones//// -->
+    
+    <!-- Asesoria -->
+    <vista nombreVista="asesoria">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="analisisYDocumentacion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="bciAssetReview">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="nivelDeRiesgo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Asesoria//// -->
+    
+    <!-- Fondos Mutuos -->
+    <vista nombreVista="fondosMutuos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="invertirFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="rescatarFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaSaldosFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    
+    <vista nombreVista="cartolaHistoricaFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="valoresCuotaFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saberMasFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="programarFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="inversionesProgramadasFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="leaContratoGeneralFFMM">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Fondos Mutuos//// -->
+    
+    <!-- Deposito A Plazo -->
+    <vista nombreVista="DepositoAPlazo">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="tomarDap">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cartolaDap">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="operacionesHistoricasDap">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="saberMasDap">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Deposito A Plazo//// -->
+    
+    <!-- Acciones -->
+    <vista nombreVista="acciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="compraAcciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="ventaAcciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="opcionAcciones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!--//// Acciones//// -->
+    
+    <!-- Otras Inversiones -->
+    <vista nombreVista="otrasInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="cuentasDeAhorro">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="ahorroPrevisionalVoluntario">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="fondosInversionesPrivados">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="administraionDeCartera">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="pactos">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="simultaneas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="fondosDeInversion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="rentaFija">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!--//// Otras Inversiones ////-->
+    
+    <vista nombreVista="otrosServiciosInversiones">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <vista nombreVista="certificadosTributarios">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+                
+            <parametro>PR</parametro>
+                
+        </accion>
+        
+    </vista>
+    <!-- ////Inversiones//// -->
+    
+    <!-- Seguros -->
+    <vista nombreVista="seguros">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    
+    <!-- Contratar Seguros -->
+    <vista nombreVista="contratarSeguros">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="accidentesPersonas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroHogar">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroMultiProteccion">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroProteccionTotal">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroVital">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroAutomotriz">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroResponsabilidadSocial">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Contratar Seguro//// -->
+    
+    <!-- Consultar Polizas -->
+    <vista nombreVista="consultarPolizas">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <vista nombreVista="seguroObligatorio">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <vista nombreVista="seguroVigente">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+    </vista>
+    <!-- ////Consultar Polizas//// -->
+    <vista nombreVista="declaracionDeSalud">
+        
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+        </accion>
+        
+    </vista>
+    <!-- ////Seguros//// -->
+    <!-- ////Pestanas//// -->
+	
+	<vista nombreVista="personas">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+            <parametro>PP</parametro>
+		</accion>
+	</vista>
+	
+	<vista nombreVista="nova">
+		<accion>
+			<nombreAccion>Ingresar</nombreAccion>
+			<regla>ClientePerteneceASegmento</regla>
+			<parametro>PBM</parametro>
+		</accion>
+	</vista>
+	
+	<vista nombreVista="preferencial">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>ClienteNoPerteneceASegmento</regla>
+            <parametro>PBP</parametro>
+		</accion>
+	</vista>
+	
+	<vista nombreVista="privada">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+			<regla>ClienteNoPerteneceASegmento</regla>
+            <parametro>PR</parametro>
+		</accion>
+	</vista>
+	
+	<vista nombreVista="tbanc">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+			<regla>ClienteNoPerteneceASegmento</regla>
+            <parametro>PP</parametro>
+		</accion>
+	</vista>
+	
+	
+	
+</vistasAcciones>

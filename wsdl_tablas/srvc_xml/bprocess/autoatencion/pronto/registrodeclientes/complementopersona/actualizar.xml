@@ -1,0 +1,52 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_upd_cmp">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+   <input>
+      <field
+         java_name = "rutCliente"
+         type = "long"
+         size = "9"
+         middle_name = "cmp_per_idc"
+      />
+      <field
+         java_name = "direccionParticular"
+         type = "String"
+         size = "50"
+         middle_name = "cmp_per_dir"
+      />
+      <field
+         java_name = "telefonoParticular"
+         type = "String"
+         size = "11"
+         middle_name = "cmp_per_tel"
+      />
+      <field
+         java_name = "email"
+         type = "String"
+         size = "45"
+         middle_name = "cmp_per_eml"
+      />
+       <field
+         java_name = "fechaNacimiento"
+         type = "Date"
+	 size = "4"
+         middle_name = "cmp_per_fna"
+      />
+   </input>
+   
+   <output>
+        
+   </output>
+</service>

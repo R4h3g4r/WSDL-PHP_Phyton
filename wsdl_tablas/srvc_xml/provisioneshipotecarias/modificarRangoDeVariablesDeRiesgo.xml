@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_ing_rng_var">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="String" middle_name="gls_cod" size="20" java_name="codGlosa"/>
+		<field type="Double" middle_name="pjr_rng_min" size="0" java_name="rangoMinimo"/>
+		<field type="Double" middle_name="pjr_rng_max" size="0" java_name="rangoMaximo"/>
+		<field type="Integer" middle_name="pjr_val_ptj" size="0" java_name="puntajeValorRango"/>
+		<field type="String" middle_name="pjr_vig" size="0" java_name="vigenciaRango"/>
+	</input>
+	<output/>
+</service>
+	

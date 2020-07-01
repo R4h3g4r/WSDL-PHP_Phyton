@@ -1,0 +1,233 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+
+<!-- 
+	Patricio Valenzuela S.(Sermaluc), Elías Zacarías V. (Sermaluc): Se agrega atributo indicadorCargoForzado, el cual a nivel de negocio permite la identificación
+	de empresas "verdes" (ver definición de atributo). Esto puede ser considerado como una mantención a la lógica de PagosMasivos sobre el framework DAO Genérico de BEE.
+	Esto fue aprobado por el área de arquitectura como una excepción y cambios futuros requerirán reinigeniería (llevar al framework actual del servicio de persistencia BCI). 
+-->
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_DetPagosSinFondos"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "indTransfer"
+          type = "String"
+          size = "7"
+          middle_name = "montoTransfer"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "pagTipo"
+          type = "String"
+          size = "3"
+          middle_name = "ptr_fmt"
+        />
+
+        <field
+          java_name = "pagFecDesde"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha2"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "pagFecHasta"
+          type = "Date"
+          size = "20"
+          middle_name = "fecha3"
+          middle_date_format = "ddMMyyyy"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionDetallePagosSinFondos" var_name = "detallePagoSinFondo" >
+
+          <field
+            java_name = "pagFecha"
+            type = "Date"
+            size = "20"
+            middle_name = "fechaPago"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "numFolio"
+            type = "String"
+            size = "12"
+            middle_name = "numFolio"
+          />
+
+          <field
+            java_name = "nomArchivo"
+            type = "String"
+            size = "20"
+            middle_name = "archivo"
+          />
+
+          <field
+            java_name = "pagFecCreacion"
+            type = "Date"
+            size = "20"
+            middle_name = "fecCreacion"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "pagCantidad"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "cantPago"
+          />
+
+          <field
+            java_name = "pagMonTotal"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "total"
+          />
+
+          <field
+            java_name = "regCantidad"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "cantidad2"
+          />
+
+          <field
+            java_name = "monRechazo"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto1"
+          />
+
+          <field
+            java_name = "apoRut"
+            type = "String"
+            size = "12"
+            middle_name = "rut"
+          />
+
+          <field
+            java_name = "pagMonTipo"
+            type = "String"
+            size = "3"
+            middle_name = "tipoAbono"
+          />
+
+          <field
+            java_name = "codEstado"
+            type = "String"
+            size = "4"
+            middle_name = "codEstado"
+          />
+
+          <field
+            java_name = "modulo"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "modulo"
+          />
+
+          <field
+            java_name = "fecError"
+            type = "Date"
+            size = "20"
+            middle_name = "fechaEvento"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "desEstado"
+            type = "String"
+            size = "30"
+            middle_name = "descripEstadoDet"
+          />
+
+          <field
+            java_name = "detener"
+            type = "String"
+            size = "2"
+            middle_name = "cantDetalle"
+          />
+
+          <field
+            java_name = "detalle"
+            type = "String"
+            size = "2"
+            middle_name = "detalle"
+          />
+
+          <field
+            java_name = "tipoProceso"
+            type = "String"
+            size = "2"
+            middle_name = "codProceso"
+          />
+
+<field
+            java_name = "indicadorDeCargoForzado"
+            type = "int"
+            size = "3"
+            sign = "no"
+            integers = "3"
+            decimals = "0"
+            middle_name = "carFzo"
+          />
+
+
+    </struct>
+
+  </output>
+
+</service>

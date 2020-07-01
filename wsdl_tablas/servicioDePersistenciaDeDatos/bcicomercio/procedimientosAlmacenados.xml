@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="bcicomercio.procedimientosAlmacenados">  
+	
+	<parameterMap id="setConsultaDatosVentas" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	    <parameter property="indicador" jdbcType="INTEGER" javaType="integer" />
+	</parameterMap>
+
+	<resultMap id="getConsultaDatosVentas" class="java.util.HashMap">
+		<result property="PromedioVenta" column="PromedioVenta" jdbcType="NUMERIC" javaType="integer" />
+		<result property="TotalVenta" column="TotalVenta" jdbcType="NUMERIC" javaType="integer" />
+		<result property="PromedioVentaAnt" column="PromedioVentaAnt" jdbcType="NUMERIC" javaType="integer" />
+		<result property="TotalVentaAnt" column="TotalVentaAnt" jdbcType="NUMERIC" javaType="integer" />
+		<result property="Hombres" column="Hombres" jdbcType="NUMERIC" javaType="integer" />
+		<result property="Mujeres" column="Mujeres" jdbcType="NUMERIC" javaType="integer" />
+		<result property="Exclusivos" column="Exclusivos" jdbcType="NUMERIC" javaType="integer" />
+		<result property="TotalClientes" column="TotalClientes" jdbcType="NUMERIC" javaType="integer" />
+		<result property="ExclusivosAnt" column="ExclusivosAnt" jdbcType="NUMERIC" javaType="integer" />
+		<result property="TotalClientesAnt" column="TotalClientesAnt" jdbcType="NUMERIC" javaType="integer" />
+		<result property="Lealtad" column="Lealtad" jdbcType="NUMERIC" javaType="integer" />
+		<result property="LealtadAnt" column="LealtadAnt" jdbcType="NUMERIC" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaDatosVentas" parameterMap="setConsultaDatosVentas" resultMap="getConsultaDatosVentas">
+ 		{ CALL sp_datos_ventas(?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteTO" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteTO" class="java.util.HashMap">
+		<result property="EDAD" column="EDAD" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="EDADCOMP" column="EDADCOMP" jdbcType="INTEGER" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteTO" parameterMap="setConsultaClienteTO" resultMap="getConsultaClienteTO">
+		{ CALL sp_com_seg_edad(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteTOM" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteTOM" class="java.util.HashMap">
+		<result property="EDAD" column="EDAD" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="EDADCOMP" column="EDADCOMP" jdbcType="INTEGER" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteTOM" parameterMap="setConsultaClienteTOM" resultMap="getConsultaClienteTOM">
+		{ CALL sp_com_seg_edad_m(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteRenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteRenta" class="java.util.HashMap">
+		<result property="RENTA" column="RENTA" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="RENTACOMP" column="RENTACOMP" jdbcType="INTEGER" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteRenta" parameterMap="setConsultaClienteRenta" resultMap="getConsultaClienteRenta">
+		{ CALL sp_com_seg_renta(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteMRenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteMRenta" class="java.util.HashMap">
+		<result property="RENTA" column="RENTA" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="RENTACOMP" column="RENTACOMP" jdbcType="INTEGER" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteMRenta" parameterMap="setConsultaClienteMRenta" resultMap="getConsultaClienteMRenta">
+		{ CALL sp_com_seg_renta_m(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteTotalTO" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteTotalTO" class="java.util.HashMap">
+		<result property="CANT" column="CANT" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="TIKET" column="TIKET" jdbcType="NUMERIC" javaType="double" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteTotalTO" parameterMap="setConsultaClienteTotalTO" resultMap="getConsultaClienteTotalTO">
+		{ CALL sp_com_segmentacion_sexo(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClienteTotalComp" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClienteTotalComp" class="java.util.HashMap">
+		<result property="CANTCOMP" column="CANTCOMP" jdbcType="INTEGER" javaType="integer" />
+		<result property="DESC" column="DESC" jdbcType="VARCHAR" javaType="String" />
+		<result property="TIKETCOMP" column="TIKETCOMP" jdbcType="NUMERIC" javaType="double" />
+	</resultMap>
+	
+ 	<procedure id="consultaClienteTotalComp" parameterMap="setConsultaClienteTotalComp" resultMap="getConsultaClienteTotalComp">
+		{ CALL sp_com_segmentacion_sexo_comp(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClientesPorMes" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	    <parameter property="indicador" jdbcType="INTEGER" javaType="integer" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClientesPorMes" class="java.util.HashMap">
+	    <result property="dsm" column="dsm" jdbcType="VARCHAR" javaType="String" />
+	    <result property="anno" column="anno" jdbcType="VARCHAR" javaType="String" />
+		<result property="cantidad_clientes" column="cantidad_clientes" jdbcType="INTEGER" javaType="integer" />
+		<result property="clientes_comp" column="clientes_comp" jdbcType="INTEGER" javaType="integer" />
+	</resultMap>
+	
+ 	<procedure id="consultaClientesPorMes" parameterMap="setConsultaClientesPorMes" resultMap="getConsultaClientesPorMes">
+		{ CALL sp_com_clientes(?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaBciClienteTO" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaBciClienteTO" class="java.util.HashMap">
+		<result property="DECIL" column="DECIL" jdbcType="VARCHAR" javaType="String" />
+		<result property="PCT" column="PCT" jdbcType="DECIMAL" javaType="double" />
+		<result property="COMP" column="COMP" jdbcType="DECIMAL" javaType="double" />
+	</resultMap>
+	
+ 	<procedure id="consultaBciClienteTO" parameterMap="setConsultaBciClienteTO" resultMap="getConsultaBciClienteTO">
+		{ CALL sp_com_tramos(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClientesLeales" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClientesLeales" class="java.util.HashMap">
+		<result property="CANT" column="CANT" jdbcType="INTEGER" javaType="integer" />
+		<result property="TITULO" column="TITULO" jdbcType="VARCHAR" javaType="String" />
+	</resultMap>
+	
+ 	<procedure id="consultaClientesLeales" parameterMap="setConsultaClientesLeales" resultMap="getConsultaClientesLeales">
+		{ CALL sp_clientes_lealtad_i(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setConsultaClientesExclusivos" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="integer" />
+		<parameter property="desde" jdbcType="DATETIME" javaType="Date" />
+	    <parameter property="vista" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaClientesExclusivos" class="java.util.HashMap">
+		<result property="CANT" column="CANT" jdbcType="INTEGER" javaType="integer" />
+		<result property="TITULO" column="TITULO" jdbcType="VARCHAR" javaType="String" />
+	</resultMap>
+	
+ 	<procedure id="consultaClientesExclusivos" parameterMap="setConsultaClientesExclusivos" resultMap="getConsultaClientesExclusivos">
+		{ CALL sp_clientes_lealtad_d(?,?,?) }
+	</procedure>
+	
+	
+</sqlMap>        

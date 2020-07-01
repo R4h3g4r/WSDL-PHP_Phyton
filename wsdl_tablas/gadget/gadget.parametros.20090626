@@ -1,0 +1,21 @@
+oferta;codigoPagina=1;codigoCanal=110;
+
+# Nombre BD a conectar
+nombreBD;valor=banprv;
+
+# Codigos de error
+ERROR_OBTENER_PROMOCIONES;cod=100;msg=Error al obtener promociones;
+ERROR_OBTENER_SALDO_CTE;cod=101;msg=Error al obtener saldo cuenta corriente;
+ERROR_CONSULTAR_CLIENTE;cod=102;msg=Error al consultar por datos cliente;
+ERROR_CONSULTAR_CUENTAS;cod=103;msg=Error al consultar por cuentas;
+ERROR_CREAR_SESION;cod=104;msg=Error al crear la Sesion;
+ERROR_CERRAR_SESION;cod=105;msg=Error al cerrar sesion;
+ERROR_AL_BUSCAR_SESION;cod=107;msg=Error al buscar sesion;
+ERROR_AL_AUTENTICAR;cod=108;msg=Error al autenticar cliente;
+ERROR_OBTENER_SALDO_TDC;cod=109;msg=Error al obtener saldo tarjeta credito;
+ERROR_SIN_PERMISO;cod=110;msg=No tiene permisos para realizar la consulta;
+
+# Parametros para Autentificar Proxy
+url;valor=http://161.131.232.192:9111/wsGadget/Login?string=;
+wsdl;valor=http://161.131.232.192:9111/wsGadget/Login?WSDL;
+proxy;habilitado=S;usuario=jgarcru;clave=banco2006;

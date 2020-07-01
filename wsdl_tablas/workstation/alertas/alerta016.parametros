@@ -1,0 +1,14 @@
+# No aplica Facultamiento de Precios
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=Cliente no califica para políticas normales de excepciones de tasa, debido a su situación de riesgo.<br>;
+GLOSA1;mensaje=Toda aprobación de rebaja de tasa debe ser autorizada por el Gerente Regional respectivo.<br>;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=Cliente no califica para políticas normales de excepciones de tasa, debido a su situación de riesgo.;
+GLOSAPDF1;mensaje=Toda aprobación de rebaja de tasa debe ser autorizada por el Gerente Regional respectivo.;
+
+#flag desactivacion
+#DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=Cada vez que salen los paneles de lucro cesante mensuales se calculan los spreads promedios por tramos de renta (menor a 30UF entre 30 y 70 UF y mayor a 70 UF).;periodo= Mensual ;fuente= Riesgo en base a spreads enviados, se calcula base de clientes cuya tasa de riesgo es mayor o igual en un 30% al spread promedio del mes por tramos de renta.

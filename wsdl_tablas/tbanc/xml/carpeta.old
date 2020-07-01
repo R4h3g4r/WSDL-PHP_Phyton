@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE MenuTree SYSTEM "file:///export/weblogic/oracle10.3/wlsplatform/tablas/tbanc/xml/dtd/carpetas.dtd">
+
+<MenuTree>
+
+    <Menu tipo="G" visible="true" key="2" mostrarOBJ="true">
+	    <Item tipo="M" visible="true" key="69" mostrarOBJ=""/>    
+        <Item tipo="M" visible="true" key="10" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="11" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="12" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="13" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="14" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="15" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="16" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="17" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="59" mostrarOBJ=""/>
+	    <Item tipo="M" visible="true" key="58" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="66" mostrarOBJ=""/>
+	    <Item tipo="M" visible="true" key="67" mostrarOBJ=""/>
+    </Menu>
+
+    <Menu tipo="G" visible="true" key="3" mostrarOBJ="true">
+        <Item tipo="M" visible="true" key="18" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="19" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="20" mostrarOBJ=""/>
+    </Menu>
+
+    <Menu tipo="G" visible="true" key="9" mostrarOBJ="true">
+        <Item tipo="M" visible="true" key="37" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="38" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="39" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="40" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="70" mostrarOBJ=""/>        
+        <Item tipo="M" visible="true" key="42" mostrarOBJ=""/>
+        <!-- <Item tipo="M" visible="true" key="79" mostrarOBJ=""/> -->
+        <Item tipo="M" visible="true" key="41" mostrarOBJ=""/>        
+        <Item tipo="M" visible="true" key="43" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="71" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="72" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="46" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="47" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="48" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="87" mostrarOBJ=""/>        
+    </Menu>
+
+    <Menu tipo="G" visible="true" key="14" mostrarOBJ="false">
+	<Item tipo="M" visible="true" key="61" mostrarOBJ=""/>
+	<Item tipo="M" visible="true" key="31" mostrarOBJ=""/>
+	<Item tipo="G" visible="true" key="13" mostrarOBJ="false">
+		<Item tipo="M" visible="true" key="60" mostrarOBJ=""/>  
+		<Item tipo="M" visible="true" key="62" mostrarOBJ=""/>
+<!--	<Item tipo="M" visible="true" key="64" mostrarOBJ=""/>-->
+	</Item>
+	<Item tipo="G" visible="true" key="15" mostrarOBJ="false">
+		<Item tipo="M" visible="true" key="63" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="32" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="78" mostrarOBJ=""/>
+	</Item>
+    	<Item tipo="G" visible="true" key="19" mostrarOBJ="false">
+        	<Item tipo="M" visible="true" key="82" mostrarOBJ=""/>
+	</Item>
+    </Menu>
+
+    <Menu tipo="G" visible="true" key="1" mostrarOBJ="false">
+        <Item tipo="M" visible="false" key="5" mostrarOBJ=""/> 
+        <Item tipo="M" visible="true" key="6" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="7" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="8" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="9" mostrarOBJ=""/>
+    </Menu>
+        
+    <Menu tipo="G" visible="true" key="4" mostrarOBJ="false">
+        <Item tipo="M" visible="true" key="21" mostrarOBJ=""/>
+        <Item tipo="G" visible="true" key="11" mostrarOBJ="">
+            <Item tipo="M" visible="true" key="23" mostrarOBJ=""/>
+            <Item tipo="M" visible="true" key="25" mostrarOBJ=""/>
+            <Item tipo="M" visible="true" key="26" mostrarOBJ=""/>
+            <Item tipo="M" visible="true" key="65" mostrarOBJ=""/>
+        </Item>
+        <Item tipo="G" visible="true" key="12" mostrarOBJ="">
+            <Item tipo="M" visible="true" key="22" mostrarOBJ=""/>
+        </Item>
+    </Menu>
+
+<!--
+    <Menu tipo="G" visible="true" key="6" mostrarOBJ="false">
+        <Item tipo="M" visible="true" key="28" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="29" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="30" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="68" mostrarOBJ=""/>
+    </Menu>
+-->
+
+
+<!--
+    <Menu tipo="G" visible="true" key="7" mostrarOBJ="false">
+        <Item tipo="M" visible="true" key="31" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="32" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="33" mostrarOBJ=""/>
+    </Menu>
+-->
+    
+    <Menu tipo="G" visible="true" key="8" mostrarOBJ="true">
+        <Item tipo="M" visible="true" key="34" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="35" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="36" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="56" mostrarOBJ=""/>
+    </Menu>
+
+<!-- Plan Medico 09-02-2004 -->
+  <Menu tipo="G" visible="true" key="16" mostrarOBJ="true">
+   <Item tipo="M" visible="true" key="73" mostrarOBJ=""/>
+   <Item tipo="M" visible="true" key="74" mostrarOBJ=""/>
+   <Item tipo="M" visible="true" key="75" mostrarOBJ=""/>
+  </Menu>
+
+			<!-- 23-12-2003. Apolo.   -->
+    <!-- Seguros. -->
+    <Menu tipo="G" visible="true" key="17" mostrarOBJ="true">
+     <Item tipo="M" visible="true" key="76" mostrarOBJ=""/>
+    <!-- menu Vta. Seguro 26-02-2004 -->
+ 		<Item tipo="M" visible="true" key="77" mostrarOBJ=""/>
+    </Menu>
+
+   <Menu tipo="G" visible="true" key="18" mostrarOBJ="true"> 
+        <Item tipo="M" visible="true" key="80" mostrarOBJ=""/> 
+        <Item tipo="M" visible="true" key="81" mostrarOBJ=""/> 
+    </Menu>
+   <!-- 01/2005 Novared S.A. -->	
+<!-- Tbanc Movil - keys  98 y 99 -->	
+
+    <Menu tipo="G" visible="true" key="24" mostrarOBJ="true">
+        <Item tipo="M" visible="true" key="98" mostrarOBJ=""/>
+        <Item tipo="M" visible="true" key="99" mostrarOBJ=""/>        
+    </Menu>
+</MenuTree>

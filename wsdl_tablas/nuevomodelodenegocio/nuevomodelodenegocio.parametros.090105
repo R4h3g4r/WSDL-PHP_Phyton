@@ -1,0 +1,15 @@
+## define la cantidad de +filas+ que serán mostradas
+filasConsultaMasiva;filas=15;
+
+## define los codigos monedas validos 
+codigosMonedaValidos;desc=0999,0998;
+
+## define planes y componentes
+PLANES;desc=KBC,KTB,PLB,PLT;
+KBC;desc=Cuenta Corriente,Tarjeta Débito RedBanc; 
+KTB;desc=Cuenta Corriente,Tarjeta Débito RedBanc; 
+PLB;desc=Cuenta Corriente,Tarjeta Débito RedBanc,Tarjeta de Crédito,Línea de Sobregiro; 
+PLT;desc=Cuenta Corriente,Tarjeta Débito RedBanc,Tarjeta de Crédito,Línea de Sobregiro; 
+
+## define planes y componentes
+porcentajedescuento;desc=10;

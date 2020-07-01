@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Vista ID="TRM" glosa="Terminadas" border="1" rules="cols" width="100%" cellpadding="2" cellspacing="0" ordercol="2">
+	<Cabecera>
+		<Col1 Align="Center" bgcolor="#E1E1E1" Width="4%" css="textos" Type="tx" Img="Imagenes/WADone.gif"></Col1>
+		<Col2 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="n" Img="">Rut</Col2>
+		<Col3 Align="Center" bgcolor="#E1E1E1" Width="6%" css="textos" Type="n" Img="">Nro.</Col3>
+		<Col4 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="d" Img="">F. Solicitud</Col4>
+		<Col5 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="d" Img="">Fecha Término</Col5>
+		<Col6 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="tx" Img="">Fase</Col6>
+		<Col7 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="tx" Img="">Estado</Col7>
+		<Col8 Align="Center" bgcolor="#E1E1E1" Width="15%" css="textos" Type="n" Img="">día(s)/hr(s). Proceso</Col8>
+	</Cabecera>
+	<Contenido Highlight="#E1E1E1">
+        	<Col1 Align="Center" Width="4%" css="textos" href="" Img=""></Col1>
+		<Col2 Align="Right" Width="15%" css="textos" href="Acciones.jsp?" Img=""> 0</Col2>
+		<Col3 Align="Right" Width="6%" css="textos" href="" Img="">11</Col3>
+		<Col4 Align="Left" Width="15%" css="textos" href="" Img="">20</Col4>
+		<Col5 Align="Left" Width="15%" css="textos" href="" Img="">End</Col5>
+		<Col6 Align="Left" Width="15%" css="textos" href="" Img="">22</Col6>
+		<Col7 Align="Left" Width="15%" css="textos" href="" Img="">21</Col7>
+		<Col8 Align="Right" Width="15%" css="textos" href="" Img="">Process</Col8>
+		<!--<Col1 Align="Center" Width="4%" css="textos" href="" Img=""></Col1>
+		<Col2 Align="Right" Width="15%" css="textos" href="Acciones.jsp?" Img=""> _custID</Col2>
+		<Col3 Align="Right" Width="6%" css="textos" href="" Img="">_DYDCWID</Col3>
+		<Col4 Align="Left" Width="15%" css="textos" href="" Img="">_DYDCWstartDate</Col4>
+		<Col5 Align="Left" Width="15%" css="textos" href="" Img="">End</Col5>
+		<Col6 Align="Left" Width="15%" css="textos" href="" Img="">_DYDCWStatus</Col6>
+		<Col7 Align="Left" Width="15%" css="textos" href="" Img="">_DYDCWState</Col7>
+		<Col8 Align="Right" Width="15%" css="textos" href="" Img="">Process</Col8>-->
+	</Contenido>
+</Vista>

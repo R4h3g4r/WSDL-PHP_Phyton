@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="convenio.procedimientosAlmacenados">	
+
+<resultMap id="Convenio" class = "java.util.HashMap">
+  <result property = "numero" 		column = "num_convenio" javaType="Integer"/>
+  <result property = "descripcion" 	column = "desc_convenio" javaType="String"/>
+  <result property = "fechaDirectiva" 	column = "fecha_directiva" javaType="String"/>
+  <result property = "activo" 	column = "activo" javaType="Integer"/>
+  <result property = "perfil" 	column = "perfil" javaType="Integer"/>
+  <result property = "retiroCheque" 	column = "retirocheque" javaType="Integer"/>
+</resultMap>
+
+<resultMap id="Planilla" class = "java.util.HashMap">
+  <result property = "numConvenio" 		column = "num_convenio" 	javaType="Integer"/> 
+  <result property = "descConvenio" 	column = "desc_convenio" 	javaType="String"/>  
+  <result property = "nroPlanilla" 		column = "nro_planilla" 	javaType="Integer"/>    
+  <result property = "tipoProd" 		column = "tipo_prod" 		javaType="String"/>
+  <result property = "GlosaProducto" 	column = "glosa_producto" 	javaType="String"/>  
+  <result property = "fechaInicio" 		column = "fecha_inicio" 	javaType="String" />
+  <result property = "fecPagoSolic" 	column = "fec_pago_solic" 	javaType="String"/> 
+  <result property = "nroCouc" 			column = "nro_couc" 		javaType="Integer"/>   
+  <result property = "tmtoCuc" 			column = "tmto_cuc" 		javaType="Float"/>  
+  <result property = "Glosa_Estado" 	column = "glosa_estado" 	javaType="String"/>    
+  <result property = "Glosa_Situacion" 	column = "glosa_situacion" 	javaType="String"/>    
+  <result property = "fec_situacion" 	column = "fec_situacion" 	javaType="String"/>   
+  <result property = "fec_gener" 		column = "fec_gener" 		javaType="String"/>  
+  <result property = "estado" 			column = "estado" 			javaType="Integer"/>  
+  <result property = "tmonto_pago" 		column = "tmonto_pago" 		javaType="Float"/>    
+  <result property = "situacion" 		column = "situacion" 		javaType="Integer"/> 
+  <result property = "tipoPlanilla" 	column = "tipo_planilla" 	javaType="Integer"/>
+  <result property = "monedaOrigen" 	column = "moneda_origen" 	javaType="Integer"/>    
+  <result property = "valorPar" 		column = "valor_par" 		javaType="Float"/> 
+  <result property = "fecRealPago" 		column = "fec_real_pago" 	javaType="String"/> 
+  <result property = "origen" 			column = "origen" 			javaType="String"/>
+</resultMap>
+<resultMap id="DetallePlanilla" class = "java.util.HashMap">
+  <result property = "numConvenio" 	 		column = "num_convenio"			javaType="Integer"/>
+  <result property = "nroPlanilla" 	 		column = "nro_planilla"			javaType="Integer"/>
+  <result property = "tipoProd" 		 	column = "tipo_prod"			javaType="String"/>
+  <result property = "secuencia" 		 	column = "secuencia"			javaType="Integer"/>
+  <result property = "monedaOrigen" 	 	column = "moneda_origen"		javaType="Integer"/>
+  <result property = "codProd" 		 		column = "cod_prod"				javaType="Integer"/>
+  <result property = "ofiOri" 			 	column = "ofi_ori"				javaType="Integer"/>
+  <result property = "correlativo" 		 	column = "correlativo"			javaType="Integer"/>
+  <result property = "dvKey" 			 	column = "dvkey"				javaType="String"/>
+  <result property = "rutCli" 			 	column = "rutcli"				javaType="Integer"/>
+  <result property = "dvCli" 			 	column = "dvcli"				javaType="String"/>
+  <result property = "totCuotas" 		 	column = "totcuotas"			javaType="Integer"/>
+  <result property = "nCuota" 			 	column = "ncuota"				javaType="Integer"/>
+  <result property = "fechaVcto" 		 	column = "fecha_vcto"			javaType="String"/>
+  <result property = "fpriabo" 			 	column = "fpriabo"				javaType="String"/>
+  <result property = "mtocuotOrigen" 	 	column = "mtocuot_origen"		javaType="Float"/>
+  <result property = "mtorecaOrigen" 	 	column = "mtoreca_origen"		javaType="Float"/>
+  <result property = "monedaPago" 		 	column = "moneda_pago"			javaType="Integer"/>
+  <result property = "mtocuotaPago" 	 	column = "mtocuota_pago"		javaType="Float"/>	
+  <result property = "mtorealPago" 	 		column = "mtoreal_pago"			javaType="Float"/>
+  <result property = "codNov" 			 	column = "cod_nov"				javaType="Integer"/>
+  <result property = "glosaNovedad" 	 	column = "Glosa_Novedad"		javaType="String"/>
+  <result property = "estado" 			 	column = "estado"				javaType="Integer"/>
+  <result property = "fechaAplicacion"  	column = "fecha_aplicacion"		javaType="String"/>
+  <result property = "Operacion" 		 	column = "Operacion"			javaType="String"/>
+  <result property = "mtoAbono" 		 	column = "mtoAbono"				javaType="Float"/>
+  <result property = "MtoAPagar" 		 	column = "Mto_aPagar"			javaType="Float"/>
+  <result property = "NomCliente" 		 	column = "NomCliente"			javaType="String"/>
+  <result property = "FecApertura" 	 		column = "Fec_Apertura"			javaType="String"/>
+  <result property = "GlsPago" 			 	column = "GlsPago"				javaType="String"/>
+  <result property = "fecRealPago" 	 		column = "fec_real_pago" 		javaType="String"/>
+  <result property = "novPrecuadratura" 	column = "nov_precuadratura"	javaType="String"/>
+  <result property = "montoPrecuadratura"	column = "monto_precuadratura"	javaType="Integer"/>
+</resultMap>
+
+<resultMap id="EntregaCheque" class = "java.util.HashMap">
+	<result property = "contacto"   	 		column = "PER_ENTREGA_CHEQ"		javaType="String"/>
+	<result property = "horaRetiro" 	 		column = "HORRETIRO"			javaType="String"/>
+	<result property = "telefono" 		 		column = "FONO_CHEQUE"			javaType="String"/>
+	<result property = "direccion" 		 		column = "DIR_RETIRO_CHEQ"		javaType="String"/>
+	<result property = "numeroDireccion"		column = "NUM_DIR_RETIRO_CHEQ"	javaType="Integer"/>
+	<result property = "comuna" 	 			column = "DES_COMDIRCHEQ"		javaType="String"/>
+	<result property = "areaEntrega" 	 		column = "AREA_ENTREGA_CHEQ"	javaType="String"/>
+</resultMap>
+
+<resultMap id="PlanillaHistorica" class = "java.util.HashMap">
+	<result property = "numeroConvenio"   	 		column = "num_convenio"		javaType="Integer"/>
+	<result property = "numeroPlanilla"   	 		column = "num_planilla"	 	javaType="Integer"/>
+	<result property = "fechaPago"      	 		column = "fecha_pago"	 	javaType="String"/>
+	<result property = "fechaRealPago"   	 		column = "fecha_real_pago"	javaType="String"/>
+	<result property = "montoPago"		   	 		column = "monto_pago"	 	javaType="Float"/>
+	<result property = "montoRealPago"   	 		column = "monto_real_pago"	javaType="Float"/>
+	<result property = "tipoRecaudacion"   	 		column = "tipo_recaudacion"	javaType="Integer"/>
+	<result property = "descripcionRecaudacion"   	column = "des_recaudacion"	javaType="String"/>
+	<result property = "estado"   	 				column = "estado"			javaType="Integer"/>
+	<result property = "descripcionEstado"   	 	column = "des_estado"		javaType="String"/>
+</resultMap>
+
+<procedure id="conveniosHabilitado" parameterClass="java.util.HashMap" resultMap="Convenio">
+	{CALL Sel_ConveniosHabilitado(#rutUsuario#,#digitoVerificador#,#numeroConvenio#)}
+</procedure>
+<procedure id="planillaConvenio" parameterClass="java.util.HashMap" resultMap="Planilla">
+	{CALL SP_S_PlanillasxSuc_DxpWeb(#num_convenio#,#nro_planilla#,#rutcli#,#tipo_prod#,#cod_nov#,#fec_gener#,#estado#,#situacion#,#suc_ori#)}
+</procedure>
+<procedure id="detallePlanilla" parameterClass="java.util.HashMap" resultMap="DetallePlanilla">
+	{CALL SP_S_PLANILLASxPAGINA_DxpWeb(#convenio#,#planilla#,#tipo_prod#)}
+</procedure>
+<procedure id="entregaCheque" parameterClass="java.util.HashMap" resultMap="EntregaCheque">
+	{CALL SP_S_CONSULTACONVEMPRES(#convenio#)}
+</procedure>
+
+<procedure id="journalizacion" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL ins_log_journalizacion(#numeroConvenio#,#numeroPlanilla#,#usuario#,#accion#)}
+</procedure>
+
+<procedure id="planillaHistorica" parameterClass="java.util.HashMap" resultMap="PlanillaHistorica">
+	{CALL Sel_PlanillasHistoricas(#convenio#)}
+</procedure>
+
+<procedure id="cambiaEstadoSituacionPlanilla" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL CambiaEstadoSituacion_Planilla(#num_convenio#,#num_planilla#,#tipo_prod#,#situacion#,#estado#,#usuario#,#programa#,#cdtran#)}
+</procedure>
+
+<procedure id="CuadrarPlanilla" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL CUADRARPLANILLA_DxpWeb(#num_convenio#,#num_planilla#,#tipo_prod#,#Monto_Cheque#,#suc_pago#)}
+</procedure>
+
+<procedure id="updatePlanillaDetalle" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL SP_U_PLANDET_DxpWeb(#num_convenio#,#nro_planilla#,#tipo_prod#,#secuencia#,#ncuota#,#totcuotas#,#mtocuota_pago#,#mtoreal_pago#,#cod_nov#,#ValMoneda#)}
+</procedure>
+
+<procedure id="cuadraturaFinal" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL sp_CuadraturaFinal(#num_convenio#,#nro_planilla#,#tipo_prod#,#monto_cheque#,#suc_pago#,#usuario#)}
+</procedure>
+<procedure id="gestionRetiroCheque" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL SP_I_GESTIONESCONVXPLA(#NUMCVO#,#NUMPLA#,#SITUACION#,#FECHAGESTION#,#USUARIO#,#TIPOGES#,#OBSERVACION#,#codEstGestion#,#fechaRetiro#,#horaRetiro#,#contacto#,#telefono#,#direccion#,#comuna#,#areaEntrega#)}
+</procedure>
+
+<procedure id="pagoCabecera" parameterClass="java.util.HashMap" resultClass="Integer" >
+	{CALL SP_PagoCabecera(#numeroConvenio#,#numeroPlanilla#)}
+</procedure>
+</sqlMap>	

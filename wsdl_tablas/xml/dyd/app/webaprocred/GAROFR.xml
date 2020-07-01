@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 13-11-2003 -->
+<DB>
+<SPECIAL str="1" typeId="Gts" template="@+codGar+SEP1+tipGar+SEP1+destino+SEP1+cond+SEP1+valLiPes+SEP1+fecTas+SEP1+porc+SEP1+valPond+SEP1+valCom"></SPECIAL>
+<INSUPD NTx="AprCreCrcGarVig" LBL="S">
+     <SEPAR SEP1="~" SEP2=" " SEP3="" SEPV="#"></SEPAR>
+     <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+     <INPUT>
+	<field FF="numSol"   LF="16" POS=""  COD=""    TD="" PREF="">numSolicitud</field>
+        <field FF="codGar"   LF="4"  POS="0" COD=""    TD="" PREF="">codGarantia</field>
+        <field FF="indicO"   LF="10" POS=""  COD=""    TD="" PREF="">indicador</field>
+ 	<field FF="tipGar"   LF="3"  POS="1" COD="TGA" TD="L" PREF="">tipoGarantia</field>
+	<field FF="auxGar"   LF="3"  POS=""  COD=""    TD="" PREF="">auxiliarGarantia</field>
+	<field FF="numOp"    LF="12" POS=""  COD=""    TD="" PREF="">numOperacion</field>
+	<field FF="destino"  LF="80" POS="2" COD=""    TD="" PREF="">destino</field>
+	<field FF="porc"     LF="10" POS="6" COD=""    TD="" PREF="">porcentaje</field>
+	<field FF="cond"     LF="1"  POS="3"  COD=""   TD="" PREF="">condicion</field>
+	<field FF="indCom"   LF="1"  POS=""  COD=""    TD="" PREF="">indicadorComercial</field>
+        <field FF="valCom"   LF="10" POS="8" COD=""    TD="" PREF="">valorComercial</field>
+	<field FF="valLiPes" LF="10" POS="4" COD=""    TD="" PREF="">valorLiquidPeso</field>
+        <field FF="fecTas"   LF="12" POS="5" COD=""    TD="" PREF="">fechaTasacion</field>
+	<field FF="fecRev"   LF="12" POS=""  COD=""    TD="" PREF="">fechaRevision</field>
+	<field FF="indSolOr" LF="1"  POS=""  COD=""    TD="" PREF="">indicadorSolOrigen</field>
+	<field FF="indApr"   LF="1"  POS=""  COD=""    TD="" PREF="">indicadorAprobacion</field>
+	<field FF="valPond"  LF="10"  POS="7" COD=""    TD="" PREF="">valorPonderado</field>
+     </INPUT>
+</INSUPD>
+<QRY NTx="AprCreConGarOfr" LBL="S">
+     <SEPAR SEP1="~" SEP2=" " SEP3="" SEPV="#"></SEPAR>
+     <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+     <INPUT>
+	<field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+     </INPUT>
+     <OUTPUT>
+	<field FF="indicO"    LF="10" POS=""  COD=""    TD="" PREF="">indicador</field>
+	<field FF="codGar"    LF="4"  POS="0" COD=""    TD="" PREF="">codGarantia</field>
+	<field FF="glosa"     LF="40" POS=""  COD=""    TD="" PREF="">glosa</field>
+	<field FF="auxGar"    LF="3"  POS=""  COD=""    TD="" PREF="">auxiliarGarantia</field>
+	<field FF="numOp"     LF="12" POS=""  COD=""    TD="" PREF="">numOperacion</field>
+	<field FF="destino"   LF="80" POS="2" COD=""    TD="" PREF="">destino</field>
+	<field FF="porc"      LF="10" POS="6" COD=""    TD="" PREF="">porcentaje</field>
+	<field FF="cond"      LF="1"  POS="3"  COD=""    TD="" PREF="">condicion</field>
+	<field FF="indCom"    LF="1"  POS=""  COD=""    TD="" PREF="">indicadorComercial</field>
+        <field FF="valCom"    LF="10" POS="8" COD=""    TD="" PREF="">valorComercial</field>
+	<field FF="valLiPes"  LF="10" POS="4" COD=""    TD="" PREF="">valorLiquidPeso</field>
+        <field FF="fecTas"    LF="12" POS="5" COD=""    TD="" PREF="">fechaTasacion</field>
+	<field FF="fecRev"    LF="12" POS=""  COD=""    TD="" PREF="">fechaRevision</field>
+	<field FF="indSolOr"  LF="1"  POS=""  COD=""    TD="" PREF="">indicadorSolOrigen</field>
+	<field FF="indApr"    LF="1"  POS=""  COD=""    TD="" PREF="">indicadorAprobacion</field>
+	<field FF="relTipGar" LF="3"  POS=""  COD=""    TD="" PREF="">relacionTipoGar</field>
+	<field FF="tipGar"    LF="3"  POS="1" COD="TGA" TD="L" PREF="">tipoGarantia</field>
+	<field FF="valPond"   LF="1"  POS="7" COD=""    TD="" PREF="">valorPonderado</field>
+     </OUTPUT>
+</QRY>
+</DB>

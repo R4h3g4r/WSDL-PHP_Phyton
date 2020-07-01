@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="gestfogape.procedimientosAlmacenados">	
+	<procedure id="getEstadoCarga" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Menu_Estado_Carga() }
+	</procedure>
+	<procedure id="getTipoDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Menu_Carga_Hist_Arch() }
+	</procedure>
+	<procedure id="getFechaDocumento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Menu_Carga_Hist_Fec(#tip_arch#) }
+	</procedure>
+	<procedure id="getHistoricoEstadoCarga" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Menu_Estado_Carga_Hist(#tip_arch#,#fec_prc#) }
+	</procedure>
+	<procedure id="getCuadraturaConsolidado" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Concepto_Cuadratura() }
+	</procedure>
+	<procedure id="getDetalleHistoricoEstadoCarga" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Alerta_Cuadratura(#ind_concepto#) }
+	</procedure>
+	<procedure id="getDetalleProcesoCuadraturaFogape" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Alerta_Cuadratura_Detalle_Pag(#ind_detalle#,#pag#,#cant_reg#) }
+	</procedure>
+	<procedure id="getDetalleAlerta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{ CALL Sp_Alerta_Detalle_Operacion(#busqueda#,#ope#) }
+	</procedure>
+</sqlMap>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name="sp_CEII_obtieneTarifasCartolaE">
+  <!-- contexto -->
+  
+  <context>
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+    <!-- package dao -->
+    <joltpool_name value="wcorp.serv.bciexpress.cartolaselectronicas.DummyFacadeImpl" />
+    
+  </context>
+  
+  <!-- entrada -->
+  <input>
+        <field java_name = "codigoValorCorporativaDiaria" type = "String" size = "8" middle_name = "ser_c_cod_d"/>
+        <field java_name = "codigoValorCorporativaSemanal" type = "String" size = "8" middle_name = "ser_c_cod_s"/>
+        <field java_name = "codigoValorCorporativaQuincenal" type = "String" size = "8" middle_name = "ser_c_cod_q"/>
+        <field java_name = "codigoValorCorporativaMensual" type = "String" size = "8" middle_name = "ser_c_cod_m"/>
+        <field java_name = "codigoValorUnitariaDiaria" type = "String" size = "8" middle_name = "ser_u_cod_d"/>
+        <field java_name = "codigoValorUnitariaSemanal" type = "String" size = "8" middle_name = "ser_u_cod_s"/>
+        <field java_name = "codigoValorUnitariaQuincenal" type = "String" size = "8" middle_name = "ser_u_cod_q"/>
+        <field java_name = "codigoValorUnitariaMensual" type = "String" size = "8" middle_name = "ser_u_cod_m"/>
+  </input>
+  <!-- salida -->
+  <output>
+
+        <struct struct_size="0" class_name="TarifaCartolaElectronica" var_name="tarifas">
+           <field
+            java_name = "codigoServicio"
+            type = "String"
+            size = "8"
+            middle_name = "ser_cod"
+           />
+           <field
+            java_name = "montoComisionFija"
+            type = "double"
+            integers = "15"
+            size = "20"
+            decimals = "5"
+            middle_name = "ser_mto_cms_fja"
+           />
+        </struct>
+
+  </output>	  
+</service>

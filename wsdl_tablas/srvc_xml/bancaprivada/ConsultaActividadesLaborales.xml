@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_alb_ban_priv">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input></input>
+	<output>
+		<struct struct_size="0" class_name="ConsultaCodigoGlosaTO" var_name="codigoGlosa">
+			<field type="int"      middle_name="alb_cod"     size="0"   java_name="codigo"               />
+			<field type="String"      middle_name="alb_gls"     size="0"   java_name="glosa"               />
+		</struct>
+	</output>
+</service>

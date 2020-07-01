@@ -1,0 +1,46 @@
+CODIGOS_OPCIONES;TIPO_PROPIEDAD=TB;ANTIGUEDAD=AN;SEGURO_INCENDIO=TS;AREA_NEGOCIO=AE;OBJETIVO_CREDITO=OP;DESTINOS=DE;PLAZOS=PL;
+
+MES_EXCLUCION;CODIGOS=0,1,2,3,4,5,6,7,8,9,10,11,12;DESCRIPCION=Ninguno,Enero,Febrero,Marzo,Abril,Mayo,Junio,Julio,Agosto,Septiembre,Octubre,Noviembre,Diciembre;
+
+SEGURO_DESGRAVAMEN;CODIGOS=0,1,2;DESCRIPCION=No,Si,No Sabe;
+
+CODIGO_MONEDA;PESOS=999;UF=998;
+
+CODIGOS_SEGUROS;EMFERMEDADES_GRAVES=4;HOSPITALIZACION=5;CESANTIA_INVOLUNTARIA=2;CESANTIA_SERVIU=7;HOGAR_CONTENIDO=6;
+
+GLOSAS_SEGUROS;EMFERMEDADES_GRAVES=Seguro de Enfermedades Graves;HOSPITALIZACION=Seguro de Hospitalización;CESANTIA_INVOLUNTARIA=Seguro Cesantia involuntaria;CESANTIA_SERVIU=Seguro Cesantia Serviu;HOGAR_CONTENIDO=Seguro Hogar Contenido;
+
+GLOSACONTENIDO_HOGAR_CONTENIDO;1=Incendio Solo;2=Incendio + Robo;3=Incendio + Sismo;4=Incendio + Sismo + Robo;
+
+PRODUCTO_COMPLEMENTARIO;PORCENTAJE_COMPLEMENTARIO=75.0;
+
+AREA-NEGOCIO;TBANC=100;BCI=110;COLABORADORES=150;BCI-HOME=151;BCI-NOVA=800;
+
+ANTIGUEDAD-PROPIEDAD;NUEVA=T1;HASTA-15=T4;HASTA-20=T5;MAS-DE-20=T6;
+
+DESTINO;COMPRA=1;REMODELACION=2;CONSTRUCCION=3;RECURSE-INTERNO=4;RECURSE-EXTERNO=5;
+
+OBJETIVO;VIVIENDA=1;FINES-GENERALES=2;
+
+SEGURO-INCENDIO;SIN-SEGURO=0;INCENDIO=1;INCENDIO-SISMO=2;
+
+TIPO-PROPIEDAD;PARCELA-CON-CASA=0003;SITIO-PARCELA=0005;DEPARTAMENTO=0002;CASA=0001;OFICINA=0006;CASA-FIN-GENERAL=0004;DEPARTAMENTO-FIN-GENERAL=0007;
+
+CODIGO_PRODUCTOS;BCIHOMECLASICO=1;BCIHOMEEXTRACOMPLEMENTARIO=23;BCIHOMEMIXTO=26;BCIHOMECONVENIENCIA=6;PROYECCION=2;
+
+DATOS_MAIL;ASUNTO=Simulaciones Creditos Hipotecarios.;NOMBRE_ARCHIVO_ADJUNTO=Simulaciones cliente;EXTENCION_ARCHIVO_ADJUNTO=.pdf;NUMERO_LINEAS=2;MENSAJE_LINEA1=Saludos. Este Email ha sido enviado por el sistema de Simulacion Hipotecaria;MENSAJE_LINEA2=Estimado Cliente. Adjunto Encontrara las simulaciones realizadas por el sistema.;
+
+LOGOS;BCI=logoBci.jpg;BCINOVA=logoBciNova.jpg;BCIHOME=logoBciHome.jpg;TBANC=logoTBanc.jpg;
+
+MES_POR_DEFECTO;PROD_1=2;PROD_6=2;PROD_2=2;PROD_4=6;PROD_20=2;
+
+#MENSAJES DE ERROR DE LA APLICACION.
+ERROR_OPCIONES_INICIALES;DESC=No se logro cargar las opciones iniciales de la aplicación.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar la página;
+ERROR_PRODUCTOS;DESC=No se logro cargar los productos hipotecarios.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar la página;
+ERROR_SIMULACION;DESC=No se logro cargar las simulaciones para los productos seleccionados.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar la página;
+ERROR_DETALLE;DESC=No se logro cargar el detalle para el producto seleccionado.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar la página;MOTIVO_CODIGOPRODUCTO=El código de producto recibido es invalido (null o -1).;
+ERROR_SERIALIZANDO;DESC=NO SE LOGRO SERIALIZAR EL TO.;MOTIVO_SISTEMA= Error al obtener información.;MOTIVO_ARGUMENTOS= Error al obtener información ingresada;
+ERROR_ANTECEDENTES;DESC=No se logro cargar los antecedentes legales correspondientes a la simulación.;MOTIVO_SISTEMA= Error al consultar los antecedentes.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar la página;
+ERROR_MAIL;DESC=No se logro enviar el mail al cliente.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar el envio.;MOTIVO_PRODUCTOS=No se logro obtener los productos a simular.;MOTIVO_SIMULACION=No se logro obtener las simulaciones para los productos.;MOTIVO_DESCONOCIDO=Error desconocido, No se logro cargar los datos necesarios para realizar el envio de Email.;
+ERROR_IMPRESION;DESC=No se logro realizar la impresion en bloque.;MOTIVO_SISTEMA= Error al consultar los servicios.;MOTIVO_ARGUMENTOS=Error al generar los argumentos para iniciar el envio.;MOTIVO_PRODUCTOS=No se logro obtener los productos a simular.;MOTIVO_SIMULACION=No se logro obtener las simulaciones para los productos.;MOTIVO_DESCONOCIDO=Error desconocido, No se logro cargar los datos necesarios para realizar la impresión.;MOTIVO_SERIALIZACION=No se logro serializar los objetos necesarios para la impresion;
+ERROR_CLASE_NO_ENCONTRADA;DESC=NO SE LOGRO SERIALIZAR EL TO.;MOTIVO_SISTEMA= Clase casteada no es la correcta.;MOTIVO_ARGUMENTOS=Error al obtener información ingresada, la clase no es correcta;

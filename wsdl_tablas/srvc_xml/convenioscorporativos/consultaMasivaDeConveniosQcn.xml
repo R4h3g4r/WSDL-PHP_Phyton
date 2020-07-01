@@ -1,0 +1,697 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2ConMasConv">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.convenioscorporativos.ConveniosCorporativosBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "caiConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "numConvenio"
+          middle_name_secondary = "variacionPorcen"
+        />
+
+        <field
+          java_name = "iicConvenio"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "vigenciaFinal"
+        />
+
+        <field
+          java_name = "estadoConvenio"
+          type = "char"
+          size = "1"
+          middle_name = "indConvenio"
+          middle_name_secondary = "vigenciaHasta"
+        />
+
+        <field
+          java_name = "fechaContratoInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha"
+          middle_name_secondary = "actividad"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "fechaContratoFin"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha2"
+          middle_name_secondary = "actividadSecund"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "fechaAprobacionInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha3"
+          middle_name_secondary = "abonoMes"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "fechaAprobacionFin"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha4"
+          middle_name_secondary = "abonos"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "tipoCanalIngreso"
+          type = "String"
+          size = "3"
+          middle_name = "oficinaIngreso"
+          middle_name_secondary = "vigencia"
+        />
+
+        <field
+          java_name = "canalIngreso"
+          type = "String"
+          size = "3"
+          middle_name = "canal"
+          middle_name_secondary = "venta"
+        />
+
+        <field
+          java_name = "idcEmpresa"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "codEmpresa"
+          middle_name_secondary = "visacion"
+        />
+
+        <field
+          java_name = "vrfEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa"
+          middle_name_secondary = "visacionConyuge"
+        />
+
+        <field
+          java_name = "indEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa2"
+          middle_name_secondary = "villa"
+        />
+
+        <field
+          java_name = "indEmpresa2"
+          type = "String"
+          size = "3"
+          middle_name = "rutEmpresa3"
+          middle_name_secondary = "vigenciaInicial"
+        />
+
+        <field
+          java_name = "indSiguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indReversa"
+          middle_name_secondary = "ajusteTtalGarantias"
+        />
+
+        <field
+          java_name = "oficinaConvenio"
+          type = "String"
+          size = "3"
+          middle_name = "codigoOficina"
+          middle_name_secondary = "verProducto"
+        />
+
+        <field
+          java_name = "glosaTipoOperacion"
+          type = "String"
+          size = "3"
+          middle_name = "glosaTipoLinea"
+          middle_name_secondary = "vigenciaDesde"
+        />
+
+        <field
+          java_name = "subtipoConvenio"
+          type = "String"
+          size = "3"
+          middle_name = "subTipo"
+          middle_name_secondary = "version"
+        />
+
+        <field
+          java_name = "ejecutivoConvenio"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoAsignado"
+          middle_name_secondary = "verificacion"
+        />
+
+        <field
+          java_name = "ejecutivoAprobador"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoContacto"
+          middle_name_secondary = "ventaActual"
+        />
+
+        <field
+          java_name = "ejecutivoExplotador"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoComex"
+          middle_name_secondary = "ventaAnterior"
+        />
+
+        <field
+          java_name = "ejecutivoSolicitante"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoIngreso"
+          middle_name_secondary = "verificacion2"
+        />
+
+        <field
+          java_name = "cicConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "cic"
+          middle_name_secondary = "volumenTran"
+        />
+
+        <field
+          java_name = "cicConvenio2"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "cicCliente"
+          middle_name_secondary = "activoTotalMesAnt"
+        />
+
+        <field
+          java_name = "fechaConvenio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha5"
+          middle_name_secondary = "accesoPOS"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "horaConvenio"
+          type = "String"
+          size = "6"
+          middle_name = "hora"
+          middle_name_secondary = "activoTotal"
+        />
+
+        <field
+          java_name = "rutClienteMas"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "rutCliente"
+          middle_name_secondary = "amortizacion"
+        />
+
+        <field
+          java_name = "vrfClienteMas"
+          type = "char"
+          size = "1"
+          middle_name = "tipoCliente"
+          middle_name_secondary = "anio"
+        />
+
+        <field
+          java_name = "indClienteMas"
+          type = "char"
+          size = "1"
+          middle_name = "tipoRelCliente"
+          middle_name_secondary = "ajusteAvales"
+        />
+
+        <field
+          java_name = "glsClienteMas"
+          type = "String"
+          size = "3"
+          middle_name = "glosaCliente"
+          middle_name_secondary = "activoNetoMesAnt"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "caiConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "numConvenio"
+          middle_name_secondary = "variacionPorcen"
+        />
+
+        <field
+          java_name = "iicConvenio"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numero"
+          middle_name_secondary = "vigenciaFinal"
+        />
+
+        <field
+          java_name = "estadoConvenio"
+          type = "char"
+          size = "1"
+          middle_name = "indConvenio"
+          middle_name_secondary = "vigenciaHasta"
+        />
+
+        <field
+          java_name = "fechaContratoInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha"
+          middle_name_secondary = "actividad"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "fechaContratoFin"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha2"
+          middle_name_secondary = "actividadSecund"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "fechaAprobacionInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha3"
+          middle_name_secondary = "abonoMes"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "fechaAprobacionFin"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha4"
+          middle_name_secondary = "abonos"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "tipoCanalIngreso"
+          type = "String"
+          size = "3"
+          middle_name = "oficinaIngreso"
+          middle_name_secondary = "vigencia"
+        />
+
+        <field
+          java_name = "canalIngreso"
+          type = "String"
+          size = "3"
+          middle_name = "canal"
+          middle_name_secondary = "venta"
+        />
+
+        <field
+          java_name = "idcEmpresa"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "codEmpresa"
+          middle_name_secondary = "visacion"
+        />
+
+        <field
+          java_name = "vrfEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa"
+          middle_name_secondary = "visacionConyuge"
+        />
+
+        <field
+          java_name = "indEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "rutEmpresa2"
+          middle_name_secondary = "villa"
+        />
+
+        <field
+          java_name = "indEmpresa2"
+          type = "String"
+          size = "3"
+          middle_name = "rutEmpresa3"
+          middle_name_secondary = "vigenciaInicial"
+        />
+
+        <field
+          java_name = "indSiguiente"
+          type = "char"
+          size = "1"
+          middle_name = "indReversa"
+          middle_name_secondary = "ajusteTtalGarantias"
+        />
+
+        <field
+          java_name = "oficinaConvenio"
+          type = "String"
+          size = "3"
+          middle_name = "codigoOficina"
+          middle_name_secondary = "verProducto"
+        />
+
+        <field
+          java_name = "glosaTipoOperacion"
+          type = "String"
+          size = "3"
+          middle_name = "glosaTipoLinea"
+          middle_name_secondary = "vigenciaDesde"
+        />
+
+        <field
+          java_name = "subtipoConvenio"
+          type = "String"
+          size = "3"
+          middle_name = "subTipo"
+          middle_name_secondary = "version"
+        />
+
+        <field
+          java_name = "ejecutivoConvenio"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoAsignado"
+          middle_name_secondary = "verificacion"
+        />
+
+        <field
+          java_name = "ejecutivoAprobador"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoContacto"
+          middle_name_secondary = "ventaActual"
+        />
+
+        <field
+          java_name = "ejecutivoExplotador"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoComex"
+          middle_name_secondary = "ventaAnterior"
+        />
+
+        <field
+          java_name = "ejecutivoSolicitante"
+          type = "String"
+          size = "12"
+          middle_name = "ejecutivoIngreso"
+          middle_name_secondary = "verificacion2"
+        />
+
+        <field
+          java_name = "cicConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "cic"
+          middle_name_secondary = "volumenTran"
+        />
+
+        <field
+          java_name = "cicConvenio2"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "cicCliente"
+          middle_name_secondary = "activoTotalMesAnt"
+        />
+
+        <field
+          java_name = "fechaConvenio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecha5"
+          middle_name_secondary = "accesoPOS"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "horaConvenio"
+          type = "String"
+          size = "6"
+          middle_name = "hora"
+          middle_name_secondary = "activoTotal"
+        />
+
+        <field
+          java_name = "rutClienteMas"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "rutCliente"
+          middle_name_secondary = "amortizacion"
+        />
+
+        <field
+          java_name = "vrfClienteMas"
+          type = "char"
+          size = "1"
+          middle_name = "tipoCliente"
+          middle_name_secondary = "anio"
+        />
+
+        <field
+          java_name = "indClienteMas"
+          type = "char"
+          size = "1"
+          middle_name = "tipoRelCliente"
+          middle_name_secondary = "ajusteAvales"
+        />
+
+        <field
+          java_name = "glsClienteMas"
+          type = "String"
+          size = "3"
+          middle_name = "glosaCliente"
+          middle_name_secondary = "activoNetoMesAnt"
+        />
+
+        <field
+          java_name = "resultado"
+          type = "char"
+          size = "1"
+          middle_name = "masInformacion"
+          middle_name_secondary = "montoPagar"
+        />
+
+        <field
+          java_name = "totOcurrencias"
+          type = "int"
+          size = "3"
+          sign = "no"
+          integers = "3"
+          decimals = "0"
+          middle_name = "numeroRegistros"
+          middle_name_secondary = "unidadTpoPlMax"
+        />
+
+    <struct struct_size = "50" class_name = "RowsResultConsultaMasivaDeConveniosQcn" var_name = "rowsResultConsultaMasivaDeConveniosQcn" discriminatory = "&quot;${rutClienteEmpresa}&quot;.equals(&quot;&quot;)" >
+
+          <field
+            java_name = "rutClienteEmpresa"
+            type = "int"
+            size = "8"
+            sign = "no"
+            integers = "8"
+            decimals = "0"
+            middle_name = "rut10"
+            middle_name_secondary = "alias"
+          />
+
+          <field
+            java_name = "vrfClienteEmpresa"
+            type = "char"
+            size = "1"
+            middle_name = "rut2"
+            middle_name_secondary = "anexo"
+          />
+
+          <field
+            java_name = "indClienteEmpresa"
+            type = "char"
+            size = "1"
+            middle_name = "rut3"
+            middle_name_secondary = "agente"
+          />
+
+          <field
+            java_name = "glsClienteEmpresa"
+            type = "String"
+            size = "3"
+            middle_name = "rut4"
+            middle_name_secondary = "activoNetoAnoAnt"
+          />
+
+          <field
+            java_name = "razonSocial"
+            type = "String"
+            size = "30"
+            middle_name = "nombreRazonSocial"
+            middle_name_secondary = "activos"
+          />
+
+          <field
+            java_name = "oficina"
+            type = "String"
+            size = "3"
+            middle_name = "oficina"
+            middle_name_secondary = "zona"
+          />
+
+          <field
+            java_name = "fechaApertura"
+            type = "Date"
+            size = "8"
+            middle_name = "fecha6"
+            middle_name_secondary = "abonoDolar"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "fechaContrato"
+            type = "Date"
+            size = "8"
+            middle_name = "fecha7"
+            middle_name_secondary = "accion"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "convenio"
+            type = "String"
+            size = "4"
+            middle_name = "rut9"
+            middle_name_secondary = "zip"
+          />
+
+          <field
+            java_name = "convenio2"
+            type = "int"
+            size = "8"
+            sign = "no"
+            integers = "8"
+            decimals = "0"
+            middle_name = "rut8"
+            middle_name_secondary = "afectoDerivado"
+          />
+
+          <field
+            java_name = "descripcionConvenio"
+            type = "String"
+            size = "29"
+            middle_name = "rut7"
+            middle_name_secondary = "activoNeto"
+          />
+
+          <field
+            java_name = "estado"
+            type = "char"
+            size = "1"
+            middle_name = "rut6"
+            middle_name_secondary = "ajusteGarantia"
+          />
+
+          <field
+            java_name = "tipo"
+            type = "String"
+            size = "3"
+            middle_name = "rut5"
+            middle_name_secondary = "abonoDia"
+          />
+
+          <field
+            java_name = "subTipo"
+            type = "String"
+            size = "3"
+            middle_name = "subTipoAccion"
+            middle_name_secondary = "zonaFranca"
+          />
+
+          <field
+            java_name = "fecha"
+            type = "Date"
+            size = "8"
+            middle_name = "fechaAclaracion"
+            middle_name_secondary = "acog57bis"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "hora"
+            type = "String"
+            size = "6"
+            middle_name = "horaUltimaAlarma"
+            middle_name_secondary = "gar0001"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

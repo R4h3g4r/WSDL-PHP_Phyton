@@ -1,0 +1,39 @@
+# Articulo 85 Vencido
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=Los pasos que debes seguir son:;
+GLOSA1;mensaje=1. Verificar con Cliente la información proporcionada en el Formulario: " Declaración para Márgenes de Crédito". Si existen cambio, Cliente debe firmar nuevamente Formulario declarando los cambios.;
+GLOSA2;mensaje=(es obligación mantener actualizada esta información, al menos 1 vez al año);
+GLOSA3;mensaje= ;
+GLOSA4;mensaje=2. Si no existen cambios, actualizar la Fecha de Verificación de cada una de las Relaciones declaradas en el Formulario;
+GLOSA5;mensaje=a) Ingresar a Vista Cliente, opción Relaciones (Menú Cliente);
+GLOSA6;mensaje=b) En pantalla Gestión Art 85, filtrar por opción Art. 85  Vencido;
+GLOSA7;mensaje=c) Seleccionar Rut de Relación a actualizar;
+GLOSA8;mensaje=d) Actualizar Fecha de Verificación;
+GLOSA9;mensaje= ;
+GLOSA10;mensaje=3. Si existen cambios, actualizar los cambios para cada una de las Relaciones declaradas en el Formulario;
+GLOSA11;mensaje=a) Ingresar a Vista Cliente, opción Relaciones (Menu Cliente);
+GLOSA12;mensaje=b) En pantalla Gestión Art 85, filtrar por opción Art. 85 Vencido;
+GLOSA13;mensaje=c) Seleccionar Rut de Relación a actualizar;
+GLOSA14;mensaje=d) Actualizar, según corresponda,  % Participación , Vigencia y Fecha termino Relación;
+GLOSA15;mensaje=e) Actualizar Fecha Verificación (aunque la Relación no tenga cambios, se debe actualizar la Fecha de Verificación);
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=Los pasos que debes seguir son:;
+GLOSAPDF1;mensaje=1. Verificar con Cliente la información proporcionada en el Formulario: " Declaración para Márgenes de Crédito". Si existen cambio, Cliente debe firmar nuevamente Formulario declarando los cambios.;
+GLOSAPDF2;mensaje=(es obligación mantener actualizada esta información, al menos 1 vez al año);
+GLOSAPDF3;mensaje= ;
+GLOSAPDF4;mensaje=2. Si no existen cambios, actualizar la Fecha de Verificación de cada una de las Relaciones declaradas en el Formulario;
+GLOSAPDF5;mensaje=a) Ingresar a Vista Cliente, opción Relaciones (Menú Cliente);
+GLOSAPDF6;mensaje=b) En pantalla Gestión Art 85, filtrar por opción Art. 85  Vencido;
+GLOSAPDF7;mensaje=c) Seleccionar Rut de Relación a actualizar;
+GLOSAPDF8;mensaje=d) Actualizar Fecha de Verificación;
+GLOSAPDF9;mensaje= ;
+GLOSAPDF10;mensaje=3. Si existen cambios, actualizar los cambios para cada una de las Relaciones declaradas en el Formulario;
+GLOSAPDF11;mensaje=a) Ingresar a Vista Cliente, opción Relaciones (Menu Cliente);
+GLOSAPDF12;mensaje=b) En pantalla Gestión Art 85, filtrar por opción Art. 85 Vencido;
+GLOSAPDF13;mensaje=c) Seleccionar Rut de Relación a actualizar;
+GLOSAPDF14;mensaje=e) Actualizar Fecha Verificación (aunque la Relación no tenga cambios, se debe actualizar la Fecha de Verificación);
+GLOSAPDF15;mensaje=d) Actualizar, según corresponda,  % Participación , Vigencia y Fecha termino Relación;
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliegan Clientes que tengan al menos una relación del tipo “Complementario De” o “Deudor Complementario”, vencido.;periodo=Más de un año desde la última fecha de actualización de la Relación.;fuente=Relaciones.;

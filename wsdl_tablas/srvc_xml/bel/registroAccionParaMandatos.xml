@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name="sp_admMandatos">
+  <!-- contexto -->
+  <context>
+    <boolean_false value="1"/>
+    <boolean_true value="0"/>
+    <general_exception_codigo value="ESPECIAL"/>
+    <have_multi_environment value="no"/>
+    <outputfield_attr value="no"/>
+    <req_num_param value="no"/>
+    <translator value="RORPPTPG"/>
+    <campo_indica_cantidad value=""/>
+    <status_throw_exception value="yes"/>
+    <joltpool_name value="wcorp.bprocess.bciexpress.informaciondeproveedores.DummyFacadeImpl" />
+  </context>
+  <!-- entrada -->
+  <input>
+        <field
+         java_name = "codigoDeAccion"
+         type = "char"
+         size = "1"
+         middle_name = "prm_accion"
+        />
+        <field
+         java_name = "rutUsuarioRegistrado"
+         type = "String"
+         size = "12"
+         middle_name = "prm_rut_usu"
+        />
+        <field
+         java_name = "dvRutUsuarioRegistrado"
+         type = "char"
+         size = "1"
+         middle_name = "prm_vrt_usu"
+        />
+        <field
+         java_name = "rutEmpresaMandato"
+         type = "String"
+         size = "12"
+         middle_name = "prm_rut_emp"
+        />
+        <field
+         java_name = "dvRutEmpresaMandato"
+         type = "char"
+         size = "1"
+         middle_name = "prm_vrt_emp"
+        />
+        <field
+         java_name = "cuentaCorrienteDestino"
+         type = "String"
+         size = "12"
+         middle_name = "prm_cta_cte"
+        />
+        <field
+         java_name = "numeroDeFolio"
+         type = "String"
+         size = "12"
+         middle_name = "prm_nro_fol"
+        />
+        <field
+         java_name = "numeroDeLinea"
+         type = "String"
+         size = "7"
+         middle_name = "prm_nro_lin"
+        />
+        <field
+         java_name = "fechaDeTermino"
+         type = "String"
+         size = "10"
+         middle_name = "prm_fec_ter"
+        />
+        <field
+         java_name = "rutEmpresaAnterior"
+         type = "String"
+         size = "12"
+         middle_name = "prm_rut_ant"
+        />
+        <field
+         java_name = "dvRutEmpresaAnterior"
+         type = "char"
+         size = "1"
+         middle_name = "prm_vrt_ant"
+        />
+  </input>
+  <!-- salida -->
+  <output>
+
+        <struct struct_size="0" class_name="ResultadoRegistroVO" var_name="resultadoRegistroVO">
+           <field
+            java_name = "glosaRetorno"
+            type = "String"
+            size = "100"
+            middle_name = "respuesta"
+           />
+        </struct>
+
+  </output>	  
+</service>

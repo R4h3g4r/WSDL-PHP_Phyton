@@ -1,0 +1,49 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Pr_CEII_Spe00100_LeeComunas"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionConsultasComunas" var_name = "consultaComunas" >
+
+          <field
+            java_name = "codCom"
+            type = "String"
+            size = "4"
+            middle_name = "codComision"
+          />
+
+          <field
+            java_name = "nomComuna"
+            type = "String"
+            size = "35"
+            middle_name = "comuna"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

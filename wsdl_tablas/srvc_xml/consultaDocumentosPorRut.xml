@@ -1,0 +1,126 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_Consulta_Doc_Por_Rut"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <!--boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="name" /-->
+
+    
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="" />
+
+    <es_funcion value="no" />
+    
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rut"
+          type = "int"
+          size = "10"
+          sign = "no"
+          integers = "9"
+          decimals = "0"          
+          middle_name = "rut"
+        />
+
+        <field
+          java_name = "doc_cod_doc"
+          type = "int"
+          size = "4"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "documento"
+        />
+
+        <field
+          java_name = "doc_cod_sub"
+          type = "int"
+          size = "4"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "documento"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionConsultaDocumentosPorRut" var_name = "iteracionconsultadocumentosporrut" >
+
+          <field
+            java_name = "doc_num_ope"
+            type = "String"
+            size = "12"
+            middle_name = "doc_num_ope"
+          />
+
+          <field
+            java_name = "rut"
+            type = "int"
+            size = "10"
+            sign = "no"
+            integers = "9"
+            decimals = "0"          
+            middle_name = "doc_rut_cli"
+          />
+
+          <field
+            java_name = "doc_vtr_cli"
+            type = "char"
+            size = "1"
+            middle_name = "doc_vtr_cli"
+          />
+
+          <field
+            java_name = "tip_gls_doc"
+            type = "String"
+            size = "80"
+            middle_name = "tip_gls_doc"
+          />
+
+          <field
+            java_name = "stp_gls_sub"
+            type = "String"
+            size = "80"
+            middle_name = "stp_gls_sub"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

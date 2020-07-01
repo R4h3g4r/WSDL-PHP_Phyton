@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="tareasConsulta.procedimientosAlmacenados">
+
+    <resultMap id="reporteBanca" class="java.util.HashMap">
+        <result property="precio" column="precio" />
+        <result property="calidad" column="calidad" />
+        <result property="credito"  column="credito"/>
+        <result property="otros"    column="otros" />
+        <result property="total" column="total" />
+    </resultMap>
+    <resultMap id="reporte" class="java.util.HashMap">
+        <result property="precio" column="precio" />
+        <result property="calidad" column="calidad" />
+        <result property="credito"  column="credito"/>
+        <result property="otros"    column="otros" />
+        <result property="total" column="total" />
+        <result property="codigo"   column="codigo" />
+    </resultMap>
+
+        <parameterMap id="setIngresarNotasEvento" class="java.util.HashMap">
+                <parameter property="idEvento"   jdbcType="INTEGER"    javaType="java.lang.Integer"/>
+                <parameter property="nota"     jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+        <parameter property="fechaEvento"   jdbcType="DATETIME"  javaType="java.util.Date" />
+        </parameterMap>
+        <procedure  id="ingresarNotasEvento"  parameterMap="setIngresarNotasEvento"  resultClass="int">
+        { CALL sp_Inserta_Nota ( ?, ?, ? ) }
+        </procedure>
+
+        <parameterMap id="setConsultaNotasEventos" class="java.util.HashMap">
+        <parameter property="idEvento"   jdbcType="INTEGER"   javaType="java.lang.Integer" />
+        </parameterMap>
+        <resultMap id="getConsultaNotasEventos" class="java.util.HashMap">
+        <result    property="nota"       column="nota"        javaType="java.lang.Integer" />
+        </resultMap>
+        <procedure  id="consultaNotasEventos"  parameterMap="setConsultaNotasEventos"  resultMap="getConsultaNotasEventos">
+                { CALL sp_Consulta_Nota ( ?) }
+        </procedure>
+    <procedure id="reporteBancaPersona" resultMap="reporteBanca" parameterClass="java.util.HashMap">
+        {CALL sp_cns_ci_per(#mes#,#anyo#,#tipo#)}
+    </procedure>
+    <procedure id="reporteGerencias" resultMap="reporte" parameterClass="java.util.HashMap">
+        {CALL sp_cns_ci_ger(#mes#,#anyo#,#tipo#)}
+    </procedure>
+    <procedure id="reporteSucursales" resultMap="reporte" parameterClass="java.util.HashMap">
+        {CALL sp_cns_ci_suc(#mes#,#anyo#,#tipo#,#codigo#)}
+    </procedure>
+    <procedure id="reporteEjecutivos" resultMap="reporte" parameterClass="java.util.HashMap">
+        {CALL sp_cns_ci_eje(#mes#,#anyo#,#tipo#,#codigo#)}
+    </procedure>
+    <procedure id="reporteEjecutivoUni" resultMap="reporte" parameterClass="java.util.HashMap">
+        {CALL sp_cns_ci_eje_uni(#mes#,#anyo#,#tipo#,#codigo#)}
+    </procedure>
+    
+        <parameterMap id="input_inserta_area" class="java.util.HashMap">
+            <parameter property="area_cod"   jdbcType="CHAR"   javaType="String" />
+            <parameter property="area_gls"   jdbcType="CHAR"   javaType="String" />
+            <parameter property="ara_banco_tipo"   jdbcType="CHAR"   javaType="String" />
+        </parameterMap>
+        <!--resultMap id="res_inserta_area" class="java.util.HashMap">
+            <result property="resultado" jdbcType="INT"  javaType="Integer"/>
+        </resultMap-->
+        <procedure  id="sp_inserta_area"  parameterMap="input_inserta_area"  resultClass="int">
+                { CALL sp_inserta_area (?, ?, ?) }
+        </procedure>
+        
+        <parameterMap id="input_inserta_rol" class="java.util.HashMap">
+            <parameter property="rol_cod"   jdbcType="CHAR"   javaType="String" />
+            <parameter property="rol_gls"   jdbcType="CHAR"   javaType="String" />
+            <parameter property="rol_pty"   jdbcType="CHAR"   javaType="String" />
+        </parameterMap>
+        <!-- resultMap id="res_inserta_rol" class="java.util.HashMap">
+            <result property="resultado" jdbcType="INT"  javaType="Integer"/>
+        </resultMap-->
+        <procedure  id="sp_inserta_rol"  parameterMap="input_inserta_rol"  resultClass="int">
+                { CALL sp_inserta_rol (?, ?, ?) }
+        </procedure>
+
+        <!-- obtencion de ejecutivo a partir de su nmero de telefono -->
+        <parameterMap id="setNumeroTelefonoPublico" class="java.util.HashMap">
+        <parameter property="numeroTelefonoPublico"   jdbcType="CHAR"   javaType="String" />
+        </parameterMap>
+        <resultMap id="getIdEjecutivo" class="java.util.HashMap">
+        <result    property="idEjecutivo"       column="ejecutivo"        javaType="String" />
+        </resultMap>
+        <procedure  id="consultaIdEjecutivoSegunNumeroTelefonoPublico"  parameterMap="setNumeroTelefonoPublico"  resultMap="getIdEjecutivo">
+                { CALL sp_cns_eje_por_sda ( ?) }
+        </procedure>
+
+        <!-- Agenda Abierta -->
+        <procedure id="consultarMailEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+            {CALL sp_cns_usr_utb(#usuario#)}
+        </procedure>
+
+<parameterMap id="setConsultaIdEjecutivosSegunOficina" class="java.util.HashMap">
+            <parameter property="oficina"   jdbcType="CHAR"   javaType="String" />
+        </parameterMap>
+        <resultMap id="getConsultaIdEjecutivosSegunOficina" class="java.util.HashMap">
+            <result    property="idEjecutivo"       column="ejecutivo"        javaType="String" />
+        </resultMap>
+        <procedure  id="consultaIdEjecutivosSegunOficina"  parameterMap="setConsultaIdEjecutivosSegunOficina"  resultMap="getConsultaIdEjecutivosSegunOficina">
+                { CALL sp_cns_eje_por_ofi ( ?) }
+        </procedure>
+        
+
+        <parameterMap id="setConsultaIdEjecutivosSegunPlataforma" class="java.util.HashMap">
+            <parameter property="plataforma"   jdbcType="CHAR"   javaType="String" />
+        </parameterMap>
+        <resultMap id="getConsultaIdEjecutivosSegunPlataforma" class="java.util.HashMap">
+            <result    property="idEjecutivo"       column="ejecutivo"        javaType="String" />
+        </resultMap>
+        <procedure  id="consultaIdEjecutivosSegunPlataforma"  parameterMap="setConsultaIdEjecutivosSegunPlataforma"  resultMap="getConsultaIdEjecutivosSegunPlataforma">
+                { CALL sp_cns_eje_por_pla ( ?) }
+        </procedure>
+
+        <procedure id="obtenerAreaYRolesConEventos" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+            {CALL sp_cns_re2()}
+        </procedure>
+        
+        <procedure id="replicarEvento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_rpl_eve(#ref_niv_tre#, #ara_cod_org#, #rol_cod_org#, #ref_niv_tre_ori#)}
+        </procedure>
+
+<resultMap id="getConsultaVisualizacionComentario" class="java.util.HashMap" >      
+   <result property="codigoArea"            nullValue=""        column="Area"                   jdbcType="CHAR"    javaType="String" />     
+   <result property="estadoComentario"      nullValue=""        column="EstadoVisualizacion"    jdbcType="INTEGER" javaType="java.lang.Integer" />
+   <result property="descripcion"               nullValue=""        column="descripcion"            jdbcType="CHAR"    javaType="java.lang.String" />
+</resultMap>
+        
+<procedure id="consultaVisualizacionComentario" resultMap="getConsultaVisualizacionComentario">
+   { CALL dbo.sp_con_vis_com () }
+</procedure>
+
+<parameterMap id="setActualizaEstados" class="java.util.HashMap">
+    <parameter property="codigoArea"         jdbcType="CHAR"      javaType="String" />
+    <parameter property="estadoComentario"   jdbcType="INTEGER"   javaType="java.lang.Integer" />
+</parameterMap>
+        
+<procedure id="actualizaVisualizacionComentario" parameterMap="setActualizaEstados" resultClass="int">
+    { CALL dbo.sp_upd_vis_com ( ? , ? ) }
+</procedure>
+        
+<parameterMap id="setConfiguracionEvento" class="java.util.HashMap">
+    <parameter property="codTarea"   jdbcType="CHAR"   javaType="String" />
+</parameterMap>
+<resultMap id="getConfiguracionEvento" class="java.util.HashMap">
+    <result    property="subProducto"           column="ref_niv_dos"                nullValue="" javaType="String" />
+    <result    property="taskCode"              column="ref_niv_tre"                nullValue="" javaType="String" />
+    <result    property="taskDesc"              column="en3_gls"                    nullValue="" javaType="String" />
+    <result    property="roleCode"              column="en3_cli_rsp"                nullValue="" javaType="String" />
+    <result    property="promiseDtMarker"       column="en3_tpo_sol"                nullValue="" javaType="String" />
+    <result    property="taskOrEvent"           column="en3_banco_tipo"             nullValue="" javaType="String" />
+    <result    property="roleDescription"       column="rol_gls"                    nullValue="" javaType="String" />
+    <result    property="areaDestiny"           column="en3_ara_cod"                nullValue="" javaType="String" />
+    <result    property="areaDestinyDesc"       column="ara_gls"                    nullValue="" javaType="String" />
+    <result    property="executiveAssigned"     column="en3_ind_rol_age_esp"        nullValue="" javaType="String" />
+    <result    property="indicadorTipoBanca"    column="en3_inf"                    nullValue="" javaType="String" />
+</resultMap>
+
+<procedure  id="consultaConfiguracionEvento"  parameterMap="setConfiguracionEvento"  resultMap="getConfiguracionEvento">
+{ CALL sp_con_en3_cod ( ? ) }
+</procedure>
+
+    <procedure id="traerAreasReasignacionPorEjecutivo" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_ura_eje(#utb_usu_idn#)}
+    </procedure>
+
+    <procedure id="agregarAreaReasignacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_ins_ura(#utb_usu_idn#, #are_org#, #rol_org#, #are_rea#, #rol_rea#, #cod_seg#)}
+    </procedure>
+
+    <procedure id="eliminarAreaReasignacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_eli_ura(#utb_usu_idn#, #are_org#, #rol_org#, #are_rea#, #rol_rea#, #cod_seg#)}
+    </procedure>
+    
+    <parameterMap id="setCambioEstadoComision" class="java.util.HashMap">
+            <parameter property="numeroDeEvento"        jdbcType="integer"  javaType="Integer" />
+            <parameter property="estadoComision"        jdbcType="CHAR" javaType="String" />
+            <parameter property="tipoCambioEstado"      jdbcType="CHAR" javaType="String" />
+        </parameterMap>
+    
+        <procedure id="cambioEstadoComision" parameterMap="setCambioEstadoComision" resultClass="String">
+            { CALL spCamEstCobCom( ?, ?, ?) }
+        </procedure>
+                
+                
+        <parameterMap id="setModificaCobroComision" class="java.util.HashMap">
+            <parameter property="montoComision"         jdbcType="DECIMAL"  javaType="Double" />
+            <parameter property="nombreComision"        jdbcType="CHAR"     javaType="String" />
+            <parameter property="numeroEvento"          jdbcType="numeric"  javaType="Integer" />           
+            <parameter property="nemonico"              jdbcType="int"      javaType="Integer" />
+            <parameter property="codigoTransaccion"     jdbcType="CHAR"     javaType="String" />
+            <parameter property="rutEmpresa"            jdbcType="int"      javaType="java.lang.Long" />
+            <parameter property="dvEmpresa"             jdbcType="CHAR"     javaType="String" />
+            <parameter property="cuentaCorriente"       jdbcType="CHAR"     javaType="String" />
+            <parameter property="formaAutorizar"        jdbcType="CHAR"     javaType="String" />
+            <parameter property="convenioID"            jdbcType="CHAR"     javaType="String" />
+        </parameterMap>
+    
+        <procedure id="modificaCobroComision" parameterMap="setModificaCobroComision" resultClass="String">
+            { CALL spCamCobCom( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+        </procedure>
+        
+        <parameterMap id="setIngresaCobroComision" class="java.util.HashMap">
+            <parameter property="rutUsuario"        jdbcType="integer"  javaType="java.lang.Long" />
+            <parameter property="dvUsuario"         jdbcType="CHAR"     javaType="String" />
+            <parameter property="rutEmpresa"        jdbcType="integer"  javaType="java.lang.Long" />
+            <parameter property="dvEmpresa"         jdbcType="CHAR"     javaType="String" />
+            <parameter property="nombreDocumento"   jdbcType="CHAR"     javaType="String" />
+            <parameter property="montoComision"     jdbcType="DECIMAL"  javaType="Double" />
+            <parameter property="codigoEvento"      jdbcType="CHAR"     javaType="String" />
+            <parameter property="numeroEvento"      jdbcType="NUMERIC"  javaType="Integer" />
+            <parameter property="tipoEvento"        jdbcType="CHAR"     javaType="String" />
+            <parameter property="estadoAutorizacion" jdbcType="CHAR"    javaType="String" />
+            <parameter property="fechaIngreso"      jdbcType="DATETIME" javaType="java.util.Date" />
+            <parameter property="fechaAutorizacion" jdbcType="DATETIME" javaType="java.util.Date" />
+            <parameter property="fechaEjecucion"    jdbcType="DATETIME" javaType="java.util.Date" />
+            <parameter property="cuentaCargo"       jdbcType="CHAR"     javaType="String" />
+            <parameter property="nemonicoDocumento" jdbcType="integer"  javaType="Integer" />
+            <parameter property="codigoTransaccion" jdbcType="CHAR"     javaType="String" />
+            <parameter property="formaAutorizar"    jdbcType="CHAR"     javaType="String" />
+            <parameter property="nombreEmpresa"     jdbcType="CHAR"     javaType="String" />
+            <parameter property="convenioID"        jdbcType="CHAR"     javaType="String" />
+            <parameter property="idEjecutivo"       jdbcType="CHAR"     javaType="String" />
+            <parameter property="correlativoAtachado" jdbcType="NUMERIC"    javaType="Integer" />                       
+        </parameterMap>
+    
+        <procedure id="ingresaCobroComision" parameterMap="setIngresaCobroComision" resultClass="String">
+            { CALL spIngCobCom( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+        </procedure>
+        
+            
+    <parameterMap id="setDetalleComision" class="java.util.HashMap">
+        <parameter property="rutUsuario"        jdbcType="integer"      javaType="java.lang.Long" />
+        <parameter property="rutEmpresa"        jdbcType="integer"      javaType="java.lang.Long" />        
+        <parameter property="fechaInicial"      jdbcType="CHAR"         javaType="String" />
+        <parameter property="fechaFinal"        jdbcType="CHAR"         javaType="String" />
+        <parameter property="estadoCobro"       jdbcType="CHAR"         javaType="String" />
+        <parameter property="numeroEvento"      jdbcType="NUMERIC"      javaType="Integer" />
+        <parameter property="codigosEvento"     jdbcType="CHAR"         javaType="String" />
+        <parameter property="pagina"            jdbcType="int"          javaType="Integer" />
+        <parameter property="cantidadRegistros" jdbcType="int"          javaType="Integer" />
+        <parameter property="convenioID"        jdbcType="CHAR"         javaType="String" />                
+        <parameter property="monto"             jdbcType="DECIMAL"      javaType="Double" />
+    </parameterMap>
+    
+    <resultMap id="getDetalleComision" class="java.util.HashMap">
+        <result property="autoIncrementable"    column="autoIncrementable"  javaType="Integer"/>
+        <result property="rutUsuario"           column="rutUsuario"         javaType="java.lang.Long"/>
+        <result property="dvUsuario"            column="dvUsuario"          javaType="String" />
+        <result property="rutEmpresa"           column="rutEmpresa"         javaType="java.lang.Long" />
+        <result property="dvEmpresa"            column="dvEmpresa"          javaType="String" />
+        <result property="nombreDocumento"      column="nombreDocumento"    javaType="String" />
+        <result property="montoComision"        column="montoComision"      javaType="Double" />
+        <result property="codigoEvento"         column="codigoEvento"       javaType="String" />
+        <result property="numeroEvento"         column="numeroEvento"       javaType="Integer" />
+        <result property="tipoEvento"           column="tipoEvento"         javaType="String" />
+        <result property="estadoAutorizacion"   column="estadoAutorizacion" javaType="String" />
+        <result property="estadoCobro"          column="estadoCobro"        javaType="String" />
+        <result property="fechaIngreso"         column="fechaIngreso"       javaType="java.util.Date" />
+        <result property="fechaAutorizacion"    column="fechaAutorizacion"  javaType="java.util.Date" />
+        <result property="fechaEjecucion"       column="fechaEjecucion"     javaType="java.util.Date" />
+        <result property="cuentaCorriente"      column="cuentaCorriente"    javaType="String" />
+        <result property="nemonico"             column="nemonico"           javaType="Integer" />
+        <result property="transaccion"          column="transaccion"        javaType="String" />
+        <result property="personaAutoriza"      column="personaAutoriza"    javaType="String" />
+        <result property="nombreEmpresa"        column="nombreEmpresa"      javaType="String" />
+        <result property="idEjecutivo"          column="idEjecutivo"        javaType="String" />
+        <result property="convenioID"           column="numeroConvenio"     javaType="String" />
+        <result property="correlativoAtachado"  column="correlativoAtachado" javaType="Integer" />
+        <result property="cant_pag"             column="cant_pag"           javaType="Integer" />               
+    </resultMap>
+    
+    <procedure id="detalleComision" parameterMap="setDetalleComision" resultMap="getDetalleComision">
+            { CALL spConCobCom( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? ) }
+    </procedure>
+
+    <parameterMap id="setProrrogaCliente" class="java.util.HashMap">
+        <parameter property="ref_id" jdbcType="NUMERIC" javaType="Float"  />
+        <parameter property="ref_fec_sol_prm"   jdbcType="DATETIME"  javaType="java.util.Date" />
+        <parameter property="est_usu_cmb_est"   jdbcType="VARCHAR"   javaType="String" />
+        <parameter property="est_com"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario1"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario2"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario3"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario4"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario5"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario6"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario7"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario8"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="comentario9"  jdbcType="VARCHAR" javaType="String" />
+        <parameter property="est_rut_usr"  jdbcType="VARCHAR" javaType="String" />
+    </parameterMap> 
+    
+    <procedure id="insertaProrrogaCliente" parameterMap="setProrrogaCliente" resultClass="java.util.HashMap">
+        { CALL sp_mod_fec_prm_cli_001 (?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+    </procedure>
+
+     <parameterMap id="comisionEvento" class="java.util.HashMap">
+        <parameter property="num_evento"  jdbcType="NUMERIC" javaType="Integer"  />
+     </parameterMap>  
+ 
+     <procedure id="obtieneComisionApartirIdEvento" parameterMap="comisionEvento" resultClass="java.util.HashMap">
+        {CALL sp_sel_dcc( ? )}
+      </procedure>
+      
+  
+  <parameterMap id="informacionEjecutivo" class="java.util.HashMap">
+    <parameter    property="codigoEjecutivo"  jdbcType="VARCHAR" javaType="String" />
+  </parameterMap>  
+    
+    <procedure id="informacionEjecutivoEvento" parameterMap="informacionEjecutivo" resultClass="java.util.HashMap">
+        {CALL sp_cns_inf_eje_eve ( ? )}
+    </procedure> 
+
+    <resultMap id="listadoEventosAcciones" class="java.util.HashMap">
+        <result property="rutCliente" javaType="String" column="rut_cliente"/>
+        <result property="dvCliente" javaType="String" column="dv_cliente"/>
+        <result property="ejecutivo" javaType="String" column="ejecutivo"/>
+        <result property="idEvento" javaType="Integer" column="evento_id"/>
+        <result property="estado" javaType="String" column="evento_estado"/>
+        <result property="glosa" javaType="String" column="evento_glosa"/>
+        <result property="areaOrigen" javaType="String" column="area_origen"/>
+        <result property="rolOrigen" javaType="String" column="rol_origen"/>
+        <result property="areaDestino" javaType="String" column="area_destino"/>
+        <result property="rolDestino" javaType="String" column="rol_destino"/>
+        <result property="nivelUno" javaType="String" column="nivel_uno"/>
+        <result property="nivelDos" javaType="String" column="nivel_dos"/>
+        <result property="nivelTres" javaType="String" column="nivel_tres"/>
+        <result property="fechaIngreso" javaType="Date" column="fecha_ingreso"/>
+        <result property="fechaFin" javaType="Date" column="fecha_fin"/>
+        <result property="canal" javaType="Integer" column="canal"/>
+        <result property="subcanal" javaType="Integer" column="subcanal"/>
+    </resultMap>
+
+    <procedure id="sp_busc_acc_cli" parameterClass="java.util.HashMap" resultMap="listadoEventosAcciones">
+        {CALL sp_busc_acc_cli(#rutCliente#,#dvCliente#,#fechaHasta#,#fechaDesde#,#esBusquedaInicial#)}
+    </procedure>
+    
+<!-- INICIO CANTIDAD EVENTOS PENDIENTES POR OFICINA -->
+    <resultMap id="eventPendienteOficina" class="java.util.HashMap">
+        <result property="codEjeDst"    javaType="String"   column="cod_eje_dst"   jdbcType="VARCHAR" />
+        <result property="idEvento"    javaType="double"   column="id_evento"   jdbcType="FLOAT" />
+        <result property="cliIdc"   javaType="String"      column="cli_idc"  jdbcType="VARCHAR" />
+        <result property="gls"   javaType="String"      column="gls"  jdbcType="VARCHAR" />
+        <result property="codEst"   javaType="String"      column="cod_est"  jdbcType="VARCHAR" />
+        <result property="fecEst"   javaType="Date"      column="fec_est"  jdbcType="SMALLDATETIME" />
+        <result property="fecSolPrm"   javaType="Date"      column="fec_sol_prm"  jdbcType="SMALLDATETIME" />
+        <result property="fecSolPrmOri"   javaType="Date"      column="fec_sol_prm_ori"  jdbcType="SMALLDATETIME" />
+        <result property="codAraDst"   javaType="String"      column="cod_ara_dst"  jdbcType="VARCHAR" />
+    </resultMap>
+
+    <procedure id="consultaEventPendienteOficina" parameterClass="java.util.HashMap" resultMap="eventPendienteOficina">
+        {CALL sp_cns_evt_pend_ofi(#codOficina#)}
+    </procedure>
+<!-- FIN CANTIDAD EVENTOS PENDIENTES POR OFICINA -->
+</sqlMap>

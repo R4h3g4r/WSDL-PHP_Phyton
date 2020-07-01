@@ -1,0 +1,1282 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE multi_workflow_integrator  PUBLIC "-//BEE S.A.//DTD Multi Workflow Integration//ES" "http://www.bee.cl/dtds/XMLMultiWfInteg.dtd">
+
+<multi_workflow_integrator>
+  <!-- ******* -->
+  <!-- EVENTOS -->
+  <!-- ******* -->
+
+  <!-- === -->
+  <!-- BGL -->
+  <!-- === -->
+
+  <starter name="Ingresar_Solicitud_de_Garantia" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><BGLIniSol tipoProceso="$in.tipoProceso" rutDeudor="$in.rutDeudor" vrfDeudor="$in.vrfDeudor" responsable="#set( $index = 0 )#foreach ($arg in $in.detalleEstadoSolicitudGarantia)#if( $index == 0 )$arg.responsable#end#set( $index = $index + 1 )#end" numeroSolicitud="$out.numeroSolicitud" numeroClaveGarantia="#set( $index = 0 )#foreach ($arg in $in.detalleEstadoSolicitudGarantia)#if( $index == 0 )$arg.numeroClaveGarantia#end#set( $index = $index + 1 )#end" claveGarantia="#set( $index = 0 )#foreach ($arg in $in.detalleEstadoSolicitudGarantia)#if( $index == 0 )$arg.claveGarantia#end#set( $index = $index + 1 )#end"/>]]></xml_definition>
+  </starter>
+
+  <starter name="Actualizar_Solicitud_de_Garantia" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><BGLActSol numeroSolicitud="$in.numeroSolicitud" tipoProceso="$in.tipoProceso" responsable="#set( $index = 0 )#foreach ($arg in $in.modDetalleEstadoSolicitudGarantia)#if( $index == 0 )$arg.responsable#end#set( $index = $index + 1 )#end"/>]]></xml_definition>
+  </starter>
+
+  <starter name="Eliminar_Solicitud_de_Garantia" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><BGLCanSol numeroSolicitud="$in.numeroSolicitud" />]]></xml_definition>
+  </starter>
+
+  <starter name="Cancelar_Solicitud_de_Garantia" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><BGLCanSol numeroSolicitud="$in.numeroSolicitud" />]]></xml_definition>
+  </starter>
+  
+  
+  
+  
+  <!-- ==== -->
+  <!-- CCPR -->
+  <!-- ==== -->
+  
+  <!--  Para iniciar el Proceso de Bajas -->
+  <starter name="BajaCPRIni" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><CCPRIniBaja rSocial="${in.razonSocial}"  iic="${in.iic}"  cai="${in.cai}" fechaConvenio="${in.fechaConvenio}"  horaConvenio="${in.horaConvenio}" rutEmpresa="${in.rutEmpresa}-${in.divEmpresa}" correlativo="${out.correlativo}" ejecutivoEmpresa="${in.ejecutivoEmpresa}" />]]></xml_definition>
+   </starter>
+  
+  <!--  Para iniciar el Proceso de Altas -->
+  <starter name="AltaCPRIni" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><CCPRIniAlta rSocial="${in.razonSocial}" convenioDePago="${in.convenioDePago}"  correlativo="${out.correlativo}" iic="${in.iic}"  cai="${in.cai}" fechaConvenio="${out.fechaConvenio}"  horaConvenio="${in.horaConvenio}" rutEmpresa="${in.rutEmpresa}-${in.divEmpresa}" autorSolicitud="${in.autorSolicitud}" ejecutivoEmpresa="${in.ejecutivoEmpresa}" oficinaConvenioCs="${in.oficinaConvenioCs}"/>]]></xml_definition>
+  </starter>
+  
+  <!--  Para iniciar el Proceso de creacion -->
+  <starter name="CreacionCPRIni" twoway="no">
+    <xml_definition><![CDATA[<?xml version="1.0" encoding="UTF-8"?><CCPRIniCreacion convenioDePago="${in.convenioDePago}"  rSocial="${out.razonSocial}"  fechaConvenio="${out.fechaConvenio}"  horaConvenio="${out.horaConvenio}"  rutEmpresa="${in.rutEmpresa}-${in.divEmpresa}"  iic="${out.iic}"  cai="${out.cai}"  autorSolicitud="${in.autorSolicitud}" ejecutivoEmpresa="${in.ejecutivoEmpresa}" />]]></xml_definition>
+  </starter>
+  
+  
+  
+  <!-- ******** -->
+  <!-- FORWARDS -->
+  <!-- ******** -->
+
+
+  
+  
+    <!-- ======== -->
+    <!-- Globales -->
+  <!-- ======== -->
+  <mwi_task name="Enviar_Documentacion" template="Envio" execute_needs_variables="no" type="sender_checklist">
+
+    <mapping>
+        <variable     name="doc_refe"      caption="Referencia"  />
+        <workflowTime caption="Tiempo_Espera" align="right" />
+    </mapping>
+
+  </mwi_task>
+
+
+  <mwi_task name="Enviar_Documentacion_Faltante" template="Envio" execute_needs_variables="no" type="sender_checklist">
+    <mapping>
+        <workflowTime caption="Tiempo_Espera" align="right" />
+    </mapping>
+  </mwi_task>
+  <mwi_task name="Recibir_Documentacion" template="Recepcion" execute_needs_variables="no" type="receiver_checklist">
+    <mapping>
+        <workflowTime caption="Tiempo_Espera" align="right" />
+    </mapping>
+  </mwi_task>
+
+  <!-- === -->
+  <!-- BGL -->
+  <!-- === -->
+
+
+  <mwi_task name="EJE_Gestionar_Solicitud" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+
+    <doit>
+        <variable_translation>
+          <name workflow="numSolicitud" parameter="$out.numSolicitud"/>
+        </variable_translation>
+    </doit>
+
+    <mapping>
+      <variable name="numeroClaveGarantia"  caption="Número Clave Garantía"  />
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaSolicitudGarantiasDelCliente.do?opc=1&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "EJE_Gestionar_Solicitud ${numeroSolicitud}" application_formula="EJE_Gestionar_Solicitud ${in.numeroSolicitud}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+        <name workflow="numeroSolicitud" parameter="numeroSolicitud" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+
+  <mwi_task name="FIS_Registrar_Acreedores_Preferenciales" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+    
+    
+    <doit>
+        <variable_translation>
+          <name workflow="bcoAcreedor"   parameter="$in.bcoAcreedor"/>
+          <name workflow="prioridad" parameter="$in.prioridad" />
+        </variable_translation>
+    </doit>
+    
+    
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGap.do?prioridad=0&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "FIS_Registrar_Acreedores_Preferenciales ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="FIS_Registrar_Acreedores_Preferenciales ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="FIS_Asignar_Abogado" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaParaVerificarActivarAsignarAccionesGarantias.do?paso=5&prioridad=0&nroTasacion=0&nombreRSocial=+&rutDeudor=0&vrfDeudor=&indicadorDeudor=&glsDeudor=+&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "FIS_Asignar_Abogado ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="FIS_Asignar_Abogado ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+  
+<!-- versión directo a acreedor
+  <mwi_task name="ABO_Gestionar_Escrituras" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaLegalizacion.do?paso=2&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "ABO_Gestionar_Escrituras ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="ABO_Gestionar_Escrituras ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="prioridad" parameter="prioridad" />
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+-->
+  <mwi_task name="ABO_Gestionar_Escrituras" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+      <forwarding URI="/portalwls_bgl/ConsultaGarantiasDelCliente.do?" keep_tracking="yes">
+      
+            <tracking_id workflow_formula = "ABO_Gestionar_Escrituras ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="ABO_Gestionar_Escrituras ${in.numeroClaveGarantia}${in.claveGarantia}" />
+      
+            <variable_translation>
+              <name workflow="numClaGar" parameter="numClaGar" />
+            </variable_translation>
+      
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="ABO_Activar_Legalizacion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaParaVerificarActivarAsignarAccionesGarantias.do?paso=3&prioridad=0&nroTasacion=0&nombreRSocial=+&rutDeudor=0&vrfDeudor=&indicadorDeudor=&glsDeudor=+&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "gsoAej${numeroSolicitud}" application_formula="gsoAej${in.numeroSolicitud}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="UCG_Verificar_Garantia" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaParaVerificarActivarAsignarAccionesGarantias.do?paso=1&prioridad=0&nroTasacion=0&nombreRSocial=+&rutDeudor=0&vrfDeudor=&indicadorDeudor=&glsDeudor=+&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "UCG_Verificar_Garantia ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="UCG_Verificar_Garantia ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="TAS_Gestionar_Tasaciones" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaGarantiasDelCliente.do?" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "TAS_Gestionar_Tasaciones ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="TAS_Gestionar_Tasaciones ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="SEG_Registrar_Inspeccion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGinGub.do?correlativo1=0&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "SEG_Registrar_Inspeccion ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="SEG_Registrar_Inspeccion ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="UCG_Registrar_Inspeccion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGinGub.do?correlativo1=0&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "UCG_Registrar_Inspeccion ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="UCG_Registrar_Inspeccion ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="SEG_Gestionar_Poliza" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+      
+      <doit>
+          <variable_translation>
+            <name workflow="inspeccionObligatoria"   parameter="$in.inspeccionObligatoria"/>
+          </variable_translation>
+      </doit>
+      
+  
+      <mapping>
+        <variable name="claveGarantia" caption="Clave_Garantia" />
+        <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+      </mapping>
+      
+      
+      <forwarding URI="/portalwls_bgl/ConsultaGarantiasDelCliente.do?" keep_tracking="yes">
+      
+            <tracking_id workflow_formula = "SEG_Gestionar_Poliza ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="SEG_Gestionar_Poliza ${in.numeroClaveGarantia}${in.claveGarantia}" />
+      
+            <variable_translation>
+              <name workflow="numClaGar" parameter="numClaGar" />
+            </variable_translation>
+      
+    </forwarding>
+      
+  
+  </mwi_task>
+
+  <mwi_task name="SEG_Revisar_Poliza_y_Registrar_Seguro" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+    
+    
+    <doit>
+        <variable_translation>
+          <name workflow="inspeccionObligatoria"   parameter="$in.inspeccionObligatoria"/>
+        </variable_translation>
+    </doit>
+    
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGse.do?" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "ingresoGse${numeroClaveGarantia}${claveGarantiaNum}" application_formula="ingresoGse${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="UCG_Registrar_Datos_Seguro" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+    
+    <doit>
+        <variable_translation>
+          <name workflow="inspeccionObligatoria"   parameter="$in.inspeccionObligatoria"/>
+        </variable_translation>
+    </doit>
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGse.do?" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "ingresoGse${numeroClaveGarantia}${claveGarantiaNum}" application_formula="ingresoGse${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+  
+  <!-- Duplicado -->
+  <!--
+  <mwi_task name="SEG_Revisar_Poliza_y_Registrar_Seguro" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="yes" type="application">
+      
+      <doit>
+          <variable_translation>
+            <name workflow="inspeccionObligatoria"   parameter="$in.inspeccionObligatoria"/>
+          </variable_translation>
+      </doit>
+  
+      <mapping>
+        <variable name="claveGarantia" caption="Clave_Garantia" />
+        <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+      </mapping>
+  
+      <forwarding URI="/portalwls_bgl/InstanciaDeLlavesParaIngresoGse.do?" keep_tracking="yes">
+  
+        <tracking_id workflow_formula = "REVingresoGse${numeroClaveGarantia}${claveGarantiaNum}" application_formula="REVingresoGse${in.numeroClaveGarantia}${in.claveGarantia}" />
+  
+        <variable_translation>
+          <name workflow="numClaGar" parameter="numClaGar" />
+        </variable_translation>
+  
+      </forwarding>
+  
+  </mwi_task>
+  -->
+  
+  <mwi_task name="UCG_Activar_Constitucion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaGdgGdd.do?consulta=2&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "UCG_Activar_Constitucion ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="UCG_Activar_Constitucion ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="UCG_Registrar_Datos_Credito" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaGarantiasDelCliente.do?" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "UCG_Registrar_Datos_Credito ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="UCG_Registrar_Datos_Credito ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="EJE_Obtener_Poliza_del_Responsable" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="form">
+  
+      <mapping>
+        <variable name="claveGarantia" caption="Clave_Garantia" />
+        <variable name="nombreRSocial" caption="nombreRSocial" />
+        <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+        <variable name="limite" caption="Limite" />
+      </mapping>
+  
+  </mwi_task>
+  
+  <mwi_task name="UCG_Remitir_Poliza_a_Seguros" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="form">
+    
+        <mapping>
+          <variable name="claveGarantia" caption="Clave_Garantia" />
+          <variable name="nombreRSocial" caption="nombreRSocial" />
+          <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+          <variable name="limite" caption="Limite" />
+        </mapping>
+    
+  </mwi_task>
+  
+  
+  <!-- Duplicado -->
+  <!--
+  <mwi_task name="UCG_Remitir_Poliza_a_Seguros" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="form">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+  </mwi_task>
+  -->  
+
+  <mwi_task name="SEG_Cerrar_Gestion_Poliza" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+    
+    
+        <forwarding URI="/portalwls_bgl/ConsultaGseWorFlow.do?correlativo3=0&" keep_tracking="no">
+    
+          
+    
+          <variable_translation>
+            <name workflow="numClaGar" parameter="numClaGar" />
+          </variable_translation>
+    
+        </forwarding>
+
+
+  </mwi_task>
+
+  <mwi_task name="FIS_Cerrar_Registro_de_Acreedores" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaParaVerificarActivarAsignarAccionesGarantias.do?paso=2&prioridad=0&nroTasacion=0&nombreRSocial=+&rutDeudor=0&vrfDeudor=&indicadorDeudor=&glsDeudor=+&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "FIS_Cerrar_Registro_de_Acreedores ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="FIS_Cerrar_Registro_de_Acreedores ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+  <mwi_task name="FIS_Aprobar_Abogado" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" execute_needs_variables="no" type="application">
+
+    <mapping>
+      <variable name="claveGarantia" caption="Clave_Garantia" />
+      <variable name="numeroSolicitud" caption="Numero_Solicitud" />
+    </mapping>
+
+    <forwarding URI="/portalwls_bgl/ConsultaParaVerificarActivarAsignarAccionesGarantias.do?paso=4&prioridad=0&nroTasacion=0&nombreRSocial=+&rutDeudor=0&vrfDeudor=&indicadorDeudor=&glsDeudor=+&" keep_tracking="yes">
+
+      <tracking_id workflow_formula = "FIS_Aprobar_Abogado ${numeroClaveGarantia}${claveGarantiaNum}" application_formula="FIS_Aprobar_Abogado ${in.numeroClaveGarantia}${in.claveGarantia}" />
+
+      <variable_translation>
+        <name workflow="numClaGar" parameter="numClaGar" />
+      </variable_translation>
+
+    </forwarding>
+
+  </mwi_task>
+
+
+  <!-- ==== -->
+  <!-- CCPR -->
+  <!-- ==== -->
+
+    <!-- ============ -->
+    <!-- TAREAS ALTAS -->
+    <!-- ============ -->  
+    <mwi_task name="INI_Adjuntar_Nomina" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload"></mwi_task>
+    
+    <mwi_task name="CCS_Recibir_Nomina" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/RecibirNominaAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="CCS_Recibir_Nomina ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="CCS_Recibir_Nomina ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="UTAR_Confeccionar_Tarjetas" template="Alta_CPR_Convenios" execute_needs_variables="yes" type="application">
+        <doit>
+            <variable_translation>
+                <name workflow="cpr_aperturadas" parameter="$in.cpr_aperturadas" />
+                <name workflow="cpr_problemas" parameter="$in.cpr_problemas" />
+                <name workflow="nomina_formato_esperado" parameter="$in.nomina_formato_esperado" />
+            </variable_translation>
+        </doit>    
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosUnidadDeTarjetasAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="UTAR_Confeccionar_Tarjetas ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="UTAR_Confeccionar_Tarjetas ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="convenioDePago" parameter="convenioDePago" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+    
+    <mwi_task name="CCS_Adjuntar_Oferta_Crediticia" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+    
+    <mwi_task name="UTAR_Adjuntar_Nomina_Rechazos" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>    
+    
+    <mwi_task name="SBCS_Recibir_Oferta_Crediticia" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarRecepcionOfertaCrediticiaAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="SBCS_Recibir_Oferta_Crediticia ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="SBCS_Recibir_Oferta_Crediticia ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>    
+    </mwi_task>
+    
+    <mwi_task name="EJE_Recibir_Nomina_Rechazos" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarRecepcionRechazosAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="EJE_Recibir_Nomina_Rechazos ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="EJE_Recibir_Nomina_Rechazos ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosUAPEAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="FET_Preparacion_Set_CPR" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosFETAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="FET_Preparacion_Set_CPR ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="FET_Preparacion_Set_CPR ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="SBCS_Notificar_Recepcion_Set" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarNotificacionRecepcionSetAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="SBCS_Notificar_Recepcion_Set ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="SBCS_Notificar_Recepcion_Set ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" /> 
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+    
+    <mwi_task name="FET_Envio_contratos_CPR_custodia" template="Alta_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultaEnvioContratosCustodiaAlta.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="FET_Envio_contratos_CPR_custodia ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="FET_Envio_contratos_CPR_custodia ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+    
+    <mwi_task name="SBCS_Adjuntar_Nomina_Contratos" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="UTAR_Adjuntar_Contrato_Marco" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="UTAR_Adjuntar_Nomina_Cuentas_Aperturadas" template="Alta_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task> 
+    
+    <!-- ================ -->
+    <!-- TAREAS CONVENIOS -->
+    <!-- ================ -->
+    <mwi_task name="UTAR_Adjuntar_Nomina_Cuentas_Aperturadas" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task> 
+    
+    <mwi_task name="INI_Adjuntar_Nomina" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="UTAR_Adjuntar_Nomina_Rechazos" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="CCS_Adjuntar_Oferta_Crediticia" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="SBCS_Adjuntar_Nomina_Contratos" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="UTAR_Adjuntar_Contrato_Marco" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task>
+
+    <mwi_task name="ACS_Asignar_Ejecutivo_y_Sucursal" template="Creacion_CPR_Convenios" execute_needs_variables="yes" type="application">
+        <doit>
+            <variable_translation>
+                <name workflow="ejecutivoConvenioCs" parameter="$in.ejecutivoConvenioCs" />
+                <name workflow="oficinaConvenioCs" parameter="$in.oficinaConvenioCs" />
+            </variable_translation>
+        </doit>
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/AsistenteConvenioConosurCPR.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="ACS_Asignar_Ejecutivo_y_Sucursal ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="ACS_Asignar_Ejecutivo_y_Sucursal ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="ABCI_Asignar_Ejecutivo_y_Oficina" template="Creacion_CPR_Convenios" execute_needs_variables="yes" type="application">
+        <doit>
+            <variable_translation>
+                <name workflow="ejecutivoConvenioBci" parameter="$in.ejecutivoConvenioBci" />
+                <name workflow="oficinaConvenioBci" parameter="$in.oficinaConvenioBci" />
+            </variable_translation>
+        </doit>
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/AsistenteConvenioBciCPR.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="ABCI_Asignar_Ejecutivo_y_Oficina ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="ABCI_Asignar_Ejecutivo_y_Oficina ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="CCS_Recibir_Nomina" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/RecibirNomina.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="CCS_Recibir_Nomina ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="CCS_Recibir_Nomina ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="UTAR_Ingresar_Condiciones_Convenio_y_Confeccionar_Tarjetas" template="Creacion_CPR_Convenios" execute_needs_variables="yes" type="application">
+        <doit>
+            <variable_translation>
+                <name workflow="cpr_aperturadas" parameter="$in.cpr_aperturadas" />
+                <name workflow="cpr_problemas" parameter="$in.cpr_problemas" />
+                <name workflow="nomina_formato_esperado" parameter="$in.nomina_formato_esperado" />
+            </variable_translation>
+        </doit>
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosUnidadDeTarjetas.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="UTAR_Ingresar_Condiciones_Convenio_y_Confeccionar_Tarjetas ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="UTAR_Ingresar_Condiciones_Convenio_y_Confeccionar_Tarjetas ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosUAPE.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="UAPE_Ingresar_y_Asociar_CPR_Convenio_BEL ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="FET_Preparacion_Set_CPR" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDatosFET.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="FET_Preparacion_Set_CPR ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="FET_Preparacion_Set_CPR ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="SBCS_Notificar_Recepcion_Set" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarNotificacionRecepcionSet.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="SBCS_Notificar_Recepcion_Set ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="SBCS_Notificar_Recepcion_Set ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="SBCS_Recibir_Oferta_Crediticia" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarRecepcionOfertaCrediticia.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="SBCS_Recibir_Oferta_Crediticia ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="SBCS_Recibir_Oferta_Crediticia ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+    <mwi_task name="EJE_Recibir_Nomina_Rechazos" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarRecepcionRechazos.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="EJE_Recibir_Nomina_Rechazos ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="EJE_Recibir_Nomina_Rechazos ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+
+    </mwi_task>
+    <mwi_task name="FET_Envio_contratos_CPR_custodia" template="Creacion_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="fechaConvenio" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultaEnvioContratosCustodia.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="FET_Envio_contratos_CPR_custodia ${cai} ${iic} ${fechaConvenio} ${horaConvenio}" application_formula="FET_Envio_contratos_CPR_custodia ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>
+
+<!-- ============ -->
+    <!-- TAREAS BAJAS -->
+    <!-- ============ -->    
+    
+    <mwi_task name="XXX_Adjuntar_Nomina_Bajas" template="Baja_CPR_Convenios" execute_needs_variables="no" type="file_upload">
+    </mwi_task> 
+
+    <mwi_task name="UTAR_Desasociar_CPR_Convenio" template="Baja_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarDesasociarCPRConvenio.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="UTAR_Desasociar_CPR_Convenio ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="UTAR_Desasociar_CPR_Convenio ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>    
+
+    <mwi_task name="EJE_Informar_Desasociacion_Clientes_CPR" template="Baja_CPR_Convenios" execute_needs_variables="no" type="application">
+        <mapping>
+            <variable name="rSocial" caption="rSocial" align="center" />
+            <variable name="rutEmpresa" caption="rutEmpresa" align="center" />
+            <variable name="convenioDePago" caption="convenioDePago" align="center" />
+            <variable name="fechaConvenio" caption="fechaConvenio" align="center" />
+            <variable name="horaConvenio" caption="horaConvenio" align="center" />
+            <variable name="correlativo" caption="correlativo" align="center" />
+        </mapping>
+        <forwarding URI="/portalwls_convenioscuentasprimas/ConsultarInformarDesasociacionConvenioCPR.do?" keep_tracking="yes">
+            <tracking_id workflow_formula="EJE_Informar_Desasociacion_Clientes_CPR ${cai} ${iic} ${fechaConvenio} ${horaConvenio} ${correlativo}" application_formula="EJE_Informar_Desasociacion_Clientes_CPR ${in.cai} ${in.iic} ${out.fechaConvenioString} ${in.horaConvenio} ${in.correlativo}" />
+            <variable_translation>
+                <name workflow="cai" parameter="cai" default="" />
+                <name workflow="iic" parameter="iic" default="" />
+                <name workflow="fechaConvenio" parameter="fechaConvenio" default="" />
+                <name workflow="horaConvenio" parameter="horaConvenio" default="" />
+                <name workflow="correlativo" parameter="correlativo" default="" />
+            </variable_translation>
+        </forwarding>
+    </mwi_task>    
+
+
+
+
+
+
+  <!-- ***************************** -->
+  <!-- Envio/Recepcion Documentacion -->
+  <!-- ***************************** -->
+
+  <!-- === -->
+  <!-- BGL -->
+  <!-- === -->
+
+  <checklist name="ejetas" >
+      <item id="1" caption="Solicitud_de_Tasacion" required="yes" />
+      <item id="2" caption="Copia_Mandato_Ofrecimiento_Garantia" required="yes"/>
+      <item id="3" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ejefis">
+      <item id="1" caption="Antecedentes_Legales" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ucgejes">
+      <item id="1" caption="Copia_Escritura_Constitucion" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ucgejep">
+      <item id="1" caption="Copia_Escritura_Constitucion" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="aboucgs">
+      <item id="1" caption="Escritura_Constitucion" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+
+  <checklist name="aboucgp">
+      <item id="1" caption="Escritura_Constitucion" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ejeseg">
+      <item id="1" caption="Copia_Mandato_Contratar_Seguro" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ejeucg">
+      <item id="1" caption="Poliza_del_Responsable" required="yes"/>
+      <item id="2" caption="Declaracion_de_Cobertura" required="yes"/>
+      <item id="3" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="ucgseg">
+      <item id="1" caption="Copia_Poliza_del_Responsable" required="yes"/>
+      <item id="2" caption="Copia_Declaracion_de_Cobertura" required="yes"/>
+      <item id="3" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="segucg">
+      <item id="1" caption="Poliza_de_Seguro" required="yes"/>
+      <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+  <checklist name="segeje">
+        <item id="1" caption="Copia_Poliza_de_Seguro" required="yes"/>
+        <item id="2" caption="Documentacion_Adicional" required="no"/>
+  </checklist>
+
+
+   <checklist name="ejerie">
+       <item id="1" caption="solicitud_firmada_por_cliente" required="yes"/>
+       <item id="2" caption="resumen_estado_financiero_cliente" required="yes"/>
+       <item id="3" caption="comprobante_domicilio" required="yes"/>              
+       <item id="4" caption="copia_documento_de_identificacion" required="no"/>       
+   </checklist>
+
+
+
+ <!-- Custom Worklists -->
+ <custom_worklist spec="Ejecutivo">
+     <taskgroup taskname="EJE_Gestionar_Solicitud" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+     <taskgroup taskname="EJE_Obtener_Poliza_del_Responsable" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+     <taskgroup taskname="Enviar_Documentacion" template="Envio" />
+     <taskgroup taskname="Enviar_Documentacion_Faltante" template="Envio" />
+     <taskgroup taskname="Recibir_Documentacion" template="Recepcion" />
+ </custom_worklist>
+ 
+ <custom_worklist spec="Tasaciones">
+      <taskgroup taskname="TAS_Gestionar_Tasaciones" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+      <taskgroup taskname="Recibir_Documentacion" template="Recepcion" />
+ </custom_worklist>
+ 
+ <custom_worklist spec="Fiscalia">
+       <taskgroup taskname="FIS_Registrar_Acreedores_Preferenciales" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="FIS_Cerrar_Registro_de_Acreedores" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="FIS_Asignar_Abogado" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="FIS_Aprobar_Abogado" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="Recibir_Documentacion" template="Recepcion" />
+ </custom_worklist>
+ 
+ <custom_worklist spec="Abogado">
+       <taskgroup taskname="ABO_Gestionar_Escrituras" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="ABO_Activar_Legalizacion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+       <taskgroup taskname="Enviar_Documentacion" template="Envio" />
+       <taskgroup taskname="Enviar_Documentacion_Faltante" template="Envio" />
+ </custom_worklist>
+ 
+ <custom_worklist spec="Seguros">
+        <taskgroup taskname="SEG_Gestionar_Poliza" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="SEG_Revisar_Poliza_y_Registrar_Seguro" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="Enviar_Documentacion" template="Envio" />
+        <taskgroup taskname="Enviar_Documentacion_Faltante" template="Envio" />
+        <taskgroup taskname="Recibir_Documentacion" template="Recepcion" />
+ </custom_worklist>
+ 
+ <custom_worklist spec="UCGControl">
+        <taskgroup taskname="UCG_Verificar_Garantia" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="UCG_Registrar_Datos_Seguro" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="UCG_Remitir_Poliza_a_Seguros" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="UCG_Registrar_Datos_Credito" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="UCG_Activar_Constitucion" template="Constitucion_Garantias_Hipotecarias_y_Prendarias" />
+        <taskgroup taskname="Enviar_Documentacion" template="Envio" />
+        <taskgroup taskname="Enviar_Documentacion_Faltante" template="Envio" />
+        <taskgroup taskname="Recibir_Documentacion" template="Recepcion" />
+ </custom_worklist>
+
+ <!-- Mapping de Credenciales -->
+   <credential_mappings>
+     <user user_id="mwi_system" wfl_username="mwisystem" wfl_password="security" default_organization="" />
+     <user user_id="USERNAME" wfl_username="mwisystem" wfl_password="security" default_organization="" />
+     
+     <!-- Usuarios BGL -->
+     <user user_id="rcallej" wfl_username="RCALLEJ" wfl_password="RCALLEJ" default_organization="BGL" />
+     <user user_id="abrieba" wfl_username="abrieba" wfl_password="tc05mar" default_organization="BGL" />
+     <user user_id="igulden" wfl_username="admin" wfl_password="security" default_organization="BGL" />
+     
+     
+     
+     <!-- Usuarios CCPR -->
+     <user user_id="snavars" wfl_username="SNAVARS" wfl_password="SNAVARS" default_organization="CCPR" />
+     <user user_id="hurra" wfl_username="HURRA" wfl_password="HURRA" default_organization="CCPR" />
+     <user user_id="ldelgam" wfl_username="LDELGAM" wfl_password="LDELGAM" default_organization="CCPR" />
+     <user user_id="jzahr" wfl_username="JZAHR" wfl_password="JZAHR" default_organization="CCPR" />
+     
+     
+     <!-- Ejecutivos comerciales BEL -->
+     <user user_id="ccampsa" wfl_username="CCAMPSA" wfl_password="CCAMPSA" default_organization="CCPR" />
+     <user user_id="cpasten" wfl_username="CPASTEN" wfl_password="CPASTEN" default_organization="CCPR" />
+     <user user_id="eduque" wfl_username="EDUQUE" wfl_password="EDUQUE" default_organization="CCPR" />
+     <user user_id="ggaona" wfl_username="GGAONA" wfl_password="GGAONA" default_organization="CCPR" />
+     <user user_id="jguerrt" wfl_username="JGUERRT" wfl_password="JGUERRT" default_organization="CCPR" />
+     <user user_id="lgarrid" wfl_username="LGARRID" wfl_password="LGARRID" default_organization="CCPR" />
+     <user user_id="lhernan" wfl_username="LHERNAN" wfl_password="LHERNAN" default_organization="CCPR" />
+     <user user_id="lnunez" wfl_username="LNUNEZ" wfl_password="LNUNEZ" default_organization="CCPR" />
+     <user user_id="rhenriv" wfl_username="RHENRIV" wfl_password="RHENRIV" default_organization="CCPR" />
+     <user user_id="saburto" wfl_username="SABURTO" wfl_password="SABURTO" default_organization="CCPR" />
+     <user user_id="ccamus" wfl_username="CCAMUS" wfl_password="CCAMUS" default_organization="CCPR" />
+     <user user_id="cvaras" wfl_username="CVARAS" wfl_password="CVARAS" default_organization="CCPR" />
+     <user user_id="jfuentv" wfl_username="JFUENTV" wfl_password="JFUENTV" default_organization="CCPR" />
+     <user user_id="lbruno" wfl_username="LBRUNO" wfl_password="LBRUNO" default_organization="CCPR" />
+     <user user_id="pversot" wfl_username="PVERSOT" wfl_password="PVERSOT" default_organization="CCPR" />
+     
+     <!-- ====================================================== -->
+	 <!-- Convenio Bci (son parte de los ejecutivos Comerciales)
+	 <!-- ====================================================== -->
+	
+	 <user user_id="fiturbe" wfl_username="FITURBE" wfl_password="FITURBE" default_organization="CCPR" />
+	 <user user_id="cgarciv" wfl_username="CGARCIV" wfl_password="CGARCIV" default_organization="CCPR" />
+	
+	 <!-- ====================================================== -->
+	 <!-- Los ejecutivos son:                                    -->
+	 <!-- ====================================================== -->
+	
+  	 <user user_id="cdiazt"  wfl_username="CDIAZT"  wfl_password="CDIAZT"  default_organization="CCPR" />
+	 <user user_id="cmunozc" wfl_username="CMUNOZC" wfl_password="CMUNOZC" default_organization="CCPR" />
+	 <user user_id="cpoblet" wfl_username="CPOBLET" wfl_password="CPOBLET" default_organization="CCPR" />
+	 <user user_id="gangulo" wfl_username="GANGULO" wfl_password="GANGULO" default_organization="CCPR" />
+	 <user user_id="greyesv" wfl_username="GREYESV" wfl_password="GREYESV" default_organization="CCPR" />
+	 <user user_id="jmonter" wfl_username="JMONTER" wfl_password="JMONTER" default_organization="CCPR" />
+	 <user user_id="mcandia" wfl_username="MCANDIA" wfl_password="MCANDIA" default_organization="CCPR" />
+	 <user user_id="mcea"    wfl_username="MCEA"    wfl_password="MCEA"    default_organization="CCPR" />
+	 <user user_id="nquinon" wfl_username="NQUINON" wfl_password="NQUINON" default_organization="CCPR" />
+	 <user user_id="paceitu" wfl_username="PACEITU" wfl_password="PACEITU" default_organization="CCPR" />
+	 <user user_id="saraveo" wfl_username="SARAVEO" wfl_password="SARAVEO" default_organization="CCPR" />
+	 <user user_id="sbarrap" wfl_username="SBARRAP" wfl_password="SBARRAP" default_organization="CCPR" />
+	
+	 <!-- ====================================================== -->
+	 <!-- Rol de Asistente BEL (Consulta)                        -->
+	 <!-- ====================================================== -->
+	
+	
+	 <user user_id="crmunoz" wfl_username="CRMUNOZ" wfl_password="CRMUNOZ" default_organization="CCPR" />
+	
+	 <!-- ====================================================== -->
+	 <!-- UAPE                                                   -->
+	 <!-- ====================================================== -->
+	
+	 <user user_id="adiazp"  wfl_username="ADIAZP"  wfl_password="ADIAZP"  default_organization="CCPR" />
+	 <user user_id="ccortev" wfl_username="CCORTEV" wfl_password="CCORTEV" default_organization="CCPR" />
+	 <user user_id="ereboll" wfl_username="EREBOLL" wfl_password="EREBOLL" default_organization="CCPR" />
+	 <user user_id="lalegri" wfl_username="LALEGRI" wfl_password="LALEGRI" default_organization="CCPR" />
+	 <user user_id="lcatala" wfl_username="LCATALA" wfl_password="LCATALA" default_organization="CCPR" />
+	 <user user_id="obrione" wfl_username="OBRIONE" wfl_password="OBRIONE" default_organization="CCPR" />
+	 <user user_id="pespina" wfl_username="PESPINA" wfl_password="PESPINA" default_organization="CCPR" />
+	 <user user_id="psotom"  wfl_username="PSOTOM"  wfl_password="PSOTOM"  default_organization="CCPR" />
+	 <user user_id="rcarvaj" wfl_username="RCARVAJ" wfl_password="RCARVAJ" default_organization="CCPR" />
+	 <user user_id="rmolinr" wfl_username="RMOLINR" wfl_password="RMOLINR" default_organization="CCPR" />
+	 <user user_id="rocorne" wfl_username="ROCORNE" wfl_password="ROCORNE" default_organization="CCPR" />
+	 <user user_id="rvilchm" wfl_username="RVILCHM" wfl_password="RVILCHM" default_organization="CCPR" />
+	
+ 	 <!-- ====================================================== -->
+	 <!-- UDT y FET                                              -->
+	 <!--                                                        -->
+	 <!-- Unidad tarjetas Debito UDT                             -->
+	 <!-- ====================================================== -->
+	
+	 <user user_id="curruti"     wfl_username="CURRUTI"    wfl_password="CURRUTI"    default_organization="CCPR" />
+	 <user user_id="extncastae"  wfl_username="EXTNCASTAE" wfl_password="EXTNCASTAE" default_organization="CCPR" />
+	 <user user_id="hacuna"      wfl_username="HACUNA"     wfl_password="HACUNA"     default_organization="CCPR" />
+	 <user user_id="rocarra"     wfl_username="ROCARRA"    wfl_password="ROCARRA"    default_organization="CCPR" />
+	 <user user_id="rsilvab"     wfl_username="RSILVAB"    wfl_password="RSILVAB"    default_organization="CCPR" />
+	 <user user_id="yarriag"     wfl_username="YARRIAG"    wfl_password="YARRIAG"    default_organization="CCPR" />
+	
+	
+	 <!-- ====================================================== -->
+	 <!-- FET                                                    -->
+	 <!-- ====================================================== -->
+	
+	 <user user_id="cahumad"  wfl_username="CAHUMAD"  wfl_password="CAHUMAD"  default_organization="CCPR" />
+	 <user user_id="jpardom"  wfl_username="JPARDOM"  wfl_password="JPARDOM"  default_organization="CCPR" />
+	 <!-- Lazaro Garrido                Secundario  ->
+	 <!-- user user_id="xxxxx"  wfl_username="xxxxx"  wfl_password="xxxxx"  default_organization="CCPR" /-->
+     
+  </credential_mappings>
+
+ <!-- Relacion Usuarios/Custom Worklists -->
+ <user_specs>
+     <user_spec user_id="rcallej" spec="Ejecutivo" role="Ejecutivo" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="Ejecutivo" role="Ejecutivo" organization="BGL"/>
+     
+     
+     <user_spec user_id="rcallej" spec="Tasaciones" role="Tasaciones" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="Tasaciones" role="Tasaciones" organization="BGL"/>
+     
+     <user_spec user_id="rcallej" spec="Fiscalia" role="Fiscalia" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="Fiscalia" role="Fiscalia" organization="BGL"/>
+     
+     <user_spec user_id="rcallej" spec="Abogado" role="Abogado" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="Abogado" role="Abogado" organization="BGL"/>
+     
+     <user_spec user_id="rcallej" spec="Seguros" role="Seguros" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="Seguros" role="Seguros" organization="BGL"/>
+     
+     <user_spec user_id="rcallej" spec="UCGControl" role="UCGControl" organization="BGL"/>
+     <user_spec user_id="abrieba" spec="UCGControl" role="UCGControl" organization="BGL"/>
+     
+ </user_specs>
+
+</multi_workflow_integrator>

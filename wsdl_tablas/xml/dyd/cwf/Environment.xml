@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<root>
+	<switch>true</switch>
+	<environment id="1">
+		<datasource>CwTx_DataSource</datasource> 
+	</environment>
+	<environment id="2">
+		<datasource>CwTxHist_DataSource</datasource>
+	</environment>
+</root>

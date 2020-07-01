@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="serter.procedimientosAlmacenados">	
+
+	<resultMap id="convenio" class = "java.util.HashMap">
+    	<result property = "cuentaCorriente"	column = "cem_cta_cte" 	javaType="java.lang.String"     jdbcType="CHAR"/>
+	    <result property = "numeroDeConvenio"	column = "cem_num_cnv" 	javaType="java.lang.String"     jdbcType="CHAR"/>
+	    <result property = "nombreDeEmpresa"	column = "cem_nom_emp" 	javaType="java.lang.String"     jdbcType="CHAR"/>
+	    <result property = "rutEmpresa"	    	column = "cem_rut_emp"	javaType="java.lang.Long"       jdbcType="CHAR"/>
+	</resultMap>
+
+	<resultMap id="boletaConvenio" class = "java.util.HashMap">
+    	<result property = "rutUsuario"						column = "ccu_num_rut" 	javaType="java.lang.Long"     	jdbcType="CHAR"/>
+	    <result property = "digitoVerificadorDelRutUsuario"	column = "ccu_dig_ver" 	javaType="java.lang.String"     jdbcType="CHAR"/>
+	    <result property = "nombreCompletoDelUsuario"		column = "ccu_nom_cpl" 	javaType="java.lang.String"     jdbcType="CHAR"/>
+	    <result property = "numeroDeBoleta"	    			column = "ccu_num_bol"	javaType="java.lang.String"     jdbcType="CHAR"/>	
+    	<result property = "montoDeLaCuenta"				column = "ccu_mto_cta" 	javaType="java.lang.Double"    	jdbcType="CHAR"/>
+	    <result property = "montoMoroso"					column = "ccu_mto_mor" 	javaType="java.lang.Double"    	jdbcType="CHAR"/>
+	    <result property = "fechaDeVencimiento"				column = "ccu_fec_ven" 	javaType="java.util.Date"     	jdbcType="DATE"/>
+	    <result property = "nombreDeLaEmpresa"				column = "cem_nom_emp"	javaType="java.lang.String"     jdbcType="CHAR"/>	
+	    <result property = "numeroDeConvenio"				column = "cem_num_cnv"	javaType="java.lang.String"     jdbcType="CHAR"/>		
+	    <result property = "cuentaCorriente"				column = "cem_cta_cte"	javaType="java.lang.String"     jdbcType="CHAR"/>	
+	    <result property = "numeroDeCliente"				column = "ccu_num_cli"	javaType="java.lang.String"     jdbcType="CHAR"/>						
+	</resultMap>
+
+	<!--   traerConvenioDelCliente   -->
+	<procedure id="traerConvenioDelCliente" parameterClass="java.util.HashMap" resultMap="convenio">
+		{CALL sp_cns_cnv_emp(#rutDelCliente#)}
+    </procedure>	
+
+	<!--   traerBoletasPorConvenioDelCliente   -->
+	<procedure id="traerBoletasPorConvenioDelCliente" parameterClass="java.util.HashMap" resultMap="boletaConvenio">
+		{CALL sp_ccu_car_cnv(#numConvenio#, #rutDelCliente#)}
+    </procedure>	
+</sqlMap>

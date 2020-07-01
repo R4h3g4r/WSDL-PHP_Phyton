@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<vistasAcciones>
+    <vista nombreVista="vistaCliPagosMasivos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaClienteYtipoAtencionEmpresas</regla>
+        </accion>
+    </vista>
+    <vista nombreVista="vistaCliConsultaCertificados">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaClienteYtipoAtencionEmpresas</regla>
+        </accion>
+    </vista>
+    <vista nombreVista="vistaCliConsultaVV">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaClienteYtipoAtencionEmpresas</regla>
+        </accion>
+    </vista>
+    <vista nombreVista="vistaCliConsultaPagos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaClienteYtipoAtencionEmpresas</regla>
+        </accion>
+    </vista>
+    <vista nombreVista="vistaCliConsultaEcheck">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaClienteYtipoAtencionEmpresas</regla>
+        </accion>
+    </vista>
+    <vista nombreVista="gestionPagos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>tipoVistaColaborador</regla>
+        </accion>
+    </vista>    
+    <vista nombreVista="foliosSinFondos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFSFD/CON</parametro> 
+        </accion>
+    </vista>
+    <vista nombreVista="foliosEnProcesodeAbono">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFPAB/CON</parametro> 
+        </accion>
+    </vista>    
+    <vista nombreVista="foliosDetenidos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFDET/CON</parametro> 
+        </accion>
+    </vista>        
+    <vista nombreVista="foliosEfectuadosSinFondos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFESF/CON</parametro> 
+        </accion>
+    </vista>            
+    <vista nombreVista="foliosEfectuados">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFEFE/CON</parametro> 
+        </accion>
+    </vista>                         
+    <vista nombreVista="foliosRecibidosNormal">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFRNM/CON</parametro> 
+        </accion>
+    </vista>                           
+    <vista nombreVista="foliosRecibidosIntradia">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFRIN/CON</parametro> 
+        </accion>
+    </vista>
+        <vista nombreVista="foliosRecibidosNormalAP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFRNM/CON</parametro> 
+        </accion>
+    </vista>                           
+    <vista nombreVista="foliosRecibidosIntradiaAP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFRIN/CON</parametro> 
+        </accion>
+    </vista>                             
+    <vista nombreVista="foliosConProblemas">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFCPB/CON</parametro> 
+        </accion>
+    </vista>                           
+    <vista nombreVista="estadoDePago">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPCEPG/CON</parametro> 
+        </accion>
+    </vista>     
+    <vista nombreVista="cuadraturaDeArchivos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPCARC/CON</parametro> 
+        </accion>
+    </vista>                                                     
+    <vista nombreVista="cuadraturaDeCierrePagosEnviados">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPCCPE/CON</parametro> 
+        </accion>
+    </vista>                        
+    <vista nombreVista="foliosSinFondosRojas">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPAPFSFR/CON</parametro> 
+        </accion>
+    </vista>                          
+    <vista nombreVista="foliosSinFondosVerdes">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPAPFSFV/CON</parametro> 
+        </accion>
+    </vista>               
+    <vista nombreVista="nominaConEcheckSinFondos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPAPNESS/CON</parametro> 
+        </accion>
+    </vista>                 
+    <vista nombreVista="foliosEnProcesoDeAbonoDiaAnterior">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFPAB/CON</parametro> 
+        </accion>
+    </vista>                        
+    <vista nombreVista="foliosPorFirmar">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPAPFPFI/CON</parametro> 
+        </accion>
+    </vista>         
+    <vista nombreVista="foliosDetenidosDiaAnterior">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFDET/CON</parametro> 
+        </accion>
+    </vista>                        
+    <vista nombreVista="foliosEfectuadosDiaAnterior">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFEFE/CON</parametro> 
+        </accion>
+    </vista>                
+    <vista nombreVista="foliosConProblemasDiaAnterior">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFCPB/CON</parametro> 
+        </accion>
+    </vista>  
+    <vista nombreVista="estadoDePagoAP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPCEPG/CON</parametro> 
+        </accion>
+    </vista>     
+    <vista nombreVista="cuadraturaDeArchivosAP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPCARC/CON</parametro> 
+        </accion>
+    </vista>        
+    <vista nombreVista="foliosEfectuadosSinFondosPP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFESF/CON</parametro> 
+        </accion>
+    </vista>                       
+    <vista nombreVista="foliosEfectuadosPP">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPDPFEFE/CON</parametro> 
+        </accion>
+    </vista>               
+    <vista nombreVista="modificaFechaPago">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXAMFP/MOD</parametro> 
+        </accion>
+    </vista>                    
+    <vista nombreVista="modificaEstadoPago">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXAMEP/MOD</parametro> 
+        </accion>
+    </vista>                             
+    <vista nombreVista="ejecutarNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACEN/EJE</parametro> 
+        </accion>
+    </vista>                       
+    <vista nombreVista="eliminarPagosNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACEP/ELI</parametro> 
+        </accion>
+    </vista> 
+    <vista nombreVista="cargarNominaCliente">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACCN/CAR</parametro> 
+        </accion>
+    </vista>                                          
+    <vista nombreVista="CargaNominaNoCliente">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXCNNC/CAR</parametro> 
+        </accion>
+    </vista>                                          
+    <vista nombreVista="autorizaNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACFN/AUT</parametro> 
+        </accion>
+    </vista>                                             
+    <vista nombreVista="firmaNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACFN/FIR</parametro> 
+        </accion>
+    </vista>                                             
+    <vista nombreVista="ejecutarContingencia">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACEC/EJE</parametro> 
+        </accion>
+    </vista>                                        
+    <vista nombreVista="ejecutarBilateral">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACAB/EJE</parametro> 
+        </accion>
+    </vista>                                        
+    <vista nombreVista="consultarRetenerFondos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACCF/CON</parametro> 
+        </accion>
+    </vista>                                    
+    <vista nombreVista="liberarFondosNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACLF/LIB</parametro> 
+        </accion>
+    </vista>                    
+    <vista nombreVista="descargarArchivos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXACDA/DES</parametro> 
+        </accion>
+    </vista>                    
+    <vista nombreVista="bp_avb">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPEXAAVB/CON</parametro> 
+        </accion>
+    </vista>                                                        
+    <vista nombreVista="consultaPagos">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPGNCOPA/CON</parametro> 
+        </accion>
+    </vista>                               
+    <vista nombreVista="consultaHistorialNomina">
+        <accion>
+            <nombreAccion>Ingresar</nombreAccion>
+            <regla>vistaColaboradorYTienePuertaAsignada</regla>
+            <parametro>BCA|BPGNCOHN/CON</parametro> 
+        </accion>
+    </vista>                           
+</vistasAcciones>

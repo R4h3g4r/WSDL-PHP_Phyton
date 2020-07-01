@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_est_cta_mov">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="double" middle_name="cta" size="0" java_name="numeroCuenta"/>
+		<field type="Date" middle_name="fec_ini" middle_date_format="yyyyMMdd" size="0" java_name="fechaInicio"/>
+		<field type="Date" middle_name="fec_fin" middle_date_format="yyyyMMdd" size="0" java_name="fechaFin"/>
+	</input>
+	<output>
+	<struct struct_size="0" class_name="ConsultaMovimientosCuentaCorrienteMonedaExtranjeraTO" var_name="movimientosCuentaCorriente">
+			<field type="Date" middle_name="fecha" size="0" java_name="fecha"/>
+			<field type="Double" middle_name="monto" size="0" java_name="monto"/>
+			<field type="String" middle_name="cmov_des" size="0" java_name="descripcion"/>
+			<field type="Double" middle_name="referencia" size="0" java_name="referencia"/>
+			<field type="String" middle_name="cmov_tip" size="0" java_name="tipoMovimiento"/>
+			<field type="String" middle_name="nombresucursal" size="0" java_name="nombreSucursalOrigen"/>
+	</struct>
+	</output>
+</service>

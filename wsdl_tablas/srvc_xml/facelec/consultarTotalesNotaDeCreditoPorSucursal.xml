@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!-- edited with XMLSpy v2007 sp1 (http://www.altova.com) by javalos (EMBRACE) -->
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_nc_tot_suc">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field java_name="codigoSucursal" type="int" size="0" middle_name="suc"/>
+		<field java_name="mes" type="int" size="0" middle_name="mes"/>
+		<field java_name="anyo" type="int" size="0" middle_name="ano"/>
+	</input>
+	<output>
+		<field java_name="montoTotal" type="double" size="0" middle_name="tot"/>
+		<field java_name="montoNeto" type="double" size="0" middle_name="net"/>
+		<field java_name="montoExento" type="double" size="0" middle_name="exe"/>
+		<field java_name="montoIVA" type="double" size="0" middle_name="iva"/>
+	</output>
+</service>

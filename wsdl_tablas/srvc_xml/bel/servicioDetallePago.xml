@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service name="sp_CEII_cns_pag_det">
+	<context>
+		<boolean_false value="1"/>
+	    <boolean_true value="0"/>
+	    <general_exception_codigo value="ESPECIAL"/>
+	    <have_multi_environment value="no"/>
+	    <outputfield_attr value="no"/>
+	    <req_num_param value="no"/>
+	    <translator value="RORPPTPG"/>
+	    <campo_indica_cantidad value=""/>
+	    <status_throw_exception value="yes"/>
+	    <joltpool_name value="wcorp.serv.consultalogs.DummyFacadeImpl" />
+	</context>
+	<input>
+		<field java_name="codigoTrx" type="String" size="20" middle_name="cod_trx" />
+	</input>
+	<output>
+		<struct struct_size="0" class_name="DatosSalidaDetallePagoVO" var_name="datosSalidaDetallePagoVO">
+			<field java_name="codigoTrx"         type="String"  size="20" middle_name="codigoTrx" />
+			<field java_name="rutCliente"        type="long"    size="12" middle_name="rutCliente" />
+			<field java_name="digitoRutCliente"  type="char"    size="1"  middle_name="digitoRutCliente" />
+			<field java_name="montoTotal"        type="double"  size="16" middle_name="montoTotal" />
+			<field java_name="fechaPago"         type="Date"    size="30" middle_name="fechaPago" />
+			<field java_name="fechaContable"     type="Date"    size="30" middle_name="fechaContable" />
+			<field java_name="estadoRetorno"     type="String"  size="20" middle_name="estadoRetorno" />
+			<field java_name="costoEnvio"        type="double"  size="16" middle_name="costoEnvio" />
+			<field java_name="precioDetalle"     type="double"  size="16" middle_name="precioDetalle" />
+			<field java_name="cantidadDetalle"   type="int"     size="4"  middle_name="cantidadDetalle" />
+			<field java_name="productoDetalle"   type="String"  size="20" middle_name="productoDetalle" />
+			<field java_name="costoEnvioDetalle" type="double"  size="16" middle_name="costoEnvioDetalle" />
+			<field java_name="estadoDetalle"     type="String"  size="1"  middle_name="estadoDetalle" />
+			<field java_name="montoTotalDetalle" type="double"  size="16" middle_name="montoTotalDetalle" />
+			<field java_name="cuentaOrigen"      type="String"  size="12" middle_name="cuentaOrigen" />
+			<field java_name="cuentaDestino"     type="String"  size="12" middle_name="cuentaDestino" />
+		</struct>
+	</output>
+</service>

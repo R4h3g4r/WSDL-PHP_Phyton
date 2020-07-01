@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="cuadcont.procedimientosAlmacenados">
+
+    <!-- ResultMaps para Recaudación de Servicios -->       
+    <resultMap id="listadoResumenTransaccion" class="java.util.HashMap">
+        <result property="canal" javaType="String" column="canal"/>
+		<result property="segmento" javaType="String" column="segmento"/>
+		<result property="transacciones" javaType="Integer" column="transacciones"/>
+        <result property="montoTransacciones" javaType="Double" column="monto_transacciones"/>
+    </resultMap>
+    <resultMap id="listadoDiferenciaCuadratura" class="java.util.HashMap">
+        <result property="id" javaType="Long" column="id"/>
+		<result property="codCruce" javaType="String" column="cod_cruce"/>
+		<result property="canal" javaType="String" column="canal"/>
+        <result property="numConven" javaType="Integer" column="num_conven"/>
+		<result property="ctaCteAbon" javaType="String" column="cta_cte_abon"/>
+		<result property="idUno" javaType="String" column="id_uno"/>
+		<result property="idDos" javaType="String" column="id_dos"/>
+		<result property="monto" javaType="Double" column="monto"/>
+		<result property="sucursal" javaType="String" column="sucursal"/>
+		<result property="usuario" javaType="String" column="usuario"/>
+		<result property="motivo" javaType="String" column="motivo"/>
+		<result property="candidato" javaType="Short" column="candidato"/>
+		<result property="estado" javaType="Short" column="estado"/>
+		<result property="fechaContable" javaType="Date" column="fecha_contable"/>
+    </resultMap>
+    <resultMap id="listadoCandidatos" class="java.util.HashMap">
+        <result property="numConven" javaType="Integer" column="num_conven"/>
+		<result property="idUno" javaType="String" column="id_uno"/>
+		<result property="idDos" javaType="String" column="id_dos"/>
+		<result property="monto" javaType="Double" column="monto"/>
+		<result property="sucursal" javaType="String" column="sucursal"/>
+		<result property="fechaContable" javaType="Date" column="fecha_contable"/>
+    </resultMap>
+    <resultMap id="resumenAbonoCargo" class="java.util.HashMap">
+        <result property="cantidad" javaType="Integer" column="cantidad"/>
+		<result property="monto" javaType="Double" column="monto"/>
+    </resultMap>
+    <resultMap id="listadoDetalleAbonoCargo" class="java.util.HashMap">
+		<result property="canal" javaType="String" column="canal"/>
+        <result property="numConven" javaType="Integer" column="num_conven"/>
+        <result property="desConven" javaType="String" column="des_conven"/>
+		<result property="ctaCteCarAbo" javaType="String" column="cta_cte_car_abon"/>
+		<result property="idUno" javaType="String" column="id_uno"/>
+		<result property="idDos" javaType="String" column="id_dos"/>
+		<result property="monto" javaType="Double" column="monto"/>
+		<result property="sucursal" javaType="String" column="sucursal"/>
+		<result property="usuario" javaType="String" column="usuario"/>
+		<result property="fechaContable" javaType="Date" column="fecha_contable"/>
+		<result property="tipoTrans" javaType="String" column="tipo_trans"/>
+    </resultMap>
+    <resultMap id="listadoResumenDiferencia" class="java.util.HashMap">
+        <result property="canal" javaType="String" column="canal"/>
+        <result property="transaccion" javaType="Integer" column="transaccion"/>
+        <result property="monto" javaType="Double" column="monto"/>
+        <result property="segmento" javaType="String" column="segmento"/>
+    </resultMap>
+    <resultMap id="listadoResumenTransaccionFecha" class="java.util.HashMap">
+        <result property="canal" javaType="String" column="canal"/>
+		<result property="segmento" javaType="String" column="segmento"/>
+		<result property="transacciones" javaType="Integer" column="transacciones"/>
+        <result property="montoTransacciones" javaType="Double" column="monto_transacciones"/>
+    </resultMap>
+    <!-- Fin ResultMaps para Recaudación de Servicios -->
+
+	<!-- Cuadratura Sucursales -->
+
+	<procedure id="guardaCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ins_cab(#codigoCuadratura#, #codigoOficina#, #fechaCuadratura#, #usuario#, #totalDebe1#, #totalDebe2#, #totalDebeDiferencia#, #totalHaber1#, #totalHaber2#, #totalHaberDiferencia#, #diferenciaDebe1#, #diferenciaDebe2#, #diferenciaDebe3#, #diferenciaHaber1#, #diferenciaHaber2#, #diferenciaHaber3#, #estadoCuadratura#, #flagLecturaDia2# )}
+	</procedure>
+		
+	<procedure id="guardaDetalleCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ins_det(#codigoCuadratura#, #codigoDetalleCuadratura#, #nombreIngreso#, #debe1#, #debe2#, #debeDiferencia#, #haber1#, #haber2#, #haberDiferencia#, #flagRegistroAdicional#)}
+	</procedure>	
+
+	<procedure id="recuperaCodigoCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ret_cod(#fechaCuadratura#,#codigoSucursal#)}
+	</procedure>
+		
+	<procedure id="recuperaCabeceraCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ret_cab(#codigoCuadratura#)}
+	</procedure>	
+
+	<procedure id="recuperaDetalleCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ret_det(#codigoCuadratura#)}
+	</procedure>	
+	
+	<procedure id="recuperarEstadosCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ret_est(#fechaInicio#, #fechaFin#, #flagHoy#)}
+	</procedure>	
+
+	<procedure id="recuperarUsuariosInformeCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_lista_usr()}
+	</procedure>
+
+	<procedure id="verificarCierreTotalera" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ver_cie(#fechaCuadratura#,#codigoSucursal#)}
+	</procedure>
+
+	<procedure id="recuperarCamposCuadratura" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_sucursal_ret_cam(#fechaCuadratura#,#codigoSucursal#,#diaDeIngreso#)}
+	</procedure>
+
+	<procedure id="recuperarColumnasDetalle" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_det_col(#fechaCuadratura#,#codigoSucursal#,#codigoCampo#)}
+	</procedure>	
+
+	<procedure id="recuperarDatosDetalle" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cuadratura_det_data(#fechaCuadratura#,#codigoSucursal#,#codigoCampo#)}
+	</procedure>	
+
+	<!-- Fin Cuadratura Sucursales -->
+	
+	<!-- Totaleras -->
+
+	<procedure id="cierreSucursal" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_cierre_suc(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<procedure id="verificarIngresoTotalera" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_verificar_ing(#fecha#,#id_sucursal#)}
+	</procedure>
+
+
+		<!-- 
+	sp_ret_egreso_misc(@fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int) 
+	-->
+	<procedure id="retornaEgresoMisc" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_egreso_misc(#id_ingreso#, #id_sucursal#, @#usr_uyp#)}
+	</procedure>
+
+
+	<!-- 
+	sp_tot_ins_egreso_misc ( @id_egr numeric(18,0), @fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int,
+						 @contab_doc int, @contab_mon money, @cjefe_doc int, @cjefe_mon money, @pgogiro_doc int, @pgogiro_mon money, @vvbci_doc int,
+						 @vvbci_mon money, @vvnova_doc int, @vvnova_mon money, @cmpmnx_doc int, @cmpmnx_mon money, @atm_doc int, @atm_mon money,
+						 @envrem_doc int, @envrem_mon money, @trasp_doc int, @trasp_mon money) -->
+      <procedure id="insertaEgresoMisc" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ins_egreso_misc(#id_egr#,#fecha#,#id_sucursal#,#usr_uyp#,#usr_sieb#,#nro_safe#,#contab_doc#,#contab_mon#,#cjefe_doc#,#cjefe_mon#,
+								 #pgogiro_doc#,#pgogiro_mon#,#vvbci_doc#,#vvbci_mon#,#vvnova_doc#,#vvnova_mon#,#cmpmnx_doc#,#cmpmnx_mon#,#atm_doc#,
+								 #atm_mon#,#envrem_doc#,#envrem_mon#,#trasp_doc#,#trasp_mon#)}
+	  </procedure>
+                                            
+
+	<!-- 
+	sp_ret_ingreso_misc(@fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int) -->                                            
+	<procedure id="retornaIngresoMisc" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_ingreso_misc(#id_ingreso#, #id_sucursal#, @#usr_uyp#)}
+	</procedure>
+
+	<!-- 
+	sp_tot_ingresos_anteriores(@tipo varchar(3), @id_sucursal char(3), @usr_uyp char(12)) -->                                            
+	<procedure id="retornaIngresosAnt" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ingresos_anteriores(#fecha#, #tipo#, #id_sucursal#, @#usr_uyp#)}
+	</procedure>
+	
+        
+
+	<!--
+	sp_tot_ins_ingreso_misc ( @id_ing numeric(18,0), @fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int,
+						  @contab_doc int, @contab_mon money, @hipot_doc  int, @hipo_mon   money, @ctbl_doc   int, @ctbl_mon   money, @com_doc int,
+						  @com_mon money, @recau_doc int, @recau_mon money, @cobr_doc int, @cobr_mon money, @dap_doc int, @dap_mon money, 
+						  @abocta_doc int, @abocta_mon money, @aboctaaju_doc int, @aboctaaju_mon money, @vtamnx_doc int, @vtamnx_mon money,
+						  @rematm_doc int, @rematm_mon money, @depatm_doc int, @depatm_mon money, @trasp_doc int, @trasp_mon money, 
+						  @safe_doc int, @safe_mon money)  -->
+	<procedure id="insertaIngresoMisc" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ins_ingreso_misc(#id_ing#,#fecha#,#id_sucursal#,#usr_uyp#,#usr_sieb#,#nro_safe#,#contab_doc#,#contab_mon#,#hipot_doc#,#hipo_mon#,
+								  #ctbl_doc#,#ctbl_mon#,#com_doc#,#com_mon#,#recau_doc#,#recau_mon#,#cobr_doc#,#cobr_mon#,#dap_doc#,#dap_mon#,
+								  #abocta_doc#,#abocta_mon#,#aboctaaju_doc#,#aboctaaju_mon#,#vtamnx_doc#,#vtamnx_mon#,#rematm_doc#,#rematm_mon#,
+								  #depatm_doc#,#depatm_mon#,#trasp_doc#,#trasp_mon#,#safe_doc#,#safe_mon#)}
+	</procedure>
+
+
+	<!-- 
+	 sp_ret_canje_varios(@fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int)-->
+	<procedure id="retornaCanjeVarios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_canje_varios(#id_ingreso#, #id_sucursal#, @#usr_uyp#)}
+	</procedure>
+	 
+	 
+
+	<!-- 
+	sp_tot_ins_canje_varios ( @id_cje numeric(18,0), @fecha datetime, @id_sucursal int, @usr_uyp char(12), @usr_sieb char(12), @nro_safe int,
+						  @hipot_doc int, @hipo_mon money, @cred_doc int, @cred_mon money, @com_doc int, @com_mon money, @fact_doc int,
+						  @fact_mon money, @cobr_doc int, @cobr_mon money, @dap_doc int, @dap_mon money, @visa_doc int, @visa_mon money,
+						  @siebel_doc int, @siebel_mon money, @contab_doc int, @contab_mon money, @safe_doc int, @safe_mon money, @pgoinp_doc int,
+						  @pgoinp_mon money, @ctbl_doc int, @ctbl_mon money, @otrabo_doc int, @otrabo_mon money) -->
+	<procedure id="insertaCanjeVarios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ins_canje_varios(#id_cje#,#fecha#,#id_sucursal#,#usr_uyp#,#usr_sieb#,#nro_safe#,#hipot_doc#,#hipo_mon#,#cred_doc#,
+								  #cred_mon#,#com_doc#,#com_mon#,#fact_doc#,#fact_mon#,#cobr_doc#,#cobr_mon#,#dap_doc#,#dap_mon#,#visa_doc#,
+								  #visa_mon#,#siebel_doc#,#siebel_mon#,#contab_doc#,#contab_mon#,#safe_doc#,#safe_mon#,#pgoinp_doc#,
+								  #pgoinp_mon#,#ctbl_doc#,#ctbl_mon#,#otrabo_doc#,#otrabo_mon#,#chqcje_doc#,#chqcje_mon#,#otrcarg_doc#,
+								  #otrcarg_mon#,#fin_debe#,#fin_haber#,#acum_debe#,#acum_haber#,#sumchq_debe#,#sumchq_haber#,#sumdep_debe#,
+								  #sumdep_haber#)}
+	</procedure>
+	
+	
+	<!-- 
+	sp_tot_ret_egreso_misc_jefe(@fecha datetime, @id_sucursal int) -->
+	<procedure id="retornaEgresoMiscJefe" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_egreso_misc_jefe(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_ret_ingreso_misc_jefe(@fecha datetime, @id_sucursal int) -->
+	<procedure id="retornaIngresoMiscJefe" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_ingreso_misc_jefe(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_ret_canje_varios_jefe(@fecha datetime, @id_sucursal int) -->
+	<procedure id="retornaCanjeVariosJefe" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_canje_varios_jefe(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<!-- 
+	sp_obtener_parametros (@codigo varchar(20))	-->
+	<procedure id="obtenerParametros" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_obtener_parametros(#codigo#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_ret_datos_adicionales(@fecha datetime, @id_sucursal char(3)) -->
+	<procedure id="retornaDatosAdicionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_datos_adicionales(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_ins_datos_adicionales ( @id_adic int, @fecha datetime, @id_sucursal char(3) , @ING_findia_doc int, @ING_findia_mon money, 
+								   @ING_acumula_doc int, @ING_acumula_mon money, @EGR_findia_doc int, @EGR_findia_mon money) -->
+	<procedure id="insertaDatosAdicionales" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ins_datos_adicionales(#id_adic#, #fecha#, #id_sucursal#, #ING_findia_doc#, #ING_findia_mon#, #ING_acumula_doc#,
+										   #ING_acumula_mon#, #EGR_findia_doc#, #EGR_findia_mon#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_existe_id (@tipo char(03),@fecha datetime, @id_sucursal char(03), @usr_uyp char(12)) -->
+	<procedure id="existeDato" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_existe_id(#tipo#, #fecha#, #id_sucursal#, #usr_uyp#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_obtener_usr(@tipo char(03), @id_sucursal char(03))
+	 -->
+	<procedure id="obtenerUsuarios" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_obtener_usr(#tipo#,#id_sucursal#)}
+	</procedure>
+
+	<!-- 
+	sp_tot_ins_est (@fecha datetime, @id_sucursal char(3), @estado char(3))
+	 -->
+	<procedure id="insertarEstado" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ins_est(#fecha#,#id_sucursal#,#estado#)}
+	</procedure>
+	
+	<!-- 
+	sp_tot_ret_est(@fecha datetime, @id_sucursal char(3))
+	 -->
+	<procedure id="retornaEstado" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_tot_ret_est(#fecha#,#id_sucursal#)}
+	</procedure>
+	
+	<!-- Fin Totaleras -->	
+
+    <!-- Procedimientos Almacenados de Recaudación de Servicios -->
+    <procedure id="obtener_resumen_transacion" parameterClass="java.util.HashMap" resultMap="listadoResumenTransaccion">
+        {CALL sp_cns_resumen_trx(#canal#,#convenio#,#sucursal#,#fechaContable#)}
+    </procedure>
+    <procedure id="obtener_diferencia_cuadratura" parameterClass="java.util.HashMap" resultMap="listadoDiferenciaCuadratura">
+        {CALL sp_cns_diferencia_cuadratura(#canal#,#convenio#,#sucursal#,#fechaContable#,#tipo#,#umbral#)}
+    </procedure>
+    <procedure id="modificar_estado_solicitud" parameterClass="java.util.HashMap" >
+        {CALL sp_upd_cambiar_estado(#idTrx#,#estado#,#usuario#)}
+    </procedure>
+    <procedure id="obtener_candidatos" parameterClass="java.util.HashMap" resultMap="listadoCandidatos">
+        {CALL sp_cns_obtener_candidato(#canal#,#sucursal#)}
+    </procedure>
+    <procedure id="obtener_resumen_abn_crg" parameterClass="java.util.HashMap" resultMap="resumenAbonoCargo">
+        {CALL sp_cns_resumen_abn_crg(#transaccion#,#convenio#,#sucursal#,#fechaContableInicio#,#fechaContableFin#)}
+    </procedure>
+    <procedure id="obtener_detalle_abn_crg" parameterClass="java.util.HashMap" resultMap="listadoDetalleAbonoCargo">
+        {CALL sp_cns_detalle_abn_crg(#transaccion#,#convenio#,#sucursal#,#fechaContableInicio#,#fechaContableFin#)}
+    </procedure>
+    <procedure id="obtener_resumen_diferencia" parameterClass="java.util.HashMap" resultMap="listadoResumenDiferencia">
+        {CALL sp_cns_resumen_diferencia(#canal#,#convenio#,#sucursal#,#fechaContableInicio#)}
+    </procedure>
+    <procedure id="obtener_resumen_transacion_fecha" parameterClass="java.util.HashMap" resultMap="listadoResumenTransaccionFecha">
+        {CALL sp_cns_resumen_trx_fecha(#fechaContable#)}
+    </procedure>
+    <!-- Fin Procedimientos Almacenados de Recaudación de Servicios -->
+	
+</sqlMap>	

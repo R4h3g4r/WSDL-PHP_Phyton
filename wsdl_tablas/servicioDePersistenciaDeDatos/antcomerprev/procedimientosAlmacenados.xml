@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="antcomerprev.procedimientosAlmacenados">    
+	
+    <parameterMap id="setConsultaCacheResponse" class="java.util.HashMap">
+		<parameter property="hash_entrada" 		jdbcType="VARCHAR" 	javaType="String" /> 
+		<parameter property="nombre_consulta" 	jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="dias_vigencia" 	jdbcType="NUMERIC" 	javaType="integer" />
+	</parameterMap>
+	
+	<resultMap id="getConsultaCacheResponse" class="java.util.HashMap">
+		<result property="hash_entrada"		column="hash_entrada"	javaType="String" />
+		<result property="nombre_consulta"	column="nombre_consulta"	javaType="String" />
+		<result property="fec_hora_ingreso"	column="fec_hora_ingreso"	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="entrada"			column="entrada"		javaType="String" />
+		<result property="respuesta"		column="respuesta"   	javaType="String" />
+	</resultMap>	
+
+	
+	<statement id="consultaCacheCliente" parameterMap="setConsultaCacheResponse" resultMap="getConsultaCacheResponse">
+	 	SELECT hash_entrada, nombre_consulta, fec_hora_ingreso, entrada, respuesta
+	 	FROM CACHE_ANTECEDENTES_CLIENTES
+		WHERE hash_entrada = ?
+		AND nombre_consulta = ?
+		AND getDate() between fec_hora_ingreso and dateadd(dd, ?, fec_hora_ingreso)
+    </statement>
+    
+	
+	<parameterMap id="setCreaActualizaCacheResponse" class="java.util.HashMap">
+		<parameter property="hash_entrada" 		jdbcType="VARCHAR" 	javaType="String" /> 
+		<parameter property="nombre_consulta" 	jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="entrada" 			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="respuesta"			jdbcType="VARCHAR"	javaType="String" />
+		<parameter property="hash_entrada" 		jdbcType="VARCHAR" 	javaType="String" /> 
+		<parameter property="nombre_consulta" 	jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="hash_entrada" 		jdbcType="VARCHAR" 	javaType="String" /> 
+		<parameter property="nombre_consulta" 	jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="entrada" 			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="respuesta"			jdbcType="VARCHAR"	javaType="String" />
+	</parameterMap>	
+	<statement id="setCacheCliente" parameterMap="setCreaActualizaCacheResponse" resultClass="int">
+		declare @hoy datetime
+		set @hoy = getDate()
+		set @hoy = CONVERT(datetime, ''+CONVERT(VARCHAR, datepart(yy,@hoy))+'/'+CONVERT(VARCHAR, datepart(mm,@hoy))+'/'+CONVERT(VARCHAR, datepart(dd,@hoy))+' 00:00:00.000')
+
+		if exists (SELECT * FROM CACHE_ANTECEDENTES_CLIENTES WHERE hash_entrada = ? AND nombre_consulta = ?)
+		BEGIN
+			UPDATE CACHE_ANTECEDENTES_CLIENTES
+			SET fec_hora_ingreso = @hoy, entrada = ?, respuesta = ?
+			WHERE hash_entrada = ?
+			AND nombre_consulta = ?
+		END
+		else
+		BEGIN
+			INSERT INTO CACHE_ANTECEDENTES_CLIENTES (hash_entrada, nombre_consulta, fec_hora_ingreso, entrada, respuesta)
+			VALUES (?, ?, @hoy, ?, ?)
+		END
+		SELECT @@ERROR
+    </statement>
+
+    <parameterMap id="setCreaRegistroDineroRapido" class="java.util.HashMap">
+		<parameter property="nombre_consulta" 		jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="rut_cliente"			jdbcType="NUMERIC" 	javaType="Long" />
+		<parameter property="dv_cliente"			jdbcType="CHAR"		javaType="String" />
+		<parameter property="id_agente_atencion"	jdbcType="CHAR" 	javaType="String" /> 
+		<parameter property="respuesta"				jdbcType="VARCHAR"	javaType="String" />
+	</parameterMap>
+    <statement id="setRegistroDineroRapido" parameterMap="setCreaRegistroDineroRapido" resultClass="int">
+		
+		INSERT INTO CONS_ANTECEDENTES_CLIENTES (nombre_consulta, rut_cliente, dv_cliente, id_agente_atencion,  fec_hora_consulta, respuesta)
+		VALUES (?, ?, ?, ?, getDate(), ?)
+		
+		SELECT @@ERROR
+    </statement>
+	
+</sqlMap>    

@@ -1,0 +1,128 @@
+#Mail;Desc=hpulgar@bci.cl,ajorque@bci.cl,aalvial@bci.cl,eibacac@bci.cl,aloyola@bci.cl,ggajard@bci.cl,jopalom@bci.cl,;
+#Mail;Desc=ctapias@bci.cl,;
+Mail;Desc=segbel@bci.cl,alertcmx@bci.cl,;
+MailFrom;Desc=comex@bci.cl;
+MailServer;Desc=smtp.bci.cl;
+cCambio;Desc=00000;
+gCambio;Desc=Sin Código de Cambio (Exclusivo Cuenta Miami);
+Netimex;Url=https://bel.bci.cl/NetImexWeb/HttpGateWay?XML=;
+AsuntoCorreoSeguimiento;Desc=Aviso de Evento en Ordenes de Pago de Sistema Comex;
+PasosDeEnvioCorreo;Desc=crear2,crear3,crear3_pais,crear3_ciudad,crear4,crear5,crear5b,crear6,modificaEstadoVB,firma_solicitud;
+codigosDeTiposDeCuentasCorrientes;Desc=13;
+
+#Parametros de Portal Comex para Cliente Empresa.
+MENSAJE-ERROR-MOTIVO;Desc=Su pedido no puede ser atendido por el siguiente motivo:;
+MENSAJE-ERROR-NO-DISPONIBLE;Desc=El servicio No esta disponible en este instante.;
+CODIGO-PRODUCTO-CAMPANA;Desc=CMX;
+ENVIO-CORREO-CAMPANA;desde=campana@bci.cl;asunto=Agendamiento de Campaña vía WebComex;cuerpo=Cliente {0} solcita contacto vía {1} en fecha {2};
+EJECUTIVO-WEB-CAMPANA;codigoEjecutivo=webcmx;Activo=si;codigoOficina=090;
+CODIGO-AGENDAMIENTO-CAMPANA;Desc=WEB;
+CODIGO_MONEDA_DOLAR;Desc=13;
+
+#Parámetros Órdenes de Pago Enviadas
+REGISTROS_X_PAGINA_ODP_ENV;DESC=5;
+#Parámetros Órdenes de Pago En Proceso
+REGISTROS_X_PAGINA_ODP_PRC;DESC=5;
+
+#Parámetros Eventos Pendientes
+EVENTOS_PENDIENTES;ROL_COLABORADOR=JOF;TIPO_USUARIO=BCI;ID_COLABORADOR=USUEEMP;
+
+#Parámetros documentación
+TIPO_DOCUMENTO;DESC=NRM_LEG,NEWS_LETTER;
+
+NEWS_LETTER;TITULO=Newsletter;DESC=Newsletter;DOCS=BOLETIN_N1;
+BOLETIN_N1;DIR=/belwls/portalcomex/comun/documentos/boletin_n1.pdf;NOMBRE=Boletín Nº1;TAMANO=500 kb;DESC=Boletín Nº1;
+
+FORMULARIOS;TITULO=Formularios;DESC=Formularios para suscribir productos y servicios Bci.;DOCS=FRM_CONTRATO_MULTI,FRM_SOLICITUD_BOLETA,FRM_SOLICITUD_APERTURA,FRM_SOLICITUD_FINANCIAMIENTO,FRM_SOLICITUD_ORDEN_PAGO,FRM_SOLICITUD_CREDITO,FRM_PAGARE_VISTA_BOLETA,FRM_PAGARE_PLAZO_BOLETA,FRM_PAGARE_PLAZO,FRM_PAGARE_PAE_MONEX,FRM_PAGARE_PAE_PESOS,FRM_PAGARE_PAE_UF,FRM_PAGARE_MULTI,FRM_COLILLA_PRORROGA;
+FRM_CONTRATO_MULTI;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE007.pdf;NOMBRE=Contrato Multimport;TAMANO=210 Kb;DESC=;
+FRM_SOLICITUD_BOLETA;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE012.pdf;NOMBRE=Solicitud de boletas de garantia sin convenio;TAMANO=190 kb;DESC=;
+FRM_SOLICITUD_APERTURA;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE013.pdf;NOMBRE=Solicitud de apertura carta de crédito;TAMANO=245 kb;DESC=;
+FRM_SOLICITUD_FINANCIAMIENTO;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE014.pdf;NOMBRE=Solicitud financiamiento pago anticipado de importación;TAMANO=185 kb;DESC=;
+FRM_SOLICITUD_ORDEN_PAGO;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE009.pdf;NOMBRE=Solicitud de Orden de Pago;TAMANO=152 kb;DESC=;
+FRM_SOLICITUD_CREDITO;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE008.pdf;NOMBRE=Solicitud de Crédito;TAMANO=170 kb;DESC=;
+FRM_PAGARE_VISTA_BOLETA;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE010.pdf;NOMBRE=Pagaré a la vista boleta expresada en Dólares;TAMANO=170 kb;DESC=;
+FRM_PAGARE_PLAZO_BOLETA;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE011.pdf;NOMBRE=Pagaré a plazo boleta expresada en Euros;TAMANO=170 kb;DESC=;
+FRM_PAGARE_PLAZO;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE005.pdf;NOMBRE=Pagaré a plazo para carta de crédito visa o plazo y pago contado al exterior;TAMANO=210 kb;DESC=;
+FRM_PAGARE_PAE_MONEX;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE004.pdf;NOMBRE=Pagaré PAE un vencimiento en Moneda Extranjera ( dólares USA - EUROS);TAMANO=180 kb;DESC=;
+FRM_PAGARE_PAE_PESOS;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE002.pdf;NOMBRE=Pagaré PAE un Vencimiento en pesos;TAMANO=177 kb;DESC=;
+FRM_PAGARE_PAE_UF;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE003.pdf;NOMBRE=Pagaré PAE un Vencimiento en UF;TAMANO=177 kb;DESC=;
+FRM_PAGARE_MULTI;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE006.pdf;NOMBRE=Pagaré Multimport;TAMANO=177 kb;DESC=;
+FRM_COLILLA_PRORROGA;DIR=/belwls/bciexpress/bco_linea/formularios/formularios/comex/FCE001.pdf;NOMBRE=Colilla para Prórroga;TAMANO=165 kb;DESC=;
+
+
+LINK-APLICACION-TRADE;Desc=https://bel.bci.cl/NetImexWeb/HttpGateWay;
+
+MENU_COMEX;COD_SERV=SERV_CCREXP,SERV_CCRIMP,SERV_COBIMP,SERV_COBEXP,SERV_OPENV,SERV_OPREC,SERV_OPPRO,CRED_CRED,CRED_SIMPAG,CRED_PAG,CTACTE_SALDO,CTACTE_MINCTL,CTACTE_MOVDIA,CTACTE_MOVANT,CTACTE_MOVMES,CTACTE_CRTLHIS,CTACTE_TRCTAPR,CTACTE_TRTER,CTACTE_CNSTR,CTACTE_AUTTR,CTACTE_ADMCF,CTACTE_CECNF,CTACTE_CNFSW,CTACTE_CNSSW,CTACTE_VISCHQ,CTACTE_VISDEP,CSHMG_INGOP,CSHMG_FRMOP,CSHMG_VBCTR,CSHMG_BNFOB,CSHMG_CRGNP,CSHMG_CNSNP,CSHMG_TMVBCTR,CSHMG_FRMNM,CSHMG_CNSNPR,SERV_TTFF_BEL;SERVICIO=CX005,CX002,CX001,CX007,CX011,CX013,CX121,CX009,CX009,CX009,CX123,CX127,CX124,CX125,CX125,CX126,CX131,CX130,CX135,CX136,CX137,CX132,CX133,CX134,CX139,CX138,CX120,CX122,CX119,TRFMX001,TRFMX003,TRFMX004,TRFMX005,TRFMX006,TRFMX007,TRFMX008;
+#Siglas para el titulo de retenciones
+SIGLA;OBMP=Otros Bancos misma Plaza;OBOP=Otros Bancos otras Plazas;MB=Mismo Banco;TOTAL_RETENCIONES_HOY=Total de retenciones Hoy ( Despues de las 13:30);TOTALRET1=Total de retenciones +1 día;TOTAL_RETENCIONES=Total de retenciones;
+
+##Parámetros para validación de estado de un detalle de la nómina y de banco Beneficiario en detalle de registros
+ESTADO-PARA-MSJ-SWIFT;Desc=Pagos Efectuados;
+ESTADO-LIQUIDACION;Desc=Pagos Efectuados;
+BANCO-BENEFICIARIO;Desc=CREDCLRM;
+VALOR-BUSCAR-EN-SP;Desc=TRN;
+TRANSFERENCIA-EXCEPTION;codErrorInstanciar=TFMX-0101;codErrorAcceder=TFMX-0100
+
+#FTP_NEWSLETTER;SERVIDOR=161.131.184.81;DIRECCION=newsLetter;USUARIO=bancomex;CLAVE=bancomex; #PARA DESARROLLO
+#FTP_NEWSLETTER;SERVIDOR=161.131.232.180;DIRECCION=newsLetter;USUARIO=portal;CLAVE=portal2011; #PARA CERTIFICACION
+FTP_NEWSLETTER;SERVIDOR=161.131.232.7;DIRECCION=newsLetter;USUARIO=portal;CLAVE=usrpor11; #PARA PRODUCCION
+
+INDICADOR_MONOUSUARIO;Desc=04;
+
+MAX_FIRMABLES;CANTIDAD=10;
+ODPPENDIENTESFIRMA;ESTADO-SOLICITUD=PAPP;ORIGEN=WEB;CODPRO=ODP;
+
+Validador;vista=ListaOdpRecibidas;accion=Ingresar;ORIGEN=WEB;
+ValidadorAbono;vista=ConfirmarAbonoCct;accion=LiquidarOdp;
+
+EvaluacionDias;cantidadDias=5;
+
+CodigoCambio;origen=WEB;producto=ODP;
+PENDFIRMA;VISTA=vista2;ACCION=accion2;
+EvaluacionDias;cantidadDias=5;
+
+ACCION;COMPRA=CMP;CANJE=CJE;
+PaisOrigen;codigoChile=CL;codigoBanca=10090;
+
+ServicoRegistrarODP;firmar=SIG;ejecutar=EXE;
+PreposicionODP;valor=ODP;tamanoRelleno=9;
+Abono;codigoOrigenFondo=ODPXLIQ;codigoDestinoFondo=CTACTEMX;
+Liquidar;codigoOrigenFondo=ODPXLIQ;codigoDestinoFondo=CTACTEML;
+ODPLiquidar;monedaDestino=CLP;
+Transferencia;codigoOrigenFondo=ODPXLIQ;codigoDestinoFondo=CTAPFUN;
+Estados;abono=CTACTEMX;liquidacion=CTACTEML;Transferencia=CTAPFUN;
+# Historico ODP - Cantidad de Registros para realizar paginacion a las ODP
+cantidadDeRegistrosPaginarHistorico;Desc=10;
+
+# Historico ODP - Cantidad de Registros para realizar paginacion a las ODP
+cantidadDeRegistrosPaginarHistorico;Desc=10;
+
+#journalizacion
+journalAbonar;eventoNegocio=SOLICITA;subEventoNegocio=LIQUID;producto=ODP;
+journalLiquidar;eventoNegocio=SOLICITA;subEventoNegocio=LIQUID;producto=ODP;
+journalTransferir;eventoNegocio=SOLICITA;subEventoNegocio=LIQUID;producto=ODP;
+journalFirmar;eventoNegocio=APRUEBA;subEventoNegocio=LIQUID;producto=ODP;
+journalRechazar;eventoNegocio=RECHAZA;subEventoNegocio=LIQUID;producto=ODP;
+TransferenciaLink;pyme=/cl/bci/aplicaciones/productos/servicios/transferencia/monex/ingresarTransferenciaMonex;empresa=/cl/bci/aplicaciones/productos/servicios/transferencia/monex/ingresarTransferenciaMonex;
+Estado;correcto=se ha realizado exitosamente.;pendiente=se ha realizado exitosamente. La solicitud aún esta pendiente de firmas.;error=Solicitud de firma no procesada exitosamente;
+banca;codigoBancaDeshabilitar=1324;
+
+webActivoAbonar;AbonarPaso1=https://bciimg.bci.cl/sitioseguro/abonar_pasouno_apoderado_act.html;AbonarPaso31=https://bciimg.bci.cl/sitioseguro/abonar_pasotres_operador_act.html;AbonarPaso32=https://bciimg.bci.cl/sitioseguro/abonar_pasotres_apoderado_act.html;
+webActivoLiquidar;LiquidarPaso1=https://bciimg.bci.cl/sitioseguro/liquidar_pasouno_apoderado_act.html;LiquidarPaso2=https://bciimg.bci.cl/sitioseguro/liquidar_pasodos_apoderado_act.html;LiquidarPaso31=https://bciimg.bci.cl/sitioseguro/liquidar_pasotres_operador_act.html;LiquidarPaso32=https://bciimg.bci.cl/sitioseguro/liquidar_pasotres_apoderado_act.html;
+webActivoTransferir;TransferirPaso1=https://bciimg.bci.cl/sitioseguro/transferir_pasouno_apoderado_act.html;TransferirPaso31=https://bciimg.bci.cl/sitioseguro/transferir_pasotres_operador_act.html;TransferirPaso32=https://bciimg.bci.cl/sitioseguro/transferir_pasotres_apoderado_act.html;TransferirPaso33=https://bciimg.bci.cl/sitioseguro/transferir_pasotres_apoderado_ultimafirma_act.html;
+webActivoRechazar;RechazoPaso2=https://bciimg.bci.cl/sitioseguro/rechazo_liquidacion_act.html;
+TransferirPaso33=33;
+estadoHistorico;Transferida=Transferida;Abonada=Abonada a Cta. Cte.;Liquidada=Liquidada a Moneda;
+Comprobante;abonada=El abono se ha realizado exitosamente.;transferida=La Transferencia se ha realizado exitosamente.;liquidacion=La Liquidacion se ha realizado exitosamente.
+Limite;Dias=30;
+ComprobanteError;html=<html><head><title>ERROR</title></head><body><div style="background: #FFFFC6% border-radius: 10px 10px 10px 10px% height: 80px% width: 500px%"><div style="margin-left: 30%"><p>Estimado Cliente :</p><p>Estimado cliente, en estos momentos no es posible atender su solicitud.  Favor inténtelo mas tarde.</p></div></div></body></html>;
+
+plantillaLiquidar;mono=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteLiquidarOdpMono.html;multi=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteLiquidarOdpMulti.html;
+plantillaAbonar;mono=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteAbonarOdpMono.html;multi=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteAbonarOdpMulti.html;
+plantillaTransferir;mono=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteTransferirOdpMono.html;multi=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteTransferirOdpMulti.html;
+plantillaRechazar;mono=applications/wcorpWebApp/resources/plantillas/comprobantes/odp/plantillaComprobanteRechazarOdp.html;
+
+validadorFirma;firmar=CX140;transferir=CX140;liquidar=CX140;abonar=CX140;
+tipoUsuarioBusqueda;valor=APO;
+
+URL;Link=https://bciimg.bci.cl/medios/pdf/condiciones_servicio_para_ingreso_liquidacion.pdf;

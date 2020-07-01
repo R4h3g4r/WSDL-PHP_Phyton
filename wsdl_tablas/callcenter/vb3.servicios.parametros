@@ -1,0 +1,40 @@
+PortalPagos;                  Desc=Pagos a través de Callcenter;                  Objetos=CCT&CPR;
+PagosPat;                     Desc=Pagos a través de Callcenter con tarjetas;     Objetos=TDC;
+SuperCartola;                 Desc=SuperCartola;                                  Objetos=CCT&CPR&CCT_CCC&LDE&TDC;
+CartolaLinea;                 Desc=Cartola en Linea;                              Objetos=CCT&CPR;
+CartolaLineaSobregiro;        Desc=Cartola línea Sobregiro;                       Objetos=CCT_CCC;
+MarketingOfertas;             Desc=Ofertas de Marketing;
+CambioClave;                  Desc=Cambio de clave;
+CartolaEmail;                 Desc=Envio Cartola por email;                       Objetos=CCT&CPR;
+# MultiCredito
+#--------------
+MultiCreditoAvanceCartola;                         Desc=MultiCrédito;                   Objetos=CCT&CPR;
+MultiCreditoAvanceCartola2;                        Desc=MultiCrédito;                   Objetos=CCT&CPR;
+# Transferencias de Fondos
+# ------------------------
+TransferenciaOtrosBancos;                     Desc=A Otros Bancos;                                 Objetos=CCT&CPR;Restriccion=SI;
+TransferenciaTerceros;                        Desc=A Cuentas de Terceros;                          Objetos=CCT&CPR;Restriccion=SI;
+TransferenciaTercerosAhorro;                  Desc=A Cuentas de Ahorro de Terceros;                Objetos=CCT&CPR;Restriccion=SI;
+TrfCuentas;                                   Desc=Entre Ctas. Ctes. o Ctas. primas;               Objetos=CCT&CPR;                                 CheckOr=CCT&CPR;Restriccion=SI;
+GiroAhorro;                                   Desc=De Ctas. de Ahorro a Cta. Cte. o Prima;         Objetos=LDE&CCT&CPR;            CheckOr=CCT&CPR; CheckAnd=LDE;
+DepositoAhorro;                               Desc=De Cta. Cte. o Prima a Ctas. de Ahorro;         Objetos=LDE&CCT&CPR;            CheckOr=CCT&CPR; CheckAnd=LDE;
+#
+# Tarjeta Credito
+# ---------------
+#TarjetasCredito;                              Desc=Tarjetas de Credito;                            Objetos=TDC;
+#SaldoCtaCred;                                 Desc=Saldo;                                          Objetos=TDC;
+EstadoNacional;                               Desc=Estado de Cuenta Nacional;                      Objetos=TDC;
+EstadoInternacional;                          Desc=Estado de Cuenta Internacional;                 Objetos=TDC;
+ComprasNoFacturadas;                          Desc=Últimas Compras;                                Objetos=TDC;
+#PagoCtaCred;                                  Desc=Pago Tarjeta Crédito;                           Objetos=CCT&CPR&TDC; CheckOr=CCT&CPR; CheckAnd=TDC;
+#AvanceCtaCred;                                Desc=Avance a Cuenta Corriente;                      Objetos=CCT&CPR&TDC; CheckOr=CCT&CPR; CheckAnd=TDC;
+PagoDeudaDolares;                             Desc=Pago Deuda Internacional;                       Objetos=CCT&CPR&TDC; CheckOr=CCT&CPR; CheckAnd=TDC;
+ConsultaBloqueoTarjeta;                       Desc=Consulta Bloqueo Tarjetas;                      Objetos=TDC;
+BloqueoTarjeta;                               Desc=Bloqueo de Tarjetas;                            Objetos=TDC;
+#SolAumentoCupoVisa;                           Desc=Aumento Cupo;                                   Objetos=TDC;
+#SolTarjetaAdicionalVisa;                      Desc=Solicitud de Tarjeta Adicional;                 Objetos=TDC;
+#SolReposicionVisa;                            Desc=Solicitud Reposición;                           Objetos=TDC;
+#SolTarjeta;                                   Desc=Solicitud Tarjeta;                              Objetos=TDC;
+#CatalogoSonrisas;                             Desc=Catálogo Sonrisas;                              Objetos=TDC;
+#PesosSonrisas;                                Desc=Consulta Pesos$onrisas;                         Objetos=TDC;
+#

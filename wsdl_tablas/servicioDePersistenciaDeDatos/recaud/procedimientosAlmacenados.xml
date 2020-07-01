@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="recaud.procedimientosAlmacenados">
+
+	<procedure id="insertarConvenioAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_conv_car_abo(#nro_conv#,#nro_cta#,#cod_mnemo#,#val_mto#,#val_ident_a#,#val_ident_b#,#usu_ing#,#fec_ing#,#cod_ofi#,#fec_des#,#nom_bco#,#cta_doc#,#causal_doc#,#serie_doc#)}
+	</procedure>
+	<procedure id="recuperarIdentificadorConvenioAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_sel_ide_conv(#nro_cta#)}
+	</procedure>
+	<procedure id="buscarConvenioCargoAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_sel_bus_conv(#nro_conv#,#rut#,#dv#)}
+	</procedure>
+	<procedure id="insertarConvenioCargoAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ins_con_car_abo(#nro_conv#,#rut#,#dv#,#des_conv#,#nro_cta#,#ident_a#,#ident_b#,#cod_ofi#)}
+	</procedure>
+	<procedure id="eliminarConvenioCargoAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_eli_con_car_abo(#nro_conv#)}
+	</procedure>
+	<procedure id="modificarConvenioCargoAbono" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_mod_con_car_abo(#nro_conv#,#rut#,#dv#,#des_conv#,#nro_cta#,#ident_a#,#ident_b#,#cod_ofi#)}
+	</procedure>
+</sqlMap>	

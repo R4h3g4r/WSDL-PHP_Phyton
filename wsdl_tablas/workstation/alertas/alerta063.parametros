@@ -1,0 +1,18 @@
+# Actualizar Antecedentes
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.-  Verificar con el Cliente que la información actual de Dirección, teléfonos, fax y mail esté actualizada:
+GLOSA1;mensaje=Caso 1:  Si el cliente señala que la información está actualizada, grabar en cada una para que todas queden con la misma fecha de vencimiento.
+GLOSA2;mensaje=Caso 2: Si el cliente señala que está desactualizada la dirección Particular y/o Comercial debes realizar la actualización de acuerdo a lo definido en Normativa Vigente.
+GLOSA3;mensaje=Caso 3: Si el cliente señala que está desactualizado su correo, teléfono o fax debes realizar el cambio y grabar cada una de las actualizaciones. 
+GLOSA4;mensaje=Nota: Las actualizaciones se realizan en Everest: Vista Cliente --> Cliente --> Direcciones
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.-  Verificar con el Cliente que la información actual de Dirección, teléfonos, fax y mail esté actualizada:
+GLOSAPDF1;mensaje=Caso 1:  Si el cliente señala que la información está actualizada, grabar en cada una para que todas queden con la misma fecha de vencimiento.
+GLOSAPDF2;mensaje=Caso 2: Si el cliente señala que está desactualizada la dirección Particular y/o Comercial debes realizar la actualización de acuerdo a lo definido en Normativa Vigente.
+GLOSAPDF3;mensaje=Caso 3: Si el cliente señala que está desactualizado su correo, teléfono o fax debes realizar el cambio y grabar cada una de las actualizaciones. 
+GLOSAPDF4;mensaje=Nota: Las actualizaciones se realizan en Everest: Vista Cliente --> Cliente --> Direcciones
+
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliegan clientes con correspondencia devuelta y/o cuya última actualización de estos datos fue hace 24 meses.;periodo=Última actualización hace 24 meses.;fuente=Direcciones e ingreso de correspondencia devuelta.;

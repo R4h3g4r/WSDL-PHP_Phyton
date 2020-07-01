@@ -1,0 +1,38 @@
+codigoEntidad;valor=DPS;
+codigoSubEntidad;valor=DBC;
+rutContratante;idc=97006000;dig=6;
+timeout;valor=30;
+glosaAceptacionCondiciones;desc=Confirmo la exactitud de esta Declaración Personal de Salud y declaro conocer y aceptar las condiciones allí expuestas;
+#Produccion
+#urlDps;valor=http://alsb.bci.cl/servicios/productos/seguros/ventas/DpsService?wsdl
+#Certifacion e Integracion
+urlDps;valor=http://161.131.140.137:9050/servicios/productos/seguros/ventas/DpsService?wsdl
+aliasUyP;valor=wlsalsb;
+codigosJournal;evento=ACTUALIZA;subEvento=DPS;producto=SEG;
+###################################
+# Flag que indica si se usa UYP   #
+###################################
+UYP;usar=false;
+
+#Monto tope en UF
+TOPE_CREDITO;activo=SI;monto=500;codError=0;desError=No consulta DPS;dpsFolio=-1;nroDps=500;estadoDps=AC;
+
+#valores dps
+paragua1;valor=1;
+paragua0;valor=0;
+tipoPlazo;anual=A;mensual=M;dias=D;
+tipoMoneda;peso=0999;uf=0998;
+seguroSimple;valor=SDG|Desgravamen|22887.0;
+plazoDias;valor=365;
+montoDefault;valor=1000;
+codProducto;valor=*;
+url110;dpsSimple=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsSimple.jsf;dpsCompleta=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsCompleta.jsf;conDps=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/conDPS.jsf;error=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/error.jsf;ingresoOK=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/ingresoOK.jsf;exclusiones=https://www.bci.cl/cl/bci/aplicaciones/declaracionpersonalsalud/exclusiones.jsf;
+url100;dpsSimple=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsSimple.jsf;dpsCompleta=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsCompleta.jsf;conDps=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/conDPS.jsf;error=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/error.jsf;ingresoOK=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/ingresoOK.jsf;exclusiones=https://www.tbanc.cl/cl/bci/aplicaciones/declaracionpersonalsalud/exclusiones.jsf;
+url800;dpsSimple=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsSimple.jsf;dpsCompleta=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/dpsCompleta.jsf;conDps=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/conDPS.jsf;error=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/error.jsf;ingresoOK=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/ingresoOK.jsf;exclusiones=https://www.bcinova.cl/cl/bci/aplicaciones/declaracionpersonalsalud/exclusiones.jsf;
+
+#evaluacion DPS webservice
+evaluacionDPSWS;urlwsCERT=http://b2bcert.bci.cl:9050/esb/productos/seguros/dps/ServicioDpsPS?wsdl;urlwsPROD=http://alsb.bci.cl/esb/personas/productos/seguros/dps/ServicioDpsPS?wsdl;
+ 
+#SECURITIZACION OSB
+###########################
+servicioOSBDps;sistemaUyP=wsdpsser;

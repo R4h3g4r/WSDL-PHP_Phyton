@@ -1,0 +1,107 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_ccu_car_web">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+   <input>
+      <field
+            java_name = "rutDeLaEmpresa"
+            type = "String"
+            size = "9"
+            middle_name = "rutemp"
+      />
+	  <field
+            java_name = "rutDelUsuario"
+            type = "String"
+            size = "9"
+            middle_name = "rut"
+      />
+	  <field
+            java_name = "cuentaCorriente"
+            type = "String"
+            size = "8"
+            middle_name = "cta_cte"
+      />
+   </input>
+   
+   <output>
+      <struct struct_size="0" class_name="SalidaTraerBoletasPendientesDTOGenerico" var_name="salidaTraerBoletasPendientesDTOGenerico">
+         <field
+            java_name = "rutUsuario"
+            type = "String"
+            size = "9"
+            middle_name = "ccu_num_rut"
+         />
+         <field
+            java_name = "digitoVerificadorDelRutUsuario"
+            type = "String"
+            size = "1"
+            middle_name = "ccu_dig_ver"
+         />
+         <field
+            java_name = "nombreCompletoDelUsuario"
+            type = "String"
+            size = "75"
+            middle_name = "ccu_nom_cpl"
+         />
+         <field
+            java_name = "numeroDeBoleta"
+            type = "String"
+            size = "12"
+            middle_name = "ccu_num_bol"
+         />
+		 <field
+            java_name = "montoDeLaCuenta"
+            type = "String"
+            size = "18"
+            middle_name = "ccu_mto_cta"
+         />
+		 <field
+            java_name = "montoMoroso"
+            type = "String"
+            size = "14"
+            middle_name = "ccu_mto_mor"
+         />
+		 <field
+            java_name = "fechaDeVencimiento"
+            type = "Date"
+            size = "8"
+            middle_name = "ccu_fec_ven"
+         />
+		 <field
+            java_name = "nombreDeLaEmpresa"
+            type = "String"
+            size = "75"
+            middle_name = "cem_nom_emp"
+         />
+		 <field
+            java_name = "numeroDeConvenio"
+            type = "String"
+            size = "5"
+            middle_name = "cem_num_cnv"
+         />
+		 <field
+            java_name = "cuentaCorriente"
+            type = "String"
+            size = "8"
+            middle_name = "cem_cta_cte"
+         />
+		 <field
+            java_name = "numeroDeCliente"
+            type = "String"
+            size = "12"
+            middle_name = "ccu_num_cli"
+         />
+      </struct>
+   </output>
+</service>

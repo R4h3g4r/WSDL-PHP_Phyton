@@ -1,0 +1,1445 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bcimenu>
+    <opcion id="cierre">
+        <opcion id="cierre_sesion">
+            <titulo>Cerrar Sesión</titulo>
+            <url>vistaCierre</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>		
+        </opcion>
+    </opcion>
+    <opcion id="accesosDirectos">
+        <permisos>
+			<suficientes>EsCliente</suficientes>
+		</permisos>			
+        <opcion id="acceso_seguridad">
+            <titulo>Seguridad</titulo>
+            <url>https://bciimg.bci.cl/sitioseguro/seguridad_act.html</url>
+			<opcion id="seguridad">
+				<titulo>Seguridad</titulo>
+				<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				<permisos>
+					<suficientes>EsCliente</suficientes>
+				</permisos>
+				<opcion id="emergencias">
+					<titulo>Bloqueos</titulo>
+					<opcion id="bloq_pers">
+						<titulo>Instructivos de Emergencias</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/seguridad/instructivos.html</url>
+					</opcion>
+					<opcion id="onp">
+						<titulo>Bloqueos y Orden de No Pago</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="clave_internet">
+					<titulo>Clave Internet</titulo>
+					<opcion id="estado_claves">
+						<titulo>Estado de Claves</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="que_es_clave_internet">
+						<titulo>¿Qué es Clave Internet?</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="cambiar_clave_internet">
+						<titulo>Cambiar Clave Internet</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="bci_multipass">
+					<titulo>Bci Multipass</titulo>
+					<opcion id="que_es_multipass">
+						<titulo>¿Qué es Bci Multipass?</titulo>
+						<url>https://bciimg.bci.cl/sitioseguro/multipass_act.html</url>
+					</opcion>
+					<opcion id="estado_multipass">
+						<titulo>Estado Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>					
+					</opcion>
+					<opcion id="bloqueo_multipass">
+						<titulo>Bloqueo Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+						<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+					<opcion id="configuracion_multipass">
+						<titulo>Configuración Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+					<opcion id="sincronizacion_multipass">
+						<titulo>Sincronización Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+					<opcion id="solicitar_multipass">
+						<titulo>Solicitar Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+						<permisos>
+							<suficientes>NoTieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+				</opcion>
+				<opcion id="bci_movilpass">
+					<titulo>Bci Movilpass</titulo>
+					<opcion id="sincronizacion_movilpass">
+						<titulo>Sincronización Bci Movilpass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="bloqueo_movilpass">
+						<titulo>Bloqueo Movilpass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="clave_telefonica">
+					<titulo>Clave Telefónica</titulo>
+					<opcion id="que_es_clave_telefonica">
+						<titulo>¿Qué es Clave Telefónica?</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="sol_clave_telefonica">
+						<titulo>Solicitar Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="desbloquear_clave_telefonica">
+						<titulo>Desbloquear Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="recuperar_clave_telefonica">
+						<titulo>Recuperar Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>					
+				</opcion>				
+				<opcion id="seguridad2">
+					<titulo>Seguridad</titulo>
+					<opcion id="politicas_seguridad">
+						<titulo>Políticas de Seguridad</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mandato_canales_remotos">
+						<titulo>Mandato de Canales Remoto</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+			</opcion>			
+        </opcion>
+        <opcion id="acceso_emergencias">
+            <titulo>Emergencias</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/emergencia/homeEmergencias.jsf</url>
+			<opcion id="emg_seguridad">
+				<titulo>Seguridad</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				<permisos>
+					<suficientes>EsCliente</suficientes>
+				</permisos>
+				<opcion id="emg_emergencias">
+					<titulo>Bloqueos</titulo>
+					<opcion id="emg_bloq_pers">
+						<titulo>Instructivos de Emergencias</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/seguridad/instructivos.html</url>
+					</opcion>
+					<opcion id="emg_onp">
+						<titulo>Bloqueos y Orden de No Pago</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="emg_clave_internet">
+					<titulo>Clave Internet</titulo>
+					<opcion id="emg_estado_claves">
+						<titulo>Estado de Claves</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_que_es_clave_internet">
+						<titulo>¿Qué es Clave Internet?</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_cambiar_clave_internet">
+						<titulo>Cambiar Clave Internet</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="emg_bci_multipass">
+					<titulo>Bci Multipass</titulo>
+					<opcion id="emg_que_es_multipass">
+						<titulo>¿Qué es Bci Multipass?</titulo>
+						<url>https://bciimg.bci.cl/sitioseguro/multipass_act.html</url>
+					</opcion>
+					<opcion id="emg_estado_multipass">
+						<titulo>Estado Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>					
+					</opcion>
+					<opcion id="emg_configuracion_multipass">
+						<titulo>Configuración Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+					<opcion id="emg_sincronizacion_multipass">
+						<titulo>Sincronización Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+							<suficientes>TieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+					<opcion id="emg_solicitar_multipass">
+						<titulo>Solicitar Bci Multipass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+						<permisos>
+							<suficientes>NoTieneMultipass</suficientes>
+						</permisos>						
+					</opcion>
+				</opcion>
+				<opcion id="emg_bci_movilpass">
+					<titulo>Bci Movilpass</titulo>
+					<opcion id="emg_sincronizacion_movilpass">
+						<titulo>Sincronización Bci Movilpass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_bloqueo_movilpass">
+						<titulo>Bloqueo Movilpass</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="emg_clave_telefonica">
+					<titulo>Clave Telefónica</titulo>
+					<opcion id="emg_que_es_clave_telefonica">
+						<titulo>¿Qué es Clave Telefónica?</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_sol_clave_telefonica">
+						<titulo>Solicitar Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_desbloquear_clave_telefonica">
+						<titulo>Desbloquear Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_recuperar_clave_telefonica">
+						<titulo>Recuperar Clave Telefónica</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>					
+				</opcion>				
+				<opcion id="emg_seguridad2">
+					<titulo>Seguridad</titulo>
+					<opcion id="emg_politicas_seguridad">
+						<titulo>Políticas de Seguridad</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="emg_mandato_canales_remotos">
+						<titulo>Mandato de Canales Remoto</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+			</opcion>	
+        </opcion>
+        <opcion id="acceso_ejecutivo">
+            <titulo>Ejecutivo</titulo>
+            <url>vistaContactoEjecutivo</url>
+        </opcion>
+        <opcion id="acceso_solicitudes">
+            <titulo>Pedidos y Reclamos</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+        </opcion>
+    </opcion>
+    <opcion id="pestanas">
+		<opcion id="banca_privada">
+            <titulo>Banca Privada</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>	
+			<permisos>
+				<suficientes>BancaPrivada</suficientes>
+			</permisos>
+			<opcion id="consulta_vencimiento">
+				<titulo>Consulta Vencimiento</titulo>
+				<opcion id="bca_privada_dap">
+					<titulo>Depósito a Plazo</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_pactos">
+					<titulo>Pactos</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>			
+				<opcion id="bca_privada_simultaneas">
+					<titulo>Simultáneas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_renta">
+					<titulo>Renta Fija</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_venc">
+					<titulo>Total Vencimientos</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>								
+			</opcion>	
+			<opcion id="balance_patrimonial">
+				<titulo>Balance Patrimonial</titulo>
+				<opcion id="bca_privada_super_cartola">
+					<titulo>Supercartola</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaSupercartola.jsf</url>
+				</opcion>				
+				<opcion id="bca_privada_resumen_inv">
+					<titulo>Resumen de Inversiones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>			
+				<opcion id="bca_privada_cart_inv">
+					<titulo>Cartola de Inversiones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_adm_cartera">
+					<titulo>Administración de Cartera</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_fondo_inv">
+					<titulo>Fondo de Inversión Privado</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>								
+			</opcion>	
+			<opcion id="bca_privada_detalle_inv">
+				<titulo>Detalle de Inversion</titulo>
+				<opcion id="bca_privada_deposito_plazo">
+					<titulo>Depósito a Plazo</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_ffmm">
+					<titulo>Fondos Mutuos / FIP</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>			
+				<opcion id="bca_privada_cta_aho">
+					<titulo>Cuentas de Ahorro</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_inv_renta">
+					<titulo>Renta Fija</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_inv_pactos">
+					<titulo>Pactos</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>								
+			</opcion>	
+			<opcion id="bca_privada_acciones">
+				<titulo>Acciones</titulo>
+				<opcion id="bca_privada_det_acciones">
+					<titulo>Acciones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_ope_hist">
+					<titulo>Operaciones Históricas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>			
+				<opcion id="bca_privada_val_garantia">
+					<titulo>Valores en Garantía</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_cta_mercantil">
+					<titulo>Movimientos Cta Mercantil</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+			</opcion>	
+			<opcion id="bca_privada_estudios">
+				<titulo>Estudios</titulo>
+				<opcion id="bca_privada_analisis_doc">
+					<titulo>Análisis y Documentación</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+			</opcion>	
+			<opcion id="bca_privada_ind_financieros">
+				<titulo>Indicadores Financieros</titulo>
+				<opcion id="bca_privada_det_ind_finan">
+					<titulo>Indicadores Financieros</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+			</opcion>	
+			<opcion id="bca_privada_sitios_rel">
+				<titulo>Sitios Relacionados</titulo>
+				<opcion id="bca_privada_pershing">
+					<titulo>Pershing</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_miami">
+					<titulo>Bci Miami</titulo>
+					<url>http://www.bcimiami.com/</url>									
+				</opcion>								
+			</opcion>	
+			<opcion id="bca_privada_otros">
+				<titulo>Otros Servicios</titulo>
+				<opcion id="bca_privada_cert_tributarios">
+					<titulo>Certificados Tributarios</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>				
+				<opcion id="bca_privada_prog_inv">
+					<titulo>Programar Inversión</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>								
+				<opcion id="bca_privada__ver_prog_inv">
+					<titulo>Ver Inversiones Programadas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>											
+			</opcion>	
+		</opcion>
+        <opcion id="mi_banco">
+            <titulo>Mi Banco</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+            <opcion id="agendar_reunion">
+                <titulo>Agendar Reunion</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				<tipo>bot_destacado</tipo>
+				<permisos>
+					<suficientes>BancaPreferencialoPremier</suficientes>
+				</permisos>			
+            </opcion>			
+            <opcion id="super_cartola">
+                <titulo>Supercartola</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaSupercartola.jsf</url>
+            </opcion>
+            <opcion id="cct">
+                <titulo>Mi Cuenta</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+				</permisos>					
+                <opcion id="cart">
+                    <titulo>Cartola</titulo>						
+                    <opcion id="saldo_ult_mov">
+                        <titulo>Saldo y Últimos Movimientos</titulo>
+                        <url>/cl/minibci/aplicaciones/cartola/cuenta/vistaMiniCartola.jsf</url>
+                    </opcion>
+                    <opcion id="cart_act">
+                        <titulo>Cartola Actual</titulo>
+                        <url>/cl/minibci/aplicaciones/cartola/cuenta/cartolaCuenta.jsf</url>
+                    </opcion>
+                </opcion>
+                <opcion id="cheque">
+                    <titulo>Cheques</titulo>
+					<permisos>
+						<suficientes>CtaCorrentista</suficientes>
+					</permisos>							
+                    <opcion id="cns_cheque">
+                        <titulo>Consulta de Cheques</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                    </opcion>
+                    <opcion id="talonario_domicilio">
+                        <titulo>Solicitud Talonario</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                    </opcion>
+                    <opcion id="cuenta_onp">
+                        <titulo>Orden de No Pago</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                    </opcion>					
+                </opcion>
+                <opcion id="depositos">
+                    <titulo>Depósitos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>						
+                </opcion>
+                <opcion id="certificados">
+                    <titulo>Certificados</titulo>					
+                    <opcion id="imp_certificados">
+                        <titulo>Impresión de Certificados</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                    </opcion>
+					<!--
+                    <opcion id="certificados_historicos">
+                        <titulo>Certificados Históricos</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaCertificadosHistoricos.xhtml</url>
+                    </opcion>
+					-->
+                    <opcion id="certificados_ecologicos">
+                        <titulo>Certificados Ecológicos</titulo>
+                        <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                    </opcion>
+                </opcion>
+                <opcion id="moneda_extranjera">
+                    <titulo>Moneda Extranjera</titulo>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimistaConCtaMonex</suficientes>
+					</permisos>												
+                    <opcion id="saldo_ult_mov_monex">
+                        <titulo>Saldos y Últimos Movimientos</titulo>
+                        <url>/cl/minibci/aplicaciones/cartola/cuenta/monex/vistaCartolaMonex.jsf</url>
+                    </opcion>
+                </opcion>
+				<opcion id="solicitar_cct">
+					<titulo>Solicitar Cuenta Corriente</titulo>
+					<url>http://www.bci.cl/personas/hagasecliente/index.html</url>
+					<permisos>
+						<suficientes>CtaPrimistaNoCtaCorrentista</suficientes>
+					</permisos>																	
+				</opcion>
+            </opcion>
+            <opcion id="cct_sin_producto">
+                <titulo>Cuenta Corriente</titulo>
+				<permisos>
+					<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+				</permisos>					
+                <opcion id="moneda_extranjera">
+                    <titulo>Moneda Extranjera</titulo>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrimaConCtaMonex</suficientes>
+					</permisos>												
+                    <opcion id="saldo_ult_mov_monex">
+                        <titulo>Saldos y Últimos Movimientos</titulo>
+                        <url>/cl/minibci/aplicaciones/cartola/cuenta/monex/vistaCartolaMonex.jsf</url>
+                    </opcion>
+                </opcion>
+				<opcion id="solicitar_cct">
+					<titulo>Solicitar Cuenta Corriente</titulo>
+					<url>http://www.bci.cl/personas/hagasecliente/index.html</url>
+				</opcion>
+            </opcion>			
+            <opcion id="linea_sobregiro">
+                <titulo>Línea de Sobregiro</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaConLS</suficientes>
+				</permisos>						
+                <opcion id="saldo_mov_lsg">
+                    <titulo>Saldo y Últimos Movimientos</titulo>
+                    <url>/cl/minibci/aplicaciones/cartola/lineasobregiro/cartolaLineaSobregiro.jsf</url>
+                </opcion>
+                <opcion id="pago_abono_lsg">
+                    <titulo>Pago / Abono</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                </opcion>
+                <opcion id="aumento_cupo_lsg">
+                    <titulo>Aumento de Cupo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                </opcion>
+                <opcion id="linea_emergencia">
+                    <titulo>Línea de Emergencia</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="linea_sobregiro_sin_producto">
+                <titulo>Línea de Sobregiro</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaSinLS</suficientes>
+				</permisos>						
+ 				<opcion id="solicitar_lsg">
+					<titulo>Solicitar Línea de Sobregiro</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>					
+				</opcion>				
+            </opcion>	
+			<opcion id="tdc">
+				<titulo>Tarjetas de Crédito</titulo>
+				<permisos>
+					<suficientes>ClienteTC</suficientes>
+				</permisos>					
+				<opcion id="mibanco_estadas_cuenta_tdc">
+					<titulo>Estados de Cuenta</titulo>										
+					<opcion id="mibanco_saldo_tdc">
+						<titulo>Saldo</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_ultimos_mov_tdc">
+						<titulo>Ultimos Movimientos</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_estado_cuenta_nacional">
+						<titulo>Estado de Cuenta Nacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_estado_cuenta_inter">
+						<titulo>Estado de Cuenta Internacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="mibanco_avance_a_cct">
+					<titulo>Avance a Cuenta Corriente</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>										
+				</opcion>
+				<opcion id="mibanco_efectivo_cuotas">
+					<titulo>Efectivo en Cuotas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>										
+				</opcion>				
+				<opcion id="mibanco_pago_abono_tdc">
+					<titulo>Pago / Abono</titulo>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>							
+					<opcion id="mibanco_pago_deuda_nacional">
+						<titulo>Pago deuda Nacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_pago_deuda_internacional">
+						<titulo>Pago deuda Internacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="mibanco_tarjeta_virtual">
+					<titulo>Tarjet@ Virtual</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>			
+				</opcion>
+				<opcion id="mibanco_pat">
+					<titulo>Pago Automático Tarjetas (PAT)</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				</opcion>
+				<opcion id="mibanco_otras_solicitudes_tdc">
+					<titulo>Otras Solicitudes</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				</opcion>
+				<opcion id="mibanco_programas_beneficios">
+					<titulo>Programas de Beneficios</titulo>
+					<opcion id="mibanco_puntos_bci">
+						<titulo>Puntos Bci</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_programa_opensky">
+						<titulo>Programa OpenSky</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+					<opcion id="mibanco_programa_yo_neutralizo">
+						<titulo>Programa Yo Neutralizo</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="mibanco_activacion_tarjeta">
+					<titulo>Activación de Tarjetas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				</opcion>
+				<opcion id="mibanco_generacion_cambio_pinpass">
+					<titulo>Generación o Cambio Pinpass</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+				</opcion>			
+			</opcion>
+			<opcion id="tdc_sin_producto">
+				<titulo>Tarjetas de Crédito</titulo>
+				<permisos>
+					<suficientes>ClienteSinTC</suficientes>
+				</permisos>					
+				<opcion id="mibanco_solictar_tdc">
+					<titulo>Solicitar Tarjeta de Crédito</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>									
+				</opcion>						
+			</opcion>			
+<!-- 
+            <opcion id="organizador_gastos">
+                <titulo>Organizador de Gastos</titulo>
+                <opcion id="resumen_org_gastos">
+                    <titulo>Resumen</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaResumenOrganizaGastos.xhtml</url>				
+				</opcion>
+                <opcion id="historicos_org_gastos">
+                    <titulo>Ver Históricos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaHistricosOrganizaGastos.xhtml</url>				
+				</opcion>				
+                <opcion id="clasificar_gastos">
+                    <titulo>Clasificar Gastos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaClasificarGastos.xhtml</url>				
+				</opcion>				
+                <opcion id="presupuestar_gastos">
+                    <titulo>Presupuestar</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/vistaPresupuestarGastos.xhtml</url>				
+				</opcion>				
+            </opcion>
+-->
+			<opcion id="datos_personales">
+				<titulo>Mi Perfil</titulo>
+				<opcion id="act_direcciones">
+					<titulo>Actualización de Direcciones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>				
+					<permisos>
+						<suficientes>EsCliente</suficientes>
+					</permisos>	
+				</opcion>	
+				<opcion id="act_renta">
+					<titulo>Actualización de Renta</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>				
+				</opcion>
+				<opcion id="direccion_correspondencia">
+					<titulo>Dirección Envío Correspondencia</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>				
+				</opcion>				
+				<opcion id="mis_preferencias">
+					<titulo>Mis Preferencias</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>				
+				</opcion>					
+			</opcion>
+            <opcion id="planes">
+                <titulo>Planes</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+				</permisos>					
+                <opcion id="cuenta_medica">
+                    <titulo>Cuenta Médica</titulo>					
+                    <opcion id="cta_medica_saldo">
+						<titulo>Saldo</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>					
+					</opcion>
+                    <opcion id="cta_medica_movimientos">
+						<titulo>Últimos Movimientos</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>					
+					</opcion>					
+                    <opcion id="cta_medica_cart_cobranza">
+						<titulo>Cartera Documentos en Cobranza</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>					
+					</opcion>										
+                </opcion>
+                <opcion id="cuentas_vinculadas">
+                    <titulo>Cuentas Vinculadas</titulo>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>										
+					<opcion id="cta_vinc_mandato">
+						<titulo>Generar Mandato</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>										
+					</opcion>
+					<opcion id="cta_vinc_inscrita">
+						<titulo>Consulta Cuentas Inscritas</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>			
+						<!--
+						<permisos>
+							<suficientes>ClienteCtaVinculada</suficientes>
+						</permisos>																
+						-->
+					</opcion>					
+                </opcion>
+                <opcion id="cuenta_familia">
+                    <titulo>Cuenta Familia</titulo>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>										                    
+					<opcion id="cta_famila_nueva">
+						<titulo>Ingresar Nueva Cuenta</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>										
+					</opcion>
+					<opcion id="cta_famila_movimientos">
+						<titulo>Últimos Movimientos</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>		
+						<!--
+						<permisos>
+							<suficientes>ClienteCtaFamilia</suficientes>
+						</permisos>																
+						-->
+					</opcion>										
+                </opcion>
+                <opcion id="intereses_pagados">
+                    <titulo>Intereses Pagados</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inicio/miBanco.jsf</url>
+					<permisos>
+						<suficientes>ClienteInteresesPagados</suficientes>
+					</permisos>										
+                </opcion>
+            </opcion>			
+	   </opcion> <!-- Inicio -->
+        <opcion id="pagos_servicios">
+            <titulo>Pagos y Servicios</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+            <opcion id="pago_de_cuentas">
+                <titulo>Pago de Cuentas</titulo>
+                <opcion id="pago_en_linea">
+                    <titulo>Pagos en Línea</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>					
+                </opcion>
+                <opcion id="pago_en_linea_sinCuenta">
+                    <titulo>Pagos en Línea</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>										
+                </opcion>				
+                <opcion id="cartola_de_pagos">
+                    <titulo>Cartola de Pagos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimistaoTC</suficientes>
+					</permisos>										
+                </opcion>
+                <opcion id="cartola_de_pagos_sinCuenta">
+                    <titulo>Cartola de Pagos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_inversiones.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrimaNiTC</suficientes>
+					</permisos>										
+                </opcion>				
+                <opcion id="pac">
+                    <titulo>PAC</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>								
+                </opcion>
+                <opcion id="pac_sinCuenta">
+                    <titulo>PAC</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>								
+                </opcion>				
+                <opcion id="PAT">
+                    <titulo>PAT</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>ClienteTC</suficientes>
+					</permisos>								
+                </opcion>
+                <opcion id="PAT_sinCuenta">
+                    <titulo>PAT</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_tdc.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinTC</suficientes>
+					</permisos>								
+                </opcion>				
+            </opcion>
+            <opcion id="mensajeria_celular">
+                <titulo>Mensajería a Celular</titulo>
+                <opcion id="aviso_deposito_sueldo">
+                    <titulo>Aviso Depósito Sueldo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>					
+                </opcion>
+                <opcion id="aviso_deposito_sueldo_sinCuenta">
+                    <titulo>Aviso Depósito Sueldo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>										
+                </opcion>				
+            </opcion>
+            <opcion id="servicio_recargas">
+                <titulo>Servicios de Recargas</titulo>
+                <opcion id="recarga_celular">
+                    <titulo>Celular</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>					
+                </opcion>
+                <opcion id="recarga_celular_sinCuenta">
+                    <titulo>Celular</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>										
+                </opcion>				
+                <opcion id="recarga_tarjeta_bip">
+                    <titulo>Tarjeta Bip!</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>										
+                </opcion>
+                <opcion id="recarga_tarjeta_bip_sinCuenta">
+                    <titulo>Tarjeta Bip!</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>										
+                </opcion>				
+            </opcion>
+            <opcion id="pagos_productos_bci">
+                <titulo>Pagos Productos Bci</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimistaoTC</suficientes>
+				</permisos>						
+                <opcion id="pago_lsg">
+                    <titulo>Línea de Sobregiro</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaConLS</suficientes>
+					</permisos>					
+                </opcion>
+                <opcion id="pago_tdc">
+                    <titulo>Tarjeta de Crédito</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>							
+                </opcion>
+                <opcion id="pago_credito_consumo">
+                    <titulo>Crédito de Consumo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConCredConsumo</suficientes>
+					</permisos>							
+					-->
+                </opcion>
+                <opcion id="pago_hipotecario">
+                    <titulo>Crédito Hipotecario</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConCredHipotecario</suficientes>
+					</permisos>												
+					-->
+                </opcion>
+            </opcion>
+            <opcion id="cotizacion_previsional">
+                <titulo>Cotizacion Previsional</titulo>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimistaoTC</suficientes>
+				</permisos>					
+                <opcion id="nueva_cuenta">
+                    <titulo>Ingresar NuevaCuenta</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf1</url>
+                </opcion>
+                <opcion id="adm_pagos">
+                    <titulo>Administrar Pagos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+                </opcion>
+                <opcion id="cns_pagos">
+                    <titulo>Consultar Pagos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+                </opcion>
+                <opcion id="condiciones_servicios">
+                    <titulo>Condiciones del Servicio</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="pac_iglesia">
+                <titulo>PAC 1% a la Iglesia</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/pagosServicios/homePagosServicios.jsf</url>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+				</permisos>				
+            </opcion>
+            <opcion id="pac_iglesia_sinCuenta">
+                <titulo>PAC 1% a la Iglesia</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+				<permisos>
+					<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+				</permisos>				
+            </opcion>			
+        </opcion>
+        <opcion id="ttff">
+            <titulo>Transferencias</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+            <opcion id="ttff2">
+                <titulo>Transferencias</titulo>
+                <opcion id="transf_fondos">
+                    <titulo>Transferir Fondos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>					
+                </opcion>
+                <opcion id="transf_fondos_sinCuenta">
+                    <titulo>Transferir Fondos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>										
+                </opcion>				
+                <opcion id="transf_prog">
+                    <titulo>Transferencias Programadas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>										
+                </opcion>
+                <opcion id="transf_prog_sinCuenta">
+                    <titulo>Transferencias Programadas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>														
+                </opcion>				
+                <opcion id="mis_dest">
+                    <titulo>Mis Destinatarios</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>										
+                </opcion>
+                <opcion id="mis_dest_sinCuenta">
+                    <titulo>Mis Destinatarios</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>														
+                </opcion>				
+            </opcion>
+            <opcion id="cartolas_ttff">
+                <titulo>Cartolas</titulo>
+                <opcion id="cartolas_ttff_realizadas">
+                    <titulo>Transferencias Realizadas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>															
+                </opcion>
+                <opcion id="cartolas_ttff_realizadas_sinCuenta">
+                    <titulo>Transferencias Realizadas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>						
+                </opcion>				
+                <opcion id="cartolas_ttff_recibidas">
+                    <titulo>Transferencias Recibidas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+					</permisos>															
+                </opcion>
+                <opcion id="cartolas_ttff_recibidas_sinCuenta">
+                    <titulo>Transferencias Recibidas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+					<permisos>
+						<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+					</permisos>						
+                </opcion>				
+            </opcion>
+            <opcion id="aporte_solidario">
+                <titulo>Aporte Solidario</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/transferencias/homeTransferencias.jsf</url>
+				<permisos>
+					<suficientes>CtaCorrentistaoCtaPrimista</suficientes>
+				</permisos>														
+            </opcion>
+            <opcion id="aporte_solidario_sinCuenta">
+                <titulo>Aporte Solidario</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/mono_producto_sin_cuenta.jsf</url>
+				<permisos>
+					<suficientes>ClienteSinCtaCteNiCtaPrima</suficientes>
+				</permisos>														
+            </opcion>			
+        </opcion>
+        <opcion id="tarjetas">
+			<titulo>Tarjetas de Crédito</titulo>
+			<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+			<permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+			<opcion id="tdc">
+				<titulo>Tarjetas de Crédito</titulo>
+				<permisos>
+					<suficientes>ClienteTC</suficientes>
+				</permisos>					
+				<opcion id="estadas_cuenta_tdc">
+					<titulo>Estados de Cuenta</titulo>										
+					<opcion id="saldo_tdc">
+						<titulo>Saldo</titulo>
+						<url>/bcinetwls/tarjetasonline/ConsultaSaldoAction.do?method=obtieneResumenSaldo&amp;objeto={#PRODUCTO}</url>
+					</opcion>
+					<opcion id="ultimos_mov_tdc">
+						<titulo>Ultimos Movimientos</titulo>
+						<url>/bcinetwls/tarjetasonline/MovNoFacturadosAction.do?method=mostrarUltimosMovimientos&amp;nacint=N&amp;objeto={#PRODUCTO}</url>
+					</opcion>
+					<opcion id="estado_cuenta_nacional">
+						<titulo>Estado de Cuenta Nacional</titulo>
+						<url>/bcinetwls/tarjetasonline/EstadoCuentaNacionalAction.do?method=obtieneEstadoCuentaNacional&amp;objeto={#PRODUCTO}</url>
+					</opcion>
+					<opcion id="estado_cuenta_inter">
+						<titulo>Estado de Cuenta Internacional</titulo>
+						<url>/bcinetwls/tarjetasonline/EstadoCuentaInternacionalAction.do?method=obtieneEstadoCuentaInternacional&amp;objeto={#PRODUCTO}</url>
+					</opcion>
+				</opcion>
+				<opcion id="avance_a_cct">
+					<titulo>Avance a Cuenta Corriente</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>										
+				</opcion>
+				<opcion id="efectivo_cuotas">
+					<titulo>Efectivo en Cuotas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>										
+				</opcion>				
+				<opcion id="pago_abono_tdc">
+					<titulo>Pago / Abono</titulo>
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConTC</suficientes>
+					</permisos>							
+					<opcion id="pago_deuda_nacional">
+						<titulo>Pago deuda Nacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					</opcion>
+					<opcion id="pago_deuda_internacional">
+						<titulo>Pago deuda Internacional</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="tarjeta_virtual">
+					<titulo>Tarjet@ Virtual</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>			
+				</opcion>
+				<opcion id="pat">
+					<titulo>Pago Automático Tarjetas (PAT)</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+				</opcion>
+				<opcion id="otras_solicitudes_tdc">
+					<titulo>Otras Solicitudes</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+				</opcion>
+				<opcion id="programas_beneficios">
+					<titulo>Programas de Beneficios</titulo>
+					<opcion id="puntos_bci">
+						<titulo>Puntos Bci</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					</opcion>
+					<opcion id="programa_opensky">
+						<titulo>Programa OpenSky</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					</opcion>
+					<opcion id="programa_yo_neutralizo">
+						<titulo>Programa Yo Neutralizo</titulo>
+						<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+					</opcion>
+				</opcion>
+				<opcion id="activacion_tarjeta">
+					<titulo>Activación de Tarjetas</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+				</opcion>
+				<opcion id="generacion_cambio_pinpass">
+					<titulo>Generación o Cambio Pinpass</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>
+				</opcion>			
+			</opcion>
+			<opcion id="tdc_sin_producto">
+				<titulo>Tarjetas de Crédito</titulo>
+				<permisos>
+					<suficientes>ClienteSinTC</suficientes>
+				</permisos>					
+				<opcion id="solictar_tdc">
+					<titulo>Solicitar Tarjeta de Crédito</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inicio/homeTarjeta.jsf</url>									
+				</opcion>						
+			</opcion>
+		</opcion>
+        <opcion id="creditos">
+            <titulo>Créditos</titulo>
+			<url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+            <opcion id="credito_consumo">
+                <titulo>Créditos de Consumo</titulo>
+                <opcion id="pida_su_credito">
+                    <titulo>Simule y Pida su Crédito</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+                </opcion>				
+				<!--
+                <opcion id="simule_credito_consumo">
+                    <titulo>Simule y Solicite su Crédito</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/vistaSimulacionConsumo.xhtml</url>
+                </opcion>
+				-->
+                <opcion id="pagar_postergar_cuota">
+                    <titulo>Pagar o Postergar Cuota</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConCredConsumo</suficientes>
+					</permisos>					
+					-->
+                </opcion>
+                <opcion id="consolidar_deuda">
+                    <titulo>Consolide sus Deudas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+                </opcion>
+                <opcion id="consulta_creditos">
+                    <titulo>Mis Créditos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConCredConsumo</suficientes>
+					</permisos>							
+					-->
+                </opcion>
+                <opcion id="cartola_creditos">
+                    <titulo>Cartola de Créditos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConCredConsumo</suficientes>
+					</permisos>												
+					-->
+                </opcion>
+                <opcion id="aumento_cupo_credito">
+                    <titulo>Aumento de Cupo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>											
+                </opcion>
+                <opcion id="certificados_credito">
+                    <titulo>Certificados</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>											
+                </opcion>
+            </opcion>
+            <opcion id="credito_hipotecario">
+                <titulo>Crédito Hipotecario</titulo>
+                <opcion id="simule_credito_hipotecario">
+                    <titulo>Simule y Solicite su Crédito</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+                </opcion>
+                <opcion id="pagar_dividendo">
+                    <titulo>Pagar Dividendo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>CtaCorrentistaoPrimistaConCredHipotecario</suficientes>
+					</permisos>												
+					-->
+                </opcion>
+                <opcion id="estado_solicitud">
+                    <titulo>Estado de Solicitud</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConSolicitudCredHipotecario</suficientes>
+					</permisos>						
+					-->
+                </opcion>
+                <opcion id="dividendos_cancelados">
+                    <titulo>Dividendos Cancelados</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConCredHipotecario</suficientes>
+					</permisos>							
+					-->
+                </opcion>
+                <opcion id="duplicado_dividendo">
+                    <titulo>Duplicado Dividendo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConCredHipotecario</suficientes>
+					</permisos>												
+					-->
+                </opcion>
+                <opcion id="certificados_dividendo">
+                    <titulo>Certificados Dividendo para SII</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/creditos/homeCreditos.jsf</url>
+					<!--
+					<permisos>
+						<suficientes>ClienteConCredHipotecario</suficientes>
+					</permisos>												
+					-->
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="inversiones">
+            <titulo>Inversiones</titulo>
+			<url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+            <permisos>
+				<suficientes>SinBancaPrivada</suficientes>
+			</permisos>
+            <opcion id="resumen_inv">
+				<titulo>Resumen</titulo>
+				<opcion id="resumen_inversiones">
+					<titulo>Resumen de inversiones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+				</opcion>			
+				<opcion id="cartola_inversiones">
+					<titulo>Cartola de inversiones</titulo>
+					<url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+				</opcion>
+			</opcion>
+            <opcion id="asesoria">
+                <titulo>Asesoría</titulo>
+                <opcion id="depto_estudios">
+                    <titulo>Análisis y Documentación</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="nivel_riesgo">
+                    <titulo>Determine su Nivel de Riesgo</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="fondos_mutuos">
+                <titulo>Fondos Mutuos</titulo>
+                <opcion id="invertir_ffmm">
+                    <titulo>Invertir</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="rescatar_ffmm">
+                    <titulo>Rescatar</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="cartola_saldos_ffmm">
+                    <titulo>Cartola de Saldos</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="cartola_mov_ffmm">
+                    <titulo>Cartola Histórica</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="valores_cuota_ffmm">
+                    <titulo>Valores Cuota</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+               <opcion id="saber_mas_ffmm">
+                    <titulo>Saber Más</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>				
+                <opcion id="programar_ffmm">
+                    <titulo>Programar Inversión</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="inversion_ffmm_programada">
+                    <titulo>Ver Inversiones Programadas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="deposito_a_plazo">
+                <titulo>Depósito a Plazo</titulo>
+                <opcion id="tomar_dap">
+                    <titulo>Tomar</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="cartola_dap">
+                    <titulo>Cartola</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="ope_historicas_dap">
+                    <titulo>Operaciones Históricas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="saber_mas_dap">
+                    <titulo>Saber Más</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="acciones">
+                <titulo>Acciones</titulo>
+                <opcion id="compra_acciones">
+                    <titulo>Compra</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="venta_acciones">
+                    <titulo>Venta</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>			
+                <opcion id="opcion_acciones">
+                    <titulo>Cartola</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="otr_inversiones">
+                <titulo>Opciones de Ahorro e Inversión</titulo>
+                <opcion id="cuenta_ahorro">
+                    <titulo>Cuentas de Ahorro</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>				
+                <opcion id="ahorro_previsional_voluntario">
+                    <titulo>Ahorro Previsional Voluntario</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="fondos_inversion_privados">
+                    <titulo>Fondos de Inversión Privados</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>				
+                <opcion id="adm_cartera">
+                    <titulo>Administración de Cartera</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>				
+                <opcion id="pactos">
+                    <titulo>Pactos</titulo>
+                    <url>/bcinetwls/inversioneswls/productos/resumen/ConsultaDetallePactos.do</url>
+                </opcion>
+                <opcion id="simultaneas">
+                    <titulo>Simultáneas</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="fondos_inversion">
+                    <titulo>Fondos de Inversión</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+                <opcion id="renta_fija">
+                    <titulo>Renta Fija</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>								
+            </opcion>			
+            <opcion id="otros_servicios_inversiones">
+                <titulo>Otros Servicios</titulo>
+                <opcion id="cert_tributarios">
+                    <titulo>Certificados Tributarios</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf</url>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="seguros">
+            <titulo>Seguros</titulo>
+            <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>
+            <opcion id="contratar_seguro">
+                <titulo>Contratar Seguro</titulo>
+                <opcion id="accidentes_pers">
+                    <titulo>Accidentes Personales</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_hogar">
+                    <titulo>Seguro Hogar</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_multiproteccion">
+                    <titulo>Seguro Multiproteccion</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_proteccion_total">
+                    <titulo>Protección Total</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_vital">
+                    <titulo>Vital</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_automotriz">
+                    <titulo>Automotriz</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguro_responsabilidad_social">
+                    <titulo>Responsabilidad Social Internacional</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="consultar_polizas">
+                <titulo>Consultar Pólizas</titulo>
+				<!--
+				<permisos>
+					<suficientes>ClienteConSeguro</suficientes>
+				</permisos>				
+				-->
+                <opcion id="seguro_obligatorio">
+                    <titulo>Seguro Obligatorio</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+                <opcion id="seguros_vigentes">
+                    <titulo>Vigentes</titulo>
+                    <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="declaracion_salud">
+                <titulo>Declaración de Salud</titulo>
+                <url>/cl/minibci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf</url>
+            </opcion>
+        </opcion>
+    </opcion>
+</bcimenu>

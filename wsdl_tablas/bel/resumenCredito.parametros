@@ -1,0 +1,47 @@
+filtro;tipos=AVC#COM;
+registros;valor=10;
+GlosaTipoOperacion;AVC=Multilínea;COM=Prestamo Comercial;
+estadosCredito;activado=ACA;
+sistema;id=RESCRD;
+tipoUsuario;apoderado=APO;
+numeroConvenio;largoConvenio=10;
+validacionDeApoderado;faltanFirmas=0;apoderadoOK=1;noEsApoderado=100;apoderadoYaFirmo=101;autoTran=2;fecExpiracion=01/01/1900;
+cancelacionCredito;tipoCtaCargo=CCMA;caiCtaCargo=0000;tipoCancelacion=CTE;
+multiEnvironment;banco=BCI;marca=BCI;cartera=BEE;language=ES;country=CL;usuario=RESCRD;
+costoFondo;codigoSeguros=SGS;
+obtieneCuentasCliente;tipoCuenta=AUT;
+identificador;largoNumeroCuotas=4;
+generadorPDF;formatoFecha=dd/MM/yyyy;formatoHora=h:mm a;
+horarioActivacionPago;validacionActivada=true;horaInicial=08:00;horaFinal=14:00;
+
+###############################################################
+#                    PDF's Gral                               #
+###############################################################
+img_path;path=/belwls/resumenCredito/img/;
+
+###############################################################
+#                    PDF's                         	      #
+###############################################################
+#consultas
+ResumenCreditoAction;objEncabezado=ObjectPDF;objEncabezado2=ObjectPDF2;objDetalle=ObjectPDF3;atributosCabezera=NombreUsuario#NombreEmpresa#Hoy#Hora;atributosCabezera2=FechaCanReal#CtaCargo#TotalPagado#Null#NumTransaccion#null;atributosDetalle=RutUsuario#Nombres;maximasColEncabezado=8;formatoDatoEncabezado2=ddMMyyyy#String#miles#String#String#String;formatoDatoDetalle=String#String;totalizar=0#0;camposCompuestoEncabezado=;camposCompuestoDetalle=RutUsuario,DigitoVerifUsu#Nombres,ApellidoPaterno#ApellidoPaterno,ApellidoMaterno;separadoresCamposCompuestosDet=RutUsuario,-#Nombre,' '#ApellidoPaterno,' '#ApellidoMaterno,' ';eliminaObjetoSesion=false;
+ResumenCreditoActionArchivo;archivoSalida=ResumenCredito.pdf;plantilla=plantillaResumenDetalle;imagen=bci.gif;timbre=sello_pagado.gif;
+
+
+
+
+###############################################################
+#                    Descripción de Errores                   #
+###############################################################
+faltanFirmas;desc=El Pago de la Cuota ha Quedado pendiente, faltan firma(s) de apoderado(s);
+noEsApoderado;desc=Disculpe, Usted no es apoderado de la empresa;
+apoderadoYaFirmo;desc=El Apoderado ya firmó;
+
+
+#productos que no pueden pagar cuota
+productossinpago;lista=AVC010;separador=,;vigente=S;
+productoAVC010;mensaje=El prepago de créditos a 1 vencimiento, lo debe gestionar con su Ejecutivo;
+
+
+#calendario de pagos
+calendariodepagos;glspagado=CANCELADO;glspendiente=PENDIENTE;glsnopagado=;
+NUMEROCANCELACIONCANCELACIONTOTALSINACTIVARV138;desc=Numero Cancelacion: CANCELACION TOTAL SIN ACTIVAR           V               138;

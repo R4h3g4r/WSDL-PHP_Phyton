@@ -1,0 +1,443 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="ORDulis.procedimientosAlmacenados">
+
+	<resultMap id="resultadoConsultaTotales" class="java.util.HashMap">
+		<result property="montoTotal" 			column="total" />
+		<result property="numeroMovimientos" 	column="movimientos" />
+	</resultMap>
+	
+	<!--
+    @ldr_entity_id_inp        char(5),
+    @transaccion_id_inp       int,
+    @valor_gen_1_inp          char(35),
+    @valor_gen_2_inp          char(35),
+    @valor_gen_3_inp          char(35),
+    @valor_gen_4_inp          char(35),
+    @valor_gen_5_inp          char(35),
+    @valor_gen_6_inp          char(35),
+    @valor_gen_7_inp          char(35),
+    @valor_gen_8_inp          char(35),
+    @valor_gen_9_inp          char(35),
+    @valor_gen_10_inp         char(35),
+    @valor_gen_11_inp         char(35),
+    @valor_gen_12_inp         char(35),
+    @valor_gen_13_inp         char(35),
+    @valor_gen_14_inp         char(35),
+    @valor_gen_15_inp         char(35),
+    @valor_gen_16_inp         char(80),
+    @user_id                  char(30) ,
+    @estado               char(01)  out,
+    @msg                  char(80)  out
+	-->
+	<parameterMap id="creaTransaccionAitcParameters" class="java.util.HashMap">
+		<parameter property="ldr_entity_id_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="transaccion_id_inp" jdbcType="INTEGER" javaType="java.lang.Integer" mode="IN" />
+		<parameter property="valor_gen_1_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_2_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_3_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_4_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_5_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_6_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_7_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_8_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_9_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_10_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_11_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_12_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_13_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_14_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_15_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="valor_gen_16_inp" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="user_id" jdbcType="CHAR" javaType="java.lang.String" mode="IN" />
+		<parameter property="estado" jdbcType="CHAR" javaType="java.lang.String" mode="OUT" />
+		<parameter property="msg" jdbcType="CHAR" javaType="java.lang.String" mode="OUT" />
+	</parameterMap>
+	
+	<procedure id="consultaTotalesCierre" resultMap="resultadoConsultaTotales" parameterClass="java.util.HashMap">
+		{CALL usp_consulta_totales_cierre(#tipo_mov#, #tipo_total#, #instrumento#, #cajero#, #tipo_cambio#)}
+	</procedure>
+	
+	<procedure id="insertaMovimientoCaja" parameterClass="java.util.HashMap">
+		{CALL usp_inserta_movimiento_caja(#tipo_mov#, #instrumento#, #cajero#, #monto#, #tipo_cambio#)}
+	</procedure>
+	
+	<procedure id="creaTransaccionAitc" resultClass="java.util.HashMap" parameterMap="creaTransaccionAitcParameters">
+		{CALL usp_crea_transaccion_aitc_var(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+<!-- Busca Transacciones AITC ************************************************************* -->
+<!-- obtiene el listado de usuarios ejemplo de pantalla -->
+	<parameterMap id="setUsuario" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+
+	<resultMap id="getUsuario" class="java.util.HashMap">
+		<result property="id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerUsuarios" resultMap="getUsuario" parameterMap="setUsuario">
+		{CALL usp_sel_usuario_web(?)}
+	</procedure>
+<!-- obtiene el listado de Entidades BCI -->
+	<parameterMap id="setEntidades" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+
+	<resultMap id="getEntidades" class="java.util.HashMap">
+		<result property="ldr_entity_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="entity_descp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerEntidades" resultMap="getEntidades" parameterMap="setEntidades">
+		{CALL usp_sel_entity_web(?)}
+	</procedure>
+
+<!-- obtiene el listado de Sucursales BCI -->
+	<parameterMap id="setSucursales" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+
+	<resultMap id="getSucursales" class="java.util.HashMap">
+		<result property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="ldr_entity_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="entity_descp" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerSucursales" resultMap="getSucursales" parameterMap="setSucursales">
+		{CALL usp_sel_suc_web (?)}
+	</procedure>
+	
+<!-- obtiene las Actividades AITC permitidas -->
+	<parameterMap id="setActividades" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getActividades" class="java.util.HashMap">
+		<result property="actividad_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="activity_desc" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerActividades" resultMap="getActividades" parameterMap="setActividades">
+		{CALL usp_sel_act_web (?)}
+	</procedure>
+
+<!-- obtiene  las Transacciones AITC por Actividad-->
+	<parameterMap id="setTransacciones" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getTransacciones" class="java.util.HashMap">
+		<result property="actividad_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="tran_id" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="tran_desc" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerTransAct" resultMap="getTransacciones" parameterMap="setTransacciones">
+		{CALL usp_sel_tran_web (?)}
+	</procedure>
+<!-- obtiene la fecha de Efecto-->
+	<parameterMap id="setFecha" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getFecha" class="java.util.HashMap">
+		<result property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerFecha" resultMap="getFecha" parameterMap="setFecha">
+		{CALL usp_sel_fecha_web (?)}
+	</procedure>	
+<!-- Ingresa Transacciones AITC ************************************************************* -->
+<!-- obtiene todos los campos para pintar el formulario -->
+	<parameterMap id="setFrmDefine" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</parameterMap>
+
+	<resultMap id="getFrmDefine" class="java.util.HashMap">
+		<result property="salida_etiquetas" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="salida_validaciones" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="salida_ediciones" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="salida_valores" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="salida_descrip_trans" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="estado" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="observacion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerFrmDefine" resultMap="getFrmDefine" parameterMap="setFrmDefine">
+		{CALL usp_proc_col_tran_x_pedir_web(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+<!-- obtiene todos los datos de un combo del formulario -->
+	<parameterMap id="setComboData" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="elemento" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+
+	<resultMap id="getComboData" class="java.util.HashMap">
+		<result property="codigo" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="glosa" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerComboData" resultMap="getComboData" parameterMap="setComboData">
+		{CALL usp_u_lista_datos_web(?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+<!-- Lista Transacciones AITC ************************************************************* -->
+<!-- obtiene el resultado de la consulta-->
+	<parameterMap id="setTran" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="estado" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+
+	<resultMap id="getTran" class="java.util.HashMap">
+		<result property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="actividad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="transaccion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="numero" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="descripcion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="estado" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerTransacciones" resultMap="getTran" parameterMap="setTran">
+		{CALL usp_buscar_frm_web(?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+<!-- Ingresa Transacciones AITC ************************************************************* -->
+<!-- graba o modifica-->
+	<parameterMap id="setActualiza" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="valores" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="estado" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="observacion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getActualiza" class="java.util.HashMap">
+		<result property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="actualizarTransaccion" resultMap="getActualiza" parameterMap="setActualiza">
+		{CALL usp_grabar_frm_web(?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+<!-- Completa Datos-->
+	<parameterMap id="setCompleta" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="valores" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="observacion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getCompleta" class="java.util.HashMap">
+		<result property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="observacion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="origen" jdbcType="VARCHAR" javaType="java.lang.String"/>	
+	</resultMap>
+	<procedure id="obtenerCompletar" resultMap="getCompleta" parameterMap="setCompleta">
+		{CALL usp_u_valida_datos_web (?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+<!-- Elimina transaccion -->
+	<parameterMap id="setElimina" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</parameterMap>
+	<resultMap id="getElimina" class="java.util.HashMap">
+		<result property="status" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="msg" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="eliminarTransaccion" resultMap="getElimina" parameterMap="setElimina">
+		{CALL usp_del_frm_web (?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+	
+	
+<!-- Siguiente fila-->
+	<parameterMap id="setSiguiente" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="estado" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="entidad_sel" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="sucursal_sel" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="actividad_sel" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="transaccion_sel" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="fecha_sel" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="corr_sel" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		</parameterMap>
+	<resultMap id="getSiguiente" class="java.util.HashMap">
+		<result property="entidad" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="sucursal" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="actividad" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="transaccion" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="fecha" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="corr" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerTranSiguiente" resultMap="getSiguiente" parameterMap="setSiguiente">
+		{CALL usp_siguiente_frm_web(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setAitcCuadSu" class="java.util.HashMap">
+	    <parameter property="fecha" 		jdbcType="datetime" javaType="java.util.Date"/>
+	    <parameter property="sucursal" 	jdbcType="char" javaType="java.lang.String"/>
+	    <parameter property="sentido" 		jdbcType="char" javaType="java.lang.String"/>
+	 </parameterMap>
+       
+	 <resultMap id="getAitcCuadSuc" class="java.util.HashMap">
+	     <result property="idOficina" 			jdbcType="char" javaType="java.lang.String"/>
+	     <result property="idSubSucursal" 		jdbcType="char" javaType="java.lang.String"/>
+	     <result property="idUsuarioTransaccion" 	jdbcType="char" javaType="java.lang.String"/>
+	     <result property="cuentaContableBCI" 	jdbcType="char" javaType="java.lang.String"/>
+	     <result property="numeroPartida" 		jdbcType="VARCHAR" javaType="java.lang.String"/>
+	     <result property="montoTransaccion" 	jdbcType="money" javaType="java.lang.Long"/>
+	     <result property="tipoMoneda" 			jdbcType="char" javaType="java.lang.String"/>
+	 </resultMap>
+	 <procedure id="obtenerAitcCuadSuc" resultMap="getAitcCuadSuc" parameterMap="setAitcCuadSu">
+     	{CALL usp_fin_dia_aitc  (?, ?, ?)}
+	 </procedure>
+	
+	<!--  setear y leer parámetros genéricos de extractores -->
+	<parameterMap id="setExtractor" class="java.util.HashMap">
+		<parameter property="ofi_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fec_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="usr_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_ini" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_fin" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="cod_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tx_tx" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getExtractor" class="java.util.HashMap">
+		<result property="fechaProceso" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaOrigen" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaDestino" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaContable" jdbcType="VARCHAR" javaType="String" />
+		<result property="vigente" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaCorriente" jdbcType="VARCHAR" javaType="String" />
+		<result property="montoImputacion" jdbcType="VARCHAR" javaType="String" />
+		<result property="numeroTransaccion" jdbcType="VARCHAR"	javaType="String" />
+		<result property="transaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="correlativo" jdbcType="VARCHAR" javaType="String" />
+		<result property="nombreBeneficiario" jdbcType="VARCHAR" javaType="String" />
+		<result property="rut" jdbcType="VARCHAR" javaType="String" />
+		<result property="glosaComentario" jdbcType="VARCHAR" javaType="String" />
+		<result property="mnemonico" jdbcType="VARCHAR" javaType="String" />
+		<result property="moneda" jdbcType="VARCHAR" javaType="String" />
+		<result property="usuarioTransaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="activador" jdbcType="VARCHAR" javaType="String" />
+		<result property="HoraTransaccion" jdbcType="VARCHAR" javaType="String" />
+	</resultMap>
+	
+	<!-- Extractor AITC Debe -->
+	<procedure id="obtenerExtractorAITCDebe" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_aitc_debe(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC Haber -->
+	<procedure id="obtenerExtractorAITCHaber" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_aitc_haber(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 1001 Recibido (Cajeros) -->
+	<procedure id="obtenerExtractorAITCRecibidoCajeros" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_1001_rec(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 1001 Pagado (Cajeros) -->
+	<procedure id="obtenerExtractorAITCPagadoCajeros" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_1001_pag(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 1002 Recibido (Autoserv) -->
+	<procedure id="obtenerExtractorAITCRecibidoAutoserv" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_1002_rec(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 1002 Pagado (Autoserv) -->
+	<procedure id="obtenerExtractorAITCPagadoAutoserv" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_1002_pag(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 1104 (Linea Asentado) -->
+	<procedure id="obtenerExtractorAITCCanje" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_1104_ast(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	<!-- Extractor AITC 4104 (Linea Asentado) -->
+	<procedure id="obtenerExtractorAITCComisionFogain" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL usp_fin_dia_4104_ast(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+
+<!--	***************************   INICIO DEFINICIONES REPORTES AITC ********************* -->
+<!-- 	Menu-->
+	<parameterMap id="setMenu" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getMenu" class="java.util.HashMap">
+		<result property="ide" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="descripcion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="parametros" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="consulta" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="tipo" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="formulario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerReportes" resultMap="getMenu" parameterMap="setMenu">
+		{CALL usp_lis_web_inicio(?)}
+	</procedure>
+
+<!-- 	Combos-->
+	<parameterMap id="setCombo" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</parameterMap>
+	<resultMap id="getCombo" class="java.util.HashMap">
+		<result property="parametro" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="codigo" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<result property="descripcion" jdbcType="VARCHAR" javaType="java.lang.String"/>
+	</resultMap>
+	<procedure id="obtenerCombos" resultMap="getCombo" parameterMap="setCombo">
+		{CALL usp_lis_web_lista(?)}
+	</procedure>
+
+<!-- 	Columnas del Reporte-->
+	<parameterMap id="setColRep" class="java.util.HashMap">
+		<parameter property="usuario" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="identificador" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="parametros" jdbcType="VARCHAR" javaType="java.lang.String"/>
+		<parameter property="status" jdbcType="VARCHAR" javaType="java.lang.String" mode="INOUT"/>
+		<parameter property="msg" jdbcType="VARCHAR" javaType="java.lang.String" mode="INOUT"/>
+	</parameterMap>
+	<!-- Respuesta con columnas variables, por eso el resultClass -->
+		<procedure id="obtenerColReps" resultClass="java.util.LinkedHashMap" parameterMap="setColRep">
+
+		{CALL usp_lis_web_proceso(?,?,?,?,?)}
+	</procedure>
+
+
+<!--	FIN DEFINICIONES REPORTES AITC -->
+	
+	
+	
+</sqlMap>

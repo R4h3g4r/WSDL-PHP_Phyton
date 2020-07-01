@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_per_inv">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="Integer" middle_name="tipo_formulario" size="0" java_name="tipoFormulario"/>
+		<field type="long" middle_name="rut_cliente" size="0" java_name="rutCliente"/>
+	</input>
+	<output>
+		
+		<struct struct_size="0" class_name="CabeceraFormularioTO" var_name="respuestaFormulario">
+			<field type="String" middle_name="perfil" size="0" java_name="glosaResultadoFormulario"/>
+			<field type="Integer" middle_name="puntaje" size="0" java_name="puntajeFormulario"/>
+			<field type="Date" middle_name="fecha" size="0" java_name="fechaIngresoFormulario"/>
+			<field type="Integer" middle_name="codigoResultado" size="0" java_name="codigoResultadoFormulario"/>
+			<field type="Integer" middle_name="id" size="0" java_name="idFormulario"/>			
+		</struct>
+	</output>
+</service>

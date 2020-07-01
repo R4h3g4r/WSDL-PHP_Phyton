@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<database>
+	<server>161.131.215.62</server>
+	<name>WebAprocred/rib1</name>
+	<query>
+		<view>QryRutRIB</view>
+		<key>Rut</key>
+	</query>
+	<document>
+		<field java_name="strSocio1">s</field>
+		<field java_name="strSocio2">s</field>
+		<field java_name="strSocio3">s</field>
+		<field java_name="strSocio4">s</field>
+		<field java_name="strSocio5">s</field>
+		<field java_name="strRut1">s</field>
+		<field java_name="strRut2">s</field>
+		<field java_name="strRut3">s</field>
+		<field java_name="strRut4">s</field>
+		<field java_name="strRut5">s</field>
+		<field java_name="numParticip1">db</field>
+		<field java_name="numParticip2">db</field>
+		<field java_name="numParticip3">db</field>
+		<field java_name="numParticip4">db</field>
+		<field java_name="numParticip5">db</field>
+	</document>
+</database>

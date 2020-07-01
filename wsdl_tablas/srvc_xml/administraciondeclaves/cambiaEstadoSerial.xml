@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<service name = "sp_cambiaestado_srl">
+
+  <context>
+
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+
+    <joltpool_name value="wcorp.bprocess.administraciondeclaves.DummyFacadeImpl" />
+
+  </context>
+
+  <input>
+        <field
+          java_name = "numero"
+          type = "String"
+          size = "12"
+          middle_name = "serial"
+        />
+		<field
+          java_name = "codEstado"
+          type = "String"
+		  size = "2"
+          middle_name = "estado"
+        />        	      	
+  </input>
+  
+  <output></output>
+
+</service>

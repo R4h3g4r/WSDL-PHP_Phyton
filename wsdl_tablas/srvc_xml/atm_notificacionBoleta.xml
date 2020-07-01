@@ -1,0 +1,26 @@
+<service name = "sp_AtmPsNotificacion">
+
+   <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <es_funcion value="output_param" />
+    <struct_result acquire_value_by="name" />
+  </context>
+  <input>
+  		<field java_name = "accion" type = "Integer" size = "3" middle_name = "Accion"/>
+			<field java_name = "serial" type = "Long" size = "23" middle_name = "Serial"/>
+			<field java_name = "estadoId" type = "String" size = "8" middle_name = "EstadoId"/>
+			<field java_name = "notificacion" type = "Integer" size = "3" middle_name = "Notificacion"/>
+			<field java_name = "traza" type = "String" size = "2048" middle_name = "Traza"/>
+      <field java_name = "sqlstatus" type = "Integer" size = "9" middle_name = "sqlstatus "/>  
+  </input> 
+  <output> 
+	<field
+          java_name = "sqlstatus"
+          type = "Integer"
+          size = "9"
+          middle_name = "sqlstatus"
+        />
+  </output>
+</service>

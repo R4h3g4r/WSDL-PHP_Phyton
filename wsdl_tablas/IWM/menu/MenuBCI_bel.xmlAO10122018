@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bcimenu>
+    <opcion id="Accesos Directos">
+        <titulo>Accesos Directos</titulo>
+        <url>AccesosDirectos</url>
+        <opcion id="N_">
+            <titulo>Cerrar Sesión</titulo>
+            <url>vistaCierre</url>
+        </opcion>
+    </opcion>
+    <opcion id="Pestanas">
+        <titulo>Pestañas</titulo>
+        <url>Pestanas</url>
+        <opcion id="N_1000">
+            <titulo>Pagos</titulo>
+            <textoReemplazo />
+                <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/homeResumenPagos.jsf</url>
+            <opcion id="N_1001">
+                <titulo>Pagos Masivos</titulo>
+                <listaDesplegableAsociada>listaTiposPago</listaDesplegableAsociada>
+                <opcion id="resumenPagos">
+                    <titulo>Resumen de Pagos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/homeResumenPagos.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="iniciarPago">
+                    <titulo>Iniciar Pago</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/ingresoTipoPagos.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="N_1004">
+                    <titulo>Provisión de Fondos</titulo>
+                    <opcion id="crearEcheck">
+                        <titulo>Crear E-Check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaCreaEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="firmarEcheck">
+                        <titulo>Firmar E-Check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaFirmaEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaEcheck">
+                        <titulo>Consultar E-check</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/echeck/vistaConsultarEcheck.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1005">
+                    <titulo>Autorización Masiva</titulo>
+                    <opcion id="autorizacionMultiEmpresa">
+                        <titulo>Todas las Empresas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaAutorizacionMultiempresa.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="autorizacionMasiva">
+                        <titulo>Todos los tipos de pago</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaAutorizacionMasiva.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1006">
+                    <titulo>Firma Masiva</titulo>
+                    <opcion id="firmaMultiEmpresa">
+                        <titulo>Todas las Empresas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaFirmaMultiempresa.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="firmaMasiva">
+                        <titulo>Todos los tipos de pago</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/autorizacionyFirma/vistaListaFirmaMasiva.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1007">
+                    <titulo>Consultas</titulo>
+                    <opcion id="consultaPagos">
+                        <titulo>Consulta de Pagos</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaDePagos.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaVV">
+                        <titulo>Consulta de Vales Vista</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaValesVistas.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaCertificados">
+                        <titulo>Certificados</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaDeCertificados.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="consultaPagosHistoricos">
+                         <titulo>Consulta Histórica de Pagos</titulo>
+                         <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consulta/consultaPagosHistoricos.jsf</url>
+                         <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                     </opcion>
+                    <opcion id="descargaArchivos">
+                        <titulo>Descarga de Archivos</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consulta/vistaConsultaArchivosDePagosMasivos.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="pagosAnticipados">
+                        <titulo>Pagos anticipados</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/consultaPagosAnticipados/vistaConsultarPagosAnticipados.jsf</url>
+                            <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                        </opcion>
+                    <opcion id="reintentoDePago">
+                        <titulo>Reinsistencia de Pago</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/reintentoDePago.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1008">
+                    <titulo>Bloqueo o Cambio Receptor SVP</titulo>
+                    <opcion id="cargaPlanillaBCR">
+                        <titulo>Bloqueo o Cambio Receptor SVP</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/bloqueosycambioreceptor/vistaCargaPlanillaBloqueoCambioReceptor.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="estadoBCR">
+                        <titulo>ConsultaBloqueo o Cambio Receptor SVP</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/bloqueosycambioreceptor/vistaEstadoBloqueoCambioReceptor.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1009">
+                    <titulo>Configuración</titulo>
+                    <opcion id="admPlantillas">
+                        <titulo>Formato de Nominas</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/listadoPlantillasNominas.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="confTablaConv">
+                        <titulo>Tablas de Conversión</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/masivos/listadoTablasDeConversion.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1100">
+            <titulo>TTFFMXOtrosBancos</titulo>
+            <textoReemplazo />
+            <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/panoramaDeTransferenciasMonex.jsf</url>
+            <opcion id="volverPortalComex">
+                <titulo>Volver portal comex</titulo>
+                <url>/belwls/portalcomex/comun/volverComex.jsp</url>
+            </opcion>
+            <opcion id="N_1101">
+                <titulo>Transferencias a Otros Bancos</titulo>
+                <opcion id="panoramaTransferencias">
+                    <titulo>Transferencias pendientes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/panoramaDeTransferenciasMonex.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="transferirFondos">
+                    <titulo>Transferir Fondos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/transferencia/monex/ingresarTransferenciaMonex.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="N_1102">
+                    <titulo>Mis destinatarios</titulo>
+                    <opcion id="ingresoBeneficiario">
+                        <titulo>Ingreso de Beneficiario</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/ingresarBeneficiarioMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="administradorBeneficiarios">
+                        <titulo>Administración de Beneficiarios</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/beneficiariosInscritosMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+                <opcion id="N_1103">
+                    <titulo>Cartola TTFF al extranjero</titulo>
+                    <opcion id="cartolaTTFFExtranjero">
+                        <titulo>Cartola TTFF al extranjero</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/cartolaTransferenciasMonex.jsf?navegacion=Menu</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                    <opcion id="movimientosFondosProvisionados">
+                        <titulo>Movimientos Fondos Provisionados</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/transferencia/transferenciamonex/cartolaFondosProvisionadosMonex.jsf</url>
+                        <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                    </opcion>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1200">
+            <titulo>CuentaSegura/ChequeSeguro</titulo>
+            <textoReemplazo />
+            <opcion id="N_1201">
+            <titulo>Cuenta Segura / Cheque Seguro</titulo>
+                <opcion id="N_1202">
+                    <opcion id="queEsChequeSeguro">
+                        <titulo>¿Que es?</titulo>
+                        <url>https://bciimg.bci.cl/sitioseguro/nsc/queesctachequeinformado_act.html</url>
+            </opcion>
+            <opcion id="cargaNominaCheque">
+                        <titulo>Cargar Nómina / Cheque</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/chequeseguro/inicioCargaNomina.jsf</url>
+                    </opcion>
+                    <opcion id="estadoNominaCheque">
+                        <titulo>Estado de Nómina</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/chequeseguro/consultaEstado.jsf</url>
+                    </opcion>
+                    <opcion id="firmarNominaCheque">
+                        <titulo>Firmar Nómina</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/chequeseguro/firmar.jsf</url>
+                    </opcion>
+                    <opcion id="consultarNominaCheque">
+                        <titulo>Consultar Nómina</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/chequeseguro/consultar.jsf</url>
+            </opcion>
+                    <opcion id="resumenCuentaCheque">
+                <titulo>Administración de Contactos</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/chequeseguro/administradorContactos.jsf</url>
+                    </opcion>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1300">
+            <titulo>Factoring</titulo>
+            <url>/cl/bci/aplicaciones/productos/factoring/vista/layoutPrincipalPanoramaFactoring.jsf</url>
+            <opcion id="N_1201">
+                <titulo>Factoring Digital</titulo>
+                <opcion id="factoring_elect">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Financiamiento</titulo>
+                    <url>/belwls/factoringElectronicoIndexa/factoringElectronicoIndexaAction.do?codProducto=Prod01</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_panorama">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Resumen de Financiamiento</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/layoutPrincipalPanoramaFactoring.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_formulario">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Cartera</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/documentosVigentes.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_operaciones">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Operaciones</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/OperacionesRecientesFactoring.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_excedentes">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Excedentes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/ExcedentesDisponibles.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_pagos_realizados">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Informe de Pagos Realizados</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/InformePagosRealizados.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_prorroga">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Prórroga en Línea</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/prorroga.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="repositorio_facturas_comision">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Repositorio Facturas de Comisión</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/repositorioFacturasComision.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="factoring_documentos_frecuentes">
+                	<poseeTag>SI</poseeTag>
+                    <titulo>Documentos Frecuentes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/factoring/vista/documentosFrecuentes.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+            </opcion>
+        </opcion>
+        <opcion id="N_1400">
+            <titulo>Transferencias Alto Valor</titulo>
+            <opcion id="pagos_soma">
+                <titulo>Pagos SOMA</titulo>
+                <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+				<opcion id="pagos_soma_resumen">
+                    <titulo>Resumen</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+					<tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="pagos_soma_ingreso">
+                    <titulo>Ingresar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/ingreso.jsf</url>
+					<tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="pagos_soma_firma_eli">
+                    <titulo>Firmar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/firmar.jsf</url>
+					<tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+                <opcion id="pagos_soma_liberar">
+                    <titulo>Liberar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/liberar.jsf</url>
+					<tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+            </opcion>
+        </opcion>
+		
+		<opcion id="N_1500">
+        <titulo>Pagos</titulo>
+			<opcion id="pagoPrevired">
+				<titulo>Pagos Pague Directo</titulo>
+				<url>/cl/bci/aplicaciones/productos/servicios/pagos/multimoneda/vista/autorizaPagosPDMultimoneda.jsf</url>
+				<opcion id="pagos_pague_directo_autorizar">
+                      <titulo>Autorizar Pagos</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/pagos/multimoneda/vista/autorizaPagosPDMultimoneda.jsf</url>
+				</opcion>
+				<opcion id="pagos_pague_directo_en_proceso">
+                    <titulo>Pagos en Proceso</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/multimoneda/vista/consultaPagosPDMultimoneda.jsf</url>
+				</opcion>
+				<opcion id="pagos_pague_directo_realizados">
+                      <titulo>Pagos Realizados</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/pagos/multimoneda/vista/consultaPagosRealizadosPDMultimoneda.jsf</url>
+                </opcion>
+        </opcion>
+    </opcion>
+     <opcion id="N_1600">
+            <titulo>Tarjetas de Credito</titulo>
+            <opcion id="volverPortalTDC">
+                <titulo>Volver</titulo>
+                <url>/belwls/tarjetasonline/pages/volverTDC.jsp</url>
+            </opcion>
+            <opcion id="N_1601">
+                <titulo>Tarjetas de Crédito</titulo>
+                <opcion id="avanceCuotasTDC">
+                    <titulo>Avances</titulo>
+                    <url>/cl/bci/aplicaciones/productos/colocaciones/tarjetadeCredito/avance/realizarAvanceTarjetaDeCredito.jsf</url>
+                    <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                </opcion>
+            </opcion>	
+       </opcion>
+		
+    <opcion id="N_2002">
+        <titulo>Transferencias</titulo>
+        <textoReemplazo />
+        <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/inicioTransferenciaLinea.jsf
+        </url>
+        <opcion id="N_2003">
+            <titulo>Transferencias de Fondos</titulo>
+                <opcion id="panelTransferencias">
+                    <titulo>Panel de Transferencias</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/panelTransferencias.jsf</url>
+                </opcion>
+                <opcion id="iniciarTransferencia">
+                    <titulo>Transferir</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/inicioTransferenciaLinea.jsf</url>
+                </opcion>
+                <opcion id="iniciarFirma">
+                    <titulo>Firmar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/firmaTransferenciaDePago.jsf</url>
+                </opcion>
+                <opcion id="iniciarDiferida">
+                    <titulo>Transferencias Pendientes</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/firmaTransferenciaDiferida.jsf</url>
+                </opcion>
+                <opcion id="ConsultasTransferencias">
+                    <titulo>Consulta de Transferencias</titulo>
+                        <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/consultaTransferenciaDePago.jsf</url>
+                    </opcion>
+                <opcion id="iniciarCertificado">
+                    <titulo>Certificado de Transferencias</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/busquedaCertificadoTransferenciaDePago.jsf</url>
+                </opcion>
+                <opcion id="misDestinatarios">
+                    <titulo>Mis Destinatarios</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/beneficiarios/busquedaBeneficiarios.jsf?tipoMoneda=NAC</url>
+                </opcion>         
+        </opcion>
+            <opcion id="nuevo_ttff_cuentas_propias">
+                <titulo>Transferencias Cuentas Propias</titulo>
+                <opcion id="panelTransferenciasPropias">
+                    <titulo>Panel de Transferencias</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/consultaTransferenciaCuentasPropiasHoy.jsf</url>
+                </opcion>
+               <opcion id="iniciarTransferenciaPropia">
+                    <titulo>Transferir</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/inicioTransferenciaCuentasPropias.jsf</url>
+                </opcion>
+                <opcion id="estadoNominaPropia">
+                    <titulo>Estado de Nóminas</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/estadoNominaTransferenciaCuentaPropia.jsf</url>
+                </opcion>
+                <opcion id="iniciarFirmaPropias">
+                    <titulo>Firmar</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/firmarTransferenciasCuentasPropias.jsf</url>
+                </opcion>
+                <opcion id="pendientesCargo">
+                    <titulo>Pendientes de Cargo</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/firmaTransferenciaCuentasPropiasDiferida.jsf</url>
+                </opcion>
+                <opcion id="consultasTransferenciasPropias">
+                    <titulo>Consulta de Transferencias</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/consultaTransferenciaCuentasPropias.jsf</url>
+                </opcion>
+                <opcion id="iniciarCertificadoPropias">
+                    <titulo>Certificado de Transferencias</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/transferencia/busquedaCertificadoTransferenciaCuentaPropia.jsf</url>
+                </opcion>
+            </opcion>
+    </opcion>
+    <opcion id="nuevo_pago_nomina_linea">
+        <titulo>Pago de Nóminas &lt;br&gt;en Línea &lt;B&gt;NUEVO&lt;/B&gt;</titulo>
+        <opcion id="queesPnol">
+            <titulo>¿Qué es?</titulo>
+            <url>https://bciimg.bci.cl/sitioseguro/mkt_nsc/empresarios/tutoriales/Nomina_Tutorial_act.html</url>
+        </opcion>
+        <opcion id="panelPagos">
+                    <titulo>Panel de Pagos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/panelPagos.jsf</url>
+        </opcion>
+        <opcion id="iniciarPagoPnol">
+            <titulo>Paso 1: Cargar Nóminas</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/inicioPagoEnLinea.jsf</url>
+        </opcion>
+        <opcion id="estadoNominaPnol">
+            <titulo>Estado de Nóminas</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/estadoNomina.jsf</url>
+        </opcion>
+        <opcion id="firmarNominaPnol">
+            <titulo>Firmar Nóminas</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/firmaNominasEnLinea.jsf</url>
+        </opcion>
+        <opcion id="pagarNominaDiferidaPnol">
+            <titulo>Nóminas Diferidas</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/nominasDiferidas.jsf</url>
+        </opcion>
+        <opcion id="rendicionNominaPnol">
+            <titulo>Reporte de Nómina</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/listadoRendiciones.jsf</url>
+        </opcion>
+        <opcion id="consultaPagosPnol">
+            <titulo>Consultas de Pagos</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/consultaNominasPagos.jsf</url>
+        </opcion>
+        <opcion id="consultaCertificadosPnol">
+            <titulo>Certificados de Pago</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/pagos/linea/vistaBusquedaCertificadoPago.jsf</url>
+        </opcion>
+        <opcion id="misBeneficiariosPnol">
+            <titulo>Mis Destinatarios</titulo>
+            <url>/cl/bci/aplicaciones/productos/servicios/beneficiarios/busquedaBeneficiarios.jsf?tipoMoneda=NAC</url>
+        </opcion>
+    </opcion>
+    <opcion id="nuevo_pago_automatico">
+	        <opcion id="iniciarPAC">
+	            <titulo>Página Inicial</titulo>
+	            <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/homeDebitoPac.jsf</url>
+	        </opcion>
+	        <opcion id="cargaNominas">
+	            <titulo>Carga de Nóminas</titulo>
+	            <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/carga/ingresoTipoPagos.jsf</url>
+	        </opcion>
+	        <opcion id="nominasAutorizar">
+	            <titulo>Nóminas por Autorizar</titulo>
+	            <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/autorizacion/nominaPACPorAutorizar.jsf</url>
+	        </opcion>
+	        <opcion id="consultasPAC">
+	            <titulo>Consultas</titulo>
+	                <opcion id="cargosMandatos">
+	                    <titulo>Cargos y Mandatos</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/consultaCargosMandatos.jsf</url>
+	                </opcion>
+	                <opcion id="CargosObservaciones">
+	                    <titulo>Cargos con Observaciones</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/consultaNominasObservadas.jsf</url>
+	                </opcion>
+	                <opcion id="listasProcesar">
+	                    <titulo>Listas para Procesar</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/consultaNominasListaParaProcesar.jsf</url>
+	                </opcion>
+	                <opcion id="cargosRechazados">
+	                    <titulo>Cargos Rechazados</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/consultaNominasRechazadas.jsf</url>
+	                </opcion>
+	                <opcion id="procesosTerminados">
+	                    <titulo>Procesos Terminados</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/consulta/consultaProcesosTerminados.jsf</url>
+	                </opcion>
+	        </opcion>
+	        <opcion id="mandatos">
+	                <titulo>Mandatos</titulo>
+	                <opcion id="universoMandatos">
+	                    <titulo>Universo de Mandatos</titulo>
+	                    <url>/cl/bci/aplicaciones/productos/servicios/debitos/pac/mandatos/descargaMandatoPAC.jsf</url>
+	                </opcion>
+	                <opcion id="estadosMandatosResumen">
+	                    <titulo>Estados de Mandatos Resumen</titulo>
+	                    <url>/belwls/mandatoscca/mandatosCCA.do?accion=linkearCCA&amp;opcionMenu=CR</url>
+	                </opcion>
+	                <opcion id="estadosMandatosDetalle">
+	                    <titulo>Estados de Mandatos Detalle</titulo>
+	                    <url>/belwls/mandatoscca/mandatosCCA.do?accion=linkearCCA&amp;opcionMenu=CMD</url>
+	                </opcion>
+	        </opcion>
+	        <opcion id="configuracionPAC">
+	                <titulo>Configuración</titulo>
+	                <opcion id="crearFormatoArchivo">
+	                    <titulo>Crear Formato Archivo</titulo>
+	                    <url>/belwls_debito/confDebFormatosArchivo.do</url>
+	                </opcion>
+	                <opcion id="tablasConversion">
+	                    <titulo>Tablas de Conversión</titulo>
+	                    <url>/belwls_debito/confDebTCVConsBanco.do</url>
+	                </opcion>
+	                <opcion id="recepcionArchivosCargo">
+	                    <titulo>Recepción Archivos de Cargos</titulo>
+	                    <url>/belwls_debito/confDebRecepcionCargo.do</url>
+	                </opcion>
+	                <opcion id="recepcionArchivosMandatos">
+	                    <titulo>Recepción Archivos de Mandatos</titulo>
+	                    <url>/belwls_debito/confDebRecepcionArchMdto.do</url>
+	                </opcion>
+	        </opcion>
+	        
+       </opcion>        
+           <opcion id="N_2004">
+          <titulo>NuevoAltosMontos</titulo>
+          <textoReemplazo />
+          <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/ingresoAltoMonto.jsf</url>
+          <opcion id="nuevo_transferencias_altos_montos">
+              <titulo>NUEVO Transferencias LBTR</titulo>
+              <opcion id="iniciarTransferenciaAM">
+                  <titulo>Cargar Nóminas</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/ingresoAltoMonto.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+              
+              <opcion id="estadoNominaAM">
+                  <titulo>Estado de Nóminas</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/estadoNomina.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+              <opcion id="firmarTransferenciaAM">
+                  <titulo>Firmar Nóminas</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/firmarNominaAltosMontos.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+              <opcion id="pagarTransferenciaAM">
+                  <titulo>Pagar Nóminas Pendientes</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/pagarNominaAltosMontos.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+              <opcion id="consultarTransferenciasAltoMonto">
+                  <titulo>Consultar Pagos</titulo>
+                  <opcion id="consultarTransferenciasAM">
+                      <titulo>Consultar Pagos</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/consultaNominasAltosMontos.jsf</url>
+                      <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                  </opcion>
+                  <opcion id="cartolaTransferenciasAM">
+                      <titulo>Cartola de Transferencias</titulo>
+                      <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/consultaCartolaAltosMontos.jsf</url>
+                       <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+                  </opcion>
+              </opcion>
+              <opcion id="certificadoTransferenciaAM">
+                  <titulo>Certificado de Pagos</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/transferenciaaltosmontos/consultaCertificadoAltosMontos.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+              <opcion id="misBeneficiariosTEF">
+                  <titulo>Mis Destinatarios</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/beneficiarios/busquedaBeneficiarios.jsf?tipoMoneda=NAC</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+          </opcion>
+          <opcion id="pagos_soma_ingreso">
+              <titulo>Pagos SOMA</titulo>
+              <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+               <opcion id="pagos_soma_resumen">
+                  <titulo>Resumen</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/resumen.jsf</url>
+              </opcion>
+              <opcion id="pagos_soma_ingreso">
+                  <titulo>Ingresar</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/ingreso.jsf</url>
+              </opcion>
+              <opcion id="pagos_soma_firma_eli">
+                  <titulo>Firmar</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/firmar.jsf</url>
+              </opcion>
+              <opcion id="pagos_soma_liberar">
+                  <titulo>Liberar</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/pagos/soma/liberar.jsf</url>
+              </opcion>
+             
+          </opcion>
+      </opcion>       
+      <opcion id="N_2005">
+          <titulo>Saldos Corporativos</titulo>
+          <textoReemplazo />
+          <url>/cl/bci/aplicaciones/productos/captaciones/cuentas/consultaSaldosCorporativos.jsf</url>
+          <opcion id="nuevo_saldos_corporativos">
+              <titulo>Saldos Corporativos</titulo>
+              <opcion id="consultaSaldosCorporativos">
+                  <titulo>Nuevo Saldos Corporativos</titulo>
+                  <url>/cl/bci/aplicaciones/productos/captaciones/cuentas/consultaSaldosCorporativos.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+          </opcion>          
+      </opcion>
+
+	  <opcion id="N_1800">
+			<titulo>Información Proveedor</titulo>
+			<opcion id="infoProveedor">
+				<titulo>Información Proveedor</titulo>
+				<url>/cl/bci/aplicaciones/productos/factoring/financiamiento/anticiparPagos.jsf</url>
+				<opcion id="pagos_recibidos">
+					<titulo>Pagos Recibidos</titulo>
+					<url>/belwls/proveedores/pagosrecibidos/consultarPagosRecibidosAction.do?accion=inicio&amp;codServicio=X44OPE&amp;glosaLog=Consultar_Pagos_Recibidos&amp;regxpag=500&amp;switchMopa=W</url>
+				</opcion>
+				<opcion id="documentos_publicados">
+					<titulo>Documentos Publicados</titulo>
+					<url>/belwls/infoproveedor/documentospublicados/consultaDocumentosPublicados.do?method=inicioConsultaDocumentosPublicados</url>
+				</opcion>
+				<opcion id="antecedentes_x_pagador">
+					<titulo>Antecedentes por Pagador</titulo>
+					<url>/belwls/infoproveedor/antecedentesporpagador/obtieneEmpresasPagadorasAction.do?serv=PPADP102</url>
+				</opcion>
+				<opcion id="financiamiento_factoring">
+					<titulo>Financiamiento Factoring</titulo>
+					<url>/cl/bci/aplicaciones/productos/factoring/financiamiento/anticiparPagos.jsf</url>
+				</opcion>
+				<opcion id="contratos_factoring">
+					<titulo>Contratos Factoring</titulo>
+					<url>/belwls/bciexpress/bco_linea/informacion_proveedor/contratos_factoring/tes_con_fac_frm.jsp?codProducto=Prod01&amp;codServicio=PRVFIN02&amp;glosaLog=Contratos Factoring</url>
+				</opcion>
+				<opcion id="mandato_abono_cta_bci">
+					<titulo>Mandato Abono en Cuenta BCI</titulo>
+					<url>/belwls/infoproveedor/mandatodeabonoencuenta/obtieneCuentasVinculadasAction.do?codProducto=Prod01&amp;serv=PPCMP105</url>
+				</opcion>
+			</opcion>
+		</opcion>
+        <opcion id="dashboard_recaudaciones">
+          <titulo>Consulta Consolidada</titulo>
+          <textoReemplazo />
+          <url>/cl/bci/aplicaciones/productos/servicios/vistaConsultaConsolidada.jsf</url>
+          <opcion id="items_dashboard">
+              <titulo>Consulta Consolidada</titulo>
+              <opcion id="detalle_dashBoard">
+                  <titulo>Dashboard</titulo>
+                  <url>/cl/bci/aplicaciones/productos/servicios/vistaConsultaConsolidada.jsf</url>
+                  <tipoEdicionMenu>servicioActivo</tipoEdicionMenu>
+              </opcion>
+          </opcion>          
+
+   <opcion id="inversiones">
+            <titulo>Inversiones</titulo>
+            <url>/cl/bci/aplicaciones/pyme/menu/vistas/inversiones/homeInversiones.jsf</url>
+            <permisos>
+                <suficientes>EsCliente</suficientes>
+            </permisos>
+            <opcion id="resumen_inv">
+                <titulo>Resumen</titulo>    
+                <opcion id="cartola_inversiones">
+                    <titulo>Resumen de Carteras</titulo>
+                    <url>/cl/bci/aplicaciones/productos/inversiones/resumen/resumenInversiones.jsf</url>
+                </opcion>
+            </opcion>
+            <opcion id="fondos_mutuos">
+                <titulo>Fondos Mutuos</titulo>
+                <opcion id="cartola_saldos_ffmm">
+                    <titulo>Cartola de Saldos</titulo>
+                    <url>/cl/bci/aplicaciones/productos/inversiones/fondosmutuos/cartolaFFMM.jsf</url>
+                </opcion>
+                <opcion id="cartola_mov_ffmm">
+                    <titulo>Cartola Histórica</titulo>
+                    <url>/cl/bci/aplicaciones/productos/inversiones/fondosmutuos/cartolaHistoricaFFMM.jsf</url>
+                </opcion>
+                <opcion id="valores_cuota_ffmm">
+                    <titulo>Valores Cuota</titulo>
+                    <url>/cl/bci/aplicaciones/productos/inversiones/fondosmutuos/consultaValorCuota.jsf</url>
+                </opcion>
+            </opcion>
+     </opcion>
+        </opcion>
+    </opcion>
+</bcimenu>
+

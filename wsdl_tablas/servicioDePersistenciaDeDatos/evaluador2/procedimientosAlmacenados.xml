@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="evaluador2.procedimientosAlmacenados">	
+
+<resultMap id="OfertaCliente" class = "java.util.HashMap">
+  <result property = "codigo_oferta" 		column = "codigo_oferta" javaType="String"/>
+  <result property = "monto_liq" 	column = "monto_liq" javaType="Long"/>
+  <result property = "fecha_exp"	column = "fecha_exp" jdbcType="Date"/>
+</resultMap>
+<procedure id="ConsultaOfertasCliente" parameterClass="java.util.HashMap" resultMap="OfertaCliente">
+	{CALL CONS_oferta_cliente(#rut_cliente#,#dv_cliente#,#cod_prod#,#estado_oferta#)}
+</procedure>
+
+</sqlMap>	

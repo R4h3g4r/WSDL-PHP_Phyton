@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="EXTREP.procedimientosAlmacenados">
+
+<parameterMap id="setconsultaAbonosRecibidos" class="java.util.HashMap">
+	<parameter property="ctaDestino" jdbcType="VARCHAR" javaType="String" />
+	<parameter property="fechaInicio" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	<parameter property="fechaFin" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+</parameterMap>
+
+<resultMap id="getconsultaAbonosRecibidos" class="java.util.HashMap">
+	<result property="rutDestino" 	column="RTF_RUT_DST" javaType="String" />
+	<result property="traceNumber" 	column="RTF_TRC_NUM" javaType="String" />
+	<result property="digDestino" 	column="RTF_VRT_DST" javaType="String" />
+	<result property="monto" 	column="RTF_MTO_TRF" javaType="double" />
+    	<result property="fechaTransf" 	column="RTF_FEC_TRF" javaType="String" />
+    	<result property="codMoneda" 	column="RTF_COD_MON" javaType="String" />
+    	<result property="errorTandem" 	column="RTF_COD_TDM" javaType="String" />
+    	<result property="codOperador" 	column="RTF_COD_CCA" javaType="String" />
+    	<result property="bcoOrigen" 	column="RTF_BCO_ORI" javaType="String" />
+    	<result property="ctaOrigen" 	column="RTF_CTA_ORI" javaType="String" />
+   	<result property="rutOrigen" 	column="RTF_RUT_ORI" javaType="String" />
+  	<result property="digOrigen" 	column="RTF_VRT_ORI" javaType="String" />
+  	<result property="nomOrigen" 	column="RTF_NOM_ORI" javaType="String" />
+  	<result property="bcoDestino" 	column="RTF_BCO_DST" javaType="String" />
+ 	<result property="ctaDestino" 	column="RTF_CTA_DST" javaType="String" />
+ 	<result property="nomDestino" 	column="RTF_NOM_DST" javaType="String" />
+ 	<result property="codEstado" 	column="RTF_COD_EST" javaType="String" />
+	<result property="tipOperacion" column="RTF_TIP_OPE" javaType="String" />
+	<result property="fechaProceso" column="RTF_FEC_PRC" javaType="String" />
+	<result property="fechaContable" column="RTF_FEC_CTB" javaType="String" />
+	<result property="horaContable" column="RTF_HOR_CTB" javaType="String" />
+	<result property="comentario" column="RTF_CMT" javaType="String" />
+    	<result property="codOperacion" column="RTF_COD_OPE" javaType="String" />
+</resultMap>
+	
+<procedure id="consultaAbonosRecibidos" parameterMap="setconsultaAbonosRecibidos" resultMap="getconsultaAbonosRecibidos">	
+	{ CALL sp_con_abo_ttff_cta(?,?,?) }	
+</procedure>
+
+
+<parameterMap id="setConsultaTransferenciasRecibidasCliente" class="java.util.HashMap">
+		<parameter property="rut"		   		   	jdbcType="CHAR" 		javaType="String" />				
+		<parameter property="cuenta"  		    	jdbcType="CHAR" 		javaType="String" />
+		<parameter property="periodo"		        jdbcType="DATE"    		javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />		
+		<parameter property="bloque"		      	jdbcType="NUMERIC" 		javaType="int" />		
+		<parameter property="cantidadRegistros"     	jdbcType="NUMERIC" 		javaType="int" />
+	</parameterMap>
+
+	<resultMap id="getConsultaTransferenciasRecibidasCliente" class="java.util.HashMap">
+	    <result property="cuentaOrigen"     		column="cuentaOrigen"				jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="tipoCuentaOrigen"     		column="tipoCuentaOrigen" 			jdbcType="CHAR"    	 javaType="String"/>        	
+            <result property="montoTransferido"			column="montoTransferido" 			jdbcType="NUMERIC"   	 javaType="int" />        	
+	    <result property="cuentaDestino" 			column="cuentaDestino"				jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="nombreDestinatario"     		column="nombreDestinatario"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="rutDestino"			column="rutDestino"				jdbcType="CHAR"    	 javaType="String" />
+	    <result property="dVDestino"			column="dVDestino"				jdbcType="CHAR"    	 javaType="String" />            	
+	    <result property="bancoOrigen"			column="bancoOrigen"				jdbcType="CHAR"    	 javaType="String" />        		        
+	    <result property="numeroOperacion"    		column="numeroOperacion"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="fechaMovimiento"			column="fechaAbono"				jdbcType="DATE"    	 javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />        	
+	    <result property="comentarioTransferencia"     	column="comentarioTransferencia"		jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="operacion"     			column="operacion"				jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="numerosPagina"			column="numerosPagina"				jdbcType="NUMERIC"   	 javaType="int" />        		        
+	</resultMap>
+
+	<procedure id="consultaTransferenciasRecibidasCliente" parameterMap="setConsultaTransferenciasRecibidasCliente" resultMap="getConsultaTransferenciasRecibidasCliente">
+		{ CALL sp_CnsTransLineaAbono( ?, ?, ?, ?, ? ) }
+	</procedure>
+
+<parameterMap id="setExtraeTransferenciasRecibidas" class="java.util.HashMap">
+		<parameter property="rutCliente"		   	jdbcType="CHAR" 	javaType="String" />				
+		<parameter property="nroCuenta"  			jdbcType="CHAR" 	javaType="String" />
+		<parameter property="fechaDesde"		    jdbcType="DATETIME"    	javaType="java.util.Date" />	
+		<parameter property="fechaHasta"		    jdbcType="DATETIME"    	javaType="java.util.Date" />		
+		<parameter property="bloque"		      	jdbcType="INTEGER" 		javaType="int" />		
+		<parameter property="cantidadRegistros"     jdbcType="INTEGER" 		javaType="int" />
+	</parameterMap>
+
+	<resultMap id="getExtraeTransferenciasRecibidas" class="java.util.HashMap">
+	    <result property="cuentaOrigen"     	column="cuentaOrigen"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="tipoCuentaOrigen"     	column="tipoCuentaOrigen" 		jdbcType="CHAR"    	 javaType="String"/>        	
+	    <result property="nombreOrigen"     	column="nombreOrigen"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="rutOrigen"		column="rutOrigen"			jdbcType="CHAR"    	 javaType="String" />
+	    <result property="dVOrigen"			column="dVOrigen"			jdbcType="CHAR"    	 javaType="String" />
+            <result property="montoTransferido"		column="montoTransferido" 		jdbcType="NUMERIC"       javaType="int" />        	
+	    <result property="cuentaDestino" 		column="cuentaDestino"			jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="tipoCuentaDestino"     	column="tipoCuentaDestino" 		jdbcType="CHAR"    	 javaType="String"/>        	
+	    <result property="nombreDestinatario"     	column="nombreDestinatario"		jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="rutDestino"		column="rutDestino"			jdbcType="CHAR"    	 javaType="String" />
+	    <result property="dVDestino"		column="dVDestino"			jdbcType="CHAR"    	 javaType="String" />            	
+	    <result property="bancoOrigen"		column="bancoOrigen"			jdbcType="CHAR"    	 javaType="String" />        		        
+	    <result property="numeroOperacion"    	column="numeroOperacion"		jdbcType="CHAR"    	 javaType="String" />        	
+	    <result property="fechaMovimiento"		column="fechaAbono"			jdbcType="DATETIME"  javaType="java.util.Date"/>        	
+	    <result property="comentarioTransferencia"  column="comentarioTransferencia"	jdbcType="CHAR"      javaType="String" />        	
+	    <result property="operacion"     		column="operacion"			jdbcType="CHAR"      javaType="String" />        	
+	    <result property="numerosPagina"		column="numerosPagina"			jdbcType="NUMERIC"   javaType="int" />        		
+	    <result property="cantidadTransferencias"	column="cantidadTransferencias"		jdbcType="NUMERIC"   javaType="int" />      
+	</resultMap>
+
+	<procedure id="extraeTransferenciasRecibidas" parameterMap="setExtraeTransferenciasRecibidas" resultMap="getExtraeTransferenciasRecibidas">
+		{ CALL sp_CnsTransRecibidas( ?, ?, ?, ?, ?, ? ) }
+	</procedure>		
+
+</sqlMap>

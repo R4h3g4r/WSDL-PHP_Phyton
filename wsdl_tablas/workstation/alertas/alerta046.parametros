@@ -1,0 +1,14 @@
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=¡Cliente sin PinPass activado! En la llamada indicarle que debe seguir los siguientes pasos:;
+GLOSA1;mensaje=<b>1. Si cliente tiene multipass:  </b> debe ingresar a www.bci.cl con su rut, clave y multipass. Seleccionar en el menú Tarjeta de Crédito la opción <b>"Generación o cambio de PinPass"<b>. Luego ingresar y modificar la clave.<br>;
+GLOSA2;mensaje=<b>2. Si no tiene multipass: </b>Solicitar a JSC que resetee la clave actual. Luego cliente deberá acercarse a un cajero automático antes de 72 horas para activarla con los 4 últimos dígitos de su rut antes del guión. La clave PinPass quedará activada inmediatamente.<br>;
+GLOSA3;mensaje=El cliente sabrá si es correcta la clave que se está usando actualmente solo si al momento de la compra el comprobante no le pide la firma. En caso de que pida la firma, la clave que se está usando es incorrecta. Esto aplica tanto para Tarjetas de Crédito Titulares como Adicionales. ;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=¡Cliente sin PinPass activado! En la llamada indicarle que debe seguir los siguientes pasos:;
+GlOSAPDF1;mensaje=1. Si cliente tiene multipass: debe ingresar a www.bci.cl con su rut, clave y multipass. Seleccionar en el menú Tarjeta de Crédito la opción "Generación o cambio de PinPass". Luego ingresar y modificar la clave.;
+GLOSAPDF2;mensaje=2. Si no tiene multipass:  Solicitar a JSC que resetee la clave actual. Luego cliente deberá acercarse a un cajero automático antes de 72 horas para activarla con los 4 últimos dígitos de su rut antes del guión. La clave PinPass quedará activada inmediatamente.;
+GLOSAPDF3;mensaje=El cliente sabrá si es correcta la clave que se está usando actualmente solo si al momento de la compra el comprobante no le pide la firma. En caso de que pida la firma, la clave que se está usando es incorrecta. Esto aplica tanto para Tarjetas de Crédito Titulares como Adicionales. ;
+
+#flag desactivacion
+#DESACTIVAR;FLAG=1;

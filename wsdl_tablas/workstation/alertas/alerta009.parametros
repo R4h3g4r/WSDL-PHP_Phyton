@@ -1,0 +1,16 @@
+# Morosidad Factoring  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar Información en productos vigentes.;
+GLOSA1;mensaje=2.- Contactar a Cliente.;
+GLOSA2;mensaje=3.- Solicitar regularización de deuda morosa.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=1.- Verificar Información en productos vigentes.;
+GLOSAPDF1;mensaje=2.- Contactar a Cliente.;
+GLOSAPDF2;mensaje=3.- Solicitar regularización de deuda morosa.;
+
+#flag desactivacion
+#DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=Esta alerta se despliega cuando en los sistemas de factoring, el cliente figura en mora.;periodo= No se utiliza tiempo en el cálculo;fuente= Sistema de Factoring/Alertas en la pestaña Líneas.;

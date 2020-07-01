@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_pi">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input/>
+	<output>
+		<struct struct_size="0" class_name="ConsultaProbabilidadDeIncumplimiento" var_name="probabilidadDeIncumplimiento">
+			<field type="Integer" middle_name="prp_cod" size="20" java_name="codPerdidaEsperada"/>
+			<field type="Integer" middle_name="hpi_cod_prf" size="0" java_name="codProbabilidaDeIncumplimiento"/>
+			<field type="Integer" middle_name="hpi_div_imp_min" size="0" java_name="dividendoImpagoMinimo"/>
+			<field type="Integer" middle_name="hpi_div_imp_max" size="0" java_name="dividendoImpagoMaximo"/>
+			<field type="Double" middle_name="hpi_val_pi" size="0" java_name="valorProbabilidadDeIncumplimiento"/>
+			<field type="String" middle_name="gls_des" size="20" java_name="descripcionGlosa"/>
+			<field type="String" middle_name="prp_vig" size="20" java_name="vigencia"/>
+		</struct>
+	</output>
+</service>

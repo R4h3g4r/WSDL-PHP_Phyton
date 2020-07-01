@@ -1,0 +1,10 @@
+<peticion llave="">
+     <peticionservicio tipo="AUT">
+           <parametro nombre="usuario" valor="" />
+           <parametro nombre="password" valor="" />
+     </peticionservicio>
+     <peticionservicio tipo="CCA">
+           <parametro nombre="rut" valor="1-9" />
+           <parametro nombre="codigo" valor="" />
+     </peticionservicio>
+</peticion>

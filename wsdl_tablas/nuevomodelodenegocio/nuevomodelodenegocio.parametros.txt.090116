@@ -1,0 +1,25 @@
+Esta tabla contiene los parámetro necesarios utilizados en Nuevo Modelo de Negocio
+
+Generales
+~~~~~~~~~
+
+    - La llave +filasConsultaMasiva+ define la cantidad de +filas+ que serán mostradas en las consultas masivas de la aplicación
+    - La llave +codigosMonedaValidos+ define los codigos +desc+ de monedas validos que serán mostradas en las consultas
+    - La llave +PLANES+ define los codigos +desc+ de planes disponibles
+    - La llave +KBC+ define los productos +desc+ de plan asociado
+    - La llave +KTB+ define los productos +desc+ de plan asociado
+    - La llave +PLB+ define los productos +desc+ de plan asociado
+    - La llave +PLT+ define los productos +desc+ de plan asociado
+    - La llave +ejecutaCambioEnTandem+ define si el servicio debe ser realizado +desc+ (S=SI, N=NO)
+    - La llave +ChequesLibres+ define si el item debe ser mostrado +desc+ (S=SI, N=NO)
+    - La llave +CajeroAutomat+ define si el item debe ser mostrado +desc+ (S=SI, N=NO)
+    - La llave +Transferencia+ define si el item debe ser mostrado +desc+ (S=SI, N=NO)
+    - La llave +ExcesoTempora+ define si el item debe ser mostrado +desc+ (S=SI, N=NO)
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 25/11/2008 Hector Carranza   (BEE)            : Version Inicial.
+. 12/12/2008 Hector Carranza   (BEE)            : Se agregan nuevos variables para manejo de planes
+
+==========================================

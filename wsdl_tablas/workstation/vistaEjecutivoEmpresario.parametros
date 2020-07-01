@@ -1,0 +1,219 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################ 
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-MIS-CLIENTE,MENU-GESTIONANDO-MI-CARTERA,MENU-CAPACITACION-AYUDA-VENTA,MENU-CLIENTES-DEL-DIA,MENU-VENTAS,MENU-GESTION,MENU-RIESGO,MENU-ACCESOS-DIRECTOS;
+
+################################################################################
+# Definicion del menú MENU-MIS-CLIENTE.
+################################################################################
+MENU-MIS-CLIENTE;tipoNodo=MENU;nombre=Mis Clientes;nodosMenu=OPCION-EMPEJE,OPCION-LISTADO-ON-DEMAND;descripcion=Mis Clientes;
+
+# Definicion de opción "Empeje".
+OPCION-EMPEJE;tipoNodo=OPCION;nombre=Mi Cartera;url=/workstationwls/empresa/vistaejecutivo/consultaCarteraClientes.do?accion=iniciarConsultaEmpresas;nombrePopUp=new;opcionesPopUp=scrollbars=yes,resizable=yes,width=990,height=570;accionesValidas=ABRIR_EJECUTIVO,ABRIR_JEFE;vistaValida=ETE_EMPEJE;
+
+# Definicion de opción "Seguimiento Clientes".
+#OPCION-SEGUIMIENTO-CLIENTES;tipoNodo=OPCION;nombre=Seguimiento Clientes;url=;nombrePopUp=seguimientoClientes;opcionesPopUp=;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Listado On Demand".
+OPCION-LISTADO-ON-DEMAND;tipoNodo=OPCION;nombre=Listado On Demand;url=http://listados;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=800,height=600;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Factoring".
+#MENU-FACTORING;tipoNodo=MENU;nombre=Factoring;nodosMenu=OPCION-EVOLUCION-STOCK,OPCION-INGRESOS-PRELIMINARES;descripcion=Factoring;opcionesPopUp=status=yes,scrollbars=yes,resizable=yes,width=780,height=565;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Evolución Stock".
+#OPCION-EVOLUCION-STOCK;tipoNodo=OPCION;nombre=Evolución Stock;url=;descripcion=Evolución Stock;opcionesPopUp=status=yes,scrollbars=yes,resizable=yes,width=780,height=565;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Ingresos Preliminares".
+#OPCION-INGRESOS-PRELIMINARES;tipoNodo=OPCION;nombre=Ingresos  Preliminare;url=;descripcion=Ingresos Preliminares;opcionesPopUp=status=yes,scrollbars=yes,resizable=yes,width=780,height=565;vistaValida=;accionesValidas=;
+
+
+################################################################################
+# Definicion del menú MENU-GESTIONANDO-MI-CARTERA.
+################################################################################
+MENU-GESTIONANDO-MI-CARTERA;tipoNodo=MENU;nombre=Gestionando mi Cartera;nodosMenu=OPCION-CAMPANAS-VIG,OPCION-EVENTOS-DE-MI-CARTERA;descripcion=Gestionando mi Cartera;
+
+# Definicion de opción "Clientes Gestionados".
+#OPCION-PLANES-CLI-GEST;tipoNodo=OPCION;nombre=Clientes Gestionados;url=;descripcion=Planes;opcionesPopUp=resizable=yes,scrollbars=yes,width=780,height=570;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Campañas Vigentes".
+OPCION-CAMPANAS-VIG;tipoNodo=MENU;nodosMenu=OPCION-CAMPVIG-PRIO-CLIENTES,OPCION-CAMPVIG-CLIENTES-AGENDADOS,OPCION-CAMPVIG-CLIENTES-GESTIONADOS;nombre=Campañas Vigentes;descripcion=Campañas Vigentes;url=/portalwls/campanas/filtrarProdPriorizados.do?inicio=true;nombrePopUp=new;opcionesPopUp=width=780,height=490;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Priorizacion Clientes en Campaña".
+#OPCION-CAMPVIG-PRIO-CLIENTES;tipoNodo=OPCION;nombre=Priorización Clientes en Campaña;url=/portalwls/campanas/filtrarProdPriorizados.do?inicio=true;descripcion=Priorizacion Clientes en Campaña;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=ABRIR;vistaValida=PCE_DETALLE;
+
+# Definicion de opción "Clientes Agendados".
+#OPCION-CAMPVIG-CLIENTES-AGENDADOS;tipoNodo=OPCION;nombre=Clientes Agendados;url=/portalwls/campanas/listadoClientesAgendados.do;descripcion=Clientes Agendados;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Clientes Gestionados".
+OPCION-CAMPVIG-CLIENTES-GESTIONADOS;tipoNodo=OPCION;nombre=Clientes Gestionados;url=;descripcion=Clientes Gestionados;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Clientes Gestionados".
+#OPCION-CLIENTES-GESTIONADOS;tipoNodo=OPCION;nombre=Clientes Gestionados;url=;descripcion=Clientes Gestionados;opcionesPopUp=resizable=yes,scrollbars=yes,width=780,height=570;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Eventos de mi Cartera".
+OPCION-EVENTOS-DE-MI-CARTERA;tipoNodo=OPCION;nombre=Eventos de mi Cartera;descripcion=Eventos de mi Cartera;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=780,height=566;url=/portalwls/tareas/ConfigurationServlet?MethodType=CONSULTAAGENTE&taskType=Task;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Ingresar Reemplazo".
+#OPCION-INGRESAR-REEMPLAZO;tipoNodo=OPCION;nombre=Ingresar Reemplazo;url=;descripcion=Ingresar Reemplazo;opcionesPopUp=resizable=yes,scrollbars=yes,width=720,height=330;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Consultar Reemplazo".
+#OPCION-CONSULTAR-REEMPLAZO;tipoNodo=OPCION;nombre=Consultar Reemplazo;url=;descripcion=Consultar Reemplazo;opcionesPopUp=width=720,height=460;vistaValida=;accionesValidas=;
+
+################################################################################
+# Definicion del menú MENU-CAPACITACION-AYUDA-VENTA.
+################################################################################
+MENU-CAPACITACION-AYUDA-VENTA;tipoNodo=MENU;nombre=Capacitación Ayuda y Venta;nodosMenu=OPCION-BCI-APRENDE,OPCION-BCI-SER-HUMANO,OPCION-COSTO-DE-FONDO,OPCION-MESA-DE-AYUDA,OPCION-CONVENIOS,OPCION-MANUAL-PRODUCTOS-EMPRESA;descripcion=Capacitación Ayuda y Venta;
+
+# Definicion de opción "Bci Aprende".
+OPCION-BCI-APRENDE;tipoNodo=OPCION;nombre=Bci Aprende;url=https://bciaprende.bci.cl;descripcion=Bci Aprende;opcionesPopUp=scrollbars=yes,width=800,height=600;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Bci Ser Humano".
+OPCION-BCI-SER-HUMANO;tipoNodo=OPCION;nombre=Bci Ser Humano;url=http://serhumano:8160;nombrePopUp=new;opcionesPopUp=scrollbars=no,width=1000,height=1200;descripcion=Bci Ser Humano;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Costo de Fondos".
+OPCION-COSTO-DE-FONDO;tipoNodo=OPCION;nombre=Costo de Fondos;url=/workstationwls/portal/tarifadoNacInt.jsp?tipoTarifa=N;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=800,height=600;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Tarifados de Precios : Nacional".
+# OPCION-TARIFADOS-DE-PRECIOS;tipoNodo=MENU;nombre=Tarifados de Precios : Nacional;nodosMenu=OPCION-INTERNACIONAL;descripcion=Tarifados de Precios;opcionesPopUp=width=500,height=400;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Internacional".
+#OPCION-INTERNACIONAL;tipoNodo=OPCION;nombre=Internacional;url=;descripcion=Internacional;opcionesPopUp=;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Mesa de Ayuda".
+OPCION-MESA-DE-AYUDA;tipoNodo=OPCION;nombre=Mesa de Ayuda;url=/workstationwls/portal/pop80-mesa-de-ayuda.jsp;nombrePopUp=new;opcionesPopUp=scrollbars=no,width=400,height=283;descripcion=Mesa de Ayuda;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Convenios".
+OPCION-CONVENIOS;tipoNodo=OPCION;nombre=Convenios;url=/workstationwls/conveniosyplanes/obtenerEmpresasEnConvenioAction.do?pagina=0;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=800,height=600;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Mejores Prácticas".
+OPCION-MEJORES-PRACTICAS;tipoNodo=OPCION;nombre=Mejores Prácticas;url=/workstationwls/empresa/vistaejecutivo/content/pop-cierre.jsp;descripcion=Mejores Prácticas;opcionesPopUp=width=742,height=570;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Manual de Productos de Empresas".
+OPCION-MANUAL-PRODUCTOS-EMPRESA;tipoNodo=OPCION;nombre=Manual de Productos de Empresas;url=/workstationwls/empresa/manualProductosEmpresas.jsp;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=800,height=400;descripcion=Manual de Productos de Empresas;accionesValidas=;#vistaValida=;
+
+
+################################################################################
+# Definicion del menú MENU-CLIENTES-DEL-DIA.
+################################################################################
+MENU-CLIENTES-DEL-DIA;tipoNodo=MENU;nombre=Clientes del Día;nodosMenu=OPCION-CLIENTES-DEL-DIA;descripcion=Clientes del Día;
+
+# Definicion de opción "Clientes del Día".
+OPCION-CLIENTES-DEL-DIA;tipoNodo=OPCION;nombre=Clientes del Día;url=/workstationwls/empresa/vistaejecutivo/clienteEmpresaDelDia.do;descripcion=Clientes del Día;opcionesPopUp=opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+################################################################################
+# Definicion del menú MENU-VENTAS.
+################################################################################
+MENU-VENTAS;tipoNodo=MENU;nombre=Ventas;nodosMenu=OPCION-ASL,OPCION-CAMPANAS;descripcion=Ventas;
+
+# Definicion de opción "Asl".
+OPCION-ASL;tipoNodo=OPCION;nombre=ASL;url=http://crm.bci.cl;opcionesPopUp=scrollbars=yes,width=800,height=600;descripcion=ASL;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Campañas".
+OPCION-CAMPANAS;tipoNodo=MENU;nodosMenu=OPCION-CAMP-CLIENTES-GESTIONADOS;nombre=Campañas;descripcion=Campanas;url=/portalwls/campanas/filtrarProdPriorizados.do;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;vistaValida=PCE_PRIORIZAR;
+
+# Definicion de opción "Priorizacion Clientes en Campaña".
+#OPCION-CAMP-PRIO-CLIENTES;tipoNodo=OPCION;nombre=Priorización Clientes en Campaña;url=/portalwls/campanas/filtrarProdPriorizados.do;descripcion=Priorizacion Clientes en Campaña;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;vistaValida=PCE_PRIORIZAR;
+
+# Definicion de opción "Clientes Agendados".
+#OPCION-CAMP-CLIENTES-AGENDADOS;tipoNodo=OPCION;nombre=Clientes Agendados;url=/portalwls/campanas/listadoClientesAgendados.do?;descripcion=Clientes Agendados;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;vistaValida=PCE_PRIORIZAR;
+
+# Definicion de opción "Clientes Gestionados".
+OPCION-CAMP-CLIENTES-GESTIONADOS;tipoNodo=OPCION;nombre=Clientes Gestionados;url=/portalwls/campanas/listarClientesGestionados.do?;descripcion=Clientes Gestionados;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;nombrePopUp=new;accionesValidas=ABRIR,ABRIRJOF,ABRIREJE;vistaValida=PCE_PRIORIZAR;
+
+# Definicion de opción "Clientes Gestionados".
+#OPCION-CLIENTES-GESTIONADOS-PLANES;tipoNodo=OPCION;nombre=Clientes Gestionados;url=;descripcion=Clientes Gestionados;opcionesPopUp=scrollbars=yes,resizable=yes,width=780,height=560;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Operaciones en Facultamiento : Operaciones Autorizadas".
+#OPCION-OPERACIONES-EN-FACULTAMIENTO;tipoNodo=MENU;nombre=Operaciones en Facultamiento : Operaciones Autorizadas;nodosMenu=OPCION-OPERACIONES-PENDIENTES,OPCION-OPERACIONES-RECHAZADAS;descripcion=Operaciones en Facultamiento;opcionesPopUp=scrollbars=yes,resizable=yes,width=680,height=430;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Operaciones Pendientes".
+#OPCION-OPERACIONES-PENDIENTES;tipoNodo=OPCION;nombre=Operaciones Pendientes;url=;descripcion=Operaciones Pendientes;opcionesPopUp=scrollbars=yes,resizable=yes,width=680,height=430;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Operaciones Rechazadas".
+#OPCION-OPERACIONES-RECHAZADAS;tipoNodo=OPCION;nombre=Operaciones Rechazadas;url=;descripcion=Operaciones Rechazadas;opcionesPopUp=scrollbars=yes,resizable=yes,width=680,height=430;vistaValida=;accionesValidas=;
+
+################################################################################
+# Definicion del menú MENU-GESTION.
+################################################################################
+MENU-GESTION;tipoNodo=MENU;nombre=Gestión;nodosMenu=OPCION-INFORMES-BRIO,OPCION-PRESUPUESTO;descripcion=Gestión;
+
+# Definicion de opción "Panel de Gestion".
+OPCION-INFORMES-BRIO;tipoNodo=OPCION;nombre=Panel de Gestion;url=/portalwls/integrador/IntegradorPortal?servicio=odmbrio2;descripcion=Panel de Gestion;opcionesPopUp=width=362,height=200;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Presupuesto".
+OPCION-PRESUPUESTO;tipoNodo=OPCION;nombre=Presupuesto;url=/workstationwls/pptos/ContextProcess.do;nombrePopUp=new;opcionesPopUp=scrollbars=yes,width=600,height=650;accionesValidas=;#vistaValida=;
+
+################################################################################
+# Definicion del menú MENU-RIESGO.
+################################################################################
+MENU-RIESGO;tipoNodo=MENU;nombre=Riesgo;nodosMenu=OPCION-CLIENTES-SOBREGIRADOS,OPCION-CLIENTES-A-BOLETIN;descripcion=Riesgo;
+
+# Definicion de opción "Pago Consulta Sobregiro".
+#OPCION-PAGO-CONSULTA-SOBREGIRO;tipoNodo=MENU;nombre=Pago Consulta Sobregiro;nodosMenu=OPCION-PAGO-DE-LA-CONSULTA-A-TERCEROS,OPCION-CHEQUE-PROTESTADOS-AUTOMTICAMENTE,OPCION-CHEQUES-PAGADOS-AUTOMATICAMENTE;descripcion=Pago Consulta Sobregiro;opcionesPopUp=resizable=yes,scrollbars=yes,width=780,height=570,top=10,left=10;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Pago de la Conulta a Terceros".
+#OPCION-PAGO-DE-LA-CONSULTA-A-TERCEROS;tipoNodo=OPCION;nombre=Pago de la Conulta a Terceros;url=;descripcion=Pago de la Conulta a Terceros;opcionesPopUp=width=540,height=300;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Cheques Protestados Automaticamente".
+#OPCION-CHEQUE-PROTESTADOS-AUTOMTICAMENTE;tipoNodo=OPCION;nombre=Cheques Protestados Automaticamente;url=;descripcion=Cheques Protestados Automaticamente;opcionesPopUp=width=710,height=450;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Cheques Pagados Automaticamente".
+#OPCION-CHEQUES-PAGADOS-AUTOMATICAMENTE;tipoNodo=OPCION;nombre=Cheques Pagados Automaticamente;url=;descripcion=Cheques Pagados Automaticamente;opcionesPopUp=width=710,height=450;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Clientes Sobregirados".
+OPCION-CLIENTES-SOBREGIRADOS;tipoNodo=OPCION;nombre=Clientes Sobregirados;descripcion=Clientes Sobregirados;url=/workstationwls/riesgo/desplegarClientesSobregirados.do;nombrePopUp=new;opcionesPopUp=scrollbars=yes,status=no,width=750,height=490;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Proximos Vtos. Creditos".
+#OPCION-PROXIMOS-VTOS.-CREDITOS;tipoNodo=OPCION;nombre=Proximos Vtos. Creditos;url=;descripcion=Proximos Vtos. Creditos;opcionesPopUp=scrollbars=yes,resizable=yes,width=740,height=350;vistaValida=;accionesValidas=;
+
+# Definicion de opción "Clientes a Boletín : Consulta Documentos Impagos".
+OPCION-CLIENTES-A-BOLETIN;tipoNodo=MENU;nombre=Clientes a Boletín;nodosMenu=OPCION-CONSULTA-CHEQUES-PROTESTADOS;descripcion=Clientes a Boletín;url=/workstationwls/boletincomercial/cargaBoletinImpagos.do;nombrePopUp=new;opcionesPopUp=scrollbars=no,status=yes,width=860,height=490;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Consulta Cheques Protestados".
+OPCION-CONSULTA-CHEQUES-PROTESTADOS;tipoNodo=OPCION;nombre=Consulta Cheques Protestados;url=;descripcion=Consulta Cheques Protestados;opcionesPopUp=width=780,height=300;vistaValida=;accionesValidas=;
+
+################################################################################
+# Definicion del menu MENU-ACCESOS-DIRECTOS.
+################################################################################
+MENU-ACCESOS-DIRECTOS;tipoNodo=MENU;nombre=ACCESOS DIRECTOS;nodosMenu=OPCION-TASACIONES,OPCION-WORKFLOW-GARANTIAS,OPCION-WORKFLOW-HIPOTECARIO,OPCION-SII,OPCION-TESORERIA,OPCION-COMICROM;
+
+# Definicion de opción "Tasaciones".
+OPCION-TASACIONES;tipoNodo=OPCION;nombre=Tasaciones;url=https://webtasac.bci.cl/;nombrePopUp=new;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Workflow-Garantias".
+OPCION-WORKFLOW-GARANTIAS;tipoNodo=OPCION;nombre=Workflow-Garantias;url=/workstationwls/wkfgarantias/enlaceWKFGarantias.jsp;nombrePopUp=new;opcionesPopUp=scrollbars=no,width=780,height=390;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Workflow-Hipotecario".
+OPCION-WORKFLOW-HIPOTECARIO;tipoNodo=OPCION;nombre=Workflow-Hipotecario;url=/portalwls/integrador/IntegradorPortal?servicio=asicom;nombrePopUp=new;opcionesPopUp=width=700,height=550;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "SII".
+OPCION-SII;tipoNodo=OPCION;nombre=SII;url=http://www.sii.cl;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;descripcion=SII;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Tesoreria".
+OPCION-TESORERIA;tipoNodo=OPCION;nombre=Tesoreria;url=http://www.tesoreria.cl;nombrePopUp=new;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;accionesValidas=;#vistaValida=;
+
+# Definicion de opción "Comicrom".
+OPCION-COMICROM;tipoNodo=OPCION;nombre=Comicrom;url=http://www.comicrom.cl/;opcionesPopUp=status=yes,scrollbars=yes,width=780,height=400;descripcion=Comicrom;nombrePopUp=new;accionesValidas=;#vistaValida=;
+
+
+
+

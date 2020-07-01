@@ -1,0 +1,39 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_inf_sel">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+
+   <input>
+      <field
+         java_name = "idVendedor"
+         type = "String"
+         size = "12"
+         middle_name = "idVendedor"
+      /> 
+   </input>
+   <output>
+   	<struct struct_size="0" class_name="ResultBuscaVendedorDTO" var_name="buscaVendedorDTO">
+      <field
+            java_name = "calle"
+            type = "String"
+            size = "50"
+            middle_name = "cli_dml"/>      
+      <field
+            java_name = "ciudad"
+            type = "Integer"
+            size = "9"
+            middle_name = "ciu_num"/>
+	 </struct>
+   </output>
+</service>

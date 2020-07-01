@@ -1,0 +1,252 @@
+﻿
+consulta de saldo
+
+clave cert
+
+wliwlsprod
+
+///saldo por pagar.. agregar log para tarjetas de credito
+<types:bank-account-current-balance-lookup-request xmlns:types="http://services.mbanking.gemalto/types" id="request.1168454217831">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XXX" id="12472310"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:account id="45007144" pin="0412346789ABCDEF"/>
+</types:bank-account-current-balance-lookup-request>
+consultar por una imagen
+
+<n1:ConsultaImagen  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:n1="www.tcs.cl">
+ <n1:CuentaOrigen>000029321581</n1:CuentaOrigen>
+ <n1:CuentaCC>090</n1:CuentaCC>
+ <n1:Cuenta>000029321581</n1:Cuenta>
+ <n1:TipoDocumento>50</n1:TipoDocumento>
+ <n1:CodigoCanal>IB</n1:CodigoCanal>
+ <n1:TipoOperacion>0001</n1:TipoOperacion>
+ <n1:Monto></n1:Monto>
+ <n1:FechaProceso>20070413</n1:FechaProceso>
+ <n1:NumeroDocumento>000000000</n1:NumeroDocumento>
+ <n1:CodigoSucursal>000</n1:CodigoSucursal>
+ <n1:RutCliente>76074350</n1:RutCliente>
+ <n1:LlaveInterna>00015815001852007041350</n1:LlaveInterna>
+ <n1:CuentaCheque></n1:CuentaCheque>
+ <n1:CodigoBanco>000</n1:CodigoBanco>
+ <n1:SerieCheque></n1:SerieCheque>
+ <n1:MontoCheque></n1:MontoCheque>
+ <n1:CodigoPlazaCheque></n1:CodigoPlazaCheque>
+</n1:ConsultaImagen>
+
+consulta de listado de imagenes
+
+<n1:ConsultaListaDocumentos  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+  xmlns:n1="www.tcs.cl">
+ <n1:Cuenta>000029321581</n1:Cuenta>
+ <n1:TipoDocumento></n1:TipoDocumento>
+ <n1:CodigoCanal>IB</n1:CodigoCanal>
+ <n1:TipoOperacion>0001</n1:TipoOperacion>
+ <n1:RutCliente>29321581</n1:RutCliente>
+ <n1:CodigoBanco>000</n1:CodigoBanco>
+ <n1:SerieInicial></n1:SerieInicial>
+ <n1:SerieFinal></n1:SerieFinal>
+ <n1:FechaInicial></n1:FechaInicial>
+ <n1:FechaFinal></n1:FechaFinal>
+ <n1:MontoInicial></n1:MontoInicial>
+ <n1:MontoFinal></n1:MontoFinal>
+</n1:ConsultaListaDocumentos>
+
+listar cuentas frecuentes
+13036337-7
+<types:bank-account-fund-transfer-target-list-lookup-request xmlns:types="http://services.mbanking.gemalto/types" id="request.1168454217831">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="RUT" id="9666516"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:transaction>
+        <types:source id="45007144" pin="0412346789ABCDEF"/>
+        <types:amount>5000</types:amount>
+    </types:transaction>
+</types:bank-account-fund-transfer-target-list-lookup-request>
+
+
+transferencia de fondos
+
+<types:bank-account-fund-transfer-request xmlns:types="http://services.mbanking.gemalto/types" id="0123456789.1C">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="RUT" id="9666516"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:transaction>
+        <types:source id="10362878" pin="F005B8AE32436B80"/>
+        <types:target id="99958465" pin="F005B8AE32436B80"/>
+        <types:amount>10000</types:amount>
+    </types:transaction>
+</types:bank-account-fund-transfer-request>
+
+
+reversa de una transferencia
+
+<types:bank-account-reverse-fund-transfer-request xmlns:types="http://services.mbanking.gemalto/types" id="0123456789>
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="RUT" id="10050353"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:caused-by>
+        <types:response id="1168465604574">
+            <types:host>
+                <types:status>status.OK</types:status>
+                <types:message>Completed successfully</types:message>
+            </types:host>
+            <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+            <types:confirmation code="200">
+                <types:transaction id="1168465604574">
+                    <types:posting-date>1970-01-01T00:00:00Z</types:posting-date>
+                </types:transaction>
+            </types:confirmation>
+        </types:response>
+        <types:initial-request id="0123456789">
+            <types:bank id="bank.001"/>
+            <types:operator id="operator.001"/>
+            <types:msisdn>15147322300</types:msisdn>
+            <types:authentication-document type="RUT" id="10050353"/>
+            <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+            <types:transaction>
+                <types:source id="11735597" pin="0412346789ABCDEF"/>
+                <types:target id="11735597" pin="0412346789ABCDEF"/>
+                <types:amount>10000</types:amount>
+            </types:transaction>
+        </types:initial-request>
+    </types:caused-by>
+</types:bank-account-reverse-fund-transfer-request>
+
+recarga de celulares
+
+--CELULARES MOVILSTAR 90700358 , ENTELPCS 93609560
+
+<types:prepaid-mobile-refilling-request xmlns:types="http://services.mbanking.gemalto/types" id="0123456789.0C">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="RUT" id="12472310"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:transaction>
+        <types:account id="45007144" pin="0412346789ABCDEF"/>
+        <types:amount>3000</types:amount>
+        <types:mobile id="MOV90700358"/>
+    </types:transaction>
+</types:prepaid-mobile-refilling-request>
+
+<types:prepaid-mobile-refilling-request id="0123456789.0C" xmlns:types="http://services.mbanking.gemalto/types">
+ <types:bank id="bci"/>
+ <types:operator id="claro.chile"/>
+ <types:msisdn>15147322318</types:msisdn>
+ <types:authentication-document id="12472310" type="01"/>
+ <types:timestamp>2007-05-30T17:53:38Z</types:timestamp>
+ <types:transaction>
+ <types:account id="45007144" pin="F005B8AE32436B80"/>
+ <types:amount>1000</types:amount>
+ <types:mobile id="90700358" operator="MOV"/>
+ </types:transaction>
+</types:prepaid-mobile-refilling-request>
+
+
+reversa recarga de celulares
+
+<types:prepaid-mobile-reverse-refilling-request xmlns:types="http://services.mbanking.gemalto/types" id="reverse.0123456789.0C">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XXX" id="9876543210"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:caused-by>
+        <types:response id="response.1168465604574">
+            <types:host>
+                <types:status>status.OK</types:status>
+                <types:message>Completed successfully</types:message>
+            </types:host>
+            <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+            <types:confirmation code="200">
+                <types:transaction id="1168465604574">
+                    <types:posting-date>1970-01-01T00:00:00Z</types:posting-date>
+                </types:transaction>
+            </types:confirmation>
+        </types:response>
+        <types:initial-request id="0123456789.0C">
+            <types:bank id="bank.001"/>
+            <types:operator id="operator.001"/>
+            <types:msisdn>15147322300</types:msisdn>
+            <types:authentication-document type="RUT" id="9876543210"/>
+            <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+            <types:transaction>
+                <types:account id="source.account.1000.001" pin="0412346789ABCDEF"/>
+                <types:amount>918273645</types:amount>
+                <types:mobile id="15147322399"/>
+            </types:transaction>
+        </types:initial-request>
+    </types:caused-by>
+</types:prepaid-mobile-reverse-refilling-request>
+
+
+
+*********************TARJETAS DE CREDITO
+
+
+SALDO DISPONIBLE
+<types:credit-card-account-available-credit-lookup-request xmlns:types="http://services.mbanking.gemalto/types" id="request.1168454217831">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XYZ" id="9251859"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:account id="4966170050111181" pin="0123456789ABCDEFFEDCBA9876543210"/>
+</types:credit-card-account-available-credit-lookup-request>
+
+<types:credit-card-account-current-balance-lookup-request xmlns:types="http://services.mbanking.gemalto/types" id="request.1168454217831">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XYZ" id="9251859"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:account id="4966170050111181" pin="0123456789ABCDEFFEDCBA9876543210"/>
+</types:credit-card-account-current-balance-lookup-request>
+
+avance EN EFECTIVO
+
+<types:credit-card-account-cash-advance-request xmlns:types="http://services.mbanking.gemalto/types" id="0123456789.1C">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XYZ" id="9251859"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:transaction>
+        <types:source id="4966170050111181" pin="source.pin.0123456789ABCDEFFEDCBA9876543210">
+         <types:expiration-date month="05" year="10"/>
+        </types:source>
+        <types:target id="58306757" pin="target.pin.0123456789ABCDEFFEDCBA9876543210"/>
+        <types:amount>10000</types:amount>
+    </types:transaction>
+</types:credit-card-account-cash-advance-request>
+
+
+PAGO
+<types:credit-card-account-payment-request xmlns:types="http://services.mbanking.gemalto/types" id="0123456789.1C">
+    <types:bank id="bank.001"/>
+    <types:operator id="operator.001"/>
+    <types:msisdn>15147322300</types:msisdn>
+    <types:authentication-document type="XYZ" id="9251859"/>
+    <types:timestamp>1970-01-01T00:00:00Z</types:timestamp>
+    <types:transaction>
+        <types:source id="58306757" pin="source.pin.0123456789ABCDEFFEDCBA9876543210"/>
+        <types:target id="4966170050111181"/>
+        <types:amount>10000</types:amount>
+    </types:transaction>
+</types:credit-card-account-payment-request>
+
+

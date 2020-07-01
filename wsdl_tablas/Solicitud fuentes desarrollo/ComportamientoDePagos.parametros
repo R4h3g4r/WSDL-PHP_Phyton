@@ -1,0 +1,7 @@
+#COMPORTAMIENTO DE PAGOS - TABLA DE PARAMETROS
+
+ModalidadesCredito;VIGENTES=vigentes;HISTORICAS=historicas;
+
+MensajesExcepcion;CLIENTESINCREDITOSVIGENTES=[Cliente no posee créditos vigentes.];
+
+Multiambiente.Everest;codigoBanco=BCI;codigoCanal=151;codigoEjecutivo=EVEREST;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;

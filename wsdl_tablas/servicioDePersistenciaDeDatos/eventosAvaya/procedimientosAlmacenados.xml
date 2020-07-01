@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="eventos.procedimientosAlmacenados">	
+
+    	
+	<parameterMap id="setObtenerClienteEventosEjecutivo" class="java.util.HashMap">
+		<parameter property="logejecutivo" 				jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerClienteEventosEjecutivo" class="java.util.HashMap">
+		<result  property="rut" 									jdbcType="CHAR"  javaType="String" />
+		<result  property="idSesion"							jdbcType="FLOAT"  javaType="java.lang.Long" />
+		<result  property="glosaEvento"						jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ejecutivoOrganizador" 	jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ejecutivoAsignado" 		jdbcType="VARCHAR"  javaType="String" />
+		<result  property="codigoArea" 						jdbcType="VARCHAR"  javaType="String" />
+		<result  property="fechaIngreso" 					jdbcType="DATE"  javaType="String" />
+		<result  property="fechaSolucion" 				jdbcType="DATE"  javaType="String" />
+		<result  property="fechaCierre" 					jdbcType="DATE"  javaType="String" />
+		<result  property="fechaSolucionPrometida"	jdbcType="DATE"  javaType="String" />
+		<result  property="estado" 								jdbcType="VARCHAR"  javaType="String" />
+		<result  property="numeroSolicitud" 			jdbcType="INT"  javaType="java.lang.Integer" />
+		<result  property="telefono" 							jdbcType="CHAR"  javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerClienteEventosEjecutivo" parameterMap="setObtenerClienteEventosEjecutivo" resultMap="getObtenerClienteEventosEjecutivo">
+		{CALL sp_buscar_cli_eje_eve (?)}
+	</procedure>
+</sqlMap>

@@ -1,0 +1,36 @@
+Tabla de parametros que contiene las acciones a tomar con respecto
+a la alerta de Cliente con Telefono Desactualizado
+la cual es usada por el Sistema de Alertas Everest.
+---------------------------------------------------------------------
+
+GLOSA0, GLOSA1,.... GLOSAn
+--------------------------
+Glosa para desplegar por pantalla las acciones a realizar en respuesta
+a la alerta con tag html.
+
+GLOSAPDF0, GLOSAPDF1,.... GLOSAPDFn
+-----------------------------------
+Glosa para desplegar por pantalla las acciones a realizar en respuesta
+a la alerta para la impresión en PDF.
+
+DESACTIVAR
+----------
+Clave que permite activar o desactivar la alerta. Valor 1: Alarma activada
+Valor 0: Alarma desactivada.
+
+Viñetas Explicativas
+--------------------
+VINETA: valores
+
+[REGISTRODEVERSIONES]
+==========================================
+
+ 22/06/2009 Claudia Navarrete Vidal (BCI): Versión inicial.
+. 10/09/2009 Francisco Cares Escobar (BCI): Se corrige glosa para  desplegar en pantalla y en PDF.
+. 06/10/2009 Francisco Cares Escobar (BCI): Se corrige "tipo" Negrita de la glosa que se despliega por pantalla.
+. 06/04/2010 Francisco Cares Escobar (BCI): se cambian los pasos a seguir.
+. 07/08/2009 Andrés Rothkegel N. (Tinet): Version Inicial
+Información de las viñetas explicativas y pasos a seguir.
+. 07/06/2010 Jose verdugo. (Tinet): se actualizan los campos a desplegar.
+
+==========================================

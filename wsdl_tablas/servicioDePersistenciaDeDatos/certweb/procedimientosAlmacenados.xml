@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="certweb.procedimientosAlmacenados">
+		<parameterMap id="setconsultarCertificado" class="java.util.HashMap">
+				<parameter property="rutCliente"     		jdbcType="INTEGER"		javaType="java.lang.Long" />	
+		</parameterMap>
+
+	
+<resultMap id="getconsultarCertificado" class="java.util.HashMap">	
+				<result property="tipoCertificado"  		column="tipo" 		 	javaType="String" />
+				<result property="descripcionCertificado" 	column="descripcion"	javaType="String" />
+				<result property="fecha"   					column="fecha"			javaType="String" />
+				<result property="nombreArchivo"   			column="nombre"			javaType="String" />		
+		</resultMap>
+
+	
+<procedure id="consultarCertificados" parameterMap="setconsultarCertificado" resultMap="getconsultarCertificado">
+		{ CALL sp_obtieneCertificadosHist ( ? ) }
+		</procedure>
+
+	
+<parameterMap id="setingresarCertificado" class="java.util.HashMap">
+				<parameter property="correlativo"     		jdbcType="INTEGER"  javaType="java.lang.Long" /> 
+				<parameter property="rutCliente"     		jdbcType="INTEGER"  javaType="java.lang.Long" />
+				<parameter property="digitoVerificador"     jdbcType="CHAR" 	javaType="String" />
+				<parameter property="tipoCertificado"       jdbcType="CHAR" 	javaType="String" />
+				<parameter property="descripcionCertificado" jdbcType="CHAR" 	javaType="String" />
+				<parameter property="fecha"              	jdbcType="DATETIME" javaType="java.util.Date" />
+				<parameter property="nombreArchivo"         jdbcType="CHAR" 	javaType="String" />		
+		</parameterMap>
+
+	
+<procedure id="ingresarCertificado" parameterMap="setingresarCertificado" resultClass="int">
+		{ CALL sp_grabarDatosCertificadoPDF ( ?,?,?,?,?,?,? ) }
+		</procedure>
+
+	
+<parameterMap id="setingresarCorrelativo" class="java.util.HashMap">
+				<parameter property="buscaCorrelativo"     	jdbcType="CHAR"  javaType="String" /> 	
+		</parameterMap>
+
+	
+<procedure id="ingresarCorrelativo" parameterMap="setingresarCorrelativo" resultClass="int">
+		{ CALL sp_obtieneCorrelativoCertif ( ? ) }
+		</procedure>
+
+	
+<parameterMap id="setIngresarSolicitudCertificadoVigencia" class="java.util.HashMap">
+				<parameter property="rut_emp"     		jdbcType="INTEGER"  javaType="java.lang.Long" /> 
+				<parameter property="dv_emp"     		jdbcType="CHAR"     javaType="java.lang.String" />
+				<parameter property="num_cnv"     		jdbcType="CHAR" 	javaType="java.lang.String" />
+				<parameter property="rut_usu"       	jdbcType="INTEGER" 	javaType="java.lang.Long" />
+				<parameter property="dv_rut" 			jdbcType="CHAR" 	javaType="java.lang.String" />
+				<parameter property="nom_usu"           jdbcType="CHAR" 	javaType="java.lang.String" />
+				<parameter property="id_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="tip_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="cuenta"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="num_ip"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+
+	
+<procedure id="ingresarSolicitudCertificadoVigencia" parameterMap="setIngresarSolicitudCertificadoVigencia" resultClass="int">
+		{ CALL sp_ing_sol_cer_vig ( ?,?,?,?,?,?,?,?,?,? ) }
+		</procedure>
+
+	
+<parameterMap id="setIngresarDetalleCertificadoVigencia" class="java.util.HashMap">
+				<parameter property="id_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="cuenta"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="tip_cta"         	jdbcType="CHAR" 	javaType="java.lang.String" />				
+				<parameter property="fec_apertura"     	jdbcType="date" 	javaType="Date" />		
+		</parameterMap>
+
+	
+<procedure id="ingresarDetalleCertificadoVigencia" parameterMap="setIngresarDetalleCertificadoVigencia" resultClass="int">
+		{ CALL sp_ing_det_cer_vig ( ?,?,?,? ) }
+		</procedure>
+
+	
+<parameterMap id="setActualizarEstadoCertificado" class="java.util.HashMap">
+				<parameter property="id_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+				<parameter property="est_cert"        	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+	
+	
+<procedure id="actualizarEstadoCertificado" parameterMap="setActualizarEstadoCertificado" resultClass="int">
+		{ CALL sp_act_est_cer_vig ( ?,? ) }
+		</procedure>
+
+	
+<parameterMap id="setConsultarDatosCertificado" class="java.util.HashMap">
+				<parameter property="id_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+
+	
+<resultMap id="getConsultarDatosCertificado" class="java.util.HashMap">	
+				<result property="rut_emp"     		column="rut_emp"	javaType="java.lang.Long" /> 
+				<result property="dv_emp"     		column="dv_emp"   	javaType="java.lang.String" />
+				<result property="num_cnv"     		column="num_cnv" 	javaType="java.lang.String" />
+				<result property="rut_usu"       	column="rut_usu" 	javaType="java.lang.Long" />
+				<result property="dv_rut" 			column="dv_rut" 	javaType="java.lang.String" />
+				<result property="nom_usu"          column="nom_usu" 	javaType="java.lang.String" />
+				<result property="id_cert"         	column="id_cert" 	javaType="java.lang.String" />	
+				<result property="fec_sol"         	column="fec_sol" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />				
+				<result property="tip_cert"         column="tip_cert" 	javaType="java.lang.String" />		
+				<result property="fec_firma"        column="fec_firma" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />				
+				<result property="cuenta"         	column="cuenta" 	javaType="java.lang.String" />		
+				<result property="num_ip"         	column="num_ip" 	javaType="java.lang.String" />		
+				<result property="est_cert"         column="est_cert" 	javaType="java.lang.String" />		
+		</resultMap>
+	
+	
+<procedure id="consultarDatosCertificado" parameterMap="setConsultarDatosCertificado" resultMap="getConsultarDatosCertificado">
+		{ CALL sp_cns_cer_vig ( ? ) }
+		</procedure>
+
+	
+<parameterMap id="setConsultarCertificadosHistoricos" class="java.util.HashMap">
+				<parameter property="rut_emp"     		jdbcType="INTEGER"  javaType="java.lang.Long" /> 
+				<parameter property="num_cnv"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+
+	
+<resultMap id="getConsultarCertificadosHistoricos" class="java.util.HashMap">	
+				<result property="nom_usu"          column="nom_usu" 			javaType="java.lang.String" />
+				<result property="id_cert"         	column="id_cert" 			javaType="java.lang.String" />	
+				<result property="fec_sol"         	column="fec_sol" 			javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />				
+				<result property="tip_cert"         column="tip_cert" 			javaType="java.lang.String" />		
+				<result property="cta_car"         	column="cta_car" 			javaType="java.lang.String" />		
+		</resultMap>
+
+	
+<procedure id="consultarCertificadosHistoricos" parameterMap="setConsultarCertificadosHistoricos" resultMap="getConsultarCertificadosHistoricos">
+		{ CALL sp_cns_cer_vig_aut ( ?,? ) }
+		</procedure>
+
+	
+<parameterMap id="setConsultarDetalleCertificado" class="java.util.HashMap">
+				<parameter property="id_cert"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+
+	
+<resultMap id="getConsultarDetalleCertificado" class="java.util.HashMap">	
+				<result property="cta_cert"         column="cta_cert" 			javaType="java.lang.String" />		
+				<result property="tip_cta_cert"     column="tip_cta_cert"		javaType="java.lang.String" />		
+				<result property="fec_ape_cta_cert" column="fec_ape_cta_cert" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />								
+		</resultMap>
+
+	
+<procedure id="consultarDetalleCertificado" parameterMap="setConsultarDetalleCertificado" resultMap="getConsultarDetalleCertificado">
+		{ CALL sp_cns_det_cer_vig ( ? ) }
+		</procedure>
+
+	
+<parameterMap id="setConsultarCertificadosPorAutorizar" class="java.util.HashMap">
+				<parameter property="rut_emp"     		jdbcType="INTEGER"  javaType="java.lang.Long" /> 
+				<parameter property="num_cnv"         	jdbcType="CHAR" 	javaType="java.lang.String" />		
+		</parameterMap>
+
+	
+<resultMap id="getConsultarCertificadosPorAutorizar" class="java.util.HashMap">	
+				<result property="rut_emp"     		column="rut_emp"	javaType="java.lang.Long" /> 
+				<result property="dv_emp"     		column="dv_emp"   	javaType="java.lang.String" />
+				<result property="num_cnv"     		column="num_cnv" 	javaType="java.lang.String" />
+				<result property="rut_usu"       	column="rut_usu" 	javaType="java.lang.Long" />
+				<result property="dv_rut" 			column="dv_rut" 	javaType="java.lang.String" />
+				<result property="nom_usu"          column="nom_usu" 	javaType="java.lang.String" />
+				<result property="id_cert"         	column="id_cert" 	javaType="java.lang.String" />	
+				<result property="fec_sol"         	column="fec_sol" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />				
+				<result property="tip_cert"         column="tip_cert" 	javaType="java.lang.String" />		
+				<result property="fec_firma"        column="fec_firma" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />				
+				<result property="cta_car"         	column="cta_car" 	javaType="java.lang.String" />		
+				<result property="num_ip"         	column="num_ip" 	javaType="java.lang.String" />		
+				<result property="est_cert"         column="est_cert" 	javaType="java.lang.String" />		
+
+</resultMap>
+	
+
+<procedure id="consultarCertificadosPorAutorizar" parameterMap="setConsultarCertificadosPorAutorizar" resultMap="getConsultarCertificadosPorAutorizar">
+		{ CALL sp_cns_cer_pen ( ?, ? ) }
+	</procedure>
+	
+	
+	<parameterMap id="setIngresoCertificadoWeb" class="java.util.HashMap">
+				<parameter property="tipoCertificado"     	  jdbcType="CHAR"    javaType="String" /> 
+		<parameter property="rutDelCliente"     	  jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="dvDelCliente"            jdbcType="CHAR"    javaType="String" />
+		<parameter property="serialCertificado"    	  jdbcType="CHAR"    javaType="String" />
+		<parameter property="numeroCuenta"    	  jdbcType="CHAR"    javaType="String" />
+		<parameter property="contenidoDelCertificado" jdbcType="CHAR"    javaType="String" />
+		<parameter property="estadoCertificado"       jdbcType="CHAR"    javaType="String" />
+		</parameterMap>
+
+	<procedure id="ingresoCertificadoWeb" parameterMap="setIngresoCertificadoWeb" resultClass="boolean">
+		{ CALL sp_ins_certificado_web ( ?,?,?,?,?,?,? ) }
+	</procedure>
+	
+	<parameterMap id="setConsultarCertificadosEmitidos" class="java.util.HashMap">
+		<parameter property="rutDelCliente"     	  jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+	
+	<resultMap    id="getConsultarCertificadosEmitidos" class="java.util.HashMap">
+		<result property="tipoCertificado"         column="tipo_cert"         javaType="String"/>
+		<result property="fechaSolicitud"          column="fec_hms_solicitud" javaType="java.util.Date"/>
+		<result property="contenidoDelCertificado" column="dat"               javaType="String"/>
+		<result property="estadoCertificado"       column="ind_estado"        javaType="String"/>
+		<result property="serial"                  column="serial"        javaType="String"/>
+		
+<result property="cuentaCargo"             column="cta_cargo"        javaType="String"/>
+	</resultMap>
+		<procedure id="consultarCertificadosEmitidos" parameterMap="setConsultarCertificadosEmitidos" resultMap="getConsultarCertificadosEmitidos">
+		{ CALL sp_con_certificado_web (?) }
+	</procedure>
+	
+	<parameterMap id="setDetalleCertificados" class="java.util.HashMap">
+		<parameter property="rutDelCliente"   jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="serial"     	  jdbcType="String" javaType="String" />
+	</parameterMap>
+	
+	<resultMap    id="getDetalleCertificados" class="java.util.HashMap">
+		<result property="tipoCertificado"         column="tipo_cert"         javaType="String"/>
+		<result property="fechaSolicitud"          column="fec_hms_solicitud" javaType="java.util.Date"/>
+		<result property="contenidoDelCertificado" column="dat"               javaType="String"/>
+		<result property="estadoCertificado"       column="ind_estado"        javaType="String"/>
+	</resultMap>
+
+	<procedure id="detalleCertificados" parameterMap="setDetalleCertificados" resultMap="getDetalleCertificados">
+		{ CALL sp_con_detcertificado_web (?,?) }
+	</procedure>
+		
+<parameterMap id="setDetalleCertificadosDeVigencia" class="java.util.HashMap">
+		<parameter property="rutDelCliente"   jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="serial"     	  jdbcType="String" javaType="String" />
+	</parameterMap>
+	
+	<resultMap    id="getDetalleCertificadosDeVigencia" class="java.util.HashMap">
+		<result property="tipoCertificado"         column="tipo_cert"         javaType="String"/>
+		<result property="fechaSolicitud"          column="fec_hms_solicitud" javaType="java.util.Date"/>
+		<result property="contenidoDelCertificado" column="dat"               javaType="String"/>
+		<result property="estadoCertificado"       column="ind_estado"        javaType="String"/>
+	</resultMap>
+
+	<procedure id="detalleCertificadosDeVigencia" parameterMap="setDetalleCertificadosDeVigencia" resultMap="getDetalleCertificadosDeVigencia">
+		{ CALL sp_condv_certificado_web (?,?) }
+	</procedure>
+
+	<parameterMap id="setConsultarCertificadosPendientes" class="java.util.HashMap">
+		<parameter property="rutDelCliente"  jdbcType="INTEGER" javaType="java.lang.Long" />
+	</parameterMap>
+	
+	
+	<resultMap    id="getConsultarCertificadosPendientes" class="java.util.HashMap">
+		<result property="tipoCertificado"          column="tipo_cert"         javaType="String"/>
+		<result property="fechaSolicitud"           column="fec_hms_solicitud" javaType="java.util.Date"/>
+		<result property="serial"                   column="serial_sem"        javaType="String"/>
+		<result property="ctaCargo"                 column="cta_cargo"         javaType="String"/>
+		<result property="contenidoDelCertificado"  column="dat"               javaType="String"/>
+		<result property="nomCertificado"           column="nom_cert"          javaType="String"/>
+		<result property="cobro"                    column="in_cobro"          javaType="String"/>		  
+	</resultMap>
+		<procedure id="consultarCertificadosPendientes" parameterMap="setConsultarCertificadosPendientes" resultMap="getConsultarCertificadosPendientes">
+		{ CALL sp_conpen_certificado_web (?) }
+	</procedure>
+	
+		<parameterMap id="setEliminaCertificadoWebPendiente" class="java.util.HashMap">
+		<parameter property="numeroTransf"     	  jdbcType="CHAR"    javaType="String" /> 
+		</parameterMap>
+
+	<procedure id="eliminaCertificadoWebPendiente" parameterMap="setEliminaCertificadoWebPendiente" resultClass="boolean">
+		{ CALL sp_del_certificado_web (?) }
+	</procedure>
+	
+		<parameterMap id="setActualizaCertificadoWeb" class="java.util.HashMap">
+		<parameter property="rutDelCliente"       jdbcType="INTEGER" javaType="java.lang.Long" />
+		<parameter property="numSerial"     	  jdbcType="CHAR"    javaType="String" /> 
+		</parameterMap>
+
+	<procedure id="actualizaEstadoCertificado" parameterMap="setActualizaCertificadoWeb" resultClass="boolean">
+		{ CALL sp_upd_certificado_web (?,?) }
+	</procedure>
+	
+	
+</sqlMap>	
+

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="scorecredito.procedimientosAlmacenados">	
+    <procedure id="obtenerScoreSQLNuevasPoliticas" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+            {CALL sp_cns_consumo_planes_2(#rutCliente#, #fechaApertura#)}
+    </procedure>   
+        <procedure id="obtenerScorePyme" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+            {CALL sp_cns_score_pyme(#rutCliente#)}
+    </procedure>
+     
+</sqlMap>

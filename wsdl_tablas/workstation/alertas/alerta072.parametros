@@ -1,0 +1,12 @@
+# Consulta Prepago
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1- Hacer análisis de situación en base a información de cliente y datos de prepago.
+GLOSA1;mensaje=2- Realizar llamado a cliente, en caso de no obtener respuesta contactar vía mail.
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1- Hacer análisis de situación en base a información de cliente y datos de prepago.
+GLOSAPDF1;mensaje=2- Realizar llamado a cliente, en caso de no obtener respuesta contactar vía mail.
+
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliega cuando cliente solicita Certificado de prepago vía Everest.;periodo=Cada vez que cliente solicite certificado de cualquier producto Banco.;fuente=Datos desde Mn/ Consumo/ Detalles de Créditos.;

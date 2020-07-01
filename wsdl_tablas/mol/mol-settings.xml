@@ -1,0 +1,30 @@
+<mol-settings>
+     <emisor>
+		<id>BCI</id>
+          <user>BANCOUSER</user>
+          <password>BANCOPASS</password>
+          <ip>161.131.184.91</ip>
+          <config-file>/export/weblogic/bea/wlsplatform/tablas/mol/mol-config.xml</config-file>
+     </emisor>
+     <puntajes>
+          <user-banco>BANCOUSER</user-banco>
+          <password-banco>BANCOPASS</password-banco>
+          <user-mol>bcc503006</user-mol>
+          <password-mol>NMB!)QVO</password-mol>
+          <organizacion>503</organizacion>
+          <codigo-servicio>3</codigo-servicio>
+          <codigo-consulta>8</codigo-consulta>
+     </puntajes>
+     <estado-cuenta>
+          <user-banco>SM503B70</user-banco>
+          <password-banco>SM503B70</password-banco>
+          <user-mol>Scanales_BCI</user-mol>
+          <password-mol>BANCOPASS</password-mol>
+     </estado-cuenta>
+	<general>
+          <user>puntajesBCI</user>
+          <password>BANCOPASS</password>
+          <organizacion>503</organizacion>
+          <filler>--filler--</filler>
+	</general>
+</mol-settings>

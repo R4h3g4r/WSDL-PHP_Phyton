@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DB>
+<SPECIAL str="0" typeId="" template=""></SPECIAL>
+<INSUPD NTx="AprCreCrcEstPol" LBL="N">
+	<SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+	<ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+    <INPUT>
+     <!--   <field FF="keywf" LF="30">numWf</field>	 -->
+        <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+        <field FF="rutdv" LF="16" POS="" COD="" TD="" PREF="">rut</field>
+		<field FF="estAnt" LF="4" POS="" COD="" TD="" PREF="">estrategiaAnterior</field>
+		<field FF="estNva" LF="4" POS="" COD="" TD="" PREF="">estrategiaNueva</field>
+		<field FF="polPropOf" LF="4" POS="" COD="" TD="" PREF="">politica</field>
+		<field FF="polNva" LF="8" POS="" COD="" TD="" PREF="">politicaResuelta</field>
+		<field FF="fecSol" LF="10" POS="" COD="" TD="" PREF="">fecha</field>
+		<field FF="state" LF="40" POS="" COD="" TD="" PREF="">estado</field>
+    </INPUT>
+</INSUPD>
+<QRY NTx="AprCreConEstPol" LBL="S">
+	<SEPAR SEP1="" SEP2="" SEP3="" SEPV="#"></SEPAR>
+	<ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+   <!--     <field FF="keywf" LF="30">numWf</field>	 	 -->
+        <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+        <field FF="rutdv" LF="16" POS="" COD="" TD="" PREF="">rut</field>
+    </INPUT>
+    <OUTPUT>
+	    <field FF="estAnt" LF="4" POS="" COD="EST" TD="L" PREF="">estrategiaAnterior</field>
+	    <field FF="estNva" LF="4" POS="" COD="EST" TD="L" PREF="">estrategiaNueva</field>
+		<field FF="polPropOf" LF="4" POS="" COD="POF" TD="L" PREF="">politica</field>
+		<field FF="polNva" LF="8" POS="" COD="PAP,PRC,PRP" TD="LS" PREF="">politicaResuelta</field>
+		<field FF="fecSol" LF="10" POS="" COD="" TD="" PREF="">fecha</field>
+		<field FF="state" LF="40" POS="" COD="" TD="" PREF="">estado</field>
+    </OUTPUT>
+</QRY>
+</DB>
+<!-- Creation date: 17-06-2004 -->

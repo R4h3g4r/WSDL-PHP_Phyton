@@ -1,0 +1,73 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_adcon_val_sifp"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutUsuario"
+          type = "String"
+          size = "12"
+          middle_name = "rutUsuario"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "indicadorSIFP"
+          type = "char"
+          size = "1"
+          middle_name = "indicador"
+        />
+
+        <field
+          java_name = "tipoProd"
+          type = "String"
+          size = "3"
+          middle_name = "codigoTipoProd"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "char"
+          size = "1"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

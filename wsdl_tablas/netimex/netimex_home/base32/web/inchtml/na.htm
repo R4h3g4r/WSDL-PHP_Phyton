@@ -1,0 +1,19 @@
+<html>
+<body>
+<center>
+<br>
+<marquee id="mar"  scrollamount=5><font size=18>Please replace this page with a 'mailto' command</font></marquee>
+</body>
+
+</html>
+<SCRIPT LANGUAGE=javascript>
+var speed=5;
+window.setInterval("changeSpeed()",300)
+
+function changeSpeed()
+{
+speed+=20
+if (speed>=100) speed=5;
+mar.scrollAmount=speed;
+}
+</SCRIPT>

@@ -1,0 +1,11 @@
+# Cliente de Cumpleanos                             
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Realizar el llamado  a primera hora del día, cuidando que sea un llamado de saludo y no de ventas.;
+GLOSA1;mensaje=2.- De no estar contactable el cliente en forma telefónica, se debe enviar un E-mail felicitándolo por su cumpleaños.;
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=1.- Realizar el llamado  a primera hora del día, cuidando que sea un llamado de saludo y no de ventas.;
+GLOSAPDF1;mensaje=2.- De no estar contactable el cliente en forma telefónica, se debe enviar un E-mail felicitándolo por su cumpleaños.;
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliega cuando el cliente está de cumpleaños hoy. Los cumpleaños de sábado y domingo aparecen los días lunes.;periodo= Se calcula en base a la fecha actual y la fecha de nacimiento de algún cliente;fuente= Fecha de Nacimiento de Datos Básicos.;

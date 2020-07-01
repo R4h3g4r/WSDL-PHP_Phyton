@@ -1,0 +1,43 @@
+#Servicios habilitados en el portal financiamiento
+cantidadDeServicios;Desc=4;
+servicio0;Cod=CNSPRV;Desc=Consulta Resumen del Proveedor;
+servicio1;Cod=CNSCTA;Desc=Consulta Estado de Cuenta del Proveedor;
+servicio2;Cod=ACTFAC;Desc=Actualiza Estados de Facturas;
+servicio3;Cod=ACTCTA;Desc=Actualiza Estado de la cuenta;
+
+beneficiario;rut=96720830;dv=2;razonSocial=Bci factoring;
+
+
+#Parametros para elaborar el excel
+titulo;Desc=Banco de Crédito e Inversiones;
+tamagnoLetra;styleTitulo1=14;styleTitulo2=10;
+cantidadDeColumnasPagador;Desc=11;
+columnaPagador0;Largo=1000;Posicion=0;Desc=;estilo=bordeDerecho;
+columnaPagador1;Largo=4000;Posicion=1;Desc=Proveedor;estilo=styleTitulo2;
+columnaPagador2;Largo=6000;Posicion=2;Desc=Tipo de Documento;estilo=styleTitulo2;
+columnaPagador3;Largo=5000;Posicion=3;Desc=N° Documento;estilo=styleTitulo2;
+columnaPagador4;Largo=6000;Posicion=4;Desc=Fecha de Vencimiento;estilo=styleTitulo2;
+columnaPagador5;Largo=5000;Posicion=5;Desc=Monto Documento;estilo=styleTitulo2;
+columnaPagador6;Largo=5000;Posicion=6;Desc=Monto Abonado;estilo=styleTitulo2;
+columnaPagador7;Largo=5000;Posicion=7;Desc=Tasa de Descuento;estilo=styleTitulo2;
+columnaPagador8;Largo=5000;Posicion=8;Desc=Spread Compartido;estilo=styleTitulo2;
+columnaPagador9;Largo=5000;Posicion=9;Desc=Margen Pagador;estilo=styleTitulo2;
+columnaPagador10;Largo=6500;Posicion=10;Desc=Fecha de Financiamiento;estilo=styleTitulo2;
+
+glosaMontoSinDefinir;Desc=Monto no disponible;
+posicionGlosaEncabezado;Desc=2;
+
+cantidadDeColumnasProveedor;Desc=12;
+columnaProveedor0;Largo=1000;Posicion=0;Desc=;estilo=bordeDerecho;
+columnaProveedor1;Largo=4000;Posicion=1;Desc=RUT Pagador;estilo=styleTitulo2;
+columnaProveedor2;Largo=6500;Posicion=2;Desc=Razón Social;estilo=styleTitulo2;
+columnaProveedor3;Largo=6000;Posicion=3;Desc=Tipo de Documento;estilo=styleTitulo2;
+columnaProveedor4;Largo=5000;Posicion=4;Desc=N° Documento;estilo=styleTitulo2;
+columnaProveedor5;Largo=6000;Posicion=5;Desc=Fecha de Vencimiento;estilo=styleTitulo2;
+columnaProveedor6;Largo=5000;Posicion=6;Desc=Monto Documento;estilo=styleTitulo2;
+columnaProveedor7;Largo=5000;Posicion=7;Desc=Tasa de Descuento;estilo=styleTitulo2;
+columnaProveedor8;Largo=5000;Posicion=8;Desc=Diferencia de Precio;estilo=styleTitulo2;
+columnaProveedor9;Largo=5000;Posicion=9;Desc=Comisión + IVA;estilo=styleTitulo2;
+columnaProveedor10;Largo=5000;Posicion=10;Desc=Monto Abonado;estilo=styleTitulo2;
+columnaProveedor11;Largo=6500;Posicion=11;Desc=Fecha de Financiamiento;estilo=styleTitulo2;
+

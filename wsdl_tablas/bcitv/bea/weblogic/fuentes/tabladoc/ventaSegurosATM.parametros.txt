@@ -1,0 +1,90 @@
+
+Esta tabla contiene los parámetros utilizados por la aplicación Venta de Seguros por ATM. 
+La aplicación consiste en mostrar la oferta de Seguro Multiprotección a través del ATM.
+
+Parámetros
+~~~~~~~~~~
+
+- +cuotaMensualUF+: Valor de la cuota del seguro en UF.
+- +maximoVeces+: Máximo cantidad de veces que se ofrecerá la oferta al cliente.
+- +wsdl+: ruta del servicio web de venta multiproteccion. Este valor podría cambiar dependiendo del ambiente.
+- +tiempoEspera+: timeout definido para el servicio web. Este valor podría cambiar dependiendo del ambiente.
+- +sistema+: nombre sistema UyP que permitirá rescatar usuario y password. Este valor podría cambiar dependiendo del ambiente.
+- +idCanal+: canal asociado al producto multiprotección.
+- +sucursalOrigen+: Sucursal asociada a la venta de multiprotección por el ATM.
+- +codigoProducto+: código producto asociado al producto multiprotección.
+- +codigoPlan+: código plan asociado al producto multiprotección.
+- +idCanal+: canal asociado al producto multiprotección.
+- +codigoCia+: código de compañia asociado al producto.
+- +codigoPlanPago+: código de plan de pago asociado
+- +cantidadCuotas+: cantidad de cuotas del plan de pago
+- +diaPago+: Día de cargo a la cuenta corriente o TC.
+
+Parámetros de las Transacciones Genéricas
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Los códigos de txs son las siguientes:
+
+- +0178\+1016+: Tx que desplegará la pantalla inicial de oferta del Seguro Multiprotección.
+
+- +0178\+0201+: Tx que se gatilla cuando el cliente eligió la opción si. Esto generará una
+			pantalla donde aparecerán las coberturas del seguro.
+
+- +0178\+0202+: Tx que se gatilla cuando el cliente indicó que deseaba continuar. Esto 
+			generará una pantalla donde aparecerá la confirmación del seguro.
+
+- +0178\+0203+: Tx que se gatilla cuando el cliente aceptó la contratación del Seguro Multiprotección.
+			Esto generará la creación del comprobante del seguro aceptado por el cliente.
+
+y pueden contener las siguientes llaves:
+		
+- +tipoPantalla+: Tipo de pantalla a desplegar. +03=Despliegue+.
+
+Llaves para tipoPantalla=03
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+- +opcionesMenu+: Cantidad de opciones o botones a mostrar por la pantalla del ATM al cliente.
+- +opcion+: Letra asociada al botón del cajero.
+- +campo+: Filler de largo 8. Se parametrizó debido a que su valor puede variar durante las pruebas.
+- +dato+: Contenido del botón.
+- +lineasPantalla+: Cantidad máxima de líneas de la pantalla del ATM.
+- +columnasPantalla+: Cantidad máxima de columnas que dispone la pantalla del ATM para desplegar caracteres.
+- +columnaInicio+: Columna desde donde se desplegará el texto en la pantalla.
+
+Llaves para comprobante
+^^^^^^^^^^^^^^^^^^^^^^^
+- +lineasComprobante+: Cantidad máxima de líneas que contendrá el comprobante.
+- +cantidadEspacios+: Cantidad de espacios que existe entre el tipo de salida y la cantidad de caracteres.
+- +tipoSalida+: Indica el tipo de salida que tendrá cada una de líneas. La R significa salida por comprobante.
+- +cantidadCaracteres+: Cantidad de caracteres que posee la línea de contenido.
+
+Llaves para ventaSeguro
+^^^^^^^^^^^^^^^^^^^^^^^
+- +codigoEjecutivo+: Código del ejecutivo con que se cursa el seguro.
+- +idCanal+: canal asociado al producto multiprotección.
+- +sucursalOrigen+: Sucursal asociada a la venta de multiprotección por el ATM.
+- +codigoProducto+: código producto asociado al producto multiprotección.
+- +codigoPlan+: código plan asociado al producto multiprotección.
+- +codigoCia+: código de compañia asociado al producto.
+- +codigoPlanPago+: código de plan de pago asociado
+- +cantidadCuotas+: cantidad de cuotas del plan de pago
+- +diaPago+: Día de cargo a la cuenta corriente o TC.
+- +codigoBanco+: Código del banco en que se cursa.
+- +descripcionBanco+: Nombre del banco en que se cursa.
+- +tiempoExpiracion+: Tiempo de expiración del registro del curse.
+
+Llaves para envioMail
+^^^^^^^^^^^^^^^^^^^^^
+- +fromNombre+: Nombre de quien envía el correo electrónico.
+- +fromDireccion+: Dirección de quien envíe el correo electrónico.
+- +subject+: Asunto del correo electrónico.
+- +cuerpo+: Contenido del correo electrónico.
+- +direccionDestino+: Destinatarios del correo electrónico.
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 10/03/2010 Eduardo Neira R. (SEnTRA): version inicial.
+. 18/11/2010 Gustavo Espinoza  (SEnTRA): Se agregan las llaves ventaSeguro y envioMail.
+								Se modifica el texto de Tx +0178\+1016+ , Tx +0178\+0201+ , Tx +0178\+0202+  y Tx +0178\+0203+ .
+
+==========================================

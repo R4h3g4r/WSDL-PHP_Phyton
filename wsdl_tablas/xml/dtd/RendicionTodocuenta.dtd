@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XML Spy v4.4 (http://www.xmlspy.com) by Ricardus (Círculo de la Mandrágora) -->
+<!ELEMENT rendicion_electronica (rendicion+)>
+<!ELEMENT rendicion (control, deposito+, pago+)>
+<!ELEMENT control (empresa_rendida, fecha_inicio_rendicion, fecha_fin_rendicion, numero_rendicion, numero_pagos_rendidos, monto_pagos_rendidos, numero_depositos, monto_depositos)>
+<!ELEMENT empresa_rendida (#PCDATA)>
+<!ELEMENT fecha_inicio_rendicion (#PCDATA)>
+<!ELEMENT fecha_fin_rendicion (#PCDATA)>
+<!ELEMENT numero_rendicion (#PCDATA)>
+<!ELEMENT numero_pagos_rendidos (#PCDATA)>
+<!ELEMENT monto_pagos_rendidos (#PCDATA)>
+<!ELEMENT numero_depositos (#PCDATA)>
+<!ELEMENT monto_depositos (#PCDATA)>
+<!ELEMENT deposito (banco_deposito, cuenta_deposito, fecha_deposito, numero_deposito, monto_deposito)>
+<!ELEMENT banco_deposito (#PCDATA)>
+<!ELEMENT cuenta_deposito (#PCDATA)>
+<!ELEMENT fecha_deposito (#PCDATA)>
+<!ELEMENT numero_deposito (#PCDATA)>
+<!ELEMENT monto_deposito (#PCDATA)>
+<!ELEMENT pago (empresa_pagada, cliente_empresa, documento_pagado, monto_pagado, fecha_pago)>
+<!ELEMENT empresa_pagada (#PCDATA)>
+<!ELEMENT cliente_empresa (#PCDATA)>
+<!ELEMENT documento_pagado (#PCDATA)>
+<!ELEMENT monto_pagado (#PCDATA)>
+<!ELEMENT fecha_pago (#PCDATA)>

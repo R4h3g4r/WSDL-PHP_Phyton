@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="caching.procedimientosAlmacenados">
+	
+	<parameterMap id="setRegistrarBureauCache" class="java.util.HashMap">
+        <parameter property="rut"              jdbcType="int"  javaType="Long" />
+        <parameter property="codInforme"       jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codRepositorio"   jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="nombreClase"      jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="fechaVigencia"    jdbcType="DATETIME" javaType="java.util.Date" />
+        <parameter property="objetoBureau"     jdbcType="image" javaType="[B" />
+    
+    </parameterMap>
+	
+	<statement id="registrarBureauCache" parameterMap="setRegistrarBureauCache" resultClass="int">
+    <![CDATA[
+            INSERT INTO dbo.BUREAU (
+			bur_rut,
+			bur_cod_informe,
+			bur_cod_repositorio,
+			bur_nom_clase,
+			bur_fec_vigencia,
+			bur_obj)
+			VALUES (?,?,?,?,?,?)
+			SELECT @@ERROR as value
+	]]>
+    </statement>
+	
+	<parameterMap id="setObtieneBureauCache" class="java.util.HashMap">
+        <parameter property="rut"              jdbcType="int"  javaType="Long" />
+        <parameter property="codInforme"       jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codRepositorio"   jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+	
+	<resultMap id="getObtieneBureauCache" class="java.util.HashMap">
+        <result property="nombreClase"	    column="bur_nom_clase"     jdbcType="VARCHAR"	javaType="String" />
+		<result property="fechaVigencia"	column="bur_fec_vigencia"  jdbcType="VARCHAR"	javaType="Date" />
+        <result property="objetoBureau"     column="bur_obj"           jdbcType="image"	    javaType="[B" />
+    </resultMap>
+	
+	<statement id="obtieneBureauCache" parameterMap="setObtieneBureauCache" resultMap="getObtieneBureauCache">
+    <![CDATA[
+            SELECT bur_nom_clase, bur_fec_vigencia, bur_obj 
+			FROM BUREAU
+			WHERE bur_rut = ?
+			AND bur_cod_informe = ?
+			AND bur_cod_repositorio = ?
+	]]>
+    </statement>
+    
+    
+   <parameterMap id="setEliminarBureauCache" class="java.util.HashMap">
+        <parameter property="rut"              jdbcType="int"  javaType="Long" />
+        <parameter property="codInforme"       jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codRepositorio"   jdbcType="VARCHAR"  javaType="String" />
+   </parameterMap>
+   
+   <procedure id="eliminarBureauCache" parameterMap="setEliminarBureauCache" resultClass="int">
+      { CALL sp_eli_bureau(?,?,?) }
+   </procedure>
+    
+</sqlMap>
+

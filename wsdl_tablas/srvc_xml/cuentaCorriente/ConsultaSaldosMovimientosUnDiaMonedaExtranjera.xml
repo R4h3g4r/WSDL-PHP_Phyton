@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_sal_dia_y_ant">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="double" middle_name="cta" size="0" java_name="cuentaCorriente"/>
+		<field type="Date" middle_name="fech" size="0" java_name="fecha" middle_date_format="yyyyMMdd"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="ConsultaSaldosMovimientosUnDiaMonedaExtranjera" var_name="movimientosUnDiaMonedaExtranjera">
+			<field type="Double" middle_name="saldo" size="0" java_name="saldo"/>
+			<field type="Double" middle_name="saldo_contable" size="0" java_name="saldoContable"/>
+			<field type="Date" middle_name="fecha" size="0" java_name="fecha"/>
+			<field type="String" middle_name="sigla" size="0" java_name="moneda"/>
+		</struct>
+	</output>
+	
+</service>

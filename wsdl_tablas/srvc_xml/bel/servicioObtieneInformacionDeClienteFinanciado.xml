@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name="sp_FacElec_devuel_financia2">
+  <!-- contexto -->
+  <context>
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+	
+	<es_funcion value="no"/>
+	
+	<struct_result acquire_value_by="position"/>
+
+    <joltpool_name value="wcorp.bprocess.bciexpress.factoring.factoringelectronicoindexa.DummyFacadeImpl"/>
+  </context>
+  <!-- entrada -->
+  <input>
+        <field
+         java_name = "rutDeCliente"
+         type = "String"
+         size = "12"
+         middle_name = "rutDeCliente"
+        />
+        <field
+         java_name = "cantidadDeDias"
+         type = "int"
+         size = "10"
+         middle_name = "cantidadDeDias"
+        />
+  </input>
+  <!-- salida -->
+  <output>
+
+        <struct struct_size="0" class_name="InformacionDeClienteFinanciadoFactoringElectronicoVO" var_name="informacionDeClienteFinanciadoFactoringElectronicoVO">
+           <field
+            java_name = "rutCliente"
+            type = "String"
+            size = "12"
+            middle_name = "Rut_Cliente"
+           />
+           <field
+            java_name = "totalLineaElectronica"
+            type = "String"
+            size = "20"
+            middle_name = "Tot_Lin_Ele_Vig"
+           />
+           <field
+            java_name = "totalOcupadoDeLineaElectronica"
+            type = "String"
+            size = "20"
+            middle_name = "Tot_Lin_Ele_Ocu"
+           />
+           <field
+            java_name = "pocentajeFinanciamiento"
+            type = "String"
+            size = "20"
+            middle_name = "Porc_Finan"
+           />
+           <field
+            java_name = "costoFondo"
+            type = "String"
+            size = "20"
+            middle_name = "CostoFondo"
+           />
+           <field
+            java_name = "spread"
+            type = "String"
+            size = "20"
+            middle_name = "Spread"
+           />
+           <field
+            java_name = "nombreEjecutivoCliente"
+            type = "String"
+            size = "40"
+            middle_name = "Eje_cli"
+           />
+           <field
+            java_name = "correoElectronicoEjecutivo"
+            type = "String"
+            size = "15"
+            middle_name = "email_eje"
+           />
+           <field
+            java_name = "bancaCliente"
+            type = "String"
+            size = "50"
+            middle_name = "bca_cli"
+           />
+           <field
+            java_name = "unidadDeFomento"
+            type = "String"
+            size = "20"
+            middle_name = "UF"
+           />
+           <field
+            java_name = "tipoComision"
+            type = "String"
+            size = "20"
+            middle_name = "Tip_Comi"
+           />
+           <field
+            java_name = "descripcionTipoComision"
+            type = "String"
+            size = "80"
+            middle_name = "Desc. Tipo Comision"
+           />
+           <field
+            java_name = "montoComision"
+            type = "String"
+            size = "20"
+            middle_name = "Mto_Comi"
+           />
+        </struct>
+
+  </output>	  
+</service>

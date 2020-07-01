@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="gescuadra.procedimientosAlmacenados"> 
+
+    <parameterMap id="setModificarOrigen" class="java.util.HashMap">
+        <parameter property="idItemFormulario"	jdbcType="INT"	javaType="java.lang.Long" />
+        <parameter property="flagAutomatico"	jdbcType="INT"		javaType="java.lang.Long" />
+    </parameterMap>
+    <procedure id="modificarOrigen" parameterMap="setModificarOrigen" resultClass="int">
+        {CALL sp_upd_origen (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setModificaRespaldo" class="java.util.HashMap">
+        <parameter property="idCuadratura"	jdbcType="INT" javaType="java.lang.Long" />
+        <parameter property="ftpRespaldo"	jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+    <procedure id="modificaRespaldo" parameterMap="setModificaRespaldo" resultClass="int">
+        {CALL sp_upd_respaldo (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setModificaCorreoJefe" class="java.util.HashMap">
+        <parameter property="idSucursal"	jdbcType="INT" javaType="java.lang.Long" />
+        <parameter property="correoJefe"	jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+    <procedure id="modificaCorreoJefe" parameterMap="setModificaCorreoJefe" resultClass="int">
+        {CALL sp_upd_correoJefe (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setObtieneSucursales" class="java.util.HashMap">
+        <parameter property="codigoSucursal"	jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+	
+    <resultMap id="getObtieneSucursales" class="java.util.HashMap">
+        <result property="idSucursal"	jdbcType="INT"      javaType="int" />
+        <result property="codigo"		jdbcType="VARCHAR"	javaType="String" />
+        <result property="glosa"  		jdbcType="VARCHAR"	javaType="String" />
+        <result property="idPlantilla"	jdbcType="INT"		javaType="int" />           
+        <result property="correoJefe"	jdbcType="VARCHAR"	javaType="String" />        
+    </resultMap>
+    <procedure id="obtieneSucursales" parameterMap="setObtieneSucursales" resultMap="getObtieneSucursales">
+        {CALL sp_sel_sucursales (?)}
+    </procedure>
+    
+    <parameterMap id="setObtienePlantillaFormulario" class="java.util.HashMap">
+        <parameter property="codigoSucursal"	jdbcType="VARCHAR" 	javaType="String" />
+        <parameter property="fechaCreacion"		jdbcType="DATE" 	javaType="java.util.Date" />
+    </parameterMap>
+	
+    <resultMap id="getObtienePlantillaFormulario" class="java.util.HashMap">
+        <result property="id"		jdbcType="INT"      javaType="int" />
+        <result property="codigo"	jdbcType="VARCHAR"	javaType="String" />
+        <result property="glosa"	jdbcType="VARCHAR"	javaType="String" />
+        <result property="flagAutomatico"	jdbcType="INT"	javaType="int" />           
+        <result property="orden"	jdbcType="INT"		javaType="int" />               
+        <result property="idPadre"	jdbcType="INT"		javaType="int" />               
+        <result property="valor"	jdbcType="NUMERIC"	javaType="java.lang.Long" />   
+        <result property="idCuadratura"		jdbcType="INT"      javaType="int" />    
+        <result property="tipoExtractor"	jdbcType="INT"      javaType="int" />  
+        <result property="endPoint"	jdbcType="VARCHAR"	javaType="String" /> 
+        <result property="methodName"	jdbcType="VARCHAR"	javaType="String" />  
+    </resultMap>
+    <procedure id="obtienePlantillaFormulario" parameterMap="setObtienePlantillaFormulario" resultMap="getObtienePlantillaFormulario">
+        {CALL sp_sel_plantillaFormulario (?, ?)}
+    </procedure>
+	
+    <resultMap id="getObtieneOrigenItem" class="java.util.HashMap">
+        <result property="id"		jdbcType="INT"      javaType="int" />
+        <result property="codigo"	jdbcType="VARCHAR"	javaType="String" />
+        <result property="glosa"	jdbcType="VARCHAR"	javaType="String" />
+        <result property="flagAutomatico"	jdbcType="INT"	javaType="int" />               
+        <result property="idPadre"	jdbcType="INT"		javaType="int" />     
+        <result property="tipoExtractor"	jdbcType="INT"      javaType="int" />  
+        <result property="endPoint"	jdbcType="VARCHAR"	javaType="String" /> 
+        <result property="methodName"	jdbcType="VARCHAR"	javaType="String" />     
+    </resultMap>
+    <procedure id="obtieneOrigenItem" resultMap="getObtieneOrigenItem">
+        {CALL sp_sel_origen ()}
+    </procedure>
+    
+    <parameterMap id="setObtieneCuadItemValor" class="java.util.HashMap">
+<!--         <parameter property="codigoSucursal"	jdbcType="VARCHAR" javaType="String" /> -->
+		<parameter property="idCuadratura"	jdbcType="INT" javaType="java.lang.Long" />
+    </parameterMap>
+	
+    <resultMap id="getObtieneCuadItemValor" class="java.util.HashMap">
+        <result property="idPCI"		jdbcType="INT"      javaType="int" />
+        <result property="glosa"	jdbcType="VARCHAR"	javaType="String" />          
+        <result property="orden"	jdbcType="INT"		javaType="int" />               
+        <result property="idPadre"	jdbcType="INT"		javaType="int" />               
+        <result property="idRegla"	jdbcType="INT"      javaType="int" />        
+        <result property="tipoDebe"	jdbcType="INT"		javaType="int" />               
+        <result property="tipoValidacion"	jdbcType="INT"		javaType="int" />  
+        <result property="formula"	jdbcType="VARCHAR"	javaType="String" />  
+        <result property="items"	jdbcType="VARCHAR"	javaType="String" />  
+        <result property="mensaje"	jdbcType="VARCHAR"	javaType="String" />  
+        <result property="nombre"	jdbcType="VARCHAR"	javaType="String" />           
+    </resultMap>
+    <procedure id="obtieneCuadItemValor" parameterMap="setObtieneCuadItemValor" resultMap="getObtieneCuadItemValor">
+        {CALL sp_sel_formCuadratura (?)}
+    </procedure>
+    
+      
+    <parameterMap id="setObtieneCuadratura" class="java.util.HashMap">
+        <parameter property="codigoSucursal"	jdbcType="VARCHAR" javaType="String" />
+        <parameter property="fechaCertificacion"	jdbcType="DATE" javaType="java.util.Date" />
+    </parameterMap>
+	
+    <resultMap id="getObtieneCuadratura" class="java.util.HashMap">
+        <result property="codigo"		jdbcType="VARCHAR"	javaType="String" />
+        <result property="glosa"  		jdbcType="VARCHAR"	javaType="String" />
+        <result property="id"			jdbcType="INT"      javaType="int" />
+        <result property="idSucursal"	jdbcType="INT"      javaType="int" />
+        <result property="Comentario"	jdbcType="VARCHAR"	javaType="String" />
+        <result property="FlagCertificacion"	jdbcType="INT"      javaType="int" />
+        <result property="FlagHabilitar"		jdbcType="INT"      javaType="int" />
+        <result property="FtpRespaldo"	jdbcType="nvarchar"	javaType="String" />   
+        <result property="Diferencia"	jdbcType="NUMERIC"	javaType="java.lang.Long" /> 
+        <result property="codStatus"	jdbcType="CHAR"		javaType="String" />
+        <result property="descStatus"	jdbcType="VARCHAR"	javaType="String" />	
+        <result property="fechaCertificacion"	jdbcType="DATETIME"	javaType="java.util.Date" />   
+        <result property="fechaCreacion"		jdbcType="DATETIME"	javaType="java.util.Date" />          
+    </resultMap>
+    <procedure id="obtieneCuadratura" parameterMap="setObtieneCuadratura" resultMap="getObtieneCuadratura">
+        {CALL sp_sel_cuadratura (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setCreaFormulario" class="java.util.HashMap">
+        <parameter property="codigoSucursal"	jdbcType="VARCHAR" 	javaType="String" />
+    </parameterMap>
+    <procedure id="creaFormulario" parameterMap="setCreaFormulario"	resultClass="int">
+        {CALL sp_ins_formulario (?)}
+    </procedure>
+    
+    <parameterMap id="setCreaItem" class="java.util.HashMap">
+        <parameter property="idCuadratura"		jdbcType="INT"      javaType="java.lang.Long" />
+        <parameter property="idItem"			jdbcType="INT"      javaType="java.lang.Long" />
+        <parameter property="valor"				jdbcType="NUMERIC"  javaType="java.lang.Long" />
+    </parameterMap>
+    <procedure id="creaItem" parameterMap="setCreaItem"	resultClass="int">
+        {CALL sp_ins_formValor (?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setModificaEstadoCuadratura" class="java.util.HashMap">
+        <parameter property="idCuadratura"	jdbcType="INT" javaType="java.lang.Long" />
+        <parameter property="estado"	jdbcType="CHAR" javaType="String" />
+        <parameter property="diferencia"	jdbcType="NUMERIC" javaType="java.lang.Long" />
+        <parameter property="comentario"	jdbcType="nvarchar" javaType="String" />
+    </parameterMap>
+    <procedure id="modificaEstadoCuadratura" parameterMap="setModificaEstadoCuadratura" resultClass="int">
+        {CALL sp_upd_estCuadratura (?, ?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setRollBackCuadratura" class="java.util.HashMap">
+        <parameter property="idCuadratura"	jdbcType="INT" javaType="java.lang.Long" />
+    </parameterMap>
+    <procedure id="rollBackCuadratura" parameterMap="setRollBackCuadratura" resultClass="int">
+        {CALL sp_del_item_cuad (?)}
+    </procedure>
+    
+	<!--  setear y leer parámetros genéricos de extractores -->
+	<parameterMap id="setExtractor" class="java.util.HashMap">
+		<parameter property="ofi_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fec_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="usr_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_ini" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="mto_operacion_fin" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="cod_tx" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tx_tx" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getExtractor" class="java.util.HashMap">
+		<result property="fechaProceso" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaOrigen" jdbcType="VARCHAR" javaType="String" />
+		<result property="oficinaDestino" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaContable" jdbcType="VARCHAR" javaType="String" />
+		<result property="vigente" jdbcType="VARCHAR" javaType="String" />
+		<result property="cuentaCorriente" jdbcType="VARCHAR" javaType="String" />
+		<result property="montoImputacion" jdbcType="VARCHAR" javaType="String" />
+		<result property="numeroTransaccion" jdbcType="VARCHAR"	javaType="String" />
+		<result property="transaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="correlativo" jdbcType="VARCHAR" javaType="String" />
+		<result property="nombreBeneficiario" jdbcType="VARCHAR" javaType="String" />
+		<result property="rut" jdbcType="VARCHAR" javaType="String" />
+		<result property="glosaComentario" jdbcType="VARCHAR" javaType="String" />
+		<result property="mnemonico" jdbcType="VARCHAR" javaType="String" />
+		<result property="moneda" jdbcType="VARCHAR" javaType="String" />
+		<result property="usuarioTransaccion" jdbcType="VARCHAR" javaType="String" />
+		<result property="activador" jdbcType="VARCHAR" javaType="String" />
+		<result property="HoraTransaccion" jdbcType="VARCHAR" javaType="String" />
+	</resultMap>
+	
+	<!-- Extractor Vale Vistas Emitidos en Cics -->
+	<procedure id="obtenerExtractorValeVistaEmitCisc" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL lista_emitidos_vvi(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<!-- Extractor Total Vales Vista -->
+	<procedure id="obtenerExtractorTotalValeVista" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL lista_consulta_vvi(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<!-- Extractor Vales Vista con Cargo -->
+	<procedure id="obtenerExtractorValeVistaCargo" resultMap="getExtractor" parameterMap="setExtractor">
+		{CALL lista_cargo_vvi(?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+    
+</sqlMap>

@@ -1,0 +1,198 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Mc2CvnIngLla">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="yes" />
+
+    <req_num_param value="no" />
+
+    <translator value="MC2PPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.preciosmulticanal.convenioscorporativos.ConveniosCorporativosBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "caiConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "idConvenio"
+          middle_name_secondary = "tasaIntMax30"
+        />
+
+        <field
+          java_name = "iicConvenio"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numConvenio"
+          middle_name_secondary = "tasaIntMax48"
+        />
+
+        <field
+          java_name = "fechaConvenio"
+          type = "Date"
+          size = "8"
+          middle_name = "fecConstancia"
+          middle_name_secondary = "tasaIntMax45"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "horaConvenio"
+          type = "String"
+          size = "6"
+          middle_name = "hora"
+          middle_name_secondary = "tasaIntMax47"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "caiConvenio"
+          type = "String"
+          size = "4"
+          middle_name = "idConvenio"
+          middle_name_secondary = "tasaIntMax30"
+        />
+
+        <field
+          java_name = "iicConvenio"
+          type = "int"
+          size = "8"
+          sign = "no"
+          integers = "8"
+          decimals = "0"
+          middle_name = "numConvenio"
+          middle_name_secondary = "tasaIntMax48"
+        />
+
+        <field
+          java_name = "glsOficina"
+          type = "String"
+          size = "28"
+          middle_name = "oficina"
+          middle_name_secondary = "tasaIntMin10"
+        />
+
+        <field
+          java_name = "glsEstadoConvenio"
+          type = "String"
+          size = "24"
+          middle_name = "estado"
+          middle_name_secondary = "tasaIntMin11"
+        />
+
+        <field
+          java_name = "glsExpDuracion"
+          type = "String"
+          size = "5"
+          middle_name = "glosaExtIdc"
+          middle_name_secondary = "tasaIntMin4"
+        />
+
+        <field
+          java_name = "glosaTipoConvenio"
+          type = "String"
+          size = "24"
+          middle_name = "glosaTipoGar"
+          middle_name_secondary = "tasaIntMin14"
+        />
+
+        <field
+          java_name = "nombreEjecutivoConvenio"
+          type = "String"
+          size = "37"
+          middle_name = "desEjecutivo"
+          middle_name_secondary = "tasaIntMin7"
+        />
+
+        <field
+          java_name = "glosaSubTipoConvenio"
+          type = "String"
+          size = "24"
+          middle_name = "glosaSubTipoInd"
+          middle_name_secondary = "tasaIntMin12"
+        />
+
+        <field
+          java_name = "nombreEjecutivoSolicitante"
+          type = "String"
+          size = "37"
+          middle_name = "nombreEstSolicit"
+          middle_name_secondary = "tasaIntMin9"
+        />
+
+        <field
+          java_name = "glosaTipoCanal"
+          type = "String"
+          size = "24"
+          middle_name = "glosaTipoLinea"
+          middle_name_secondary = "tasaIntMin13"
+        />
+
+        <field
+          java_name = "nombreEjecutivoPatrocinante"
+          type = "String"
+          size = "37"
+          middle_name = "ejecutivoContacto"
+          middle_name_secondary = "tasaIntMin8"
+        />
+
+        <field
+          java_name = "glosaCanalIngreso"
+          type = "String"
+          size = "24"
+          middle_name = "glosaCambio"
+          middle_name_secondary = "tasaIntMin2"
+        />
+
+        <field
+          java_name = "glosaEjecutivoAprobador"
+          type = "String"
+          size = "37"
+          middle_name = "glosaProveedor"
+          middle_name_secondary = "tasaIntMin5"
+        />
+
+        <field
+          java_name = "glosaAbogadoResponsable"
+          type = "String"
+          size = "34"
+          middle_name = "glosaRechazo"
+          middle_name_secondary = "tasaIntMin1"
+        />
+
+        <field
+          java_name = "glosaEjecutivoExplora"
+          type = "String"
+          size = "37"
+          middle_name = "glosaCliente"
+          middle_name_secondary = "tasaIntMin6"
+        />
+
+  </output>
+
+</service>

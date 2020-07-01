@@ -1,0 +1,11 @@
+WLSBciPago;                     Desc=bcipago;   Grupos=WLSGrp;   Servicio=/bcinetwls/gestorpagostransferencias/index.jsp?portal=true;     Mostrar=Si;	 Destino=top;
+#
+# Inversiones
+#
+InversionesWLS;                Desc=Inversiones;    Grupos=InversionesGrp;   Servicio=/bcinetwls/inversioneswls/portal.jsp?portal=true;Mostrar=Si;   Destino=top;
+
+CambiarClave;                     Desc=Cambio de Clave;                                                         Servicio=/seguridadwls/RealizaCambioClave;
+
+OrdenPago;  Desc=OrdenPago;  Servicio=/belwls/ordenPago?modo=convenios;
+
+CerrarSesion;                     Desc=Cerrar Sesión;                                                           Servicio=/seguridadwls/CerrarSesion;

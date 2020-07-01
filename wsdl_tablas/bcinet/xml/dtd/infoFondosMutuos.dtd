@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!ELEMENT complementos (documento*, premio*, video?)>
+<!ELEMENT criterios (riesgo+, tipo+, horizonte+)>
+<!ELEMENT documento (#PCDATA)>
+<!ATTLIST documento
+	id CDATA #REQUIRED
+>
+<!ELEMENT fondo-mutuo (nombre, horizonte-inversion-sugerido, target-personas, target-empresas, moneda, inversion-minima-sugerida, internet, complementos?)>
+<!ATTLIST fondo-mutuo
+	codigo CDATA #REQUIRED
+	riesgo CDATA #REQUIRED
+	tipo CDATA #REQUIRED
+	horizonte CDATA #REQUIRED
+>
+<!ELEMENT horizonte (#PCDATA)>
+<!ATTLIST horizonte
+	id CDATA #REQUIRED
+>
+<!ELEMENT horizonte-inversion-sugerido (#PCDATA)>
+<!ELEMENT infoFondosMutuos (criterios, fondo-mutuo+)>
+<!ELEMENT internet (#PCDATA)>
+<!ELEMENT inversion-minima-sugerida (#PCDATA)>
+<!ELEMENT moneda (#PCDATA)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT premio (#PCDATA)>
+<!ATTLIST premio
+	id CDATA #REQUIRED
+>
+<!ELEMENT riesgo (#PCDATA)>
+<!ATTLIST riesgo
+	id CDATA #REQUIRED
+>
+<!ELEMENT target-empresas (#PCDATA)>
+<!ELEMENT target-personas (#PCDATA)>
+<!ELEMENT tipo (#PCDATA)>
+<!ATTLIST tipo
+	id CDATA #REQUIRED
+>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video
+	id CDATA #REQUIRED
+>

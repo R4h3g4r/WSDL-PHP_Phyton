@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_act_pro">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field java_name="codigoEjecutivo" type="String" size="0" middle_name="eje"/>
+	</input>
+	<output>
+		<struct struct_size="0" class_name="SalidaConsultaActividadesTO" var_name="actividades">
+			<field java_name="identificador" type="String" size="0" middle_name="pgm_cod"/>
+			<field java_name="nombre" type="String" size="0" middle_name="pgm_gls"/>
+			<field java_name="observacion" type="String" size="0" middle_name="log_eje_gls" default_value=""/>
+			<field java_name="estado" type="int" size="0" middle_name="est"/>			
+		</struct>
+	</output>
+</service>
+

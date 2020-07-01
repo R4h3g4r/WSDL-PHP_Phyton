@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<service name = "sp_select_rbf">
+  <context>
+
+    <boolean_false value="1"/>
+
+    <boolean_true value="0"/>
+
+    <general_exception_codigo value="ESPECIAL"/>
+
+    <have_multi_environment value="no"/>
+
+    <outputfield_attr value="no"/>
+
+    <req_num_param value="no"/>
+
+    <translator value="RORPPTPG"/>
+
+    <campo_indica_cantidad value=""/>
+
+    <status_throw_exception value="yes"/>
+
+    <joltpool_name value="wcorp.bprocess.bciexpress.infoproveedor.DummyFacadeImpl" />
+
+  </context>
+  <input>
+		
+        <field
+          java_name = "numeroDeConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "cnv_num"
+        />
+		
+        <field
+          java_name = "rutEmpresaPagadora"
+          type = "String"
+          size = "12"
+          middle_name = "emp_num_rut"
+        />
+		
+		<field
+          java_name = "rutEmpresaProveedora"
+          type = "String"
+          size = "12"
+          middle_name = "prv_num_rut"
+        />
+		
+		
+  </input>  
+  
+  <output>
+	<struct struct_size="0" class_name="RelacionRetiradorBeneficiarioVO" var_name="relacionRetiradorBeneficiarioVO">
+	
+        <field
+          java_name = "rutRetirador1"
+          type = "String"
+          size = "12"
+          middle_name = "rutRetirador1"
+        />
+		
+        <field
+          java_name = "dvRutRetirador1"
+	          type = "char"
+	          size = "1"
+          middle_name = "dvRutRetirador1"
+        />
+		
+        <field
+          java_name = "apellidoPaterno1"
+          type = "String"
+          size = "25"
+          middle_name = "apaterno1"
+        />
+		
+        <field
+          java_name = "apellidoMaterno1"
+          type = "String"
+          size = "25"
+          middle_name = "amaterno1"
+        />
+		
+        <field
+          java_name = "nombreRetirador1"
+          type = "String"
+          size = "25"
+          middle_name = "nomRetirador1"
+        />
+		
+        <field
+          java_name = "rutRetirador2"
+          type = "String"
+          size = "12"
+          middle_name = "rutRetirador2"
+        />
+		
+        <field
+          java_name = "dvRutRetirador2"
+	          type = "char"
+	          size = "1"
+          middle_name = "dvRutRetirador2"
+        />
+		
+        <field
+          java_name = "apellidoPaterno2"
+          type = "String"
+          size = "25"
+          middle_name = "apaterno2"
+        />
+		
+        <field
+          java_name = "apellidoMaterno2"
+          type = "String"
+          size = "25"
+          middle_name = "amaterno2"
+        />
+		
+        <field
+          java_name = "nombreRetirador2"
+          type = "String"
+          size = "25"
+          middle_name = "nomRetirador2"
+        />
+	
+    </struct>
+  </output>	  
+
+</service>    

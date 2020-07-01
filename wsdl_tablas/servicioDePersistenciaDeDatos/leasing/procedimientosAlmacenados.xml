@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+	<sqlMap namespace="leasing.procedimientosAlmancenados">	
+		
+		<resultMap id="MapOperaciones"			class="java.util.HashMap">
+			<result property="ope_num"			column="ope_num"			/>
+			<result property="ope_fechacont"	column="ope_fechacont"		/>
+			<result property="eop_des"			column="eop_des"			/>
+			<result property="ope_tippago"		column="ope_tippago"		/>
+			<result property="ope_numrentas"	column="ope_numrentas"		/>
+			<result property="mon_abv"			column="mon_abv"			/>
+			<result property="mon_dec"			column="mon_dec"			/>
+			<result property="cant_ren"			column="cant_ren"			/>
+			<result property="or_monact"		column="or_monact"			/>
+			<result property="cant_renmor"		column="cant_renmor"		/>
+			<result property="clc_des"			column="clc_des"			/>
+			<result property="crg_cod"			column="crg_cod"			/>
+			<result property="ope_incseguro"	column="ope_incseguro"		/>
+			<result property="eje_nom"			column="eje_nom"			/>
+			<result property="tgs_des"			column="tgs_des"			/>
+		</resultMap>
+
+		<resultMap id="pagotbl" class="java.util.HashMap">
+			<result property="estadoFacturacion"	column="or_estfac"		/>
+			<result property="estadoPago"			column="or_estpago"		/>
+			<result property="fechaVencimiento"		column="or_fecven"		/>
+			<result property="fechaPago"			column="rec_fec"		/>
+			<result property="moneda"				column="mon_abv"		/>
+			<result property="monto"				column="or_valrentaiva"	/>
+			<result property="numero"				column="or_num"			/>
+			<result property="pagoParcial"			column="orpp_brutoorig"	/>
+		</resultMap>
+
+		<resultMap id="MapDatosOperacion" class="java.util.HashMap">
+			<result property="cli_rut"			column="cli_rut"		/>
+			<result property="usr_des"			column="usr_des"		/>
+			<result property="suc_des"			column="suc_des"		/>
+			<result property="tcar_des"			column="tcar_des"		/>
+			<result property="crg_des"			column="crg_des"		/>
+			<result property="clc_des"			column="clc_des"		/>
+			<result property="tlea_des"			column="tlea_des"		/>
+			<result property="ope_tipopccom"	column="ope_tipopccom"	/>
+			<result property="ment_des"			column="ment_des"		/>
+			<result property="ope_feccan"		column="ope_feccan"		/>
+			<result property="ope_coniva"		column="ope_coniva"		/>
+			<result property="ope_facant"		column="ope_facant"		/>
+			<result property="ope_tippago"		column="ope_tippago"	/>
+			<result property="ope_diavenc"		column="ope_diavenc"	/>
+			<result property="ope_fechaope"		column="ope_fechaope"	/>
+			<result property="ope_incseguro"	column="ope_incseguro"	/>
+			<result property="mon_abv"			column="mon_abv"		/>
+			<result property="ope_tipocambio"	column="ope_tipocambio"	/>
+		</resultMap>
+
+		<resultMap id="MapNegociosActivos" class="java.util.HashMap">
+			<result property="neg_activo"			column="neg_activo"		/>
+		</resultMap>
+
+		<resultMap id="tasatbl" class="java.util.HashMap">
+			<result property="tasa_base"						column="ope_tasabase"		/>
+			<result property="spread"							column="ope_spread"			/>
+			<result property="tipo_tasa"						column="tas_des"			/>
+			<result property="periodo_repactacion"				column="ope_perrepact"		/>
+			<result property="fecha_ultima_repactacion"			column="ope_fecultrecalc"	/>
+			<result property="numero_repactacion"				column="ope_numrep"			/>
+			<result property="fecha_siguiente_repactacion"		column="ope_fecsigrecalc"	/>
+		</resultMap>
+
+		<resultMap id="clausulatbl" class="java.util.HashMap">
+			<result property="numero"				column="cond_cod"	/>
+			<result property="descripcion"			column="cond_des"	/>
+			<result property="poseeClausula"		column="opc_marca"	/>
+		</resultMap>
+
+		<resultMap id="provisiontbl" class="java.util.HashMap">
+			<result property="descripcion"			column="prov_des"	/>
+			<result property="poseeProvision"		column="opp_marca"	/>
+			<result property="moneda"				column="mon_abv"	/>
+			<result property="valorAsignado"		column="opp_val"	/>
+			<result property="codigoProvision"		column="prov_cod"	/>
+		</resultMap>
+
+		<resultMap id="cobranzatbl" class="java.util.HashMap">
+			<result property="tipoOperacion"		column="ope_tipo"			/>
+			<result property="numeroOperacion"		column="Ope_num"			/>
+			<result property="numeroCuota"			column="Or_Num"				/>
+			<result property="estadoPago"			column="or_estpago"			/>
+			<result property="fechaVencimiento"		column="or_fecvcto"			/>
+			<result property="codigoMoneda"			column="mon_abv"			/>
+			<result property="facturaAnticipada"	column="fac_num"			/>
+			<result property="pagoParcial"			column="or_pagoparcial"		/>
+			<result property="valorRenta"			column="or_valrenta"		/>
+			<result property="valorRentaPesos"		column="or_valrentaP"		/>
+			<result property="valorIva"				column="or_moniva"			/>
+			<result property="valorIvaPesos"		column="or_monivaP"			/>
+			<result property="totalRenta"			column="or_valrentaiva"		/>
+			<result property="totalRentaPesos"		column="or_valrentaivaP"	/>
+			<result property="tipoRenta"			column="Or_Tipo"			/>
+			<result property="decimalMoneda"		column="mon_dec"			/>
+			<result property="valorUf"				column="tc_valcam"			/>
+			<result property="valorTasas"			column="tc_valtasas"		/>
+			<result property="valorCuotaUf"			column="or_valrentaivaUF"	/>
+			<result property="valorUfDia"			column="ValorUF"			/>
+			<result property="decimalUfDia"			column="DecimalUF"			/>
+			<result property="descripcion"			column="gas_des"			/>
+			<result property="fechaFacturacion"		column="fac_fec"			/>
+			<result property="numeroFacturacion"	column="fac_num"			/>
+			<result property="trecCod"				column="trec_cod"			/>
+			<result property="operacionConIva"		column="ope_coniva"			/>
+			<result property="diasMora"				column="orp_diasmora"		/>
+			<result property="orpSwproceso"			column="orp_swproceso"		/>
+			<result property="operacionUnix"		column="ope_unix"			/>
+			<result property="estadoPago"			column="or_estpac"			/>
+			<result property="interes"				column="interes"			/>
+			<result property="gastos"				column="gastos"				/>
+		</resultMap>
+
+		<resultMap id="MapImpresionCuponesDePago" class="java.util.HashMap">
+			<result property="orpp_brutoorig"		column="orpp_brutoorig"	/>
+			<result property="or_valrentaiva"		column="or_valrentaiva"	/>
+		</resultMap>
+
+
+		<resultMap id="MapBienesOperacion" class="java.util.HashMap">
+			<result property="bie_desgen"			column="bie_desgen"	/>
+			<result property="bie_cantidad"		column="bie_cantidad"	/>
+			<result property="mon_abv"				column="mon_abv"	/>
+			<result property="bie_monori"		column="bie_monori"	/>
+			<result property="mon_dec"		column="mon_dec"	/>
+		</resultMap>
+
+		<resultMap id="MapInfoRenta" class="java.util.HashMap">
+			<result property="ope_prirenval"		column="ope_prirenval"	/>
+			<result property="ope_prirenfec"		column="ope_prirenfec"	/>
+			<result property="ope_segrenfec"		column="ope_segrenfec"	/>
+			<result property="ope_numrentas"		column="ope_numrentas"	/>
+			<result property="ope_pervenc"			column="ope_pervenc"	/>
+			<result property="ope_plazo"			column="ope_plazo"		/>
+			<result property="ope_monto"			column="ope_monto"		/>
+			<result property="tren_des"				column="tren_des"		/>
+			<result property="ope_afecprepago"		column="ope_afecprepago"/>
+			<result property="ope_iniprepago"		column="ope_iniprepago"	/>
+			<result property="ope_tasadcto"			column="ope_tasadcto"	/>
+			<result property="mon_abv"			column="mon_abv"	/>
+		</resultMap>
+
+		<resultMap id="MapRentasOperacion" class="java.util.HashMap">
+			<result property="Or_Num"				column="Or_Num"			/>
+			<result property="Or_Fecven"			column="Or_Fecven"		/>
+			<result property="or_monact"			column="or_monact"		/>
+			<result property="or_monamo"			column="or_monamo"		/>
+			<result property="or_monint"			column="or_monint"		/>
+			<result property="or_monsdocap"			column="or_monsdocap"	/>
+			<result property="or_valrenta"			column="or_valrenta"	/>
+			<result property="or_monexe"			column="or_monexe"		/>
+			<result property="or_moniva"			column="or_moniva"		/>
+			<result property="or_valrentaiva"		column="or_valrentaiva"	/>
+			<result property="mon_abv"				column="mon_abv"		/>
+			<result property="or_estpago"			column="or_estpago"		/>
+		</resultMap>
+
+		<resultMap id="MapCabeceraOperacion" class="java.util.HashMap">
+			<result property="ope_num"			column="ope_num"	/>
+			<result property="top_des"			column="top_des"	/>
+			<result property="ope_fechacont"			column="ope_fechacont"	/>
+			<result property="eop_des"			column="eop_des"	/>
+		</resultMap>
+
+		<resultMap id="MapAvalesOperacion" class="java.util.HashMap">
+			<result property="cli_rut" column="cli_rut"/>
+			<result property="cli_dv"	 column="cli_dv"/>
+			<result property="ope_num" column="ope_num"/>
+			<result property="cli_nombus" column="cli_nombus"/>
+		</resultMap>
+
+		<resultMap id="MapGarantiasOperacion" class="java.util.HashMap">
+      		<result property="gta_num" column="gta_num"/>
+			<result property="tgs_des"	 column="tgs_des"/>
+			<result property="mon_abv"	column="mon_abv"/>
+			<result property="gta_val"	column="gta_val"/>
+			<result property="gta_valact" column="gta_valact"/>
+			<result property="gta_fecultact"	 column="gta_fecultact"/>
+			<result property="gta_valtas" column="gta_valtas"/>
+			<result property="gta_fecultas" column="gta_fecultas"/>
+      		<result property="gta_comp" column="gta_comp"/>
+			<result property="gop_porcomp"	 column="gop_porcomp"/>
+			<result property="gta_fecesc"	column="gta_fecesc"/>
+		</resultMap>
+
+		
+		<!-- Mapas para Leasing de bci.cl -->
+
+       <resultMap id="MapBienesOperacionalesHist" class="java.util.HashMap">
+            <result property="operacion" column="operacion"/>
+            <result property="fecha_contratacion" column="fecha_contratacion"/>
+            <result property="rentas_pagadas" column="rentas_pagadas"/>
+            <result property="total_rentas" column="total_rentas"/>
+            <result property="rentas_morosas" column="rentas_morosas"/>
+            <result property="dia_vencimiento" column="dia_vencimiento"/>
+            <result property="tipo_bien" column="tipo_bien"/>
+            <result property="patente_bien" column="patente_bien"/>
+            <result property="seguro" column="seguro"/>
+            <result property="fecha_termino" column="fecha_termino"/>
+            <result property="cantidad_agrupado" column="cantidad_agrupado"/>
+        </resultMap>
+
+
+       <resultMap id="MapBienesOperacionalesVig" class="java.util.HashMap">
+            <result property="operacion" column="operacion"/>
+            <result property="fecha_contratacion" column="fecha_contratacion"/>
+            <result property="rentas_pagadas" column="rentas_pagadas"/>
+            <result property="total_rentas" column="total_rentas"/>
+            <result property="rentas_morosas" column="rentas_morosas"/>
+            <result property="dia_vencimiento" column="dia_vencimiento"/>
+            <result property="tipo_bien" column="tipo_bien"/>
+            <result property="patente_bien" column="patente_bien"/>
+            <result property="seguro" column="seguro"/>
+            <result property="cantidad_agrupado" column="cantidad_agrupado"/>
+        </resultMap>
+
+
+       <resultMap id="MapBienesDeOperacion" class="java.util.HashMap">
+            <result property="operacion" column="operacion"/>
+            <result property="tipo_bien" column="tipo_bien"/>
+            <result property="patente_bien" column="patente_bien"/>
+            <result property="cantidad_agrupado" column="cantidad_agrupado"/>
+        </resultMap>
+
+
+       <resultMap id="MapDetalleRentas" class="java.util.HashMap">
+            <result property="numero" column="numero"/>
+            <result property="fecha_vencimiento" column="fecha_vencimiento"/>
+            <result property="estado_renta" column="estado_renta"/>
+            <result property="fecha_pago" column="fecha_pago"/>
+            <result property="moneda_renta" column="moneda_renta"/>
+            <result property="codigo_moneda" column="codigo_moneda"/>
+            <result property="operacion" column="operacion"/>
+            <result property="neto_origen" column="neto_origen"/>
+            <result property="iva_origen" column="iva_origen"/>
+            <result property="total_origen" column="total_origen"/>
+            <result property="total" column="total"/>
+            <result property="tipo_cambio" column="tipo_cambio"/>
+        </resultMap>
+             
+	<procedure id="infoCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_dat_cli(#rut_cli#)}
+	</procedure>
+
+	<procedure id="telefonoCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_tel_cli(#rut_cli#)}
+	</procedure>
+
+	<procedure id="direccionCliente" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_dir_cli(#rut_cli#)}
+	</procedure>
+
+	<procedure id="operacionesLeasing" parameterClass="java.util.HashMap" resultMap="MapOperaciones">
+		{CALL sp_cns_ope_cli(#rut_cli#)}
+	</procedure>
+
+	<procedure id="pagoCliente" parameterClass="java.util.HashMap" resultMap="pagotbl">
+		{CALL sp_rentas_opepagoparcial(#numOperacion#)}
+	</procedure>
+
+	<procedure id="datosOperacion" parameterClass="java.util.HashMap" resultMap="MapDatosOperacion">
+		{CALL sp_cns_dat_ope(#num_ope#)}
+	</procedure>
+
+		<procedure id="tasaCliente" parameterClass="java.util.HashMap" resultMap="tasatbl">
+			{CALL sp_cns_tas_ope(#numOperacion#)}
+		</procedure>
+
+		<procedure id="clausulaCliente" parameterClass="java.util.HashMap" resultMap="clausulatbl">
+			{CALL sp_datos_operacion_cond(#numOperacion#)}
+		</procedure>
+
+		<procedure id="provisionCliente" parameterClass="java.util.HashMap" resultMap="provisiontbl">
+			{CALL sp_cns_dat_prov(#numOperacion#)}
+		</procedure>
+
+	<procedure id="negociosActivos" parameterClass="java.util.HashMap" resultMap="MapNegociosActivos">
+		{CALL sp_calcula_negociosactivos(#rut_cli#)}
+	</procedure>
+
+	<procedure id="bienesOperacion" parameterClass="java.util.HashMap" resultMap="MapBienesOperacion">
+		{CALL sp_lista_opebienes(#num_ope#)}
+	</procedure>
+
+	<procedure id="infoRenta" parameterClass="java.util.HashMap" resultMap="MapInfoRenta">
+		{CALL sp_cns_ren_ope(#num_ope#)}
+	</procedure>
+
+	<procedure id="rentasOperacion" parameterClass="java.util.HashMap" resultMap="MapRentasOperacion">
+		{CALL sp_datos_operacion_rentas(#num_ope#)}
+	</procedure>
+
+	<procedure id="cabeceraOperacion" parameterClass="java.util.HashMap" resultMap="MapCabeceraOperacion">
+		{CALL sp_cns_cab_ope(#num_ope#)}
+	</procedure>
+
+	<procedure id="avalesOperacion" parameterClass="java.util.HashMap" resultMap="MapAvalesOperacion">
+		{CALL sp_datos_operacion_avales(#num_ope#)}
+	</procedure>
+
+	<procedure id="garantiasOperacion" parameterClass="java.util.HashMap" resultMap="MapGarantiasOperacion">
+		{CALL sp_datos_operacion_garan(#num_ope#)}
+	</procedure>
+	
+	<procedure id="cobranzaCliente" parameterClass="java.util.HashMap" resultMap="cobranzatbl">
+		{CALL sp_rec_ope_cliente(#rut_cli#,#fechaCalc#)}
+	</procedure>
+
+	<procedure id="impresionCuponesDePago" parameterClass="java.util.HashMap" resultMap="MapImpresionCuponesDePago">
+		{CALL sp_datos_operentas(#num_ope#, #num_pago#)}
+	</procedure>
+
+	<!-- Procedimientos para Leasing de bci.cl -->
+
+    <procedure id="consultaBienesOperacionesHist" parameterClass="java.util.HashMap" resultMap="MapBienesOperacionalesHist">
+        {CALL proc_consulta_bienes_ope_hist (#cli_rut#)}
+    </procedure>
+    
+    <procedure id="consultaBienesOperacionesVig" parameterClass="java.util.HashMap" resultMap="MapBienesOperacionalesVig">
+        {CALL proc_consulta_bienes_ope_vig (#cli_rut#)}
+    </procedure>
+    
+    <procedure id="consultarBienesDeOperacion" parameterClass="java.util.HashMap" resultMap="MapBienesDeOperacion">
+        {CALL proc_consulta_bienes (#ope_num#)}
+    </procedure>
+    
+    <procedure id="consultarRentasDeOperacion" parameterClass="java.util.HashMap" resultMap="MapDetalleRentas">
+        {CALL proc_consulta_rentas (#ope_num#)}
+	</procedure>
+ </sqlMap>	

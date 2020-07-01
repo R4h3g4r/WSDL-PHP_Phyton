@@ -1,0 +1,116 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_rentabilidad_por_mes"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutProveedor"
+          type = "String"
+          size = "12"
+          middle_name = "prvrut"
+        />
+
+        <field
+          java_name = "pagina"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "indicadorPagina"
+        />
+
+        <field
+          java_name = "cantRegistros"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "cantidad3"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionFactoringRentabilidadPorMes" var_name = "iteracionFactoringRentabilidadPorMes" >
+
+          <field
+            java_name = "anio"
+            type = "String"
+            size = "10"
+            middle_name = "glosa"
+          />
+
+          <field
+            java_name = "mes"
+            type = "String"
+            size = "30"
+            middle_name = "glosa"
+          />
+
+          <field
+            java_name = "montoTotal"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+          <field
+            java_name = "montoFinanciado"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+          <field
+            java_name = "saldoDisponible"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+          <field
+            java_name = "rentabilidad"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

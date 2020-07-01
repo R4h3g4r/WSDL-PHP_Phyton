@@ -1,0 +1,24 @@
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=Este cliente pertenece al grupo de los clientes cercanos, el cual expresá  en su oportunidad que está  conforme con la relación sostenida con su ejecutivo y con el banco en general.;
+GlOSA1;mensaje=Además menciona que estaría dispuesto a volver a comprar algún producto o servicio en Bci.;
+GLOSA2;mensaje=Algunas preguntas que debes realizar tú como su ejecutivo cuando lo contactes y que debes registrar aquellos aspectos relacionales importantes en el historial del cliente son:;
+GLOSA3;mensaje=<b>a) </b>Como considera el servicio que le entrego actualmente.;
+GLOSA4;mensaje=<b>b) </b>Que puedo continuar haciendo para entregar un servicio de excelencia a su persona.;
+GLOSA5;mensaje=<b>c) </b>Existe algún  área que yo pueda mejorar para otorgar el mejor servicio que usted espera.;
+GLOSA6;mensaje=Es importante que recuerdes que si el cliente menciona que tiene algún problema con el Bci o pedido pendiente, debes apropiarte de el, no culpando al Banco u otra  área.;
+GLOSA7;mensaje=Recuerda escuchar al cliente y facilitarle la vida para ser más cercano, más ágil y más confiable.;
+GLOSA8;mensaje=Recuerda que debes registrar en el historial del cliente todos aquellos aspecto relacionales relevantes rescatados durante la conversación con el cliente.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=Este cliente pertenece al grupo de los clientes cercanos, el cual expresá en su oportunidad que está  conforme con la relación sostenida con su ejecutivo y con el banco en general.;
+GlOSAPDF1;mensaje=Además menciona que estaría dispuesto a volver a comprar algún producto o servicio en Bci.;
+GLOSAPDF2;mensaje=Algunas preguntas que debes realizar tú como su ejecutivo cuando lo contactes y que debes registrar aquellos aspectos relacionales importantes en el historial del cliente son:;
+GLOSAPDF3;mensaje=a) Como considera el servicio que le entrego actualmente.<br>;
+GLOSAPDF4;mensaje=b) Que puedo continuar haciendo para entregar un servicio de excelencia a su persona.;
+GLOSAPDF5;mensaje=c) Existe algún  rea que yo pueda mejorar para otorgar el mejor servicio que usted espera.;
+GLOSAPDF6;mensaje=Es importante que recuerdes que si el cliente menciona que tiene algún problema con el Bci o pedido pendiente, debes apropiarte de el, no culpando al Banco u otra  área. ;
+GLOSAPDF7;mensaje=Recuerda escuchar al cliente y facilitarle la vida para ser más cercano, más ágil y más confiable.;
+GLOSAPDF8;mensaje=Recuerda que debes registrar en el historial del cliente todos aquellos aspecto relacionales relevantes rescatados durante la conversaci¢n con el cliente.;
+
+#Viñeta Explicativa
+VINETA;calcula=Encuestas realizada en el 2008 y 2009, donde las variables contempladas para definir los cluster son: a.Nota con que calificó al ejecutivo b.Tasa de Problemas (si/no) c.Recompra (Definitivamente y Probablemente/ Podría o no, Probablemente no y Definitivamente no).;periodo=Anual;fuente=Encuestas 2008 y 2009;

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="banremo.procedimientosAlmacenados">
+
+    <!-- Declaraci�n parametros de entrada -->
+    <parameterMap id="setDatosActualizaInserta" class="java.util.HashMap">
+		<parameter property="p_cli_idc"        jdbcType="VARCHAR" javaType="String" />
+		<parameter property="p_esi_rta_liq_fja"      jdbcType="FLOAT" javaType="Float" />
+		<parameter property="p_esi_rta_liq_var"      jdbcType="FLOAT" javaType="Float" />
+		<parameter property="p_esi_rta_liq_mensual"      jdbcType="FLOAT" javaType="Float" />
+		<parameter property="p_esi_usr_act_rlm"      jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+
+    <!-- Declaraci�n parametros de salida -->
+  	<resultMap id="getDatosActualizaInserta" class="java.util.HashMap">
+	    <result  property="resultado"   jdbcType="Integer"  javaType="int" />
+	</resultMap> 
+
+	    <!--Ejecuci�n del procedimiento -->
+	<procedure id="actualizaInserta" parameterMap="setDatosActualizaInserta" resultMap="getDatosActualizaInserta">
+	   {CALL sp_ingr_act_rta_cli_tbanc( ?, ?,?,?,?)}
+	</procedure>
+
+	<!-- Declaraci�n parametros de entrada -->
+    <parameterMap id="setDatosRbk" class="java.util.HashMap">
+		<parameter property="p_cli_idc"        jdbcType="VARCHAR" javaType="String" />		
+    </parameterMap>
+
+    <!-- Declaraci�n parametros de salida -->
+  	<resultMap id="getDatosRbk" class="java.util.HashMap">
+	    <result  property="resultado"   jdbcType="Integer"  javaType="int" />
+	</resultMap> 
+
+	    <!--Ejecuci�n del procedimiento -->
+	<procedure id="rollbackActualizaInserta" parameterMap="setDatosRbk" resultMap="getDatosRbk">
+	   {CALL sp_rbk_ult_rta( ?)}
+	</procedure>
+	
+	<!-- Declaraci�n parametros de entrada -->
+    <parameterMap id="setDatosCnsTieneProdTbanc" class="java.util.HashMap">
+		<parameter property="p_cli_idc"        jdbcType="VARCHAR" javaType="String" />		
+    </parameterMap>
+    
+    <!-- Declaraci�n parametros de salida -->
+  	<resultMap id="getDatosCnsTieneProdTbanc" class="java.util.HashMap">
+	    <result  property="resultado"   jdbcType="Integer"  javaType="int" />
+	</resultMap> 
+	<!--Ejecuci�n del procedimiento -->
+	<procedure id="consTieneProdTbanc" parameterMap="setDatosCnsTieneProdTbanc" resultMap="getDatosCnsTieneProdTbanc">
+	   {CALL sp_cns_tiene_prod_tbanc(?)}
+	</procedure>
+
+    <!-- obtiene la consulta de enrolamiento de un cliente -->
+    <procedure id="consultaenrolamiento" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_enr_lic(#rut#)}
+    </procedure>
+    
+    <!-- obtiene la consulta de enrolamiento de un cliente por fechas-->
+    <procedure id="consultaenrolamientoPorFecha" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_enr_fec_lic(#rut#,#fechaDesde#,#fechaHasta#)}
+    </procedure>
+    
+    <!-- Resetea el servicio de un cliente-->
+    <procedure id="resetearservicio" parameterClass="java.util.HashMap" resultClass="java.lang.String">
+        {CALL sp_rst_est_bcl(#rut#)}
+    </procedure>
+
+        <!-- Procedimiento que guarda y actualiza las direcciones de un cliente -->
+    <parameterMap id="setGuardarDireccionesCliente" class="java.util.HashMap">
+		<parameter property="p_cli_idc"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_tip_dir"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_est"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_ciu"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_cmn"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_tlf"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_fax"      jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_cod_pos"  jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_num_dir"  jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_nom_call" jdbcType="CHAR" javaType="String" />
+		<parameter property="p_dir_num"      jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	
+    <!-- inserta o updatea direccion de clientes en bd banremo -->
+	<procedure id="guardarDireccionesCliente" parameterMap="setGuardarDireccionesCliente" resultClass="int">
+		{CALL sp_ins_dir_cli(?,?,?,?,?,?,?,?,?,?,?)}
+	</procedure>
+
+    <!-- obtiene la consulta de evento de cliente tbanc -->
+    <parameterMap id="setConsultarPorClienteTBanc" class="java.util.HashMap">
+        <parameter property="RUT" jdbcType="VARCHAR" javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultarPorClienteTBanc" class="java.util.HashMap">
+        <result  property="respuesta"   jdbcType="Integer"  javaType="int" column="respuesta" />
+    </resultMap> 
+    
+    <procedure id="consultarPorClienteTBanc" parameterMap="setConsultarPorClienteTBanc" resultMap="getConsultarPorClienteTBanc">
+        {CALL sp_cns_cli_tbanc_ref(?)}
+    </procedure>
+
+</sqlMap>    

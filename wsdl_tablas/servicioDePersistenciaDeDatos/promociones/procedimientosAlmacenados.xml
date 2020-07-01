@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="promociones.procedimientosAlmacenados">	
+
+	<!--Canales
+	 dbo.sp_cns_cnl()
+	-->	
+	<resultMap id="getCanales" class="java.util.HashMap">
+		<result  property="cnl_cod" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="cnl_des" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	<procedure id="consultaCanales" resultMap="getCanales">
+	   {CALL sp_cns_cnl()}
+	</procedure>
+	
+	<!--Ofertas
+	 dbo.sp_cns_ofe()
+	-->
+	<resultMap id="getOfertas" class="java.util.HashMap">
+		<result  property="ofe_cod_ofe" jdbcType="INT"  javaType="java.lang.Integer" />
+		<result  property="ofe_des" jdbcType="VARCHAR"  javaType="java.lang.String" />
+		<result  property="cnl_cod_cnl" jdbcType="VARCHAR"  javaType="java.lang.String" />
+		<result  property="ofe_fec_ini" jdbcType="DATE"  javaType="java.util.Date" />
+	</resultMap>
+	<procedure id="consultaOfertas" resultMap="getOfertas">
+	   {CALL sp_cns_ofe()}
+	</procedure>
+	
+	<!--Detalle de Ventas
+	 dbo.sp_cns_det_cmp(@fec_ini varchar(10),
+                        @fec_fin varchar(10),
+	 					@cnl_cod_cnl char(3),
+	 					@ofe_cod_ofe int)
+	-->
+	<parameterMap id="setDetalle" class="java.util.HashMap">
+		<parameter property="fechaInicio" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fechaFin" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="oferta" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="getDetalle" class="java.util.HashMap">
+		<result  property="odc_ord_cmp" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="odc_fec_ing" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="rsp_cod_aut" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="cli_idc" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="odc_num_trj" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="odc_nom_cli" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="prd_des" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ops_pre_prd"	jdbcType="DECIMAL"  javaType="java.math.BigDecimal" />
+		<result  property="odc_num_cuo" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="odc_mto_cuo" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="dsp_dir" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="dsp_num_tel" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="dsp_tel_mov" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="dsp_dir_eml" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	<procedure id="consultaDetalle" parameterMap="setDetalle" resultMap="getDetalle">
+	   {CALL sp_cns_det_cmp(?, ?, ?, ?)}
+	</procedure>
+	
+	<!--Reporte de Ventas
+	 dbo.sp_cns_rep_cmp(@mes varchar(2),
+                        @anio varchar(4),
+                        @cnl_cod_cnl char(3),
+                        @ofe_cod_ofe varchar(100))
+	-->
+	<parameterMap id="setReporte" class="java.util.HashMap">
+		<parameter property="mes" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="anio" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="oferta" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<resultMap id="getReporte" class="java.util.HashMap">
+		<result  property="odc_fec_ing" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="cnl_cod_cnl" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="cnl_des" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ofe_des" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="odc_est_vis" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="cantidad" jdbcType="INT"  javaType="Integer" />
+	</resultMap>
+	<procedure id="consultaReporte" parameterMap="setReporte" resultMap="getReporte">
+	   {CALL sp_cns_rep_cmp(?, ?, ?, ?)}
+	</procedure>
+        <!--Fin TDC Express -->
+
+        <!--Cantidad de Compras Compra y Gana-->
+        <parameterMap id="setConsultaCantidadCompras" class="java.util.HashMap">
+		<parameter property="rutCliente"     jdbcType="VARCHAR" javaType="String" />
+		<parameter property="filtroCampania" jdbcType="INT" javaType="Integer" />
+	</parameterMap>
+        <procedure id="cantidadCompras" parameterMap="setConsultaCantidadCompras" resultClass="int">
+	   {CALL sp_cns_cant_cmp(?, ?)}
+	</procedure>
+        <!--Fin Cantidad de Compras Compra y Gana-->
+</sqlMap>

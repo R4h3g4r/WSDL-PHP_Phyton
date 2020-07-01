@@ -1,0 +1,77 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_consulta_tcv_bco"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerifEmp"
+        />
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionConsultaTCVBanco" var_name = "consultaTCVBanco" >
+
+          <field
+            java_name = "codigoTCV"
+            type = "String"
+            size = "3"
+            middle_name = "codigoExt"
+          />
+
+          <field
+            java_name = "codBCO"
+            type = "String"
+            size = "3"
+            middle_name = "codBanco"
+          />
+
+          <field
+            java_name = "descripcionTCV"
+            type = "String"
+            size = "20"
+            middle_name = "descripcionMascara"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

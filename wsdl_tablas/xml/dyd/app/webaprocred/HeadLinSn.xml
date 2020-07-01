@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DB>
+ <SPECIAL str="0" typeId="" template=""></SPECIAL>
+ <INSUPD NTx="AprCreCrcLCr" LBL="N">
+  <SEPAR SEP1="" SEP2="" SEP3="" SEPV="#"></SEPAR>
+  <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+      <field FF="numSol"     LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+      <field FF="snMonCupMax"  LF="10" POS="" COD="" TD="" PREF="">moneda</field>
+      <field FF="snCupMax" LF="20" POS="" COD="" TD="" PREF="">cupoMaximo</field>
+      <field FF="snPerRev"  LF="6"  POS="" COD="" TD="" PREF="">revision</field>
+      <field FF="snPerVig"  LF="6"  POS="" COD="" TD="" PREF="">vigencia</field>
+      <field FF="snUndRev"  LF="5"  POS="" COD="" TD="" PREF="">unidadRevision</field>
+      <field FF="snUndVig"  LF="5"  POS="" COD="" TD="" PREF="">unidadVigencia</field>
+      <field FF="snFecApr"  LF="10" POS="" COD="" TD="" PREF="">fecha</field>
+      <field FF="snFecVenc" LF="10" POS="" COD="" TD="" PREF="">fecha2</field>
+      <field FF="snType"    LF="30" POS="" COD="" TD="" PREF="">tipoLinea</field>
+      <field FF="snState"  LF="30" POS="" COD="" TD="" PREF="">estado</field>
+      <field FF="situac"     LF="1"  POS="" COD="" TD="" PREF="">situacionDetalle</field>
+      <field FF="snFecRev"  LF="10"  POS="" COD="" TD="" PREF="">fechaUltRev</field>
+      <field FF="snCtaCargo"   LF="10"  POS="" COD="" TD="" PREF="">ctaCargo</field>
+    </INPUT>
+ </INSUPD>
+ <QRY NTx="AprCreConEncLCr" LBL="N">
+  <SEPAR SEP1="" SEP2="" SEP3="" SEPV="#"></SEPAR>
+  <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+      <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+      <field FF="situac" LF="1"  POS="" COD="" TD="" PREF="">situacionDetalle</field>
+    </INPUT>
+    <OUTPUT>
+      <field FF="snCupMax" LF="20" POS="" COD="" TD="" PREF="">cupoMaximo</field>
+      <field FF="snMonCupMax" LF="10" POS="" COD="" TD="" PREF="">moneda</field>
+      <field FF="snPerRev" LF="6" POS="" COD="" TD="" PREF="">revision</field>
+      <field FF="snPerVig" LF="6" POS="" COD="" TD="" PREF="">vigencia</field>
+      <field FF="snUndRev" LF="5" POS="" COD="" TD="" PREF="">unidadRevision</field>
+      <field FF="snUndVig" LF="5" POS="" COD="" TD="" PREF="">unidadVigencia</field>
+      <field FF="snFecApr" LF="10" POS="" COD="" TD="" PREF="">fecha</field>
+      <field FF="snfecVenc" LF="10" POS="" COD="" TD="" PREF="">fecha2</field>
+      <field FF="snType" LF="30" POS="" COD="" TD="" PREF="">tipoLinea</field>
+      <field FF="snState" LF="30" POS="" COD="" TD="" PREF="">estado</field>
+      <field FF="fecUltRev"  LF="10" POS="" COD="" TD="" PREF="">fechaUltRev</field>
+      <field FF="ctaCargo"  LF="10" POS="" COD="" TD="" PREF="">ctaCargo</field>
+     </OUTPUT>
+ </QRY>
+</DB>

@@ -1,0 +1,84 @@
+Contiene los parametros que se utilizan en la aplicación transferencia uno a uno moneda extranjera.
+
+servicioSolicitado
+----------------------------
+Corresponde al parámetro que se le enviará a los servicios de transferencia BCX.
+
+pattern
+----------------------------
+Corresponde al patrón que se utilizará para realizar el formato de las fechas.
+
+xsl
+----------------------------
+Corresponde a la configuración necesaria para obtener comprobante transferencia.
+
+validacionFechas
+----------------------------
+Mensajes y constantes utilizados en la página verTransferenciasRealizadas.xhtml
+
+codigosMoneda
+----------------------------
+Códigos de monedas necesarios para las consultas y lógica.
+
+journal
+----------------------------
+Datos necesarios para el journal.
+
+transferencia
+----------------------------
+Código utilizado para el tipo de operación del ingreso de una transferencia.
+
+-------------------------------------------------------------------------------------------------------------------
+textoInfoTransferencia
+----------------------------
+Información del flujo de transferencia. Estados Pendiente, apoderados, imagen, xlsPath
+, mensajeTransferenciaPendiente, mensajeTransferenciaExitosa.
+
+correo
+-------------------------------------------------------------------------------------------------------------------
+Datos de envio de correo, flas de envio, destinatario, servidor de correo, nombre del originario.
+
+msgEmail
+------------------------------------------------------------------------------------------------------------------
+mensaje de correo, pie de página, privacidad
+
+subjectEmail
+------------------------------------------------------------------------------------------------------------------
+titulo de correo
+
+autorizador
+------------------------------------------------------------------------------------------------------------------
+Datos de consulta de servicio de autorizador para perfiles.
+
+bicBCI
+------------------------------------------------------------------------------------------------------------------
+mensaje de validación BIC CHILE.
+
+codigoPais
+------------------------------------------------------------------------------------------------------------------
+Código país chile.
+
+codigoTipoBenenficiario
+------------------------------------------------------------------------------------------------------------------
+Códigos tipo beneficiario.
+
+mensajesError
+------------------------------------------------------------------------------------------------------------------
+Mensajes de error.
+
+FP
+------------------------------------------------------------------------------------------------------------------
+Mensaje de fondo previsionado para guiar al cliente a la aplicación de compra y venta de divisas.
+
+journalBeneficiario
+------------------------------------------------------------------------------------------------------------------
+Datos necesarios para el journal ingreso de beneficiarios.
+
+[REGISTRODEVERSIONES]
+==========================================
+. 30/10/2013 Angel Crisóstomo López (ImageMaker IT) : Versión Inicial.
+. 21/02/2014 Angel Crisóstomo López (ImageMaker IT) Se incorporan nuevas entradas.
+. 04/07/2014 Angel Crisóstomo López (ImageMaker IT) : Se incorporan nuevos mensajes de error.
+==========================================
+
+

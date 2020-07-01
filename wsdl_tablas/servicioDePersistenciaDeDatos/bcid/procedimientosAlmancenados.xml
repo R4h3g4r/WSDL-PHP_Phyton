@@ -1,0 +1,550 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="bcid.procedimientosAlmancenados">	
+    
+    <resultMap id="resultadoConsultarToken" 
+               class="java.util.HashMap" >   
+        <result property="tok_tok"   column="tok_tok"  />       
+    </resultMap>   
+     
+    <resultMap id="resultadoConsultarEPC" 
+               class="java.util.HashMap" >   
+        <result property="epc_id"       column="epc_id"  />
+        <result property="epc_rut"      column="epc_rut" />
+        <result property="epc_dv"       column="epc_dv"  />              
+        <result property="epc_est"      column="epc_est" />       
+    </resultMap>
+    
+    <resultMap id="resultadoConsultarFoto" 
+               class="java.util.HashMap" >   
+        <result property="fot_rut"       column="fot_rut"      />
+        <result property="fot_dv"        column="fot_dv"       />
+        <result property="fot_fot"       column="fot_fot"      />
+        <result property="fot_con_len"   column="fot_con_len"  />
+        <result property="fot_con_typ"   column="fot_con_typ"  />       
+    </resultMap> 
+
+    <resultMap id="resultadoConsultarOfertasPorLectura" 
+               class="java.util.HashMap" >   
+        <result property="ofe_lec_id"  			column="ofe_lec_id" />
+        <result property="ofe_id"   				column="ofe_id"  />
+        <result property="ofe_log_eje"  		column="ofe_log_eje" />       
+        <result property="ofe_cod_cam"  		column="ofe_cod_cam" />
+        <result property="ofe_nom_cam"  		column="ofe_nom_cam" />        
+        <result property="ofe_num_dia_ges"  column="ofe_num_dia_ges"  />
+        <result property="ofe_cod_mon"  		column="ofe_cod_mon" /> 
+        <result property="ofe_mon_pre_apr"  column="ofe_mon_pre_apr" />
+        <result property="ofe_nom_ofe"   		column="ofe_nom_ofe"  />
+        <result property="ofe_fec_ini"  		column="ofe_fec_ini" /> 
+        <result property="ofe_fec_fin"  		column="ofe_fec_fin" />
+        <result property="ofe_est_ofe"   		column="ofe_est_ofe"  />
+        <result property="ofe_tas"  				column="ofe_tas" /> 
+        <result property="ofe_mot_rec"  		column="ofe_mot_rec" />
+        <result property="ofe_fec_age"   		column="ofe_fec_age"  />
+        <result property="ofe_com"  				column="ofe_com" /> 
+        <result property="ofe_tip_pro"  		column="ofe_tip_pro" />
+        <result property="ofe_sub_tip_pro"  column="ofe_sub_tip_pro"  />
+        <result property="ofe_des_pro"  		column="ofe_des_pro" />                                         
+        <result property="ofe_cod_ofi"  		column="ofe_cod_ofi" />        
+    </resultMap>       
+    
+    <resultMap id="resultadoConsultarEventosPorLectura" 
+               class="java.util.HashMap" >   
+        <result property="eve_lec_id"  column="eve_lec_id" />
+        <result property="eve_id"  column="eve_id" />
+        <result property="eve_des"  column="eve_des" />
+        <result property="eve_est"  column="eve_est" />
+        <result property="eve_est_wf"  column="eve_est_wf" />
+        <result property="eve_eje_ing"  column="eve_eje_ing" />
+        <result property="eve_eje_res"  column="eve_eje_res" />        
+        <result property="eve_fec_ing"  column="eve_fec_ing" />
+        <result property="eve_fec_sol_pro"  column="eve_fec_sol_pro" />
+        <result property="eve_sol_sol"  column="eve_sol_sol" />
+        <result property="eve_fec_cie"  column="eve_fec_cie" />
+        <result property="eve_num_pro"  column="eve_num_pro" />
+   
+    </resultMap>   
+ 
+    <resultMap id="resultadoConsultarClientePorLectura" 
+               class="java.util.HashMap" >          
+        <result property="cli_lec_id"  column="cli_lec_id" />      
+        <result property="cli_rut"  column="cli_rut" />    
+        <result property="cli_dv"  column="cli_dv" />                    
+        <result property="cli_nom"  column="cli_nom" />
+        <result property="cli_ape_pat"  column="cli_ape_pat" />      
+        <result property="cli_ape_mat"  column="cli_ape_mat" />
+        <result property="cli_ban"  column="cli_ban" />   
+        <result property="cli_seg"  column="cli_seg" />      
+        <result property="cli_ant"  column="cli_ant" />
+        <result property="cli_fec_nac"  column="cli_fec_nac" />      
+        <result property="cli_eda"  column="cli_eda" />
+        <result property="cli_ren_fij"  column="cli_ren_fij" />      
+        <result property="cli_fec_ren_fij"  column="cli_fec_ren_fij" />
+        <result property="cli_ren_var"  column="cli_ren_var" />      
+        <result property="cli_fec_ren_var"  column="cli_fec_ren_var" />
+        <result property="cli_pla"  column="cli_pla" />      
+        <result property="cli_con"  column="cli_con" />
+        <result property="cli_suc"  column="cli_suc" />      
+        <result property="cli_eje"  column="cli_eje" />
+        <result property="cli_dob_eje"  column="cli_dob_eje" />
+        <result property="cli_cue_cor"  column="cli_cue_cor" />            
+               
+    </resultMap>   
+      
+    <resultMap id="resultadoConsultarLecturasDesde" 
+               class="java.util.HashMap" >   
+        <result property="lec_id"  column="lec_id" />
+        <result property="lec_epc"   column="lec_epc"  />
+        <result property="lec_rea_id"  column="lec_rea_id" />       
+        <result property="lec_fec_ini_pro"  column="lec_fec_ini_pro" />  
+        <result property="lec_fec_fin_pro"  column="lec_fec_fin_pro" />  
+        <result property="lec_suc"  column="lec_suc" />    
+        <result property="lec_est"  column="lec_est" />   
+        <result property="lec_eje_ate"  column="lec_eje_ate" />   
+        <result property="lec_com"  column="lec_com" /> 
+        <result property="lec_sem"  column="lec_sem" />                                                 
+    </resultMap>           
+
+    <resultMap id="resultadoConsultarFotoIdEPC" 
+               class="java.util.HashMap" >   
+        <result property="epc_fot_id"  column="epc_fot_id" />
+    </resultMap>           
+
+
+
+
+    <!--*******************************************************************************-->
+    <!--********************************* TOKEN ***************************************-->
+    <!--*******************************************************************************-->
+    
+    
+    <!--
+        sp_bcid_token_insertar(
+            @pToken        varchar(30)
+        )
+    -->
+    
+    <procedure id="insertarToken" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_bcid_token_insertar(#pToken#)}	  
+            
+    </procedure>
+    
+    
+    <!--
+        sp_bcid_token_eliminar(
+            @pToken        varchar(30)
+        )
+    -->
+    
+    <procedure id="eliminarToken" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_bcid_token_eliminar(#pToken#)}	  
+            
+    </procedure>
+    
+    
+    <!--
+        sp_bcid_token_consultar( 
+            @pToken  varchar(30)
+        )
+    -->
+        
+    <procedure id="consultarToken" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarToken">
+                   
+        {CALL sp_bcid_token_consultar(#pToken#)}	
+                
+    </procedure>    
+    <!--*******************************************************************************-->
+    <!--********************************* FOTO ****************************************-->
+    <!--*******************************************************************************-->
+    
+    <!--
+        sp_consultar_sec_fot ()
+    -->
+        
+    <procedure id="consultarSelectorFotoId" 
+                   parameterClass="java.util.HashMap" >
+                   
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_consultar_sec_fot()}	
+                
+    </procedure>    
+    
+    
+    <!--*******************************************************************************-->
+    <!--********************************** EPC ****************************************-->
+    <!--*******************************************************************************-->
+    <!--
+        sp_consultar_por_epc (
+					@epcId        varchar(50)
+				)
+    -->
+        
+    <procedure id="consultarPorEPC" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarEPC">
+                   
+        {CALL sp_consultar_por_epc(#epcId#)}	
+                
+    </procedure>    
+    <!--
+				sp_ingresar_epc (
+				        @epcId        varchar(50),
+				        @epcRut       varchar(9),
+				        @epcDv        varchar(1),
+				        @epcEstado    int
+				) 
+    -->
+    
+    <procedure id="ingresarEPC" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_ingresar_epc(#epcId#,
+		                                                              #epcRut#,
+		                                                              #epcDv#,                                                                                                                           
+		                                                              #epcEstado#)		                                                              
+        }	  
+            
+    </procedure>
+ 
+    <!--
+        sp_eliminar_epc (
+	        @epcId        varchar(50)
+				)
+    -->
+    
+    <procedure id="eliminarEPC" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_eliminar_epc(#epcId#)
+        }	  
+            
+    </procedure>
+
+    <!--
+				sp_modificar_estado_epc (
+				        @epcId        varchar(50),
+				        @epcEstado    int
+				)
+    -->
+    
+    <procedure id="modificarEstadoEPC" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_modificar_estado_epc(#epcId#,
+        																																	#epcEstado#)
+        }	  
+            
+    </procedure>    
+    
+    <!--
+        sp_consultar_listado_epc
+    -->
+        
+    <procedure id="consultarListadoEPC" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarEPC">
+                   
+        {CALL sp_consultar_listado_epc()}	
+                
+    </procedure> 
+    
+
+    <!--
+  	    sp_modificar_id_foto_epc(
+            @epcRut       varchar(9),
+            @epcDv        varchar(1),
+            @epcFotoId    int
+        ) 
+    -->
+    
+    <procedure id="modificarFotoIdEPC" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_modificar_id_foto_epc(#epcRut#,#epcDv#,#epcFotoId# )
+        }	  
+            
+    </procedure>     
+    
+    
+    <!--
+		sp_consultar_id_fot_epc(
+            @epcRut        varchar(9)
+        )
+    -->  
+    
+    <procedure id="consultarFotoIdEPC" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarFotoIdEPC">
+                   
+        {CALL sp_consultar_id_fot_epc(#epcRut#)}	
+                
+    </procedure>    
+       
+
+    <!--*******************************************************************************-->
+    <!--********************************** LECTURAS************************************-->
+    <!--*******************************************************************************-->  
+    <!--
+				sp_ingresar_lectura (
+				        @lecEPC                varchar(50),
+				        @lecRederId            varchar(50),
+				        @lecFechaInicioProceso datetime,
+				        @lecFechaFinProceso    datetime,
+				        @lecSucursal           varchar(3),
+				        @lecEstado             varchar(3),
+				        @lecEjecutivoAtencion  varchar(8),
+				        @lecComentario         varchar(255)
+				)
+    -->
+    
+    <procedure id="ingresarLectura" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_ingresar_lectura(#lecEPC#,
+				                                                              #lecReaderId#,
+				                                                              #lecFechaInicioProceso#,                                                                                                                           
+				                                                              #lecFechaFinProceso#,
+				                                                              #lecSucursal#,
+				                                                              #lecEstado#,
+				                                                              #lecEjecutivoAtencion#,                                                                                                                           
+				                                                              #lecComentario#)				                                                              		                                                              
+        }	  
+            
+    </procedure>      
+    <!--
+				sp_consultar_lecturas_desde (
+				         @lecFechaDesde        datetime
+				)
+    -->
+    
+    <procedure id="consultarLecturasDesde" 
+               parameterClass="java.util.HashMap"
+               resultMap="resultadoConsultarLecturasDesde">
+               
+        {CALL sp_consultar_lecturas_desde(#lecFechaDesde#)}	  
+            
+    </procedure>    
+    <!--
+				sp_modificar_fecha_fin_proceso (
+				        @lecId                 int,
+				        @lecFechaFinProceso    datetime
+				)
+    -->
+    
+    <procedure id="actualizarFechaLectura" 
+               parameterClass="java.util.HashMap"
+               resultMap="resultadoConsultarLecturasDesde">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_modificar_fecha_fin_proceso(#lecId#,
+        																																					#lecFechaFinProceso#)				                                                              		                                                              
+        }	  
+            
+    </procedure>        
+
+	<procedure id="actualizarSemaforo" 
+               parameterClass="java.util.HashMap"
+               resultMap="resultadoConsultarLecturasDesde">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_modificar_semaforo(#lecId#,
+        															     #lecSemaforo#)				                                                              		                                                              
+        }	  
+            
+    </procedure>  
+
+
+    <!--*******************************************************************************-->
+    <!--********************************** CLIENTE************************************-->
+    <!--*******************************************************************************-->  
+    <!--
+				sp_ingresar_cliente (
+				        @cliLecturaId              int,
+								@cliRut                    varchar(9),
+								@cliDv                     varchar(1),				        
+				        @cliNombre                 varchar(50),
+				        @cliApellidoPaterno        varchar(50),
+				        @cliApellidoMaterno        varchar(50),
+				        @cliBanca                  varchar(10),
+				        @cliSegmento               varchar(10),
+				        @cliAntiguedad             varchar(10),
+				        @cliFechaNacimiento        datetime,
+				        @cliEdad                   int,
+				        @cliRentaFija              numeric(16,4),
+				        @cliFechaRentaFija         datetime,
+				        @cliRentaVariable          numeric(16,4),
+				        @cliFechaRentaVariable     datetime,
+				        @cliPlan                   varchar(10),
+				        @cliConvenio               varchar(10),
+				        @cliSucursal               varchar(3),
+				        @cliEjecutivo              varchar(12),
+				        @cliDobleEjecutivo         varchar(12),
+				        @cliCuentaCorriente        varchar(12)
+				)
+    -->
+    
+    <procedure id="ingresarCliente" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_ingresar_cliente(#cliLecturaId#,
+        																															#cliRut#,
+        																															#cliDv#,
+				                                                              #cliNombre#,
+				                                                              #cliApellidoPaterno#,                                                                                                                           
+				                                                              #cliApellidoMaterno#,
+				                                                              #cliBanca#,
+				                                                              #cliSegmento#,
+				                                                              #cliAntiguedad#,                                                                                                                           
+				                                                              #cliFechaNacimiento#,
+				                                                              #cliEdad#,
+				                                                              #cliRentaFija#,
+				                                                              #cliFechaRentaFija#,                                                                                                                           
+				                                                              #cliRentaVariable#,		
+				                                                              #cliFechaRentaVariable#,
+				                                                              #cliPlan#,
+				                                                              #cliConvenio#,                                                                                                                           
+				                                                              #cliSucursal#,		
+				                                                              #cliEjecutivo#,		
+				                                                              #cliDobleEjecutivo#,
+				                                                              #cliCuentaCorriente#)				                                                              		                                                              
+        }	
+    </procedure>          
+    <!--
+				sp_consultar_cli_por_lec (
+					@cliLecturaId        int
+				)
+    -->   
+    <procedure id="consultarClientePorLectura" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarClientePorLectura">
+                   
+        {CALL sp_consultar_cli_por_lec(#cliLecturaId#)}	
+                
+    </procedure>             
+
+   <!--*******************************************************************************-->
+    <!--********************************** EVENTOS************************************-->
+    <!--*******************************************************************************-->  
+    <!--
+				sp_ingresar_evento (
+        @eveLecturaId              int,
+        @eveId                     int,
+        @eveGlosa                  varchar(255),
+        @eveEstado                 varchar(10),
+        @eveEstadoWorkflow         varchar(10),
+        @eveEjecutivoIngreso       varchar(10),
+        @eveEjecutivoResponsable   varchar(10),
+        @eveFechaIngreso           datetime,
+        @eveFechaSolucionPrometida datetime,
+        @eveFechaResolucion        datetime,
+        @eveFechaCierre            datetime,
+        @eveNumeroProrroga         varchar(10)
+    -->
+    
+    <procedure id="ingresarEvento" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_ingresar_evento(#eveLecturaId#,
+				                                                              #eveId#,
+				                                                              #eveGlosa#,                                                                                                                           
+				                                                              #eveEstado#,
+				                                                              #eveEstadoWorkflow#,
+				                                                              #eveEjecutivoIngreso#,
+				                                                              #eveEjecutivoResponsable#,                                                                                                                           
+				                                                              #eveFechaIngreso#,
+				                                                              #eveFechaSolucionPrometida#,
+				                                                              #eveFechaResolucion#,
+				                                                              #eveFechaCierre#,                                                                                                                           
+				                                                              #eveNumeroProrroga#)				                                                              		                                                              
+        }	  
+            
+    </procedure>     
+    <!--
+				sp_consultar_eve_por_lec (
+					@eveLecturaId        int
+				)
+    -->   
+    <procedure id="consultarEventosPorLectura" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarEventosPorLectura">
+                   
+        {CALL sp_consultar_eve_por_lec(#eveLecturaId#)}	
+                
+    </procedure>  
+    
+    <!--*******************************************************************************-->
+    <!--********************************** OFERTAS ************************************-->
+    <!--*******************************************************************************-->  
+    <!--
+						sp_ingresar_oferta (
+						        @ofeLecturaId           int,
+						        @ofeId                  varchar(10),
+						        @ofeLogEjecutivo        varchar(10),
+						        @ofeCodigoCampana       int,
+						        @ofeNombreCampana       varchar(50),
+						        @ofeNumeroDiasGestionar int,
+						        @ofeCodigoMoneda        varchar(3),
+						        @ofeMontoPreAprobado    int,
+						        @ofeNombreOferta        varchar(50),
+						        @ofeFechaInicio         datetime,
+						        @ofeFechafin            datetime,
+						        @ofeEstadoOferta        varchar(3),
+						        @ofeTasa                varchar(3),
+						        @ofeMotivoRechazo       varchar(50),
+						        @ofeFechaAgendada       datetime,
+						        @ofeComentario          varchar(255),
+						        @ofeTipoProducto        varchar(3),
+						        @ofeSubTipoProducto     varchar(3),
+						        @ofeDescripcionProducto varchar(50),
+						        @ofeCodigoOficina       varchar(3)
+						)
+    -->
+    
+    <procedure id="ingresarOferta" 
+               parameterClass="java.util.HashMap">
+               
+        {#result,jdbcType=INTEGER,mode=OUT# = CALL sp_ingresar_oferta(#ofeLecturaId#,
+				                                                              #ofeId#,
+				                                                              #ofeLogEjecutivo#,                                                                                                                           
+				                                                              #ofeCodigoCampana#,
+				                                                              #ofeNombreCampana#,
+				                                                              #ofeNumeroDiasGestionar#,
+				                                                              #ofeCodigoMoneda#,                                                                                                                           
+				                                                              #ofeMontoPreAprobado#,
+				                                                              #ofeNombreOferta#,
+				                                                              #ofeFechaInicio#,
+				                                                              #ofeFechafin#,                                                                                                                           
+				                                                              #ofeEstadoOferta#,
+				                                                              #ofeTasa#,
+				                                                              #ofeMotivoRechazo#,
+				                                                              #ofeFechaAgendada#,
+				                                                              #ofeComentario#,                                                                                                                           
+				                                                              #ofeTipoProducto#,			
+				                                                              #ofeSubTipoProducto#,
+				                                                              #ofeDescripcionProducto#,                                                                                                                           
+				                                                              #ofeCodigoOficina#)				                                                              		                                                              
+        }	  
+            
+    </procedure>  
+    <!--
+				sp_consultar_ofe_por_lec (
+					@ofeLecturaId        int
+				)
+    -->   
+    <procedure id="consultarOfertasPorLectura" 
+                   parameterClass="java.util.HashMap" 
+                   resultMap="resultadoConsultarOfertasPorLectura">
+                   
+        {CALL sp_consultar_ofe_por_lec(#ofeLecturaId#)}	
+                
+    </procedure>              
+
+
+
+</sqlMap>

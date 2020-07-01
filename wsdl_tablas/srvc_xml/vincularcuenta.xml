@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+
+<service name = "sp_vincularCuenta">
+
+  <context>
+    <boolean_false value="1" />
+    <boolean_true value="0" />
+    <general_exception_codigo value="ESPECIAL" />
+    <have_multi_environment value="no" />
+    <outputfield_attr value="no" />
+    <req_num_param value="no" />
+    <translator value="RORPPTPG" />
+    <campo_indica_cantidad value="" />
+    <status_throw_exception value="yes" />
+    <joltpool_name value="cl.bci.integracion.daotuxedo.dummy.facade.DummyFacadeImpl" />
+  </context>
+
+  <input>
+        <field java_name = "rut_cli_titular" type = "Long" size = "100" middle_name = "rut_cli_titular"/>
+        <field java_name = "rut_cli_titular_dv" type = "Character" size = "1" middle_name = "rut_cli_titular_dv"/>
+        <field java_name = "tipo_cta_asociada" type = "String" size = "3" middle_name = "tipo_cta_asociada" />
+ 		<field java_name = "cta_asociada" type = "String" size = "12" middle_name = "cta_asociada" />
+ 		<field java_name = "rut_cli_asociado" type = "Long" size = "100" middle_name = "rut_cli_asociado" />
+ 		<field java_name = "rut_cli_asociado_dv" type = "Character" size = "1" middle_name = "rut_cli_asociado_dv" />
+ 		<field java_name = "nom_cli_asociado" type = "String" size = "30" middle_name = "nom_cli_asociado" />
+ 		<field java_name = "ape_pat_cli_asoc" type = "String" size = "20" middle_name = "ape_pat_cli_asoc" />
+ 		<field java_name = "ape_mat_cli_asoc" type = "String" size = "20" middle_name = "ape_mat_cli_asoc" />
+ 		<field java_name = "alias_asoc" type = "String" size = "12" middle_name = "alias_asoc" />
+ 		<field java_name = "tipo_asociacion" type = "String" size = "3" middle_name = "tipo_asociacion" />
+ 		<field java_name = "plan_comision_anterior" type = "String" size = "4" middle_name = "plan_comision_anterior" />
+ 		<field java_name = "fecha_inicio_asoc" type = "Date" size = "100" middle_name = "fecha_inicio_asoc" />
+ 		<field java_name = "estado" type = "String" size = "3" middle_name = "estado" />
+ 		<field java_name = "fecha_cambio_estado" type = "Date" size = "100" middle_name = "fecha_cambio_estado" />
+ 		<field java_name = "fecha_ultima_transf"     type = "Date" size = "100" middle_name = "fecha_ultima_transf" />
+ 		 		
+ </input>
+
+ <output>
+		<struct struct_size="0" class_name="InsertaCuentaVinculadaDTO" var_name="insertarCuentaVinculada"> 
+			<field java_name = "respuesta" type = "Long" size = "100" middle_name = "respuesta"/>
+		</struct>
+  </output>
+
+</service>

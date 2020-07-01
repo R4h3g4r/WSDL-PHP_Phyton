@@ -1,0 +1,46 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_num_ope_nop">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+
+   <input>
+      <field
+          java_name = "numeroOriginal"
+          type = "String"
+          size = "50"
+          middle_name = "numeroOriginal"
+      />
+      <field
+          java_name = "tagXmlNumeroOriginal"
+          type = "String"
+          size = "50"
+          middle_name = "tagXmlNumeroOriginal"
+      />
+      <field
+           java_name = "mensajeAnterior"
+           type = "int"
+           size = "10"
+           middle_name = "mensajeAnterior"
+      />
+   </input>
+   <output>
+   	<struct struct_size="0" class_name="ResultConsultaMensajeDTO" var_name="consultaMensajeDTO">
+      <field
+            java_name = "identificador"
+            type = "int"
+            size = "50"
+            middle_name = "identificador"/>          
+	 </struct>
+   </output>
+</service>

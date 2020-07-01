@@ -1,0 +1,109 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_con_tar"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idTarea"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "idTarea"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "idTarea"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "tar_id"
+        />
+
+        <field
+          java_name = "idSolicitud"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "tar_id_sol"
+        />
+
+        <field
+          java_name = "idRol"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "tar_id_rol"
+        />
+
+        <field
+          java_name = "estado"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "tar_est"
+        />
+
+        <field
+          java_name = "aprueba"
+          type = "char"
+          size = "1"
+          middle_name = "tar_apr"
+        />
+
+        <field
+          java_name = "comentario"
+          type = "String"
+          size = "225"
+          middle_name = "tar_com"
+        />
+
+        <field
+          java_name = "fechaEjecucion"
+          type = "Date"
+          size = "20"
+          middle_name = "tar_fec_eje"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "fechaIngreso"
+          type = "Date"
+          size = "20"
+          middle_name = "tar_fec_ing"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+  </output>
+
+</service>

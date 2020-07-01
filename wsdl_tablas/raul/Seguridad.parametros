@@ -1,0 +1,168 @@
+# Recarga Celular
+110-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=Token,Passcode,ClaveInternet;
+100-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular Tbanc;Jerarquias=Token,ClaveInternet;
+800-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular Nova;Jerarquias=ClaveInternet;
+# Pagos y Tarjeta Virtual
+110-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Bci;Jerarquias=Token,Passcode,ClaveInternet;
+100-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Tbanc;Jerarquias=Token,ClaveInternet;
+110-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+100-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Tbanc;Jerarquias=Token,ClaveInternet;
+110-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciaTerceros;activo=No;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,ClaveInternet;
+800-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Passcode,ClaveInternet;
+110-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciasOtrosBancos;activo=No;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,ClaveInternet;
+800-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Passcode,ClaveInternet;
+110-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciaTercerosBCI;activo=No;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;pasos=1;Jerarquias=Token,ClaveInternet;
+800-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Passcode,ClaveInternet;
+540-PagueDirecto;activo=Si;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=Token,Passcode,ClaveInternet;
+540bci-PagueDirecto;activo=Si;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=Token,Passcode,ClaveInternet;JerarquiasEmp=ClaveInternet;
+540tbc-PagueDirecto;activo=No;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=Token,ClaveInternet;
+MesesExpiracion;valor=6;
+periodoTransicion;fecha=2012-12-12;
+100;  evaluar=true;
+110;  evaluar=true;
+540;  evaluar=true;
+540bci;  evaluar=true;
+540tbc;  evaluar=false;
+230; evaluar=true;
+800; evaluar=true;
+
+
+# Mantención Segundas claves, identifica para que canal esta activo el passcode
+passcodeActivo;100=false;110=true;540=true;540bci=true;540tbc=true;140=true;230=true;
+
+tokenActivo;100=true;110=true;540=true;540bci=true;540tbc=true;140=true;230=true;
+pinToken;100=1234;110=1234;150=1234;160=1234;120=1234;530=1234;532=1234;540=1234;540bci=1234;540tbc=1234;230=1234;
+CorreoPasscode;mailServer=smtp.bci.cl;mailFrom=contacto@bci.cl;
+110-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosTerceros;activo=No;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+110-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosTercerosBCI;activo=No;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,ClaveInternet;
+110-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosModificarCtaTerceros;activo=No;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+110-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosDetenerCtaTerceros;activo=No;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+110-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosActivarCtaTerceros;activo=No;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+110-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosEliminarCtaTerceros;activo=No;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+230-CtaConTraEnc;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros;Jerarquias=Passcode,ClaveInternet;
+230-CtaConTraEncBP;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros BCIPagos;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFir;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias Entre Cuentas;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFirTerceros;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros Inscritos;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFirBP;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros BCIPagos;Jerarquias=Passcode,ClaveInternet;
+230-TransferenciaTercerosLinea;activo=Si;condicion=tipoFirma;valor=1;titulo=Transferencias a Terceros en Linea;Jerarquias=Token;
+230-CtaConCtaOriDes;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros en Linea Diferido;Jerarquias=ClaveInternet;
+
+CodigoProdToken;Codigo=Prod17;ComDev=KOPE003;ComRep=KOPE001;ComUso=KOPE002;NumConvenio=29105;
+TOKENST00;Desc=Estado desconocido;DescParaMultipass=Estado desconocido;
+TOKENST01;Desc=NO TIENE;DescParaMultipass=No Posee Multipass;
+TOKENST02;Desc=SOLICITUD INGRESADA;DescParaMultipass=Solicitud Ingresada;
+TOKENST03;Desc=CLAVE REGISTRADA;DescParaMultipass=Asignado;
+TOKENST04;Desc=CLAVE AUTORIZADA;DescParaMultipass=Autorizado;
+TOKENST05;Desc=ACTIVA;DescParaMultipass=Activo;
+TOKENST06;Desc=DESBLOQUEADA;DescParaMultipass=Desbloqueado;
+TOKENST07;Desc=BLOQUEADA;DescParaMultipass=Bloqueado;
+TOKENST08;Desc=SIN DISPOSITIVO;DescParaMultipass=Sin dispositivo;
+TOKENST09;Desc=CON DISPOSITIVO;DescParaMultipass=Con dispositivo;
+TOKENST10;Desc=CON OTRO DISPOSITIVO;DescParaMultipass=Con otro dispositivo;
+
+Bienvenida_FOR;Desc=Bienvenido.<br>Esta es la primera vez que usted llama. Estamos muy contentos de su ingreso a TBanc, esperamos atenderle y cumplir con sus expectativas de servicio y eficiencia. Para verificar su identidad, le comunicaré con nuestro supervisor de seguridad, quien le hará algunas preguntas personales No le diga su nombre ni RUT para que sus claves sean totalmente confidenciales.;
+Bienvenida_INF;Desc=Bienvenido.<br>Esta es la primera vez que llamas. Estamos muy contentos de tu ingreso a TBanc, esperamos atenderte y cumplir con tus expectativas de servicio y eficiencia. Para verificar tu identidad, te comunicaré con nuestro supervisor de seguridad, quien te hará algunas preguntas personales No le digas tu nombre ni RUT para que tus claves sean totalmente confidenciales.;
+
+IntentosPanCT;Desc=5;
+
+# Valida los si un canal tiene permiso para activacion web
+#  ej: [canal]=[SI/NO];
+permisosActivacionWeb;100=SI;110=SI;540=NO;800=NO;540bci=NO;
+
+#Valores de los canales que se verificará la fecha de expiración de la clave internet
+verificaFecha110;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha130;valor=true;desc=Definicion para validar la fecha de expiración de la clave en BciCashExpress;
+
+# NUEVOS ESTADOS DE PASSCODE
+# ==============================================
+FE-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+01-01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - INTENTOS FALLIDOS;
+01-00-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - PRIMER INGRESO WEB;
+01-02-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD USUARIO;
+01-03-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD BANCO;
+01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA;
+02-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+03-PASSCODESTATUS;Desc=CLAVE ELIMINADA;
+NN-PASSCODESTATUS;Desc=CLAVE INACTIVA - INGRESO SOLICITUD;
+00-04-PASSCODESTATUS;Desc=ACTIVA - PRIMER USO;
+02-04-PASSCODESTATUS;Desc=CLAVE EXPIRADA - PRIMER USO;
+00-PASSCODESTATUS;Desc=ACTIVA;
+
+FE-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+01-01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por intentos fallidos de ingrego de Pin;
+01-00-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por ingrego por primera vez al sitio.;
+01-02-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud del cliente;
+01-03-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud Banco;
+01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada;
+02-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+03-PASSCODESTATUS_EXT;Desc=Clave Eliminadad;
+NN-PASSCODESTATUS_EXT;Desc=Clave Inactiva por ingreso de solicitud de Clave Dos;
+00-04-PASSCODESTATUS_EXT;Desc=Clave Activa por primer uso;
+02-04-PASSCODESTATUS_EXT;Desc=Clave Expirada por primer uso;
+00-PASSCODESTATUS_EXT;Desc=Clave Activa;
+
+# **********************************************
+# Tarjeta Credito Full OnLine TDC
+# **********************************************
+SaldoCtaCred;checkServicioObjeto=NO;
+EstadoNacional;checkServicioObjeto=NO;
+EstadoInternacional;checkServicioObjeto=NO;
+ComprasNoFacturadasNac;checkServicioObjeto=NO;
+ComprasNoFacturadasInt;checkServicioObjeto=NO;
+PagoCtaCred;checkServicioObjeto=NO;
+AvanceCtaCred;checkServicioObjeto=NO;
+PagoDeudaDolares;checkServicioObjeto=NO;
+ConsultaBloqueoTarjeta;checkServicioObjeto=NO;
+BloqueoTarjeta;checkServicioObjeto=NO;
+SolAumentoCupoVisa;checkServicioObjeto=NO;
+SolTarjetaAdicional;checkServicioObjeto=NO;
+SolReposicion;checkServicioObjeto=NO;
+SolTarjeta;checkServicioObjeto=NO;
+CatalogoSonrisas;checkServicioObjeto=NO;
+PesosSonrisas;checkServicioObjeto=NO;
+TarjetaVirtual;checkServicioObjeto=NO;
+
+# **********************************************
+# Portal Pagos
+# **********************************************
+#110-PortalPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+#110-Transferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+# **********************************************
+# Fondos Mutuos
+110-InversionesFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Inversion FFFMM;Jerarquias=Token,Passcode,ClaveInternet;
+110-RescateFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Rescate FFFMM;Jerarquias=Token,Passcode,ClaveInternet;
+# **********************************************
+# Carga Tarjeta Bip. 
+110-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=Token,Passcode,ClaveInternet;
+100-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=Token,Passcode,ClaveInternet;
+800-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=Token,Passcode,ClaveInternet;
+
+
+
+
+
+# *********************************************************
+# BCI Cash Express II - Transferencias y Portal Proveedores
+# *********************************************************
+230-RemAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-RemFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-MultiAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-MultiFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;

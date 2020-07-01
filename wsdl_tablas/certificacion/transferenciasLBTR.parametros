@@ -1,0 +1,379 @@
+trxTandemPCG;Desc=B0672;DescLong=Codigo para cargo de la comision Persona Sin Giro;
+trxTandemRevPCG;Desc=B2679;DescLong=Codigo para reversa de cargo de la comision Persona Sin Giro;
+trxTandemPSG;Desc=B0684;DescLong=Codigo para cargo de la comision Persona Con Giro;
+trxTandemRevPSG;Desc=B2689;DescLong=Codigo para reversa de cargo de la comision Persona Con Giro;
+TrxTransferencia;Desc=B0682;DescLong=Transaccion tandem de transferencia entre cuentas con nemonico 117;
+TrxRevTransferencia;Desc=B2688;DescLong=Transaccion tandem de transferencia entre cuentas con nemonico 117;
+codigoComision;Desc=118;DescLong=Codigo cargo comision LBTR;
+codigoCargo;Desc=117;DescLong=Codigo para cargo LBTR;
+moneda;Desc=0999;DescLong=Codigo moneda;
+ETipoOperacion;Desc=PPJJ;DescLong=Codigo operacion persona juridica;
+PTipoOperacion;Desc=PPNN;DescLong=Codigo operacion persona natural;
+estadoIngresado;Desc=000;DescLong=estado ingresado;
+estadoConfirmado;Desc=001;DescLong=firma 1;
+estadoPagado;Desc=002;DescLong=monto cargado en la cta. cte. firma 2;
+estadoPagado2;Desc=003;DescLong=comisión cargado en la cta. cte.;
+estadoEnviado;Desc=004;DescLong=enviado al MDP;
+000;Cod=INGRESADA;Desc=Lbtr Ingresada;
+001;Cod=CONFIRMADA;Desc=Lbtr Pagada;
+002;Cod=PAGADA;Desc=Lbtr confirmada;
+003;Cod=COMISION;Desc=Lbtr cobro de comision realizado;
+004;Cod=INYECTADA;Desc=Lbtr enviada al MDP;
+005;Cod=ANULADA;Desc=Lbtr anulada;
+ctaTransfer;Desc=0000925551591;
+codCajero;Desc=3000;
+idfCajero;Desc=A;
+supervisor;Desc=0;
+modEntren;Desc=0;
+modEntrada;Desc=0;
+mensajeAITC;Desc=Imprimir comprobante manual por Cobro de Comision;
+mensajeEmpresa;Desc=Facturacion por comision se realizara en proceso mensual.;
+mensajeCManual;Desc=Ejecute en forma manual contabilizacion de comision e iva;
+mensajeFirma1;Desc=Firma 1 realizada en forma Exitosa.;
+mensajeErrorTransferir; Desc=Se ha producido un error al momento de dar firma 2. \n Antes de volver a intentar la operación, revise que la cuenta de origen no haya sido cargada, de ser así informe inmediatamente a la mesa de dinero y/o ayuda. <br> \n <br> NO INSISTA LA OPERACIÓN O PODRIA VOLVER A REALIZAR CARGO SOBRE LA CUENTA CORRIENTE DEL CLIENTE<br>.;
+nroRegistros;Desc=20;solicitudesDetallesTransferencias=3;maximoDeMeseDetallesTransferencias=6;
+producto;Desc=SUC;
+facelec;Desc=facelec;DescLong=Forward name despacho a factura electronica;
+respuesta;Desc=respuesta;DescLong=Forward name respuesta;
+horaInicioServicio;desc=09:00:00;
+horaFinServicio;desc=15:00:00;
+mensaje;desc=Operacion fuera de horario permitido;
+ctaCteDefault;desc=000;
+estadoDeTransferencia;PEN=Pendiente;PRO=Pagada;REC=Rechazada;ENP=En Proceso;PRP=En Proceso;099=Error de sistema;090=Existe solicitud en Base de datos;001=Ingresada (retenida por falta de datos);002=Objetada (objetado en el MDP uduario por dato erroneo);003=En aprobacion;004=En liberacion (esparado hota valor o retenida por usuario);005=Rechazada (producto de usuario, o no fue liberada en hora tope 16:45);006=Despachado a Swift;007=Devuelta por banco del beneficiario;008=Revocado por sistema LBTR o Combanc;009=Pagado;
+motorSybase;Desc=false;
+valorOficina;Desc=293;
+mensajeFirma2;Desc=Firma 2 realizada en forma exitosa.;
+
+configuracion;cantidadMaxFir=10;gruposAlertas=6;cantidadEstados=8;cantidadTipos=4;cantidadAFP=5;cantidadEmisores=2;cantidadFiltrosSoma=5;
+
+TIPO_0;codigo=;desc=Todos;
+TIPO_1;codigo=NOR;desc=Normal;
+TIPO_2;codigo=DVP;desc=DVP;
+TIPO_3;codigo=CCL;desc=CCLV;
+
+codigosJournal;idProductoTRF=TRLBTR;idProductoBENEF=BENEF;estadoEventoOk=P;estadoEventoERR=R;eventoEliminar=ELIMINAR;eventoCargar=CARGAR;eventoIngreso=INGRESO;eventoFirmar=FIRMAR;eventoLiberar=LIBERAR;eventoAutorizar=AUTORIZAR;subOK=OK;subEventoNOK=NOK;subEventoERROR=ERROR;subEventoTRF=TRF;estadoEventoNOk=A;
+
+ESTADO_0;codigo=;desc=Todos;
+ESTADO_1;codigo=PRO;desc=Procesadas;
+ESTADO_2;codigo=PRP;desc=En Proceso;
+ESTADO_3;codigo=FIR;desc=Firmadas;
+ESTADO_4;codigo=PEN;desc=Pendientes de Firma;
+ESTADO_5;codigo=REC;desc=Rechazadas;
+ESTADO_6;codigo=ELI;desc=Eliminadas;
+ESTADO_7;codigo=CAD;desc=Caducadas;
+
+POSICIONALERTA_0;posicion=0;estilo=estado_rechazadas;descripcion=Rechazadas;estiloTable=rechazados rechazadasTitle;
+POSICIONALERTA_1;posicion=1;estilo=estado_pendientes;descripcion=Pendientes por el Cliente;estiloTable=pendientes pendientesTitle;
+POSICIONALERTA_2;posicion=2;estilo=estado_proceso;descripcion=En Proceso por el Banco;estiloTable=proceso procesosTitle;
+POSICIONALERTA_3;posicion=3;estilo=estado_realizadas;descripcion=Realizadas;estiloTable=realizadas realizadasTitle;
+POSICIONALERTA_4;posicion=5;estilo=estado_eliminadas;descripcion=Eliminadas;estiloTable=eliminadas eliminadasTitle;
+POSICIONALERTA_5;posicion=6;estilo=estado_caducadas;descripcion=Caducadas;estiloTable=caducadas caducadasTitle;
+
+MAPEO_ESTADO_ENCABEZADO;REC=0;ENP=2;PRP=2;PEN=1;FIR=1;PRO=3;ELI=4;CAD=5;
+
+codBanco;bco_016=Banco BCI;bco_001=BANCO DE CHILE-EDWARDS;bco_009=BANCO INTERNACIONAL;bco_012=BANCO ESTADO;bco_014=SCOTIABANK;bco_017=BANCO DO BRASIL S.A.;bco_027=CORP BANCA;bco_028=BANCO BICE;bco_31=HSBC BANK-CHILE;bco_033=CITYBANK;bco_037=BANCO SANTANDER SANTIAGO;bco_039=BANCO ITAU;bco_043=BANCO DE LA NACION ARGENTINA;bco_045=THE BANK OF TOKIO;bco_046=THE ROYAL BANK OF SCOTLAND;bco_049=BANCO SECURITY;bco_051=BANCO FALABELLA;bco_052=DEUTSCHE BANK;bco_053=BANCO RIPLEY;bco_054=RABOBANK;bco_055=CONSORCIO;bco_504=SCOTIABANK AZUL (EX BBVA);bco_507=BANCO DEL DESARROLLO;
+
+IngresoTRFLBTR;codigoServicio=TR01OPE;
+
+tiposIngreso;CLI=Ingresada por el Cliente;IMP=Importado desde Excel;DCV=Ingresado desde carga Masiva;OTRO=No Definido;
+tiposEstado;PRO=Procesada;PRP=En Proceso;FIR=Firmada;PEN=Pendiente de Firma;REC=Rechazada;ELI=Eliminada;CAD=Caducadas;
+tiposOperacion;NOR=Normal;DVP=DVP;CCL=CCLV;
+
+refContract;230=refContractEmpresa;
+
+loginEnterprise;230=loginEnterpriseEmpresa;
+
+crearPDF;rutaComprobantes=resources/icono/;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteLiberarTransferencias=comprobanteLiberarTransferencias.html;comprobanteFirmarTransferencias=comprobanteFirmarTransferencias.html;comprobateIngresar=comprobanteIngresoPagoSoma.html;comprobateFirmar=comprobanteFirmaPagoSoma.html;comprobateLiberarSoma=comprobanteLiberarPagoSoma.html;
+transferenciaCCLV;beneficiarioCCLV=Banco Central;cuentaCCLV=000000034220105907;rutCCLV=96572920;dvCCLV=8;nombreCuentaCCLV=CCLV, CONTRAPARTE CENTRAL S.A.;codBancoCCLV=300;bancoCCLV=Banco Central;emailAvisoCCLV=alarma@bcicert.cl;
+modalidadSeparada;valor=false;
+urlCondicionesLBTR;desc=https://bciimg.bci.cl/sitioseguro/nsc/condiciones_servicio_act.html;
+
+agregarBeneficiario;montoMax=0;
+ctaBciNoValida;desc=La cuenta BCI ingresada no corresponde al rut del beneficiario titular.;
+beneficiarioExiste;desc=Beneficiario Ya Existe.;
+beneficiarioError;desc=No se pudo ingresar nuevo beneficiario.;
+numeroCtaExiste;desc=Numero de cuenta ingresado ya existe para otro beneficiario.;
+nombreCtaExiste;desc=Nombre de cuenta ya existe.;
+
+CantidadClaves;Desc=1;glosa=Cantidad de firmas;
+servicioRecibirArchivo;Desc=X24OPE;Producto=Prod01;
+
+#Desarrollo
+#UYPSYUSR;ip=161.131.184.81;pathTrf=/home/banele/dvp/in/trfMasivas;pathBenef=/home/banele/dvp/in/trfMasivas;usuario=sipe;clave=sipe01;
+
+#Certificacion
+UYPSYUSR;ip=161.131.184.81;usuario=banele;pathTrf=/home/banele/dvp/in/trfMasivas;pathBenef=/home/banele/dvp/in/beneficiarios;
+
+#Produccion
+#UYPSYUSR;ip=161.131.184.81;usuario=banele;pathTrf=/home/banele/dvp/in/trfMasivas;pathBenef=/home/banele/dvp/in/beneficiarios;
+
+validaUsuarioporTipoFirma;indicador=S;producto=EXP;
+
+fechaPagoSoma;hora=11;min=00;seg=00;
+horaInicioPagoSoma;hora=9;min=00;seg=00;
+horaTerminoPagoSoma;hora=16;min=30;seg=00;
+numeroMaximoOperaciones;desc=10;
+CodPuedeFirmar;desc=2;
+horaCaducaFirmaSoma;hora=9;min=30;seg=0;
+horaCaducaLiberacionSoma;hora=9;min=45;seg=0;
+
+AFP;codActividad=81024;
+FONDO_0;desc=Fondo A;
+FONDO_1;desc=Fondo B;
+FONDO_2;desc=Fondo C;
+FONDO_3;desc=Fondo D;
+FONDO_4;desc=Fondo E;
+
+emisoresSoma;CSBC=BCCH;CSTG=TGR;
+tipoOperacionSoma;afp=CSBC;noafp=CSTG;
+fondoSinAFP;CSBC=NO APLICA;CSTG=;
+
+soma;tipo=SOM;bancoBeneficiario=018;rutBeneficiario=97029000;dvBeneficiario=1;nombreBancoBeneficiario=Banco Central;
+cargoSoma;tx=B0677;codMov=1274;
+reversaSoma;tx=B0679;codMov=1274;
+abonoSoma;tx=B0750;codMov=5H;cuentaSaco=0;
+
+mt103soma;codigoProducto=BXP;indicadorAccion=P;moneda=CLP;sucursalOrdenante=0;sucursalBeneficiario=0;codigoIsoBancoBeneficiario=BCEC;detalleGastos=OUR;formaPago=SCP;direccionSucBenef=AGUSTINAS 1180. SANTIAGO;
+
+eventosPagosSomaIngreso;evento=INGRESO;subEvento=PAGO;producto=SOMA;glosaEvento=Ingreso de Pagos SOMA (Sistema de Operaciones de Mercado Abierto);
+eventosPagosSomaFirma;evento=FIRMA;subEvento=PAGO;producto=SOMA;glosaEvento=Firma de Pagos SOMA (Sistema de Operaciones de Mercado Abierto);
+eventosPagosSomaEliminar;evento=ELIMINA;subEvento=PAGO;producto=SOMA;glosaEvento=Eliminación de Pagos SOMA (Sistema de Operaciones de Mercado Abierto);
+eventosPagosSomaLiberacion;evento=LIBERA;subEvento=PAGO;producto=SOMA;glosaEvento=Liberación de Pagos SOMA (Sistema de Operaciones de Mercado Abierto);
+
+Filtro_PAGOSOMA_0;val=PRP;desc=En Proceso;
+Filtro_PAGOSOMA_1;val=ELI;desc=Eliminada;
+Filtro_PAGOSOMA_2;val=REC;desc=Rechazado;
+Filtro_PAGOSOMA_3;val=LIQ;desc=Liquidada;
+Filtro_PAGOSOMA_4;val=TOD;desc=Todos;
+serviciosSoma;ingreso=SOMA01;firma=SOMA02;liberacion=SOMA03;
+
+rechazos;uno=El Usuario no Posee apo_idn;dos=Ya firmo alguien con apo_idn igual;tres=problemas con conexión con banele;cuatro=Monto supera el máximo permitido;cinco=Aún quedan firmas Pendientes;
+codRechazos;cien=100;cientoUno=101;cientodos=102;
+busquedaSoma;dia=14;cant=6;
+
+errorSaldo;desc=El pago a liberar supera el saldo de la cuenta corriente;
+mailSoma;subject=Cargo por Pago SOMA - <rut>;contenido=Estimado(a) <nombre_usuario>\n\nCon fecha 08/05/2015 se ha realizado un pago SOMA desde\nla cuenta nro. #<numero_cta> perteneciente a la empresa <nombre_empresa>.\n\nEl detalle de la operacion es el siguiente:\n\nFecha-Hora : <fecha_hora>\nNombre Cliente : <nombre_empresa>\nRut : <rut_empresa>\nCuenta Corriente : <numero_cta>\nMonto : <monto>\nNro Operacion: <nro_operacion>\n\nAtte,\nBCI Banca Empresas\n\nImportante:\nEste mail es generado de manera automatica, por favor no responda a este\nmensaje. Ante cualquier duda, contactese al 600 824 24 24.\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+tipoSoma;valor=LBT;
+
+configEmisoresSoma;cantidad=2;
+emisoresSoma_0;value=CSBC;label=BCCH;
+emisoresSoma_1;value=CSTG;label=TGR;
+
+####################################################
+
+
+datosCuentaCCLV;cuentaDestinatario=000000034220105907;nombreDestinatario=CCLV CONTRAPARTE CENTRAL SA;email= ;codigoBanco=300;rutDestinatario=96572920-8;nombreCuenta=CCLV CONTRAPARTE CENTRAL SA;direccionDestinatario= ;
+datosTransferenciaAltoMonto;tipo=LBT;productoPago=LBTR;origen=WEB;estado=EPRE;canal=LBTR;
+
+journalIngresoAltoMonto;evento=INGRESA;subEvento=NOMINA;producto=TRFAM;
+cargaArchivoJournal;codServicio=TR08OPE;glosaLog=Carga Nómina Por Archivo - Nro Folio ;
+cargaManualJournal;codServicio=TR01OPE;glosaLog=Carga Nómina Manual - Nro Folio ;
+reutilizacionJournal;codServicio=TR01OPE;glosaLog=Reutilizacion Nómina - Nro Folio ;
+
+bitacora;ingresar=INGR;comentarioIngresar=Ingreso Nueva Transferencia Altos Montos;cargaNominaPorArchivo=CARG;cargaNominaManual=CARG;cargaNominaReutilizada=CARG;autorizacion=AUTS;creacion=CREA;detencion=DETE;eliminacionDetallePago=MODI;eliminacion=ELIM;firma=FIRM;modificacion=MODI;nominaConObservacionesCorregida=MODI;nominaConObservacionesEnviada=MODI;pagosNoRealizados=PANR;pagosRealizados=PARE;reactivacion=REAC;eliminarDocumento=MODI;pagoNominaDiferida=EMPJ;
+cargaNominaPorArchivo;glosaLogOk=Carga con Archivo de Nóminas;
+cargaNominaManual;glosaLogOk=Carga de Nómina Manual;
+reutilizacionNomina;glosaLogOk=Carga Reutilización Nóminas;
+comprobantePDFIngreso;rutaXSL=transferenciaaltosmontos/comprobanteCargaTransferenciaAltoMonto.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;
+datosIngreso;tipoTrf=LBT;estadoInicial=PEN;canal=LBTR;codRechazo=5000;tipoPagoDVP=DVP;tipoPagoCLV=CLV;tipoPagoNOR=NOR;tipoPagoOTR=OTR;
+datosCarga;estadoInicial=NTR;cantidadLineasMax=100;tipoTrf=ARAM;canal=LBTR;
+
+camposPlantilla;Campo1=Tipo Pago;Campo2=Cuenta Destino inscrita como;Campo3=CuentaDestino;Campo4=Banco Destino;Campo5=Rut Destinatario;Campo6=DV Destinatario;Campo7=Nombre Destinatario;Campo8=Direccion Destinatario;Campo9=Monto Transferencia;Campo10=Mensaje Destinatario;Campo11=Email Destinatario;Campo12=Nro.Factura Boleta;Campo13=Nº Orden de Compra;Campo14=Codigo DCV Cliente;Campo15=Codigo DCV Destinatario;Campo16=Primera Clave DCV;Campo17=Segunda Clave DCV;Campo18=Tercera Clave DCV;Campo19=Cuarta Clave DCV;Campo20=Quinta Clave DCV;Campo21=Sexta Clave DCV;Campo22=Septima Clave DCV;Campo23=Octava Clave DCV;Campo24=Novena Clave DCV;Campo25=Decima Clave DCV;Campo26=Camara;Campo27=Tipo de Saldo;Campo28=Codigo Agente;
+largoCamposPlantilla;Campo1=3;Campo2=25;Campo3=18;Campo4=3;Campo5=12;Campo6=1;Campo7=45;Campo8=45;Campo9=16;Campo10=30;Campo11=45;Campo12=20;Campo13=20;Campo14=30;Campo15=30;Campo16=30;Campo17=30;Campo18=30;Campo19=30;Campo20=30;Campo21=30;Campo22=30;Campo23=30;Campo24=30;Campo25=30;Campo26=2;Campo27=2;Campo28=4;
+columnas;cantidad=28;
+tamañoMaximoCargaArchivo;Desc=1048576;
+tipoTransferencia;Desc=NTL;
+cargaTransferencia;sistemaFTP=ftpsip;
+cargaExcel;archTemp=./temp/;
+monedaNacional;Desc=NAC;
+tipoCuenta;Desc=TER;
+nomArchivoManual;Desc=CM;
+nomArchivoReutilizar;Desc=CR;
+numeroTransferencia;Desc=  ;
+estadoConsulta;Desc=9290;
+estadoPagoIngresado;Desc=ING;
+tipoTransferenciaPorDefecto;Desc=   ;
+indicadorModulo;Desc=10;
+direccionPaises;paisDefecto=CL;
+codigoProducto;Desc=NTR;
+linkDescargaArchivo;Desc=https://bciimg.bci.cl/medios/capacitacion_penol/archivos/Excel_tipoAM.xls;
+horariosFinCarga;web=21:00;
+
+#Desarrollo 
+#servidorTTFFAltoMonto;ip=161.131.184.81;puerto=21;
+#directorioTTFFAltoMonto;path=/home/banele/AltosMontos/ttff/;
+
+#Integracion 
+#servidorTTFFAltoMonto;ip=161.131.141.239;puerto=21;
+#directorioTTFFAltoMonto;path=/banele/AltosMontos/ttff/;
+
+#Certificacion 
+servidorTTFFAltoMonto;ip=161.131.232.180;puerto=21; 
+directorioTTFFAltoMonto;path=/banele/AltosMontos/ttff/;
+
+#Produccion 
+#servidorTTFFAltoMonto;ip=161.131.232.30;puerto=21;
+#directorioTTFFAltoMonto;path=/banele/AltosMontos/ttff/;
+
+rangoDias;consultaTransferenciaAltosMontos=0;
+horaLimite;firma=16:00;
+
+#####Bitacora#####
+bitacoraFirma;accionPARE=PARE;comentarioPARE=Proceso de Pago Realizado;accionDIFR=DIFR;comentarioDIFR=Firma Nómina Diferida con cambio a modadlidad "Diferida";accionPANR=PANR;comentarioPANR= ;accionENVS=ENVS;comentarioENVSObservada=Envía Nómina sin corregir pagos con error.;comentarioENVSActivar=Envía Nómina sin activar destinatarios no inscritos.;accionMODI=MODI;comentarioMODIObservada=Nómina Con Observaciones: Modificación Datos de Pago;comentarioMODIObservadaEli=Nómina Con Observaciones: Eliminación de Pago;comentarioMODIActivar=Nómina Por Activar: Activación Destinatario;comentarioMODIActivarEli=Nómina Por Activar: Eliminación Destinatario;accionELIM=ELIM;comentarioELIM= ;accionSFFD=SFFD;comentarioSFFD=Cliente no acepta diferir.;
+bitacoraAccionFirmar;accion=FIRM;glosaFirmasPendientes=Firma de Nómina.;glosaInmediata=Firma de nómina con cargo en línea.;glosaDiferida=Firma de nómina con cargo diferido.;glosaSinFondo=Firma de nómina Sin fondos y fuera de plazo.;
+bitacoraAccionDiferir;accion=DIFR;glosaFirmaDiferida=Firma Nómina con cambio a modalidad "Diferida".;
+bitacoraAccionSinFondo;accion=SFFD;glosaSinFondosFirma=Sin Fondos. Cliente no acepta diferir.;
+
+comprobanteFirmar;rutaXSL=transferenciaaltosmontos/comprobanteFirmaNominaAltosMontos.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;rutaXSLBCIPAY=pagos/transferencia/comprobanteFirmaPorExcepcion.xsl;
+firmaObligatoria;Desc=true;
+nominasDiferidasAutomaticamente;desc=NOK;
+horariosFinFirma;web=21:00;
+estadosFirmaNomina;cantidad=1;
+estadosFirmaNomina_1;estado=PEN;estadoProceso=PEN;
+journalFirma;evento=FIRMA;subEvento=NOMINA;producto=TRFAM;estadoOk=P;estadoNOk=A;
+estadoBloqueo;Desc=BLO;
+estadoSinFondos;Desc=SFD;
+estadoListoParaPago;Desc=LPP;
+accionFirma;Desc=Firmar;
+estadoPendiente;Desc=PEN;
+estadoEnProceso;Desc=ENP;
+estadosEnProceso;Desc=EPAM;
+codigoTransaccionCargo;Desc=C0670;
+codigoTransaccionReversa;Desc=C0678;
+codigoMovimientoCargo;Desc=1287;
+codCajeroWeb;Desc=0030;
+codCajeroBCIPAY;Desc=0030;
+flujoEstados_LBT_Firmar;cantidad=1;
+flujoEstados_LBT_Firmar_1;estadoOrg=PEN;estadoPrcOrg=PEN;estadoFin=FIR;estadoPrcFin=FIR;
+flujoEstados_LBT_Empujar;cantidad=1;
+flujoEstados_LBT_Empujar_1;estadoOrg=LPP;estadoPrcOrg=LPP;estadoFin=FIR;estadoPrcFin=FIR;
+envioCorreo;servicio=FirmaNominaAltosMontos;usuarioConsumidor_WEB=BCI;usuarioConsumidor_PAY=(PEND);claveConsumidor_WEB=BCI_PWD;claveConsumidor_PAY=(PEND);loginEmpresa=BCI;idContrato=WEBBEL_TRFAM_FIRMA_NOMINA;firma=;
+envioCorreoFirma;correoRemitente=transferencias@bci.cl;nombreRemitente=Servicio de Transferencias Altos Montos;asunto=Aviso de Pago Altos Montos;idPlantilla=tmpl_firma_apoderados_bci;
+envioCorreoSoporte;correoRemitente=lbtr_bci_express@bci.cl;nombreRemitente=Servicio de Transferencias Altos Montos;destino=exltrig@bci.cl,exndelg@bci.cl,msepual@bci.cl,extjcollins@bci.cl,rcontre@bci.cl,joviedo@bci.cl,jvalle@bci.cl,hhernaa@bci.cl,tpozog@bci.cl,mavenda@bci.cl;asunto=ADVERTENCIA: Revisar Transferencia Alto Monto desde la Web;
+envioCorreoActivacion;servicio=ActivacionAdministracionBeneficarioAM;correoRemitente=bci@bci.cl;nombreRemitente=BCI;idContrato=WEBBEL_TRFAM_ACTIVA_BENEFI;asunto=Activacion beneficiarios;
+correoFirmaApo;glosaEstimado=Estimado(a) Cliente (a):;glosaConFecha=Con fecha;glosaGlosa1=se ha enviado a pago la siguiente nómina, perteneciente a la empresa;glosaGlosa2=El detalle de la operación es el siguiente:;glosaCodigo=Código Identificación;glosaCuenta=Cuenta de Cargo;glosaMonto=Monto a Pagar;glosaNombreNomina=Nombre Nómina;glosaAtte=Atte,;glosaBCI=BCI Banca Empresas;glosaImportante=Importante:;glosaGlosa3=Este mail es generado de manera automatica, por favor no responda a este mensaje.;glosaGlosa4=Ante cualquier duda, contactarse al 600 824 24 24;glosaGlosa5=P.D.: Los tildes se han omitido en forma intencional;
+correoFirmaSoporte;glosaAviso=Aviso Pago de Altos Montos:;glosa1=Se adjuntan datos de la nomina de LBTR para realizar chequeo y seguimiento.;glosaCodigo=Código Identificación;glosaRut= Rut Pagador;glosaMonto=Monto a Pagar ($);glosaCuenta=Cuenta Origen;glosaFechaCarga= Fecha Carga;glosaFechaPago= Fecha Pago;glosaProblema= Problema;
+WSParametros;requestTimeOut=13000;connectTimeOut=500;sistema=wlsalsb;
+### certificacion
+ServicioEnvioLatinia;WSDL=http://b2bcert.bci.cl:9050/esb/infraestructura/mensajeria/mail/MensajeriaEmailSDPPS?wsdl;
+### produccion
+#ServicioEnvioLatinia;WSDL=http://alsb.bci.cl/esb/intranet/infraestructura/mensajeria/mail/MensajeriaEmailSDPPS?wsdl;
+#ingresoFrom;desc=NO;
+
+#########Flujo pagar nomina linea######
+
+estadosPagarNomina;cantidad=1;
+estadosPagarNomina_1;estado=LPP;estadoProceso=LPP;
+accionEmpujar;Desc=Empujar;
+rangoDiasConsultaPagar;Desc=1;
+pdfNominasDiferidas;nombreArchivoGenerado=ComprobantePagar_;rutaXSL=transferenciaaltosmontos/comprobantePagoTransferenciaAltoMonto.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;
+horaLimitePago;Desc=16:00;
+horaPagoAutomatico;Desc=14:00;
+
+####Consulta Transferencia Alto Monto####
+datosConsultaTransferenciaAltoMonto;canal=LBTR;origen=WEB;tipoTransferencia=LBT;productoPago=LBTR;estado=EAMPO;estado5001=5001;estado5002=5002;estado5003=5003;estado5010=5010;estado9215=9215;estado9299=9299;estado6685=6685;origenPAY=PAY;
+estados;estadoEliminacion=6685;estadoRechazo=5021,5022;estadoValidosPreoriginacion=5000,5001,5002,5003;
+codigosEstadosNoVisiblesEnObservacion;codigo=9215|9299|9290;
+
+journalNominaObservadaAltosMontos;evento=MODIFICA;subEvento=NOMINA;producto=TRFAM;eventoElimina=ELIMINA;
+envioNomina;glosaLogOk=Envio de Nomina;glosaLogNOk=Error envio de Nomina;
+
+enviarNominaObservada;glosaLogOk=Se envio nómina: ;
+codigosJournalPagarNomina;evento=PAGODIFERIDO;subEvento=NOMINA;idProducto=TRFAM;estadoEventoOk=P;estadoEventoNOk=A;glosaEstadoEventoOk=Pago Nómina Diferida OK - Nro Nómina ;glosaEstadoEventoNOk=Pago Nómina Diferida NOK - Nro Nómina ;codServicio=TR11OPE;
+bitacoraPagarNomina;accion=EMPJ;glosaEmpujar=Pago de Nómina: modalidad cargo "diferida";
+codigosProductos;codProducto21=Prod21;codProducto01=Prod01;
+codigosServicios;codServicioTR03OPE=TR03OPE;
+estadosConsultasNominas;Desc=PROAM-En Proceso,PRO-Pagados,NPGAM-No Pagados;
+estadosConsultasPagos;Desc=AMPRO-Pagados,REC-No Pagados;estadosRealizadas=AMPRO;
+estadosNominaConsultaPagos;AMPRO=REAM;REC=RCAM;
+tipoPagosConsulta;Desc=NOR-Normal,DVP-DVP,CLV-CCLV;
+rutaPDFMensajeSwift;xslMT=transferenciaaltosmontos/mensajeSwiftAltoMonto.xsl;
+estadosEvaluaSwift;Desc=PRO-PAG;
+estadosEvaluaSwiftRecibidas;Desc=PRO-PAG;
+
+#####ConsultaCartolaLBTR#######
+constantesCartola;mesesCartola=6;estado=CART;cantRegistrosExportar=2000;
+consultaTipoMovimiento;recibidas=RCB;realizadas=REA;rechazadas=REC;
+consultaEstados;realizadas=PRO;rechazadas=REC;recibidas=PRO;realizadasMDPAmbas=REAM;rechazadasMDPAmbas=RCAM;
+tipoMovimientoExcel;RCB=Recibidas;REA=Realizadas;REC=Rechazadas;
+confirmacionOperacion;accionEliminar=ELI;accionEliminarPago=ELIPAG;accionPagar=PAG;accionFirmar=FIR;
+codigosEstadosNominas;enValidacion=5000;observada=5001;porActivar=5003;rechazada=5021;porFirmar=PEN;procesadas=PRO;enProcesoPago=ENP;diferidas=LPP;sinFondos=SFD;
+journalCartola;evento=CARTOLA;subEvento=TRANSFERENCIA;producto=TRFAM;estadoOk=P;estadoNOk=A;codProductoProd21=Prod21;codProductoProd01=Prod01;codServicio=X116OPE;
+
+caracteresRznScl;Desc=*,/,¿,\,#,@,',-,_;
+bitacoraEliminar;accionEliminar=ELIM;glosa= ;glosaPago=Eliminación Pago: ;
+horariosFinEliminar;web=16:00;
+horariosFinEliminarPago;web=16:00;
+journalEliminar;evento=ELIMINA;subEvento=NOMINA;producto=TRFAM;glosaOK=Eliminación Nómina: ;glosaNOK=Error Eliminación Nómina: ;estadoEventoOk=P;estadoEventoNOk=A;
+journaEliminarPago;evento=MODIFICA;subEvento=NOMINA;producto=TRFAM;glosaOK=Eliminación Pago:;estadoEventoOk=P;estadoEventoNOk=A;
+
+rutaPDFEliminar;rutaXSL=transferenciaaltosmontos/comprobanteEliminacionAltoMonto.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;
+rutaComprobanteActivacion;xsl=transferenciaaltosmontos/comprobanteActivacionBeneficiario.xsl;
+detalleNomina;cantidadRegistosExportados=2000;rutaXSL=transferenciaaltosmontos/detalleNomina.xsl;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;nombreArchivoGenerado=DetalleNomina;
+detalleTransferencia;rutaXSL=transferenciaaltosmontos/detalleTransferencia.xsl;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;
+historialAltosMontos;rutaXslDetalle=transferenciaaltosmontos/detalleHistorialAltosMontos.xsl;
+puedeFirmar;desc=true;
+codigosEstadosDescargaMT;codigo=PRO|PAG;
+
+largoMaximoLineaMsjSwft;Desc=60;
+###### OPF - MDP - AMB ######
+indicadorMotor;Desc=MDP;
+
+###### INDICADOR CONSULTA BANCO ######
+llaveConsultaBanco;consultaBanco=true;
+
+codigosMensajesRechazo;M018=MSJ1;M023=MSJ1;M024=MSJ1;M025=MSJ1;M026=MSJ1;M027=MSJ1;MP08=MSJ1;MP09=MSJ1;MP10=MSJ1;MP11=MSJ1;MP12=MSJ1;MP13=MSJ1;MP14=MSJ1;MP15=MSJ1;MP16=MSJ1;MP17=MSJ1;MP18=MSJ1;MP19=MSJ1;MP20=MSJ1;MP35=MSJ1;MP21=MSJ1;MP22=MSJ1;MP23=MSJ1;MP24=MSJ1;W200=MSJ2;MP01=MSJ2;MP02=MSJ2;MP30=MSJ2;
+MSJ1;Desc=Pago Cancelado.;
+MSJ2;Desc=Pago Rechazado.;
+mensajeGenericoRechazo;Desc=Mensaje General.;
+
+0007;Desc=Cuenta No Existe.;
+0008;Desc=Cuenta Cerrada.;
+0009;Desc=Cuenta Congelada Judicialmente.;
+0010;Desc=Cuenta De Cliente Difunto.;
+0011;Desc=Cuenta Con Orden De Cierre.;
+0015;Desc=Cuenta Destino No Existe.;
+0016;Desc=Cuenta Destino Cerrada.;
+0017;Desc=Cuenta Destino Congelada Judicialmente.;
+0018;Desc=Cuenta Destino De Cliente Difunto.;
+0019;Desc=Cuenta Destino Con Orden De Cierre.;
+0020;Desc=Cuenta Con Saldo Insuficiente.;
+0022;Desc=Cuenta Bloqueada.;
+mensajeGenericoTandem;Desc=Sistema no disponible.;
+
+glosaEstadoRecibidas;Desc=Glosa Parametrica;
+estadosNominasCertificados;Desc=PRO-009;
+
+rutaCertificadoNominaAltoMonto;xslNomina=transferenciaaltosmontos/certificadoNominaAltoMonto.xsl;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;xslPagos=transferenciaaltosmontos/certificadoPagosAltoMonto.xsl;
+cantidadMaximaCertificados;Desc=15;
+
+##### CERTIFICADO WEB ######
+comisionCertificado;cantidadUF=0,006;porcentajeIVA=1.19;
+journalCertificadoAltoMonto;evento=EMITE;subEvento=CERTIF;producto=TRFAM;estadoOk=P;estadoNook=A;codServicio=TR12OPE;codProductoExpress=Prod21;codProductoPyme=Prod01;
+maximoRegistrosConsultarExcel;Desc=2000;
+horaServicio;inicio=09:00;
+montoTarifaServicioCarga;Desc=0.98;
+
+##### BCI PAY CONSULTAS ######
+estadosConsultasNominasBCIPAY;Desc=PEN-Pendiente Firma,LPP-Lista Para Pago,EPAM-En Proceso de Pago,PROAM-Procesadas,NPGAM-No Pagadas;
+estadosConsultasPagosBCIPAY;Desc=PAGAM-Pagados,PPAM-Pendientes,NPAM-No Pagados;
+cantidadRegistrosConsulta;Desc=15;
+
+estadosConsultasHistoricasBCIPAY;Desc=APP-Aprobado,DIG-En Digitacion,ERR-Erroneo,ING-En Preparacion,LIQ-Liquidado,OBJ-Objetado,PAP-Por Aprobar,PSG-Por Firmar,RCH-Rechazado,VAL-Valido;
+rutBCISinGuion;Desc=970060006;
+pdfDetalleNomina;rutaXslDetalle=transferenciaaltosmontos/detalleNominaBCIPay.xsl;
+pdfHistorialNomina;rutaXslDetalle=transferenciaaltosmontos/historialAltosMontosBCIPay.xsl;
+pdfDetallePagoEnviado;rutaXslDetalle=transferenciaaltosmontos/detallePagoEnviado.xsl;
+pdfDetallePagoRecibido;rutaXslDetalle=transferenciaaltosmontos/detallePagoRecibido.xsl;
+oficinasExcluidas;Desc=415,411,093,193,455,047,131,349,117,142,051,341,094,342,389,234,013,169,208,083,048,289,283,022,163,205,124,134,017,143,296,137,393,293,405,291,279,927,410;
+BancoBCI;codigo=016;
+valorOPF;desc=OPF;
+horaCorteTrfCCLVCamara;cantidad=4;
+horaCorteTrfCCLVCamara_1;codigo=RV;horario=21:00;valida=true;excepcionFirma=PAGOS063;excepcionPago=PAGOS067;
+horaCorteTrfCCLVCamara_2;codigo=PM;horario=21:00;valida=true;excepcionFirma=PAGOS064;excepcionPago=PAGOS068;
+horaCorteTrfCCLVCamara_3;codigo=DE;horario=21:00;valida=false;excepcionFirma=PAGOS065;excepcionPago=PAGOS069;
+horaCorteTrfCCLVCamara_4;codigo=HS;horario=21:00;valida=true;excepcionFirma=PAGOS066;excepcionPago=PAGOS070;
+
+MENSAJE_DIFERIDA;Desc=La nómina quedo en estado Diferida, para continuar debe ingresar a www.bci.cl;
+MENSAJE_SIN_FONDOS;Desc=La nómina no pudo pagarse por falta de fondos en cuenta corriente;
+

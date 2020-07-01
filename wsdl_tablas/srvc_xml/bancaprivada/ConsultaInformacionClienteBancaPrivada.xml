@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_cli_ban_priv">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="long" middle_name="rut" size="0" java_name="rut"/>
+	</input>
+
+	<output>
+			<field type="long"   middle_name="cbp_rut"        size="0" java_name="rut"                               />
+			<field type="char"   middle_name="cbp_dv"         size="0" java_name="digitoVerificador"                 />
+			<field type="String" middle_name="cbp_ape_pat"    size="0" java_name="apellidoPaterno"                 />
+			<field type="String" middle_name="cbp_ape_mat"    size="0" java_name="apellidoMaterno"                 />
+			<field type="String" middle_name="cbp_nom"        size="0" java_name="nombres"                         />
+			<field type="String" middle_name="cbp_eje_inv"    size="0" java_name="banquero"            />
+			<field type="Date"   middle_name="cbp_fec_inp"    size="0" java_name="fechaInicioClientePotencial"     middle_date_format="yyyyMMddHHmmss" />
+			<field type="Date"   middle_name="cbp_fec_inc"    size="0" java_name="fechaInicioClienteBancaPrivada"  middle_date_format="yyyyMMddHHmmss" />
+			<field type="String" middle_name="cbp_ind_cli"    size="0" java_name="indicadorClienteBanco"             />
+			<field type="int"    middle_name="cbp_tip_cod"    size="0" java_name="tipoClienteBancaPrivada"         />
+			<field type="int"    middle_name="cbp_ssg_cod"    size="0" java_name="subsegmentoBancaPrivada"         />
+			<field type="String" middle_name="cbp_des_ssg"    size="0" java_name="otroSubsegmentoBancaPrivada"         />
+			<field type="int"    middle_name="alb_cod"        size="0" java_name="codigoActividadLaboral"         />
+			<field type="String" middle_name="cbp_ubi_eml"    size="0" java_name="direccionEmail"                  />
+			<field type="String" middle_name="cbp_ubi_cda"    size="0" java_name="codigoArea"                      />
+			<field type="String" middle_name="cbp_ubi_fon"    size="0" java_name="telefono"                        />
+			<field type="String" middle_name="cbp_ssg_gls"    size="0" java_name="glosaSubsegmentoBancaPrivada"    />
+			<field type="String" middle_name="cbp_tip_gls"    size="0" java_name="glosaTipoClienteBancaPrivada"    />
+			<field type="String" middle_name="alb_gls"		  size="0" java_name="glosaActividadLaboral"    />
+			<field type="int" middle_name="cbp_prf"	  		  size="0" java_name="codigoPerfilInversiones"    />
+			<field type="String" middle_name="cbp_prf_gls"	  size="0" java_name="perfilInversiones"    />
+	</output>
+</service>

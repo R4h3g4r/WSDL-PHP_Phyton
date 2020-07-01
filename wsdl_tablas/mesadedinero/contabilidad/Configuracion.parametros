@@ -1,0 +1,21 @@
+##################################################
+###### APLICACION MESA DINERO SMART STREAM #######
+##################################################
+
+#Destino de archivo en máquina local: definir en el servidor 
+#  weblogic una ruta que aloje temporalmente el archivo de a
+#  sientos contables antes de ser enviado por ftp a la maqui
+#  na destino.
+maquinaLocal;nombre_archivo=FK_MDINERO;directorio_archivo=/export/weblogic/bea/wlsplatform/temp/mesadedinero;
+
+#Conexión a servidor destino: definir datos básicos para con
+#  exión a la máquina destino para el archivo generado en el
+#  servidor weblogic.
+servidorDest;ip_remoto=161.131.232.24;sistema=FKSmart;directorio_remoto=/Poll/interq;
+
+#Conexión a servicios JNDI, DB: especificar el data source 
+#  disponible en el servidor weblogic que ofrece el servic
+#  io de conexión con la base de datos de trema.
+jndi;data_source_bd=wcorp.dsource.ds_sybase_tremaprod;
+#Tipo de instrumento asociado a productos FX SPOT
+tipoInstrumento;spot=FX-SPOT;

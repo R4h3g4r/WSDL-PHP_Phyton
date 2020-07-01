@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="bci_cons.procedimientosAlmacenados">
+       
+    <!-- userid rut nombre n_puesto ofi_gj bca_gj desc_cargo oficina id_pst desde hasta 
+    PRECEDENCIA IND_PERFIL tip_eje regional_per oficina_per regional_emp PLATAFORMA -->
+    <resultMap id="usuario" class="java.util.HashMap">
+        <result property="usuario" javaType="String" column="userid" jdbcType="char" />
+        <result property="rut" javaType="String" column="rut" jdbcType="char" />
+        <result property="nombre" javaType="String" column="nombre" jdbcType="char" />
+        <result property="oficinaGestion" javaType="String" column="ofi_gj" jdbcType="char" />
+        <result property="codigoDeBanca" javaType="String" column="bca_gj" jdbcType="char" />
+        <result property="nombreDeCargo" javaType="String" column="desc_cargo" jdbcType="char" />
+        <result property="oficina" javaType="String" column="oficina" jdbcType="char" />
+        <result property="codigoDeCargo" javaType="String" column="id_pst" jdbcType="char" />
+        <result property="codigoPrecedencia" javaType="String" column="precedencia" jdbcType="char" />
+        <result property="tipoDeEjecutivo" javaType="String" column="tip_eje" jdbcType="char" />
+        <result property="regionalPersona" javaType="String" column="regional_per" jdbcType="char" />
+        <result property="oficinaPersona" javaType="String" column="oficina_per" jdbcType="char" />
+        <result property="regionalEmpresa" javaType="String" column="regional_emp" jdbcType="char" />
+        <result property="plataforma" javaType="String" column="plataforma" jdbcType="char" />
+    </resultMap>
+    
+    <resultMap id="regional" class="java.util.HashMap">
+        <result property="codigoRegional" javaType="String" column="grupo3" jdbcType="char" />
+        <result property="descripcionRegional" javaType="String" column="desc_grupo3" jdbcType="char" />
+    </resultMap>
+    
+    <resultMap id="plataforma" class="java.util.HashMap">
+        <result property="codigoPlataforma" javaType="String" column="grupo4" jdbcType="char" />
+        <result property="descripcionPlataforma" javaType="String" column="plataforma" jdbcType="char" />
+    </resultMap>
+    
+    <resultMap id="oficina" class="java.util.HashMap">
+        <result property="codigoOficina" javaType="String" column="oficina" jdbcType="char" />
+        <result property="descripcionOficina" javaType="String" column="ofi_des" jdbcType="char" />
+    </resultMap>
+    
+    <resultMap id="ejecutivo" class="java.util.HashMap">
+        <result property="usuario" javaType="String" column="userid" jdbcType="char" />
+        <result property="rut" javaType="String" column="rut" jdbcType="char" />
+        <result property="nombre" javaType="String" column="nombre" jdbcType="char" />
+    </resultMap>
+
+    <resultMap id="centro" class="java.util.HashMap">
+        <result property="codigoCentroEmpresario" javaType="String" column="id_centro" jdbcType="char" />
+        <result property="descripcionCentroEmpresario" javaType="String" column="descripcion_centro" jdbcType="char" />
+    </resultMap>
+    
+    <resultMap id="unidad" class="java.util.HashMap">
+        <result property="codigoDeCargo" javaType="String" column="id_pst" jdbcType="char" />
+        <result property="nombreDeCargo" javaType="String" column="desc_cargo" jdbcType="char" />
+    </resultMap>
+
+    <!-- POOL_CAMPA.sp_cns_usu(@@usr_idn) -->
+    <procedure id="consultaUsuario" parameterClass="java.util.HashMap" resultMap="usuario">
+        {CALL POOL_CAMPA.sp_cns_usu(#identificador#)}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_gtr_p() -->
+    <procedure id="consultaRegionalesPersona" resultMap="regional">
+        {CALL POOL_CAMPA.sp_cns_gtr_p()}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_jof_p(@cod_reg) -->
+    <procedure id="consultaOficinasPersona" parameterClass="java.util.HashMap" resultMap="oficina">
+        {CALL POOL_CAMPA.sp_cns_jof_p(#codigoRegional#)}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_eje_p(@cod_ofi) -->
+    <procedure id="consultaEjecutivosPersona" parameterClass="java.util.HashMap" resultMap="ejecutivo">
+        {CALL POOL_CAMPA.sp_cns_eje_p(#codigoNivel#)}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_rgl_e() -->
+    <procedure id="consultaRegionalesEmpresa" resultMap="regional">
+        {CALL POOL_CAMPA.sp_cns_rgl_e()}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_pla_e(@cod_reg) -->
+    <procedure id="consultaPlataformasEmpresa" parameterClass="java.util.HashMap" resultMap="plataforma">
+        {CALL POOL_CAMPA.sp_cns_pla_e(#codigoRegional#)}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_eje_e(@cod_plt) -->
+    <procedure id="consultaEjecutivosEmpresa" parameterClass="java.util.HashMap" resultMap="ejecutivo">
+        {CALL POOL_CAMPA.sp_cns_eje_e(#codigoPlataforma#)}
+    </procedure>
+
+    <!-- POOL_CAMPA.sp_cns_cem_pm() -->
+    <procedure id="consultaCentrosEmpresarios" resultMap="centro">
+        {CALL POOL_CAMPA.sp_cns_cem_pm()}
+    </procedure>
+
+    <!-- POOL_CAMPA.sp_cns_eje_pm (cod_cem char(15)) -->
+    <procedure id="consultaEjecutivosEmpresario" parameterClass="java.util.HashMap" resultMap="ejecutivo">
+        {CALL POOL_CAMPA.sp_cns_eje_pm(#codigoCentroEmpresario#)}
+    </procedure>
+
+    <!-- POOL_CAMPA.sp_cns_uni_lea() -->
+    <procedure id="consultaUnidadesLeasing" resultMap="unidad">
+        {CALL POOL_CAMPA.sp_cns_uni_lea()}
+    </procedure>
+
+    <!-- POOL_CAMPA.sp_cns_usu_pre(in cod_uni varchar(15)) -->
+    <procedure id="consultaEjecutivosLeasing" parameterClass="java.util.HashMap" resultMap="ejecutivo">
+        {CALL POOL_CAMPA.sp_cns_usu_pre(#codigoNivel#)}
+    </procedure>
+
+    <!-- POOL_CAMPA.sp_cns_uni_fct() -->
+    <procedure id="consultaUnidadesFactoring" resultMap="unidad">
+        {CALL POOL_CAMPA.sp_cns_uni_fct()}
+    </procedure>
+    
+    <!-- POOL_CAMPA.sp_cns_usu_pre(in cod_uni varchar(15)) -->
+    <procedure id="consultaEjecutivosFactoring" parameterClass="java.util.HashMap" resultMap="ejecutivo">
+        {CALL POOL_CAMPA.sp_cns_usu_pre(#codigoNivel#)}
+    </procedure>
+</sqlMap>    

@@ -1,0 +1,9 @@
+#
+# Configuracion de Webservice Epiphany Lookup (Coneccion via Aqualogic)
+#
+#
+CONECCIONWS;user=epiporta;password=epi54por;urlWebService=http://alsb.bci.cl/servicios/infraestructuradenegocio/dimensiones/ObtenerParametrosService;urlWSDL=?wsdl;
+#
+#CLAVE AUTENTICACION WS EPIPHANY
+#
+CLAVE_UYP_WS_EPIPHANY;Clave=epiphany;

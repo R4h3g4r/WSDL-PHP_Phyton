@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="cart_det2.procedimientosAlmacenados">
+    
+    <resultMap id="getDeterioro" class="java.util.HashMap">
+        <result  property="rutCliente" jdbcType="VARCHAR"  javaType="String" />
+        <result  property="deterioro"  jdbcType="VARCHAR"  javaType="String" />
+        <result  property="motivo"     jdbcType="VARCHAR"  javaType="String" />
+        <result  property="glosa"      jdbcType="VARCHAR"  javaType="String" />
+        <result  property="operacion"  jdbcType="VARCHAR"  javaType="String" />
+    </resultMap>
+    
+    <procedure id="consultaDeterioro" resultMap="getDeterioro" parameterClass="java.util.HashMap" >
+            {CALL c4_sp_cd_vig_resumen(#rutCliente#)}
+    </procedure>
+
+</sqlMap>

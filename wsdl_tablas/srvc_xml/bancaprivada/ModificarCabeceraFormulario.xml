@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_mod_cbr_for">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="Integer" middle_name="id_formulario" size="0" java_name="idFormulario"/>
+		<field type="String" middle_name="nombre_ejecutivo" size="0" java_name="nombreEjecutivoFormulario"/>
+		<field type="Integer" middle_name="codigo_resultado" size="0" java_name="codigoResultadoFormulario"/>
+		<field type="Integer" middle_name="puntaje" size="0" java_name="puntajeFormulario"/>
+		<field type="String" middle_name="usuario_actualizacion" size="0" java_name="usuarioActualizacionFormulario"/>
+		<field type="String" middle_name="prog_actualizacion" size="0" java_name="programaActualizacionFormulario"/>
+		<field type="String" middle_name="canal_actualizacion" size="0" java_name="canalActualizacionFormulario"/>
+    </input>
+	<output/>
+</service>

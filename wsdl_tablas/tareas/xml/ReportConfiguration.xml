@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<Reports>
+	<ReportConfiguration>
+		<name>Carga de Trabajo</name>
+		<online>true</online>
+		<factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+		<ReportFormat>
+			<FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+			<FormatName>XMLDefinitionFormat</FormatName>
+			<FormatFile>/cargadetrabajo.xsl</FormatFile>			
+			<FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+		</ReportFormat>
+		<ReportParam name="sendMail" value="false"/>
+	</ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventotasktype.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+
+	</ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo(Reclamos)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventotasksubtype.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo(Cuenta Corriente)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventotaskcode.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Ejecutivo/Area call center(Envia)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cargadetrabajosecond.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareatipo.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo(Pedidos/Solicitudes)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareasubtipo.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo(Reclamos)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareatipocode.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareatipomesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo(Pedidos/Solicitudes)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareasubtipomesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Cruce area tipo(Reclamos)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cruceareatipocodemesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Ejecutivo call center(Envia)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cargadetrabajothird.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Rezagados</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/rezagados.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Rezagados Ejecutivo/Area Source</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/rezagadosejecutivosrc.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Rezagados Ejecutivo/Area Destination</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/rezagadosejecutivodest.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Rezagados consulta de eventos</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/rezagadosejecutivo.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Rezagados consulta de eventos(destinations)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/rezagadosejecutivodetails.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Carga de trabajo(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cargadetrabajomesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Ejecutivo/Area call center(Envia)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cargadetrabajomesactualsecond.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Ejecutivo call center(Envia)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/cargadetrabajomesactualthird.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventotypemesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo(Reclamos)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventosubtypemesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+        <ReportConfiguration>
+                <name>Resumen por tipo(Tarjeta Visa)(Mes Actual)</name>
+                <online>true</online>
+                <factoryName>wcorp.serv.tareas.dao.AbstractReportDataFactory</factoryName>
+                <ReportFormat>
+                        <FormatClass>wcorp.util.reporte.ReportConfiguration</FormatClass>
+                        <FormatName>XMLDefinitionFormat</FormatName>
+                        <FormatFile>/tipodeeventocodemesactual.xsl</FormatFile>
+                        <FormatFilePath>tablas/tareas/xsl</FormatFilePath>
+                </ReportFormat>
+                <ReportParam name="sendMail" value="false"/>
+        </ReportConfiguration>
+</Reports>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

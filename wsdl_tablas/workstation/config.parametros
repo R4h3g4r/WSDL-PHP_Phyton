@@ -1,0 +1,8 @@
+# Tabla de parametros para workstation
+CnsAccUsu;Desc=Transacción para traer vistas y acciones sin usar puertas;usar=si;
+
+#Valores posbles de estado de MargernGlobal de Endeudamiento.
+estadomargen;A=Activado;V=Verificado;I=Ingresado;C=Cerrado;R=Renovado;
+
+#Valores Para Datos No Existentes En Margen Global
+sinValor;sinGarantias=SIN GARANTÍAS;sinProducto=SIN PRODUCTO;noAplica=N/A;

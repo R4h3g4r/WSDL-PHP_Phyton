@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_cbr_frm">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="Integer" middle_name="id_formulario" size="0" java_name="idFormulario"/>
+		<field type="long" middle_name="rut_cliente" size="0" java_name="rutCliente"/>
+		<field type="Integer" middle_name="tipo_formulario" size="0" java_name="tipoFormulario"/>
+    </input>
+	<output>
+			<field type="Date" middle_name="fechaIngresoFormulario" size="0" java_name="fechaIngresoFormulario"/>
+			<field type="String" middle_name="nombreEjecutivoFormulario" size="0" java_name="nombreEjecutivoFormulario"/>
+			<field type="Integer" middle_name="idFormulario" size="0" java_name="idFormulario"/>
+			<field type="Integer" middle_name="tipoFormulario" size="0" java_name="tipoFormulario"/>
+			<field type="Date" middle_name="fechaActFormulario" size="0" java_name="fechaActualizacionFormulario"/>
+			<field type="long" middle_name="cbp_rut" size="0" java_name="rutCliente"/>
+			<field type="int" middle_name="rcb_pje" size="0" java_name="puntajeFormulario"/>
+			<field type="int" middle_name="frm_rsl_cod" size="0" java_name="codigoResultadoFormulario"/>
+			<field type="String" middle_name="frm_rsl_gls" size="0" java_name="glosaResultadoFormulario"/>
+	</output>
+</service>
+
+

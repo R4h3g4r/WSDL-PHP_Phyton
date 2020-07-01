@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatosXMLService.xsd"
+	name="sp_elim_edn_bp">
+	<context>
+		<es_funcion value="no" />
+	</context>
+	<input>
+			<field type="long" middle_name="edn_crr" size="0" java_name="id"/>
+	</input>
+	<output/>
+</service>   

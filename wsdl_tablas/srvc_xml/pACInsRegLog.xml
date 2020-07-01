@@ -1,0 +1,104 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_ins_LOG"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "numConvenio"
+          type = "String"
+          size = "10"
+          middle_name = "numConvenio"
+        />
+
+        <field
+          java_name = "rutEmpresa"
+          type = "String"
+          size = "12"
+          middle_name = "rutEmpresa"
+        />
+
+        <field
+          java_name = "divEmpresa"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerificador"
+        />
+
+        <field
+          java_name = "rutUsuario"
+          type = "String"
+          size = "12"
+          middle_name = "rutUsuario"
+        />
+
+        <field
+          java_name = "digitoVerifUsu"
+          type = "char"
+          size = "1"
+          middle_name = "digitoVerifUsu"
+        />
+
+        <field
+          java_name = "codigoTipoProd"
+          type = "String"
+          size = "6"
+          middle_name = "codigo"
+        />
+
+        <field
+          java_name = "codigoServicio"
+          type = "String"
+          size = "8"
+          middle_name = "codigoServicio"
+        />
+
+        <field
+          java_name = "tipoLog"
+          type = "char"
+          size = "1"
+          middle_name = "tipoLog"
+        />
+
+        <field
+          java_name = "glosaLog"
+          type = "String"
+          size = "255"
+          middle_name = "glosa"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "retorno"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "codRetorno"
+        />
+
+  </output>
+
+</service>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="Firmas_biotome.procedimientosAlmacenados">    
+	
+    <parameterMap id="setCreaRegistroFirmaElectronica" class="java.util.HashMap">
+    	<parameter property="rutCliente"			jdbcType="NUMERIC" 	javaType="Long" />
+    	<parameter property="dvCliente"				jdbcType="CHAR"		javaType="String" />
+		<parameter property="operacion"				jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="tipoDocumento" 		jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="subTipoDocumento" 		jdbcType="VARCHAR" 	javaType="String" />
+    	<parameter property="documento"				jdbcType="VARCHAR"	javaType="String" />
+    	<parameter property="ejecutivo" 			jdbcType="VARCHAR" 	javaType="String" />
+	</parameterMap>
+    <statement id="getCreaRegistroFirmaElectronica" parameterMap="setCreaRegistroFirmaElectronica" resultClass="int">
+		INSERT INTO REG_DFE (REG_CLI_RUT, REG_CLI_DV, REG_NUM_OPE, REG_DFE_TIP, REG_DFE_SUB_TIP,  REG_DFE_FEC, REG_DFE_XML, REG_DFE_EJE)
+		VALUES (?, ?, ?, ?, ?, getDate(), ?, ?)
+		SELECT @@ERROR
+    </statement>
+	    
+	<parameterMap id="parametrosConsFirmaBiometrica" class="java.util.HashMap">
+		<parameter property="rutCliente"	jdbcType="NUMERIC"	javaType="Long" />
+		<parameter property="dvCliente"		jdbcType="CHAR"	javaType="String" />
+		<parameter property="fechaInicio"   jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" mode="IN" />
+		<parameter property="fechaFin" 		jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" mode="IN" />
+	</parameterMap>
+	<resultMap id="resultConsFirmaBiometrica" class="java.util.HashMap">
+		<result property="rut" 			column="REG_CLI_RUT" 		javaType="Long" />
+		<result property="dv" 			column="REG_CLI_DV" 		javaType="String" />
+		<result property="tipoDoc" 		column="REG_DFE_TIP" 		javaType="String" />
+		<result property="subTipoDoc"	column="REG_DFE_SUB_TIP"	javaType="String" />
+		<result property="ejecutivo"	column="REG_DFE_EJE"		javaType="String" />
+		<result property="docXML"		column="REG_DFE_XML"		javaType="String" />
+	</resultMap>
+	<procedure id="consultaDocumentosFirmados" parameterMap="parametrosConsFirmaBiometrica" resultMap="resultConsFirmaBiometrica">
+		{ CALL sp_consDocumentosFirmados(?, ?, ?, ?) }
+	</procedure>
+		
+	<parameterMap id="parametrosconsultaDocumentoFirmado" class="java.util.HashMap">
+		<parameter property="rutCliente"		jdbcType="NUMERIC"	javaType="Long" />
+		<parameter property="dvCliente"			jdbcType="CHAR"		javaType="String" />
+		<parameter property="operacion"			jdbcType="CHAR(12)"	javaType="String" />
+		<parameter property="tipoDocumento"		jdbcType="VARCHAR"	javaType="String" />
+		<parameter property="subTipoDocumento"	jdbcType="VARCHAR"	javaType="String" />
+	</parameterMap>
+	<statement id="consultaDocumentoFirmado" parameterMap="parametrosconsultaDocumentoFirmado" resultMap="resultConsFirmaBiometrica">
+		declare @rut int
+		declare @dv char(1)
+		set @rut = ?
+		set @dv = ?
+		SELECT REG_CLI_RUT, REG_CLI_DV, REG_DFE_TIP, REG_DFE_SUB_TIP, REG_DFE_EJE, REG_DFE_XML
+    	FROM REG_DFE
+    	WHERE REG_NUM_OPE = ?
+    	AND REG_DFE_TIP = ?
+    	AND REG_DFE_SUB_TIP = ?
+	</statement>
+	
+</sqlMap>    

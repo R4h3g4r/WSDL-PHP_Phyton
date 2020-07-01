@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<TabsApr BGCOLOR="#E1E1E1">
+        <Rol ID="1">
+          <vista>DG</vista>
+        </Rol>
+        <Rol ID="2">
+          <vista>LDCSA</vista>
+        </Rol>
+        <Rol ID="3">
+          <vista>LDCSN</vista>
+        </Rol>
+        <Rol ID="4">
+          <vista>GAR</vista>
+        </Rol>
+        <Rol ID="5">
+          <vista>VIS</vista>
+        </Rol>
+        <Rol ID="6">
+          <vista>RDG</vista>
+        </Rol>
+        <Rol ID="7">
+          <vista>RIB</vista>
+        </Rol>
+        <Rol ID="8">
+          <vista>ANR</vista>
+        </Rol>
+        <!--<Rol ID="9">
+          <vista>EF</vista>
+        </Rol>-->
+        <Rol ID="10">
+          <vista>SAPR</vista>
+        </Rol>
+        <Rol ID="11">
+          <vista>RES</vista>
+        </Rol>
+        <menu ID="DG" glosa="D.Grles." align="center" bgcolor="#E1E1E1" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=DG'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='DG'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Datos Generales"></OnMouseOver>
+        </menu>
+        <menu ID="LDCSA" glosa="Sit.Actual" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=LDCSA'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+		<OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='LDCSA'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Situación Actual de Líneas de Crédito"></OnMouseOver>
+        </menu>
+        <menu ID="LDCSN" glosa="Sit.Nueva" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=LDCSN'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='LDCSN'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Líneas de Crédito, Situación Nueva"></OnMouseOver>
+        </menu>
+        <menu ID="GAR" glosa="Garantías" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=GAR'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='GAR'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Garantías"></OnMouseOver>
+        </menu>
+        <menu ID="RDG" glosa="Rel.Dda./Gtía." align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=RDG'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='DDG'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Relación Deuda/Garantía"></OnMouseOver>
+        </menu>
+        <menu ID="VIS" glosa="Visación" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=VIS'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='VIS'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Visación"></OnMouseOver>
+        </menu>
+        <menu ID="RIB" glosa="RIB" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=RIB'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='RIB';</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Resumen de Información Básica"></OnMouseOver>
+        </menu>
+        <menu ID="ANR" glosa="ANR" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=ANR'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='ANR';</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Análisis de Riesgo"></OnMouseOver>
+        </menu>
+        <menu ID="EF" glosa="Est.Finan." align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=EF'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='EF'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Estados Financieros"></OnMouseOver>
+        </menu>
+        <menu ID="SAPR" glosa="Resumen Solicitud" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=SAPR'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='SAPR'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Resumen Solicitud"></OnMouseOver>
+        </menu>
+        <menu ID="RES" glosa="Toma de Desición" align="center" background="Imagenes/DyD/img_webcorp_gualetfondo2.gif" backgroundTab="Imagenes/DyD/img_webcorp_gualetfondo1.gif">
+                <ImgTagIni>Imagenes/DyD/img_webcorp_gualet1.gif</ImgTagIni>
+                <ImgTagEnd>Imagenes/DyD/img_webcorp_gualet2.gif</ImgTagEnd>
+		<link href="Acciones.jsp?action=RES'"></link>
+		<target>Frm_Contenido</target>
+                <css>botones</css>
+                <OnClick>inProcessOnOff('visible');document.forms[0].TargetTab.value='RES'</OnClick>
+                <OnMouseOut status=""></OnMouseOut>
+                <OnMouseOver status="Haga click para ir a Resolución"></OnMouseOver>
+        </menu>
+</TabsApr>

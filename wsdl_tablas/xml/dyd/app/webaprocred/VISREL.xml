@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DB>
+<!--<SPECIAL str="1" typeId="VISREL" template="numSol+SEP1+keywf+SEP1+rutdv+SEP1+vscFec+SEP1+razSoc+SEP1+vscOk+SEP1+vscObs+SEP2"></SPECIAL>-->
+<SPECIAL str="0" typeId="" template=""></SPECIAL>
+<INSUPD NTx="VisManRel" LBL="N">
+    <SEPAR SEP1="¶" SEP2="§" SEP3="" SEPV=""></SEPAR>
+    <!--<ATTRIB ATTR1="identificador" ATTR2="R" ATTR3="" ATTR4=""></ATTRIB>-->
+	<ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+    <INPUT>
+		<!--<field FF="type" LF="16" POS="" COD="" TD="" PREF="">identificador</field>
+		<field FF="orgId" LF="16" POS="" COD="" TD="" PREF="">identificador2</field>
+		<field FF="numSol" LF="16" POS="0" COD="" TD="" PREF="">numSolicitud</field>
+		<field FF="vscFec" LF="12" POS="3" COD="" TD="" PREF="">fechaVisacion</field>
+		<field FF="keywf" LF="30" POS="1" COD="" TD="" PREF="">relacion</field>
+		<field FF="rutdv" LF="12" POS="2" COD="" TD="" PREF="">rut</field>
+		<field FF="razSoc" LF="64" POS="4" COD="" TD="" PREF="">nombreRazonSocial</field>
+		<field FF="vscOk" LF="12" POS="5" COD="" TD="" PREF="">visacion</field>
+		<field FF="vscObs" LF="255" POS="6" COD="" TD="" PREF="">observacion</field>
+		<field FF="par1" LF="20" POS="" COD="" TD="" PREF="">Parametro1</field>
+		<field FF="par2" LF="20" POS="" COD="" TD="" PREF="">Parametro2</field>-->
+		<field FF="columna1" LF="16" POS="" COD="" TD="" PREF="">identificador</field>
+		<field FF="columna2" LF="16" POS="" COD="" TD="" PREF="">identificador2</field>
+		<field FF="columna3" LF="16" POS="0" COD="" TD="" PREF="">numSolicitud</field>
+		<field FF="columna4" LF="12" POS="3" COD="" TD="" PREF="">fechaVisacion</field>
+		<field FF="columna5" LF="30" POS="1" COD="" TD="" PREF="">relacion</field>
+		<field FF="columna6" LF="12" POS="2" COD="" TD="" PREF="">rut</field>
+		<field FF="columna7" LF="64" POS="4" COD="" TD="" PREF="">nombreRazonSocial</field>
+		<field FF="columna8" LF="12" POS="5" COD="" TD="" PREF="">visacion</field>
+		<field FF="columna9" LF="255" POS="6" COD="" TD="" PREF="">observacion</field>
+		<field FF="columna10" LF="20" POS="" COD="" TD="" PREF="">Parametro1</field>
+		<field FF="columna11" LF="20" POS="" COD="" TD="" PREF="">Parametro2</field>
+    </INPUT>
+</INSUPD>
+<QRY NTx="VisManRel" LBL="N">
+    <SEPAR SEP1="¶" SEP2="§" SEP3="" SEPV=""></SEPAR>
+    <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+		<field FF="type" LF="16" POS="" COD="" TD="" PREF="">identificador</field>
+		<field FF="orgId" LF="16" POS="" COD="" TD="" PREF="">identificador2</field>
+		<field FF="numSol" LF="16" POS="0" COD="" TD="" PREF="">numSolicitud</field>
+		<field FF="vscFec" LF="12" POS="3" COD="" TD="" PREF="">fechaVisacion</field>
+		<field FF="keywf" LF="30" POS="1" COD="" TD="" PREF="">relacion</field>
+		<field FF="rutdv" LF="12" POS="2" COD="" TD="" PREF="">rut</field>
+		<field FF="razSoc" LF="64" POS="4" COD="" TD="" PREF="">nombreRazonSocial</field>
+		<field FF="vscOk" LF="12" POS="5" COD="" TD="" PREF="">visacion</field>
+		<field FF="vscObs" LF="255" POS="6" COD="" TD="" PREF="">observacion</field>
+		<field FF="par1" LF="20" POS="" COD="" TD="" PREF="">parametro1</field>
+		<field FF="par2" LF="20" POS="" COD="" TD="" PREF="">parametro2</field>
+		
+	</INPUT>
+    <OUTPUT>
+		<field FF="vscFec" LF="12" POS="2" COD="" TD="" PREF="">fechaVisacion</field>
+		<field FF="keywf" LF="30" POS="0" COD="" TD="" PREF="">relacion</field>
+		<field FF="rutdv" LF="12" POS="1" COD="" TD="" PREF="">rut</field>
+		<field FF="razSoc" LF="64" POS="3" COD="" TD="" PREF="">nombreRazonSocial</field>
+		<field FF="vscOk" LF="12" POS="4" COD="" TD="" PREF="">visacion</field>
+		<field FF="vscObs" LF="255" POS="5" COD="" TD="" PREF="">observacion</field>
+		<field FF="ret1" LF="50" POS="" COD="" TD="" PREF="">Respuesta1</field>
+		<field FF="ret2" LF="50" POS="" COD="" TD="" PREF="">Respuesta2</field>
+    </OUTPUT>
+</QRY>
+</DB>
+<!-- Creation date: 18-05-2005 -->

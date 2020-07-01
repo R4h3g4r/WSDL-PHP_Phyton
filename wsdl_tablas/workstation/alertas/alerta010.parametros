@@ -1,0 +1,17 @@
+# Deudas Morosa BCI
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=1.- Verificar Información.;
+GLOSA1;mensaje=2.- Contactar a Cliente.;
+GLOSA2;mensaje=3.- Solicitar regularización de deuda morosa, con pago de cuota o reestructuración de la deuda.;
+
+#Glosa para desplegar por pdf sin tag html
+GLOSAPDF0;mensaje=1.- Verificar Información.;
+GLOSAPDF1;mensaje=2.- Contactar a Cliente.;
+GLOSAPDF2;mensaje=3.- Solicitar regularización de deuda morosa, con pago de cuota o reestructuración de la deuda.;
+
+
+#flag desactivacion
+#DESACTIVAR;FLAG=1;
+
+#Viñeta Explicativa
+VINETA;calcula=Se despliega cuando el cliente tiene deuda castigada, vencida y/o morosa en el listado de Deudores Bci.;periodo= No se calcula en base a tiempo;fuente= Listado de Deudores Bci.;

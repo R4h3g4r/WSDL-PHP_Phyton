@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE Grupos SYSTEM "file:///export/weblogic/bea/wlsplatform/tablas/bcinet/xml/dtd/grupos.dtd">
+
+
+<Grupos>
+
+	<Grupo mostrar="SI" key="1">
+	       <Nombre>SuperCartolaGrp</Nombre>
+	       <Descripcion>Solicite Cuenta Corriente</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;super&lt;/FONT&gt;&lt;FONT color=#000000&gt;cartola&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+				 <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+						<Objeto>CCC_CCT</Objeto>
+						<Objeto>TDC</Objeto>
+						<Objeto>LDE</Objeto>
+				 </Objetos>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>
+	</Grupo>
+	
+	<Grupo mostrar="SI" key="2">
+    <Nombre>BciCreditosGrp</Nombre>
+    <Descripcion>Simule y Solicite su Crédito</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;créditos&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	<Objetos>
+      <Objeto>CCT</Objeto>
+      <Objeto>CPR</Objeto>
+      <Objeto>TDC</Objeto>
+    </Objetos>
+    <noObjetos>/bcinetwls/common/enespera.jsp?path=/bcinetwls_multicreditoweb&amp;servlet=IngresoAvanceMulticredito.do&amp;Marca=BCI&amp;CodigoCanal=110</noObjetos>
+  </Grupo>
+  
+  <!-- Junio/2005. Novared BCI Móvil-->
+	<!-- BCI Móvil -->	
+       <Grupo mostrar="SI" key="22">
+	       <Nombre>bcimovil</Nombre>
+	       <Descripcion>Avisos al Celular</Descripcion>
+	       <Titulo>&lt;b&gt;&lt;FONT color=#2c47a2&gt;Mensajer&amp;iacute;a&lt;/FONT&gt;&lt;FONT color=#000000&gt; Informativa al Celular&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	</Grupo>
+	
+	
+<!-- INI: Solicitud Marketing BEE 30-11-2006  -->
+	<Grupo mostrar="OBJ" key="20">
+    		<Nombre>BciPromocionesGrp</Nombre>
+    		<Descripcion>Bci Promociones de Productos</Descripcion>
+   	        <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;oferta&lt;/FONT&gt;&lt;FONT color=#000000&gt;deproductos &lt;/FONT&gt;&lt;/B&gt;&lt;FONT color=#ff0000&gt;&lt;small&gt;&lt;b&gt;nuevo&lt;/b&gt;&lt;/small&gt;&lt;/FONT&gt;</Titulo>
+		<Objetos>
+      			<Objeto>CCT</Objeto>
+      			<Objeto>CPR</Objeto>
+      			<Objeto>TDC</Objeto>
+    		</Objetos>
+  	</Grupo>
+<!-- FIN: Solicitud Marketing BEE 30-11-2006  -->  
+
+<Grupo mostrar="SI" key="68">
+    <Nombre>BciHipotecarioGrp</Nombre>
+    <Descripcion>Simule y Solicite su Hipotecario</Descripcion>
+    <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;crédito&lt;/FONT&gt;&lt;FONT color=#000000&gt;hipotecario&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	<Objetos>
+      <Objeto>CCT</Objeto>
+      <Objeto>CPR</Objeto>
+      <Objeto>TDC</Objeto>
+    </Objetos>
+    <noObjetos>/seguridadwls/CheckSession?servicio=WLSHipotecario&amp;canal=110</noObjetos>
+  </Grupo>
+  
+  <Grupo mostrar="SI" key="3">
+				 <Nombre>MultiCreditoGrp</Nombre>
+				 <Descripcion>MultiCrédito</Descripcion>
+				 <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+				 <Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;multicrédito&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	</Grupo>
+	
+	<Grupo mostrar="SI" key="4">
+    <Nombre>CreditoConsumo</Nombre>
+    <Descripcion>Consulta de Créditos</Descripcion>
+		<Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;crédito&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+		<Objetos>
+			<Objeto>CCT</Objeto>
+		</Objetos>
+  </Grupo>
+
+	<Grupo mostrar="SI" key="5">
+	       <Nombre>CuentaCorriente</Nombre>
+	       <Descripcion>Solicitud Cuenta Corriente</Descripcion>
+         <Objetos>
+            <Objeto>CCT</Objeto>
+            <Objeto>CPR</Objeto>
+            <Objeto>CCT_VIN</Objeto>
+            <Objeto>CPR_VIN</Objeto>
+         </Objetos>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;cuenta&lt;/FONT&gt;&lt;FONT color=#000000&gt;corriente&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>
+	       <Destino>_top</Destino>
+	</Grupo>
+
+	<Grupo mostrar="SI" key="6">
+	       <Nombre>LineaSobregiro</Nombre>
+         <Objetos>
+            <Objeto>CCT_CCC</Objeto>
+         </Objetos>
+	       <Descripcion>Solicitud Línea de Sobregiro</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;línea&lt;/FONT&gt;&lt;FONT color=#000000&gt;sobregiro&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <noObjetos>/seguridadwls/CheckSession?servicio=SolLineaSobregiro&amp;canal=110</noObjetos>	       
+		   <Destino>servicio</Destino>
+	</Grupo>
+	
+	<Grupo mostrar="SI" key="7">
+	       <Nombre>TarjetaCredito</Nombre>
+	       <Descripcion>Solicite Tarjeta de Crédito</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;tarjeta&lt;/FONT&gt;&lt;FONT color=#000000&gt;decrédito&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+	       		<Objeto>TDC</Objeto>
+	       </Objetos>
+		<noObjetos>/bcinetwls/solicitudTarjetaCredito/ingresarSolicitudTarjeta.do?codigoTarjeta=V-B-GOLD-001-00&amp;canal=110</noObjetos>	        
+	        <Destino>servicio</Destino>
+	</Grupo>
+
+	<Grupo mostrar="" key="8">
+	       <Nombre>Transferencia</Nombre>
+				 <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+	       <Descripcion>Transferencias a Terceros</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;transferencia&lt;/FONT&gt;&lt;FONT color=#000000&gt;defondos &lt;/FONT&gt;&lt;/B&gt;&lt;FONT color=#ff0000&gt;&lt;small&gt;&lt;b&gt;nuevo&lt;/b&gt;&lt;/small&gt;&lt;/FONT&gt;</Titulo>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>
+	</Grupo>
+
+	<Grupo mostrar="OBJ" key="9">
+	       <Nombre>BciPagos</Nombre>
+	       <Descripcion>BCI Pagos</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;bci&lt;/FONT&gt;&lt;FONT color=#000000&gt;pago&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>	       
+	</Grupo>
+	
+	<Grupo mostrar="OBJ" key="10">
+	       <Nombre>BciPagoOnLineGrp</Nombre>
+	       <Descripcion>Bci Pago en Línea</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;enlínea&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>	       
+	</Grupo>
+	
+	<Grupo mostrar="OBJ" key="11">
+	       <Nombre>BciPagoPac</Nombre>
+	       <Descripcion>Pago Automático en Cuentas</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;automáticoconcuenta&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+	       <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>	       
+	</Grupo>
+	
+	<Grupo mostrar="OBJ" key="12">
+	       <Nombre>BciPagoPat</Nombre>
+	       <Descripcion>Pago Automático en Tarjetas</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;automáticocontarjeta&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+						<Objeto>TDC</Objeto>						
+				 </Objetos>
+	       <noObjetos>https://mopa.bci.cl/dummy.mopa?TRANS=nt_dummy&amp;nt_dummy=tarjetas/visa7.htm</noObjetos>	       
+	</Grupo>
+		
+	<Grupo mostrar="OBJ" key="13">
+	       <Nombre>SPCHogar</Nombre>
+	       <Descripcion>Solicite Cuenta Corriente</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;cotización&lt;/FONT&gt;&lt;FONT color=#000000&gt;hogar&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+						<Objeto>CCT</Objeto>
+						<Objeto>CPR</Objeto>
+				 </Objetos>
+	       <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>	       
+	</Grupo>
+
+	<Grupo mostrar="SI" key="14">
+	       <Nombre>CuentaAhorro</Nombre>
+	       <Descripcion>Solicitud Apertura</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;ahorro&lt;/FONT&gt;&lt;FONT color=#000000&gt;electrónico&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	       <Objetos>
+	       		<Objeto>LDE</Objeto>
+	       </Objetos>
+	       <noObjetos>https://www.bci.cl/bcinetwls/bancoLinea/frame_prodyserv.jsp</noObjetos>
+	       <Destino>_top</Destino>
+	</Grupo>
+
+	<Grupo mostrar="SI" key="15">
+	       <Nombre>OtrosCanales</Nombre>
+	       <Descripcion>Otros Canales</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;otros&lt;/FONT&gt;&lt;FONT color=#000000&gt;canales&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	</Grupo>
+
+	<Grupo mostrar="OBJ" key="16">
+	       <Nombre>comex</Nombre>
+	       <Objetos>
+	       <Objeto>CCX</Objeto>
+	       </Objetos>
+   	       <Descripcion>comercioexterior</Descripcion>
+           <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;moneda&lt;/FONT&gt;&lt;FONT color=#000000&gt;extranjera&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+		   <noObjetos>https://www.bci.cl/bcinetwls/bancoLinea/frame_prodyserv.jsp</noObjetos>
+	</Grupo>
+	
+	<Grupo mostrar="SI" key="17">
+	       <Nombre>TarjetaAmarilla</Nombre>
+	       <Descripcion>Servicio Tarjeta Amarilla</Descripcion>
+	       <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;servicio&lt;/FONT&gt;&lt;FONT color=#000000&gt;tarjetaamarilla&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+	</Grupo>
+
+<!-- Plan Medico 09-02-2003 -->
+	<Grupo mostrar="OBJ" key="19">
+ 	<Nombre>PlanMedico</Nombre>
+ 	<Descripcion>Plan Medico</Descripcion>
+ 	<Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Plan&lt;/FONT&gt;&lt;FONT color=#000000&gt;m&#0233;dico&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+ 	<Objetos>
+   		<Objeto>CCT</Objeto>
+   		<Objeto>CPR</Objeto>
+ 	</Objetos>
+ 	<noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>
+ </Grupo>
+
+
+<!-- 23-12-2003. Apolo.   -->
+	<!-- Consulta de Seguros. -->
+	<Grupo mostrar="SI" key="18">
+		<Nombre>Seguros</Nombre>
+		<Descripcion>Venta de Seguro MultiProtección</Descripcion>
+		<Titulo>&lt;B&gt;&lt;FONT color=#000000&gt;seguros&lt;/FONT&gt;&lt;/B&gt;</Titulo>
+		<Objetos>
+       		<Objeto>CCT</Objeto>
+       </Objetos>
+	</Grupo>
+
+	<Grupo mostrar="SI" key="65">
+		<Nombre>Direcciones</Nombre>
+		<Descripcion>Direcciones</Descripcion>
+		<Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;misdatos&lt;/FONT&gt;&lt;FONT color=#000000&gt;personales&lt;/FONT&gt;&lt;/B&gt;</Titulo>		       
+		<Objetos>
+			<Objeto>CCT</Objeto>
+			<Objeto>CPR</Objeto>
+		</Objetos>
+	</Grupo>
+	
+	<Grupo mostrar="OBJ" key="25"> 
+            <Nombre>CuentasVinculadas</Nombre> 
+            <Descripcion>Cuentas Vinculadas</Descripcion> 
+            <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;cuentas&lt;/FONT&gt;&lt;FONT color=#000000&gt;vinculadas&lt;/FONT&gt;&lt;/B&gt;</Titulo> 
+            <Objetos>
+		       		<Objeto>CCT</Objeto>
+		       		<Objeto>CPR</Objeto>		       						
+		    </Objetos>
+	</Grupo>
+
+	<!--	
+	<Grupo mostrar="SI" key="66">
+	   <Nombre>TarjetaBip</Nombre>
+	   <Descripcion>Tarjeta bip!</Descripcion>
+	   <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;tarjeta&lt;/FONT&gt;&lt;FONT color=#000000&gt;bip!&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+	</Grupo>
+	-->
+	
+        <!-- ############################################## -->
+	<!-- Grupo de Cuenta Familia					-->
+	<!-- Creado el : 27 Abril 2007                      -->
+	<!-- Autor     : Rodrigo Mansilla G, Adexus       -->
+	<!-- ############################################## -->
+	<Grupo mostrar="OBJ" key="67">
+	   <Nombre>CuentaFamilia</Nombre>
+	   <Descripcion>Cuenta Familia</Descripcion>
+	   <Titulo>&lt;B&gt;&lt;FONT color=#2c47a2&gt;Cuenta&lt;/FONT&gt;&lt;FONT color=#000000&gt;Familia&lt;/FONT&gt;&lt;/B&gt;</Titulo>	       
+	   <Objetos>
+			<Objeto>CCT</Objeto>
+			<Objeto>CPR</Objeto>		       						
+	   </Objetos>
+	   <noObjetos>http://www.bci.cl/personas/hagasecliente/index.html</noObjetos>	
+	</Grupo>
+
+</Grupos>

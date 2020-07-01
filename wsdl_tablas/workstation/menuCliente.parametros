@@ -1,0 +1,277 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################ 
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-CLIENTE,MENU-SIMULADORES-VENTA,MENU-PRODUCTOS-VIGENTES,MENU-RIESGO,MENU-BANCA-PRIVADA,MENU-SCRIPTING-SUCURSALES;
+
+################################################################################
+# Definicion del menú MENU-CLIENTE.
+################################################################################
+MENU-CLIENTE;tipoNodo=MENU;nombre=CLIENTE;nodosMenu=OPCION-DATOS-BASICOS,OPCION-RELACIONADOS,OPCION-DIRECCIONES,OPCION-EVENTOS,OPCION-CALCULO-INGRESOS,OPCION-RESUMEN-CLIENTE,OPCION-DPS,OPCION-HISTORIAL-CLIENTE,OPCION-DECLARACION-ORIGEN-FONDOS,OPCION-PERFIL,OPCION-ESTADO_FINANCIEROS,OPCION-RECONOCIMIENTO_VOZ,OPCION-REPOSITORIO_VENTAS,OPCION-RELACION-LIQ-MED,OPCION-CARPETA-DIGITAL,OPCION-HIST-CLIENTE,OPCION-BLOQUEO-DESBLOQUEO;tipo=4;
+
+# Definicion de opción "Datos Básicos".
+OPCION-DATOS-BASICOS;tipoNodo=OPCION;nombre=Datos Básicos;url=/clienteswls/Cliente?paso=0&tipo=MOL;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_DAT_BASIC;nombrePopUp=pop1;opcionesPopUp=scrollbars=no,width=400,height=530;
+
+# Definicion de opción "Relaciones".
+OPCION-RELACIONADOS;tipoNodo=OPCION;nombre=Relaciones;url=/workstationwls/relacionentreclientes/vistaRelacionEntreClientes.do?comando=CNS&mEviroBanco=BCI&mEviroCartera=BEE&mEviroLocaleIdioma=ES&mEviroLocalePais=CL&mEviroMarca=BCI;vistaValida=REC_RELENTRECLI;accionesValidas=VISTAREC;nombrePopUp=relacionEntreClientes;opcionesPopUp=scrollbars=yes,width=750,height=300;
+
+# Definición de opción "Relación entre Clientes - Licencia Médica"
+OPCION-RELACION-LIQ-MED;tipoNodo=OPCION;nombre=Retención;url=/workstationwls/relacionentreclientes/vistaRelacionEntreClientes.do?comando=LICMED&mEviroBanco=BCI&mEviroCartera=BEE&mEviroLocaleIdioma=ES&mEviroLocalePais=CL&mEviroMarca=BCI;vistaValida=REC_RELENTRECLI;nombrePopUp=relaciones;opcionesPopUp=scrollbars=yes,resizable=yes,width=870,height=570;
+
+# Definicion de opción "Direcciones".
+OPCION-DIRECCIONES;tipoNodo=OPCION;nombre=Direcciones;url=/workstationwls/dirclientes/getFichaCliente.do?flagDireccionEditable=S;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_DIRECCION;nombrePopUp=pop4;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+# Definicion de opción "Eventos".
+OPCION-EVENTOS;tipoNodo=OPCION;nombre=Eventos;url=/portalwls/tareas/ConfigurationServlet?MethodType=CONSULTACLIENTE&taskType=Task;vistaValida=TAR_CLIENTE;accionesValidas=ABRIR;nombrePopUp=pop15;opcionesPopUp=scrollbars=yes,width=750,height=550;
+
+# Definicion de opción "Cálculo Ingresos".
+OPCION-CALCULO-INGRESOS;tipoNodo=OPCION;nombre=Cálculo Ingresos;url=/rentawls/IngresoRenta;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_CALC_ING;nombrePopUp=calculoIngreso;opcionesPopUp=scrollbars=yes,width=746,height=530;
+
+# Definicion de opción "Resumen Cliente".
+OPCION-RESUMEN-CLIENTE;tipoNodo=OPCION;nombre=Resumen Cliente;url=/workstationwls/cliente/cargaResumenCliente.do?;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_RES_CLIEN;nombrePopUp=resumencliente;opcionesPopUp=scrollbars=yes,width=746,height=530;tipo=5;
+
+# Definición de opción "Declaración Pers. Salud".
+OPCION-DPS;tipoNodo=OPCION;nombre=Declaración Pers. Salud;url=/workstationwls/seguros/conexion/ConectaCompaniaDeSeguros.do;vistaValida=CCC_DPS;accionesValidas=ABRIR;opcionesPopUp=width=700,height=500,scrollbars=yes;
+
+# Definicion de opción "Cuenta Familia".
+#OPCION-CUENTA-FAMILIA;tipoNodo=OPCION;nombre=Cuenta Familia;url=/workstationwls/cuentaFamilia/resumeCuentaFamiliaAction.do;nombrePopUp=CuentaFamilia;opcionesPopUp=scrollbars=yes,width=900,height=600;vistaValida=CTA_FAMILIA;accionesValidas=ABRIR;
+
+# Definicion de opción "Historial Cliente".
+OPCION-HISTORIAL-CLIENTE;tipoNodo=OPCION;nombre=Historial Cliente;url=/workstationwls/historialdecliente/consultaTablaTipoComentarioConsultaAction.do;nombrePopUp=ConsultaHistorialDeCliente;opcionesPopUp=scrollbars=yes,width=900,height=600;vistaValida=ETE_CLIENTES;accionesValidas=LINK_BPHISCLI;
+
+# Definicion de opción "Historial Cliente".
+OPCION-HIST-CLIENTE;tipoNodo=OPCION;nombre=Historial Cliente;url=/cl/bci/aplicaciones/cliente/interacciones/vista/vistaHistorialCliente.jsf;nombrePopUp=ConsultaHistorialDeCliente;opcionesPopUp=scrollbars=yes,width=900,height=600;vistaValida=HIST_CLIENTE;accionesValidas=ACCESO;
+
+# Definicion de opción "Declaración de Origen de Fondos".
+OPCION-DECLARACION-ORIGEN-FONDOS;tipoNodo=OPCION;nombre=Declaración Origen de Fondos;url=/workstationwls/declaraciondeorigendefondos/consultaDeclaracionOF.do;vistaValida=VST_DOF;accionesValidas=ACC_PIDOFD;nombrePopUp=ifrm;tipo=7;
+
+# Definición de opción "Perfil del Cliente".
+OPCION-PERFIL;tipoNodo=OPCION;nombre=Perfil del Cliente;url=/workstationwls/consultaperfilcliente/consultaPerfilCliente.do;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_DAT_BASIC;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Estados Financieros"
+OPCION-ESTADO_FINANCIEROS;tipoNodo=OPCION;nombre=Estados Financieros;url=/workstationwls/portalinfofinanciera/obtencionbalances/solicitudBalances.do?accion=listarArchivos;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_DIRECCION;nombrePopUp=pop4;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+# Definicion de opción "Registro de Voz"
+OPCION-RECONOCIMIENTO_VOZ;tipoNodo=OPCION;nombre=Registro de Voz;url=/portalwls/reconocimientovoz/ReconocimientoVoz.do?accion=consultarEnrolamiento;vistaValida=IVR_RECOVOZ;accionesValidas=CONSULTAR;nombrePopUp=pop4;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+# Definicion de opción "Repositorio Ventas"
+OPCION-REPOSITORIO_VENTAS;tipoNodo=OPCION;nombre=Repositorio Ventas;url=/workstationwls/clientes/informaciondecliente/repositorioventa/consultaVenta.do;vistaValida=ETE_CLIENTES;accionesValidas=ABRIR_DIRECCION;nombrePopUp=pop4;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+#Definición Carpeta Digital
+OPCION-CARPETA-DIGITAL;tipoNodo=OPCION;nombre=Carpeta Digital;url=/cl/bci/aplicaciones/intranet/ecm/buscar.jsf;vistaValida=CARPETA_DIGITAL;accionesValidas=ABRIR;nombrePopUp=CarpetaDigital;opcionesPopUp=scrollbars=yes,width=1100,height=500;
+
+#Definición Bloqueo Desbloqueo
+OPCION-BLOQUEO-DESBLOQUEO;tipoNodo=OPCION;nombre=Desbloqueo por Negociación;url=/cl/bci/aplicaciones/productos/bloqueodesbloqueo/vista/bloqueoDesbloqueoProductos.jsf;vistaValida=DESBLOQUEO_PRODUCTOS;accionesValidas=ABRIR;nombrePopUp=BloqueoDesbloqueo;opcionesPopUp=scrollbars=yes,width=800,height=300;
+
+################################################################################
+# Definicion del menú MENU-SIMULADORES-VENTA.
+################################################################################
+MENU-SIMULADORES-VENTA;tipoNodo=MENU;nombre=SIMULADORES Y VENTA;nodosMenu=OPCION-ASL,OPCION-CAMPANA,OPCION-MULTICREDITO,OPCION-CREDITO-CONSUMO,OPCION-CREDITO-HIPOTECARIO-DOS,OPCION-TDC-CAE,OPCION-CREDITO-MULTIABONO,OPCION-CREDITO-BCI-UNIVERSITARIO,OPCION-TARIFARIO-PLANES,OPCION-CONDICIONES-CONTRATADAS,OPCION-TXO,OPCION-MANTENCION-PLANES,OPCION-SEGUROS-PORTAL,OPCION-CANALES-INDIRECTOS;
+
+# Definición de opción "ASL"
+OPCION-ASL;tipoNodo=OPCION;nombre=ASL;url=/workstationwls/portal/AccesosDirectos.do?accion=iniciarASL&vista=CLI;nombrePopUp=pop18;opcionesPopUp=scrollbars=yes,width=720,height=485;vistaValida=ETE_SIMULADOR;accionesValidas=LINK_BPASL;
+
+# Definición de opción "Avance"
+#OPCION-EFECTIVOCUOTAS-TDC;tipoNodo=OPCION;nombre=Avance;url=/cl/bci/aplicaciones/productos/colocaciones/tarjetadeCredito/avance/realizarAvanceTarjetaDeCredito.jsf;vistaValida=PCE_DETALLE;accionesValidas=ABRIR;nombrePopUp=pop17;opcionesPopUp=scrollbars=yes,width=750,height=700;
+
+# Definición de opción "TCredito Credito Universal"
+OPCION-TDC-CAE;tipoNodo=OPCION;nombre=TCrédito Crédito Universal;url=/workstationwls/tarjetasonline/simuladorcae/simulacionCAEAction.do?method=inicio&canal=151;vistaValida=PCE_DETALLE;accionesValidas=ABRIR;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Campañas".
+OPCION-CAMPANA;tipoNodo=OPCION;nombre=Campañas;url=/portalwls/campanas/clienteCampana.do?producselecc2=;vistaValida=PCE_DETALLE;accionesValidas=ABRIR;nombrePopUp=pop16;opcionesPopUp=scrollbars=yes,width=720,height=485;
+
+# Definicion de opción "Multicrédito".
+OPCION-MULTICREDITO;tipoNodo=OPCION;nombre=Multicrédito;url=/workstationwls/creditosweb/IngresoSimulacionMulticreditoIntranet.do?Marca=BCI;vistaValida=CCC_CREDITOS;accionesValidas=AVAN_MULCRE;nombrePopUp=ifrm;opcionesPopUp=scrollbars=yes,width=720,height=485;
+
+# Definicion de opción "Crédito Consumo".
+OPCION-CREDITO-CONSUMO;tipoNodo=OPCION;nombre=Crédito Consumo;url=/workstationwls/creditosweb/IngresoSimulacionCredito.do?Marca=BCI;vistaValida=ETE_SIMULADOR;accionesValidas=ABRIR_CTO_CONS;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Crédito Hipotecario".
+#OPCION-CREDITO-HIPOTECARIO;tipoNodo=OPCION;nombre=Crédito Hipotecario;url=/portalwls/chip/cargarDatosSimulacionAction.do;vistaValida=ETE_SIMULADOR;accionesValidas=ABRIR_CTO_HIP;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Crédito Universitario".
+OPCION-CREDITO-BCI-UNIVERSITARIO;tipoNodo=OPCION;nombre=Crédito BCI Universitario;url=/workstationwls/creditouniversitario/consultaCreditos.do;nombrePopUp=ifrm;tipo=7;vistaValida=VST_CREDUNI;accionesValidas=ACC_CREDITOUNIV;
+
+# Definicion de opción "Créditos con Múltiples Abonos".
+OPCION-CREDITO-MULTIABONO;tipoNodo=OPCION;nombre=Créditos Múltiples Abonos;url=/workstationwls/creditosgenerales/inicio.jsp?sistemaCredito=multiabono;nombrePopUp=ifrm;opcionesPopUp=scrollbars=yes,width=510,height=800;tipo=7;vistaValida=VST_MULTIABONO;accionesValidas=ACC_MULTIABONO;
+
+# Definicion de opción "Tarifario Planes".
+OPCION-TARIFARIO-PLANES;tipoNodo=OPCION;nombre=Tarifario Planes;url=/workstationwls/nuevomodelodenegocio/ConsultaTarifario.do?paginaRetorno=consultatarifarioplanes&paginaOrigen=menu&codMarca=BCI&codLenguaje=ES&codPais=CL;vistaValida=SGCTXO;accionesValidas=CON;nombrePopUp=tarifarioplanes;opcionesPopUp=scrollbars=yes,width=770,height=500;
+
+# Definicion de opción "Condiciones Contratadas".
+OPCION-CONDICIONES-CONTRATADAS;tipoNodo=OPCION;nombre=Condiciones Contratadas;url=/workstationwls/nuevomodelodenegocio/InicioConsultaCondiciones.do?paginaRetorno=inicioconsultacondiciones&paginaOrigen=menu&codMarca=BCI&codLenguaje=ES&codPais=CL;vistaValida=SGCTXO;accionesValidas=CON;nombrePopUp=condicioncontratada;opcionesPopUp=scrollbars=yes,width=770,height=500;
+
+# Definicion de opción "Transacciones por Operación".
+OPCION-TXO;tipoNodo=OPCION;nombre=Transacciones por Operación;url=/workstationwls/transaccionesporoperacion/InicioTransaccionPorOperacion.do?codMarca=BCI&codLenguaje=ES&codPais=CL&paginaRetorno=inicioConsulta&paginaOrigen=menu;vistaValida=SGCTXO;accionesValidas=ING,MOD,CON,ELI;nombrePopUp=transacciones;opcionesPopUp=scrollbars=yes,width=770,height=500;
+
+# Definicion de opción "Mantención de Planes".
+OPCION-MANTENCION-PLANES;tipoNodo=OPCION;nombre=Mantención de Planes;url=/workstationwls/nuevomodelodenegocio/InicioMantencionPlanes.do?paginaRetorno=iniciomantencionplanes&paginaOrigen=menu&codMarca=BCI&codLenguaje=ES&codPais=CL;vistaValida=SGCTXO;accionesValidas=ING,MOD,CON,ELI;nombrePopUp=mantencionplanes;opcionesPopUp=scrollbars=yes,width=770,height=500;
+
+# Definicion de opción "Seguros".
+OPCION-SEGUROS-PORTAL;tipoNodo=OPCION;nombre=Seguros;url=/portalwls/productos/seguros/venta/inicioVentaSeguros.do;vistaValida=SEG_ETEPERS;accionesValidas=ABRIR;nombrePopUp=seguros;opcionesPopUp=status=yes,scrollbars=yes,width=650,height=390;tipo=7;
+
+# Definicion de opción "Crédito Hipotecario 2.0".
+OPCION-CREDITO-HIPOTECARIO-DOS;tipoNodo=OPCION;nombre=Crédito Hipotecario 2.0;url=/cl/bci/aplicaciones/productos/colocaciones/simulacion/hipotecario/vista/vistaSimuladorHipotecario.jsf;vistaValida=ETE_SIMULADOR;accionesValidas=ABRIR_CTO_HIP;nombrePopUp=BCIHOME;opcionesPopUp=status=yes,scrollbars=yes,width=1280,height=720;tipo=7;
+
+# Definicion de opción "Línea de Emergencia".
+OPCION-SOLICITUD-LINEA-EMERGENCIA;tipoNodo=OPCION;nombre=Línea de Emergencia;url=/workstationwls/lineaDeEmergencia/cargaLineaEmergencia.do;vistaValida=ETE_SOL_LDE;accionesValidas=ABRIR_SOLIC_LDE;nombrePopUp=ifrm;tipo=7;
+
+# Definicion de opción "Créditos Canales Indirectos".
+OPCION-CANALES-INDIRECTOS;tipoNodo=OPCION;nombre=Créditos Canales Indirectos;url=/workstationwls/creditosconvenioscorporativos/inicio.jsp?tipo=CIN;nombrePopUp=ifrm;opcionesPopUp=scrollbars=yes,width=510,height=800;tipo=7;vistaValida=CNC_CONVENIOS;accionesValidas=ACC_CANIND;
+
+################################################################################
+# Definicion del menú MENU-PRODUCTOS-VIGENTES
+################################################################################
+MENU-PRODUCTOS-VIGENTES;tipoNodo=MENU;nombre=PRODUCTOS VIGENTES;nodosMenu=OPCION-RESUMEN-PRODUCTOS,OPCION-NEGOCIOS-VIGENTES,OPCION-NEGOCIOS-VIGENTES-NOVA,OPCION-CUENTAS,OPCION-CUENTA-PRIMA,OPCION-TARJETA-BCI,OPCION-LINEA-SOBREGIRO,OPCION-LINEA-EMERGENCIA,OPCION-TARJETA-CREDITO,OPCION-CREDITOS-MNX,OPCION-CREDITOS-HIPOTECARIOS,OPCION-PAC,OPCION-PAC-DM,OPCION-PAT,OPCION-INVERSIONES,OPCION-PRODUCTOS-HISTORICOS,OPCION-COBRO_COMISION_PLAN,OPCION-DESISTIMIENTO-SEGURO;
+
+# Definicion de opción "Resumen Productos".
+OPCION-RESUMEN-PRODUCTOS;tipoNodo=OPCION;nombre=Resumen de Productos;url=/workstationwls/bciaccionwls/resumenProductos.do?accion=cargarProductos;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_RESUMEN;nombrePopUp=ifrm;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Negocios Vigentes".
+OPCION-NEGOCIOS-VIGENTES;tipoNodo=OPCION;nombre=Negocios Vigentes;url=/negociosVigentes/negociosVigentes.do;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_NEG;nombrePopUp=negocios;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Negocios Vigentes Nova".
+OPCION-NEGOCIOS-VIGENTES-NOVA;tipoNodo=OPCION;nombre=Negocios Vigentes Nova;url=/portalwls_visioncruzada/ClienteConosur.do;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_NEG;nombrePopUp=negocios;opcionesPopUp=scrollbars=yes,width=917,height=710;
+
+# Definicion de opción "Cuenta Corriente".
+#OPCION-CUENTA-CORRIENTE;tipoNodo=OPCION;nombre=Cuenta Corriente;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=cta;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_CTA_CTE;nombrePopUp=cta;opcionesPopUp=scrollbars=yes,width=746,height=500;tipo=8;descripcion=poseeCtaCte;
+OPCION-CUENTAS;tipoNodo=OPCION;nombre=Cuentas Corrientes Mn/Mx;url=/workstationwls/empresa/cuentascorrientes/consultarCuentasCorrientes.do?accion=cargarCuentasCorrientes;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_CTA_CTE;nombrePopUp=cta;opcionesPopUp=scrollbars=yes,width=800,height=600;tipo=8;descripcion=poseeCtaCte;
+
+# Definicion de opción "Cuenta Prima".
+OPCION-CUENTA-PRIMA;tipoNodo=OPCION;nombre=Cuenta Prima ;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=prima;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_CPR;nombrePopUp=prima;opcionesPopUp=scrollbars=yes,width=746,height=530;tipo=8;descripcion=poseeCtaPrima;
+
+# Definicion de opción "Tarjeta Bci".
+OPCION-TARJETA-BCI;tipoNodo=OPCION;nombre=Tarjeta Bci;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=tjbci;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_TAR_BCI;nombrePopUp=tjbci;opcionesPopUp=scrollbars=yes,width=746,height=530;tipo=8;descripcion=poseeTarjetaATM;
+
+# Definicion de opción "Línea Sobregiro".
+OPCION-LINEA-SOBREGIRO;tipoNodo=OPCION;nombre=Línea de Sobregiro;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=linea;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_LSG;nombrePopUp=linea;opcionesPopUp=scrollbars=yes,width=746,height=530;tipo=8;descripcion=poseeLineaSobregiro;
+
+# Definicion de opción "Línea Emergencia".
+OPCION-LINEA-EMERGENCIA;tipoNodo=OPCION;nombre=Línea de Emergencia;url=/workstationwls/lineaDeEmergencia/verInicioLineaEmergencia.do;nombrePopUp=lineaEmergencia;opcionesPopUp=scrollbars=yes,width=746,height=530;descripcion=consultaLineaEmergencia;vistaValida=LINEME;accionesValidas=LINK_BP;
+
+# Definicion de opción "Tarjeta Crédito".
+OPCION-TARJETA-CREDITO;tipoNodo=OPCION;nombre=Tarjeta de Crédito;url=/workstationwls/bciaccionwls/tarjetaCredito.do?accion=cargaTjCred;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_TCR;nombrePopUp=tjcred;opcionesPopUp=scrollbars=yes,width=746,height=530;tipo=8;descripcion=poseeTarjetasCredito;
+
+# Definicion de opción "Créditos Vigentes".
+OPCION-CREDITOS-VIGENTES;tipoNodo=OPCION;nombre=Créditos Vigentes;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=creditovig;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_CRE_VIG;nombrePopUp=creditovig;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+# Definicion de opción "Créditos Mn / Mx".
+OPCION-CREDITOS-MNX;tipoNodo=OPCION;nombre=Créditos Mn / Mx;url=/workstationwls/comportamientodepagos/comportamientoPagosMenu.do;nombrePopUp=creditovigmnmx;opcionesPopUp=scrollbars=yes,width=800,height=600;vistaValida=ETE_PROD_VIG;accionesValidas=LINK_BPCREMNX;
+
+# Definicion de opción "Créditos Hipotecarios".
+OPCION-CREDITOS-HIPOTECARIOS;tipoNodo=OPCION;nombre=Creditos Hipotecarios;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=creditohip;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_CRE_HIP;nombrePopUp=creditohip;opcionesPopUp=scrollbars=yes,width=746,height=530;
+
+# Definicion de opción "PAC".
+#OPCION-PAC;tipoNodo=OPCION;nombre=PAC;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=pac;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_PAC;nombrePopUp=pac1;opcionesPopUp=scrollbars=yes,width=746,height=530;
+OPCION-PAC;tipoNodo=OPCION;nombre=PAC;url=/workstationwls/bciaccionwls/blanco.jsp;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_PAC;nombrePopUp=pac1;opcionesPopUp=scrollbars=yes,width=746,height=530;
+
+# Definicion de opción "PAC Débito Multibanco".
+OPCION-PAC-DM;tipoNodo=OPCION;nombre=PAC Débito Multibanco;url=/workstationwls/debitomultibanco/SeteoConsultaOperacionCredito.do?paginaOrigen=&paginaRetorno=consulta_operacion_credito;vistaValida=VST_DEBITO_MB;accionesValidas=ACC_ACCESO;nombrePopUp=pacdebitomultibanco;opcionesPopUp=scrollbars=yes,width=780,height=600;
+
+# Definicion de opción "PAT".
+OPCION-PAT;tipoNodo=OPCION;nombre=PAT;url=/pagoswls/PagosPat?usuario=CLIENTE;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_PAT;nombrePopUp=PAT;opcionesPopUp=scrollbars=yes,width=780,height=600;
+
+# Definicion de opción "Bci Seguros".
+OPCION-BCI-SEGUROS;tipoNodo=OPCION;nombre=Bci Seguros;url=/workstationwls/bciaccionwls/cargaProductos.do?detalle=bciseg;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_SEGUROS;nombrePopUp=bciseg;opcionesPopUp=scrollbars=yes,width=500,height=500;
+
+# Definicion de opción "Detalle Inversiones".
+OPCION-INVERSIONES;tipoNodo=OPCION;nombre=Inversiones;url=/workstationwls/inversiones/resumen/ResumenInversiones.do;vistaValida=ETE_PROD_VIG;accionesValidas=ABRIR_INVERSION;nombrePopUp=Inversiones;opcionesPopUp=scrollbars=yes,width=500,height=600;
+
+# Definicion de opción "Productos Históricos".
+OPCION-PRODUCTOS-HISTORICOS;tipoNodo=OPCION;nombre=Productos Históricos;url=/workstationwls/productoshistoricos/consultaProductosHistoricos.do;nombrePopUp=ProductosHistoricos;opcionesPopUp=scrollbars=yes,width=900,height=470;vistaValida=ETE_PROD_VIG;accionesValidas=LINK_BPPRDHIS;
+
+# Definicion de opción "Cobro Comision Plan"
+OPCION-COBRO_COMISION_PLAN;tipoNodo=OPCION;nombre=Cobro Comisión Plan;url=/portalwls/informaciondeproductos/consultarTarificacion.do?accion=consultarTarificacionCliente;vistaValida=ABRIR_COB_COM;accionesValidas=ABRIR_EVEREST;nombrePopUp=CobroComisionPlan;opcionesPopUp=scrollbars=yes,width=718,height=440;
+
+# Definicion de opción "Desistimiento de Seguro"
+OPCION-DESISTIMIENTO-SEGURO;tipoNodo=OPCION;nombre=Desistimiento de Seguro;url=/cl/bci/aplicaciones/productos/seguros/desistimiento/vista/desistimientosSeguros.jsf;vistaValida=ETE_DES_SEG;accionesValidas=ABRIR_DESIS;nombrePopUp=DesistimientoSeguro;opcionesPopUp=scrollbars=yes,width=800,height=600;
+
+################################################################################
+# Definicion del menú RIESGO
+################################################################################
+MENU-RIESGO;tipoNodo=MENU;nombre=RIESGO;nodosMenu=OPCION-VISACION,OPCION-CARGA-FINANCIERA,OPCION-MARGEN-GLOBAL,OPCION-GARANTIAS,OPCION-RIESGO-CLIENTE,OPCION-PAGO-CONSULTA,OPCION-CLIENTE-NORMALIZA,OPCION-RIESGO-SUC,OPCION-RIESGO-VALIDACION,OPCION-RIESGO-SUC-COL;
+
+# Definicion de opcion "Pago de la Consulta".
+OPCION-PAGO-CONSULTA;tipoNodo=OPCION;nombre=Pago de la Consulta;url=/workstationwls/pagoconsulta/VerificarEjecutivoConectado.do;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_PAGCON;nombrePopUp=pop110;opcionesPopUp=scrollbars=yes,width=718,height=440;tipo=0;
+
+# Definicion de opción "Visación".
+OPCION-VISACION;tipoNodo=OPCION;nombre=Visación;url=/workstationwls/visacion/ConsultaVisacion.do?;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_VISACION;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,menubar=no,tollbar=no,width=750,height=550;tipo=5;
+
+# Definicion de opción "Cálculo Carga Financiera".
+OPCION-CARGA-FINANCIERA;tipoNodo=OPCION;nombre=Cálculo Carga Financiera;url=/workstationwls/cargafinanciera/cargaFinancieraInicio.do;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_CARGA_FIN;nombrePopUp=pop111;opcionesPopUp=scrollbars=yes,width=700,height=300;
+
+# Definicion de opción "Margen Global".
+OPCION-MARGEN-GLOBAL;tipoNodo=OPCION;nombre=Margen Global;url=/creditoswls/ConsultaOperacionCreditoPorRut;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_MARGEN;nombrePopUp=pop125;opcionesPopUp=scrollbars=yes,width=750,height=620;
+
+# Definicion de opción "Garantias".
+OPCION-GARANTIAS;tipoNodo=OPCION;nombre=Garantias;url=/workstationwls_bgl/ConsultaCgd.do;vistaValida=ETE_RIESGO;accionesValidas=ABRIR_GTIAS;nombrePopUp=pop112;opcionesPopUp=scrollbars=yes,width=900,height=650;
+
+# Definicion de opción "Riesgo Cliente".
+OPCION-RIESGO-CLIENTE;tipoNodo=OPCION;nombre=Detalle Riesgo por Cliente;url=/portalwls/ConsultaMasivaRiesgo;nombrePopUp=riesgo;opcionesPopUp=scrollbars=yes,width=770,height=450;vistaValida=ETE_RIESGO;accionesValidas=LINK_BPRSGPER;
+
+#Definición de la opción "Cliente en Normaliza"
+OPCION-CLIENTE-NORMALIZA;tipoNodo=OPCION;nombre=Cliente en Normaliza;url=/workstationwls/cobranza/cargarCobranzasClienteInicio.do;nombrePopUp=riesgo;opcionesPopUp=scrollbars=yes,width=820,height=570;vistaValida=ETE_RIESGO;accionesValidas=LINK_BPCLINRM;
+
+# Definicion de opción "Solicitud Crédito".
+OPCION-RIESGO-SUC;tipoNodo=OPCION;nombre=Ingreso Solicitudes CDA;url=/workstationwls/flujounicodesolicitudes/seleccionarTipoSolicitud.do?accion=selTipoSolicitud;vistaValida=VST_SUC_CLIENTE;accionesValidas=CREAR_SOL;nombrePopUp=riesgo;opcionesPopUp=scrollbars=yes,width=770,height=450;tipo=0;
+
+# Definicion de opción "Monitor de Validaciones".
+OPCION-RIESGO-VALIDACION;tipoNodo=OPCION;nombre=Validador;url=/cl/bci/aplicaciones/cliente/validacion/vista/monitorDeValidaciones.jsf;vistaValida=VST_MONVALI;accionesValidas=ACC_MONVALI;nombrePopUp=Monitor_de_Validaciones;opcionesPopUp=scrollbars=yes,width=770,height=450;tipo=0;
+
+# Definicion de opción "Solicitud Crédito Colaboradores".
+OPCION-RIESGO-SUC-COL;tipoNodo=OPCION;nombre=Ingreso Solicitudes Colaboradores;url=/workstationwls/flujounicodesolicitudes/seleccionarTipoSolicitud.do?accion=selTipoSolicitud&tipoMenu=COL;vistaValida=VST_SUC_COLB;accionesValidas=ACC_SUC_COLB;nombrePopUp=riesgo;opcionesPopUp=scrollbars=yes,width=770,height=450;tipo=0;
+
+################################################################################
+# Definicion del menú Banca Privada
+################################################################################
+MENU-BANCA-PRIVADA;tipoNodo=MENU;nombre=BANCA PRIVADA;nodosMenu=OPCION-RESUMEN-CLIENTE-BP,OPCION-PERFIL-CLIENTE-BP,OPCION-MAPA-DE-RELACIONES,OPCION-APROBACIONES,OPCION-INFORME-DE-VISITAS,OPCION-IMPRESION,OPCION-ESPECIALISTAS,OPCION-CARPETA;
+
+# Definicion de opción "Resumen Cliente".
+OPCION-RESUMEN-CLIENTE-BP;tipoNodo=OPCION;nombre=Resumen Cliente;url=/workstationwls/bancaprivada/consultarInformacionClienteBancaPrivada.do?accion=consultarClienteBancaPrivada;vistaValida=BP_RES_CLI;accionesValidas=CNS_RES_CLI;nombrePopUp=pop110;opcionesPopUp=scrollbars=yes,width=760,height=580;
+
+# Definicion de opción "Perfil Cliente".
+OPCION-PERFIL-CLIENTE-BP;tipoNodo=OPCION;nombre=Perfil Cliente;url=/workstationwls/bancaprivada/consultarPerfilamientosInversionista.do;vistaValida=BP_PER_INV;accionesValidas=CNS_PER_INV;nombrePopUp=pop9;opcionesPopUp=scrollbars=yes,width=700,height=400,status=yes;
+
+# Definicion de opción "Mapa de Relaciones".
+OPCION-MAPA-DE-RELACIONES;tipoNodo=OPCION;nombre=Mapa de Relaciones;url=/workstationwls/bancaprivada/mapaRelaciones.do;vistaValida=BP_AMB_REL;accionesValidas=CNS_AMB_REL;nombrePopUp=pop125;opcionesPopUp=scrollbars=yes,width=780,height=570;
+
+# Definicion de opción "Aprobaciones".
+OPCION-APROBACIONES;tipoNodo=OPCION;nombre=Aprobaciones;url=/workstationwls/bancaprivada/aprobacionEjecutivo.do?vista=cliente;vistaValida=BP_APR_INV;accionesValidas=CNS_APR_INV;nombrePopUp=pop112;opcionesPopUp=scrollbars=yes,width=720,height=650;
+
+# Definicion de opción "Informe de Visitas".
+OPCION-INFORME-DE-VISITAS;tipoNodo=OPCION;nombre=Informe de Visitas;url=/workstationwls/bancaprivada/informeDeVisitas.do?accion=consultarInformeDeVisitas;vistaValida=BP_INF_VIS;accionesValidas=CNS_INF_VIS;nombrePopUp=bpinformes;opcionesPopUp=scrollbars=yes,width=700,height=550;
+
+# Definicion de opción "Impresión".
+OPCION-IMPRESION;tipoNodo=OPCION;nombre=Impresión;url=/workstationwls/bancaprivada/impresionSeleccion.do;vistaValida=BP_IMP_CLI;accionesValidas=CNS_IMP_CLI;nombrePopUp=bpimpresion;opcionesPopUp=scrollbars=yes,width=400,height=400;
+
+# Definicion de opción "Especialistas".
+OPCION-ESPECIALISTAS;tipoNodo=OPCION;nombre=Especialistas;url=/workstationwls/bancaprivada/consultarEspecialistasNegocio.do;vistaValida=BP_ESP_NEG;accionesValidas=CNS_ESP_NEG;nombrePopUp=bpespecialistas;opcionesPopUp=scrollbars=yes,width=600,height=500;
+
+# Definicion de opción "Carpeta Operativa".
+OPCION-CARPETA;tipoNodo=OPCION;nombre=Carpeta Operativa;url=/workstationwls/bancaprivada/consultarCarpetaOperativa.do;vistaValida=BP_CON_CAR_OPE;accionesValidas=CNS_CAR_OPE;nombrePopUp=bpespecialistas;opcionesPopUp=scrollbars=yes,width=600,height=500;
+
+################################################################################
+# Definicion del menu MENU-SCRIPTING-SUCURSALES
+################################################################################
+MENU-SCRIPTING-SUCURSALES;tipoNodo=MENU;nombre=DIFUSION COMERCIAL;nodosMenu=OPCION-SCRIPTING-SUCURSALES;
+
+# Definición de opción "Scripting Sucursales"
+OPCION-SCRIPTING-SUCURSALES;tipoNodo=OPCION;nombre=Sucursales;url=http://scripting.bci.cl/sucursal;vistaValida=BBR_BUS;accionesValidas=ABRIR;nombrePopUp=sucursales;opcionesPopUp=scrollbars=yes,width=800,height=600;

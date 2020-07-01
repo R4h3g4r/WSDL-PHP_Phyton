@@ -1,0 +1,4 @@
+function cancelPopUp()
+{
+	window.close();
+}

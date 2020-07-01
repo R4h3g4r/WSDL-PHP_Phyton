@@ -1,0 +1,19 @@
+# Pestaña por defecto #
+pestanaDefecto;cantidad=1;
+pestanaDefecto_1;desc=Todos;etiqueta=;idPestana=bciPay;
+glosaBancaEstilos;default=empresa;EM=empresas;
+
+habilitaServicios;desc=0;
+
+publicidadPestana;cantidad=1;
+publicidadPestana_1;idPestana=bciPay;habilitada=0;recurso=;habilitadaMkt=0
+
+#DESARROLLO
+#expiracionSesion;paginaAvisoFinSesion=/cl/bci/aplicaciones/seguridad/autenticacion/loginIntranet.html;paginaInicial=/cl/bci/aplicaciones/seguridad/autenticacion/loginPersonas.jsf;paginaNoSession=https://www.bci.cl/cl/bci/aplicaciones/seguridad/loginNoSesion.jsf;
+#CERTIFICACION
+expiracionSesion;paginaAvisoFinSesion=/cl/bci/aplicaciones/seguridad/autenticacion/loginIntranet.html;paginaInicial=/cl/bci/aplicaciones/seguridad/autenticacion/loginPersonas.jsf;paginaNoSession=https://www.bci.cl/cl/bci/aplicaciones/seguridad/loginNoSesion.jsf;
+#PRODUCCION
+#expiracionSesion;paginaAvisoFinSesion=http://bcipay.bci.cl/cl/bci/aplicaciones/seguridad/autenticacion/loginIntranet.html;paginaInicial=/cl/bci/aplicaciones/seguridad/autenticacion/loginPersonas.jsf;paginaNoSession=https://www.bci.cl/cl/bci/aplicaciones/seguridad/loginNoSesion.jsf;
+
+tipoUsuario;APO=Apoderado;SUP=Supervisor;CON=Contralor;OPE=operador;
+maximoConvenios;cantidad=10;

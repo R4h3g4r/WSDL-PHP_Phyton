@@ -1,0 +1,13 @@
+CIAS_FTP;cias=99147000|96573600;
+
+FTP_99147000;desc=GENERALES;servidor=100.1.1.6;usuario=domainuap/bciftp;password=1111;directoio=RECIBE_FTP/PDF;
+FTP_96573600;desc=VIDA;servidor=100.1.1.6;usuario=domainuap/bciftp;password=1111;directoio=RECIBE_FTP/PDF;
+
+OBTENER_PDF_SERVIDOR;valor=http://portal;
+OBTENER_PDF_URL;valor=/portalwls/ventasseguros/propuesta?paso=verpropuesta&pdf=1&batch=si&txtPropNum=;
+OBTENER_PDF_UYP;valor=LMALDIN;
+OBTENER_PDF_CANAL;valor=150;
+
+GENERACION_PDF;directorio=temp/ventas_seguros_propuestas;eliminar=si;
+
+CONSULTA_PROPUESTAS;cantidada_dias=2;

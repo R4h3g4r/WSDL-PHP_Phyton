@@ -1,0 +1,56 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_tic_lcl">
+   <context>
+
+   </context>
+   <input>
+	<field
+           java_name = "fechaInicial"
+           type = "Date"
+		   size = "4"
+           middle_name = "tic_fec_ini"
+    />
+	
+   </input>
+   <output>
+   	  <struct struct_size="0" class_name="DetalleTransaccionesDTO" var_name="detalleTransaccionesDTO">
+		<field
+			java_name = "estado"
+			type = "String"
+			size = "3"
+			middle_name = "estadoTicket"
+		/>
+		 <field
+	         java_name = "tipoTicketGenerado"
+	         type = "String"
+			 size = "3"
+	         middle_name = "tipoTicketGen"
+		 />
+         <field
+			java_name = "totalRegistros"
+			type = "long"
+			size = "4"
+			middle_name = "totalRegistros"
+		/>
+		<field
+			java_name = "monto"
+			type = "double"
+			size = "8"
+			middle_name = "montoTotal"
+		/>
+		<field
+			java_name = "oficina"
+			type = "long"
+			size = "4"
+			middle_name = "local"
+		/>
+<field
+			java_name = "fechaGeneracion"
+			type = "Date"
+			size = "4"
+			middle_name = "fechaGeneracion"
+		/>
+	  </struct>
+   </output>
+</service>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 25-11-2003 -->
+<DB>
+<SPECIAL str="0" typeId="" template=""></SPECIAL>
+<INSUPD NTx="AprCreCrcHis">  
+    <INPUT>
+        <!-- <campo FF="keywf" LF="30" POS="" COD="" TD="" PREF="">numWf</campo>	  -->
+        <campo FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</campo>
+        <campo FF="hiwIdNiv" LF="6" POS="" COD="" TD="" PREF="">nivelWorkflow</campo>
+        <campo FF="hiwFec" LF="10" POS="" COD="" TD="" PREF="">fecha</campo>
+        <campo FF="hiwEst" LF="40" POS="" COD="" TD="" PREF="">estado</campo>
+        <campo FF="hiwNomNiv" LF="40" POS="" COD="" TD="" PREF="">nombre</campo>
+        <campo FF="hiwNomRol" LF="40" POS="" COD="" TD="" PREF="">rol</campo>
+        <campo FF="hiwNomPer" LF="40" POS="" COD="" TD="" PREF="">usuario</campo>
+    </INPUT> 
+</INSUPD>
+<QRY NTx="AprCreConHis">  
+    <INPUT>
+        <!--   <campo FF="keywf" LF="30" POS="" COD="" TD="" PREF="">numWf</campo>	 	 -->
+        <campo FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</campo>
+    </INPUT> 
+    <OUTPUT>
+        <campo FF="hiwIdNiv" LF="6" POS="" COD="" TD="" PREF="">nivelWorkflow</campo>
+        <campo FF="hiwFec" LF="10" POS="" COD="" TD="" PREF="">fecha</campo>
+        <campo FF="hiwEst" LF="40" POS="" COD="" TD="" PREF="">estado</campo>
+        <campo FF="hiwNomNiv" LF="40" POS="" COD="" TD="" PREF="">nombre</campo>
+        <campo FF="hiwNomRol" LF="40" POS="" COD="" TD="" PREF="">rol</campo>
+        <campo FF="hiwNomPer" LF="40" POS="" COD="" TD="" PREF="">usuario</campo>
+    </OUTPUT> 	
+</QRY>
+</DB>

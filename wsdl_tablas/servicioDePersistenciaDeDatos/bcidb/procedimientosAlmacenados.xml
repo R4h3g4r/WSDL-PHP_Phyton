@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap 
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="bcidb.procedimientosAlmacenados">	
+	<resultMap id="dividendoImpago" class="java.util.HashMap">
+		<result property="resul" column="resul" />
+		<result property="numero" column="numdiv" />
+		<result property="estado" column="estdiv" />
+		<result property="fechaVencimiento"	column="fecven"/>
+		<result property="amortizacion"	column="amomda" />
+		<result property="interes"	column="intmda" />
+		<result property="comision"	column="commda" />
+		<result property="seguroIncendio" column="seginc" />
+		<result property="seguroDegravamen" column="segdes" />
+		<result property="seguroCesantia" column="segces" />
+		<result property="totalMoneda" column="totpes" />
+		<result property="subtotalMoneda" column="subtotal" />
+		<result property="interesesPenales" column="intpen" />
+		<result property="gastosCobranzas" column="gastoCbrz" />
+		<result property="otrosCargos" column="otrcar" />
+		<result property="total" column="totdiv" />
+	</resultMap>
+	<resultMap id="dividendoPagado" class="java.util.HashMap">
+		<result property="numero" column="numdiv" />
+		<result property="fechaPago" column="fecpag"/>
+		<result property="estado" column="estdiv" />
+		<result property="fechaVencimiento"	column="fecven"/>
+		<result property="amortizacion"	column="amo_mda" />
+		<result property="interes"	column="intmda" />
+		<result property="comision"	column="commda" />
+		<result property="seguroIncendio" column="seginc" />
+		<result property="seguroDegravamen" column="segdes" />
+		<result property="seguroCesantia" column="segces" />
+		<result property="subtotalMoneda" column="subtotal" />
+		<result property="interesesPenales" column="intpen" />
+		<result property="otrosCargos" column="otrcar" />
+		<result property="gastosCobranzas" column="gasCbr" />
+		<result property="total" column="total" />
+		<result property="fecha" column="feccon" />
+		<result property="sucursalPago" column="sucpag" />
+		<result property="subtotalpe" column="subtotalpe" />
+	</resultMap>
+	<procedure id="prc_divimpagos" resultMap="dividendoImpago" parameterClass="java.util.HashMap">
+		{CALL prc_divimpagos(#nope#)}
+	</procedure>
+	<procedure id="prc_divpagados" resultMap="dividendoPagado" parameterClass="java.util.HashMap">
+		{CALL prc_divpagados(#nope#)}
+	</procedure>
+	
+	<parameterMap id="setGenDivPagados" class="java.util.HashMap">
+	    <parameter property="numope"	      jdbcType="VARCHAR"	javaType="string" />	
+	</parameterMap>	
+
+	<resultMap id="getGenDivPagados" class="java.util.HashMap">
+		<result property="codError"   column="CodError"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="numdiv" 	  column="numdiv"		jdbcType="NUMERIC" 	javaType="integer" />		
+		<result property="fecpag" 	  column="fecpag"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="estdiv" 	  column="estdiv"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="fecven" 	  column="fecven"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="amo_mda" 	  column="amo_mda"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="intmda" 	  column="intmda"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="commda" 	  column="commda"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="seginc" 	  column="seginc"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="segdes" 	  column="segdes"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="segces" 	  column="segces"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="subtotal"   column="subtotal"		jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="intpen" 	  column="intpen"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="otrcar" 	  column="otrcar"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="gasCbr" 	  column="gasCbr"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="total" 	  column="total"		jdbcType="NUMERIC" 	javaType="integer" />						
+		<result property="feccon" 	  column="feccon"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="sucpag" 	  column="sucpag"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="subtotalpe" column="subtotalpe"	jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="despro" 	  column="despro"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="estoper" 	  column="estoper"		jdbcType="VARCHAR" 	javaType="string" />		
+		<result property="totdiv" 	  column="totdiv"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="divcan" 	  column="divcan"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="nomcli" 	  column="nomcli"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="rutcli" 	  column="rutcli"		jdbcType="VARCHAR" 	javaType="string" />		
+		<result property="codmda" 	  column="codmda"		jdbcType="NUMERIC" 	javaType="integer" />
+	</resultMap>
+
+	<procedure id="genDivPagados" parameterMap="setGenDivPagados" resultMap="getGenDivPagados">
+		{ CALL prc_gendivpagados( ? ) }
+	</procedure>
+	
+	
+	
+	<parameterMap id="setGenCertDeuda" class="java.util.HashMap">
+	    <parameter property="numope"		  jdbcType="VARCHAR" javaType="string" />	
+	</parameterMap>	
+
+	<resultMap id="getGenCertDeuda" class="java.util.HashMap">
+		<result property="codError"   		column="CodError"			jdbcType="NUMERIC"	javaType="integer" />
+		<result property="titulo" 	  		column="titulo"				jdbcType="CHAR"		javaType="string" />
+		<result property="nombre" 	  		column="nombre"				jdbcType="VARCHAR"	javaType="string" />
+		<result property="rut" 	  	  		column="rut"				jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="dv" 	  	  		column="dv"					jdbcType="CHAR" 	javaType="string" />
+		<result property="credito" 	  		column="credito"			jdbcType="VARCHAR" 	javaType="string" />
+		<result property="tasa" 	  		column="tasa"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="vencimiento" 		column="vencimiento"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="moneda" 	  		column="moneda"				jdbcType="VARCHAR" 	javaType="string" />
+		<result property="saldo" 	  		column="saldo"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="mtocapital"  		column="mtocapital"			jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="mtoreprogramado"	column="mtoreprogramado"	jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="totdivimpagos"	column="totdivimpagos"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="mtoimpagos"  		column="mtoimpagos"			jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" />
+		<result property="fecha" 	  		column="fecha"				jdbcType="VARCHAR" 	javaType="string" />
+		<result property="numope" 	  		column="numope"				jdbcType="VARCHAR" 	javaType="string" />
+	</resultMap>
+
+	<procedure id="genCertDeuda" parameterMap="setGenCertDeuda" resultMap="getGenCertDeuda">
+		{ CALL prc_gencertdeuda( ? ) }
+	</procedure>
+	
+	
+	
+	<parameterMap id="setGenCertInteres" class="java.util.HashMap">
+	    <parameter property="numope" 		   jdbcType="VARCHAR"	javaType="string" />	
+	    <parameter property="anocert" 		   jdbcType="NUMERIC"	javaType="integer" />			
+	</parameterMap>	
+
+	<resultMap id="getGenCertInteres" class="java.util.HashMap">
+		<result property="codError"   column="CodError"		jdbcType="NUMERIC" 	javaType="integer" />
+		<result property="NOMBRECLI"  column="NOMBRECLI"	jdbcType="VARCHAR" 	javaType="string" />
+		<result property="RUTCLI" 	  column="RUTCLI"		jdbcType="VARCHAR" 	javaType="string" />		
+		<result property="CERTCLI" 	  column="CERTCLI"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FECHA" 	  column="FECHA"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMENERO"   column="NOMENERO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACENERO"   column="FACENERO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONENERO"   column="MONENERO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMFEB" 	  column="NOMFEB"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACFEB" 	  column="FACFEB"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONFEB" 	  column="MONFEB"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMMAR" 	  column="NOMMAR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACMAR" 	  column="FACMAR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONMAR" 	  column="MONMAR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMABR" 	  column="NOMABR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACABR" 	  column="FACABR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONABR" 	  column="MONABR"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMMAY" 	  column="NOMMAY"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACMAY" 	  column="FACMAY"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONMAY" 	  column="MONMAY"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMJUN" 	  column="NOMJUN"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACJUN" 	  column="FACJUN"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONJUN" 	  column="MONJUN"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMJUL" 	  column="NOMJUL"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACJUL" 	  column="FACJUL"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONJUL" 	  column="MONJUL"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMAGO" 	  column="NOMAGO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACAGO" 	  column="FACAGO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONAGO" 	  column="MONAGO"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMSEP" 	  column="NOMSEP"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACSEP" 	  column="FACSEP"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONSEP" 	  column="MONSEP"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMOCT" 	  column="NOMOCT"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACOCT" 	  column="FACOCT"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="MONOCT" 	  column="MONOCT"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMNOV" 	  column="NOMNOV"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACNOV" 	  column="FACNOV"		jdbcType="VARCHAR" 	javaType="string" />						
+		<result property="MONNOV" 	  column="MONNOV"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="NOMDIC" 	  column="NOMDIC"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="FACDIC" 	  column="FACDIC"		jdbcType="VARCHAR" 	javaType="string" />		
+		<result property="MONDIC" 	  column="MONDIC"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="TOTNOM" 	  column="TOTNOM"		jdbcType="VARCHAR" 	javaType="string" />
+		<result property="TOTMON" 	  column="TOTMON"		jdbcType="VARCHAR" 	javaType="string" />		
+		<result property="REP" 	  	  column="REP"			jdbcType="VARCHAR" 	javaType="string" />
+		<result property="RUTREP" 	  column="RUTREP"		jdbcType="VARCHAR" 	javaType="string" />
+	</resultMap>
+
+	<procedure id="genCertInteres" parameterMap="setGenCertInteres" resultMap="getGenCertInteres">
+		{ CALL prc_gencertinteres( ?,? ) }
+	</procedure>
+	
+</sqlMap>	

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="bcaprivada.procedimientosAlmacenados">
+
+  <procedure id="daoConsultaComentariosAprobacion" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_det_abp(#tipo#, #codigo_aprobacion#)}
+  </procedure>
+
+  <procedure id="daoConsultarInformeVisitas" parameterClass="java.util.HashMap" resultClass="java.util.HashMap" >
+    {call sp_cns_idv_ban_priv(#rut#)}
+  </procedure>
+
+</sqlMap>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<DB>
+<SPECIAL str="0" typeId="" template=""></SPECIAL>
+<INSUPD NTx="AprCreInsDetDeu" LBL="N">
+     <SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+     <ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+     <INPUT>
+	  <!--<field FF="keywf" LF="30"> 	numWf		 		</field>	  -->
+	  <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+	  <field FF="rutdv" LF="12" POS="" COD="" TD="" PREF="">rut</field>
+	  <field FF="codEmp2" LF="2" POS="" COD="" TD="" PREF="">codEmpresa</field>
+	  <field FF="rutEmpRel2" LF="12" POS="" COD="" TD="" PREF="">rutEmpresa</field>
+	  <field FF="monDeuMaxEr2" LF="15" POS="" COD="" TD="" PREF="">deudaTotal</field>
+	  <field FF="totDeuIndEr2" LF="15" POS="" COD="" TD="" PREF="">totalDeudaInd</field>
+	  <field FF="ddaIndEmpRelEr2" LF="15" POS="" COD="" TD="" PREF="">deudaIndEmp</field>
+	  <field FF="garVigEr2" LF="15" POS="" COD="" TD="" PREF="">grantiasVigentes</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">total</field>
+	  <field FF="ajtGarEr2" LF="15" POS="" COD="" TD="" PREF="">ajusteGarantia</field>
+	  <field FF="calExdDefGarEr2" LF="15" POS="" COD="" TD="" PREF="">defGarantias</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva1</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva2</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva3</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonOtrAva</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">ajusteAvales</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">totalAvales</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">codGarantia</field>
+	  <field FF="monDeuMaxEr2" LF="15" POS="" COD="" TD="" PREF="">cupoMaximo</field>
+	  <field FF="sgnAjtEr2" LF="15" POS="" COD="" TD="" PREF="">indicador</field>	
+    </INPUT>
+</INSUPD>
+<QRY NTx="AprCreConDetDeu" LBL="N">
+     <SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+     <ATTRIB ATTR1="" ATTR2="" ATTR3="" ATTR4=""></ATTRIB>
+     <INPUT>
+	  <!--<field FF="keywf" LF="30"> 	numWf		 		</field>	  -->
+	  <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+	  <field FF="codEmp2" LF="2" POS="" COD="" TD="" PREF="">codEmpresa</field>
+    </INPUT>
+    <OUTPUT>
+	  <field FF="rutdv" LF="12" POS="" COD="" TD="" PREF="">rut</field>
+	  <field FF="rutEmpRel2" LF="12" POS="" COD="" TD="" PREF="">rutEmpresa</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">deudaTotal</field>
+	  <field FF="totDeuIndEr2" LF="15" POS="" COD="" TD="" PREF="">totalDeudaInd</field>
+	  <field FF="ddaIndEmpRelEr2" LF="15" POS="" COD="" TD="" PREF="">deudaIndEmp</field>
+	  <field FF="garVigEr2" LF="15" POS="" COD="" TD="" PREF="">grantiasVigentes</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">total</field>
+	  <field FF="ajtGarEr2" LF="15" POS="" COD="" TD="" PREF="">ajusteGarantia</field>
+	  <field FF="calExdDefGarEr2" LF="15" POS="" COD="" TD="" PREF="">defGarantias</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva1</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva2</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonAva3</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">patrimonioPonOtrAva</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">ajusteAvales</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">totalAvales</field>
+	  <field FF="blanco" LF="15" POS="" COD="" TD="" PREF="">codGarantia</field>
+	  <field FF="monDeuMaxEr2" LF="15" POS="" COD="" TD="" PREF="">cupoMaximo</field>
+	  <field FF="sgnAjtEr2" LF="15" POS="" COD="" TD="" PREF="">indicador</field>	
+    </OUTPUT>
+</QRY>
+</DB>
+<!-- Creation date: 24-10-2003 -->

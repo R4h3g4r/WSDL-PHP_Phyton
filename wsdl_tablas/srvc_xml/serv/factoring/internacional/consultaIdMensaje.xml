@@ -1,0 +1,70 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cns_men_csv">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+
+   <input>
+      <field
+          java_name = "comprador"
+          type = "String"
+          size = "50"
+          middle_name = "comprador"
+      />
+      <field
+          java_name = "vendedor"
+          type = "String"
+          size = "50"
+          middle_name = "vendedor"
+      />
+      <field
+          java_name = "corresponsal"
+          type = "String"
+          size = "50"
+          middle_name = "corresponsal"
+      />
+      <field
+          java_name = "origReqNr"
+          type = "String"
+          size = "50"
+          middle_name = "origReqNr"
+      />
+      <field
+          java_name = "ingreso"
+          type = "String"
+          size = "50"
+          middle_name = "ingreso"
+      />
+      <field
+          java_name = "mensajeAnterior"
+          type = "String"
+          size = "10"
+          middle_name = "mensajeAnterior"
+      />
+      <field
+      	  java_name = "tipoConsulta"
+          type = "String"
+          size = "10"
+          middle_name = "tipoConsulta"
+      />
+   </input>
+   <output>
+   	<struct struct_size="0" class_name="ResultConsultaMensajeDTO" var_name="consultaMensajeDTO">
+      <field
+            java_name = "identificador"
+            type = "String"
+            size = "200"
+            middle_name = "id_mje"/>          
+	 </struct>
+   </output>
+</service>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="darsealta.procedimientosAlmacenados">
+  	<parameterMap id="setAgregaErrorClaveTDC" class="java.util.HashMap">
+  		<parameter property="rut"        jdbcType="CHAR"     javaType="String" />
+		<parameter property="digver"     jdbcType="CHAR"     javaType="String" />
+		<parameter property="date"       jdbcType="DATETIME" javaType="String" />
+		<parameter property="tipo"       jdbcType="CHAR"     javaType="String" />
+		<parameter property="ip"         jdbcType="CHAR"     javaType="String" />
+	</parameterMap>
+	<resultMap id="getAgregaErrorClaveTDC" class="java.util.String">
+		<result property="respuesta"     javaType="String" />
+	</resultMap>
+	<procedure id="agregaErrorClaveTDC" parameterMap="setCobroComision" resultMap="getCobroComision">
+		{ CALL dbo.sp_add_error_clave_TDC( ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setResetBloqueoClaveTDC" class="java.util.HashMap">
+  		<parameter property="rut"        jdbcType="CHAR"     javaType="String" />
+		<parameter property="digver"     jdbcType="CHAR"     javaType="String" />
+	</parameterMap>
+	<resultMap id="getResetBloqueoClaveTDC" class="java.util.String">
+		<result property="respuesta"     javaType="String" />
+	</resultMap>
+	<procedure id="resetBloqueoClaveTDC" parameterMap="setCobroComision" resultMap="getCobroComision">
+		{ CALL dbo.sp_anula_bloqueo_clave_TDC( ?, ? )}
+	</procedure>
+	
+	<parameterMap id="setIntentosDarseAltaTDC" class="java.util.HashMap">
+  		<parameter property="rut"        jdbcType="CHAR"     javaType="String" />
+		<parameter property="digver"     jdbcType="CHAR"     javaType="String" />
+	</parameterMap>
+	<resultMap id="getIntentosDarseAltaTDC" class="java.util.HashMap">
+		<result property="numReintentos"    column="reintCont"      javaType="Integer" />
+		<result property="fecUltIntento"    column="fecUltReint"    javaType="Date" />
+	</resultMap>
+	<procedure id="intentosDarseAltaTDC" parameterMap="setCobroComision" resultMap="getCobroComision">
+		{ CALL dbo.sp_getNumIntentos_clave_TDC( ?, ?, ?, ?, ?, ? )}
+	</procedure>
+</sqlMap>

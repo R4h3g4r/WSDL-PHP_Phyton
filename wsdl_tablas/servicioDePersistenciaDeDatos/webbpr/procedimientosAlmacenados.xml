@@ -1,0 +1,568 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="webbpr.procedimientosAlmacenados">
+
+	<parameterMap id="setConsultarColaborador" class="java.util.HashMap">
+		<parameter property="rutUsuario" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="dvUsuario" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<procedure id="consultarColaborador" parameterMap="setConsultarColaborador" resultClass="String">
+		{ CALL sp_consultar_colaborador( ?, ? ) }
+	</procedure>
+	
+	<parameterMap id="setObtenerCuentasAsociadas" class="java.util.HashMap">
+		<parameter property="rutUsuario" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="dvUsuario" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	
+<resultMap id="getObtenerCuentasAsociadas" class="java.util.HashMap">
+		<result property="rutAsociado" 			column="rut_asociado" 		jdbcType="INTEGER" 	javaType="int"/>
+		<result property="dvAsociado" 			column="dv_asociado" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="nombreAsociado" 		column="nombre_asociado" 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="tipoUsuarioAsoc" 		column="tipo_usuario_asoc"	jdbcType="CHAR" 	javaType="String"/>
+		<result property="rolAsociado"			column="rol_asociado" 		jdbcType="INTEGER" 	javaType="int"/>
+		<result property="nombreRolAsociado"	column="rol_nom_asociado" 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="idProdAsociado"		column="id_prod_asociado" 	jdbcType="INTEGER" 	javaType="int"/>
+		<result property="nomProdAsociado"		column="nom_prod_asociado" 	jdbcType="CHAR" 	javaType="String"/>
+        <result property="usuarioAdmin" 		column="usu_admin"          jdbcType="INTEGER" 	javaType="int" />
+			
+	</resultMap>
+	
+<procedure id="obtenerCuentasAsociadas" parameterMap="setObtenerCuentasAsociadas" resultMap="getObtenerCuentasAsociadas">
+		{ CALL sp_obtener_cuentas_asociados( ?, ? ) }
+	</procedure>
+	
+		
+	<resultMap id="getConsultarBanquero" class="java.util.HashMap">
+		<result property="idBanquero" column="ban_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="nombreUsuario" column="ban_nom_usuario" jdbcType="CHAR" javaType="String"/>
+		<result property="telefonoFijo" column="ban_tel_fijo" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="direccionEmail" column="ban_dir_email" jdbcType="VARCHAR" javaType="String"/>
+		<result property="telefonoCelular" column="ban_tel_celular" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<result property="nombreBanquero" column="ban_nom_banquero" jdbcType="VARCHAR" javaType="String"/>
+		<result property="apellidoPaterno" column="ban_ape_paterno" jdbcType="VARCHAR" javaType="String"/>
+		<result property="apellidoMaterno" column="ban_ape_materno" jdbcType="VARCHAR" javaType="String"/>
+	</resultMap>
+	<parameterMap id="setConsultarBanquero" class="java.util.HashMap">
+		<parameter property="rutUsuario" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="dvUsuario" jdbcType="CHAR" javaType="String"/>
+	</parameterMap>
+	<procedure id="consultarBanquero" parameterMap="setConsultarBanquero" resultMap="getConsultarBanquero">
+		{ CALL sp_consultar_banquero( ?,?) }
+	</procedure>
+
+	
+<!--Obtener roles de cuenta -->
+	<parameterMap id="setObtenerRolesCuenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="dv" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerRolesCuenta" class="java.util.HashMap">
+		<result  property="rol_id" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="rol_nom_rol" jdbcType="VARCHAR"  javaType="String" />
+	<result  property="admin" jdbcType="VARCHAR"  javaType="String" />
+	<result  property="rol_activo" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="obtenerRolesCuenta" parameterMap="setObtenerRolesCuenta" resultMap="getObtenerRolesCuenta">
+		{CALL sp_obtener_roles_cuenta (?, ?)}
+	</procedure>
+	
+	<!--Obtener usuarios de cuenta -->
+	<parameterMap id="setObtenerUsuariosCuenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="dv" jdbcType="CHAR" javaType="String" />
+	</parameterMap>
+	<resultMap id="getObtenerUsuariosCuenta" class="java.util.HashMap">
+		<result  property="usu_rut" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="usu_nom_usuario" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="ban_id" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="usu_tip_usuario" jdbcType="CHAR"  javaType="String" />
+		<result  property="usu_dv" jdbcType="CHAR"  javaType="String" />
+		<result  property="rol_nom_rol" jdbcType="CHAR" javaType="String"/>
+		<result  property="rol_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		
+<result  property="rol_adm" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	<result  property="rol_activo" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerUsuariosCuenta" parameterMap="setObtenerUsuariosCuenta" resultMap="getObtenerUsuariosCuenta">
+		{CALL sp_obtener_usuarios_cuenta (?, ?)}
+	</procedure>
+	
+	<!--Obtener usuarios de rol asociado a cuenta -->
+	<parameterMap id="setUsuariosRol" class="java.util.HashMap">
+		<parameter property="rut_usu" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="rol_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>
+	<resultMap id="getUsuariosRol" class="java.util.HashMap">
+		<result  property="usu_rut" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="rol_nom_rol" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="rol_usuario" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="nom_usuario" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	<procedure id="usuariosRol" parameterMap="setUsuariosRol" resultMap="getUsuariosRol">
+		{CALL sp_usuarios_rol (?, ?)}
+	</procedure>
+	
+	<!--Obtener productos de rol asociado a cuenta -->
+	<parameterMap id="setObtenerProdRolCuenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="rol" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>
+	<resultMap id="getObtenerProdRolCuenta" class="java.util.HashMap">
+		<result  property="prd_id" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="nom_prod" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="prod_habilitado" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="obtenerProdRolCuenta" parameterMap="setObtenerProdRolCuenta" resultMap="getObtenerProdRolCuenta">
+		{CALL sp_productos_rol (?, ?)}
+	</procedure>
+	
+	<!--Obtener productos asociado a cuenta -->
+	<parameterMap id="setObtenerProdCuenta" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>
+	<resultMap id="getObtenerProdCuenta" class="java.util.HashMap">
+		<result  property="prd_id" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+		<result  property="prd_nom_producto" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	<procedure id="obtenerProdCuenta" parameterMap="setObtenerProdCuenta" resultMap="getObtenerProdCuenta">
+		{CALL sp_obtener_prod_cuenta (?)}
+	</procedure>
+	
+	<!--Actualizar rol usuario asociado a cuenta -->
+	<parameterMap id="setActualizaRolUsu" class="java.util.HashMap">
+		<parameter property="rut_cuenta" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="rut_usu" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="id_rol" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>
+	<procedure id="actualizaRolUsu" parameterMap="setActualizaRolUsu" resultClass="java.lang.Integer">
+		{CALL sp_actualiza_rol_usu (?, ?, ?)}
+	</procedure>
+
+	<!--Crea rol asociado a cuenta -->
+	<parameterMap id="setCrearRol" class="java.util.HashMap">
+		<parameter property="rut_cuenta" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="nombre_rol" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="usuarios_asociados" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="permisos_productos" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="permiso_admin" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		
+	</parameterMap>
+	<procedure id="crearRol" parameterMap="setCrearRol" resultClass="java.lang.Integer">
+		{CALL sp_crear_rol (?, ?, ?, ?, ?)}
+	</procedure>
+
+	<!--Modifica rol asociado a cuenta -->
+	<parameterMap id="setModificaRol" class="java.util.HashMap">
+		<parameter property="rut_cuenta" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="rol_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		<parameter property="usuarios_asociados" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="permisos_productos" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="permiso_admin" jdbcType="INTEGER" javaType="java.lang.Integer" />
+		
+<parameter property="rol_nom_rol" jdbcType="VARCHAR" javaType="String" />		
+	</parameterMap>
+	<procedure id="modificaRol" parameterMap="setModificaRol" resultClass="java.lang.Integer">
+		{CALL sp_modifica_rol (?, ?, ?, ?, ?, ?)}
+	</procedure>
+
+		<!--Elimina rol asociado a cuenta -->
+	<parameterMap id="setEliminarRol" class="java.util.HashMap">
+		<parameter property="id_rol" jdbcType="INTEGER" javaType="java.lang.Integer" />
+	</parameterMap>
+	<procedure id="eliminarRol" parameterMap="setEliminarRol" resultClass="java.lang.Integer">
+		{CALL sp_eliminar_rol (?)}
+	</procedure>
+	
+	<parameterMap id="setValidaNombreRol" class="java.util.HashMap">
+        <parameter property="nombreRol" jdbcType="CHAR" javaType="String"/>
+        <parameter property="rutCuenta" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+		<parameter property="dv" jdbcType="CHAR" javaType="String"/>
+    </parameterMap>
+    <procedure id="validaNombreRol" parameterMap="setValidaNombreRol" resultClass="int">
+        { CALL sp_valida_nombre_rol( ?, ?, ?  ) }
+    </procedure>
+    
+	<!--Verifica permisos de roles creados asociado a cuenta -->
+	<parameterMap id="setVerificarRol" class="java.util.HashMap">
+		<parameter property="permisos_productos" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="rut_cuenta" jdbcType="INTEGER" javaType="java.lang.Integer" />		
+		<parameter property="permiso_admin" jdbcType="INTEGER" javaType="java.lang.Integer" />		
+	</parameterMap>
+	<resultMap id="getVerificarRol" class="java.util.HashMap">
+		<result  property="rol" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="nom_rol" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="flag_rol" jdbcType="INTEGER"  javaType="java.lang.Integer" />
+	</resultMap>
+	<procedure id="verificarRol" parameterMap="setVerificarRol" resultMap="getVerificarRol">
+		{CALL sp_verificar_rol (?, ?, ?)}
+	</procedure>
+
+	<!--RESUMEN FINANCIERO -->
+
+<resultMap id="consolidadosResumenFinanciero" class="java.util.HashMap">
+	    <result property="rutCuenta" 	         column="rutCuenta"              jdbcType="int" javaType="Long"/>
+		<result property="nombreProducto" 	     column="nombreProducto"         javaType="String"/>
+		<result property="idProducto"				column="idProducto"         	jdbcType="int" javaType="java.lang.Integer"/>
+		<result property="idOperacion"		 	    column="idOperacion"         	javaType="String"/>
+		<result property="idNombreProductoN2" 	 column="id_nombreProducto"      javaType="String"/>
+		<result property="tipoProducto" 	     column="tipoProducto"           javaType="String"/>
+		<result property="idTipoProductoN1" 	 column="id_tipoProducto"         javaType="String"/>
+		<result property="detalleProducto" 	     column="detalleProducto"        javaType="String"/>
+		<result property="idDetalleProductoN3" 	 column="id_detalleProducto"     javaType="String"/>
+		<result property="detalleSubproducto" 	 column="detalleSubproducto"     javaType="String"/>
+		<result property="idDetalleSubProductoN4" 	 column="id_detalleSubProducto"     javaType="String"/>
+		<result property="participacionCuentas"  column="participacionCuentas"   javaType="String"/>
+		<result property="idParticipacionCuentasN5"  column="id_participacionCuentas"   javaType="String"/>	
+		<result property="mercado" 	             column="mercado"                javaType="String"/>
+		<result property="moneda" 	             column="moneda"                 javaType="String"/>
+		<result property="monto" 	             column="monto"                  jdbcType="decimal" javaType="Double"/>
+		<result property="sectorFinanciero" 	 column="sectorFinanciero"       javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obtenerConsolidadosResumenFinanciero" parameterClass="java.util.HashMap" resultMap="consolidadosResumenFinanciero">
+		{ CALL sp_obtener_consolidado_resumen( #rutCuentaAsociada# ) }	
+	</procedure>
+	
+	
+   <resultMap id="indicadorCuenta" class="java.util.HashMap">
+	    <result property="indicador" 	  column="indicador"/>
+   </resultMap>
+	
+	<procedure id="registrarFiltros" parameterClass="java.util.HashMap" resultMap="indicadorCuenta">
+		{ CALL sp_registra_filtros_resumen( #rutRelacionado#,
+		                                    #rutCuenta# ) }
+	</procedure>	
+	
+     <procedure id="eliminarFiltros" parameterClass="java.util.HashMap">
+		{ CALL sp_eliminar_filtros_resumen( #rutRelacionado# ) }
+	</procedure>	
+
+	<resultMap id="saldosCuentas" class="java.util.HashMap">
+	    <result property="rutCuenta" 	  column="rutCuenta"      jdbcType="int" javaType="Long"/>
+		<result property="dvRut" 	  column="dvRut"       jdbcType="String"/>
+		<result property="nombreSociedad" column="nombreSociedad" javaType="String"/>
+        <result property="totalActivo"    column="totalActivo"    jdbcType="decimal" javaType="Double"/>
+        <result property="totalPasivo"    column="totalPasivo"    jdbcType="decimal" javaType="Double"/>
+        <result property="totalDerivado"  column="totalDerivado"  jdbcType="decimal" javaType="Double"/>
+	</resultMap>
+	
+	<procedure id="obtenerSaldosResumenFinanciero" parameterClass="java.util.HashMap" resultMap="saldosCuentas">		
+		{ CALL sp_obtener_saldos_resumen( #rutCuentaAsociada# ) }	
+	</procedure>
+
+	<resultMap id="getConsultarEquivalencias" class="java.util.HashMap">
+		<result property="moneda" 	column="moneda" javaType="String"/>
+		<result property="valor" 	column="valor" 	javaType="String"/>
+	</resultMap>
+	
+	<procedure id="consultarEquivalencias" parameterClass="java.util.HashMap" resultMap="getConsultarEquivalencias">	
+		{ CALL sp_obtener_equivalencias_monet(#fechaCierre#) }	
+	</procedure>
+
+	<resultMap id="cuentasCliente" class="java.util.HashMap">
+		<result property="rutCuenta" 	    column="rutCuenta"       jdbcType="int"  javaType="Long"/>
+		<result property="nombreSociedad" 	column="nombreSociedad"  jdbcType="char" javaType="String"/>
+		<result property="tipoPersona" 	    column="tipoPersona"     jdbcType="char" javaType="String"/>
+		<result property="indicadorCuenta" 	column="indicadorCuenta" jdbcType="char" javaType="String"/>
+	</resultMap>
+	
+	<procedure id="obtenerCuentasCliente" parameterClass="java.util.HashMap" resultMap="cuentasCliente">	
+		{CALL sp_obtener_cuentas_resumen( #rutCliente# )}	
+      </procedure>
+	  
+	<resultMap class="java.util.HashMap" id="fecha_cierre">
+		<result property="cierre" column="cierre" javaType="Date"/>
+	</resultMap>
+
+	<procedure id="obtenerFecha" parameterClass="java.util.HashMap" resultMap="fecha_cierre" >
+		{CALL sp_obtener_cierre_resumen(#rutCliente#)}
+	</procedure>
+
+		<!--Calendario Vencimientos -->
+	<resultMap class="java.util.HashMap" id="rm_obtener_vencimientos_mes">
+		<result property="fechaVencimiento" column="fechaVencimiento" javaType="Date"/>
+		<result property="moneda" column="moneda" javaType="String"/>
+		<result property="montoEqPesos" column="montoEqPesos" javaType="String"/>
+		<result property="montoMonedaOrigen" column="montoMonedaOrigen" javaType="String"/>
+		<result property="producto" column="producto" javaType="String"/>
+		<result property="razonSocial" column="razonSocial" javaType="String"/>
+		<result property="tipoCuenta" column="tipoCuenta" javaType="String"/>
+	</resultMap>
+
+	<procedure id="obtener_vencimientos_mes" parameterClass="java.util.HashMap" resultMap="rm_obtener_vencimientos_mes" >
+		{CALL sp_obtener_vencimientos(#rut#,#dv#,#fechaInicio#,#fechaFin#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_obtener_cuentas_cliente">
+		<result property="codigo" column="codigo" javaType="String"/>
+		<result property="nombre" column="cuenta" javaType="String"/>
+	</resultMap>
+
+	<procedure id="obtener_cuentas_cliente" parameterClass="java.util.HashMap" resultMap="rm_obtener_cuentas_cliente" >
+		{CALL sp_obtener_cuentas_cliente_ven(#rut#,#dv#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_obtener_productos_cliente">
+		<result property="codigo" column="codigo" javaType="String"/>
+		<result property="nombre" column="producto" javaType="String"/>
+	</resultMap>
+
+	<procedure id="obtener_productos_cliente" parameterClass="java.util.HashMap" resultMap="rm_obtener_productos_cliente" >
+		{CALL sp_obtener_productos_cliente_v(#rut#,#dv#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_registrar_filtros_cuentas">
+		<result property="ingresado" column="ingresado" javaType="String"/>
+	</resultMap>
+
+	<procedure id="registrar_filtros_cuentas" parameterClass="java.util.HashMap" resultMap="rm_registrar_filtros_cuentas" >
+		{CALL sp_registrar_filtros_cuentas(#rut#,#dv#,#identificador#,#valor#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_registrar_filtros_productos">
+		<result property="ingresado" column="ingresado" javaType="String"/>
+	</resultMap>
+
+	<procedure id="registrar_filtros_productos" parameterClass="java.util.HashMap" resultMap="rm_registrar_filtros_productos" >
+		{CALL sp_registrar_filtros_productos(#rut#,#dv#,#identificador#,#valor#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_obtener_equivalencias_monetarias">
+		<result property="moneda" column="moneda" javaType="String"/>
+		<result property="valor" column="valor" javaType="String"/>
+	</resultMap>
+
+	<procedure id="obtener_equivalencias_monetarias" parameterClass="java.util.HashMap" resultMap="rm_obtener_equivalencias_monetarias" >
+		{CALL sp_obtener_equivalencias_monet(#fechaCierre#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_obtener_fecha_cierre">
+		<result property="cierre" column="cierre" javaType="Date"/>
+		<result property="actualizado" column="actualizado" javaType="Date"/>
+	</resultMap>
+
+	<procedure id="obtener_fecha_cierre" parameterClass="java.util.HashMap" resultMap="rm_obtener_fecha_cierre" >
+		{CALL sp_obtener_fecha_cierre(#rut#,#dv#)}
+	</procedure>
+
+
+	<procedure id="eliminar_filtros_cuentas" parameterClass="java.util.HashMap" >
+		{CALL sp_eliminar_filtros_cuentas(#rut#,#dv#)}
+	</procedure>
+
+
+	<procedure id="eliminar_filtros_productos" parameterClass="java.util.HashMap" >
+		{CALL sp_eliminar_filtros_productos(#rut#,#dv#)}
+	</procedure>
+
+
+	<resultMap class="java.util.HashMap" id="rm_obtener_productos">
+		<result property="codigo" column="codigo" javaType="String"/>
+		<result property="producto" column="producto" javaType="String"/>
+	</resultMap>
+
+	<procedure id="obtener_productos" parameterClass="java.util.HashMap" resultMap="rm_obtener_productos" >
+		{CALL sp_cns_productos(#rut#)}
+	</procedure>
+
+                    <resultMap class="java.util.HashMap" id="res_obtener_accesos">
+        <result property="id" column="acc_id" javaType="Integer"/>
+        <result property="etiqueta" column="acc_cod" javaType="String"/>
+        <result property="descripcion" column="acc_desc" javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtener_accesos" parameterClass="java.util.HashMap" resultMap="res_obtener_accesos" >
+        {CALL sp_obtener_accesos()}
+    </procedure>
+    
+    <procedure id="quitar_acceso_rol" parameterClass="java.util.HashMap">
+        {CALL sp_quitar_acc_rol(#acc_id#,#rol_id#)}
+    </procedure>
+    
+                    <parameterMap id="setObtenerProductosAcceso" class="java.util.HashMap">
+		<parameter property="acc_id" jdbcType="INTEGER" javaType="java.lang.Integer" />	
+	</parameterMap>
+	
+	<resultMap id="getObtenerProductosAcceso" class="java.util.HashMap">
+		<result  property="prd_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerProductosAcceso" parameterMap="setObtenerProductosAcceso" resultMap="getObtenerProductosAcceso">
+		{CALL sp_obtener_productos_acceso(?)}
+	</procedure>
+	
+	<parameterMap id="setObtenerIdRol" class="java.util.HashMap">
+		<parameter property="rol_nom_rol" jdbcType="VARCHAR"  javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="getObtenerIdRol" class="java.util.HashMap">
+		<result  property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</resultMap>
+	<procedure id="obtenerIdRol" parameterMap="setObtenerIdRol" resultMap="getObtenerIdRol">
+		{CALL sp_obtener_id_rol(?)}
+	</procedure>
+	
+	<parameterMap id="setAsignarAccesoRol" class="java.util.HashMap">
+		<parameter property="acc_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+		<parameter property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<procedure id="asignarAccesoRol" parameterMap="setAsignarAccesoRol" resultClass="int">
+		{CALL sp_asig_acc_rol(?,?)}
+    </procedure>
+
+	<parameterMap id="setEliminarAccesoRol" class="java.util.HashMap">
+		<parameter property="acc_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+		<parameter property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<procedure id="eliminarAccesoRol" parameterMap="setEliminarAccesoRol" resultClass="int">
+		{CALL sp_quitar_acc_rol(?,?)}
+	</procedure>
+    
+    <parameterMap id="setObtenerAccesoPorRol" class="java.util.HashMap">
+		<parameter property="id_rol" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<resultMap id="getObtenerAccesoPorRol" class="java.util.HashMap">
+	    <result  property="acc_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	    <result  property="acc_cod" jdbcType="VARCHAR"  javaType="String"/>
+		<result  property="acc_desc" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerAccesoPorRol" parameterMap="setObtenerAccesoPorRol" resultMap="getObtenerAccesoPorRol">
+		{CALL sp_obtener_accesos_usuario(?)}
+	</procedure>
+	
+	<parameterMap id="setObtenerAccesosRut" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<resultMap id="getObtenerAccesosRut" class="java.util.HashMap">
+		<result  property="id"          column="acc_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+		<result  property="descripcion" column="acc_desc" jdbcType="VARCHAR"  javaType="String" />
+		<result  property="etiqueta"    column="acc_cod" jdbcType="VARCHAR"  javaType="String" />
+	</resultMap>
+	
+	<procedure id="obtenerAccesosRut" parameterMap="setObtenerAccesosRut" resultMap="getObtenerAccesosRut">
+		{CALL sp_obtener_accesos_usuario_rut(?)}
+	</procedure>
+    
+    
+    <parameterMap id="setActEstadoRol" class="java.util.HashMap">
+		<parameter property="rol_id" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+		<parameter property="estado" jdbcType="INTEGER"  javaType="java.lang.Integer"/>
+	</parameterMap>
+	
+	<procedure id="actEstadoRol" parameterMap="setActEstadoRol" resultClass="int">
+		{CALL sp_act_estado_rol(?,?)}
+	</procedure>
+    
+<parameterMap id="setConsultarRolUsuario" class="java.util.HashMap">
+        <parameter property="rutUsuario" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+    </parameterMap>
+    <procedure id="consultarRolUsuario" parameterMap="setConsultarRolUsuario" resultClass="int">
+        { CALL sp_consultar_rol_usuario( ? ) }
+    </procedure><parameterMap id="setObtenerTitularesAsociados" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="INT"  javaType="Long" />
+        <parameter property="dv" jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getObtenerTitularesAsociados" class="java.util.HashMap">
+        <result  property="usu_rut" jdbcType="INTEGER"  javaType="Long"/>
+        <result  property="usu_dv" jdbcType="CHAR"  javaType="String"/>
+        <result  property="usu_nom_usuario" jdbcType="VARCHAR"  javaType="String"/>
+        <result  property="usu_tip_usuario" jdbcType="CHAR"  javaType="String"/>
+    </resultMap>
+    
+    <procedure id="obtenerTitularesAsociados" parameterMap="setObtenerTitularesAsociados" resultMap="getObtenerTitularesAsociados">
+        {CALL sp_obtener_titulares_asociados(?, ?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerRolAsociado" class="java.util.HashMap">
+        <parameter property="rutTitAso" jdbcType="INT"  javaType="Long" />
+        <parameter property="rutUsu" jdbcType="INT"  javaType="Long" />
+    </parameterMap>
+    
+    <resultMap id="getObtenerRolAsociado" class="java.util.HashMap">
+        <result  property="rol_id" jdbcType="INTEGER"  javaType="Integer"/>
+        <result  property="rol_nom_rol" jdbcType="VARCHAR"  javaType="String"/>
+        <result  property="rol_adm" jdbcType="INTEGER"  javaType="Integer"/>
+    </resultMap>
+    
+    <procedure id="obtenerRolAsociado" parameterMap="setObtenerRolAsociado" resultMap="getObtenerRolAsociado">
+        {CALL sp_obtener_rol_asociado(?, ?)}
+    </procedure>
+    
+    
+	<resultMap id="indicadorCuentaConf" class="java.util.HashMap">
+	    <result property="indicador"      column="indicador"/>
+	</resultMap>
+   
+    <procedure id="registrarFiltrosConf" parameterClass="java.util.HashMap" resultMap="indicadorCuentaConf">
+        { CALL sp_registra_filtros_conf(#rutUsuario#, #rutCuenta#) }
+    </procedure>    
+    
+    <procedure id="eliminarFiltrosConf" parameterClass="java.util.HashMap" >
+        {CALL sp_eliminar_filtros_conf(#rut#)}
+    </procedure>
+
+    <resultMap id="getObtenerRutConf" class="java.util.HashMap">
+        <result  property="Ord_Usu_Rut_Rel" jdbcType="INTEGER"  javaType="Integer"/>
+    </resultMap>
+    
+    <procedure id="obtenerRutConf" resultMap="getObtenerRutConf">
+        {CALL sp_obtener_rut_conf(#rut#)}
+    </procedure>
+    
+    <resultMap class="java.util.HashMap" id="getObtenerCtasResConSel">
+        <result property="cpr_rut_cuenta" jdbcType="INT" javaType="Integer"/>
+    </resultMap>
+    
+    <procedure id="obtenerCtasResConSel" resultMap="getObtenerCtasResConSel">
+        {CALL sp_obt_ctas_rc_sel(#rutCliente#)}
+    </procedure>
+    
+    <parameterMap id="setObtieneNivelNemotecnico" class="java.util.HashMap">
+        <parameter property="rutCliente"        jdbcType="INTEGER"  javaType="Long"/>
+        <parameter property="idProducto"        jdbcType="INTEGER"  javaType="Long"/>
+        <parameter property="resumenOperacion"  jdbcType="VARCHAR"  javaType="String"/>
+    </parameterMap>
+    <resultMap id="getObtieneNivelNemotecnico" class="java.util.HashMap">
+        <result  property="nemotecnico"         jdbcType="VARCHAR"  javaType="String"/>
+        <result  property="precio_tasa"         jdbcType="DECIMAL"  javaType="java.lang.Double"/>
+        <result  property="cantidad"            jdbcType="DECIMAL"  javaType="java.lang.Double"/>
+        <result  property="mto_operacion"       jdbcType="DECIMAL"  javaType="java.lang.Double"/>
+    </resultMap>
+    <procedure id="obtieneNivelNemotecnico" parameterMap="setObtieneNivelNemotecnico" resultMap="getObtieneNivelNemotecnico">
+        {CALL sp_obtener_nemotecnico(?,?,?)}
+    </procedure>
+    
+    <parameterMap id="setObtenerTitularesSinFiltroFecha" class="java.util.HashMap">
+        <parameter property="rut" jdbcType="INT"  javaType="Long" />
+        <parameter property="dv" jdbcType="CHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getObtenerTitularesSinFiltroFecha" class="java.util.HashMap">
+        <result  property="usu_rut" jdbcType="INTEGER"  javaType="Long"/>
+        <result  property="usu_dv" jdbcType="CHAR"  javaType="String"/>
+        <result  property="usu_nom_usuario" jdbcType="VARCHAR"  javaType="String"/>
+        <result  property="usu_tip_usuario" jdbcType="CHAR"  javaType="String"/>
+        <result  property="fec_cierre"  jdbcType="DATETIME"  javaType="Date"/>
+    </resultMap>
+    
+    <procedure id="obtenerTitularesSinFiltroFecha" parameterMap="setObtenerTitularesSinFiltroFecha" resultMap="getObtenerTitularesSinFiltroFecha">
+        {CALL sp_cns_titulares_totales(?, ?)}
+    </procedure>
+</sqlMap>
+

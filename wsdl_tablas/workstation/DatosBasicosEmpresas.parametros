@@ -1,0 +1,26 @@
+#===========================================================#
+# Tabla de codigos para el mapeo de campos de Datos Básicos #
+#===========================================================#
+#
+#Campos
+#-------
+#Cliente en cuentas especiales
+CCE;Codigo=248;
+
+#Com. Ins.
+CI;111=Fisco,Repart Gubernat y;112=Sistema Previsional Secto;113=Empresa Publica;114=Gran Mineria Cobre;115=Municipalidad;122=Personas juridicas con Fi;123=Stma Previsional.Sector P;124=Personas Juridicas sin Fi;125=Personas Naturales;211=Bco Central de Chile;212=Banco del Estado;213=Filial B Estado Fiscaliz CMFChile;214=Filial B Estado Fiscaliz Otra Sup;221=Banco Privado;223=Filial Bca Fiscaliz CMFChile;231=Corp Ahorro y Credito;232=Corred Bolsa y Agent Valores;233=Cia Seguros y Filial de la misma;234=Adm de Fondos;235=Soc Securitizadoras;236=Agentes Adm Mutuos Hipotecarios;237=Emisor y Operadores de TC;299=Otros;301=Gobierno y Gerencia Guber;302=Bco del Exterior;309=Otros Pers o Entid Resid Exterior;
+
+#Tipo Cliente
+TC;CL=Cliente Cuenta Corriente;CA=Captaciones;CO=Credito;EB=Ex Colaborador BCI;EC=Ex Bci con Beneficios;EE=Colaborador BCI;EX=Ex Cliente;CP=Cuentaprima;PV=Otros Productos y servicios;FI=Colaborador Filial;SG=Cliente Seguro;FM=Fondos Mutuos;
+
+#Categoria
+CAT;PRD=Productiva;INV=Inversion;PER=Persona natural;SFL=Sin fines de lucro;
+
+#Naturaleza Juridica
+NATJ;01=Prsna natural;02=Colectiva;03=Anonima abierta;04=Responsabilidad Limitada;05=Encomandita  simple;06=Colectiva comercial;07=Anonima cerrada;08=Encomandita por acciones;09=Minerea contractual;10=Minera legal;11=Corporacion;12=Fundacion;13=Cooperativa;14=Comunidad;15=Sociedad extranjera;16=Otras sociedades;17=Agencia sociedad anonima;18=Comunidad hereditaria;20=sindicato;21=Congregacion religiosa;
+
+#T. Ins. Fin.
+TIF;E=Extranjera;N=Nacional;G=General;
+
+#Mat/Suc
+MATS;M=Matriz;S=Sucursal;

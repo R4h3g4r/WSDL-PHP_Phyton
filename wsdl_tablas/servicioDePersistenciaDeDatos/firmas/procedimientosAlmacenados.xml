@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="firmas.procedimientosAlmacenados">
+
+ 	<parameterMap id="setConsultarFacultad" class="java.util.HashMap">
+		<parameter property="rutUsuario"	 jdbcType="CHAR"	javaType="String" />
+		<parameter property="dvUsuario"	   jdbcType="CHAR"	javaType="String" />
+		<parameter property="convenio"	   jdbcType="CHAR"	javaType="String" />
+		<parameter property="rutEmpresa"	 jdbcType="CHAR"	javaType="String" />
+		<parameter property="dvEmpresa"	   jdbcType="CHAR"	javaType="String" />
+		<parameter property="facultad"	   jdbcType="int"	  javaType="Integer" />
+	</parameterMap>
+	
+	<procedure id="consultarFacultad" parameterMap="setConsultarFacultad" resultClass="String">
+		{ CALL sp_consultaFacultad ( ?,?,?,?,?,? ) }
+	</procedure>
+	<parameterMap id="setAutorizaPagoMonto" class="java.util.HashMap">
+		<parameter property="rutUsuario"			jdbcType="CHAR"		javaType="String" />
+		<parameter property="digitoVerifUsu"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="numero"				jdbcType="CHAR"		javaType="String" />
+		<parameter property="rutEmpresa"			jdbcType="CHAR"		javaType="String" />
+		<parameter property="digitoVerifEmp"		jdbcType="CHAR"		javaType="String" />
+		<parameter property="numeroAutorizacion"	jdbcType="CHAR"		javaType="String" />
+		<parameter property="autorTransac"			jdbcType="INT"		javaType="Integer" />
+		<parameter property="fecExpiracion"			jdbcType="CHAR"		javaType="String" />
+		<parameter property="monto"					jdbcType="MONEY"	javaType="double" />
+	</parameterMap>
+	<resultMap id="getAutorizaPagoMonto" class="java.util.HashMap">	
+		<result property="autoriza"					column="autoriza"	jdbcType="INT"	javaType="java.lang.Integer" />		
+	</resultMap>	
+	<procedure id="autorizaPagoMonto" parameterMap="setAutorizaPagoMonto" resultMap="getAutorizaPagoMonto">
+		{ CALL sp_autorizaPagoMonto ( ?,?,?,?,?,?,?,?,? ) }
+	</procedure>	
+	
+<procedure id="esEmpresaRegistrada" resultClass="String">
+	   { CALL sp_consultaEmpresa (#rutEmpresa#) }
+	</procedure>
+    
+    <parameterMap class="java.util.HashMap" id="setVerificaApoderado">
+        <parameter property="emp_rut" javaType="String" jdbcType="CHAR"/>
+        <parameter property="apo_rut" javaType="String" jdbcType="CHAR"/>
+    </parameterMap>
+    <procedure id="verificaApoderado" parameterMap="setVerificaApoderado" resultClass="String">
+        { CALL sp_CEII_verificaApoderado(?, ?) }
+    </procedure>
+   
+    <parameterMap id="setCambioMoneda" class="java.util.HashMap">
+        <parameter property="tipoMonedaOrigen"     jdbcType="CHAR"     javaType="String" />
+        <parameter property="tipoMonedaDestino"    jdbcType="CHAR"     javaType="String" />
+        <parameter property="fecha"                jdbcType="DATETIME" javaType="java.util.Date" />
+    </parameterMap>
+    <resultMap id="getCambioMoneda" class="java.util.HashMap"> 
+        <result property="valorCambioMoneda" column="valorCambioMoneda" jdbcType="DOUBLE" javaType="java.lang.Double" />
+    </resultMap>
+    <procedure id="cambioMoneda" parameterMap="setCambioMoneda" resultMap="getCambioMoneda">
+        { CALL sp_cambioMoneda ( ?, ?, ? ) }
+    </procedure> 
+    <procedure id="empresaTieneFyPCaducado" resultClass="String">
+       { CALL sp_consultaVigenciaEmpresa (#rutEmpresa#) }
+    </procedure>
+    
+    <parameterMap id="setObtenerPoderesEmpresa" class="java.util.HashMap">
+        <parameter property="rutEmpresa"    jdbcType="CHAR" javaType="String" />
+        <parameter property="facultad"      jdbcType="INT"  javaType="Integer" />
+    </parameterMap>
+    <resultMap id="getObtenerPoderesEmpresa" class="java.util.HashMap"> 
+        <result property="idPoder" jdbcType="INT" javaType="Integer" />
+        <result property="idGrupo" jdbcType="INT" javaType="Integer" />
+    </resultMap>
+    <procedure id="obtenerPoderesEmpresa" parameterMap="setObtenerPoderesEmpresa" resultMap="getObtenerPoderesEmpresa">
+       { CALL sp_obt_pod_emp( ?, ? ) }
+	</procedure>
+	
+    
+    <parameterMap id="setObtenerApoderadosDelGrupo" class="java.util.HashMap">
+        <parameter property="rutEmpresa"    jdbcType="CHAR" javaType="String" />
+        <parameter property="idGrupo"       jdbcType="INT"  javaType="Integer" />
+    </parameterMap>
+    <resultMap id="getObtenerApoderadosDelGrupo" class="java.util.HashMap"> 
+        <result property="rutApoderado"                 jdbcType="CHAR"     javaType="String" />
+        <result property="digitoVerificadorApoderado"   jdbcType="CHAR"     javaType="String" />
+        <result property="idApoderado"                  jdbcType="INT"      javaType="Integer" />
+        <result property="fechaExpiracionApo"           jdbcType="DATETIME" javaType="Date" />
+        <result property="nombre"                       jdbcType="CHAR"     javaType="String" />
+        <result property="apellidoPaterno"              jdbcType="CHAR"     javaType="String" />
+        <result property="apellidoMaterno"              jdbcType="CHAR"     javaType="String" />
+    </resultMap>
+    <procedure id="obtenerApoderadosDelGrupo" parameterMap="setObtenerApoderadosDelGrupo" resultMap="getObtenerApoderadosDelGrupo">
+        { CALL sp_obt_apo_grp_emp( ?, ? ) }
+    </procedure>
+   <parameterMap class="java.util.HashMap" id="setOminiVisarFirmaApoderado">
+	  <parameter property="usunumrut"    javaType="String" jdbcType="CHAR"/>
+	  <parameter property="usuvrtrut"    javaType="String" jdbcType="CHAR"/>
+	  <parameter property="cnvnum"       javaType="String" jdbcType="CHAR"/>
+	  <parameter property="empnumrut"    javaType="String" jdbcType="CHAR"/>
+	  <parameter property="empvrtrut"    javaType="String" jdbcType="CHAR"/>
+	  <parameter property="servCod"      javaType="String" jdbcType="CHAR"/>
+	  <parameter property="fcl_idn"      javaType="Integer"    jdbcType="INT"/>
+	  <parameter property="fec_exp"      javaType="String" jdbcType="CHAR"/>
+	  <parameter property="Monto"        javaType="java.lang.Double" jdbcType="MONEY"/>
+	  <parameter property="cuenta"       javaType="String" jdbcType="CHAR"/>
+	  <parameter property="parServicio"  javaType="Integer" jdbcType="INT"/>
+  </parameterMap>
+  <procedure id="ominiVisarFirmaApoderado" parameterMap="setOminiVisarFirmaApoderado" resultClass="String">
+	  {CALL sp_OMINI_val_firma_apo(?,?,?,?,?,?,?,?,?,?,?)}
+  </procedure>   
+</sqlMap>

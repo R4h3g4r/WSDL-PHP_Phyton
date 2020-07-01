@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 04-12-2003 -->
+<XML>
+<AU NTx="AprCreCrcConFut">  
+     <I>
+	    <campo FF="numSol" LF="16">numSolicitud</campo> 
+	 	<campo FF="tipo" LF="4">tipo</campo>						
+        <campo FF="fecIni" LF="10">fechaInicio</campo>
+		<campo FF="fec" LF="10">fecha2</campo>
+		<campo FF="obs" LF="255">observacion</campo>
+	</I>
+</AU>
+<C NTx="AprCreConCndFut">  
+     <I>
+        <campo FF="numSol" LF="16">numSolicitud</campo>
+	</I> 
+     <O>
+        <campo FF="tipo" LF="4">tipo</campo>						
+        <campo FF="fecIni" LF="10">fecha</campo>
+		<campo FF="fec" LF="10">fecha2</campo>
+		<campo FF="obs" LF="255">observacion</campo>	
+    </O> 	
+</C>
+</XML>

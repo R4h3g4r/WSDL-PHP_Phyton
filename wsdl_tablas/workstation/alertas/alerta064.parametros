@@ -1,0 +1,73 @@
+# Alerta Indicador de Riesgo Integral                                  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=SOBREGIRO NO PACTADO;
+GLOSA1;mensaje=1.- Determinar si esta situación es puntual o reiterativa. Ver si cliente debe ser ingresado a LOB en el caso de Banca Empresa y Empresarios.;
+GLOSA2;mensaje=2.- Verificar visación de cliente y líneas disponibles. Evaluar alternativa de financiamiento, actualizando información.;
+GLOSA3;mensaje=3.- Contactar a cliente para que cubra sobregiro o bien firme documentos para cursar un crédito. Comprometer fecha de regularización.;
+GLOSA4;mensaje=SE CALCULA: Para que exista Sobregiro No Pactado, el monto utilizado y valor autorizado de la línea de sobregiro debe ser igual, es decir, el saldo disponible en la línea de sobregiro debe ser igual a cero (Si posee linea de Sobregiro). Adicionalmente, el saldo disponible en la Cuenta Corriente debe ser negativo.;
+GLOSA5;mensaje=FRECUENCIA: Se calculan diariamente los sobregiros no pactados por cliente.;
+GLOSA6;mensaje=SE OBTIENE: Sistema de cuentas corrientes del banco.;
+GLOSA7;mensaje= ;
+GLOSA8;mensaje=PROTESTOS EN SISTEMA;
+GLOSA9;mensaje=1.- Revisar en visación detalle de protesto.;
+GLOSA10;mensaje=2.- Contactar al cliente e indagar situación general. ;
+GLOSA11;mensaje=3.- Solicitar la aclaración del protesto.;
+GLOSA12;mensaje=4.- Si la situación es recurrente tomar medidas de acción.;
+GLOSA13;mensaje=SE CALCULA: Esta alerta se activa cuando el cliente tiene protestos vigentes sin aclarar tanto Bci como en Informe Comercial. El cliente puede tener una o más de unas de estas condiciones para que se active la alerta.;
+GLOSA14;mensaje=FRECUENCIA: No se utiliza tiempo en el cálculo.;
+GLOSA15;mensaje=SE OBTIENE: La resta entre Protestos Vigentes y Aclaraciones debe ser mayor que 0.; 
+GLOSA16;mensaje= ;
+GLOSA17;mensaje=DEUDA MOROSA EN BCI;
+GLOSA18;mensaje=1.- Verificar Información.;
+GLOSA19;mensaje=2.- Contactar a Cliente.;
+GLOSA20;mensaje=3.- Solicitar regularización de deuda morosa, con pago de cuota o reestructuración de la deuda.;
+GLOSA21;mensaje=SE CALCULA: Se despliega cuando el cliente tiene deuda castigada, vencida y/o morosa en el listado de Deudores Bci.;
+GLOSA22;mensaje=FRECUENCIA: No se calcula en base a tiempo.;
+GLOSA23;mensaje=SE OBTIENE: Listado de Deudores Bci.;
+GLOSA24;mensaje= ;
+GLOSA25;mensaje=DEUDA CASTIGADA O VENCIDA EN BCI;
+GLOSA26;mensaje=1.- Detectar situación de origen.;
+GLOSA27;mensaje=2.- Determinar si existe posibilidad de recuperar.;
+GLOSA28;mensaje=3.- Normalizar deuda, verificando si es que existe gestión de cobranza en Normaliza y Cuentas Especiales.;
+GLOSA29;mensaje=SE CALCULA: Se despliega cuando el cliente tiene deuda castigada, vencida y/o morosa en el listado de Deudores Bci.;
+GLOSA30;mensaje=FRECUENCIA: No se calcula en base a tiempo.;
+GLOSA31;mensaje=SE OBTIENE: Listado de Deudores Bci.;
+
+
+#Glosa para desplegar por pdf
+GLOSAPDF0;mensaje=SOBREGIRO NO PACTADO;
+GLOSAPDF1;mensaje=1.- Determinar si esta situación es puntual o reiterativa. Ver si cliente debe ser ingresado a LOB en el caso de Banca Empresa y Empresarios.;
+GLOSAPDF2;mensaje=2.- Verificar visación de cliente y líneas disponibles. Evaluar alternativa de financiamiento, actualizando información.;
+GLOSAPDF3;mensaje=3.- Contactar a cliente para que cubra sobregiro o bien firme documentos para cursar un crédito. Comprometer fecha de regularización.;
+GLOSAPDF4;mensaje=SE CALCULA: Para que exista Sobregiro No Pactado, el monto utilizado y valor autorizado de la línea de sobregiro debe ser igual, es decir, el saldo disponible en la línea de sobregiro debe ser igual a cero (Si posee linea de Sobregiro). Adicionalmente, el saldo disponible en la Cuenta Corriente debe ser negativo.;
+GLOSAPDF5;mensaje=FRECUENCIA: Se calculan diariamente los sobregiros no pactados por cliente.;
+GLOSAPDF6;mensaje=SE OBTIENE: Sistema de cuentas corrientes del banco.;
+GLOSAPDF7;mensaje= ;
+GLOSAPDF8;mensaje=PROTESTOS EN SISTEMA;
+GLOSAPDF9;mensaje=1.- Revisar en visación detalle de protesto.;
+GLOSAPDF10;mensaje=2.- Contactar al cliente e indagar situación general. ;
+GLOSAPDF11;mensaje=3.- Solicitar la aclaración del protesto.;
+GLOSAPDF12;mensaje=4.- Si la situación es recurrente tomar medidas de acción.;
+GLOSAPDF13;mensaje=SE CALCULA: Esta alerta se activa cuando el cliente tiene protestos vigentes sin aclarar tanto Bci como en Informe Comercial. El cliente puede tener una o más de unas de estas condiciones para que se active la alerta.;
+GLOSAPDF14;mensaje=FRECUENCIA: No se utiliza tiempo en el cálculo.;
+GLOSAPDF15;mensaje=SE OBTIENE: La resta entre Protestos Vigentes y Aclaraciones debe ser mayor que 0.; 
+GLOSAPDF16;mensaje= ;
+GLOSAPDF17;mensaje=DEUDA MOROSA EN BCI;
+GLOSAPDF18;mensaje=1.- Verificar Información.;
+GLOSAPDF19;mensaje=2.- Contactar a Cliente.;
+GLOSAPDF20;mensaje=3.- Solicitar regularización de deuda morosa, con pago de cuota o reestructuración de la deuda.;
+GLOSAPDF21;mensaje=SE CALCULA: Se despliega cuando el cliente tiene deuda castigada, vencida y/o morosa en el listado de Deudores Bci.;
+GLOSAPDF22;mensaje=FRECUENCIA: No se calcula en base a tiempo.;
+GLOSAPDF23;mensaje=SE OBTIENE: Listado de Deudores Bci.;
+GLOSAPDF24;mensaje= ;
+GLOSAPDF25;mensaje=DEUDA CASTIGADA O VENCIDA EN BCI;
+GLOSAPDF26;mensaje=1.- Detectar situación de origen.;
+GLOSAPDF27;mensaje=2.- Determinar si existe posibilidad de recuperar.;
+GLOSAPDF28;mensaje=3.- Normalizar deuda, verificando si es que existe gestión de cobranza en Normaliza y Cuentas Especiales.;
+GLOSAPDF29;mensaje=SE CALCULA: Se despliega cuando el cliente tiene deuda castigada, vencida y/o morosa en el listado de Deudores Bci.;
+GLOSAPDF30;mensaje=FRECUENCIA: No se calcula en base a tiempo.;
+GLOSAPDF31;mensaje=SE OBTIENE: Listado de Deudores Bci.;
+
+
+#Viñeta Explicativa
+VINETA;calcula=Favor revisar detalles en los Pasos a Seguir.;periodo=Favor revisar detalles en los Pasos a Seguir.;fuente=Favor revisar detalles en los Pasos a Seguir.;

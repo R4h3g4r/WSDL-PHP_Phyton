@@ -1,0 +1,67 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_con_pr_mtv"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idMotivo"
+          type = "Integer"
+          size = "26"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "idMotivo"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "0" class_name = "IteracionConsultaMotivo" var_name = "consultaMotivo" >
+
+          <field
+            java_name = "idMotivo"
+            type = "Integer"
+            size = "26"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "pr_mtv_id"
+          />
+
+          <field
+            java_name = "nombre"
+            type = "String"
+            size = "30"
+            middle_name = "pr_mtv_nom"
+          />
+
+          <field
+            java_name = "descripcion"
+            type = "String"
+            size = "60"
+            middle_name = "pr_mtv_des"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

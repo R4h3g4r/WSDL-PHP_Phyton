@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+  
+<sqlMap namespace="gicefec.procedimientosAlmacenados">
+
+   <resultMap id="AusenciaTO" class="java.util.HashMap">
+      <result property="ejecutivo"   column="aus_cod_eje"  javaType="java.lang.String"     jdbcType="VARCHAR"/>
+      <result property="fecha"       column="aus_fec"      javaType="Date"/>
+      <result property="estado"      column="aus_tes_idn"  javaType="java.lang.String"     jdbcType="VARCHAR"/>
+   </resultMap>
+
+   <!-- llamada a procedimientos almacenados en sybase -->
+   
+   <procedure id="traerAusencias" parameterClass="java.util.HashMap" resultMap="AusenciaTO">
+        {CALL sp_cns_aus(#fec_ini#, #fec_fin#)}
+   </procedure> 
+
+   <procedure id="traerAusenciasEjecutivo" parameterClass="java.util.HashMap" resultMap="AusenciaTO">
+        {CALL sp_cns_aus_eje(#cod_eje#, #fec_ini#, #fec_fin#)}
+   </procedure>
+
+   <procedure id="eliminarAusencia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_eli_aus(#cod_eje#, #aus_fec#, #aus_est#, #eje_mod#)}
+   </procedure>
+   
+   <procedure id="creaAusencia" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_ins_aus(#cod_eje#, #aus_fec#, #aus_est#, #eje_mod#)}
+   </procedure>
+
+   <procedure id="modificaAusencia" parameterClass="java.util.HashMap" resultMap="AusenciaTO">
+        {CALL sp_mod_aus(#cod_eje#, #aus_fec#, #aus_est#, #eje_mod#)}
+   </procedure>
+
+	<procedure id="traerTiposDeEstados" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+        {CALL sp_cns_tip_est()}
+   </procedure>
+
+</sqlMap>

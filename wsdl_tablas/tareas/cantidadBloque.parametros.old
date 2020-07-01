@@ -1,0 +1,13 @@
+#
+# Cantidad de registros por bloque
+# =================================
+#
+BLQ;Valor=25;
+
+# condicion especial para mostrar eventos ordenados 
+# por prioridad cuando las consultas no son del tipo propias
+# ==========================================================
+#
+SELF||;Valor=SI;
+NOSELECT|ASSIGNBYSELF|;Valor=SI;
+NOSELECT|ASSIGNBYOTHERS|;Valor=SI;

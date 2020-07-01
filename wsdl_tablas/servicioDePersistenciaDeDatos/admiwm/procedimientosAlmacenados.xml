@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="ctl.procedimientosAlmacenados">
+
+  <resultMap id="getObtineHistoricoPortales" class="java.util.HashMap">
+        <result property="pbl_vrs"      jdbcType="char" javaType="String" />
+        <result property="cnl_id"      jdbcType="char" javaType="String" />
+  </resultMap>
+  
+  <procedure id="obtineHistoricoPortalesMenu" resultMap="getObtineHistoricoPortales">
+     { call sp_cns_hist_portales_menu() }
+  </procedure>  
+  
+  
+  <resultMap id="getObtineHistoricoPortalesVista" class="java.util.HashMap">
+    <result property="dominio"                  jdbcType="char" javaType="String" />
+    <result property="ultima_version"           jdbcType="char" javaType="String" />
+  </resultMap>
+
+  <procedure id="obtineHistoricoPortalesVistaAccion" resultMap="getObtineHistoricoPortalesVista">
+     { call sp_cns_hist_portales_vista() }
+  </procedure>  
+  
+  <resultMap id="getObtenerPortalesDisponibles" class="java.util.HashMap">
+    <result property="idCanal"      jdbcType="char" javaType="String" />
+    <result property="estado"      	jdbcType="char" javaType="String" />
+  </resultMap>
+
+  <procedure id="obtenerPortalesDisponibles" resultMap="getObtenerPortalesDisponibles">
+     { call sp_obt_portales_sd() }
+  </procedure>  
+  
+   <resultMap id="getObtineHistoricoRegla"       class="java.util.HashMap">
+    <result property="canal_id"                 jdbcType="char" javaType="String" />
+    <result property="fecha_publicacion"        jdbcType="datetime" javaType="Date"/>
+    <result property="regla_id"                 jdbcType="int" javaType="int" />
+	<result property="usuario_publicacion"      jdbcType="char" javaType="String" />
+     <result property="descripcion"                 jdbcType="char" javaType="String" />
+	<result property="version_regla"            jdbcType="int" javaType="int" />
+    
+  </resultMap>
+
+  <procedure id="obtineHistoricoRegla" resultMap="getObtineHistoricoRegla">
+     { call sp_cns_hist_pbl_reglas() }
+  </procedure>  
+  
+  <resultMap id="getObtineDetalleHistoricoPublicacion" class="java.util.HashMap">
+    <result property="cnl_id"      jdbcType="char" javaType="String" />
+    <result property="pbl_fec_act" jdbcType="datetime" javaType="Date"/>
+    <result property="mnu_id"      jdbcType="int" javaType="int" />
+    <result property="acc_id"      jdbcType="int" javaType="int" />
+    <result property="rgl_id"      jdbcType="int" javaType="int" />
+    <result property="pbl_usu_act" jdbcType="char" javaType="String" />
+    <result property="pbl_dsc" 	   jdbcType="char" javaType="String" />
+    <result property="pbl_vrs"      jdbcType="int" javaType="int" />
+  </resultMap>
+  
+  <procedure id="obtineDetalleHistoricoMenu" resultMap="getObtineDetalleHistoricoPublicacion">
+     { call sp_cns_det_hist_menu(#idCanal#) }
+  </procedure>
+  
+  <procedure id="disponibilizaCanales" resultClass="int">
+     { call sp_disponibiliza_canal_sd(#canal#, #estado#) }
+  </procedure>  
+  
+   <resultMap id="getObtenerUltimoRegistroMenu" class="java.util.HashMap">
+     <result property="idMenu"                  jdbcType="int" javaType="int" />
+     <result property="idCanal"   	            jdbcType="char" javaType="String" />
+     <result property="fechaActualizacion"      jdbcType="DATE"  javaType="java.util.Date"  />
+     <result property="usuario"                 jdbcType="char" javaType="String" />
+     <result property="xml"                     jdbcType="String" javaType="String" />
+  </resultMap>
+     
+  <procedure id="obtenerUltimoRegistroMenu" resultMap="getObtenerUltimoRegistroMenu"> 
+     { call sp_cns_ult_mnu(#canal#) }
+  </procedure>
+  
+  <resultMap id="getObtineDetalleHistoricoPublicacionVista" class="java.util.HashMap">
+    <result property="cnl_id"       jdbcType="char" javaType="String"/>
+    <result property="pbl_fec_act"  jdbcType="datetime" javaType="Date" />
+    <result property="pbl_usu_act"  jdbcType="char" javaType="String" />
+    <result property="pbl_dsc"      jdbcType="char" javaType="String" />
+    <result property="pbl_vrs"      jdbcType="int" javaType="int" />
+    <result property="acc_id" 	    jdbcType="int" javaType="int" />
+  </resultMap>
+     
+  <procedure id="obtineDetalleHistoricoVista" resultMap="getObtineDetalleHistoricoPublicacionVista">
+     { call sp_cns_hist_pbl_vista(#dominio#) }
+  </procedure>
+  
+  <resultMap id="getConsultarMenuPorId" class="java.util.HashMap">
+    <result property="mnu_id"	jdbcType="int" javaType="int" />
+    <result property="cnl_id"	jdbcType="char" javaType="String" />
+    <result property="mnu_fec_act" jdbcType="datetime" javaType="Date"/>
+    <result property="mnu_usu_act"	jdbcType="char" javaType="String" />
+    <result property="mnu_txt"	jdbcType="char" javaType="String" />
+  </resultMap>
+
+  <procedure id="consultarMenuPorId" resultMap="getConsultarMenuPorId">
+     { call sp_cns_mnu_id(#idMenu#) }
+  </procedure>
+  
+   <resultMap id="getConsultarAccionPorId" class="java.util.HashMap">
+    <result property="acc_id"	jdbcType="int" javaType="int" />
+    <result property="acc_gls_dominio"	jdbcType="char" javaType="String" />
+    <result property="acc_fec_act" jdbcType="datetime" javaType="Date"/>
+    <result property="acc_usu_act"	jdbcType="char" javaType="String" />
+    <result property="acc_txt"	jdbcType="char" javaType="String" />
+    <result property="acc_vrs_pbl"	jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarAccionPorId" resultMap="getConsultarAccionPorId">
+     { call sp_cns_acc_id(#idAccion#) }
+  </procedure>
+  
+  <resultMap id="getConsultarReglaPorId" class="java.util.HashMap">
+  	<result property="rgl_id"	jdbcType="int" javaType="int" />
+  	<result property="rgl_fec_act" jdbcType="datetime" javaType="Date"/>
+    <result property="rgl_usu_act"	jdbcType="char" javaType="String" />
+    <result property="rgl_txt"	jdbcType="char" javaType="String" />
+    <result property="rgl_vrs_pbl"	jdbcType="int" javaType="int" />
+  </resultMap>
+
+  <procedure id="consultarReglaPorId" resultMap="getConsultarReglaPorId">
+     { call sp_cns_rgl_id(#idRegla#) }
+  </procedure>
+  
+  <resultMap id="getObtenerUltimaRegla" class="java.util.HashMap">
+		   <result property="rgl_id"      jdbcType="int"  javaType="int" />
+		   <result property="rgl_fec_act" jdbcType="datetime" javaType="Date"/>
+           <result property="rgl_usu_act" jdbcType="CHAR" javaType="String" />
+           <result property="rgl_txt"	  jdbcType="CHAR" javaType="String" />
+           <result property="rgl_vrs_pbl" jdbcType="int"  javaType="int" />
+  </resultMap>
+
+  <procedure id="obtenerUltimaRegla" resultMap="getObtenerUltimaRegla">
+	{ call sp_cns_ult_reglas() }
+  </procedure> 
+  
+  <resultMap id="getObtenerUltimoRegistroAccion" class="java.util.HashMap">
+           <result property="acc_id"            jdbcType="int"  javaType="int" />
+           <result property="acc_gls_dominio"   jdbcType="CHAR" javaType="String"/>
+           <result property="acc_fec_act"       jdbcType="datetime" javaType="Date" />
+           <result property="acc_usu_act"       jdbcType="CHAR" javaType="String" />
+           <result property="acc_txt"           jdbcType="CHAR"  javaType="String" />
+           <result property="acc_vrs_pbl"       jdbcType="int"  javaType="int" />
+  </resultMap>
+  
+  <procedure id="obtenerUltimoRegistroAccion" resultMap="getObtenerUltimoRegistroAccion">
+    { call sp_cns_ult_acc(#dominio#) }
+  </procedure>  
+  
+  <resultMap id="getObtenerArchivoBloqueado" class="java.util.HashMap">
+    <result property="bloqueoId"               jdbcType="int" javaType="int" />
+    <result property="canalId"              jdbcType="char" javaType="String" />
+	<result property="codigoTipo"              jdbcType="char" javaType="String" />
+	<result property="fechaInicioBloqueo"     jdbcType="DATE"  javaType="java.util.Date"  />
+	<result property="fechaFinBloqueo"     jdbcType="DATE"  javaType="java.util.Date"  />
+	<result property="usuarioBloqueo"         jdbcType="char" javaType="String" />
+	<result property="glosaDominio"         jdbcType="char" javaType="String" />
+	<result property="codigoEstado"           jdbcType="char" javaType="String" />
+    
+	
+    </resultMap>
+   <procedure id="obtenerArchivoBloqueado" resultMap="getObtenerArchivoBloqueado"> 
+     { call sp_con_blq_archivo(#dominio#, #canal#, #tipoArchivo#) }
+   </procedure>
+   
+    <resultMap id="getObtenerCatalogoServicios" class="java.util.HashMap">
+     <result property="idServicio"               jdbcType="char" javaType="String" />
+     <result property="urlDestino"   	         jdbcType="String" javaType="String" />
+     <result property="glosaServicio"   	     jdbcType="char" javaType="String" />
+     <result property="codigoEstado"             jdbcType="char"  javaType="String"  />
+     <result property="descripcionServicio"      jdbcType="char"  javaType="String"  />
+     <result property="despliegueServicio"       jdbcType="char"  javaType="String"  />
+    </resultMap>
+   
+   <procedure id="obtenerCatalogoServicios" resultMap="getObtenerCatalogoServicios">
+       { call sp_cns_cat_srv() }
+   </procedure>
+   
+   <resultMap id="getObtenerListaDesplegable" class="java.util.HashMap">
+     <result property="idListaDesplegable"       jdbcType="char" javaType="String" />
+     <result property="codigoEstadoLista"   	 jdbcType="char" javaType="String" />
+     <result property="glosaDominioLista"   	 jdbcType="char" javaType="String" />
+     <result property="codigoOpcionLista"        jdbcType="char"  javaType="String"  />
+    </resultMap>
+   
+   <procedure id="obtenerListaDesplegable" resultMap="getObtenerListaDesplegable">
+       { call sp_cns_cat_lst(#dominio#) }
+   </procedure>
+   
+   <procedure id="insertaBloqueoArchivo" resultClass="int">
+     { call sp_ins_blq_archivo(#canal#, #tipoBloqueo#, #fechaInicio#, #fechaFin#, #usuario#, #dominio#, #estado#) }
+   </procedure> 
+   
+   <procedure id="modificaBloqueo" >
+     { call sp_upd_blq_fin(#usuario#) }
+   </procedure> 
+   
+   <procedure id="eliminaCanal">
+      { call sp_elimina_canal_sd(#canal#) }
+   </procedure>
+   
+   <parameterMap id="setGenerarRegistroPublicacion" class="java.util.HashMap">
+		<parameter property="cnl_id" 	  jdbcType="CHAR" 	  javaType="String"/>
+		<parameter property="pbl_fec_act" jdbcType="datetime"  javaType="Date"/>
+		<parameter property="mnu_id" 	  jdbcType="int"      javaType="int" />
+		<parameter property="acc_id" 	  jdbcType="int"      javaType="int" />
+		<parameter property="rgl_id" 	  jdbcType="int"      javaType="int" />
+		<parameter property="pbl_usu_act" jdbcType="CHAR" 	  javaType="String"/>
+		<parameter property="pbl_dsc" 	  jdbcType="CHAR" 	  javaType="String"/>
+    </parameterMap>
+	
+	<resultMap id="getGenerarRegistroPublicacion" class="java.util.HashMap">
+		<result property="cnl_id" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="pbl_fec_act" 	jdbcType="datetime"  javaType="Date"/>
+		<result property="mnu_id" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="acc_id" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="rgl_id" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="pbl_usu_act" 	jdbcType="CHAR" 	javaType="String"/>
+		<result property="pbl_dsc" 		jdbcType="CHAR" 	javaType="String"/>
+		<result property="version" 		jdbcType="CHAR" 	javaType="String"/>
+	</resultMap>
+	
+	<procedure id="generarRegistroPublicacion" parameterMap="setGenerarRegistroPublicacion" resultMap="getGenerarRegistroPublicacion">
+		{ CALL sp_ins_pbl (?,?,?,?,?,?,?) }
+	</procedure>
+	
+</sqlMap>

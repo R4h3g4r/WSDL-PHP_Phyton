@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="CMG.procedimientosAlmacenados">
+
+	<parameterMap id="setIngreso" class="java.util.HashMap">
+		<parameter property="codigoProducto" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fechaOperacion" jdbcType="DATETIME" javaType="String" />
+		<parameter property="numeroOperacion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fechaPago" jdbcType="DATETIME" javaType="String" />
+		<parameter property="tipoOperacion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="indicadorAccion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="montoOperacion" jdbcType="NUMERIC" javaType="Double" />
+		<parameter property="formaPago" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="rutCliente" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="razonSocial" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="bancoCorresponsal" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="bancoBeneficiario" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="monedaPago" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="indicadorCerteza" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="wss_result_sw" jdbcType="INTEGER" mode="INOUT"/>		
+		<parameter property="wss_result_msg" jdbcType="VARCHAR" mode="INOUT"/>
+	</parameterMap>
+	
+	<resultMap id="getResultado" class="java.util.HashMap">
+		<result property="codigo" column="codigo" />
+		<result property="mensaje" column="mensaje" />
+	</resultMap>
+	
+	<procedure id="ingresarSpot" resultMap="getResultado" parameterMap="setIngreso">
+		{CALL CMGsrv_spy_ing_tid(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+	</procedure>
+	
+	<parameterMap id="setAnular" class="java.util.HashMap">
+		<parameter property="codigoProducto" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fechaOperacion" jdbcType="DATETIME" javaType="String" />
+		<parameter property="numeroOperacion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="fechaPago" jdbcType="DATETIME" javaType="String" />
+		<parameter property="tipoOperacion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="indicadorAccion" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="wss_result_sw" jdbcType="INTEGER" mode="INOUT"/>		
+		<parameter property="wss_result_msg" jdbcType="VARCHAR" mode="INOUT"/>
+	</parameterMap>
+	
+	<procedure id="anularSpot" resultMap="getResultado" parameterMap="setAnular">
+		{CALL CMGsrv_spy_anu_tid(?, ?, ?, ?, ?, ?, ? ,?)}
+	</procedure>
+
+</sqlMap>	

@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+	
+<sqlMap namespace="consolidattff.procedimientosAlmacenados">
+
+
+	
+	<parameterMap id="setTraerDetTransferencia" class="java.util.HashMap">
+			<parameter property="rutEmpresa"			jdbcType="CHAR"	javaType="String" />
+			<parameter property="convenio"	    		jdbcType="CHAR"	javaType="String" />
+			<parameter property="numeroDetalle"	    	jdbcType="CHAR"	javaType="String" />
+			
+			
+	  </parameterMap>
+	  
+	  <resultMap id="getTraerDetTransferencia" class="java.util.HashMap">
+			
+			<result property="fechaPago"		      column="fechaCreacion"		          jdbcType="DATETIME"  javaType="java.util.Date" />        	       
+			<result property="ntransferencia"  		  column="ntransferencia"		javaType="String" />
+			<result property="numeroTransferencia"	  column="numeroTransferencia"		javaType="String" />
+			<result property="cuentaOrigen"	      	  column="cuentaOrigen"				javaType="String" />
+			<result property="cuentaDestino"		  column="cuentaDestino"		        javaType="String" />
+			<result property="rutDestino"		  	  column="rutDestino"  		    javaType="String" />
+			<result property="dvDestino"	          column="dvDestino"				javaType="String" />
+			<result property="nombreDestino"	      column="nombreDestino"				javaType="String" />
+			<result property="montoTransferido"	      column="montoTransferido"					javaType="String" />
+			<result property="bancoDestino"	     	  column="bancoDestino"			javaType="String" />
+			<result property="emailDestino"	     	  column="emailDestino"		javaType="String" />
+			<result property="nombreBancoDest"	      column="nombreBancoDest"		javaType="String" />
+			
+	  </resultMap>
+	  
+	  <procedure id="traerDetTransferencia" parameterMap="setTraerDetTransferencia" resultMap="getTraerDetTransferencia">
+			{ CALL sp_det_ttff_hist (?,?,?) }
+	</procedure>
+
+
+	<parameterMap id="setTraerTransferencias" class="java.util.HashMap">
+			<parameter property="rutEmpresa"			jdbcType="CHAR"	javaType="String"/>
+			<parameter property="convenio"	    		jdbcType="CHAR"	javaType="String"/>
+			<parameter property="tipoTransferencia"	    jdbcType="CHAR"	javaType="String"/>
+			<parameter property="tipoEnvio"	    		jdbcType="CHAR"	javaType="String"/>
+			<parameter property="fechaDesde"			jdbcType="DATETIME"    	javaType="java.util.Date"/>
+			<parameter property="fechaHasta"		    jdbcType="DATETIME"    	javaType="java.util.Date"/>
+			<parameter property="cantidadRegistros"    	jdbcType="INTEGER"	   javaType="java.lang.Integer"/>
+			<parameter property="bloque"		      	jdbcType="INTEGER"	   javaType="java.lang.Integer"/>
+			<parameter property="nCuenta"		      	jdbcType="CHAR"	javaType="String"/>
+			
+	  </parameterMap>
+	  
+	  <resultMap id="getTraerTransferencias" class="java.util.HashMap">
+			
+			<result property="fechaPago"		  column="dFechaPago"				 jdbcType="DATETIME"  javaType="java.util.Date" />        	       
+			<result property="montoTransferido"	      column="Mmonto"				      javaType="String" />
+			<result property="nombreDestino"	      column="cNombreDestino"			 javaType="String" />
+			<result property="ntransferencia"  		  column="cNombreTransferencia"		 javaType="String" /> 
+			<result property="numeroDetalle"		  column="iIdTrfNum"		         jdbcType="INTEGER"	   javaType="java.lang.Integer" />
+			<result property="tipoTransferencia"	  column="tipoTransferencia"	 javaType="String" />
+			<result property="tipoEnvio"	     	  column="tipoEnvio"	 javaType="String" />
+			<result property="rutDestino"		  	  column="iRutDestino"	 			 javaType="String" />
+			<result property="dvDestino"		  	  column="cDvDestino"	 			   javaType="String" />
+			<result property="emailDestino"           column="cMailDestino"   			javaType="String" />
+			<result property="numeroPaginas"		  column="numerosPagina"			 jdbcType="INTEGER"	   javaType="java.lang.Integer" />
+			<result property="cantidadPaginas"		  column="cantidadTransferencias"	 jdbcType="INTEGER"	   javaType="java.lang.Integer"/>
+			<result property="glosaDestino"	     	  column="cBancoDestino"				    javaType="String" />
+			<result property="codigoDelBanco"	      column="cIdBancoDestino"		javaType="String" />
+			<result property="cuentaOrigen"	       	  column="cuentaOrigen"		javaType="String" />
+			<result property="cuentaDestino"	      column="cuentaDestino"		javaType="String" />
+	  </resultMap>
+	  
+	  <procedure id="traerTransferencias" parameterMap="setTraerTransferencias" resultMap="getTraerTransferencias">
+			{ CALL  sp_cons_ttff_hist (?,?,?,?,?,?,?,?,?) }
+	</procedure>
+
+
+	 <parameterMap id="setTotalTransferencias" class="java.util.HashMap">
+           <parameter property="rutEmpresa"   jdbcType="CHAR"   javaType="String" />
+           <parameter property="convenio"       jdbcType="CHAR"    javaType="String" />
+           <parameter property="tipoTransferencia"     jdbcType="CHAR" javaType="String" />
+     <parameter property="tipoEnvio"       jdbcType="CHAR" javaType="String" />
+     <parameter property="fechaDesde"   jdbcType="DATETIME"     javaType="java.util.Date" />
+     <parameter property="fechaHasta"      jdbcType="DATETIME"     javaType="java.util.Date" />
+      <parameter property="numeroCuenta"         jdbcType="CHAR"      javaType="String"/>
+              
+         </parameterMap>
+         
+         <resultMap id="getTotalTransferencias" class="java.util.HashMap">
+            <result property="totalRealizadas"    column="REA"          jdbcType="INTEGER"     javaType="java.lang.Integer" />
+      <result property="totalRecibidas"    column="REC"          jdbcType="INTEGER"          javaType="java.lang.Integer"/>
+      <result property="totalTodas"        column="TODAS"      jdbcType="INTEGER"          javaType="java.lang.Integer"/>
+     
+     </resultMap>
+         
+         <procedure id="totalTransferencias" parameterMap="setTotalTransferencias" resultMap="getTotalTransferencias">
+           { CALL sp_cant_ttff_hist (?,?,?,?,?,?,?) }
+      </procedure>
+
+	  
+	  
+</sqlMap>

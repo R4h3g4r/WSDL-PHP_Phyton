@@ -1,0 +1,42 @@
+#Tipos de usuarios
+SUP;desc=Supervisor;
+APO;desc=Apoderado;
+CON;desc=Contralor;
+OPR;desc=Operador;
+VIG;desc=Vigente;
+
+#Estados
+D;desc=No Autorizado;
+A;desc=Autorizado;
+
+#Tipos de cuenta
+CCT;desc=Cuenta corriente;
+COB;desc=Cuenta otro banco;
+COM;desc=Prestamo comercial;
+CMB;desc=Cuenta mismo banco;
+CCX;desc=Cuenta moneda extranjera;
+
+#Tipos de clase
+PRP;desc=Cuenta propia;
+TRC;desc=Cuenta de terceros;
+
+#Codigos que establecen, que servicios no deben ser marcados de forma automatica.
+Prod;desc=Prod01x05ope-Prod01VDOC001-Prod01X25OPE-Prod01x17ope-Prod01x18ope-Prod01X22OPE-Prod01x19ope-Prod01X82OPE-Prod01X83OPE-Prod01X23OPE-Prod01X24OPE-Prod01X65OPE-Prod01XPDIR03-Prod01X77OPE-Prod01X78OPE-Prod01X79OPE-Prod01X80OPE-Prod01X86OPE-Prod01X87OPE-Prod01X81OPE-Prod02BCOLIN02-Prod02T070PE-Prod02T03OPE-Prod02T14OPE-Prod03BCOLIN03-Prod11BCOLIN11-Prod12BCOLIN12-Prod02T16OPE-Prod04BCOLIN04-Prod04r03ope-Prod10BCOLIN10-Prod01XWS001-Prod01XWS002-Prod01TR01OPE-Prod01TR02OPE-Prod01TR03OPE-Prod01X75OPE-Prod01XWS003-Prod01XWS004-Prod01XWS005-Prod01XWS006-Prod01XWS010-Prod30BCOLIN30-prod06BCOLIN06-Prod01XWS011;
+
+#Rol de Administrador de Convenio
+TopeAdministradorConvenio;Desc=1;
+
+Mensaje;msj1=No puede eliminarse Usted mismo de la Empresa;msj2=No es posible obtener las Transferencias Pendientes;msj3=Eliminar;msj4=No se puede eliminar, Posee Transferencias Pendientes;msj5=Error en el Sistema.;msj6=El Usuario fue Eliminado de forma exitosa;
+Glosa;gl1= ha sido autorizado para operar en otro convenio.;gl2= debe ser ingresado a través de la célula de activación;gl3= no necesita autorización para su creación;gl4= necesita autorización de un tercero para su creación;gl=El usuario ;
+
+#Mensajes al Usuario
+Msg1;desc=Estimado Cliente: No es posible ingresar el usuario, favor contactar a la Mesa de Ayuda al 692 8555.;
+Msg2;desc=El RUT que desea ingresar pertenece a una empresa;
+
+MensajesErrores;msgCliente=Estimado Cliente;sinPermison=Usted no tiene los permisos necesarios para operar.;usuarioActivo=Usted se encuentra autorizado en convenio n°;noApoderado=Usted no es un apoderado autorizado para operar.;esOperador=Usted es un operador por lo que no tiene los permisos para operar.;msgSinServicio=En estos momentos nos encontramos con una indisponibilidad de servicio, por favor reintente mas tarde.;msgExisteUsuarioConvenio=El rut que ingreso ya existe en este convenio.;msgExisteUsuario=El rut que ingreso ya existe en los registro del banco, pero se creo como usuario para este convenio.;msgErrorCrearClave=Ha ocurrido un error durante el proceso de creación del usuario. Le solicitamos ingresar los datos nuevamente para finalizar el proceso.
+obtenerCtasCtes;traerCtasVinculadas=false;filtrarCuentasPropias=false;
+MESES_BUSQUEDA_TRANSACCIONES;cantidad=1;
+codigoServicio;valor=XXXXXX;
+tipoTransaccion;valor=MTO_MAX_PYME;
+nombreConceptoNegocioAsociado;valor=ADM_USU_MTO_TTFF_DIA
+puedeFirmar;valor=false;

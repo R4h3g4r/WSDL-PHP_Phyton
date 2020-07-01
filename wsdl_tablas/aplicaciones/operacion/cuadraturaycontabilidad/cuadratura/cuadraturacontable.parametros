@@ -1,0 +1,13 @@
+
+RUTAXSL;ING_MISC=tablas/aplicaciones/operacion/cuadraturaycontabilidad/cuadratura/totalera/impresion/impresion_ing_misc.xsl;EGR_MISC=tablas/aplicaciones/operacion/cuadraturaycontabilidad/cuadratura/totalera/impresion/impresion_egr_misc.xsl;CAN_VAR=tablas/aplicaciones/operacion/cuadraturaycontabilidad/cuadratura/totalera/impresion/impresion_can_var.xsl;
+
+FILTRAR_PUERTAS;valor=1;
+
+
+################ Cuadratura de Sucursales #######################
+
+CODIGOS_INGRESO;CTBL_SMART=1;SAFE_ADMINISTRATIVO=2;SIEBEL=3;CAJA_SERVIPAG=4;CTBL_FACTURAS=5;TOTALERA9656=6;CTBL_AUT=7;VISTA_CUENTA=8;CANJE_VARIOS=9;CURSES_CANCEL=10;DAP_CTBL=11;RESTO_SAFE=12;AITC_CCTN=13;ADICIONAL1=14;ADICIONAL2=15;ADICIONAL3=16;ADICIONAL4=17;
+
+CODIGOS_INGRESO_ADICIONALES;ADICIONAL1=ADIC1;ADICIONAL2=ADIC2;ADICIONAL3=ADIC3;ADICIONAL4=ADIC4;
+
+RUTAXSL_CUADRATURA;CUADRATURA_SUCURSAL_DIA_1=tablas/aplicaciones/operacion/cuadraturaycontabilidad/cuadratura/sucursal/impresion/impresion_cuadratura_sucursal_dia1.xsl;CUADRATURA_SUCURSAL_DIA_2=tablas/aplicaciones/operacion/cuadraturaycontabilidad/cuadratura/sucursal/impresion/impresion_cuadratura_sucursal_dia2.xsl;

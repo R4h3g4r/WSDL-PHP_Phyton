@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="cuadleasing.procedimientosAlmacenados">
+
+<!-- SP Ingresar o Modificar Castigos -->
+	<parameterMap id="setInsertarCastigos" class="java.util.HashMap">
+		<parameter property="ope_num_cod"			jdbcType="CHAR"			javaType="java.lang.String" />
+  		<parameter property="cas_periodo_per"		jdbcType="INTEGER"		javaType="java.lang.Integer" />
+  		<parameter property="cas_castigo_mto"		jdbcType="DECIMAL"		javaType="java.math.BigDecimal" />
+  		<parameter property="cas_ultima_mod_fec"	jdbcType="DATATIME"		javaType="java.util.Date" />
+	</parameterMap>
+	
+	<procedure id="insertarCastigos" parameterMap="setInsertarCastigos" resultClass="java.lang.Integer">
+		{ CALL sp_ins_castigo ( ?, ?, ?, ? ) }
+	</procedure>
+
+<!-- SP Listar Castigos -->
+
+	<resultMap id="getListadoCastigos" class="java.util.HashMap">
+		<result property="ope_num_cod" 			column="ope_num_cod" 		javaType="java.lang.String" />
+		<result property="cas_periodo_per" 		column="cch_periodo_per" 	javaType="java.lang.Integer" />
+	    <result property="cas_castigo_mto" 		column="cch_castigo_mto" 	javaType="java.math.BigDecimal" />
+	    <result property="cas_ultima_mod_fec" 	column="cch_ultima_mod_fec" javaType="java.util.Date" />
+	</resultMap>
+	
+ 	<procedure id="obtenerListadoCastigo" resultMap="getListadoCastigos">
+		{ CALL sp_cns_historico_castigos() }
+	</procedure>
+
+<!-- SP Eliminar Castigos -->
+
+	<parameterMap id="setEliminarCastigos" class="java.util.HashMap">
+		<parameter property="ope_num_cod"			jdbcType="CHAR"			javaType="java.lang.String" />  		
+	</parameterMap>
+	
+	<procedure id="eliminarCastigos" parameterMap="setEliminarCastigos" resultClass="java.lang.Integer">
+		{ CALL sp_delete_castigo ( ? ) }
+	</procedure>
+	
+<!-- SP Actualizar Estado Cuadratura -->
+
+	<parameterMap id="setActualizarEstadoCuadratura" class="java.util.HashMap">
+		<parameter property="est_periodo_per"			jdbcType="INTEGER"		javaType="java.lang.Integer" /> 
+		<parameter property="est_estado_cod"			jdbcType="CHAR"			javaType="java.lang.String" />  		
+	</parameterMap>
+	
+	<procedure id="actualizarEstadoCuadratura" parameterMap="setActualizarEstadoCuadratura" resultClass="java.lang.Integer">
+		{ CALL sp_update_estado_cuadratura ( ?,? ) }
+	</procedure>
+
+<!-- SP Consultar ultima fecha ejecucion -->
+
+	<procedure id="consultaFechaEjec" resultClass="java.util.Date">
+		{ CALL sp_cns_fecha_ejecucion () }
+	</procedure>
+
+</sqlMap>

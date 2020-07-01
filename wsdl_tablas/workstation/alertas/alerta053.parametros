@@ -1,0 +1,42 @@
+# ALERTA CAMBIO TASA CHIP VARIABLE                                  
+#Glosa para desplegar por pantalla con tag html
+GLOSA0;mensaje=PASOS A SEGUIR ALERTA CAMBIO TASA CHIP VARIABLE.;
+GLOSA1;mensaje=1.	Revisar las condiciones del hipotecario actual, es decir, Costo Fondo, Spread, Tasa, Plazo Residual, Saldo Insoluto.;
+GLOSA2;mensaje=2.	Según las condiciones de tasas del mercado y Campaña  vigente, ofrecer recurse express o Refinanciamiento:;
+GLOSA3;mensaje=        a.	<STRONG>OFRECER RECURSE EXPRESS </STRONG> para bajar el Spread manteniendo el mismo crédito.;
+GLOSA4;mensaje=        b.	<STRONG>OFRECER REFINANCIAMIENTO </STRONG>con la Campaña Vigente.;                
+GLOSA5;mensaje=<STRONG>INFORMACIONE EXTRA</STRONG>;            
+GLOSA6;mensaje= <STRONG>I.- SE ESTA INFORMANDO A CLIENTES VIA WEB, CARTA Y E-MAILS EL CAMBIO DE TASA.</STRONG>;
+GLOSA7;mensaje= <STRONG>II.- LOS BENEFICIOS DE REFINANCIAR EL CHIP CON BCI SON:</STRONG>;
+GLOSA8;mensaje=1.	No tiene costo de prepago. El Costos de prepago es 1,5 o 3 meses de interés por crédito menores o mayores a UF 5.000 respectivamente.;
+GLOSA9;mensaje=2.	No tiene Costo de tasación ya que excepcionalmente no retasaremos.;
+GLOSA10;mensaje=3.	No se realiza el estudio de títulos, sólo una actualización equivalente a un ahorro de $50.000 Aproximado.;
+GLOSA11;mensaje=4.	Si la garantía es Fines Generales, no se requiere inscribir nuevamente la operación en el Conservador.;
+GLOSA12;mensaje=5.	La aprobación Comercial es rápida ya que la puede hacer el JOF;
+GLOSA13;mensaje=6.	No es necesario evaluar Declaración Personal de Salud, sólo completar y firmarla. No incurriría en posibles sobreprimas.;
+GLOSA14;mensaje=7.	No es necesaria la provisión de 3 dividendos para ser informados al Banco alzante como disponible;
+GLOSA15;mensaje=8.	No tendría costos adicionales de entrega de antecedentes y tramitación del crédito en otra institución.;
+GLOSA16;mensaje=9.	Cobro de intereses desde la fecha de desembolso del crédito. En otra institución la activación de préstamos hipotecario es a la firma de la escritura, lo que implica en la mayoría de los casos el comienzo de cancelación de cuota al mes subsiguiente, teniendo aun vigente el crédito en Bci.;
+
+#Glosa para desplegar por pdf
+
+GLOSAPDF0;mensaje=PASOS A SEGUIR ALERTA CAMBIO TASA CHIP VARIABLE.;
+GLOSAPDF1;mensaje=1.	Revisar las condiciones del hipotecario actual, es decir, Costo Fondo, Spread, Tasa, Plazo Residual, Saldo Insoluto.;
+GLOSAPDF2;mensaje=2.	Según las condiciones de tasas del mercado y Campaña  vigente, ofrecer recurse express o Refinanciamiento:;
+GLOSAPDF3;mensaje=        a.	OFRECER RECURSE EXPRESS para bajar el Spread manteniendo el mismo crédito.;
+GLOSAPDF4;mensaje=        b.	OFRECER REFINANCIAMIENTO con la Campaña Vigente.;                
+GLOSAPDF5;mensaje=INFORMACIONE EXTRA;            
+GLOSAPDF6;mensaje=I.- SE ESTA INFORMANDO A CLIENTES VIA WEB, CARTA Y E-MAILS EL CAMBIO DE TASA.;
+GLOSAPDF7;mensaje=II.- LOS BENEFICIOS DE REFINANCIAR EL CHIP CON BCI SON:;
+GLOSAPDF8;mensaje=1.	No tiene costo de prepago. El Costos de prepago es 1,5 o 3 meses de interés por crédito menores o mayores a UF 5.000 respectivamente.;
+GLOSAPDF9;mensaje=2.	No tiene Costo de tasación ya que excepcionalmente no retasaremos.;
+GLOSAPDF10;mensaje=3.	No se realiza el estudio de títulos, sólo una actualización equivalente a un ahorro de $50.000 Aproximado.;
+GLOSAPDF11;mensaje=4.	Si la garantía es Fines Generales, no se requiere inscribir nuevamente la operación en el Conservador.;
+GLOSAPDF12;mensaje=5.	La aprobación Comercial es rápida ya que la puede hacer el JOF;
+GLOSAPDF13;mensaje=6.	No es necesario evaluar Declaración Personal de Salud, sólo completar y firmarla. No incurriría en posibles sobreprimas.;
+GLOSAPDF14;mensaje=7.	No es necesaria la provisión de 3 dividendos para ser informados al Banco alzante como disponible;
+GLOSAPDF15;mensaje=8.	No tendría costos adicionales de entrega de antecedentes y tramitación del crédito en otra institución.;
+GLOSAPDF16;mensaje=9.	Cobro de intereses desde la fecha de desembolso del crédito. En otra institución la activación de préstamos hipotecario es a la firma de la escritura, lo que implica en la mayoría de los casos el comienzo de cancelación de cuota al mes subsiguiente, teniendo aun vigente el crédito en Bci.;
+
+#Viñeta Explicativa
+VINETA;calcula=Todos los Créditos Hipotecarios Tasa Variable que van cambiar de Tasa este año.;periodo= Mensual.;fuente=  Información de Créditos Vigentes Tasa Variable de Operaciones Hipotecarias Asicom.;

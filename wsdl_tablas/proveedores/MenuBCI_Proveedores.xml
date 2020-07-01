@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bcimenu>
+    <opcion id="cierre">
+        <opcion id="cierre_sesion">
+            <titulo>Cerrar Sesión</titulo>
+            <url>vistaCierre</url>		
+            <permisos>
+				<suficientes>EsCliente</suficientes>
+			</permisos>				
+        </opcion>
+    </opcion>
+</bcimenu>

@@ -1,0 +1,8 @@
+FTP;Servidor=kanako;Ruta=.;Servicio=ftpfae;
+SII_SEMILLA;HOST_SEMILLA=palena.sii.cl;PATH_SEMILLA=/DTEWS/CrSeed.jws;PROTOCOLO_SEMILLA=https;
+SII_TOKEN;HOST_TOKEN=palena.sii.cl;PATH_TOKEN=/DTEWS/GetTokenFromSeed.jws;PROTOCOLO_TOKEN=https;
+SII_CONSULTADTE;HOST_CONSULTADTE=palena.sii.cl;PATH_CONSULTADTE=/DTEWS/QueryEstDte.jws;PROTOCOLO_CONSULTADTE=https;
+CERTIFICADO;NombreCertificado=gacevedo.pfx;RutConsultante=7101235-2;Clave=BEAGLE;
+PAGINADO;Numeropagina=5;
+PROXY;Host=199.186.28.80;Port=8000;User=paguedirecto;pwd=bcimel99;
+Factoring;JmsContext=jms_context_wls10;QueueJNDI=jms.factoringdigital.distribuida;JmsFactoryJNDI=jms.conection.factoringdigital;sistemaFactoring=151;visacionBCI=9;

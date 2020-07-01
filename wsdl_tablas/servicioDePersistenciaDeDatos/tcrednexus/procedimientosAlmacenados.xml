@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="tcrednexus.procedimientosAlmacenados">
+
+	<parameterMap id="setEncabezadoGlosa" class="java.util.HashMap">
+		<parameter property="monto1"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="monto2"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="monto3"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="numero1"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="numero2"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="numero3"				jdbcType="DECIMAL" 	javaType="java.math.BigDecimal" numericScale="2" />
+		<parameter property="flag1"					jdbcType="CHAR"    	javaType="String" />
+		<parameter property="flag2"					jdbcType="CHAR" 	javaType="String" />
+		<parameter property="flag3"					jdbcType="CHAR" 	javaType="String" />
+		<parameter property="string1"				jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="string2"				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="string3"				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="filler"				jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="fechaActualizacion"	jdbcType="DATE" 	javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"  />
+		<parameter property="indVigencia"			jdbcType="CHAR" 	javaType="String" />
+	</parameterMap>
+
+	<procedure id="insertarEncabezadoGlosa" parameterMap="setEncabezadoGlosa" resultClass="int">
+        	{ CALL sp_ins_gls_enc( ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+
+	<parameterMap id="setDetalleGlosa" class="java.util.HashMap">
+		<parameter property="idEncabezado"		jdbcType="NUMERIC"	javaType="java.lang.Integer" />
+		<parameter property="codTabla"			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="desTabla"			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="codCodigo"			jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="desCodigo"			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="tipCodigo"			jdbcType="VARCHAR" 	javaType="String" />
+		<parameter property="largoCodigo"		jdbcType="integer" 	javaType="java.lang.Integer" />
+	</parameterMap>
+
+	<procedure id="insertarDetalleGlosa" parameterMap="setDetalleGlosa" resultClass="int">
+        	{ CALL sp_ins_gls_det( ?,?,?,?,?,?,? ) }
+	</procedure>
+
+	<resultMap id="getDetalleGlosaVigente" class="java.util.HashMap">
+		<result property="codTabla"			column="codTabla" 		javaType="String" />
+		<result property="desTabla"			column="desTabla"		javaType="String" />
+		<result property="codCodigo"		column="codCodigo"		javaType="String" />
+		<result property="desCodigo"		column="desCodigo"		javaType="String" />
+		<result property="tipCodigo"		column="tipCodigo"		javaType="String" />
+		<result property="largoCodigo" 		column="largoCodigo"	javaType="int" />
+	</resultMap>
+
+	<procedure id="consultaDetalleGlosaVigente" resultMap="getDetalleGlosaVigente" >
+        	{ CALL sp_cns_gls_det() }
+	</procedure>
+	
+	<parameterMap id="setConsultaInformeUpgradeTC" class="java.util.HashMap">
+        <parameter property="rutCliente"        jdbcType="INTEGER"  javaType="Long" />
+        <parameter property="dvCliente"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="fechaDesde"        jdbcType="DATETIME" javaType="java.util.Date" />
+        <parameter property="fechaHasta"        jdbcType="DATETIME" javaType="java.util.Date" />
+        <parameter property="ejecutivo"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="sucursal"          jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+        <resultMap id="getConsultaInformeUpgradeTC" class="java.util.HashMap">
+        <result property="rutCliente"           jdbcType="INTEGER"  javaType="long" />
+        <result property="dvCliente"            jdbcType="CHAR"     javaType="String" />
+        <result property="logoOriginal"         jdbcType="CHAR"     javaType="String" />
+        <result property="logoNuevo"            jdbcType="CHAR"     javaType="String" />
+        <result property="numTarjetaOriginal"   jdbcType="CHAR"     javaType="String" />
+        <result property="numTarjetaNueva"      jdbcType="CHAR"     javaType="String" />
+        <result property="cupoNacional"         jdbcType="NUMERIC"  javaType="double" />
+        <result property="cupoInternacional"    jdbcType="NUMERIC"  javaType="double" />
+        <result property="ejecutivo"            jdbcType="CHAR"     javaType="String" />
+        <result property="sucursal"             jdbcType="CHAR"     javaType="String" />
+        <result property="NomSucursal"          jdbcType="CHAR"     javaType="String" />
+    </resultMap>
+    <procedure id="ConsultaInformeUpgradeTC" parameterMap="setConsultaInformeUpgradeTC" resultMap="getConsultaInformeUpgradeTC">
+            { CALL sp_cns_inf_upg( ?,?,?,?,?,? ) }
+    </procedure>
+    
+	   <parameterMap id="setGuardaUpgradeTC" class="java.util.HashMap">
+        <parameter property="rutCliente"            jdbcType="INTEGER"  javaType="Long" />
+        <parameter property="dvCliente"             jdbcType="CHAR"     javaType="String" />
+        <parameter property="codLogoOriginal"       jdbcType="CHAR"     javaType="String" />
+        <parameter property="descLogoOriginal"      jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="codLogoNuevo"          jdbcType="CHAR"     javaType="String" />
+        <parameter property="descLogoNuevo"         jdbcType="CHAR"     javaType="String" />
+        <parameter property="numTarjetaOriginal"    jdbcType="CHAR"     javaType="String" />
+        <parameter property="numTarjetaNueva"       jdbcType="CHAR"     javaType="String" />
+        <parameter property="cupoNacional"          jdbcType="NUMERIC"  javaType="Double" />
+        <parameter property="cupoInternacional"     jdbcType="NUMERIC"  javaType="Double" />
+        <parameter property="idEjecutivo"           jdbcType="CHAR"     javaType="String" />
+        <parameter property="codSucursal"           jdbcType="CHAR"     javaType="String" />
+        <parameter property="nomSucursal"           jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    <procedure id="guardaUpgradeTC" parameterMap="setGuardaUpgradeTC" resultClass="int">
+            { CALL sp_ins_resp_upg( ?,?,?,?,?,?,?,?,?,?,?,?,?) }
+    </procedure>
+    
+    
+	<parameterMap id="setAceptaTdc" class="java.util.HashMap">
+		<parameter property="actRutCli"             jdbcType="INTEGER"  javaType="Long" />
+		<parameter property="actDvCli"			    jdbcType="CHAR" 	javaType="String" />
+		<parameter property="actGlsCanal"			jdbcType="CHAR" 	javaType="String" />
+		<parameter property="actMtoNac"	            jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="actMtoInter"	        jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="actNomTarjeta"	        jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="actInfoTarjeta"	    jdbcType="VARCHAR"  javaType="String" />
+	</parameterMap>
+
+	<procedure id="insertarAceptaTdc" parameterMap="setAceptaTdc" resultClass="int">
+        	{ CALL sp_ins_act_tdc( ?,?,?,?,?,?,? ) }
+	</procedure>
+    
+    
+</sqlMap>

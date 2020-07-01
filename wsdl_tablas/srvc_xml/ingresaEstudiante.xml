@@ -1,0 +1,80 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CU_ingr_est"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="select" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutEstudiante"
+          type = "int"
+          size = "9"
+          sign = "no"
+          integers = "9"
+          decimals = "0"
+          middle_name = "rutAdicional"
+        />
+
+        <field
+          java_name = "dvEstudiante"
+          type = "char"
+          size = "1"
+          middle_name = "digVerAdicional"
+        />
+
+        <field
+          java_name = "nombreEstudiante"
+          type = "String"
+          size = "255"
+          middle_name = "nombreAdicional"
+        />
+
+        <field
+          java_name = "fechaNacimientoEstudiante"
+          type = "Date"
+          size = "20"
+          middle_name = "fecSolicitud"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "emailEstudiante"
+          type = "String"
+          size = "200"
+          middle_name = "email"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "resultado"
+          type = "Integer"
+          size = "1"
+          sign = "no"
+          integers = "1"
+          decimals = "0"
+          middle_name = "resultado"
+        />
+
+  </output>
+
+</service>

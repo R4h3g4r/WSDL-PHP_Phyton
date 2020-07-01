@@ -1,0 +1,174 @@
+#################################################################
+#	Asignación de colas JMS de proceso segun tipo de evento		#
+#################################################################
+
+PROCESO_CARGA_ISO_PAC;tipoEvento=actualizacionDirecta;
+PROCESO_CARGA_ARCHIVO_PAC;tipoEvento=registroRecibidas;
+ALERTA_TIMEOUT_CONVENIO_PAC;tipoEvento=registroRecibidas;
+PROCESAMIENTO_PAC_MISMO_BANCO;tipoEvento=actualizacionDirecta;
+PROCESO_CARGA_NOMINA_PAC;tipoEvento=registroRecibidas;
+PROCESAMIENTO_ROUTING_PAC;tipoEvento=actualizacionDirecta;
+PROCESAMIENTO_PAC_MULTIBANCOS;tipoEvento=actualizacionDirecta;
+RETORNOS_OTROS_BANCOS;tipoEvento=actualizacionDirecta;
+ALERTA_RETORNOS;tipoEvento=actualizacionDirecta;
+ALERTA_REVERSA_OTROS_BANCOS;tipoEvento=actualizacionDirecta;
+ALERTA_REVERSA;tipoEvento=actualizacionDirecta;
+REVERSA_RECHAZADA;tipoEvento=actualizacionDirecta;
+REVERSA_MISMO_BANCO;tipoEvento=actualizacionDirecta;
+REVERSA_OTROS_BANCOS;tipoEvento=actualizacionDirecta;
+ALERTA_REVERSA_ESPECIAL_OTROS_BANCOS;tipoEvento=registroRecibidas;
+REVERSA_ESPECIAL_OTROS_BANCOS;tipoEvento=registroRecibidas;
+PROCESO_GENERA_RETORNO_PAC;tipoEvento=actualizacionDirecta;
+CANCELACION_TRX_PAC;tipoEvento=actualizacionDirecta;
+ERROR_CANCELACION_TRX_PAC;tipoEvento=actualizacionDirecta;
+ALERTA_CIERRE_MISMO_BANCO_PAC;tipoEvento=registroRecibidas;
+ALERTA_CIERRE_CCA_PAC;tipoEvento=actualizacionDirecta;
+CIERRE_APROBACION_PAC;tipoEvento=registroRecibidas;
+PROCESO_RECEPCION_NOMINA_PAC;tipoEvento=actualizacionDirecta;
+
+PROCESAMIENTO_ROUTING_PAC_NACHA;tipoEvento=registroRecibidas;
+PROCESAMIENTO_PAC_MISMO_BANCO_NACHA;tipoEvento=registroRecibidas;
+REVERSA_OTROS_BANCOS_NACHA;tipoEvento=registroRecibidas;
+ALERTA_REVERSA_OTROS_BANCOS_NACHA;tipoEvento=registroRecibidas;
+PROCESO_GENERA_RETORNO_PAC_NACHA;tipoEvento=registroRecibidas;
+
+#########################################
+#	Correspondencia Estados OPF a SIPE.	#
+#########################################
+
+PROCESO_CARGA_ISO_PAC-1701;estadoSIPE=6701;moduloSIPE=4;Desc=Falta Información del Mensaje;
+PROCESO_CARGA_ISO_PAC-1802;estadoSIPE=6802;moduloSIPE=4;Desc=Ruta y Nombre del Archivo Erróneo;
+PROCESO_CARGA_ISO_PAC-1803;estadoSIPE=6803;moduloSIPE=4;Desc=Acceso al Archivo;
+PROCESO_CARGA_ISO_PAC-1804;estadoSIPE=6804;moduloSIPE=4;Desc=Ruta Backup Errónea;
+PROCESO_CARGA_ISO_PAC-1805;estadoSIPE=6805;moduloSIPE=4;Desc=Acceso al Backup;
+PROCESO_CARGA_ISO_PAC-1806;estadoSIPE=6806;moduloSIPE=4;Desc=Estructura del Intercambio;
+PROCESO_CARGA_ISO_PAC-1807;estadoSIPE=6807;moduloSIPE=4;Desc=Número de Transacciones Errónea;
+PROCESO_CARGA_ISO_PAC-1808;estadoSIPE=6808;moduloSIPE=4;Desc=Monto Total Erróneo;
+PROCESO_CARGA_ISO_PAC-1810;estadoSIPE=6810;moduloSIPE=4;Desc=Validación fecha de pago (D o D-1);
+PROCESO_CARGA_ISO_PAC-1811;estadoSIPE=6811;moduloSIPE=4;Desc=Validacion de fecha de pago;
+PROCESO_CARGA_ISO_PAC-1832;estadoSIPE=6832;moduloSIPE=4;Desc=Rechazado por duplicidad;
+PROCESO_CARGA_ISO_PAC-1000;estadoSIPE=1000;moduloSIPE=4;Desc=Instrucción validada queda en estado Aceptado en OPF;
+
+PROCESO_CARGA_ARCHIVO_PAC-1701;Desc=Falta Información del Mensaje;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1802;Desc=Ruta y Nombre del Archivo Erróneo;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1803;Desc=Acceso al Archivo;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1804;Desc=Ruta Backup Errónea;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1805;Desc=Acceso al Backup;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1806;Desc=Estructura del Intercambio;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1807;Desc=Número de Transacciones Errónea;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1808;Desc=Monto Total Erróneo;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1830;Desc=Error en validacion de archivo de control;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1829;Desc=Error en validacion en validacion de lineas;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1881;Desc=Error en validación de duplicado.;tipoOperacion=ACT;DetalleMsj1=Nombre del Archivo;
+PROCESO_CARGA_ARCHIVO_PAC-1000;Desc=Aceptado;tipoOperacion=ACT;
+
+ALERTA_TIMEOUT_CONVENIO_PAC-1837;Desc=Alerta por timeout en validacion de convenio;tipoOperacion=ALT;DetalleMsj1=Número de Folio;
+
+PROCESO_CARGA_NOMINA_PAC-1810;estadoSIPE=6320;moduloSIPE=2;estadoProceso=6320;moduloProceso=4;desc=Validacion en la fecha de pago;tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1835;estadoSIPE=6261;moduloSIPE=2;estadoProceso=6261;moduloProceso=4;desc=Error en la validacion del convenio;tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1836;estadoSIPE=6260;moduloSIPE=2;estadoProceso=6260;moduloProceso=4;desc=Rechazo manual por timeout en validacion del convenio;tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1000;estadoSIPE=5000;moduloSIPE=2;estadoProceso=5000;moduloProceso=4;desc=Instrucción validada queda en estado aceptado en OPF;tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1833;estadoSIPE=6710;moduloSIPE=2;estadoProceso=6710;moduloProceso=4;desc=Rechazo por validacion IFR;tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1838;estadoSIPE=6838;moduloSIPE=2;estadoProceso=6838;moduloProceso=4;desc=Rechazado por validacion "Descripcion de operacion";tipoOperacion=INS;nivelInsercion=ENC;
+PROCESO_CARGA_NOMINA_PAC-1875;estadoSIPE=6875;moduloSIPE=2;desc=Evento de actualizacion a canal al validar incorrectamente una transsacion;tipoOperacion=INS;nivelInsercion=DTA;
+
+PROCESAMIENTO_ROUTING_PAC-1876;estadoSIPE=6876;moduloSIPE=3;desc=Error generico en proceso de routing;
+
+PROCESAMIENTO_PAC_MISMO_BANCO-1000;estadoSIPE=6870;moduloSIPE=3;desc=Se rechaza transaccion mismo banco proveniente de pain.008 por error generico;
+PROCESAMIENTO_PAC_MISMO_BANCO-6810;estadoSIPE=6810;moduloSIPE=3;desc=Se rechaza transaccion mismo banco proveniente de pain.008 porque no existe mandato;
+PROCESAMIENTO_PAC_MISMO_BANCO-6830;estadoSIPE=6830;moduloSIPE=3;desc=Se rechaza transaccion mismo banco proveniente de pain.008 porque es mandato no autorizado;
+PROCESAMIENTO_PAC_MISMO_BANCO-6400;estadoSIPE=6877;moduloSIPE=3;desc=Se rechaza transaccion mismo banco proveniente de pain.008 por mandato detenido;
+PROCESAMIENTO_PAC_MISMO_BANCO-1839;estadoSIPE=6800;moduloSIPE=3;desc=Rechazo por validacion del monto del mandato;
+PROCESAMIENTO_PAC_MISMO_BANCO-1840;estadoSIPE=1200;moduloSIPE=0;desc=Se realiza envio de transacciones mismo banco provenientes del pain.008;
+
+PROCESAMIENTO_PAC_MISMO_BANCO-0000;estadoSIPE=0000;moduloSIPE=3;desc=Se recibe una respuesta OK desde Tándem al procesar una transacción proveniente de pain.008;
+PROCESAMIENTO_PAC_MISMO_BANCO-0028;estadoSIPE=0020;moduloSIPE=3;desc=Falta de fondo;
+PROCESAMIENTO_PAC_MISMO_BANCO-0029;estadoSIPE=0020;moduloSIPE=3;desc=Falta de fondo;
+PROCESAMIENTO_PAC_MISMO_BANCO-0100;estadoSIPE=0007;moduloSIPE=3;desc=Cuenta no existe en el Banco;
+PROCESAMIENTO_PAC_MISMO_BANCO-0007;estadoSIPE=0009;moduloSIPE=3;desc=Cuenta congelada judicialmente;
+PROCESAMIENTO_PAC_MISMO_BANCO-0008;estadoSIPE=0018;moduloSIPE=3;desc=Cuenta destino de cliente difunto;
+PROCESAMIENTO_PAC_MISMO_BANCO-0059;estadoSIPE=0028;moduloSIPE=3;desc=Monto contiene ceros o valores nulos;
+PROCESAMIENTO_PAC_MISMO_BANCO-0010;estadoSIPE=0011;moduloSIPE=3;desc=Cuenta con orden de cierre;
+PROCESAMIENTO_PAC_MISMO_BANCO-CODTANDEM;moduloSIPE=3;codigosTandemControlados=1000|6810|6830|6400|1839|1840|0028|0029|0100|0007|0008|0059|0010|0000|;
+
+PROCESAMIENTO_ROUTING_PAC_NACHA-1876;estadoSIPE=6876;moduloSIPE=4;desc=Validacion en la fecha de pago;tipoOperacion=INS;
+
+PROCESAMIENTO_PAC_MISMO_BANCO_NACHA-1843;estadoSIPE=0000;moduloSIPE=2;desc=Se realiza el envío de transacciones a Mismo Banco provenientes desde NACHA;tipoOperacion=INS;nivelInsercion=DTA;
+
+PROCESAMIENTO_PAC_MULTIBANCOS-1850;estadoSipe=1200;moduloSIPE=0;Desc=Se realiza el envío de las transacciones a CCA;
+
+RETORNOS_OTROS_BANCOS-1851;estadoSipe=6400;moduloSIPE=4;Desc=Se rechaza una transacción al procesar un retorno;
+
+ALERTA_RETORNOS-1852;Desc=No es posible procesar un retorno entrante a una transacción;DetalleMsj1=Nombre del Archivo;DetalleMsj2=Identificador de Lote;
+
+ALERTA_REVERSA_OTROS_BANCOS_NACHA-1878;Desc=No es posible conciliar una reversa NACHA con una transacción original;tipoOperacion=ALT;DetalleMsj1=Nombre del Archivo;DetalleMsj2=Identificador de Lote;
+ALERTA_REVERSA_OTROS_BANCOS_NACHA-1879;Desc=La transacción NACHA a reversar no se encuentra en un estado Reversable;tipoOperacion=ALT;DetalleMsj1=Nombre del Archivo;DetalleMsj2=Identificador de Lote;
+ALERTA_REVERSA_OTROS_BANCOS-1901;DetalleMsj1=Nombre del Archivo;DetalleMsj2=Identificador de Lote;Desc=Se recibe una respuesta NOK desde Tándem al procesar una reversa NACHA;
+
+REVERSA_OTROS_BANCOS_NACHA-1856;estadoSIPE=6856;moduloSIPE=2;desc=Se reversa una transacción NACHA previo al submit;tipoOperacion=ACT;
+
+ALERTA_REVERSA-1857;Desc=No es posible conciliar una transacción con una reversa proveniente en pain.007;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+
+REVERSA_RECHAZADA-1831;Desc=Reversas rechazadas al no conciliar la instrucción provenientes de archivo pain007;DetalleMsj1=Folio de la nómina;
+REVERSA_RECHAZADA-1880;Desc=Reversas rechazadas al conciliar instrucción provenientes de archivo pain.007 en estado no Aceptada;DetalleMsj1=Folio de la nómina;
+
+REVERSA_MISMO_BANCO-1861;estadoSIPE=N/A;moduloSIPE=0;desc=Se recibe una respuesta NOK desde Tándem al procesar una reversa de una transacción proveniente de un pain.008;
+REVERSA_MISMO_BANCO-1862;estadoSIPE=6862;moduloSIPE=3;desc=Se recibe respuesta OK desde Tándem al procesar una reversa mediante pain.007 a una transacción proveniente de un pain.008;
+REVERSA_MISMO_BANCO-1860;estadoSIPE=N/A;moduloSIPE=0;desc=La transacción a reversar proveniente de un pain.008 no se encuentra en un estado Reversable;
+REVERSA_MISMO_BANCO-1859;estadoSIPE=6859;moduloSIPE=2;desc=Se reversa con un pain.007 una transacción proveniente de pain.008 previo al submit;
+
+REVERSA_OTROS_BANCOS-1855;estadoSIPE=6855;moduloSIPE=3;desc=Se recibe una respuesta OK desde Tándem. Se reversa una transacción NACHA posterior al submit;tipoOperacion=ACT;
+REVERSA_OTROS_BANCOS-1865;estadoSIPE=6865;moduloSIPE=2;desc=Se reversa con un pain.007 una transacción a Otros Bancos proveniente de pain.008 previo al submit;
+REVERSA_OTROS_BANCOS-1866;estadoSIPE=N/A;moduloSIPE=0;desc=La transacción a Otros Bancos a reversar proveniente de un pain.008 no se encuentra en un estado Reversable;
+REVERSA_OTROS_BANCOS-1867;estadoSIPE=6867;moduloSIPE=2;desc=Se realiza el envío de las reversas a CCA de transacciones provenientes en pain.008;
+
+ALERTA_REVERSA_ESPECIAL_OTROS_BANCOS-1869;Desc=Alerta a Canal cuando no se encuentra la instrucción NACHA a reversar mediante un pain.007;tipoOperacion=ALT;DetalleMsj1=Nombre del Archivo;DetalleMsj2=Folio de la nómina;
+
+REVERSA_ESPECIAL_OTROS_BANCOS-C01;Desc=Cuenta no existe en banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C02;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C03;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C05;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C06;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C07;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C13;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C30;Desc=Receptor No es persona Natural (CCA);tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C31;Desc=Tipo de cuenta no habilitado;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-C32;Desc=Relacion rut cuenta invalida;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R01;Desc=No hay Fondos para Devolucion;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R02;Desc=Cuenta cerrada;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R03;Desc=Relacion rut cuenta invalida;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R04;Desc=Cuenta no existe en banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R07;Desc=Envío duplicado de pago a destino;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R08;Desc=Pago detenido;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R13;Desc=Tipo cta. no habilitada en CCA-CET;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R17;Desc=Error en cuenta otro Banco (CCA);tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R18;Desc=Error fecha cargo/abono;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R19;Desc=Error en campo monto;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R21;Desc=Rut empresa originadora invalido;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R22;Desc=Rut Invalido;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R24;Desc=Envío duplicado de pago a destino;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R25;Desc=Se recibio rechazo inv de Otro Banco;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R26;Desc=Error en campo obligatorio (CCA);tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R27;Desc=Nro. Secuencia Invalido;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R64;Desc=Error rut del beneficiario;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R80;Desc=Tipo cta. no habilitada en CCA-CET;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R81;Desc=Rechazado por Bco. Destino;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R82;Desc=Monto Excede el maximo para CCA;tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+REVERSA_ESPECIAL_OTROS_BANCOS-R83;Desc=Receptor No es persona Natural (CCA);tipoOperacion=ALT;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+
+PROCESO_GENERA_RETORNO_PAC-1877;Desc=Se rechaza una transacción y se genera el retorno;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+PROCESO_GENERA_RETORNO_PAC_NACHA-1877;Desc=Se rechaza una transacción y se genera el retorno;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;tipoOperacion=ALT;
+
+CANCELACION_TRX_PAC-0000;estadoSIPE=6410;moduloSIPE=2;desc=Se cancela una transacción (o transacciones de una forma de pago) mediante el WS de Cancelaciones (stop Payment);
+
+ERROR_CANCELACION_TRX_PAC-1900;Desc=Error en la cancelación de una transacción.;DetalleMsj1=Número de Folio;DetalleMsj2=Número de Línea;
+
+ALERTA_CIERRE_MISMO_BANCO_PAC-1870;estadoSIPE=6870;moduloSIPE=4;Desc=Alerta al ejecutar el proceso de cierre de las transacciones que no fueron enviadas a Tándem;tipoOperacion=ACT;
+ALERTA_CIERRE_CCA_PAC-1871;estadoSIPE=6871;moduloSIPE=4;Desc=Alerta al ejecutar el proceso de cierre de las transacciones que no fueron enviadas a CCA;
+CIERRE_APROBACION_PAC-1872;estadoSIPE=6872;moduloSIPE=4;Desc=Mensaje a Canal al generar los retornos de aquellas transacciones provenientes de CCA que quedaron Esperando Aprobación;tipoOperacion=ACT;
+
+#####################################################
+#	 Información alertas.							#
+#####################################################
+
+destinoAlertas;prefijo=PGD;

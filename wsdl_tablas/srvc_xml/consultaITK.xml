@@ -1,0 +1,324 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "GnsITKCon">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="yes" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="GNSPPTPG" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.bprocess.gns.ServiciosGnsBean" /> <!-- WTC y JDBC no lo usan -->
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "idOperacion"
+          type = "String"
+          size = "4"
+          middle_name = "gar0001"
+        />
+
+        <field
+          java_name = "numOperacion"
+          type = "String"
+          size = "8"
+          middle_name = "gar0002"
+        />
+
+        <field
+          java_name = "codigoSistema"
+          type = "String"
+          size = "3"
+          middle_name = "gar0003"
+        />
+
+        <field
+          java_name = "codigoProceso"
+          type = "String"
+          size = "12"
+          middle_name = "gar0004"
+        />
+
+        <field
+          java_name = "codigoEntidad"
+          type = "String"
+          size = "30"
+          middle_name = "gar0005"
+        />
+
+        <field
+          java_name = "fechaProceso"
+          type = "Date"
+          size = "8"
+          middle_name = "gar0006"
+          middle_date_format = "ddMMyyyy"
+        />
+
+        <field
+          java_name = "horaProceso"
+          type = "String"
+          size = "6"
+          middle_name = "gar0007"
+        />
+
+        <field
+          java_name = "nroUnico"
+          type = "String"
+          size = "8"
+          middle_name = "gar0008"
+        />
+
+  </input>
+
+  <output>
+
+        <field
+          java_name = "idOperacion"
+          type = "String"
+          size = "4"
+          middle_name = "gar0009"
+          middle_name_secondary = "gar0010"
+        />
+
+        <field
+          java_name = "numOperacion"
+          type = "String"
+          size = "8"
+          middle_name = "gar0011"
+          middle_name_secondary = "gar0012"
+        />
+
+        <field
+          java_name = "codigoSistema"
+          type = "String"
+          size = "3"
+          middle_name = "gar0013"
+          middle_name_secondary = "gar0014"
+        />
+
+        <field
+          java_name = "glosaSistema"
+          type = "String"
+          size = "28"
+          middle_name = "gar0015"
+          middle_name_secondary = "gar0016"
+        />
+
+        <field
+          java_name = "codigoProceso"
+          type = "String"
+          size = "12"
+          middle_name = "gar0017"
+          middle_name_secondary = "gar0018"
+        />
+
+        <field
+          java_name = "glosaProceso"
+          type = "String"
+          size = "52"
+          middle_name = "gar0019"
+          middle_name_secondary = "gar0020"
+        />
+
+        <field
+          java_name = "codigoEntidad"
+          type = "String"
+          size = "30"
+          middle_name = "gar0021"
+          middle_name_secondary = "gar0022"
+        />
+
+        <field
+          java_name = "fechaProceso"
+          type = "Date"
+          size = "8"
+          middle_name = "gar0023"
+          middle_name_secondary = "gar0024"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "horaProceso"
+          type = "String"
+          size = "6"
+          middle_name = "gar0025"
+          middle_name_secondary = "gar0026"
+        />
+
+        <field
+          java_name = "nroUnico"
+          type = "String"
+          size = "8"
+          middle_name = "gar0027"
+          middle_name_secondary = "gar0028"
+        />
+
+        <field
+          java_name = "status"
+          type = "char"
+          size = "1"
+          middle_name = "gar0029"
+          middle_name_secondary = "gar0030"
+        />
+
+        <field
+          java_name = "nroItemOriginal"
+          type = "String"
+          size = "14"
+          middle_name = "gar0031"
+          middle_name_secondary = "gar0032"
+        />
+
+        <field
+          java_name = "nroTotalItem"
+          type = "String"
+          size = "14"
+          middle_name = "gar0033"
+          middle_name_secondary = "gar0034"
+        />
+
+        <field
+          java_name = "nroItemProcesados"
+          type = "String"
+          size = "14"
+          middle_name = "gar0035"
+          middle_name_secondary = "gar0036"
+        />
+
+        <field
+          java_name = "codigoEtapa"
+          type = "String"
+          size = "12"
+          middle_name = "gar0037"
+          middle_name_secondary = "gar0038"
+        />
+
+        <field
+          java_name = "indicadorRespuesta"
+          type = "char"
+          size = "1"
+          middle_name = "gar0039"
+          middle_name_secondary = "gar0040"
+        />
+
+        <field
+          java_name = "glosaIndicadorRespuesta"
+          type = "String"
+          size = "35"
+          middle_name = "gar0041"
+          middle_name_secondary = "gar0042"
+        />
+
+        <field
+          java_name = "codigoRespuesta"
+          type = "String"
+          size = "2"
+          middle_name = "gar0043"
+          middle_name_secondary = "gar0044"
+        />
+
+        <field
+          java_name = "glosaCodigoRespuesta"
+          type = "String"
+          size = "35"
+          middle_name = "gar0045"
+          middle_name_secondary = "gar0046"
+        />
+
+        <field
+          java_name = "fechaGrabacion"
+          type = "Date"
+          size = "8"
+          middle_name = "gar0047"
+          middle_name_secondary = "gar0048"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "horaGrabacion"
+          type = "String"
+          size = "6"
+          middle_name = "gar0049"
+          middle_name_secondary = "gar0050"
+        />
+
+        <field
+          java_name = "fechaInicio"
+          type = "Date"
+          size = "8"
+          middle_name = "gar0051"
+          middle_name_secondary = "gar0052"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "horaInicio"
+          type = "String"
+          size = "6"
+          middle_name = "gar0053"
+          middle_name_secondary = "gar0054"
+        />
+
+        <field
+          java_name = "fechaTermino"
+          type = "Date"
+          size = "8"
+          middle_name = "gar0055"
+          middle_name_secondary = "gar0056"
+          middle_date_format = "yyyyMMddHHmmss"
+        />
+
+        <field
+          java_name = "horaTermino"
+          type = "String"
+          size = "6"
+          middle_name = "gar0057"
+          middle_name_secondary = "gar0058"
+        />
+
+        <field
+          java_name = "respuesta1"
+          type = "String"
+          size = "40"
+          middle_name = "gar0059"
+          middle_name_secondary = "gar0060"
+        />
+
+        <field
+          java_name = "respuesta2"
+          type = "String"
+          size = "39"
+          middle_name = "gar0061"
+          middle_name_secondary = "gar0062"
+        />
+
+        <field
+          java_name = "glosaDisponible"
+          type = "String"
+          size = "50"
+          middle_name = "gar0063"
+          middle_name_secondary = "gar0064"
+        />
+
+  </output>
+
+</service>

@@ -1,0 +1,367 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+ 
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="admMdt.procedimientosAlmacenados">  
+
+    <parameterMap id="setConsultaMandatosCliente" class="java.util.HashMap">
+        <parameter property="rut_cliente"              jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="cod_estado"               jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaMandatosCliente" class="java.util.HashMap">
+        <result  property="id_mandato"                  jdbcType="INT"      javaType="Long" />
+        <result  property="folio_mandato"               jdbcType="VARCHAR"  javaType="String" />
+        <result  property="rut_cliente"                 jdbcType="VARCHAR"  javaType="String" />
+        <result  property="dv_cliente"                  jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tipo_mandato"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fecha_mandato"               jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="cod_estado"                  jdbcType="VARCHAR"  javaType="String" />
+        <result  property="ruta_documento"              jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fecha_activacion"            jdbcType="DATETIME" javaType="Date" />
+        <result  property="oficina"                     jdbcType="VARCHAR" javaType="String" />
+        <result  property="ejecutivo_cabecera"          jdbcType="VARCHAR" javaType="String" />
+        <result  property="estado_garantia"             jdbcType="VARCHAR" javaType="String" />
+    </resultMap>
+    <procedure id="consultaMandatosCliente" parameterMap="setConsultaMandatosCliente" resultMap="getConsultaMandatosCliente">
+        {CALL sp_cns_mdt_cli (?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setInsertarMandatoCliente" class="java.util.HashMap">
+            <parameter property="rut_cliente"           jdbcType="INT"      javaType="Long" />
+            <parameter property="dv_cliente"            jdbcType="CHAR"     javaType="String" />
+            <parameter property="id_usuario"            jdbcType="CHAR"     javaType="String" />
+            <parameter property="folio_mandato"         jdbcType="CHAR"     javaType="String" />
+            <parameter property="cod_canal"             jdbcType="CHAR"     javaType="String" />
+            <parameter property="tipo_mandato"          jdbcType="CHAR"     javaType="String" />
+            <parameter property="fecha_mandato"         jdbcType="DATETIME" javaType="java.util.Date" />
+            <parameter property="desc_modificacion"     jdbcType="CHAR"     javaType="String" />
+            <parameter property="cod_estado"            jdbcType="CHAR"     javaType="String" />            
+            <parameter property="ruta_documento"        jdbcType="CHAR"     javaType="String" />
+            <parameter property="oficina"        		jdbcType="CHAR"     javaType="String" />
+            <parameter property="ejecutivo_cabecera"    jdbcType="CHAR"     javaType="String" />
+            <parameter property="tipo_garantia"         jdbcType="CHAR"     javaType="String" />
+                        </parameterMap>
+    
+    <procedure id="insertarMandatoCliente" parameterMap="setInsertarMandatoCliente" resultClass="Integer">
+             { CALL sp_ins_mdt_cli (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setActualizarMandatoCliente" class="java.util.HashMap">
+        <parameter property="id_mandato"        jdbcType="INT"      javaType="Long" />
+        <parameter property="cod_estado"        jdbcType="CHAR"     javaType="String" />
+        <parameter property="id_usuario"        jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_canal"         jdbcType="CHAR"     javaType="String" />  
+        <parameter property="desc_modificacion" jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_accion"        jdbcType="CHAR"     javaType="String" />  
+        <parameter property="fecha_activacion"  jdbcType="DATETIME" javaType="String" />
+    </parameterMap>
+    
+    <procedure id="actualizarMandatoCliente" parameterMap="setActualizarMandatoCliente" resultClass="Integer">
+        { CALL sp_upd_mdt_cli(?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setInsertarMandatoAval" class="java.util.HashMap">
+            <parameter property="rut_cliente"            	jdbcType="INT"      javaType="Long" />
+            <parameter property="rut"            			jdbcType="INT"      javaType="Long" />
+            <parameter property="dv"            			jdbcType="CHAR"     javaType="String" />
+            <parameter property="idMandatoCliente"          jdbcType="INT"      javaType="Long" />
+            <parameter property="nombreCompleto"        	jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="estadoCivil"           	jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="regimenConyugal"       	jdbcType="VARCHAR"  javaType="String" />
+  			<parameter property="porcentajeParticipacion"   jdbcType="INT"      javaType="Integer" />
+            <parameter property="tipoMandato"     			jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="fechaDocumento"        	jdbcType="DATETIME" javaType="java.util.Date" />
+            <parameter property="numeroSUC"        			jdbcType="NUMERIC"  javaType="Long" />
+            <parameter property="estado"        			jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="idUsuario"                 jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="codigoCanal"               jdbcType="VARCHAR"  javaType="String" />
+            <parameter property="glosaModificacion"         jdbcType="VARCHAR"  javaType="String" />
+            </parameterMap>
+    
+    <procedure id="insertarMandatoAval" parameterMap="setInsertarMandatoAval" resultClass="Integer">
+             { CALL sp_ins_mdt_aval (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setObtenerMandatosAvales" class="java.util.HashMap">
+        <parameter property="rut_cliente"              jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getObtenerMandatosAvales" class="java.util.HashMap">
+        <result  property="id_mandato_aval"         jdbcType="INT"      javaType="Integer" />
+        <result  property="rut_cliente"             jdbcType="INT"      javaType="Long" />
+        <result  property="rut_aval"                jdbcType="INT"      javaType="Long" />
+        <result  property="dv_aval"                 jdbcType="VARCHAR"  javaType="String" />
+        <result  property="nombreCompleto"          jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoCivil"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="regimenConyugal"         jdbcType="VARCHAR"  javaType="String" />
+        <result  property="porcentajeParticipacion" jdbcType="INT"      javaType="Integer" />
+        <result  property="tipoMandato"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fechaDocumento"          jdbcType="DATETIME" javaType="Date" />
+        <result  property="numeroSUC"               jdbcType="NUMERIC"  javaType="Long" />
+        <result  property="estado"                  jdbcType="VARCHAR"  javaType="String" />
+    </resultMap>
+    <procedure id="obtenerMandatosAvales" parameterMap="setObtenerMandatosAvales" resultMap="getObtenerMandatosAvales">
+        {CALL sp_con_mdt_aval_por_DD (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setRevocarMandatoAval" class="java.util.HashMap">
+        <parameter property="id_mandato"            jdbcType="INT"      javaType="Long" />
+        <parameter property="id_mandato_cliente"    jdbcType="INT"      javaType="Long" />
+        <parameter property="cod_estado"            jdbcType="CHAR"     javaType="String" />
+        <parameter property="id_usuario"            jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_canal"             jdbcType="CHAR"     javaType="String" />  
+        <parameter property="desc_modificacion"     jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_accion"            jdbcType="CHAR"     javaType="String" />  
+        
+    </parameterMap>
+    
+    <procedure id="revocarMandatoAval" parameterMap="setRevocarMandatoAval" resultClass="Integer">
+        { CALL sp_upd_mdt_aval(?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    <parameterMap id="setConsultaMandatosAval" class="java.util.HashMap">
+        <parameter property="rut_aval"                 jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="estado"                   jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaMandatosAval" class="java.util.HashMap">
+       	<result  property="id_mandato_aval"            jdbcType="INT"      javaType="Long" />
+        <result  property="rut_cliente"                jdbcType="INT"      javaType="Long" />
+        <result  property="rut"                 	   jdbcType="INT"      javaType="Long" />
+        <result  property="dv"                  	   jdbcType="CHAR"     javaType="String" />
+        <result  property="nombreCompleto"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoCivil"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="regimenConyugal"            jdbcType="VARCHAR"  javaType="String" />
+        <result  property="porcentajeParticipacion"    jdbcType="INT"      javaType="Integer" />
+        <result  property="tipoMandato"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fechaDocumento"             jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="numeroSUC"                  jdbcType="NUMERIC"  javaType="Long" />
+        <result  property="estado"                     jdbcType="VARCHAR"  javaType="String" />
+        <result  property="id_mandato_DD"              jdbcType="INT"      javaType="Long" />
+                 
+    </resultMap>
+    <procedure id="consultaMandatosAval" parameterMap="setConsultaMandatosAval" resultMap="getConsultaMandatosAval">
+        {CALL sp_con_mdt_aval (?, ?, ?)}
+    </procedure>
+    
+    <parameterMap id="setConsultaMandatosAvalPorDD" class="java.util.HashMap">
+        <parameter property="id_mandato"               jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaMandatosAvalPorDD" class="java.util.HashMap">
+       	<result  property="id_mandato_aval"            jdbcType="INT"      javaType="Long" />
+        <result  property="rut_cliente"                jdbcType="INT"      javaType="Long" />
+        <result  property="rut"                 	   jdbcType="INT"      javaType="Long" />
+        <result  property="dv"                  	   jdbcType="CHAR"     javaType="String" />
+        <result  property="nombreCompleto"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoCivil"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="regimenConyugal"            jdbcType="VARCHAR"  javaType="String" />
+        <result  property="porcentajeParticipacion"    jdbcType="INT"      javaType="Integer" />
+        <result  property="tipoMandato"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fechaDocumento"             jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="numeroSUC"                  jdbcType="NUMERIC"  javaType="Long" />
+        <result  property="estado"                     jdbcType="VARCHAR"  javaType="String" />
+                 
+    </resultMap>
+    <procedure id="consultaMandatosAvalPorDD" parameterMap="setConsultaMandatosAvalPorDD" resultMap="getConsultaMandatosAvalPorDD">
+        {CALL sp_con_mdt_aval_por_DD (?, ?)}
+    </procedure> 
+    
+    <parameterMap id="setConsultaMandatosBitacora" class="java.util.HashMap">
+        <parameter property="fechaConsultaDesde"  jdbcType="DATETIME" javaType="String" />
+        <parameter property="fechaConsultaHasta"  jdbcType="DATETIME" javaType="String" />
+    </parameterMap>
+    <resultMap id="getConsultaMandatosBitacora" class="java.util.HashMap">
+        <result  property="idMandato"           jdbcType="INT"      javaType="Long" />
+        <result  property="accion"              jdbcType="VARCHAR"  javaType="String" />
+        <result  property="rutCliente"          jdbcType="INT"      javaType="Long" />
+        <result  property="dvCliente"           jdbcType="CHAR"     javaType="String" />
+        <result  property="estado"              jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tipoMandato"         jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fechaCambio"         jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="fechaMandato"        jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="idUsuario"           jdbcType="VARCHAR"  javaType="String" />
+        <result  property="ejecutivoCabecera"   jdbcType="VARCHAR"  javaType="String" />
+        <result  property="oficina"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoGarantia"      jdbcType="VARCHAR"  javaType="String" />
+        <result  property="rut_aval"      		jdbcType="INT"  	javaType="Long" />
+        <result  property="dv_aval"      		jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoAval"     		jdbcType="VARCHAR"  javaType="String" />
+    </resultMap>
+    <procedure id="consultaMandatosBitacora" parameterMap="setConsultaMandatosBitacora" resultMap="getConsultaMandatosBitacora">
+        {CALL sp_cns_mdt_bit (?, ?)}
+    </procedure> 
+    
+    
+     <parameterMap id="setActualizarMandatoAval" class="java.util.HashMap">
+        <parameter property="id_mandato"            jdbcType="INT"      javaType="Long" />
+        <parameter property="id_mandato_cliente"    jdbcType="INT"      javaType="Long" />
+        <parameter property="cod_estado"            jdbcType="CHAR"     javaType="String" />
+        <parameter property="id_usuario"            jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_canal"             jdbcType="CHAR"     javaType="String" />  
+        <parameter property="desc_modificacion"     jdbcType="CHAR"     javaType="String" />  
+        <parameter property="cod_accion"            jdbcType="CHAR"     javaType="String" />  
+        
+    </parameterMap>
+    
+    <procedure id="actualizarMandatoAval" parameterMap="setActualizarMandatoAval" resultClass="Integer">
+        { CALL sp_upd_mdt_aval(?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+     <parameterMap id="setConsultaMandatosClienteId" class="java.util.HashMap">
+        <parameter property="identificador"            jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultaMandatosClienteId" class="java.util.HashMap">
+        <result  property="id_mandato"                  jdbcType="INT"      javaType="Long" />
+        <result  property="folio_mandato"               jdbcType="VARCHAR"  javaType="String" />
+        <result  property="rut_cliente"                 jdbcType="VARCHAR"  javaType="String" />
+        <result  property="dv_cliente"                  jdbcType="VARCHAR"  javaType="String" />
+        <result  property="tipo_mandato"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fecha_mandato"               jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="cod_estado"                  jdbcType="VARCHAR"  javaType="String" />
+        <result  property="ruta_documento"              jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fecha_activacion"            jdbcType="DATETIME" javaType="Date" />
+    </resultMap>
+    <procedure id="consultaMandatosClienteId" parameterMap="setConsultaMandatosClienteId" resultMap="getConsultaMandatosClienteId">
+        {CALL sp_cns_mdt_cli_id (?, ?)}
+    </procedure>
+    
+    <parameterMap id="setActualizaEstadoGarantiaMandato" class="java.util.HashMap">
+        <parameter property="id_mandato"        jdbcType="INT"      javaType="Long" />
+        <parameter property="estado_garantia"   jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    <procedure id="actualizaEstadoGarantiaMandato" parameterMap="setActualizaEstadoGarantiaMandato" resultClass="Integer">
+        {CALL sp_upd_est_gra_cli (?, ?)}
+    </procedure>
+    
+    
+    
+    <parameterMap id="setInsertarDocumentoDeuDir" class="java.util.HashMap">
+            <parameter property="nombreCliente"         jdbcType="CHAR"     javaType="String" />
+            <parameter property="rut_cliente"           jdbcType="INT"      javaType="Long" />
+            <parameter property="dv_cliente"            jdbcType="CHAR"     javaType="String" />
+            <parameter property="domicilio"             jdbcType="CHAR"     javaType="String" />
+            <parameter property="comuna"                jdbcType="CHAR"     javaType="String" />
+            <parameter property="ciudad"                jdbcType="CHAR"     javaType="String" />
+            <parameter property="fechaVencimiento"      jdbcType="DATETIME" javaType="Date" />
+            <parameter property="id_ejecutivo"          jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    
+    <procedure id="insertarDocumentoDeuDir" parameterMap="setInsertarDocumentoDeuDir" resultClass="Integer">
+             { CALL sp_ins_doc_deu_dir (?, ?, ?, ?, ?, ?, ?, ?) }
+    </procedure>
+    
+    
+    <parameterMap id="setInsertarRepresentanteLegal" class="java.util.HashMap">
+			<parameter property="idDocumento"           		jdbcType="INT"      javaType="Integer" />
+			<parameter property="nombre_representante"         	jdbcType="CHAR"     javaType="String" />
+			<parameter property="rut_representante"           	jdbcType="INT"      javaType="Long" />
+            <parameter property="dv_representante"            	jdbcType="CHAR"     javaType="String" />
+    </parameterMap>
+    
+    <procedure id="insertarRepresentanteLegal" parameterMap="setInsertarRepresentanteLegal" resultClass="Integer">
+             { CALL sp_ins_rep_leg (?, ?, ?, ?) }
+    </procedure>
+
+<parameterMap id="setConsultarDatosMandatoPrellenado" class="java.util.HashMap">
+        <parameter property="rutCliente"                jdbcType="INT"      javaType="Long" />
+    </parameterMap>
+    
+    <resultMap id="getConsultarDatosMandatoPrellenado" class="java.util.HashMap">
+        <result  property="id_documento"            jdbcType="INT"      javaType="Integer"  />
+        <result  property="nombre_cliente"          jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="rut_cliente"             jdbcType="INT"      javaType="Long"     />
+        <result  property="dv_cliente"              jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="domicilio"               jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="comuna"                  jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="ciudad"                  jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="fechaVencimiento"        jdbcType="DATETIME" javaType="Date"     />
+        <result  property="nombre_representante"    jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="rut_representante"       jdbcType="INT"      javaType="Long"     />
+        <result  property="dv_representante"        jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="idEjecutivo"             jdbcType="VARCHAR"  javaType="String"   />
+    </resultMap>
+    <procedure id="consultarDatosMandatoPrellenado" parameterMap="setConsultarDatosMandatoPrellenado" resultMap="getConsultarDatosMandatoPrellenado">
+        {CALL sp_cns_doc_rep_leg (?)}
+    </procedure>
+    
+     <parameterMap id="setConsultarDatosAvalesPrellenado" class="java.util.HashMap">
+        <parameter property="idDocumento"       jdbcType="INT"      javaType="Long" />
+    </parameterMap>
+    <resultMap id="getConsultarDatosAvalesPrellenado" class="java.util.HashMap">
+        <result  property="nombre"              jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="rut"                 jdbcType="INT"      javaType="Long"     />
+        <result  property="dv"                  jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="domicilio"           jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="comuna"              jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="ciudad"              jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="estadoCivil"         jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="nombre_conyuge"      jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="rut_conyuge"         jdbcType="INT"      javaType="Long"     />
+        <result  property="dv_conyuge"          jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="domicilio_conyuge"   jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="comuna_conyuge"      jdbcType="VARCHAR"  javaType="String"   />
+        <result  property="ciudad_conyuge"      jdbcType="VARCHAR"  javaType="String"   />
+    </resultMap>
+    <procedure id="consultarDatosAvalesPrellenado" parameterMap="setConsultarDatosAvalesPrellenado" resultMap="getConsultarDatosAvalesPrellenado">
+        {CALL sp_cns_doc_avl (?)}
+    </procedure>
+    
+    <parameterMap id="setInsertarDocumentoAval" class="java.util.HashMap">
+    
+			<parameter property="idDocumento"		jdbcType="INT"     	javaType="Integer"/>
+			<parameter property="nombre"			jdbcType="CHAR"     javaType="String" />
+			<parameter property="rut"				jdbcType="INT"      javaType="Long"/>
+			<parameter property="dv"				jdbcType="CHAR"     javaType="String" />
+			<parameter property="domicilio"			jdbcType="CHAR"     javaType="String" />
+			<parameter property="comuna"			jdbcType="CHAR"     javaType="String" />
+			<parameter property="ciudad"			jdbcType="CHAR"     javaType="String" />
+			<parameter property="estadoCivil"		jdbcType="CHAR"     javaType="String" />
+			<parameter property="nombre_conyuge"	jdbcType="CHAR"     javaType="String" />
+			<parameter property="rut_conyuge"		jdbcType="INT"      javaType="Long"/>
+			<parameter property="dv_conyuge"		jdbcType="CHAR"     javaType="String" />
+			<parameter property="domicilio_conyuge"	jdbcType="CHAR"     javaType="String" />
+			<parameter property="comuna_conyuge"	jdbcType="CHAR"     javaType="String" />
+			<parameter property="ciudad_conyuge"	jdbcType="CHAR"     javaType="String" />	
+			
+    </parameterMap>
+    
+    <procedure id="insertarDocumentoAval" parameterMap="setInsertarDocumentoAval" resultClass="Integer">
+             { CALL sp_ins_doc_deu_ind (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)}
+    </procedure>
+	
+	<parameterMap id="setConsultarMandatoAvalRutCliente" class="java.util.HashMap">
+        <parameter property="rut_cliente"                 jdbcType="INT"      javaType="Long" />
+        <parameter property="tipo_mandato"             jdbcType="VARCHAR"  javaType="String" />
+        <parameter property="cod_estado"                   jdbcType="VARCHAR"  javaType="String" />
+    </parameterMap>
+    
+    <resultMap id="getConsultarMandatoAvalRutCliente" class="java.util.HashMap">
+       	<result  property="id_mandato_aval"            jdbcType="INT"      javaType="Long" />
+        <result  property="rut_cliente"                jdbcType="INT"      javaType="Long" />
+        <result  property="rut_aval"                   jdbcType="INT"      javaType="Long" />
+        <result  property="dv_aval"                    jdbcType="CHAR"     javaType="String" />
+        <result  property="nombreCompleto"             jdbcType="VARCHAR"  javaType="String" />
+        <result  property="estadoCivil"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="regimenConyugal"            jdbcType="VARCHAR"  javaType="String" />
+        <result  property="porcentajeParticipacion"    jdbcType="INT"      javaType="Integer" />
+        <result  property="tipoMandato"                jdbcType="VARCHAR"  javaType="String" />
+        <result  property="fechaDocumento"             jdbcType="DATETIME" javaType="java.util.Date" />
+        <result  property="numeroSUC"                  jdbcType="NUMERIC"  javaType="Long" />
+        <result  property="estado"                     jdbcType="VARCHAR"  javaType="String" />
+        <result  property="id_mandato_DD"              jdbcType="INT"      javaType="Long" />
+                 
+    </resultMap>
+    <procedure id="consultarMandatoAvalRutCliente" parameterMap="setConsultarMandatoAvalRutCliente" resultMap="getConsultarMandatoAvalRutCliente">
+        {CALL sp_cns_mdt_aval_rut_cli (?, ?, ?)}
+    </procedure>
+</sqlMap>

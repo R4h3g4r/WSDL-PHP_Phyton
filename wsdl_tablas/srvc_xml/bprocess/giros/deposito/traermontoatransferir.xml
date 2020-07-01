@@ -1,0 +1,57 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_cal_con">
+   <context>
+      <boolean_false value="1" />
+      <boolean_true value="0" />
+      <general_exception_codigo value="ESPECIAL" />
+      <have_multi_environment value="no" />
+      <outputfield_attr value="no" />
+      <req_num_param value="no" />
+      <translator value="RORPPTPG" />
+      <campo_indica_cantidad value="" />
+      <status_throw_exception value="yes" />
+      <joltpool_name value="" />
+   </context>
+   <input>
+        <field
+          java_name = "identificadorOrigen"
+         type = "long"
+         size = "4"
+          middle_name = "trx_ido_org"
+        />
+     	<field
+          java_name = "identificadorDestino"
+         type = "long"
+         size = "4"          
+          middle_name = "trx_ido_dst"
+        />
+      	<field
+          java_name = "fechaProceso"
+          type = "Date"
+          size = "4"
+          middle_name = "trx_fec_pro"
+         />
+   </input>
+   
+   <output>
+        <field
+	  java_name = "identificadorOrigen"
+          type = "long"
+          size = "4"          
+	  middle_name = "con_ido_org"
+	/>
+	<field
+	  java_name = "identificadorDestino"
+          type = "long"
+          size = "4"          
+	  middle_name = "con_ido_dst"
+	/>
+	<field
+	  java_name = "monto"
+	  type = "Double"
+	  size = "8"
+	  middle_name = "con_mon"
+         />
+   </output>
+</service>

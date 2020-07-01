@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<service xmlns="http://wcorp/util/bee/serviciosdedatos" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://wcorp/util/bee/serviciosdedatos
+XMLService.xsd" name="sp_cns_ale_eje">
+	<context>
+		<es_funcion value="no"/>
+	</context>
+	<input>
+		<field type="String" middle_name="usuario" size="0" java_name="usuario"/>
+		<field type="String" middle_name="etevista" size="0" java_name="etevista"/>	
+	</input>
+	<output>
+		<struct struct_size="0" class_name="SalidaAlertaTO" var_name="alertas">
+			<field type="String" middle_name="nombre_alerta" size="0" java_name="alerta"/>
+			<field type="String" middle_name="codigo_alerta" size="0" java_name="codigo"/>
+		</struct>
+	</output>
+</service>

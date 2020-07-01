@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="cmpmovil.procedimientosAlmacenados">    
+<!-- Campañas moviles -->
+
+	<parameterMap id="setConsultaCampanaCliente" class="java.util.HashMap">
+		<parameter property="rut" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="tipoCampana" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+
+	<resultMap id="getConsultaCampanaCliente" class="java.util.HashMap">
+		<result property="tipoCampana" column="cmp_tip" javaType="String" />
+		<result property="rut" column="cli_rut" javaType="integer" />
+	    <result property="dv" column="cli_dv" javaType="String" />
+	    <result property="canal" column="cmp_cnl" javaType="String" />
+	    <result property="monto" column="cmp_mto" javaType="double" />
+	    <result property="estado" column="cmp_est" javaType="String" />
+	    <result property="fechaExpiracion" column="cmp_fec_exp" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	    <result property="descCampana" column="desc_cam" javaType="String" />
+	    <result property="mensajeCampana" column="cmp_msg_usr" javaType="String" />
+	    <result property="urlCampana" column="cmp_lnk_flujo" javaType="String" />
+	</resultMap>
+	
+ 	<procedure id="consultaCampanaCliente" parameterMap="setConsultaCampanaCliente" resultMap="getConsultaCampanaCliente">
+		{ CALL SP_ConsultarCampanaMovil(?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setInsertaCampanaCliente" class="java.util.HashMap">
+		<parameter property="tipoCampana" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="rut" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="dv" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="monto" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="montoSolicitado" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="valorCuota" jdbcType="NUMERIC" javaType="double" />
+		<parameter property="fecha" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="celular" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="email" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="insertaCampanaCliente" parameterMap="setInsertaCampanaCliente" resultClass="int">
+		{ CALL SP_InsertarSolicitudCredLead(?,?,?,?,?,?,?,?,?,?) }
+	</procedure>
+	
+	<parameterMap id="setActualizaCampanaCliente" class="java.util.HashMap">
+		<parameter property="tipoCampana" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="rut" jdbcType="NUMERIC" javaType="integer" />
+		<parameter property="canal" jdbcType="VARCHAR" javaType="String" />
+		<parameter property="estado" jdbcType="VARCHAR" javaType="String" />
+	</parameterMap>
+	
+	<procedure id="actualizaCampanaCliente" parameterMap="setActualizaCampanaCliente" resultClass="int">
+		{ CALL SP_ActualizarCampanaMovil(?,?,?,?) }
+	</procedure>
+	
+ 	<parameterMap id="setConsultaLEADS" class="java.util.HashMap">
+		<parameter property="fechaInicio" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="fechaFin" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	</parameterMap>
+
+	<resultMap id="getConsultaLEADS" class="java.util.HashMap">
+		<result property="tipoCampana" column="cmp_tip" javaType="String" />
+		<result property="rut" column="cli_rut" javaType="integer" />
+	    <result property="dv" column="cli_dv" javaType="String" />
+	    <result property="monto" column="cmp_mto" javaType="double" />
+	    <result property="montoSolicitado" column="lead_mto_sol" javaType="double" />
+	    <result property="valorCuota" column="lead_val_cuota" javaType="double" />
+	    <result property="fecha" column="lead_fec" jdbcType="DATETIME" javaType="java.util.Date" />
+	    <result property="celular" column="cli_cel" javaType="String" />
+	    <result property="email" column="cli_email" javaType="String" />
+	</resultMap>
+	
+ 	<procedure id="consultaLEADS" parameterMap="setConsultaLEADS" resultMap="getConsultaLEADS">
+		{ CALL SP_ConsultaLEADS(?,?) }
+	</procedure>
+
+	<resultMap id="getConsultaTipoCampanas" class="java.util.HashMap">
+		<result property="tipoCampana"         column="cmp_tip"     javaType="String" />
+		<result property="descripcionCampana"  column="desc_cam"    javaType="String" />
+	</resultMap>
+
+	<procedure id="consultaTipoCampanas" resultMap="getConsultaTipoCampanas">
+		{ CALL SP_ConsultaTipoCampana() }
+	</procedure>
+
+	<parameterMap id="setCargaCampanas" class="java.util.HashMap">
+		<parameter property="tipoCampana"       jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="canal"             jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="fechaExpiracion"   jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="nombreArchivo"     jdbcType="VARCHAR"  javaType="String" />
+		<parameter property="fechaCarga"        jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="fechaModificacion" jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<parameter property="estado"            jdbcType="VARCHAR"  javaType="String" />
+	</parameterMap>
+
+	<procedure id="cargaCampanas" parameterMap="setCargaCampanas" resultClass="int">
+		{ CALL SP_IngresaCampanas(?,?,?,?,?,?,?) }
+	</procedure>
+
+	<parameterMap id="setConsultaUltimaCarga" class="java.util.HashMap">
+		<parameter property="consultaCarga"   jdbcType="DATETIME" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+	</parameterMap>
+
+	<resultMap id="getConsultaUltimaCarga" class="java.util.HashMap">
+		<result property="id"       		 column="reg_id"      javaType="integer" />
+		<result property="tipoCampana"       column="desc_cam"    javaType="String" />
+		<result property="canal"             column="cmp_cnl"     javaType="String" />
+		<result property="fechaExpiracion"   column="cmp_fec_exp" jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="nombreArchivo"     column="reg_nom"     javaType="String" />
+		<result property="fechaCarga"        column="fec_car"     jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler"/>
+		<result property="fechaModificacion" column="fec_mod"     jdbcType="DATE" javaType="java.util.Calendar" typeHandler="cl.bci.middleware.aplicacion.persistencia.handler.CalendarTypeHandler" />
+		<result property="estado"            column="reg_est"     javaType="String" />
+	</resultMap>
+
+	<procedure id="consultaUltimaCarga" parameterMap="setConsultaUltimaCarga" resultMap="getConsultaUltimaCarga">
+		{ CALL sp_consulta_registro_cargas(?) }
+	</procedure>
+	
+<!-- Fin Campañas moviles -->
+
+</sqlMap>    

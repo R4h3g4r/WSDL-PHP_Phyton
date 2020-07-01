@@ -1,0 +1,67 @@
+.formularios_empresarios{}
+
+.altura_50{min-height: 50px;}
+
+.width_110{width: 110px !important;}
+.width_150{width: 150px !important;}
+.width_190{width: 190px !important;}
+.width_400{width: 400px !important;}
+
+
+/*PASOS TRANSFERENCIAS*/
+.pasos_empresas { clear: both; margin: 0px; padding: 0px 0px 0px 13px; font: bold 16px Arial, Helvetica, sans-serif; color: #CCC; list-style: none; }
+.pasos_empresas li { float: left; width: 33%; margin: 0px 12px 5px 0px; padding: 0px; }
+.pasos_empresas .activo { color: #999; }
+.pasos_empresas span { background: url(../images/botones/bot_menu_pasos.gif) no-repeat 0px 0px; float: left; margin: 0px 5px 0px 0px; padding: 4px 8px 0px 8px; width: 11px; height: 27px; color: #FFF; line-height: 100%; }
+.pasos_empresas span.activo { background: url(../images/botones/bot_activo_menu_pasos.gif) no-repeat 0px 0px; color: #FFF; }
+
+.form_seleccionar_opcion{font-size: 12px; color: #666;}
+.fondo_borde_gris{background: #F5F5F5; padding: 10px; border-radius: 10px; margin: 0px 0px 10px 0px; width: 97%; overflow: hidden; clear: both;}
+input.obligatorio[type=text]{ border: 1px solid #C03; }
+
+input[type=text]{background: url(../images/html/fondo_input.jpg) no-repeat 0px 0px; font: 11px Arial, Helvetica, sans-serif; color: #666; border: 1px solid #AFAFAF; border-radius: 2px; margin: 0px; padding: 0px 0px 0px 2px; height: 20px;}
+select{background: url(../images/html/fondo_input.jpg) no-repeat 0px 0px; font: bold 12px Arial,Helvetica,sans-serif; color: #666; border: 1px solid #AFAFAF; border-radius: 2px; margin: 0px; padding: 0px 0px 0px 2px; height: 22px; width: 60%;}
+
+.row_fluid{width: 100%; clear: both; font-size: 12px; color: #666;}
+.fondo_borde_gris p{clear: both; margin: 0px; padding: 0px 0px 8px 0px;}
+.fondo_borde_gris .col_1{width: 45%; margin: 0px 10px 0px 0px; float: left; vertical-align: top;}
+.fondo_borde_gris .col_2{width: 50%; margin: 0px 10px 0px 0px; float: left; vertical-align: top;}
+.fondo_borde_gris .col_3{width: 31%; margin: 0px 10px 0px 0px; float: left; vertical-align: top; clear: none;}
+.fondo_borde_gris .col_destacado{background: url(../images/estados_financieros/fondo_form_elegir_formulario.png) no-repeat 0px 0px; width: 209px !important; display: block; padding: 0px 5px 7px 5px;}
+
+
+.row_fluid .radio{background: none; display: inline; border: none; width: auto; height: auto;}
+.row_fluid .label_radio{display: inline; width: auto; margin: 0px 5px 0px 2px;}
+.row_fluid .condiciones{font-size: 9px;}
+
+.row_fluid .caja_texto{background: url(../images/html/fondo_input.jpg) no-repeat 0px 0px; font: 11px Arial, Helvetica, sans-serif; color: #666; border: 1px solid #AFAFAF; border-radius: 2px; margin: 0px; padding: 0px 0px 0px 2px; height: 20px; width: 60%;}
+
+.row_fluid .width_80{width: 80px;}
+.row_fluid .width_100{width: 100px;}
+.row_fluid .detalle{background: url(../images/html/ico_link_mas.gif) no-repeat 0px 3px; padding: 0px 0px 0px 10px; font-size: 11px;}
+.row_fluid .calendar { background: url(../images/html/fondo_input_fecha.jpg) no-repeat 0px 0px; width: 108px; text-align: left; padding: 0px 0px 0px 5px; height: 27px; margin: 0px; cursor: pointer; border: none; font-size: 12px;}
+
+.row_fluid .file{background: url(../images/html/fondo_input.jpg) no-repeat 0px 0px; width: 160px; font-size: 12px; border-radius: 2px; border: 1px solid #CCC;}
+
+.cont_formularios{font-size: 12px; color: #666;}
+
+/*ALERTAS*/
+.mensajes_de_alerta{background: url(../images/html/ico_alertas_aviso.png) no-repeat 10px 7px #FFFFC6; clear: both; border-radius: 10px; color: #666; font: 12px/140% Arial, Helvetica, sans-serif; margin: 10px 0px 8px 0px; padding: 14px 10px 18px 98px;}
+.mensajes_de_alerta p{margin: 0px; padding: 0px 0px 7px 0px;}
+
+
+.form_comprobante { background: url(../images/html/fondo_comprobante_pago.png) no-repeat 2px 2px #F5F5F5; min-height: 70px; padding: 10px 0px 10px 120px; width: 580px; font-size: 12px; color: #666;}
+.form_comprobante strong, .form_comprobante b{color: #000;}
+
+
+
+
+ /* tooltip styling. by default the element to be styled is .tooltip  */
+  .tooltip {
+    display:none;
+    background-color:#ffa;
+    border:1px solid #cc9;
+    padding:13px;
+    font-size:13px;
+    top: 211px !important; 
+  }

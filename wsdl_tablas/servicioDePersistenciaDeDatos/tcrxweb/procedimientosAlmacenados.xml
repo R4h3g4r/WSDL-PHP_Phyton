@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap      
+    PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"      
+    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+    
+<sqlMap namespace="tcrxweb.procedimientosAlmacenados">
+ 
+     <resultMap id="CambioAumentoCupo" class="java.util.HashMap">
+            <result property="numeroOperacion" column="numero_operacion" />
+            <result property="cupoActual" column="cupo_actual" />
+            <result property="cupoNuevo" column="cupo_nuevo" /> 
+            <result property="codigoProducto" column="codigo_producto" />
+            <result property="codigoPlan" column="codigo_plan" />
+            <result property="tipoMoneda" column="tipo_moneda" />
+     </resultMap>
+     <resultMap id="PreferenciaCliente" class="java.util.HashMap">
+            <result property="codigo_plantilla" column="codigo_plantilla" />
+			<result property="codigo_preferencia" column="codigo_preferencia" />
+			<result property="glosa_preferencia" column="glosa_preferencia" /> 
+            <result property="valor_preferencia" column="valor_preferencia" />
+            <result property="codigo_tipo_preferencia" column="codigo_tipo_preferencia" />
+            <result property="glosa_tipo" column="glosa_tipo" />
+            <result property="codigo_tipo_validacion" column="codigo_tipo_validacion" />
+            <result property="largo_elemento" column="largo_elemento" />
+            <result property="tipo_despliegue" column="tipo_despliegue" />
+            <result property="orden_despliegue" column="orden_despliegue" />
+            <result property="codigo_posicion" column="codigo_posicion" />
+            <result property="acepta_email" column="acepta_email" />
+            <result property="acepta_sms" column="acepta_sms" />
+            <result property="orden" column="orden" />
+     </resultMap>
+
+	<procedure id="ingresarSolicitudTarjeta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_ingresa_solicitud_tarjeta( <isNotNull property="cmp_rut_tit">#cmp_rut_tit#</isNotNull><isNull property="cmp_rut_tit">NULL</isNull>,
+											<isNotNull property="cmp_dv_tit">#cmp_dv_tit#</isNotNull><isNull property="cmp_dv_tit">NULL</isNull>,
+											<isNotNull property="cmp_nom_tit">#cmp_nom_tit#</isNotNull><isNull property="cmp_nom_tit">NULL</isNull>,
+											<isNotNull property="cmp_tel_tit">#cmp_tel_tit#</isNotNull><isNull property="cmp_tel_tit">NULL</isNull>,
+											<isNotNull property="cmp_cel_tit">#cmp_cel_tit#</isNotNull><isNull property="cmp_cel_tit">NULL</isNull>,
+											<isNotNull property="cmp_eml_tit">#cmp_eml_tit#</isNotNull><isNull property="cmp_eml_tit">NULL</isNull>,
+											<isNotNull property="cmp_dir_envio">#cmp_dir_envio#</isNotNull><isNull property="cmp_dir_envio">NULL</isNull>,
+											<isNotNull property="cmp_reg_envio">#cmp_reg_envio#</isNotNull><isNull property="cmp_reg_envio">NULL</isNull>,
+											<isNotNull property="cmp_ciu_envio">#cmp_ciu_envio#</isNotNull><isNull property="cmp_ciu_envio">NULL</isNull>,
+											<isNotNull property="cmp_vis_tit">#cmp_vis_tit#</isNotNull><isNull property="cmp_vis_tit">NULL</isNull>,
+											<isNotNull property="cmp_rut_cng">#cmp_rut_cng#</isNotNull><isNull property="cmp_rut_cng">NULL</isNull>,
+											<isNotNull property="cmp_dv_cng">#cmp_dv_cng#</isNotNull><isNull property="cmp_dv_cng">NULL</isNull>,
+											<isNotNull property="cmp_nom_cng">#cmp_nom_cng#</isNotNull><isNull property="cmp_nom_cng">NULL</isNull>,
+											<isNotNull property="cmp_vis_cng">#cmp_vis_cng#</isNotNull><isNull property="cmp_vis_cng">NULL</isNull>,
+											<isNotNull property="cmp_rut_adc1">#cmp_rut_adc1#</isNotNull><isNull property="cmp_rut_adc1">NULL</isNull>,
+											<isNotNull property="cmp_dv_adc1">#cmp_dv_adc1#</isNotNull><isNull property="cmp_dv_adc1">NULL</isNull>,
+											<isNotNull property="cmp_nom_adc1">#cmp_nom_adc1#</isNotNull><isNull property="cmp_nom_adc1">NULL</isNull>,
+											<isNotNull property="cmp_rut_adc2">#cmp_rut_adc2#</isNotNull><isNull property="cmp_rut_adc2">NULL</isNull>,
+											<isNotNull property="cmp_dv_adc2">#cmp_dv_adc2#</isNotNull><isNull property="cmp_dv_adc2">NULL</isNull>,
+											<isNotNull property="cmp_nom_adc2">#cmp_nom_adc2#</isNotNull><isNull property="cmp_nom_adc2">NULL</isNull>,
+											<isNotNull property="cmp_cod_tarjeta">#cmp_cod_tarjeta#</isNotNull><isNull property="cmp_cod_tarjeta">NULL</isNull>,
+											<isNotNull property="cmp_fec_solicitud">#cmp_fec_solicitud#</isNotNull><isNull property="cmp_fec_solicitud">NULL</isNull>,
+											<isNotNull property="cmp_ip_solicitante">#cmp_ip_solicitante#</isNotNull><isNull property="cmp_ip_solicitante">NULL</isNull>,
+											<isNotNull property="cmp_cod_ticket_epiphany">#cmp_cod_ticket_epiphany#</isNotNull><isNull property="cmp_cod_ticket_epiphany">NULL</isNull>,
+											<isNotNull property="cmp_cod_opo_epiphany">#cmp_cod_opo_epiphany#</isNotNull><isNull property="cmp_cod_opo_epiphany">NULL</isNull>,
+											<isNotNull property="cmp_motivo_rechazo">#cmp_motivo_rechazo#</isNotNull><isNull property="cmp_motivo_rechazo">NULL</isNull>,
+											<isNotNull property="cmp_estado_solicitud">#cmp_estado_solicitud#</isNotNull><isNull property="cmp_estado_solicitud">NULL</isNull>)}
+	</procedure>
+	<procedure id="ingresarSolicitudDestinatario" parameterClass="java.util.HashMap" >
+		{CALL sp_ingresa_destinatarios_solic(#cmp_id_solicitud#,#cmp_tip_dest#,#cmp_eml_dest#)}
+	</procedure>
+	<procedure id="consultaSolicitudTarjeta" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+		{CALL sp_cns_existe_solicitud(#rut#,#mail#,#horas#)}
+	</procedure>
+	<procedure id="existeMailEnSolicitudes" parameterClass="java.util.HashMap" resultClass="long">
+		{CALL sp_cns_existe_mail_solicitud(#mail#,#horas#)}
+	</procedure>
+	<procedure id="ingresarRespuestaCambioCondicionesProductos"  parameterClass="java.util.HashMap">
+        {CALL sp_ins_resp_cambio_cond_prod(#rut#, #dv#, #cod_canal#, #cod_producto#, #cod_plan#, #respuesta#, #factor_cambio#, #num_operacion#)}
+    </procedure>
+	<procedure id="obtenerAumentoCupo" resultMap="CambioAumentoCupo" parameterClass="java.util.HashMap">
+        {CALL sp_cns_cambio_cond_prod_lsg(#rut#)}
+    </procedure>
+	<procedure id="eliminarCambiosCondicionesProductos"  parameterClass="java.util.HashMap">
+        {CALL sp_borrar_carga_cambio_lsg_cli(#rut#)}
+    </procedure>
+	<procedure id="obtenerPreferenciasCliente" resultMap="PreferenciaCliente" parameterClass="java.util.HashMap">
+        {CALL sp_cns_pref_cli(#rut#, #cod_plantilla#)}
+    </procedure>
+	<procedure id="modificarPreferenciasCliente"  parameterClass="java.util.HashMap">
+        {CALL sp_mod_pref_cli(#rut#, #dv#, #cod_canal#, #cod_plantilla#, #codigos_preferencia#, #valores_preferencia#, #acepta_email#, #acepta_sms#)}
+    </procedure>
+</sqlMap>    

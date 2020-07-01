@@ -1,0 +1,55 @@
+     
+ACTIVARPRODUCTO;VALOR=SI;
+INTERES_AUTO;VALOR=0.25;
+INTERES_SALUD;VALOR=0.9;
+INTERES_GENERAL;VALOR=0.75;
+
+MESES;01=ENERO;02=FEBRERO;03=MARZO;04=ABRIL;05=MAYO;06=JUNIO;07=JULIO;08=AGOSTO;09=SEPTIEMBRE;10=OCTUBRE;11=NOVIEMBRE;12=DICIEMBRE;
+
+SEPARADORES;separador=|;
+LARGO;NOMBRESAPELLIDOS=39;DIRECCION=254;FONO=11;
+
+MINIMO;VALOR=0.1;
+CUOTAMINIMA;VALOR=0.3;
+VALORCONTENIDOMINIMO;VALOR=1.0;
+CIA_CONVENIOS_99147000;DESC=GENERALES;BANCOS=016|001|029|014|037|012|039|504|027|033|507|049;TARJETAS=1-VISA|2-MASTERCARD|3-AMEX|4-DINERS;
+CIA_CONVENIOS_96573600-K;DESC=VIDA;BANCOS=016|001|029|014|037|012|039|504|027|033|507|049|028;TARJETAS=VISA|MASTERCARD|AMEX|DINERS;
+IDBANCOBCI;VALOR=016;CUENTA=10469346;RUT=99147000-K;CUENTAVIDA=10469338;RUTVIDA=96573600-K;
+#RUTAXSL;PROPUESTA=B:\\export\\weblogic\\bea\\wlsplatform\\Tablas\\impresion\\xslt\\ventasseguros\\propuesta_def\\bypassauto\\impresion_bypass_auto_prop.xsl;COTIZACION=B:\\export\\weblogic\\bea\\wlsplatform\\Tablas\\impresion\\xslt\\ventasseguros\\propuesta_def\\bypassauto\\impresion_bypass_auto_cot.xsl;
+RUTAXSLHOG;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasshogar/impresion_bypass_hog_cot.xsl;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasshogar/impresion_bypass_hog_prop.xsl;
+RUTAXSL;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassauto/impresion_bypass_auto_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassauto/impresion_bypass_auto_cot.xsl;LOGOS=/configseguros/;
+RUTAXSLVIDA;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypass_vida_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypasssalud_tcol_cot.xsl;DESCRIPCION=PRODUCTO Salud Total Colaboradores;LOGOS=/configseguros/;
+RUTAXSLVIDA2;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypass_vida_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypasssalud_cta_cero_cot.xsl;DESCRIPCION=PRODUCTO Seguro Salud Cuenta Cero;LOGOS=/configseguros/;
+RUTAXSLVIDA3;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypass_vida_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypasssalud/totalcolaboradores/impresion_bypasssalud_max_salud_cot.xsl;DESCRIPCION=PRODUCTO Seguro Máxima Salud;LOGOS=/configseguros/;
+
+RUTAXSLVIDABCIAPE;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassaccidentespersonales/impresion_bypassaccper_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassaccidentespersonales/impresion_bypassaccper_cot.xsl;DESCRIPCION=PRODUCTO Accidentes Personales;LOGOS=/configseguros/;
+RUTAXSLVIDABCIAPET;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassaccidentespersonales/impresion_bypassaccper_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassaccidentespersonales/impresion_bypassaccper_cot_tel.xsl;DESCRIPCION=PRODUCTO Acc. Personales Telemarketing Campaña;LOGOS=/configseguros/;
+
+RUTAXSLBCIMULP;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassmultiproteccion/impresion_bypass_mulp_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassmultiproteccion/impresion_bypassmulti_cot.xsl;DESCRIPCION=PRODUCTO MULTIPROTECCIÓN;LOGOS=/configseguros/;
+RUTAXSLBCIMUL2P;PROPUESTA=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassmultiproteccion/impresion_bypass_mulp_prop.xsl;COTIZACION=tablas/impresion/xslt/ventasseguros/propuesta_def/bypassmultiproteccion/impresion_bypassmulti_cot_tel.xsl;DESCRIPCION=PRODUCTO MULTIPROTECCIÓN CANAL TELEFONICO;LOGOS=/configseguros/;
+
+USOVEHICULO;COMERCIAL=2;PARTICULAR=1;
+
+RESULTADOS;RESULT_OK=OK;
+
+TIPOFORMASPAGO;CANT=9;MODO_EFECTIVO=1;MODO_CHEQUE=2;MODO_CARGO_CUENTA_BCI=3;MODO_TARJETA=4;MODO_CARGO_CUENTA=5;MODO_DESCUENTO_PLANILLA=6;MODO_TARJETA_OTRO=7;MODO_VALE_VISTA=8;MODO_PAGO_POR_AFP=9;
+TIPOTARJETA;VISA=1;MASTER=2;AMERICAN=3;DINERS=4;
+DESCRIPCIONTARJETA;VISA=Visa;MASTER=MasterCard;AMERICAN=AmericanCard;DINERS=DinersCard;
+
+ESTADOPROPUESTA;CURSADA=100;TRANSF_ERROR=-2;SIPE_ERROR=-3;PENDIENTE=0;ANULADA=200;CONTINUAR=1;TRANSF_OK=-3;CURSAR_ENDED=100;
+
+MSG_NO_SALDO;Desc=No existe el suficiente saldo en la cuenta seleccionada;
+MSG_ERR_TRANSFERENCIA;Desc=NO SE REALIZO LA TRANSFERENCIA;
+MSSG_TRANS_SUCCESFUL;Desc=SE REALIZO LA TRANSFERENCIA.\n;
+MSG_ERR_CAMBIA_STATUS;Desc=AVISAR AL ADMINISTRADOR DEL SISTEMA QUE OCURRIO UN ERROR AL CURSAR LA PROPUESTA.\n NO INTENTAR CURSARLA NUEVAMENTE. ERROR: ;
+MSG_ERR_ANULACION;Desc=ERROR AL ANULAR LA PROPUESTA. INTENTELO MAS TARDE NUEVAMENTE;
+MSG_PROPUESTA_ANULADA;Desc=SE ANULO LA PROPUESTA;
+MSSG_ERR_SIPE;Desc=Error en inscripcion en Sipe.;
+
+BCIASG;DESCRIPCION=Vehiculos Motorizados;TIPO=TIPO BYPASSAUTO;
+BCIACAM;DESCRIPCION=Vehiculos Motorizados;TIPO=TIPO BYPASSAUTOCAM;TRIANUAL=SG41|SG47;NOCONDUCTOR=SG27;
+BCIACOL;DESCRIPCION=Vehiculos Motorizados Colaboradores;TIPO=TIPO BYPASSAUTOCOL;TRIANUAL=SG30|SG31|SG53;
+
+
+BCIMULP;DESCRIPCION=MULTIPROTECCION;TIPO=TIPO BYPASSBCIMULP;
+BCIMUL2P;DESCRIPCION=MULTIPROTECCION Canal_Telefonico;TIPO=TIPO BYPASSBCIMUL2P;

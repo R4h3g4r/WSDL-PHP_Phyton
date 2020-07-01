@@ -1,0 +1,467 @@
+#Servlet de Administracion del Portal
+#====================================
+Escritorio;                    Desc=Escritorio Portal Webcorp;
+Escritorio2;                   Desc=Escritorio Portal Webcorp2;
+EscritorioContingencia;        Desc=Escritorio Portal Webcorp Contingencia;
+ManagerPortal;                 Desc=Administracion Portal;
+ProductoServlet;               Desc=ProductoServlet;
+FidensServlet;                 Desc=FidensServlet;
+GeneralServlet;                Desc=Servicios Venta Fidens;
+PortalPagos;               Desc=Portal de Pagos;
+PagosPat;              Desc=Portal de Pagos;
+TransferirLlamado;      Desc=Transferir llamados;
+GeneralApp;                    Desc=Servicio de Entrada Aplicativo;
+
+
+#Servlet de Servicios corporativos
+#==================================
+
+#Colaborador
+
+MisAgendados;                  Desc=Agendados del Colaborador;
+BuscaClientes;                 Desc=Busca Clientes;
+ConsNormas;                    Desc=Consulta de Normas;
+Plo;                           Desc=Panel Luces Operacionales;
+Priorizador;                   Desc=Clientes Priorizados;
+Publico;                       Desc=Acceso Publico;
+Odm;                   Desc=Ondemand Listado;
+AdministracionReemplazo;       Desc=Administracion de Reemplazo;
+TarjetasBciSeguros;            Desc=Tarjetas Clientes BciSeguros;
+
+#Cliente
+
+Contactos;                     Desc=Contactos del Cliente Call Center;
+ConsultaCliente;               Desc=Consulta Resumida del Cliente;
+Direcciones;                   Desc=Direcciones;                                                variable=paso;
+Contacto;                      Desc=Contactos del Cliente;
+InformacionCliente;            Desc=Vista de Datos Basicos del Cliente;
+ConsultaProductos;             Desc=Consulta productos de un cliente;
+DeudoresPortal;                Desc=Deudores Portal;
+CampanasCliente;               Desc=Campanas Cliente;
+EstadoNacional;                Desc=EstadoNacional;
+CambioCupoTDC;                 Desc=Detalle Cuenta Credito;                                 variable=paso;
+ModalidadPago;                 Desc=Detalle Cuenta Credito;                                 variable=paso;
+DireccionesTDC;                Desc=Detalle Cuenta Credito;                                     variable=paso;
+CuentaCredito;                 Desc=Detalle Cuenta Credito;
+InteresesCtaCte;               Desc=Intereses;
+ComisionesCtaCte;              Desc=Comisiones;
+InformacionAdicional;          Desc=InformacionAdicional;
+SuperCartola;                  Desc=Super Cartola;
+ListaTarjetas;                 Desc=Detalle Cuenta Credito;
+DetalleCtaCte;                 Desc=detalle ctacte;                                      Objetos=CCT&CPR;
+DocumentosCtaCte;              Desc=Documentos relacionados a Cuenta Corriente;          Objetos=CCT&CPR;
+CartolaLinea;                  Desc=Cartola en Linea;                                    Objetos=CCT&CPR;
+BloqueoTarjeta;                Desc=Bloqueo de Tarjetas;                                 Objetos=CCT&CPR&TDC;
+Talonarios;                    Desc=Consulta de Talonarios y Cheques por cuenta;         Objetos=CCT;                   variable=paso;
+ReposicionTarjeta;             Desc=Reposicion Tarjetas Debito;                          variable=paso;
+ClaveVirtual;                  Desc=Solicitud de Clave Virtual;                                     variable=paso;
+ServicioSensitivo;             Desc=Transaccion Sensible;                                   variable=*;
+TomarDAPInv;                   Desc=Tomar un Deposito;                                   Objetos=CCT&CPR;
+SaldoDapInv;                   Desc=saldos Dap;
+CartolaHistorica;              Desc=Cartola Historica;                                   Objetos=CCT&CPR;
+LiquidarDAPInv;                Desc=Liquidar un Deposito; Objetos=CCT&CPR;
+CreditoHipotecario;            Desc=Consulta credito hipotecario;
+RelacionesClientes;            Desc=RelacionesClientes;
+ListaTarjetasBloqueadas;       Desc=Lista Tarjetas Bloqueadas;
+PagoDividendos;                Desc=Pago Dividendos Hipotecarios;
+ConsultaCleFondoMutuoYCorredora;      Desc=CLE FFMM Corredora;
+ConsultaClgLineasPorGrupo;            Desc=Lineas por Grupo;
+ConsultaClsFondoMutuoYCorredora;      Desc=CLS FFMM Corredora;
+ConsultaGxsGruposPorSubgrupos;        Desc=Consulta pos subgrupo;
+ConsultaSxeSubgruposPorEmpresa;       Desc=Cons subgrupo por empresa;
+ContextSimulacion;                    Desc=Simulacion;
+SimulacionSxeGxs;                     Desc=SimulacionSX;
+
+
+
+#Fidens
+
+PlanServlet;                   Desc=PlanServlet;
+DeduciblesComisionesServlet;   Desc=DeduciblesComisionesServlet;
+RequisitosServlet;             Desc=RequisitosServlet;
+CoberturasServlet;             Desc=CoberturasServlet;
+TarifaServlet;                 Desc=TarifaServlet;
+MateriaAseguradaServlet;       Desc=Servicios Venta Fidens;
+CotizacionServlet;             Desc=Cotizacion Ventas;
+SimulacionServlet;             Desc=Servicios Venta Fidens;
+Ventas;                        Desc=Servicio Producto Servlet;
+DetalleProductoServlet;        Desc=Cotizacion Ventas;
+DetalleProductoSegundoServlet; Desc=Cotizacion Ventas;
+PropuestaPlanServlet;          Desc=Propuesta Plan;
+BuscarPropuestaServlet;        Desc=Buscar Propuesta;
+DetallePlanServlet;            Desc=Destalle Config Plan Prop a Medida;
+
+#Direcciones Servlet;          Desc=Direcciones;
+
+#servicios cuentas vinculadas
+#============================
+IngresaCuentasVin;            Desc=Ingresa Cuentas Vinculadas Portal;
+ConsultaCuentasVin;       Desc=Consulta Cuentas Vinculadas Portal;
+
+#servicios de COMEX
+#===================
+CobranzasExport;               Desc=Cobranzas de Exportacion;
+CobranzasImport;               Desc=Cobranzas de Importacion;
+CartasCreditoExport;           Desc=Cartas de Credito de Exportacion;
+CartasCreditoImport;           Desc=Cartas de Credito de Importacion;
+Documentos;                    Desc=Documentos COMEX;
+Credito;                       Desc=Credito COMEX;
+Intranet;                      Desc=Consultas Intranet COMEX;
+OrdenesDePagoEnviadas;         Desc=Ordenes de Pago Enviadas;
+OrdenesDePagoRecibidas;        Desc=Ordenes de Pago Recibidas;
+
+
+#Servlet de Servicios corporativos
+#==================================
+BPI;                           Desc=Banca Privada Inversiones;
+MultiCreditoAvanceCartola;     Desc=MultiCr\351dito;                            Objetos=CCT&CPR;    variable=paso;
+MultiCreditoAvanceCartola2;    Desc=MultiCr\351dito;                            Objetos=CCT&CPR;
+MultiCreditoSimule;            Desc=MultiCr\351dito;                            Objetos=CCT&CPR;
+
+#
+#Transferencias de Fondos
+#
+Transferencias;            Desc=Transferencias de Fondos;                   Objetos=CCT&CPR&CCC_CCT&TDC&LDE;
+TransferenciaEntreCuentas;     Desc=Transferencias de Fondos;                   Objetos=CCT&CPR&CCC_CCT&TDC&LDE;
+TransferenciaTercerosBCI;      Desc=Transferencias de Fondos;                   Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciasOtrosBancos;     Desc=Transferencias de Fondos;                   Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+Integrador;                Desc=Integrador de llamadas a WebApps Externos;
+GestionServlet;                Desc=Gestion Servlet BciAccion;
+TransferenciaEntreCuentas_CCTaLSG; Desc=Transferencias de Fondos;               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciaEntreCuentas_CCTaTDC; Desc=Transferencias de Fondos;               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciaEntreCuentas_CCTaAHO; Desc=Transferencias de Fondos;               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciaEntreCuentas_CCTaCPR; Desc=Transferencias de Fondos;               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciaEntreCuentas_AHOaCCT; Desc=Transferencias de Fondos;               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;    variable=*;
+TransferenciaEntreCuentas_TDCaCCT; Desc=Transferencias de Fondos;                               Objetos=CCT&CPR&CCC_CCT&TDC&LDE;      variable=*;
+
+
+
+#
+#Mensajero y Despacho
+#
+Despacho;                Desc=Despacho Call Center;
+Mensajero;               Desc=Mensajero Call Center;
+GeneralMD;               Desc=General Mensajero y Despacho;
+
+TarjetasBciSeguros;        Desc= Tarjetas Clientes BciSeguros;
+
+Servlet de Token
+#==================================
+ConfigurarToken;      Desc=Configurar Token;                                                            variable=paso;
+OperarToken;          Desc=Operar Token;                                    variable=paso;
+MantenerToken;        Desc=Mantener Token;                                 Objetos=CCT&CPR; variable=*;
+ActivarToken;         Desc=Activar Token;                                   variable=paso;
+
+AdmPresupuesto;       Desc=administracion del presupuesto;
+Presupuesto;          Desc=Planillas de presupuesto;
+AppPresupuesto;       Desc=Aplicacion de presupuesto;
+
+AdministracionReemplazo;       Desc=Administracion de Reemplazo;
+
+#Servlet de Portal Inversiones (Added by Tata Consultancy Services)
+#================================================================================
+FFMMPortalInversionesServlet;         Desc=Manejador de Fondos Mutuos para Portal Inversiones
+DapPortalInversionesServlet;          Desc=Manejador de DAP para Portal Inversiones
+GeneralPortalInversionesServlet;      Desc=Manejador de General para Portal Inversiones
+
+#Servlet de Calculo de Ingresos BP (Added by Juanny Robbiano y Apolo)
+#================================================================================
+#
+Renta;                Desc=Calculo Ingresos Banca Personas;
+
+TarjetaVirtual;                              Desc=Tarjetas de Credito Virtuales;                   Objetos=TDC;
+
+AlertaCampanas;         Desc=Alerta Campanas IVR;
+
+#Créditos
+#=======================================================================================
+
+ConsultaCalendarioPago;         Desc=Consulta calendario pago;
+ConsultaOperacionCredito;       Desc=Consulta operacion credito;
+CalculoValoresCancelacion;      Desc=Calculo valores cancelacion;
+ConsultaOperacionCreditoPorRut; Desc=Consulta operacion credito por rut;
+IngresoCancelacion;             Desc=Ingreso cancelacion;                       variable=*;
+ContextualizacionIngrCancelacion;   Desc=Contextualizacion ingreso cancelacion;
+ConsultaDePlcConOccurrencias; Desc=Consulta Plan de  Pago;
+ReingenieriaDeCancelacionesContextualizacion; Desc=Llaves y Simulacion  Cancelacion;                                    variable=*;
+ReingenieriaDeCancelacionesSimulacion; Desc=Simulacion e Ingreso Cancelacion;
+
+# Marketing121
+#
+Marketing121;                Desc=Sistema Administracion Marketing 121;
+
+#Servicios para modulo Configurador Interfaz New Sale (Added by Apolo )
+#================================================================================
+ConfigNewSale;                Desc=Configurador New Sale;
+VentasSeguros;  Desc=Ventas de Seguros;
+ConfigSeguros;  Desc=Configuracion de Seguros;
+
+#Servlet de Certificados
+Certificados;                Desc=Impresión de Certificados;
+CertificadoPrtAcl;           Desc=Impresión Certificados Protestos Aclarados;
+#Motivo visitas clientes Sucursales - Encuesta
+Visitas;                  Desc= Motivo Visitas clientes a Sucursal;
+
+# Servicios Telefonicos
+ServicioTelefonico;         Desc=Sistema de servicios telefonicos;
+
+PersonalizacionChequera;       Desc= Personalizacion de las glosas de la chequera;       Objetos=CCT;   variable=paso;
+PerfilDeCartola;            Desc=Perfil de Cartola;                         Objetos=CCT;              variable=paso;
+
+#Servlet de BCIPago
+#=============================
+PagosPac;             Desc=Pagos Pac;
+
+PedidosWeb;     Desc=Pedidos BciExpress;
+
+
+#
+#Servicio (Concepto: Seguros)                    = Descripcion
+#=======================================================================================
+ActivacionSgs;                               Desc=Activacion Seguros;
+AnulacionSgs;                                Desc=Anulacion Seguros;
+ConsultaSgs;                                 Desc=Consulta Seguros;
+ConsultaCGC;                                 Desc=Consulta Generica De Conceptos;
+EliminaSgs;                                  Desc=Elimina Seguros;
+IngresoSgs;                                  Desc=Ingreso Seguros;
+ModificacionSgs;                             Desc=Modificacion Seguros;
+VerificacionSgs;                             Desc=Verificacion Seguros;
+InstanciaDeLlavesParaIngresoSgs;             Desc=Instancia De Llaves Para Ingreso Seguros;
+ConsultaGenericaDeConceptos;                 Desc=Consulta Generica De Conceptos;
+ConsultaTablas;                              Desc=Carga Arquitectura de Tablas;
+
+
+#
+#Servicio (Concepto: INTERESES)                  = Descripcion
+#=========================================================================================
+ActivacionCin;                               Desc=Activacion de una CIN;
+AnulacionCin;                                Desc=Anulacion de una CIN;
+ArqTblConsultaCGCKey;                        Desc=Lee arquitectura de Tablas;
+ConsGenDeCptosIntereses;                     Desc=ConsGenDeCptosIntereses;
+ConsGenDeCptosInteresesIni;                  Desc=ConsGenDeCptosIntereses para el Inicio;
+ConsultaCin;                                 Desc=Consulta de una CIN;
+EliminaCin;                                  Desc=Elimina de una CIN;
+IngresoCin;                                  Desc=Ingreso de una CIN;
+Matriz;                                      Desc=Retorno de Matriz;
+ModificacionCin;                             Desc=Modificacion de una CIN;
+PreCopiaCin;                                 Desc=Carga datos para realizar una copia de una CIN;
+PreIngresoCinMonto;                          Desc=PreIngreso de una CIN Monto;
+PreIngresoCinMtoRec;                         Desc=PreIngreso de una CIN Monto Recargo;
+PreIngresoCinPorcRec;                        Desc=PreIngreso de una CIN Porcentaje Recargo;
+PreIngresoCinPorcentaje;                     Desc=PreIngreso de una CIN Porcentaje;
+PreIngresoCinSpread;                         Desc=PreIngreso de una CIN Spread;
+PreIngresoCinTasas;                          Desc=PreIngreso de una CIN Tasas;
+PreModificacionCin;                          Desc=PreModificacion de una CIN;
+TotalizadorCin;                              Desc=Verifica suma de filas y columnas de una CIN;
+VerificacionCin;                             Desc=Verificacion de una CIN;
+
+#
+#Servicio (Precios: Contexos)                    = Descripcion
+#==========================================================================================
+ActivacionPln;                               Desc=Activacion de un Plan de Productos;
+ActivacionRcc;                               Desc=Activacion Relacion Contexto Conceptos;
+AnulacionPln;                                Desc=Anulacion de un Plan de Productos;
+AnulacionRcc;                                Desc=Anulacion Relacion Contexto Conceptos;
+AnulacionRoc;                                Desc=Anulacion Relacion Operacion Conceptos;
+BusquedaTarifaRcc;                           Desc=Consulta Contextos;
+ConsGenDeCptosAInt;                          Desc=Consulta Generica De Conceptos A Intereses;
+ConsGenDeCptosASgs;                          Desc=Consulta Generica De Concepto Seguros;
+ConsGenDeCptosIng;                           Desc=Consulta Generica De Conceptos-Ingreso;
+ConsGenDeCptosMod;                           Desc=Consulta Generica De Conceptos-Modificacion;
+ConsGenDeCptosPln;                           Desc=Consulta Generica de Conceptos;
+ConsGenDeCptosPlnIni;                        Desc=Consulta Generica de Conceptos;
+ConsultaCcb;                                 Desc=Consulta Contextos por Banca;
+ConsultaCgp;                                 Desc=Consulta Generica de Planes;
+ConsultaCgrEsp;                              Desc=Consulta Relacion Operacion Conceptos-Especifica ;
+ConsultaCgrGen;                              Desc=Consulta Relacion Operacion Conceptos-Generica ;
+ConsultaMasivaDeRelacionContextoConcepto;    Desc=Consulta Masiva De Contexto Conceptos;
+ConsultaOcdInt;                              Desc=Detalle Relacion Operacion Conceptos;
+ConsultaPln;                                 Desc=Consulta un Plan de Productos;
+ConsultaRcc;                                 Desc=Consulta Contexto Conceptos;
+ConsultaRoc;                                 Desc=Consulta Relacion Operacion Conceptos;
+ConsultaRocAnl                               Desc=Consulta Relacion Operacion Conceptos-Anulacion;
+ConsultaTablasBusquedaTrfXCli;               Desc=Carga Arquitectura de Tablas;
+EliminaPln;                                  Desc=Eliminacion de un Plan de Productos;
+EliminaRcc;                                  Desc=Elimina Relacion Contexto Conceptos;
+FiltrarConsultaPln;                          Desc=Carga Parametros para realizar el Filtro;
+IngresoPln;                                  Desc=Ingreso de un Plan de Productos;
+IngresoPlnMas;                               Desc=Ingreso de un Plan de Productos;
+IngresoRcc;                                  Desc=Ingreso Relacion Contexto Conceptos;
+InstanciaDeLlavesParaIngresoPln;             Desc=Verifica la Llave de Ingreso de un Plan;
+InstanciaDeLlavesParaIngresoRcc;             Desc=Llaves Ingreso Relacion Contexto Conceptos;
+InstanciaDeLlavesRoc;                        Desc=Llaves Ingreso Relacion Operacion Conceptos;
+ModificacionPln;                             Desc=Modificacion de un Plan de Productos;
+ModificacionRcc;                             Desc=Modificacion Relacion Contexto Conceptos;
+PreIngresoPln;                               Desc=Carga Parametros para realizar el Ingreso;
+PreIngresoRcc1;                              Desc=Ingreso Relacion Contexto Conceptos-Ingreso-1;
+PreIngresoRcc2;                              Desc=Ingreso Relacion Contexto Conceptos-Ingreso-2;
+PreModificacionPln;                          Desc=Carga Parametros para realizar la Modificacion;
+PreModificacionRcc;                          Desc=Ingreso Relacion Contexto Conceptos-Modificacion;
+VerificacionPln;                             Desc=Verificacion de un Plan de Productos;
+VerificacionRcc;                             Desc=Verificacion Relacion Contexto Conceptos;
+
+# Marketing121CargaClientes
+#
+Marketing121CargaClientes;                Desc=Sistema Administracion Marketing 121 CargaClientes;
+
+# Marketing121AdminOfertas
+#
+Marketing121AdminOfertas;                Desc=Sistema Administracion Marketing 121 AdministracionOfertas;
+
+# Despliegue de Ofertas
+Marketing121DespliegueOfertas; Desc=Sistema Administracion Marketing 121 DespliegueOfertas;
+
+# Marketing121PublicaOferta
+Marketing121PublicaOferta;                Desc=Sistema Administracion de la Oferta Grafica;
+
+AumentoCupoLineaSobregiro;      Desc=Aumento cupo LSG;                                Objetos=CCT;         variable=paso;
+
+
+#Servlet de Solicitudes Solicita Creditos
+#=============================
+SolicitaCreditos;     Desc=Solicita creditos;                   Objetos=CCT&CPR;    variable=paso;
+
+
+
+#pago de la consulta
+#=============================
+PagoConsulta;             Desc=Pago de la consulta;              variable=*;
+PagoConsultaCta;          Desc=Pago de la consulta por cuenta;
+PagoConsultaEjecutivoDos; Desc=Pago de la consulta para el Ejecutivo Dos;
+
+#Emision Vale Vista Portal
+#=============================
+ValeVista;          Desc=Emisión y Consulta de vale vista;      variable=paso;
+
+#Ejecutivo Dos
+#=============================
+contrataEjecutivoDos;             Desc=Contrata Doble Ejecutivo;
+consultaCartera;             Desc=Consulta Cartera Clientes Doble Ejecutivo;
+DEGenListGestion;             Desc=Genera Listados de Gestion en Doble Ejecutivo;
+
+#
+#Servicio (Estados Financieros)                  = Descripcion
+#==========================================================================================================
+ConsultaComparativaDeBalances;         Desc=Estado Financiero;
+ConsultaBalancesSel;                   Desc=Estado Financiero;
+ConsultaComentarios;                   Desc=Estado Financiero;
+ConsultaDetallesDeBalance;             Desc=Estado Financiero;
+ConsultaMasivaDeBalancesParaUnCliente; Desc=Estado Financiero;
+IngresaActivos;                        Desc=Estado Financiero;
+IngresaAdicionales;                    Desc=Estado Financiero;
+IngresaComentarios;                    Desc=Estado Financiero;
+IngresaCorreccionMonetariaAbono;       Desc=Estado Financiero;
+IngresaCorreccionMonetariaDebito;      Desc=Estado Financiero;
+IngresaDatos;                          Desc=Estado Financiero;
+IngresaDetalles;                       Desc=Estado Financiero;
+IngresaEstadoDeResultados;             Desc=Estado Financiero;
+IngresaPasivos;                        Desc=Estado Financiero;
+IngresaPatrimonio;                     Desc=Estado Financiero;
+IngresoEstadoFinanciero;               Desc=Estado Financiero;
+IngresoGrabar;                         Desc=Estado Financiero;
+IngresoValidacion;                     Desc=Estado Financiero;
+SeleccionaComentarios;                 Desc=Estado Financiero;
+SeleccionaTresBalances;                Desc=Estado Financiero;
+CambiaEstadoBalanceSuperusuario;       Desc=Despublica un Balance Escogido;
+
+#
+#Servicio (DAP FLEXIBLE)                  = Descripcion
+#==========================================================================================
+Liquida;                                    Desc=Luquida DAP;
+Toma;                                       Desc=Toma DAP;
+Consulta;                                   Desc=Consulta DAP;
+ConsultaDeCvdConOccurrencias;               Desc=Consulta CVD con ocurrencias;
+
+#
+#Servicio (MULTILINEA)                  = Descripcion
+#==========================================================================================
+ColConOpePro;                           Desc=Consulta cartola prorrogas multilinea;
+CreMltConOpe;                           Desc=Consulta Operaciones por Firmar;
+ProrrogarMultilinea;                    Desc=Prorroga Multilinea;Objetos=CCT;
+
+#ONP
+#=============================
+ONPBeneficiario;               Desc=Orden de no Pago para beneficiario;
+
+#Seguridad
+#=============================
+DesbloqueoClaveInternetTbanc; Desc=Desbloqueo clave internet para TBanc;
+
+#
+#Servicio (Activación Tarjetas Débito)   = Descripcion
+#==========================================================================================
+TarjetasInactivas;              Desc=Activación Tarjetas Débito;
+
+#Mensajeria y Despacho
+#=============================
+MensajeroServlet; Desc=Servlet de Mensajeria;
+DespachoServlet; Desc=Servlet de Despacho;
+GeneralServlet; Desc=Servlet General de Mensajeria y Despacho;
+
+ActivaTarjetasDebito;                           Desc=Activa Tarjetas de Debito en estado 02;
+
+#Rorac
+#=============================
+CalculadoraRorac;                Desc=Calculadora Rorac;
+
+##Factoring BCI
+Factoring;            Desc=Link a Indexa;
+
+#
+#Servicio (Clasificacion, Consultas de Gestion) = Descripcion
+#=========================================================================================
+ConsultaDeActividadesVpe;               ;Desc=Consulta De ActividadesVpe;
+ConsultaDeBancasVpe;                    ;Desc=Consulta De BancasVpe;
+ConsultaDeEjecutivosVpe;                ;Desc=Consulta De EjecutivosVpe;
+ConsultaDeGruposVpe;                    ;Desc=Consulta De GruposVpe;
+ConsultaDeLasFechasDeTablaVpe;          ;Desc=Consulta De LasFechasDeTablaVpe;
+ConsultaDeOficinasVpe;                  ;Desc=Consulta De OficinasVpe;
+ConsultaDeRegionalesVpe;                ;Desc=Consulta De RegionalesVpe;
+ConsultaMasivaDeRegistrosDeTab;         ;Desc=Consulta Masiva DeRegistrosDeTab;
+ConsultaMasivaResumenPorActividad;      ;Desc=Consulta Masiva ResumenPorActividad;
+ConsultaMasivaResumenPorBancaYSubBanca; ;Desc=Consulta Masiva ResumenPorBancaYSubBanca;
+ConsultaMasivaResumenPorEjecutivo;      ;Desc=Consulta Masiva ResumenPorEjecutivo;
+ConsultaMasivaResumenPorGrupo;          ;Desc=Consulta Masiva ResumenPorGrupo;
+ConsultaMasivaResumenPorOficina;        ;Desc=Consulta Masiva ResumenPorOficina;
+ConsultaMasivaResumenPorRegional;       ;Desc=Consulta Masiva ResumenPorRegional;
+IngresaUnClienteEnClasificacion;        ;Desc=Ingresa Un ClienteEnClasificacion;
+ModificaUnClienteEnClasificacion;       ;Desc=Modifica Un ClienteEnClasificacion;
+
+
+#Consulta Historica Operaciones
+#==============================
+ColConsultaOperacionesProrrogadas;  Desc=Consulta de Operaciones Prorrogadas;
+
+#BANCA ELECTRONICA
+#=======================================================
+ChequeElectronico;		Desc=Cheque Electronico;
+
+#Alertas para Cliente (Mensajes del Banco).
+#=========================================
+AlertasParaCliente;	Desc=Alertas para Cliente (mensajes del banco);
+
+#Action Visualizador y Controlador de Emails
+#=============================
+VisualizadorCorreos;         Desc=Visualizador y Controlador de Emails;
+
+##BCI Seguros
+ConectaCompaniaDeSeguros;    Desc=Link a BCI Seguros;
+
+#Action Actualizacion email
+#=============================
+ValidadorCorreos;         Desc=Validador de Correos;
+
+#Action Generador de Interfaces Masivas a Nexus
+#=============================
+GeneradorDeInterfaces;         Desc=Generacion Interfaces Masivas a Nexus;
+
+#Transferencias en portal
+#=============================
+TransferenciasVistaEjecutivo;            Desc=Transferencias de Fondos Vista Ejecutivo;
+#Tarjeta de Credito
+tarjetasonline;   Desc=Tarjetas de Credito;   Objetos=CCT&CPR&TDC; CheckAnd=TDC; CheckOr=CCT&CPR; 
+
+#Visacion
+#=======================================================================================
+PrintVisacion;          Desc=Imprime Reportes Visacion;
+VisacionAction;         Desc=Factoring Visacion;

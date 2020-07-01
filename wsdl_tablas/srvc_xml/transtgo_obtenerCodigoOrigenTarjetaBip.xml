@@ -1,0 +1,84 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!-- 
+**
+ * SP para obtener el tipo de origen de una tarjeta bip
+ * <p>
+ * Registro de versiones:<ul>
+ * <li>1.0 05/12/2006 Felipe Concha. - Versión inicial
+ * </ul>
+ * <p>
+ * Notas de la Fuente de Datos
+ * Base de datos : transtgo
+ * @Felipe C.M. <B>Neoris Chile Ltda.</B>
+ * @version 1.0
+ */
+-->
+
+<service name = "sp_obtenerTipoOrigen">
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <have_multi_environment value="no" />
+
+    <outputfield_attr value="no" />
+
+    <req_num_param value="no" />
+
+    <translator value="RORPPTPG" />
+
+    <campo_indica_cantidad value="" />
+
+    <status_throw_exception value="yes" />
+
+    <joltpool_name value="wcorp.serv.transantiago.ServicioTarjetaBIPBean" />
+
+  </context>
+<input>
+
+        <field
+          java_name = "numeroTarjeta" 
+          type = "Long"
+          size = "10"
+          middle_name = "numeroTarjeta"
+        />
+
+  </input>
+
+  <output> 
+	  <struct struct_size="0" class_name="RegistrosDTO" var_name="listaOrigen" >
+     <field
+          java_name = "codigoOrigen"
+          type = "String"
+          size = "5"
+          middle_name = "codigoOrigen"
+        />
+     <field
+          java_name = "rangoMinimo"
+          type = "Long"
+          size = "10"
+          middle_name = "rangoMinimo"
+        />
+     <field
+          java_name = "rangoMaximo"
+          type = "Long"
+          size = "10"
+          middle_name = "rangoMaximo"
+        />
+     <field
+          java_name = "fechaCreacionOrigen"
+          type = "String"
+          size = "25"
+          middle_name = "fechaCreacionOrigen"
+        />
+     </struct>
+  </output>
+
+</service>
+
+

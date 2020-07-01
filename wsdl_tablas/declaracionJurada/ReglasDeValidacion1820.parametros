@@ -1,0 +1,33 @@
+#REGLAS
+Regla-H1411;expresion=(o.getCodigoPais() ne null and o.getCodigoPais() ne "") and (o.getTipoRelacionContraparte() ne "") and (o.getModalidadContratacion() ne "") and (o.getNumeroIdentificadorContrato() ne null and o.getNumeroIdentificadorContrato() ne 0) and (o.getFechaSuscripcionContrato() ne "") and (o.getEventoInformadoContrato() ne "") and (o.getTipoContrato() ne "") and (o.getModalidadCumplimientoContrato() ne "") and (o.getTipoActivoSubyacente() ne "" or o.getTipoActivoSubyacente() ne null) and (o.getUnidad() ne "" or o.getUnidad() ne null) and (o.getMontoContratadoNocional() ne "0" or o.getMontoContratadoNocional() ne null) and (o.getFechaVencimiento() ne "")
+Regla-H1412;expresion=(o.getTipoRelacionContraparte() eq 1 or o.getTipoRelacionContraparte()eq 2 or o.getTipoRelacionContraparte() eq 3 or o.getTipoRelacionContraparte() eq 4 or o.getTipoRelacionContraparte() or o.getTipoRelacionContraparte() eq 99)
+Regla-H1414;expresion=(o.getTipoAcuerdo() ne null and o.getTipoAcuerdo() ne "")?(o.getTipoAcuerdo() eq 1 or o.getTipoAcuerdo() eq 2 or o.getTipoAcuerdo() eq 3):true
+Regla-H1415;expresion=(o.getEventoInformadoContrato() eq 1 or o.getEventoInformadoContrato() eq 2 or o.getEventoInformadoContrato() eq 3 or o.getEventoInformadoContrato() eq 4 or o.getEventoInformadoContrato() eq 5)
+Regla-H1416;expresion=(o.getTipoContrato() ge 1 and  o.getTipoContrato() le 14)
+Regla-H1417;expresion=(o.getModalidadCumplimientoContrato() eq 1 or o.getModalidadCumplimientoContrato() eq 2)
+Regla-H1418;expresion=(o.getTipoContrato() ne 3 and o.getTipoContrato() ne 4 and o.getTipoContrato() ne 5) ?(o.getPosicionDeclaranteContrato() eq 1 or o.getPosicionDeclaranteContrato() eq 2):true
+Regla-H1419;expresion=(o.getTipoActivoSubyacente() ge 1 and o.getTipoActivoSubyacente() le 7)
+Regla-H1421;expresion=(o.getTipoActivoSubyacente() eq 2)?(o.getCodigoActivoSubyacente() eq 1 or o.getCodigoActivoSubyacente() eq 2):true
+Regla-H1422;expresion= (o.getTipoActivoSubyacente() eq 3)?(o.getCodigoActivoSubyacente() ge 1 and o.getCodigoActivoSubyacente() le 14):true
+Regla-H1423;expresion=(o.getTipoActivoSubyacente() eq 2 and o.getCodigoActivoSubyacente() eq 2)?(o.getOtrosActivosSubyacente() ge 1 and o.getOtrosActivosSubyacente() le 40):true
+Regla-H1424;expresion=(o.getTipoContrato() eq 3 or o.getTipoContrato() eq 4 or o.getTipoContrato() eq 5)?(o.getTipoSegundoActivoSubyacente() ge 1 and o.getTipoSegundoActivoSubyacente() le 7):true
+Regla-H1426;expresion=(o.getTipoSegundoActivoSubyacente() eq 2)?(o.getCodigoSegundoActivoSubyacente() eq 1 or o.getCodigoSegundoActivoSubyacente() eq 2):true
+Regla-H1427;expresion=(o.getTipoSegundoActivoSubyacente() eq 3)?(o.getCodigoSegundoActivoSubyacente() ge 1 and o.getCodigoSegundoActivoSubyacente() le 14):true
+Regla-H1428;expresion=(o.getTipoSegundoActivoSubyacente() eq 2 and o.getCodigoSegundoActivoSubyacente() eq 2)?(o.getOtrosSegundoActivosSubyacente() ge 1 and o.getOtrosSegundoActivosSubyacente() le 40):true
+Regla-H1429;expresion=(o.getTipoContrato() ne 3 and o.getTipoContrato() ne 4 and o.getTipoContrato() ne 5)?(o.getCodigoPrecio() eq 1 or o.getCodigoPrecio() eq 2):true
+Regla-H1431;expresion=(o.getUnidad() ge 1 and o.getUnidad() le 13)
+Regla-H1436;expresion=(o.getModalidadContratacion() ge 1 and  o.getModalidadContratacion() le 6)
+Regla-H1437;expresion=(o.getRutContraparte() eq "")?(o.getTaxId() ne ""):true
+Regla-H1438;expresion=(o.getTipoContrato() eq 3 or o.getTipoContrato() eq 4 or o.getTipoContrato() eq 5)?(o.getPosicionDeclaranteContrato() eq 0):true
+Regla-H1439;expresion=(o.getTipoContrato() ne 3 and o.getTipoContrato() ne 4 and o.getTipoContrato() ne 5)?(o.getTipoSegundoActivoSubyacente() eq 0) and ((o.getCodigoSegundoActivoSubyacente() eq null) or (o.getCodigoSegundoActivoSubyacente() eq "")) and ((o.getOtrosSegundoActivosSubyacente() eq null) or (o.getOtrosSegundoActivosSubyacente() eq "")) and (o.getTasaFijaSegundoActivoSubyacenteDouble() eq 0.0B):true
+Regla-H1440;expresion=(o.getTipoContrato() eq 3 or o.getTipoContrato() eq 4 or o.getTipoContrato() eq 5)?(o.getCodigoPrecio() eq 0 and o.getPrecio() eq 0 and o.getMoneda() eq ""):true
+Regla-H1441;expresion=(o.getCodigoPrecio() eq 2)?(o.getPrecioDouble() eq 0.0B and  o.getMoneda() eq ""):true
+Regla-H1442;expresion=(o.getRutContraparte() gt 0 or o.getTaxId() ne "")
+Regla-H1443;expresion=(o.getTipoContrato() eq 12 or o.getTipoContrato() eq 13 or o.getTipoContrato() eq 14)?(o.getNombreInstrumentoContrato() ne null and o.getNombreInstrumentoContrato() ne ""):true
+Regla-H1444;expresion=(o.getTipoActivoSubyacente() eq 7)?(o.getOtrosActivosSubyacente() ne null and o.getOtrosActivosSubyacente() ne ""):true
+Regla-H1446;expresion=(o.getTipoContrato() eq 3 or o.getTipoContrato() eq 4 or o.getTipoContrato() eq 5)?(o.getSegundaUnidad() ne 0 and o.getSegundoMontoContratadoNocionalDouble() gt 0.0B):true
+Regla-H1447;expresion=(o.getUnidad() gt 0) and (o.getMontoContratadoNocionalDouble() gt 0.0B) 
+Regla-H1448;expresion=(o.getTipoContrato() eq 3 or o.getTipoContrato() eq 4 or o.getTipoContrato() eq 5 and o.getSegundaUnidad() gt 0)?(o.getSegundoMontoContratadoNocionalDouble() gt 0.0B):true
+Regla-H1449;expresion=(o.getFechaSuscripcionAcuerdo() ne null or o.getFechaSuscripcionAcuerdo() ne "")?(o.getFechaSuscripcionAcuerdo() le o.getFechaSuscripcionContrato() ):true
+Regla-H1450;expresion=(o.getFechaVencimiento() ne o.getFechaAValidar())?(o.getFechaVencimiento() ge o.getFechaSuscripcionContrato()):true
+#FIN REGLAS

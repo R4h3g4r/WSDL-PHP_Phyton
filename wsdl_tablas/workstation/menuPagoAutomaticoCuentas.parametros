@@ -1,0 +1,40 @@
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+RAIZ-MENU;nodosMenu=MENU-PAC;
+
+################################################################################
+# Definicion del menú MENU-PAC.
+################################################################################
+MENU-PAC;tipoNodo=MENU;nombre=PAC;nodosMenu=OPCION-RESUMEN-PAC,OPCION-DETALLE-PAC,OPCION-PAGOS-PERIODO,OPCION-MANDATO-CUENTA;
+
+# Definicion de opción "Resumen de Pagos Automáticos".
+OPCION-RESUMEN-PAC;tipoNodo=OPCION;nombre=Resumen de Pagos Automáticos;url=/workstationwls/interfazCallcenter/productoPAC.jsp;opcionesPopUp=;nombrePopUp=;
+
+# Definicion de opción "Detalle de Pago Automático".
+OPCION-DETALLE-PAC;tipoNodo=OPCION;nombre=Detalle PAC;url=/pagoswls/PagosPac?paso=2;opcionesPopUp=scrollbars=yes, width=650,height=500,top=0;nombrePopUp=tarjetas;
+
+# Definicion de opción "Pagos Automático por Período".
+OPCION-PAGOS-PERIODO;tipoNodo=OPCION;nombre=Pagos Automático por Período;url=/pagoswls/PagosPac?paso=3&flagPagos=NO;opcionesPopUp=scrollbars=yes, width=650,height=500,top=0;nombrePopUp=tarjetas;
+
+# Definicion de opción "Pagos Automáticos por Cuenta".
+OPCION-MANDATO-CUENTA;tipoNodo=OPCION;nombre=Pagos Automáticos por Cuenta;url=/workstationwls/interfazCallcenter/MandatoPorCuenta.jsp;opcionesPopUp=;nombrePopUp=;

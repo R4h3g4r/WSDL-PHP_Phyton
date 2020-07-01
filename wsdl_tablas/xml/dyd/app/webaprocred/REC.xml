@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Creation date: 25-11-2003 -->
+<DB>
+<SPECIAL str="0" typeId="" template=""></SPECIAL>
+<INSUPD NTx="AprCreCrcRec" LBL="N">
+    <SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+    <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+        <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+        <field FF="nomPer" LF="40" POS="" COD="" TD="" PREF="">nombre</field>
+        <field FF="idOp0" LF="30" POS="" COD="" TD="" PREF="">recomendacion</field>
+        <field FF="gls1" LF="210" POS="" COD="" TD="" PREF="">glosa</field>
+        <field FF="gls2" LF="210" POS="" COD="" TD="" PREF="">glosa2</field>
+        <field FF="gls3" LF="210" POS="" COD="" TD="" PREF="">glosa3</field>
+        <field FF="gls4" LF="210" POS="" COD="" TD="" PREF="">glosa4</field>
+        <field FF="gls5" LF="210" POS="" COD="" TD="" PREF="">glosa5</field>
+        <field FF="nomRol" LF="35" POS="" COD="" TD="" PREF="">rol</field>
+        <field FF="indAtr" LF="1" POS="" COD="" TD="" PREF="">indicador</field>
+        <field FF="taskName" LF="50" POS="" COD="" TD="" PREF="">actividad</field>
+    </INPUT>
+</INSUPD>
+<QRY NTx="AprCreConRecUsu" LBL="N">
+    <SEPAR SEP1="" SEP2="" SEP3="" SEPV=""></SEPAR>
+    <ATTRIB ATTR1="POS=" ATTR2="COD=" ATTR3="TD=" ATTR4="PREF="></ATTRIB>
+    <INPUT>
+        <field FF="numSol" LF="16" POS="" COD="" TD="" PREF="">numSolicitud</field>
+        <field FF="nomPer" LF="40" POS="" COD="" TD="" PREF="">nombre</field>
+    </INPUT>
+    <OUTPUT>
+        <field FF="fecRec" LF="10" POS="" COD="" TD="" PREF="">fecha</field>
+        <field FF="idOp0" LF="30" POS="" COD="" TD="" PREF="">recomendacion</field>
+        <field FF="obs" LF="210" POS="" COD="" TD="" PREF="">glosa</field>
+        <field FF="obs2" LF="210" POS="" COD="" TD="" PREF="">glosa2</field>
+        <field FF="obs3" LF="210" POS="" COD="" TD="" PREF="">glosa3</field>
+        <field FF="obs4" LF="210" POS="" COD="" TD="" PREF="">glosa4</field>
+        <field FF="obs5" LF="210" POS="" COD="" TD="" PREF="">glosa5</field>
+        <field FF="indRec" LF="1" POS="" COD="" TD="" PREF="">indicadorEnvio</field>
+        <field FF="nomRol" LF="35" POS="" COD="" TD="" PREF="">rol</field>
+        <field FF="indAtr" LF="1" POS="" COD="" TD="" PREF="">indicador</field>
+        <field FF="taskName" LF="50" POS="" COD="" TD="" PREF="">actividad</field>
+    </OUTPUT>
+</QRY>
+</DB>

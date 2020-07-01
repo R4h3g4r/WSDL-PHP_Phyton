@@ -1,0 +1,60 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE service PUBLIC "-//BEE S.A.//DTD Transaction Definition//ES" "http://www.bee.cl/dtds/XMLService.dtd" >
+<service name = "sp_sor_fch">
+   <context>
+      
+   </context>
+
+   <input>
+		<field
+	    java_name = "nombreNegocio"
+	    type = "String"
+	    size = "15"
+	    middle_name = "sor_nom_neg"
+      	 />
+		<field
+            java_name = "fechaSorteo"
+            type = "Date"
+			size = "4"
+            middle_name = "sor_fec_prm"
+        />
+		<field
+            java_name = "fechaFin"
+            type = "Date"
+			size = "4"
+            middle_name = "sor_fec_fin"
+        />
+   </input>
+   <output>
+         <field
+			java_name = "identificacionSorteo"
+            type = "long"
+            size = "4"	    
+			middle_name = "sor_ids"
+         />
+         <field
+			java_name = "nombreNegocio"
+			type = "String"
+			size = "15"
+			middle_name = "sor_nom_neg"
+      	 />
+		 <field
+            java_name = "fechaPremio"
+            type = "Date"
+			size = "4"
+            middle_name = "sor_fec_prm"
+        />
+		<field
+			java_name = "horaPremio"
+            type = "long"
+            size = "4"	    
+			middle_name = "sor_hora"
+         />
+		 <field
+            java_name = "fechaFin"
+            type = "Date"
+			size = "4"
+            middle_name = "sor_fec_fin"
+        />
+   </output>
+</service>

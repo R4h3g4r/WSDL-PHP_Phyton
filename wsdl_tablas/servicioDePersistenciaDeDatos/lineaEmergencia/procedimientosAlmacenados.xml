@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap
+	PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+	"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+
+<sqlMap namespace="lineaEmergencia.procedimientosAlmacenados">
+
+	
+	
+	<parameterMap id="actualizaLineaEmergencia" class="java.util.HashMap">
+		<parameter property="rut"		   		   		jdbcType="CHAR" 		javaType="String" />		
+		<parameter property="contratado"		    jdbcType="CHAR" 		javaType="String" />		
+	</parameterMap>
+
+	<parameterMap id="consultaLineaEmergencia" class="java.util.HashMap">
+		<parameter property="rut"		   		   		jdbcType="CHAR" 		javaType="String" />
+	</parameterMap>
+	
+	<resultMap id="resultadoLineaEmergencia" class="java.util.HashMap">
+		<result property="rut"     						column="lem_rut"				  jdbcType="CHAR"    	 javaType="String" />        	
+	  <result property="montoPreaprobado"   column="lem_mto_pre" 			jdbcType="NUMERIC"   javaType="Long"/>        	
+	  <result property="valorServicio"			column="lem_val_ser" 			jdbcType="NUMERIC"   javaType="Double"/>        	
+	  <result property="contratado" 				column="lem_is_con"				jdbcType="CHAR"    	 javaType="String" />
+	  <result property="valorSeguro" 			  column="lem_val_seg"   		jdbcType="NUMERIC"   javaType="Double" />        	
+	</resultMap>
+
+		<procedure id="actualizacionLineaEmergencia" parameterMap="actualizaLineaEmergencia" >
+			{ CALL sp_upd_lem( ?, ?) }
+	</procedure>
+	
+		
+
+
+	<procedure id="consultarLineaEmergencia" parameterMap="consultaLineaEmergencia" resultMap="resultadoLineaEmergencia">
+		{ CALL sp_con_lem( ?) }
+	</procedure>
+		
+</sqlMap>

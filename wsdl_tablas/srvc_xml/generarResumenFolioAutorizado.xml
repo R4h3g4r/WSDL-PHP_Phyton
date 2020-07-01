@@ -1,0 +1,149 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "p_CEII_pac_sel_tot_x_folio"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "folio"
+          type = "String"
+          size = "12"
+          middle_name = "folio"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionResumenFolioAutorizado" var_name = "folioAutorizado" >
+
+          <field
+            java_name = "folio"
+            type = "String"
+            size = "12"
+            middle_name = "folio"
+          />
+
+          <field
+            java_name = "fecCargo"
+            type = "Date"
+            size = "20"
+            middle_name = "fecha3"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "estado"
+            type = "String"
+            size = "3"
+            middle_name = "estado"
+          />
+
+          <field
+            java_name = "modulo"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "modulo"
+          />
+
+          <field
+            java_name = "glosa"
+            type = "String"
+            size = "35"
+            middle_name = "descripEstadoDet"
+          />
+
+          <field
+            java_name = "fechaReintento"
+            type = "Date"
+            size = "20"
+            middle_name = "fecha9"
+            middle_date_format = "yyyyMMddHHmmss"
+          />
+
+          <field
+            java_name = "registrosTotales"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "montoTotal"
+          />
+
+          <field
+            java_name = "carMonTotal"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "total"
+          />
+
+          <field
+            java_name = "cantAceptados"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "cantidad"
+          />
+
+          <field
+            java_name = "montoAceptados"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+          <field
+            java_name = "cantRechazados"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "rechazosMes"
+          />
+
+          <field
+            java_name = "montoRechazados"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto1"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

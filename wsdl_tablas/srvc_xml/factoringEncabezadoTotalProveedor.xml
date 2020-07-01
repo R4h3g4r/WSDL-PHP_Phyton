@@ -1,0 +1,160 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "sp_CEII_enc_det_fin_prv_pesos"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "rutPagador"
+          type = "String"
+          size = "12"
+          middle_name = "prvrut"
+        />
+
+        <field
+          java_name = "rutProveedor"
+          type = "String"
+          size = "12"
+          middle_name = "prvrut"
+        />
+
+        <field
+          java_name = "pagFecDesdeT"
+          type = "String"
+          size = "20"
+          middle_name = "fecha2"
+        />
+
+        <field
+          java_name = "envFecDesdeT"
+          type = "String"
+          size = "20"
+          middle_name = "fecha"
+        />
+
+        <field
+          java_name = "pagFecHastaT"
+          type = "String"
+          size = "20"
+          middle_name = "fecha3"
+        />
+
+        <field
+          java_name = "envFecHastaT"
+          type = "String"
+          size = "20"
+          middle_name = "fecha7"
+        />
+
+        <field
+          java_name = "pagoFecha"
+          type = "String"
+          size = "30"
+          middle_name = "fecha2"
+        />
+
+        <field
+          java_name = "numeroNomina"
+          type = "String"
+          size = "12"
+          middle_name = "glosa"
+        />
+
+        <field
+          java_name = "numeroGrupo"
+          type = "String"
+          size = "12"
+          middle_name = "prvrut"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionFactoringEncabezadoTotalProveedor" var_name = "iteracionFactoringEncabezadoTotalProveedor" >
+
+          <field
+            java_name = "rutProveedor"
+            type = "String"
+            size = "12"
+            middle_name = "prvrut"
+          />
+
+          <field
+            java_name = "divProveedor"
+            type = "char"
+            size = "1"
+            middle_name = "prvvrt"
+          />
+
+          <field
+            java_name = "razonSocial"
+            type = "String"
+            size = "50"
+            middle_name = "descripRechazo"
+          />
+
+          <field
+            java_name = "estado"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+          <field
+            java_name = "estadoGlosa"
+            type = "String"
+            size = "30"
+            middle_name = "glosa"
+          />
+
+          <field
+            java_name = "fechaInicioOPE"
+            type = "String"
+            size = "20"
+            middle_name = "fecha7"
+          />
+
+          <field
+            java_name = "fechaFinalOPE"
+            type = "String"
+            size = "20"
+            middle_name = "fecha7"
+          />
+
+          <field
+            java_name = "rentabilidad"
+            type = "double"
+            size = "11"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

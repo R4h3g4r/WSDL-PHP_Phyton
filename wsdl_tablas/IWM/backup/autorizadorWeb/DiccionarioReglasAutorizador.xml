@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<diccionarioReglas> 
+	<!--Pruebas-->
+    <regla>
+        <alias>EnDominioIntranet</alias>
+        <expresion>regla.enDominioPersona()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+	<regla>
+		<alias>ctaCorrentistaOPrimista</alias>
+		<expresion>regla.esApoderado</expresion>
+		<categoria>producto</categoria>
+		<tipo>compleja</tipo>
+	</regla>
+	<regla>
+		<alias>ctaCorrentista</alias>
+		<expresion>ctaCorrentista</expresion>
+		<categoria>producto</categoria>
+		<tipo>basica</tipo>
+	</regla>
+	<regla>
+		<alias>ctaPri</alias>
+		<expresion>ctaPri</expresion>
+		<categoria>producto</categoria>
+		<tipo>basica</tipo>
+	</regla>
+	<regla>
+        <alias>apoderado</alias>
+        <expresion>regla.esApoderado()</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    
+    
+    <regla>
+        <alias>pruebaParametrosEmpresa</alias>
+        <expresion>regla.tieneServicioEmpresa("?")</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <!--Fin Pruebas-->
+    
+    
+    
+    <!--Reglas Simples Productos-->
+    <regla>
+        <alias>ClienteCtaPrimista</alias>
+        <expresion>regla.tieneCuentaPrima()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentista</alias>
+        <expresion>regla.tieneCuentaCorriente()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaMonex</alias>
+        <expresion>regla.tieneCuentaMonex()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConLineaSobregiro</alias>
+        <expresion>regla.tieneLineaDeSobregiro()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConTDC</alias>
+        <expresion>regla.tieneTarjetDeCredito()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConCuentaMedica</alias>
+        <expresion>regla.tieneCuentaMedica()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConCuentaVinculada</alias>
+        <expresion>regla.tieneCuentaVinculada()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConCuentaFamilia</alias>
+        <expresion>regla.tieneCuentaFamilia()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConInteresesPagados</alias>
+        <expresion>regla.tieneInteresesPagados()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConCredConsumo</alias>
+        <expresion>regla.tieneCreditosDeConsumo()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConCredHipotecario</alias>
+        <expresion>regla.tieneCreditoHipotecario()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConSeguro</alias>
+        <expresion>regla.tieneSeguros()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConSolicitudCredHipotecario</alias>
+        <expresion>regla.tieneSolicitudDeCreditosHipotecarios()</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <regla>
+        <alias>ClientePerteneceASegmento</alias>
+        <expresion>regla.clientePerteneceASegmento("?")</expresion>
+        <categoria>producto</categoria>
+        <tipo>basica</tipo>
+    </regla>
+    <!--// Fin reglas Simples Productos//-->
+    
+    
+    
+    <!--Reglas Complejas Productos -->
+    <regla>
+        <alias>ClienteCtaCorrentistaOCtaPrimista</alias>
+        <expresion>ClienteCtaCorrentista OR ClienteCtaPrimista</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteSinCtaCorrienteSinCtaPrimaConCtaMonex</alias>
+        <expresion>not ClienteCtaCorrentista AND not ClienteCtaPrimista AND ClienteCtaMonex </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaConLineaSobregiro</alias>
+        <expresion>ClienteCtaCorrentista AND ClienteConLineaSobregiro</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaConTDC</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConTDC</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaConCtaMedica</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConCuentaMedica</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaConCtaVinculada</alias>
+        <expresion> (ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConCuentaVinculada</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaConCtaFamilia</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConCuentaFamilia</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaConInteresesPagados</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConInteresesPagados</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOPrimistaOConTDC</alias>
+        <expresion>ClienteCtaCorrentista OR ClienteCtaPrimista OR ClienteConTDC</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOCtaPrimistaConCredConsumo</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConCredConsumo</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteCtaCorrentistaOCtaPrimistaConCredHipotecario</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteConCredHipotecario</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteSinCtaCorrienteSinCtaPrima</alias>
+        <expresion>not ClienteCtaCorrentista AND not ClienteCtaPrimista</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    
+    <regla>
+        <alias>ClienteSinCtaCorrienteSinCtaPrimaSinTDC</alias>
+        <expresion>not ClienteCtaCorrentista AND not ClienteCtaPrimista AND not ClienteConTDC </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteSinCtaCorriente</alias>
+        <expresion>not ClienteCtaCorrentista</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteNoPerteneceABancaPrivada</alias>
+        <expresion>not ClientePerteneceASegmento("?")</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClientePerteneceABancaPrivadaOBancaPreferencial</alias>
+        <expresion>ClientePerteneceASegmento OR ClientePerteneceASegmento </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <!--//Reglas Complejas Productos //-->
+    
+    
+    
+    <!--Reglas Seguridad-->
+    <regla>
+        <alias>ClienteConMultipass</alias>
+        <expresion>regla.tieneMultiPass()</expresion>
+        <categoria>Seguridad</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>TienePuertaAsignada</alias>
+        <expresion>regla.tienePuertaAsignada("?")</expresion>
+        <categoria>Seguridad</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    
+    
+	<!--//Fin Reglas De Seguridad//-->
+	
+	
+	
+	<!--Reglas Roles-->
+	<regla>
+        <alias>UsuarioEsOperador</alias>
+        <expresion>regla.usuarioEsOperador()</expresion>
+        <categoria>Roles</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+	<regla>
+        <alias>UsuarioEsContralor</alias>
+        <expresion>regla.usuarioEsContralor()</expresion>
+        <categoria>Roles</categoria>
+        <tipo>Simple</tipo>
+    </regla>	
+    <regla>
+        <alias>UsuarioEsApoderado</alias>
+        <expresion>regla.usuarioEsApoderado()</expresion>
+        <categoria>Roles</categoria>
+        <tipo>Simple</tipo>
+    </regla>	
+    <regla>
+        <alias>UsuarioEsApoderadoAutorizado</alias>
+        <expresion>regla.usuarioEsApoderadoAutorizado()</expresion>
+        <categoria>Roles</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>UsuarioEsSupervisor</alias>
+        <expresion>regla.usuarioEsSupervisor()</expresion>
+        <categoria>Roles</categoria>
+        <tipo>Simple</tipo>
+    </regla>	
+	<!--//Fin Reglas Roles //-->
+	
+	
+	
+	<!--Reglas Negocio -->
+	<regla>
+        <alias>ClienteSinConvenio</alias>
+        <expresion>regla.clienteSinConvenio()</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConMonoConvenio</alias>
+        <expresion>regla.clienteConMonoConvenio()</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteConMultiConvenio</alias>
+        <expresion>regla.clienteConMultiConvenio()</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteTieneProductoContratado</alias>
+        <expresion>regla.clienteTieneProductoContratado("?")</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>UsuarioTieneServicioAsignado</alias>
+        <expresion>regla.usuarioTieneServicioAsignado("?")</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>ConvenioProductoEPyme</alias>
+        <expresion>regla.convenioProductoEPyme()</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteTieneTipoPago</alias>
+        <expresion>regla.clienteTieneTipoPago("?")</expresion>
+        <categoria>Negocio</categoria>
+        <tipo>Simple</tipo>
+    </regla>
+	<!--//Reglas Negocio //-->
+	
+	<!--Reglas Que faltaban-->
+	<regla>
+        <alias>ClienteCtaCorrienteOCtaPrimaConCtaMonex</alias>
+        <expresion>( ClienteCtaCorrentista OR ClienteCtaPrimista ) AND ClienteCtaMonex </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+     <regla>
+        <alias>ClienteCtaCorrentistaSinLineaSobregiro</alias>
+        <expresion>ClienteCtaCorrentista AND not ClienteConLineaSobregiro</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteSinTDC</alias>
+        <expresion>not ClienteConTDC</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>ClienteNoPerteneceASegmento</alias>
+        <expresion>not ClientePerteneceASegmento("?")</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    
+    <!--pendiente-->
+    <regla>
+        <alias>ClienteTiene35ServiciosAsignados</alias>
+        <expresion>regla.usuarioTieneServicioAsignado("?") AND </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <!--//Pendiente//-->
+    <regla>
+        <alias>UsuarioTiene7ServiciosAsignados</alias>
+        <expresion>UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>UsuarioTiene9ServiciosAsignados</alias>
+        <expresion>UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado  </expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>UsuarioTiene2ServiciosAsignados</alias>
+        <expresion>UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <regla>
+        <alias>UsuarioTiene5ServiciosAsignados</alias>
+        <expresion>UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado AND UsuarioTieneServicioAsignado</expresion>
+        <categoria>producto</categoria>
+        <tipo>compleja</tipo>
+    </regla>
+    <!--//Reglas Que faltaban//-->
+</diccionarioReglas>

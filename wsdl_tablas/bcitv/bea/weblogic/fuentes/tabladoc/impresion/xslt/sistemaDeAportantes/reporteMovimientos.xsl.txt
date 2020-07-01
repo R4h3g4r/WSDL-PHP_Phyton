@@ -1,0 +1,17 @@
+Esta plantilla XSL es utilizada como hoja de estilo para la impresión en PDF 
+del reporte de movimientos de inversión.
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 14/10/2008 Ernesto Urbina F. (TInet): versión inicial.
+. 28/10/2009 Jonathan Mayne C. (TInet): CC Sistema de Aportantes se realiza modificacion 
+en consulta de movimientos para obtener fecha,folio,detalle,mto en moneda del fondo,
+ valor cuota colocacion,ademas valor cuota actual,saldo cuota actual y monto actual.
+. 14/05/2010 Se cambia el valor cuota inicial del fondo por el valor cuota actual, el cual 
+siempre estará representado en pesos.
+. 24/08/2010 Se modifica (del primer cuadro) de valor cuota a valor cuota actual.
+Se agrega columna con la cantidad de cuotas.
+Se cambia valor cuota actual por total de inversión del período.
+
+==========================================
