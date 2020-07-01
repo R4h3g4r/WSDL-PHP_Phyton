@@ -1,0 +1,21 @@
+#
+# Valores Clasificacion
+#
+
+paths_especiales;xsltpath=/export/weblogic/bea/wlsplatform/tablas/clasificacion/xslt/;proxyBCI=199.186.28.80;puerto=8000;srvmoodys=http://batch-riskcalc-old.moodysrms.com/XMLBatch.asp;
+servidores;proxyBCI=199.186.28.80;puerto=8000;srvmoodys=https://batch-riskcalc-old.moodysrms.com/XMLBatch.asp;
+
+
+
+
+#
+#Probabilidades de incumplimiento
+#
+Titulos;Valores=Calificación|Promedio|PI Mínima|PI Máxima;
+Fila-1;Valores=1|0,01|0,01|0,01;
+Fila-2;Valores=2|0,126|0,1|0,2;
+Fila-3;Valores=3|0,302|0,21|0,4;
+Fila-4;Valores=4|0,528|0,41|0,7;
+Fila-5;Valores=5|0,962|0,72|1,2;
+Fila-6;Valores=6|1,762|1,21|3;
+Fila-7;Valores=7|5,608|3,03|14,97;

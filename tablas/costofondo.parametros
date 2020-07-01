@@ -1,0 +1,10 @@
+#Caso costo de fondo de una cuota plazo mayor de 90
+CTDF1MAS90;TasaCosto=0.40;
+#Caso costo de fondo de una cuota plazo menor de 90
+CTDF1MENOS90;TasaCosto=0.38;
+#Caso costo de fondo más de una cuota plazo mayor de 30
+CTDFCMAS30;TasaCosto=0.40;
+#Caso costo de fondo más de una cuota plazo menor de 30
+CTDFCMENOS30;TasaCosto=0.38;
+
+

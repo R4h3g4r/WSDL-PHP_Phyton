@@ -1,0 +1,20 @@
+################################################################################
+# Configuracón de despliegues de los menasjes de LSG
+################################################################################
+#link de mensajes de webActivo por canal
+MSJ_WEB_ACTIVO_110;DESC=SEGURIDAD=https://bciimg.bci.cl/sitioseguro/mensaje_seguridad_bci_act.html, RESPONSABLE=https://bciimg.bci.cl/sitioseguro/mensaje_uso_responsable_bci_act.html, ASESORIA=https://bciimg.bci.cl/sitioseguro/mensaje_asesoria_producto_bci_act.html;
+MSJ_WEB_ACTIVO_100;DESC=SEGURIDAD=https://bciimg.bci.cl/sitioseguro/mensaje_seguridad_tbanc_act.html, RESPONSABLE=https://bciimg.bci.cl/sitioseguro/mensaje_uso_responsable_tbanc_act.html, ASESORIA=https://bciimg.bci.cl/sitioseguro/mensaje_asesoria_producto_tbanc_act.html;
+MSJ_WEB_ACTIVO_800;DESC=SEGURIDAD=https://bciimg.bci.cl/sitioseguro/mensaje_seguridad_nova_act.html, RESPONSABLE=https://bciimg.bci.cl/sitioseguro/mensaje_uso_responsable_nova_act.html, ASESORIA=https://bciimg.bci.cl/sitioseguro/mensaje_asesoria_producto_nova_act.html;
+#Configuración de uso del cupo de la cta corriente
+DISP_CTACTE_SINSALDO;MAX=0;
+DISP_CTACTE_USOMEDIO;MIN=1;MAX=500000;
+DISP_CTACTE_USOMAX;MIN=500000;
+##Validacion de uso de la linea de sobregiro solo aplica canal 100,110;
+CONF_CANAL_MSJ_LSG;DESC=100,110;
+BANCAS_EXCLUIDAS;110=PBP,PR;
+#Configuración de uso de la linea de sobregiro
+USO_PORC_LSG;MIN=0.30;
+#configuracion que despliega mensajes segun la selección
+MSJ_SALDO_0;DESC=1=SEGURIDAD;
+MSJ_SALDO_1_500000;DESC=1=RESPONSABLE, 2=RESPONSABLE;
+MSJ_SALDO_MAYOR_A_500000;DESC=1=ASESORIA, 2=ASESORIA, 3=RESPONSABLE;

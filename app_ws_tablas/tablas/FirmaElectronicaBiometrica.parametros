@@ -1,0 +1,93 @@
+#
+# Email Enviado a Tomador
+# ==============================================================================
+subject;Desc=Firma Electronica Biometrica;
+from;email=servicio_bci@bci.cl;
+cuerpoMensaje;header=Estimado(a);mensaje= : \n\nA contar de este momento y en base a vuestra solicitud, se encuentra lista para su impresión Boleta de Garantía cuyo detalle se adjunta en siguiente certificado, el que debe ser presentado en Mesón de Atención a Cliente en cualquiera de las sucursales predefinidas en horario de oficina del día de hoy (a entender hasta las 14 hrs.).\n\nDe no proceder con dicha impresión en horario indicado, se reversará todo el proceso, anulando el documento y sus respectivos cargos \n\n\nAtentamente\nBanco de Crédito e Inversiones\n;
+mensajeFinal;detalle=Consultas a Servicio al Cliente  800 200 379\n\nNotas:\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debe tener instalado el programa Acrobat Reader, si no lo tiene, descargue una version gratuita desde el sitio de la empresa Acrobat.\n;
+
+#Para ALSB produción
+#WSFirmaParametros;url=http://alsb.bci.cl/servicios/clientes/servicios/firmas/FirmaBiometricaProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+
+#Para ALSB certificación
+WSFirmaParametros;url=http://161.131.140.137:9050/servicios/clientes/servicios/firmas/FirmaBiometricaProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+
+#Para ALSB desarrollo
+#WSFirmaParametros;url=http://alsbdesa.bci.cl/servicios/clientes/servicios/firmas/FirmaBiometricaProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+
+
+#Para E-Cert
+WSFirmaECert;sistema=firmaElc;
+
+WSIntentos;nro=3;
+
+WSEspera;nro=5000;
+
+NOMBRE_BD;desc=Firmas_biotome;
+PROCED_GUARDAR;idProcedimiento=getCreaRegistroFirmaElectronica;idParametros=setCreaRegistroFirmaElectronica;
+PROCED_CONSULTAR;idProcedimiento=consultaDocumentosFirmados;
+
+#
+# nombre de los xml para generar los pdf por Producto o Tipo de documento.
+# ========================================================================
+PATH_XSL;path=tablas/impresion/xslt/;
+BCICTO;DSC=impresionCotizacionSimulacionElectronica.xsl;DIS=vinculado.xsl;
+CRE;DSC=impresionCotizacionSimulacionElectronica.xsl;DIS=vinculado.xsl;
+
+# Numero de Hojas
+docHoja;num=5;
+docContrato;num=5;
+
+# FIRMA ELECTRONICA Mensajes ejecucion
+firmaMensaje;ok=Firma electrónica generada correctamente;servicio=Servicio de firma electrónica no disponible, las firmas deben realizarse en forma manual;
+
+# FIRMA ELECTRONICA datos para firma de documentos
+ClienteBanco;empresa=E;
+documentos3clic;datosfirmante=2;documentofirma=2;
+documentoHoja;datosfirma=2;tipodoc=PDF;nombre=Hoja Resumen Credito de Consumo;pagina=4;posx=12;posy=1.4;tipofirmante=cliente;nombrebanco=Hoja Resumen Credito de Consumo;paginabanco=2;posxbanco=1;posybanco=1.4;tipofirmantebanco=banco;
+documentoContrato;datosfirma=2;tipodoc=PDF;nombre=Contrato Credito de Consumo;pagina=6;posx=3;posy=6;tipofirmante=cliente;nombrebanco=Contrato Credito de Consumo    ;paginabanco=6;posxbanco=11;posybanco=6;tipofirmantebanco=banco;
+carpetaPadre;creador=;fechaCreacion=;fechaModificacion;idObjeto=;nombre=;nombreCarpeta=;padre=;path=/CargaMasiva;propietario=;ultimoModificador=;propiedadesLlave=;propiedadesValor=;
+tipoDocumento;clase=HojaResumenPlanes;estado=;FechaCreacion=;FechaModificacion=;idObjeto=;localizacion=;mimeType=application/pdf;nombre=Resumen Planes;propietario=;ultimoModificador=;version=0;propNumero=5;propLlave0=Rut;propValor0=;propLlave1=NumeroDocumento;tamanoContenido=1;propValor1=;propLlave2=OrigenDigitalizacion;propValor2=19;propLlave3=FechaDocumento;propValor3=;propLlave4=TipoProducto;propValor4=1;
+TipoDocumentoECM;idObjeto=;nombre=;nombreSimbolico=;
+
+#Las fechas deben ir en el siguiente formato: yyyyMMdd
+documentos3clic0;clase=HojaResumenPlanes;estado=;fechaCreacion=;fechaModificacion=;idObjeto=;localizacion=;mimeType=application/pdf;nombre=Resumen Planes;propietario=;ultimoModificador=;version=0;path=/CargaMasiva;tamanoContenido=1;creadorCarpetaPadre=;fechaCreacionCarpetaPadre=;fechaModificacionCarpetaPadre=;idObjetoCarpetaPadre=;nombreCarpetaPadre=;nombreCarpetaCarpetaPadre=;padreCarpetaPadre=;pathCarpetaPadre=/CargaMasiva;propietarioCarpetaPadre=;ultimoModificadorCarpetaPadre=;idObjetoECM=;nombreECM=;nombreSimbolicoECM=;
+documentos3clic1;clase=HojaResumenPlanes;estado=;fechaCreacion=;fechaModificacion=;idObjeto=;localizacion=;mimeType=application/pdf;nombre=Contrato Credito de Consumo;propietario=;ultimoModificador=;version=0;path=/CargaMasiva;tamanoContenido=1;creadorCarpetaPadre=;fechaCreacionCarpetaPadre=;fechaModificacionCarpetaPadre=;idObjetoCarpetaPadre=;nombreCarpetaPadre=;nombreCarpetaCarpetaPadre=;padreCarpetaPadre=;pathCarpetaPadre=/CargaMasiva;propietarioCarpetaPadre=;ultimoModificadorCarpetaPadre=;idObjetoECM=;nombreECM=;nombreSimbolicoECM=;
+
+Direcciones;cantidadDir=2;alias0=;clase0=email;referencia0=contacto@bci.cl;tipo0=from;alias1=;clase1=email;referencia1=;tipo1=to;
+cabeceraEmailPlantilla;loginEnterprise=;refContract=BCI_CREDITO_3CLICK;subject=Documentacion de su Credito de Consumo Bci;propiedadesLlave=;propiedadesValor=;
+cuerpoEmailPlantilla;propNumero=10;propLlave0=IDOPERACIONCRED;propLlave1=MESENVIO;propLlave2=ANOENVIO;propLlave3=NOMBRECLIENTE;propLlave4=APELLIDOCLIENTE;propLlave5=OPERACION;propLlave6=FECHAOPERACION;propLlave7=mensajeId;propValor7=AQs93KvkWK3G8MCoMiIBkIyh;propLlave8=mensajeTs;propValor8=1147794140132;propLlave9=prioridad;propValor9=NORMALcuerpo;ParametrosTemplateReferencia=BCI-crd3click-clie-pos;Referencia=BCI-crd3click-clie-pos;templateReferencia=BCI-crd3click-clie-pos;
+RepresentanteBanco;rut=97006000-6;nombresyapellidos=Abraham Romero;empresa=BCI;email=representante@bci.cl;region=Metropolitana;ciudad=Santiago;ocupacion=Jefe;codigobiometria=125;
+
+#Reintento de consulta de documentos
+WSElecIntentos;nro=3;
+WSElecEspera;nro=5000;
+
+#Proyecto Servicio de Firma de Documentos
+#Para OSB produción
+#WSServicioFirma;url=http://alsb.bci.cl/esb/intranet/orq/infraestructura/seguridad/firmaelectronica/ServicioFirmaDocumentos?wsdl;timeoutSeconds=100;sistema=wlsalsb;
+#documentoECM;dominio=filenetprod;objeto=CorpBci;password=;servicio=FileNetP8WSI;usuario=;sistema=cmfnp8;
+
+#Para OSB certificación
+WSServicioFirma;url=http://161.131.140.137:9050/esb/intranet/orq/infraestructura/seguridad/firmaelectronica/ServicioFirmaDocumentos?wsdl;timeoutSeconds=100;sistema=wlsalsb;
+documentoECM;dominio=filenetcert;objeto=CorpBci;password=;servicio=FileNetP8WSI;usuario=;sistema=cmfnp8;
+
+#Para OSB desarrollo
+#WSServicioFirma;url=http://b2bdesa.bci.cl:9050/esb/orq/infraestructura/seguridad/firmaelectronica/ServicioFirmaDocumentos?wsdl;timeoutSeconds=100;sistema=wlsalsb;
+#documentoECM;dominio=filenetdesa;objeto=CorpBci;password=;servicio=FileNetP8WSI;usuario=;sistema=cmfnp8;
+
+#
+# Parámetros para Latinia y Filenet.
+# ========================================================================
+#Integración
+#emailPlantilla;login=BCI;
+
+#Certificación
+emailPlantilla;login=BCI;
+
+#Producción
+#emailPlantilla;login=BCI;
+
+#SECURITIZACION OSB
+###################
+srvFirmaDocPS;uyp=wsfirdoc;

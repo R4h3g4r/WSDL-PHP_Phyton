@@ -1,0 +1,39 @@
+nombreBancoBci;desc=BANCO BCI
+codigoBancoBci;desc=016
+codigoSistemaOrigen;helper=WFDTTFF01;ejb=WFDTTFF02
+moneda;desc=CLP
+versionTransaccion;desc=v01
+
+#true si debe lanzarse una excepcion en el caso de error al evaluar la transferencia.
+errorDetieneFlujo;desc=false;
+
+tipoTransaccion;interna=INTERNAL_TRANSFER;aOtrosBancos=DOMESTIC
+actionCd;evaluacion=CREATE;rechazo=REJECT
+statusCd;evaluacion=CREATED;rechazo=REJECTED_BY_SYSTEM
+debitCreditIdentifier;desc=1
+transferPaymentSpeedCd;desc=1
+partyType;E=Banca Empresas;P=Banca Personas
+
+#definicion de WS CERTIFICACION
+servicio;wsdl=http://161.131.140.23:9101/NEGOCIO/Infraestructura/Seguridad/Fraude/EvaluacionFraudeTransferencias/EvaluacionTransferenciasPS?WSDL;timeOut=3
+
+#definicion de WS PRODUCCION
+#servicio;wsdl=http://alsb.bci.cl/esb/personas/infraestructura/seguridad/fraude/EvaluacionTransferenciasService?WSDL;timeOut=2
+
+clienteDvActivo;TODOS=NOK;0=OK;1=OK;2=OK;3=OK;4=OK;5=NOK;6=NOK;7=NOK;8=NOK;9=NOK;K=NOK;
+bancaActiva;TODOS=NOK;PP=OK;PRE=OK;
+
+#tipoCuenta
+CCT;desc=CTA.CTE
+CPR;desc=CTA.VISTA
+AHO;desc=CTA.AHORRO
+
+default;tipoDispositivo=WEB
+905;tipoDispositivo=WEB
+100;tipoDispositivo=WEB
+110;tipoDispositivo=WEB
+230;tipoDispositivo=WEB
+800;tipoDispositivo=WEB
+901;tipoDispositivo=WEB
+910;tipoDispositivo=WEB
+911;tipoDispositivo=WEB

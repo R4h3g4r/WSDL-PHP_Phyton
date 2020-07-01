@@ -1,0 +1,18 @@
+codigoMoneda;Valor=0999;
+autoTransac;Valor=8;
+fechaExpiracion;Valor=01/01/1900;
+glosaTipoCredito;Valor=CMC;
+procesoNegocio;Valor=4;
+leenumerofilas;filas=10;
+estadoPlanilla;codigo=1;detalle=GENERADA
+situacionPlanilla;codigo=001;detalle=GENERADA
+
+TIPOSCONVENIO;TIPO=BEN;
+
+subTiposConvenio;total=2;c1=st1;c2=st2;
+st1;des=DXP;
+st2;des=PAC;
+
+consultasCmc;total=2;c1=1;c2=2;
+1;des=Consulta Masiva de Nóminas;
+2;des=Consulta Masiva de Plantillas;

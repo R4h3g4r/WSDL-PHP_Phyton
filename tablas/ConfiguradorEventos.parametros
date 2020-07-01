@@ -1,0 +1,24 @@
+OPCIONES;ACCESTACTPMTDA=1;ESTADOACTUAL=2;ACCESTADOSGTE=3;ESTADOSGTE=4;
+ATRIBUTOS;ORIGEN=001;ASGN=002;CTRL=003;ATRIB=004;
+SESION;AEC=C1;EME=C12;ITR=C0;EMD=C03;AEM=ADE;ADE=ADN;
+OFI;AEO=S1;EME=S12;ITR=S0;EMD=S03;
+CONTROLATRIB;Texto=T;Area_de_texto=A;Combo_box=C;Combo_box_sesion=D;
+ASIGNACIONAUTO;C1=AEC;C12=EME;C0=ITR;C03=EMD;ADE=AEM;ADN=ADE;
+PARAMETRIZACION;DATOS=C=Dato del Cliente|P=Dato del Pedido|H=Campo invisible en detalle del evento|E=Encabezado de evento Multiple|M=Evento Multiple;
+DATOSASIGNACION;CODIGOS=S=SI|N=NO|E=Evento Especial|O=Evento Pool Tipo 1|R=Evento Pool Tipo 2|P=Evento Pool Tipo 3|U=Evento Pool Tipo 4;
+GRUPOLISTA;COD=0=Sin Plataforma|PL1=Plataforma1|PL2=Plataforma2;
+ATRIBUTOSGRUPOAREA;AREA=000;INDICA=1;
+NOMBRE_BD;valor=tareas;
+REPLICAS;valor=6;
+
+#Atributos para lista circular
+ATRIB;LISTCIR=listaCircular;LISTOFI=oficinas;LISTAREASYROLES=rolPorAreas;
+
+#Parametros para envio de archivo via FTP desarrollo
+#adm_tareas;USUARIO=adm_tare;PASSWORD=admtare;DIRECTORIO=/home/adm_tareas/in;HOST=161.131.184.81;
+
+#Parametros para envio de archivo via FTP certificacion
+adm_tareas;USUARIO=adm_tare;PASSWORD=tare04bci;DIRECTORIO=/adm_tareas/in;HOST=161.131.232.185;
+
+#Parametros para envio de archivo via FTP produccion
+#adm_tareas;USUARIO=adm_tare;PASSWORD=admtare;DIRECTORIO=/adm_tareas/in;HOST=ataru;

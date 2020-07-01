@@ -1,0 +1,6 @@
+tipoArchivo;tipos=RDR,RDE,RCD,RDRC,RCDC;
+RDR;desc=Compensación Retornos;ip=161.131.232.30;uyp=sipe;ruta=/sipe/pac/backup1/;mascara=RDR016;
+RDE;desc=Compensación Efectivas;ip=161.131.232.30;uyp=sipe;ruta=/sipe/pac/backup1/;mascara=RDE016;
+RCD;desc=Compensación PAC CCA;ip=161.131.232.30;uyp=sipe;ruta=/sipeuape/reportes/;mascara=RCD016;
+RDRC;desc=Contingencia Retornos;ip=161.131.232.30;uyp=sipe;ruta=/sipe/pac/backup1/;mascara=RDRC016;
+RCDC;desc=Contingencia Efectivas;ip=161.131.232.30;uyp=sipe;ruta=/sipe/pac/backup1/;mascara=RCDC016;

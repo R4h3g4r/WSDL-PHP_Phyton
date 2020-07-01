@@ -1,0 +1,176 @@
+# Indicador de habilitación manual de uso de servicio externo
+# de recarga de celular (ACTIVO/INACTIVO)
+EstadoDeServicio;Desc=ACTIVO;
+
+# Valores de tope para realizar recarga celular segun canal y tipo Clave
+110; topeCCT=15000; topeCCTPASS=100000; topeCCTTOKEN=100000; topeCPR=10000; topeCPRPASS=100000; topeCPRTOKEN=100000;
+100; topeCCT=15000; topeCCTPASS=10000; topeCCTTOKEN=100000; topeCPR=10000; topeCPRPASS=100000; topeCPRTOKEN=100000;
+800; topeCCT=15000; topeCCTPASS=10000; topeCCTTOKEN=50000; topeCPR=50000; topeCPRPASS=10000; topeCPRTOKEN=100000;
+119; topeCCT=15000; topeCCTPASS=100000; topeCCTTOKEN=100000; topeCPR=10000; topeCPRPASS=100000; topeCPRTOKEN=100000;
+901; topeCCT=15000; topeCCTPASS=100000; topeCCTTOKEN=100000; topeCPR=10000; topeCPRPASS=100000; topeCPRTOKEN=100000;
+905; topeCCT=15000; topeCCTPASS=10000; topeCCTTOKEN=100000; topeCPR=10000; topeCPRPASS=100000; topeCPRTOKEN=100000;
+
+# Datos para poder ingresar los datos de recarga de celular a la tabla MOV y la tabla CMP
+Convenio;Desc=53392;
+CtaCte;Desc=25212583;
+codTx;Desc=010001;
+codRetornoIni;Desc=II;
+codRechazoIni;Desc=W200;
+codRechazoPago;Desc=0000;
+estadoCuadratura;Desc=P;
+CodigoRetornoFracaso;Desc=RR;
+CodigoRetornoExito;Desc=AA;
+rutTranstel;Desc=076268850;
+digVr;Desc=6;
+Biller;Desc=0;
+CodServ;Desc=0;
+CostoEnvio;Desc=0;
+destino;Desc=C;
+horaLimite;Desc=14;
+bciPOS;Desc=48640001;
+
+#110-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT|VIGENCIA;FECHAINI=20080506;FECHATER=20080531;
+110-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+110-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+110-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#110-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;espromocion=N;
+#110-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;espromocion=N;
+#110-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;espromocion=N;
+#110-ENTELPCS-VIGENCIA;idColumna=Vigencia Recarga;M2000=30 días;M3500=30 días;M5000=60 días;M10000=90 días;M15000=90 días;numColumna=5;espromocion=N;
+
+#800-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT;FECHAINI=20080506;FECHATER=20090515;
+800-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+800-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+800-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#800-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;
+#800-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;
+#800-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;
+#800-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;
+
+#100-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT|VIGENCIA;FECHAINI=20080506;FECHATER=20080531;
+100-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+100-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+100-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#100-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;espromocion=N;
+#100-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;espromocion=N;
+#100-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;espromocion=N;
+#100-ENTELPCS-VIGENCIA;idColumna=Vigencia Recarga;M2000=30 días;M3500=30 días;M5000=60 días;M10000=90 días;M15000=90 días;numColumna=5;espromocion=N;
+
+#119-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT|VIGENCIA;FECHAINI=20080506;FECHATER=20080531;
+119-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+119-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+119-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#119-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+#119-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;espromocion=N;
+#119-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;espromocion=N;
+#119-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;espromocion=N;
+#119-ENTELPCS-VIGENCIA;idColumna=Vigencia Recarga;M2000=30 días;M3500=30 días;M5000=60 días;M10000=90 días;M15000=90 días;numColumna=5;espromocion=N;
+
+#901-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT|VIGENCIA;FECHAINI=20080506;FECHATER=20080531;
+901-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+901-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+901-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#901-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;espromocion=N;
+#901-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;espromocion=N;
+#901-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;espromocion=N;
+#901-ENTELPCS-VIGENCIA;idColumna=Vigencia Recarga;M2000=30 días;M3500=30 días;M5000=60 días;M10000=90 días;M15000=90 días;numColumna=5;espromocion=N;
+
+#905-ENTELPCS;promociones=MONTO|ADICIONAL|MONTOAD|MONTOTOT|VIGENCIA;FECHAINI=20080506;FECHATER=20080531;
+905-ENTELPCS;promociones=MONTO|MINUTOS;FECHAINI=20090416;FECHATER=20090515;
+
+905-ENTELPCS-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+905-ENTELPCS-MINUTOS;idColumna=Minutos Adicionales;M2000=0;M3500=25;M5000=50;M10000=100;M15000=150;numColumna=2;espromocion=S;
+
+#905-ENTELPCS-MONTOAD;idColumna=Monto Adicional;numColumna=3;espromocion=N;
+#905-ENTELPCS-MONTOTOT;idColumna=Monto Total;numColumna=4;espromocion=N;
+#905-ENTELPCS-ADICIONAL;idColumna=% Adicional;M2000=0;M3500=10;M5000=20;M10000=30;M15000=50;numColumna=2;espromocion=N;
+#905-ENTELPCS-VIGENCIA;idColumna=Vigencia Recarga;M2000=30 días;M3500=30 días;M5000=60 días;M10000=90 días;M15000=90 días;numColumna=5;espromocion=N;
+
+
+110-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+110-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+110-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+110-MOVISTAR-RANGO;rango=continuo;
+
+100-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+100-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+100-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+100-MOVISTAR-RANGO;rango=continuo;
+
+800-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+800-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+800-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+800-MOVISTAR-RANGO;rango=continuo;
+
+119-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+119-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+119-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+119-MOVISTAR-RANGO;rango=continuo;
+
+901-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+901-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+901-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+901-MOVISTAR-RANGO;rango=continuo;
+
+905-MOVISTAR;promociones=MONTO|MINUTOS;FECHAINI=20090516;FECHATER=20090615;
+
+905-MOVISTAR-MONTO;idColumna=Monto Tramo Recarga;numColumna=1;espromocion=N;
+905-MOVISTAR-MINUTOS;idColumna=Minutos Adicionales;M2000_3499=0;M3500_4999=25;M5000_9999=50;M10000_14999=100;M15000_20000=150;numColumna=2;espromocion=S;
+905-MOVISTAR-RANGO;rango=continuo;
+
+
+
+110-CLARO;promociones=MONTO|MINUTOS;FECHAINI=20110201;FECHATER=20110315;
+110-CLARO-MONTO;idColumna=MONTO;numColumna=1;espromocion=N;
+110-CLARO-MINUTOS;idColumna=MINUTOS A CLARO y RED FIJA;M3600=36;M5000=50;M10000=100;M15000=150;M25000=250;numColumna=2;espromocion=S;
+
+100-CLARO;promociones=MONTO|MINUTOS;FECHAINI=20110201;FECHATER=20110315;
+100-CLARO-MONTO;idColumna=MONTO;numColumna=1;espromocion=N;
+100-CLARO-MINUTOS;idColumna=MINUTOS A CLARO y RED FIJA;M3600=36;M5000=50;M10000=100;M15000=150;M25000=250;numColumna=2;espromocion=S;
+
+800-CLARO;promociones=MONTO|MINUTOS;FECHAINI=20110201;FECHATER=20110315;
+800-CLARO-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+800-CLARO-MINUTOS;idColumna=MINUTOS A CLARO y RED FIJA;M3600=36;M5000=50;M10000=100;M15000=150;M25000=250;numColumna=2;espromocion=S;
+
+119-CLARO;promociones=MONTO|%;FECHAINI=20090616;FECHATER=20090715;
+
+119-CLARO-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+119-CLARO-%;idColumna=Porcentaje Adicional;M3600=10;M5000=20;M10000=40;M15000=60;M25000=100;numColumna=2;espromocion=S;
+
+901-CLARO;promociones=MONTO|%;FECHAINI=20090616;FECHATER=20090715;
+
+901-CLARO-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+901-CLARO-%;idColumna=Porcentaje Adicional;M3600=10;M5000=20;M10000=40;M15000=60;M25000=100;numColumna=2;espromocion=S;
+
+905-CLARO;promociones=MONTO|%;FECHAINI=20090616;FECHATER=20090715;
+
+905-CLARO-MONTO;idColumna=Monto Recarga;numColumna=1;espromocion=N;
+905-CLARO-%;idColumna=Porcentaje Adicional;M3600=10;M5000=20;M10000=40;M15000=60;M25000=100;numColumna=2;espromocion=S;
+
+#recarga empresa
+maximoRecargasPorSolicitud;valor=4;
+comprobanteRecarga;xslPDF=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/recargaCelulares/ComprobanteRecarga_pdf.xsl;
+rutaImagen;Desc=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;
+
+#Refactoring Recarga de Celulares
+#certificacion
+#wsRecargaCelular;wsdl=http://alsbcert.bci.cl/servicios/productos/servicios/RecargaCelularProxyService?wsdl;tiempoEspera=2;sistema=wlsalsb;
+#produccion
+wsRecargaCelular;wsdl=http://b2b.bci.cl/servicios/productos/servicios/RecargaCelularProxyService?wsdl;tiempoEspera=2;sistema=wlsalsb;
+#Para Store and Forward en caso de reversa on-line fallida
+reversaRecarga;codTxRev=V0678;producto=RCC;intentos=3;

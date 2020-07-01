@@ -1,0 +1,38 @@
+#
+# Tabla de Parámetros para Canje de Puntos Mall Virtual
+# =============================================
+#
+#-------- Administrador de Catálogos ---------
+
+#-------- Configuración para Producción ---------
+IMAGEN_PRODUCTO;server=https://bciimg.bci.cl/medios/mallVirtual/img/;sufijo_banner=banner;extensionDefault=.jpg;
+SERVIDOR_FTP;ip=161.131.163.17;usuario=adminclg;clave=Catalog01;
+#-------- Configuración para Certificación ---------
+#IMAGEN_PRODUCTO;server=http://161.131.140.33/medios/mallVirtual/img/;sufijo_banner=banner;extensionDefault=.jpg;
+#SERVIDOR_FTP;ip=161.131.140.33;usuario=virtual;clave=escrituralectura;
+#-------- Configuración para Desarrollo ---------
+#IMAGEN_PRODUCTO;server=http://privado1.bci.cl/mallVirtual/img/;sufijo_banner=banner;extensionDefault=.jpg;
+#SERVIDOR_FTP;ip=161.131.163.17;usuario=adminclg;clave=Catalog01;
+
+PRODUCTO_DESTACADO;orden=0,1,2,3,4;codigoBanner=0;codigoDestacado=S;codigoNoDestacado=N;
+
+#-------- Carro de Compras ---------
+PAGINACION;registrosPorPagina=05,10,15,20;indicesProductosCarro=3;registrosPorPaginaGeneral=5;paginaInicial=1;
+BUSQUEDA;rangoPrecios=9999,99999,999999,1000000-1500000;glosaRangoHasta=Hasta;
+EMPRESA_DESPACHO;nombre=Courier;
+VALORES_DESPACHO_UNO;valor=2500;desc=Dentro de Región Metropolitana;
+VALORES_DESPACHO_DOS;valor=4500;desc=Desde Antofagasta hasta Puerto Montt;
+VALORES_DESPACHO_TRES;valor=6500;desc=Desde Antofagasta al Norte y desde Puerto Montt al Sur;
+TABLA_DESPACHO;key=VALORES_DESPACHO_UNO,VALORES_DESPACHO_DOS,VALORES_DESPACHO_TRES;
+TEXTOS_MSG;MontoTarjetaSuperiorCompra=Monto con cargo a la Tarjeta de Crédito es superior al monto de la compra;MontoTarjetaInsuficiente=Monto con cargo a la Tarjeta de Crédito es insuficiente;
+NRO_CUOTAS_TDC;desde=03;hasta=24;
+TIPO_CANJE;1= Canjear sólo con PuntosBci;2=Canjear una parte con PuntosBci y el saldo con cargo a su Tarjeta de Crédito;3=Pagar el valor total con cargo a su Tarjeta de Crédito;
+DEFAULT;codigoCatalogo=I11;codigoCategoriaProducto=D11;codigoCategoriaTarjetaRegalo=D11;codigoCategoriaPanoramas=P11;
+MONTOS;PuntosMinimoCanje=10000;
+
+
+#------- Carga Masiva de Estados Solicitudes ----------
+CARGA_ESTADO;REC=Solicitud Recibida;PRO=En proceso;DES=Despachado;CAN=Cancelado;
+CARGA_ARCHIVO;extensionZip=zip;extensionDato=txt;extensionImagen=jpg;
+ESTADO_SOLICITUD;procesado=S;
+

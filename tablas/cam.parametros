@@ -1,0 +1,43 @@
+#errores
+errorTipoCambioNulo;glosa=Debe ingresar el Tipo de Cambio;
+errorFechaDesdeNulo;glosa=Debe ingresar la Fecha Desde;
+errorFechaHastaNulo;glosa=Debe ingresar la Fecha Hasta;
+errorNoHayRegistros;glosa=No hay Valores de Cambio para guardar;
+errorFechasRango;glosa=La Fecha Hasta no puede ser anterior a la Fecha Desde;
+errorSeleccionaVerificar;glosa=Debe seleccionar al menos un Valor de Cambio a Verificar;
+errorValorDeCambioErroneo;glosa=Se encontró un registro de valor de cambio erróneo;
+errorUtilIngresoMod;glosa=Debe ingresar al menos un par 'FechaDesde - FechaHasta - Equivalencia';
+errorUtilIngreso;glosa=Debe ingresar al menos un par 'Fecha - Equivalencia';
+errorValidaValorDeCambio;glosa=Error al validar el valor de cambio ingresado;
+
+JSP_EXCEPTION;JSP_EXCEPTION = javax.servlet.jsp.jspException;
+
+#forwards
+ingreso;glosa=ingreso;
+ingresoModificacion;glosa=ingresoMod;
+
+consulta;glosa=consulta;
+consultaVerificacion;glosa=consultaVer;
+
+#CAMUtil
+SESSION_BCI;SESSION_BCI = sessionBci;
+LOCALE_LANGUAGE;LOCALE_LANGUAGE=ES;
+LOCALE_COUNTRY;LOCALE_COUNTRY=CL;
+BANCO;BANCO=BCI;
+CARTERA;CARTERA=BEE;
+MARCA;MARCA=BCI;
+SESSION_PREFIX;SESSION_PREFIX=CAM;
+SESSION_MULTIENVIRONMENT;SESSION_MULTIENVIRONMENT=multiEnvironment;
+
+#Constantes
+COMANDO_INGRESO;COMANDO_INGRESO=IMV;
+COMANDO_CONSULTA;COMANDO_CONSULTA=CMV;
+
+#Mensajes
+MESSAGE;ingresoCorrecto=El Ingreso se ha realizado con éxito;verificacionCorrecta=La Verificación se ha realizado con éxito;
+
+#URL
+URL;ingresoModificacion=./ingresoValoresDeCambio.do?accion=ingresoModificacion;ingreso=./ingresoValoresDeCambio.do?accion=ingreso;consultaVerificacion=./consultaValoresDeCambio.do?accion=consultaVerificacion;
+
+
+

@@ -1,0 +1,79 @@
+# Subscriptores de jms para Journal Corporativo
+wcorp.util.start.JournalReceive_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceive_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# Subscriptor de jms para Journal Banele BciExpress
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.util.start.JournalReceiveBCIExpress_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# Subscriptor de jms para multicredito por ATM
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.util.atm.multicredito.dao.MulticreditoATMDAO_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# Subscriptores de jms para Journal Corporativo
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceive.JournalReceiveMDB_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# Subscriptor de jms para Journal Banele BciExpress
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.jms.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# ---[ INI ]--- MDBs para Journalizar (refactoring de Listeners JMS a MDBs).
+
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceive.JournalReceiveMDB_jmsPortalM22;poolName=poolJMSCluster;
+
+
+
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL11;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL12;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL21;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalL22;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM11;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM12;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM21;poolName=poolJMSCluster;
+wcorp.jms.mdb.journal.JournalReceiveBCIExpress.JournalReceiveBCIExpressMDB_jmsPortalM22;poolName=poolJMSCluster;
+
+
+# ---[ END ]--- MDBs para Journalizar (refactoring de Listeners JMS a MDBs).

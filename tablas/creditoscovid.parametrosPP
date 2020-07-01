@@ -1,0 +1,12 @@
+clusterServicio;valor=clusterLocal;
+monedaUF;valor=0998;
+scaleMontoTotalRefinanciar;valor=4;
+######################
+# Codigos de Salida. #
+######################
+codSalidaIngresarSolicitudRezagado;0=OK;1=Existe;2=Error;codigoError=2;listadoVacio=2;
+codSalidaIngresarSolicitudCreditoCovid;0=OK;1=Existe;2=Error;codigoError=2;listadoVacio=2;
+codSalidaInsertarCreditoCovid;0=OK;1=Error;codigoError=1;listadoVacio=1;
+codSalidaRefinanciarCreditoCovid;0=OK;1=Error;codigoError=1;listadoVacio=1;
+codSalidaCambiarEstadoCovid;0=OK;1=No existe solicitud de crédito;2=Error;codigoError=2;listadoVacio=2;
+codSalidaCalculoOperacionCreditoCovid;0=OK;1=No existe numero de operacion;2=Error;codigoError=2;listadoVacio=2;

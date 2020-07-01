@@ -1,0 +1,48 @@
+# Seguro Desgravamen Cliente
+degC1;Imes=0;Jmes=12;Porc=0.380;
+degC2;Imes=13;Jmes=24;Porc=0.730;
+degC3;Imes=25;Jmes=36;Porc=1.040;
+degC4;Imes=37;Jmes=48;Porc=1.320;
+degC5;Imes=49;Jmes=60;Porc=1.560;
+degC6;Imes=61;Jmes=72;Porc=1.930;
+degC7;Imes=73;Jmes=84;Porc=2.220;
+degC8;Imes=85;Jmes=9999;Porc=2.220;
+
+# Seguro Desgravamen Aval
+degA1;Imes=0;Jmes=12;Porc=0.380;
+degA2;Imes=13;Jmes=24;Porc=0.730;
+degA3;Imes=25;Jmes=36;Porc=1.040;
+degA4;Imes=37;Jmes=48;Porc=1.320;
+degA5;Imes=49;Jmes=60;Porc=1.560;
+degA6;Imes=61;Jmes=72;Porc=1.930;
+degA7;Imes=73;Jmes=84;Porc=2.220;
+degA8;Imes=85;Jmes=9999;Porc=2.220;
+
+# Doble Capital
+dCap1;Imes=0;Jmes=12;Porc=0.255;
+dCap2;Imes=13;Jmes=24;Porc=0.490;
+dCap3;Imes=25;Jmes=36;Porc=0.698;
+dCap4;Imes=37;Jmes=48;Porc=0.885;
+dCap5;Imes=49;Jmes=60;Porc=1.046;
+dCap6;Imes=61;Jmes=72;Porc=1.295;
+dCap7;Imes=73;Jmes=84;Porc=1.489;
+dCap8;Imes=85;Jmes=9999;Porc=1.489;
+
+# Renta Hospitalaria
+hospi;Porc=0.5474;
+
+# Enfermedades Graves
+enfer;Porc=0.4284;
+
+# Cesantía Involuntaria
+cesan;Porc=2.7322;
+
+# Cuota Segura por Cesantía o Incapacidad Temporal
+cOIT1;Imes=0;Jmes=12;Porc=1.730;
+cOIT2;Imes=13;Jmes=24;Porc=1.850;
+cOIT3;Imes=25;Jmes=30;Porc=1.980;
+cOIT4;Imes=31;Jmes=36;Porc=2.070;
+cOIT5;Imes=37;Jmes=48;Porc=2.250;
+cOIT6;Imes=49;Jmes=60;Porc=2.440;
+cOIT7;Imes=61;Jmes=9999;Porc=2.440;
+

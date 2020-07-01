@@ -1,0 +1,17 @@
+# Tabla de parametros para los servicios CompraChequesEspeciales.
+
+MailSolicitud;from=consultas@bci.cl;to=consultas@bci.cl;subject=Solicitud de Compra de Cheques Especiales <NOMBRE>, <RUT>;
+
+MSGEmailSolicitud;Desc=Estimado cliente: Se ha efectuado la Compra de Cheques Especiales con los siguiente datos:;
+
+SolicitudChequesEspeciales;dias=5;
+
+ARTIKOS-INGRESO;url=http://200.68.0.37/xs_webservices/solexterna/ce_sendIngreso.asp;
+
+ARTIKOS-CONSULTA;url=http://200.68.0.37/xs_webservices/solexterna/ce_sendConsulta.asp;
+
+# Codigos de Regiones
+CODIGOSDEREGIONES;METROPOLITANA=P06,P08,P10,P12,P14,P16,P17,P20;
+
+# Tiempos de espera por Regiones
+TIEMPODEESPERAREGIONES;METROPOLITANA=0;OTRAS=2;

@@ -1,0 +1,18 @@
+
+# Referencia de producto (aplicacion) que se utiliza la Plataforma
+LIMSP_SERVICE_REFPRODUCT;login=mail2sdp;password=latinia
+
+# Contexto del WebLogic. Dejar valores vacios para acceso a un contexto local
+LIMSP_JNDI_FACTORYINITIAL;0=weblogic.jndi.WLInitialContextFactory
+LIMSP_JNDI_FACTORYURLPKGS;0=
+LIMSP_JNDI_PROVIDERURL;0=t3://161.131.141.240:8010,161.131.141.240:8020
+
+# Recursos JMS
+LIMSP_JMS_CONNFACTORY;0=latinia/limsp/jms/connectionFactory/XAConnectionFactory
+LIMSP_JMS_QUEUESEND;1=nodo1JmsServer@latinia/limsp/jms/queue/serviceToLimsp/normalAuth;2=nodo2JmsServer@latinia/limsp/jms/queue/serviceToLimsp/normalAuth
+LIMSP_JMS_QUEUESEND_MASSIVE;1=nodo1JmsServer@latinia/limsp/jms/queue/serviceToLimsp/massiveAuth;2=nodo2JmsServer@latinia/limsp/jms/queue/serviceToLimsp/massiveAuth
+LIMSP_JMS_QUEUESEND_PRIORITY;1=nodo2JmsServer@latinia/limsp/jms/queue/serviceToLimsp/priorityAuth;2=nodo2JmsServer@latinia/limsp/jms/queue/serviceToLimsp/priorityAuth
+
+# Adjunto
+KBYTES_PERMITIDOS;valor=512000
+ADJUNTOS_PERMITIDOS;valor=3

@@ -1,0 +1,157 @@
+
+#APLICACIÓN BACK OFFICE MONEX
+
+
+# Atributos envío correo 
+asuntoTTFF;Desc=Transferencia al Extranjero;
+cuerpoCorreoCliente;Desc=ESTIMADO(a) <NOMBRE_CLIENTE>:\n\nLe informamos que con fecha <FECHA> se ha realizado el cargo en su cuenta nro. #<NUMERO_CUENTA> segun lo instruido en solicitud de transferencia de fondos al extranjero.\n\nEl detalle de este cargo es el siguiente:\n\n<MENSAJE_CLIENTE>\n\nAtentamente, <BANCO_PROCEDENCIA>;
+cuerpoCorreoBeneficiario_es;Desc=ESTIMADO(A) <NOMBREBENEFICIARIO>:\n\nDe acuerdo con lo instruido por nuestro(a) cliente <NOMBREDELCLIENTE>, le informamos que con fecha <FECHA> se ha realizado una solicitud de transferencia de fondos hacia su cuenta nro. #<CUENTADESTINO>\n\nEl detalle de esta operación es el siguiente:\n\n\tMonto transferido: <MONEDA> <MONTO>\n\tBanco de origen: TBANC/BCI/NOVA\n\tBanco Beneficiario - Swift: <BANCOBEN> - <CODIGOSWIFT>\n\tBanco Intermediario - Swift: <BANCOINT> - <CODIGOSWIFTINT><ABA><CUIT>\n\tPaís: <PAISBEN>\n\tCiudad: <CIUDADBEN>\n\tFecha de Abono: <FECHAVALUTA>\n\tMotivo de transferencia : <MOTIVOTRANSFERENCIA>\n\nAtentamente\n<BANCOEMISOR>\nFecha : <FECHA>\n;cuit=\n\tCUIT : <CUITBEN>;aba=\n\tABA : <ABABEN>;
+cuerpoCorreoBeneficiario_en;Desc=DEAR Mrs.(Mr., Ms.) <NOMBREBENEFICIARIO>:\n\nAccording to a request made by our customer, <NOMBREDELCLIENTE>, we inform you that on <FECHA> a transfer of funds was made to your account number <CUENTADESTINO>\n\nThe details of the transfer are as follows:\n\n\tAmount transferred: <MONEDA> <MONTO>\n\tOriginating Bank: TBANC/BCI/NOVA\n\tBeneficiary Bank - Swift: <BANCOBEN> - <CODIGOSWIFT>\n\tIntermediary Bank - Swift: <BANCOINT> - <CODIGOSWIFTINT><ABA><CUIT>\n\tCountry: <PAISBEN>\n\tCity: <CIUDADBEN>\n\tDate of credit: <FECHAVALUTA>\n\tReference: <MOTIVOTRANSFERENCIA>\n\n<BANCOEMISOR>\nDate : <FECHA>\n;cuit=\n\tCUIT : <CUITBEN>;aba=\n\tABA : <ABABEN>;
+pieCorreo_es;Desc=\n\nImportante: \n- Este mail es generado de manera automatica, por favor no responda a este mensaje.\n- Los tildes se han omitido intencionalmente.\n- Los comentarios aqui ingresados son exclusiva responsabilidad de nuestro cliente, y no\n  involucran en absoluto al Bci.;
+pieCorreo_en;Desc=\n\nImportant: \n- This message has been generated automatically. Please do not reply.\n- Any comments made are the responsibility of our customers and do not represent those of Bci.;
+asuntoCorreo_es;Desc=Transferencia de fondos al extranjero;
+asuntoCorreo_en;Desc=International Transfer;
+BancoOrigen;110=BCI;100=TBANC;
+GlosaBancoOrigen;110=Banco Crédito Inversiones;100=TBanc;TBANC=TBanc - El Banco a distancia;BCI=BCI - Somos Diferentes;
+CorreoProcedencia;Desc=servicio_envio@bci.cl;
+tipoCuentaConvenio;AHO=A;CCT=C;
+idioma;IN=en;ES=es;
+DesSol;GEN=Solicitud General;CON=Solicitud en Convenio;
+
+# Datos de la aplicacion bo monex
+estadoTTFF;PEN=Pendiente;REC=Rechazada;PRO=Procesada;ELI=Eliminada;ENV=Enviada;INJ=Inyectada;PAG=Pagada;IMP=Impresa;
+estadoTTFFWeb;PEN=Pendiente de procesar;REC=Rechazada;PRO=Terminada;ELI=Eliminada;ENV=Terminada;INJ=Terminada;PAG=Terminada;IMP=En proceso;
+IMG;Desc=/transferenciaalextranjero/imagenes/;
+PDF;Comprobante=transferenciaalextranjero/bci/solicitudTransferencia.xsl;
+CODIGO_PAIS;CODARG=224;CODUSA=225;CONVENIO=218;
+Tracking;Desc=Cambia estado de <IDSOLICITUD> a <ESTADO> con fecha <FECHA>;Act=Se actualizan campos solicitud <IDSOLICITUD> con fecha <FECHA>;Imp=Se imprime <IDSOLICITUD> con fecha <FECHA>;Inj=Se reinyecta la solicitud <IDSOLICITUD> con fecha <FECHA>;
+archivo;compania=574;idProceso=RFAML;ciudadProcedenciaGiro=SANTIAGO;paisProcedenciaGiro=CHILE;
+Promocion;110=Promocion Bci;100=Promocion TBanc;
+
+#  Archivo de Solicitud de Tranferencia y FTP
+#Desarrollo
+#ReceptorFTP;grupo=grupo;server=161.131.184.91;ruta=gvillagran;
+#Certificacion
+ReceptorFTP;grupo=grupo;server=161.131.184.91;ruta=gvillagran;
+#Produccion
+#ReceptorFTP;grupo=grupo;server=161.131.184.91;ruta=gvillagran;
+
+
+#  xsl correo html para el Cliente/Beneficiario
+xslCorreoCliente;110=transferenciaalextranjero/bci/cliente_divisa.xsl;100=transferenciaalextranjero/tbanc/tbanc_cliente_divisa.xsl;
+xslCorreoBeneficiario_en;110=transferenciaalextranjero/bci/bci_beneficiario_en.xsl;100=transferenciaalextranjero/tbanc/tbanc_beneficiario_en.xsl;
+xslCorreoBeneficiario_es;110=transferenciaalextranjero/bci/bci_beneficiario_es.xsl;100=transferenciaalextranjero/tbanc/tbanc_beneficiario_es.xsl;
+
+# formatos de las fecha utilizadas para enviar el mail cliente/beneficiorio
+FORMATO_FECHA;en=MM/dd/yyyy;es=dd/MM/yyyy;
+
+
+
+#SOLICITUD DE TRANSFERENCIA AL EXTRANJERO
+
+# Motivos de Pago #
+motivosDePago;cantidad=10;
+motivosDePago_1;codigosMotivoPago=20000;glosaMotivoPago=Fletes;
+motivosDePago_2;codigosMotivoPago=20002;glosaMotivoPago=Servicios de Informática;
+motivosDePago_3;codigosMotivoPago=20005;glosaMotivoPago=Servicios Empresariales, Profesionales, Honorarios y Técnicos varios;
+motivosDePago_4;codigosMotivoPago=20007;glosaMotivoPago=Servicios Personales, Culturales y Recreativos;
+motivosDePago_5;codigosMotivoPago=20023;glosaMotivoPago=Aportes y Cuotas a Organismos Internacionales;
+motivosDePago_6;codigosMotivoPago=20024;glosaMotivoPago=Jubilaciones, Montepíos, Ayudas Familiares, Herencias y Donaciones;
+motivosDePago_7;codigosMotivoPago=20070;glosaMotivoPago=Egresos por Turismo;
+motivosDePago_8;codigosMotivoPago=20470;glosaMotivoPago=Comisiones por actividades de Comercio Exterior;
+motivosDePago_9;codigosMotivoPago=20700;glosaMotivoPago=Primas de Seguros, Reaseguros y otros egresos asociados;
+motivosDePago_10;codigosMotivoPago=20830;glosaMotivoPago=Regalías, Derechos de Autor y de Licencia por uso de marcas y patentes;
+
+
+# Tipo de Cuenta para Ecuador #
+tipoDeCuenta;cantidad=2;
+tipoDeCuenta_1;codigoCuenta=AHO;glosaCuenta=Cuenta de Ahorro;
+tipoDeCuenta_2;codigoCuenta=CCT;glosaCuenta=Cuenta Corriente;
+
+
+#Monedas de Transferencia #
+monedasTransferencia;cantidad=4;
+monedasTransferencia_1;sigla=AUD;glosa=Dólar Australiano;codigo=036;
+monedasTransferencia_2;sigla=CAD;glosa=Dólar Canadiense;codigo=006;
+monedasTransferencia_3;sigla=USD;glosa=Dólar Estadounidense;codigo=013;
+monedasTransferencia_4;sigla=EUR;glosa=Euro;codigo=0142;
+
+
+# Parametros que determinan si se muestran los campos Dirección, Id Beneficiario por pais (Ejem: Exige Dirección, Exige Id Beneficiario) #
+# 1 indica que el campo es obligatorio.
+# 0 indice que el campo no es obligatorio
+# 2 indice que por lo menos debe ingresar uno.
+parametrosPorCampos;cantidad=2;
+parametrosPorCampos_1;codigoPais=224;muestraIdBeneficiario=1;exigeIdBeneficiario=2;exigeDireccion=2;
+parametrosPorCampos_2;codigoPais=225;muestraIdBeneficiario=0;exigeIdBeneficiario=1;exigeDireccion=1;
+
+
+# Paises Vetados #
+paisesVetados;cantidad=35;
+#Se agrega por que no tiene sentido transferir a Chile como país extranjero.
+paisesVetados_1;codigoPais=997;glosaPaises=CHILE;
+paisesVetados_2;codigoPais=251;glosaPaises=ANGUILLA;
+paisesVetados_3;codigoPais=240;glosaPaises=ANTIGUA AND BARBUDA;
+paisesVetados_4;codigoPais=271;glosaPaises=NETHERLANDS ANTILLES;
+paisesVetados_5;codigoPais=272;glosaPaises=ARUBA;
+paisesVetados_6;codigoPais=207;glosaPaises=BAHAMAS;
+paisesVetados_7;codigoPais=204;glosaPaises=BARBADOS;
+paisesVetados_8;codigoPais=236;glosaPaises=BELIZE;
+paisesVetados_9;codigoPais=252;glosaPaises=BERMUDA;
+paisesVetados_10;codigoPais=231;glosaPaises=DOMINICA;
+paisesVetados_11;codigoPais=313;glosaPaises=BAHRAIN;
+paisesVetados_12;codigoPais=591;glosaPaises=GIBRALTAR;
+paisesVetados_13;codigoPais=232;glosaPaises=GRENADA;
+paisesVetados_14;codigoPais=593;glosaPaises=GUERNSEY, C.I.;
+paisesVetados_15;codigoPais=253;glosaPaises=CAYMAN ISLANDS;
+paisesVetados_16;codigoPais=471;glosaPaises=COOK ISLANDS;
+paisesVetados_17;codigoPais=592;glosaPaises=ISLE OF MAN;
+paisesVetados_18;codigoPais=593;glosaPaises=JERSEY, C.I.;
+paisesVetados_19;codigoPais=523;glosaPaises=MALTA;
+paisesVetados_20;codigoPais=255;glosaPaises=MONTSERRAT;
+paisesVetados_21;codigoPais=472;glosaPaises=NIUE;
+paisesVetados_22;codigoPais=525;glosaPaises=ANDORRA;
+paisesVetados_23;codigoPais=534;glosaPaises=LIECHTENSTEIN;
+paisesVetados_24;codigoPais=535;glosaPaises=MONACO;
+paisesVetados_25;codigoPais=305;glosaPaises=CYPRUS;
+paisesVetados_26;codigoPais=119;glosaPaises=MAURITIUS;
+paisesVetados_27;codigoPais=402;glosaPaises=NAURU;
+paisesVetados_28;codigoPais=210;glosaPaises=PANAMA;
+paisesVetados_29;codigoPais=415;glosaPaises=VANUATU;
+paisesVetados_30;codigoPais=536;glosaPaises=SAN MARINO;
+paisesVetados_31;codigoPais=156;glosaPaises=SEYCHELLES;
+paisesVetados_32;codigoPais=404;glosaPaises=SAMOA;
+paisesVetados_33;codigoPais=241;glosaPaises=SAINT KITTS AND NEVIS;
+paisesVetados_34;codigoPais=234;glosaPaises=SAINT VINCENT AND THE GRENADINES;
+paisesVetados_35;codigoPais=233;glosaPaises=SAINT LUCIA;
+
+
+
+
+# Link a PDF para aceptar condiciones
+LinkPDF;PDFConConvenio=/BEA Repository/Documentos/BancoEnLinea/Transferencias/Extranjero/CondicionesConvenio1 Pdf;PDFSinConvenio110=/BEA Repository/Documentos/BancoEnLinea/Transferencias/Extranjero/Condiciones Pdf;PDFSinConvenio100=/BEA Repository/Documentos/BancoEnLinea/Transferencias/Extranjero/CondicionesTbanc Pdf;
+
+
+# Atributos envío correo en formato HTML  #
+#ruta del xsl que genera la parte text/html para el Cliente
+genera;110=transferenciaalextranjero/bci/bci_generador.xsl;100=transferenciaalextranjero/tbanc/tbanc_generador.xsl;
+
+#      Imagenes	      #
+bannerTTFF;100=https://bciimg.bci.cl/medios/BCI2/art/mailmonex/promo-tbanc1.jpg;110=https://bciimg.bci.cl/medios/BCI2/art/mailmonex/promo-bci1.jpg;
+logoTTFF;100=https://bciimg.bci.cl/medios/BCI2/art/mailmonex/logo-tbanc.jpg;110=https://bciimg.bci.cl/medios/BCI2/art/mailmonex/logo-bci.jpg;
+
+
+#   Switch Convenio de Ecuador Activo #
+#   1 es que esta activa (funciona con convenio).
+#   0 es que esta desactivada (no funciona con convenio).
+ttffExtranjeroConvenioActiva;Desc=0;
+
+#Mensajes de error para limites en trasferencias desde Interdomain
+
+mensajes;limiteMaxTTFFMensual=Estimado cliente usted ha superado la cantidad máxima permitida de transferencias al extranjero por mes. Le invitamos a llamar a un ejecutivo quien podrá analizar su solicitud y antecedentes;limiteCantTTFFMensual=Estimado cliente el monto máximo de transferencias es de 10.000 dólares;
+
+#valor de cantidad maxima de Transferencias mensuales
+cantMaxima;valor=3;
+
+#valor de monto maximo en cada Transferencias al extranjero
+montoMaximo;valor=10000;

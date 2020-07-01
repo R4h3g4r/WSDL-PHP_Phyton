@@ -1,0 +1,179 @@
+################################################################################
+# Definición del Datasource.
+################################################################################
+DATA_SOURCE_BANCA_PRIVADA;JNDI=wcorp.datasource.bancaprivada.BancaPrivadaBcaPrivadaDS;
+DATA_SOURCE_DGC;JNDI=wcorp.datasource.bancaprivada.BancaPrivadaDS;
+DATA_SOURCE_GLOSAS_INVERSIONES;JNDI=wcorp.datasource.bancaprivada.BancaPrivadaGestGlobInvDS;
+
+################################################################################
+# Definición de datos fijos cuando se hace una actualización al repositorio.
+################################################################################
+PROGRAMA_ACTUALIZACION;151=EVERESTBCAP;
+CANAL_ACTUALIZACION;151=WEBEVEREST;
+NOMBRE_SERVICIO;151=GeneralApp;
+
+################################################################################
+# Definción de codigo que son usados en los beans y actions.
+################################################################################
+CLIENTE_BANCA_PRIVADA;codigo=1;
+CLIENTE_POTENCIAL_BANCA_PRIVADA;codigo=2;
+CLIENTE_POTENCIAL_INACTIVO_BANCA_PRIVADA;codigo=4;
+RELACION_GRUPO_FAMILIAR_CONYUGE;codigo=3;
+SUBSEGMENTO_BANCA_PRIVADA_OTRO;codigo=5;
+RELACION_GRUPO_FAMILIAR_OTRO;codigo=9;
+ESTADO_ENROLAMIENTO_PENDIENTE;codigo=1;
+ESTADO_CARPETA_OPERATIVA_PENDIENTE;codigo=1;
+TIPOS_EMPRESA;tipos=Sociedad de Inversión:SOC,Empresa:EMP;
+TIPOS_CLIENTE;tipos=Banca Privada:1,Potencial Activo:3,Potencial Inactivo:4,Potencial Histórico:5;
+TIPOS_CLIENTE_ACTIVOS;tipos=Banca Privada:1,Potencial Activo:3,Potencial Inactivo:4;
+TIPOS_CLIENTE_HISTORICOS;tipos=Potencial Histórico:5;
+ESTADOS_ENROLAMIENTO;estados=Pendiente:1,Aprobado:2,Rechazado:3;
+################################################################################
+# Informacion Formularios.
+################################################################################
+TIPO_FORMULARIO;PERFIL_INVERSION=1;CONOCIMIENTO_CLIENTE=2;ADECUABILIDAD_PRODUCTO=3;
+TIPOS_PREGUNTAS;opcion=0;opcionComplemento=1;textoLibre=2;
+PERFIL_INVERSION;preguntasTextoLibre=9,10,11;preguntasOpcion=1,2,3,5,6,12.1-7;preguntasOpcionValor=4.1-9,4.11-18,7;preguntasOpcionTexto=12.8;preguntasOpcionValorTexto=4.10,4.19,8;preguntasValoresIndexados=4_19;
+CONOCIMIENTO_CLIENTE;preguntasTextoLibre=1,2,3,4,5,6;preguntasOpcion=7.1,7.2,8.1,8.2;preguntasOpcionTexto=9;
+ADECUABILIDAD_PRODUCTO;preguntasTextoLibre=1,2,3;preguntasOpcion=4;
+PREGUNTAS_OPCIONALES;1=4.1-19,12.1-8;
+
+FORMULARIOS_OPCIONES_LISTADO;1=1,2,3,5,6.1-3,7,8;2=7.1,7.2,8.1,8.2,9;3=4;
+OPCIONES_1_1;A=Menos de 2 Años;B=2 a 5 Años;C=6 a 10 Años;D=Más de 10 Años;
+OPCIONES_1_2;A=Menos de 2 Años;B=2 a 5 Años;C=6 a 10 Años;D=Más de 10 Años;
+OPCIONES_1_3;A=No estoy informado sobre el comportamiento de las inversiones ni de sus mercados.;B=Estoy algo informado sobre inversiones y de sus mercados.;C=Estoy informado sobre el comportamiento de las inversiones y de sus mercados.;D=Extenso, estoy muy enterado de la evolución de los mercados financieros (Diarios, revistas, internet, etc).;
+OPCIONES_1_5;A=Soy muy adverso al riesgo, por lo que vendería todas mis acciones.;B=Vender algunas de mis acciones.;C=Soy inversionista de largo plazo y acepto dichas fluctuaciones, por lo que no haría nada.;D=Dichas fluctuaciones las veo como una oportunidad, por lo que compraría más acciones.;
+OPCIONES_1_6.1;A=7,20%;B=9,00%;C=10,40%;D=11,70%;E=12,50%;
+OPCIONES_1_6.2;A=16,30%;B=25,00%;C=33,60%;D=42,80%;E=50,00%;
+OPCIONES_1_6.3;A=-5,60%;B=-12,10%;C=-18,20%;D=-24,00%;E=-28,20%;
+OPCIONES_1_7;A=Mucho;B=Una parte;C=Ninguno;
+OPCIONES_1_8;A=Sí;B=No;
+OPCIONES_2_7.1;A=Menor de $2.000.000;B=Entre $2.000.001 y $5.000.000;C=Entre $5.000.001 y $10.000.000;D=Más de $10.000.000;
+OPCIONES_2_7.2;A=Menor de $2.000.000;B=Entre $2.000.001 y $5.000.000;C=Entre $5.000.001 y $10.000.000;D=Más de $10.000.000;
+OPCIONES_2_8.1;A=Menos de US$ 500.000;B=Entre US$ 500.000 y US$ 1.000.000;C=Entre US$ 1.500.000 y US$ 2.000.000;D=Entre US$ 2.000.000 y US$ 2.500.000;E=Más de US$ 2.500.000;
+OPCIONES_2_8.2;A=Menos de US$ 500.000;B=Entre US$ 500.000 y US$ 1.000.000;C=Entre US$ 1.500.000 y US$ 2.000.000;D=Entre US$ 2.000.000 y US$ 2.500.000;E=Más de US$ 2.500.000;
+OPCIONES_2_9;A=De mi empresa/trabajo;B=Venta de activos (Empresas, propiedades, vehículos, etc);C=Vencimiento de inversiones Bci;D=Inversiones de otros Bancos o Corredoras del sistema financiero;E=Herencia;F=Otro;
+OPCIONES_3_4;A=Nivel 1;B=Nivel 2;C=Nivel 3;D=Nivel 4;E=Nivel 5;
+
+################################################################################
+# Ficha del Cliente.
+################################################################################
+ANTECEDENTES_LABORALES;1=EMPRESA;2=EMPRESA;3=INDEPENDIENTE;4=INDEPENDIENTE;6=INDEPENDIENTE;
+DIRECCIONES_VALIDAS;LISTADO=D,E,F,2,3,4,5,6,7,8,9,G;D=PARTICULAR;E=COMERCIAL;F=FAX;2=CONTACTO;3=CASILLA-CORREO;4=CASILLA-INTERNA;7=E-MAIL;8=CELULAR;9=E-MAIL-COMERCIAL;DIRECCION-ENVIO=ND;
+CODIGO-REGION-ANEXO-COMUNA;POSICION=50;LONGITUD=2;
+DESPLEGAR_CONYUGE;CAS=true;
+ANTECEDENTES_ADICIONALES;C=CARGO-PERSONAL;F=CARGO-FAMILIAR;
+
+################################################################################
+# Marca Cliente Banca Privada.
+################################################################################
+SEGMENTO_MARCA_CLIENTE;BANCA_PRIVADA=04;
+
+################################################################################
+# Código de la sub-banca
+################################################################################
+SUB_BANCA;codigo=PR;
+
+###############################################################################
+# Atributos Banca Privada Web.
+###############################################################################
+enviarUnicoCorreo;unico=true;correo=jbarrog@bci.cl,mzunido@bci.cl,gpadilt@bci.cl;
+cuerpoCorreo;cuerpo=Estimado(a) Ejecutivo(a):\nCon fecha xxfechaxx, el cliente: xxnombreclientexx, RUT: xxrutxx, teléfono: xxtelefonoxx  le ha enviado el siguiente mensaje a través del sitio web de Banca Privada:\nxxmensajexx;
+indicadoresFinancieros;url=https://bciimg.bci.cl/sitioseguro/indicadores_act.html;
+documentacionAcciones;url=https://bciimg.bci.cl/sitioseguro/descarguedocac_act.html;
+centroLlamados;fono=383 5450;
+estadoActivo;Desc=VIG;
+estadoBloqueado;Desc=BLQ;
+paginaInicio;desc=http://www.bcibancaprivada.cl;
+eventoCorreoBP;evento=C00;subevento=C01;producto=C02;
+eventoUsuarioBP;evento=U00;subevento=U01;producto=U02;
+eventoClaveBP;evento=P00;subevento=P01;producto=P02;
+
+################################################################################
+# Mensaje de Restriccion Acceso cliente Banca Privada.
+################################################################################
+ACCESO_CLIENTE;mensaje=Usted no posee privilegios para operar con este RUT. Cliente Banca Privada;
+ACCION_BP;accion=ACCBP;
+VISTA_BP;vista=ACC_BP;
+
+################################################################################
+# Parametros Informacion financiera.
+################################################################################
+
+TIEMPO_REFRESCO;indicadoresPublico=15;indicadoresPrivado=3;noticias=10;
+dataSourceInformacionMercado;Desc=ds/webbprim;
+DATOS_GRAFICO;idIndicador=17242077;tipoBusquda=D;
+KEY;valor=F3NM1RK2TBC3;
+IGPA;ID_NOTATION=325080;GLOSA=AG;
+IPSA;ID_NOTATION=17242077;GLOSA=AP;
+CODE_RESOLUTION;valor=1D;
+################################################################################
+# URL Web service Actualización información financiera
+################################################################################
+
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_NOTICIAS;URL=http://161.131.141.159:9050/servicios/informacion/financiera/NoticiasFinancierasService?wsdl;TIMEOUT=8;
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_NOTICIAS;URL=http://161.131.140.137:9050/servicios/informacion/financiera/NoticiasFinancierasService?wsdl;TIMEOUT=8;
+WS_ACTUALIZACION_INFORMACION_FINANCIERA_NOTICIAS;URL=http://alsb.bci.cl/servicios/informacion/financiera/NoticiasFinancierasService?wsdl;TIMEOUT=8;
+
+
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_CIERRES;URL=http://161.131.141.159:9050/servicios/informacion/financiera/InformacionDeCierrePreciosProxyService?WSDL;TIMEOUT=8;
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_CIERRES;URL=http://161.131.140.137:9050/servicios/informacion/financiera/InformacionDeCierrePreciosProxyService?WSDL;TIMEOUT=8;
+WS_ACTUALIZACION_INFORMACION_FINANCIERA_CIERRES;URL=http://alsb.bci.cl/servicios/informacion/financiera/InformacionDeCierrePreciosProxyService?WSDL;TIMEOUT=8;
+
+
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_IDNOTATIONS;URL=http://161.131.141.159:9050/servicios/informacion/financiera/InformacionIdNotationIndicadoresProxyService?WSDL;TIMEOUT=8;
+#WS_ACTUALIZACION_INFORMACION_FINANCIERA_IDNOTATIONS;URL=http://161.131.140.137:9050/servicios/informacion/financiera/InformacionIdNotationIndicadoresProxyService?WSDL;TIMEOUT=8;
+WS_ACTUALIZACION_INFORMACION_FINANCIERA_IDNOTATIONS;URL=http://alsb.bci.cl/servicios/informacion/financiera/InformacionIdNotationIndicadoresProxyService?WSDL;TIMEOUT=8;
+
+PIE_COMPROBANTE_1;DESC=Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...;
+PIE_COMPROBANTE_2;DESC=Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...;
+
+eventoClaveBPError;evento=P00;subevento=P01;producto=P02;
+recomendacionDeErrorAlta;DESC=Ante dudas, comuníquese con su Banquero o llame a los siguientes números de la mesa de ayuda de Banco Bci;
+
+################################################################################
+# Parametros Vencimientos.
+################################################################################
+
+#Generacion del xml detalle Vencimientos para la impresion#
+DETALLE_VENCIMIENTO_PRINT;TXT_VALORES_DIA=Valores del día: ;TXT_UF=UF: ;TXT_USD=USD: ;
+
+
+###############################################################################
+# Lista de Categorias para Producto, Mercado y Sector Economico
+###############################################################################
+CAT_PRODUCTO;CODIGOS=4,5,6,7,8,9,10,13,14,23,25,26,27,28,29,30,31,32,33,34,35,36,37,39,40,41,42;
+CAT_MERCADO;CODIGOS=25,29,30,31,32,33,34,35,36,37;
+CAT_SEC_ECONOMICO;CODIGOS=25,26,29,30,31,32,33,34,35,36,37;
+
+## PDF
+bancaprivadaPDF;rutaComprobante=/cl/bci/aplicaciones/bancaprivada/emergencias/vistas/pdf/comprobante.xsl;
+bancaprivadaPDFimagen;rutaImagenExito=/resources/bancaprivada/emergencias/images/check1.jpg;rutaImagenError=/resources/bancaprivada/emergencias/images/nocheck1.jpg;rutaSelloExito=/resources/bancaprivada/emergencias/images/medallabci1.jpg;rutaSelloError=/resources/bancaprivada/emergencias/images/nomedallabci1.jpg;rutaImagenMultipass=/resources/bancaprivada/emergencias/images/clavedo.jpg;
+tipoOperacion;bloqueoMovilpass=Bloqueo de clave MóvilPass;sincronizacionMovilpass=Sincronización de MóvilPass;sincronizacionMultipass=Sincronización de MultiPass;bloqueoMultipass=Bloqueo de MultiPass;multipassAcceso=Incluir MultiPass en el acceso;cambioClave=Cambio de Clave;
+#Preferencias el gráfico
+preferenciasFuente;fontSizeLabel=9;
+preferenciasGrafico;ancho=300;alto=230;
+#Preferencias de color para creación de gráfico en PDF
+prioridadColor;q=10;c1=#2C4D76;c2=#622524;c3=#964609;c4=#007634;c5=#31859D;c6=#5D6327;c7=#102540;c8=#403152;c9=#664522;c10=#000000;
+# imagenes
+PATHSFO;IMAGEN=/resources/bancaprivada/emergencias/images;
+
+################################################################################
+#   Datos para las subidas de archivos para FTP de adjuntos
+################################################################################
+#DESCOMENTAR LA SIGUIENTE LINEA PARA PRODUCCION Y COMENTAR LAS SIMILARES
+#FTP;UYP=ccontrol;DIR=/cuadernocontrol/adjunto;SERVER=161.131.232.7;
+#DESCOMENTAR LA SIGUIENTE LINEA PARA CERTIFICACION Y COMENTAR LAS SIMILARES
+FTP;UYP=ccontrol;DIR=/cuadernocontrol/adjunto;SERVER=giotto1;
+#DESCOMENTAR LA SIGUIENTE LINEA PARA INTEGRACION Y COMENTAR LAS SIMILARES
+#FTP;UYP=ccontrol;DIR=/cuadernocontrol/adjunto;SERVER=giotto3;
+#DESCOMENTAR LA SIGUIENTE LINEA PARA DESARROLLO Y COMENTAR LAS SIMILARES
+#FTP;UYP=ccontrol;DIR=/cuadernocontrol/adjunto;SERVER=kiniko;
+
+pinID;PER=110;EMP=130;USU=110;
+
+paginaRedirect;desc=/cl/bci/aplicaciones/seguridad/autenticacion/vista/selectorClientesBancaPrivada.jsf;
+################################################################################
+#   Datos para combobox de consulta cliente.
+################################################################################
+CMB_ESTADO;codigoVigenciaCliente=75;descripcion=Vigente|Inactivo|Solo Inversiones;

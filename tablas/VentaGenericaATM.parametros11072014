@@ -1,0 +1,242 @@
+# Ventas Genericas via ATM
+# ====================================================================================
+
+#En caso de limitar la funcionalidad de la aplicacion a un numero o numeros de tarjetas 
+#de debito se debe descomentar la siguiente linea y agregar los numeros.
+#tarjetas;ids=111111,222222,333333;
+
+#Datos a almacenar en BD SQLServer leads (NOVA)
+datosLeads;canalVenta=488;codCanal=3;
+
+#Las siguientes lineas representan las pantallas que se mostraran para la campaña
+#id 126 (Oferta por ATM). Se deben definir las pantallas para las 4 tx.
+
+#Pantalla inicial de presentacion de la oferta
+C00000126-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C00000126-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C00000126-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C00000126-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C00000126-0178+1016-linea5;contenido=@BANCA@ TIENE PARA TI UNA;columnaInicio=5;
+C00000126-0178+1016-linea6;contenido=TARJETA DE CREDITO CON;columnaInicio=7;
+C00000126-0178+1016-linea7;contenido=UN CUPO APROBADO DE;columnaInicio=8;
+C00000126-0178+1016-linea9;contenido=$ @MONTO@;columnaInicio=12;
+C00000126-0178+1016-linea11;contenido=DESEAS SER CONTACTADO?;columnaInicio=4;
+C00000126-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C00000126-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+C00000126-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C00000126-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C00000126-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C00000126-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+C00000126-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C00000126-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C00000126-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C00000126-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C00000126-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+C00000126-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C00000126-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C00000126-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C00000126-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+
+#Pantalla inicial de presentacion de la oferta
+#C00000125#
+
+C00000125-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C00000125-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C00000125-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C00000125-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C00000125-0178+1016-linea5;contenido=@BANCA@ TIENE PARA TI;columnaInicio=5;
+C00000125-0178+1016-linea6;contenido=UN CREDITO PREAPROBADO POR;columnaInicio=4;
+C00000125-0178+1016-linea9;contenido=$ @MONTO@;columnaInicio=12;
+C00000125-0178+1016-linea11;contenido=DESEAS SER CONTACTADO?;columnaInicio=4;
+C00000125-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C00000125-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+
+C00000125-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C00000125-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C00000125-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C00000125-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+
+C00000125-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C00000125-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C00000125-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C00000125-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C00000125-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+
+C00000125-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C00000125-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C00000125-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C00000125-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+
+
+#Pantalla inicial de presentacion de la oferta
+#C170#
+
+C170-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C170-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C170-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C170-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C170-0178+1016-linea5;contenido=@BANCA@ TIENE PARA TI;columnaInicio=5;
+C170-0178+1016-linea6;contenido=UN CREDITO PREAPROBADO POR;columnaInicio=4;
+C170-0178+1016-linea9;contenido=$ @MONTO@;columnaInicio=12;
+C170-0178+1016-linea11;contenido=DESEAS SER CONTACTADO?;columnaInicio=4;
+C170-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C170-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+
+C170-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C170-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C170-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C170-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+
+C170-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C170-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C170-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C170-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C170-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+
+C170-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C170-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C170-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C170-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+
+
+#==================================================================================
+#CONSUMO BCI AUTOMOTRIZ ATM (Para Mayo-2013)
+#==================================================================================
+#Pantalla inicial de presentacion de la oferta 
+#C539#
+
+C539-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C539-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C539-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C539-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C539-0178+1016-linea4;contenido=USTED CUENTA;columnaInicio=10;
+C539-0178+1016-linea6;contenido=CON UN CREDITO AUTOMOTRIZ;columnaInicio=4;
+C539-0178+1016-linea8;contenido=PREAPROBADO DE $ @MONTO@;columnaInicio=4;
+C539-0178+1016-linea10;contenido=¿LE GUSTARIA OBTENER MAYOR;columnaInicio=3;
+C539-0178+1016-linea11;contenido=INFORMACION DE ESTA OFERTA?;columnaInicio=3;
+C539-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C539-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+
+C539-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C539-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C539-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C539-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+
+C539-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C539-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C539-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C539-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C539-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+
+C539-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C539-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C539-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C539-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+
+
+#==================================================================================
+#CAMPAÑA DE TARJETAS DE CREDITO BCI MAYO 2013
+#==================================================================================
+#Pantalla inicial de presentacion de la oferta
+#C563#
+C563-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C563-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C563-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C563-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C563-0178+1016-linea5;contenido=@BANCA@ TIENE PARA TI UNA;columnaInicio=5;
+C563-0178+1016-linea6;contenido=TARJETA DE CREDITO CON;columnaInicio=7;
+C563-0178+1016-linea7;contenido=UN CUPO APROBADO DE;columnaInicio=8;
+C563-0178+1016-linea9;contenido=$ @MONTO@;columnaInicio=12;
+C563-0178+1016-linea11;contenido=DESEAS SER CONTACTADO?;columnaInicio=4;
+C563-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C563-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+C563-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C563-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C563-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C563-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+C563-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C563-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C563-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C563-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C563-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+C563-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C563-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C563-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C563-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+
+
+#==================================================================================
+# CONSUMO BCINOVA ATM (MAYO2013)
+#==================================================================================
+#Pantalla inicial de presentacion de la oferta 
+#C564#
+
+C564-0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+C564-0178+1016-menu3;opcion=C;campo=01000000;dato=NO;
+C564-0178+1016-menu4;opcion=D;campo=01000000;dato=SI;
+
+C564-0178+1016-linea2;contenido=ESTIMADO @NOMBRECLIENTE@;columnaInicio=2;
+C564-0178+1016-linea5;contenido=@BANCA@ TIENE PARA TI;columnaInicio=5;
+C564-0178+1016-linea6;contenido=UN CREDITO PREAPROBADO POR;columnaInicio=4;
+C564-0178+1016-linea9;contenido=$ @MONTO@;columnaInicio=12;
+C564-0178+1016-linea11;contenido=DESEAS SER CONTACTADO?;columnaInicio=4;
+C564-0178+1016-linea13;contenido=NO;columnaInicio=28;
+C564-0178+1016-linea15;contenido=SI;columnaInicio=28;
+
+#Pantalla final en caso del cliente no se interese por la oferta
+
+C564-0178+1017;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C564-0178+1017-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C564-0178+1017-dato2;contenido=;tipo=D;columnaInicio=24;
+C564-0178+1017-dato3;contenido=TRANSACCION 1017;tipo=J;columnaInicio=4;
+
+#Pantalla de solicitud de telefono de contacto
+
+C564-0178+1018;tipoPantalla=02;totalDatos=4;InsScr=00000;
+C564-0178+1018-dato1;contenido=INGRESA EL NUMERO DE;tipo=D;columnaInicio=1;
+C564-0178+1018-dato2;contenido=TU TELEFONO MOVIL;tipo=D;columnaInicio=1;
+C564-0178+1018-dato3;contenido=Y TE CONTACTAREMOS;tipo=D;columnaInicio=1;
+C564-0178+1018-dato4;contenido=INGRESE CELULAR DE 8 DIGITOS;tipo=D;columnaInicio=1;
+
+#Pantalla final en caso de que el cliente este interesado e ingrese el celular de contacto
+
+C564-0178+1019;tipoPantalla=02;totalDatos=3;InsScr=00000;
+C564-0178+1019-dato1;contenido=GRACIAS POR SU TIEMPO;tipo=D;columnaInicio=3;
+C564-0178+1019-dato2;contenido=;tipo=D;columnaInicio=24;
+C564-0178+1019-dato3;contenido=TRANSACCION 1019;tipo=J;columnaInicio=4;
+

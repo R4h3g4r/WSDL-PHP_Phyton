@@ -1,0 +1,45 @@
+#MAIL
+tipoDireccionEmail;Desc=7;
+fromNombre;Desc=Bci Inversiones;
+mailFrom;Desc=contacto@bci.cl;
+signatureFrom;Desc=Atentamente\nBci - Somos Diferentes\nConsultas al 600 824 24 24;
+
+textoCondicionLiqAnticipada;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de solicitud de liquidacion anticpada de su deposito a Plazo realizada por Internet.;
+subjectCondicionLiqAnticipada;Desc=Comprobante Solicitud de Liquidacion Anticipada Deposito a Plazo;
+
+textoCondicionLiqVencimientoDPF;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de solicitud de cambio de cuenta de abono al vencimiento de su Deposito a Plazo realizada por Internet.;
+subjectCondicionLiqVencimientoDPF;Desc=Comprobante Solicitud de cambio de cuenta de abono al vencimiento;
+
+textoCondicionLiqVencimientoDPI;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de solicitud de liquidacion al vencimiento de su Deposito a Plazo realizada por Internet.;
+subjectCondicionLiqVencimientoDPI;Desc=Comprobante Solicitud de Liquidacion al vencimiento de su Deposito a Plazo;
+
+textoCondicionLiqAhora;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de liquidacion de su Deposito a Plazo realizada por Internet.\nRevise el saldo de su cuenta corriente para verificar el abono de los fondos.;
+subjectCondicionLiqAhora;Desc=Comprobante de Liquidacion Deposito a Plazo;
+
+textoTomarNuevoDap;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de toma de su deposito a Plazo realizada por Internet.;
+subjectTomarNuevoDap;Desc=Comprobante Solicitud de Toma Deposito a plazo;
+
+textoRenovarDap;Desc=Estimado(a) cliente: Junto con saludarle, adjuntamos la informacion del comprobante de solicitud de renovacion de su deposito a Plazo realizada por Internet.;
+subjectRenovarDap;Desc=Comprobante Solicitud de Renovacion al Vencimiento Deposito a plazo;
+
+#Plantillas PDF
+plantillaTomarNuevo;valor=/inversioneswls/common/plantillaspdf/dap/tomar.xsl;
+plantillaLiquidar;valor=/inversioneswls/common/plantillaspdf/dap/liquidar.xsl;
+plantillaLiquidarAlVencimiento;valor=/inversioneswls/common/plantillaspdf/dap/liquidarAlVencimiento.xsl;
+plantillaLiquidarLiqAhora;valor=/inversioneswls/common/plantillaspdf/dap/liquidarLiqAhora.xsl;
+plantillaRenovar;valor=/inversioneswls/common/plantillaspdf/dap/renovar.xsl;
+plantillaResumen;valor=/inversioneswls/common/plantillaspdf/dap/resumen.xsl;
+plantillaConsulta;valor=/inversioneswls/common/plantillaspdf/dap/cartola.xsl;
+#Liquidacion
+diasHabilesBloqueoLiquidacion;valor=5;
+#ruta del jsp de paso para clave dos, clave web y multipass
+pasoClave;ruta=/bcinetwls/inversioneswls/productos/dap/pasoClaveDapDelCliente.jsp;
+
+#Periodos para certificados tributarios deposito a plazo
+#cantidadPeriodos contiene la cantidad de años que se desplegaran en el combobox
+#mesInicioPeriodo y diaInicioPeriodo setean la fecha en la que se actualiza el periodo tributario, 4 y 1 correspondientemente para el 1 de Abril.
+periodosTributarios;periodos=2017,2016,2015,2014,2013,2012,2011,2010;cantidadPeriodos=8;mesInicioPeriodo=4;diaInicioPeriodo=1;
+error;noHayCertificado=No hay certificados disponibles para el tipo solicitado.;codigos=LIORDNEX,LIORRNEX;
+errorCartola;mensaje=No existen cartolas disponibles para el tipo solicitado.;codigos=LIORDNEX,LIORRNEX,LIMOVNEX;
+errorSaldo;mensaje=No existen saldos disponibles para el tipo solicitado.;codigos=LIORDNEX,LIORRNEX;
+periodoIncorrecto;error=Periodo tributario a consultar incorrecto.

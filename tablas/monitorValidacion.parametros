@@ -1,0 +1,122 @@
+#DEFINICION TRADUCTOR
+LdcConsCln;pptp=LDCPPTPN;atributos=S; 
+SgcQreRecMas;pptp=SGCPPTPG;atributos=S; 
+
+#DEFINICION DE VIGENCIA SINACOFI
+definicionVigencia;obtenerVigenciaCI=S;obtenerDatosSinacofi=S;obtenerDireccionSinacofi=S;consultaClientes=S;consultaArticulo85=S;consultaMargen=S;validaVigenciaCIConyuge=S;obtieneRutConyuge=S;obtenerVigenciaPEP=S;obtenerVigenciaOFAC=S;
+
+#VIGENCIA CI SINACOFI
+vigenciaCI;vigencia=SI;mensajeV=CI y Serie Coinciden y Vigentes;mensajeR=Serie No Corresponde a CI;mensajeE=Servicio No Disponible, Ingresar directo SINACOFI;
+
+#DIRECCCION SINACOFI
+dirSinacofi;situacionVivienda=SI;revision=3;mesesAntiguedad=2;hora=120000;formato=yyyyMMdd hhmmss;sinRegistro=;mensajeV=Dirección Verificada y Vigente;mensajeR1=Fecha Verificación No Vigente;mensajeR2=Cliente No Habita;mensajeR3=No Existe Dirección Registrada en Sinacofi;mensajeE=Servicio No Disponible, Ingresar directo SINACOFI;
+
+#DATOS SINACOFI
+datosSinacofi;codigoCasado=C;estadoCivilC=Casado(a);estadoCivilS=Soltero(a);estadoCivilD=Divorciado(a);estadoCivilV=Viudo(a);formato=yyyyMMdd hhmmss;hora=120000;sinRegistro=Sin registro;fechaInvalida=19000101;  
+
+#VERIFICACION CLN
+consultaMargen;hora=120000;largofecha=10;formato=dd/MM/yyyy hhmmss;secuencia=X;clase=025;mensajeV=Margen global inyectado;mensajeR=Margen No inyectado;mensajeE=Servicio No Disponible;codRespuesta=0;
+
+#CONSULTA CLIENTES
+consultaClientes;dirBusca=D;sinRegistro=Sin registro;largofecha=10;formato=dd/MM/yyyy hhmmss;hora=120000;mensajeV=Renta Ingresada en SGC;mensajeR=No se encuentra registros en Sist. De Rentas;mensajeE=Servicio No Disponible;fechaInvalida=01/01/1900;
+
+#CONSULTA ARTICULO 85
+consultaArticulo85;relacionesValidas=CD,DC,SP;relacionesSP=SP;indicadorVigencia=S;secuencia=X;clase=223;segmento=;mensajeV=Declara participación en Sociedades;mensajeR=No presenta declaración de participación en sociedades en SGC;mensajeR1=Declara Sin Participación;mensajeE=Servicio No Disponible;codRespuesta=0;
+
+#CONYUGE
+obtieneRutConyuge;vigencia=S;codigo=CY;secuencia=X;clase=223;segmento=CY;
+vigenciaCIConyuge;mensajeV=Coincide Estado Civil y Fecha Mat.;mensajeR1=No coincide estado civil;mensajeR2=No coincide fecha de matrimonio;mensajeR3=No coincide fecha de matrimonio ni estado civil;mensajeE=Servicio No Disponible, Ingresar directo SINACOFI;
+
+#OFAC
+validaOfac;mensajeV=Cliente no es OFAC;mensajeR=Cliente con alta probabilidad de OFAC;mensajeA=Indefinido;mensajeE1=Servicio No Disponible;mensajeE2=Respuesta sin definicion de semaforo;ROJO=R;VERDE=V;AMARILLO=A;formataFechaEntrada=dd MMM yyyy;nombreMi=S;fechaMi=S;paisMi=S;context=guest;
+
+#PEP
+validaPep;mensajeV=Cliente no es PEP;mensajeA=Indefinido;semaforojo=Titular|Tit,Familiar Consanguinidad|con-pad-mad-hij-abu-her-nie,Relacionado|Soc;mensajeE1=Servicio No Disponible;mensajeE2=Respuesta sin definicion de semaforo;ROJO=R;VERDE=V;AMARILLO=A;separadorLista=,;separadorElemento=|;separadoritem=-;context=guest;
+
+#DEFINICION DE EJECUTIVO
+tipoEjecutivo;ejecutivoCelula=151;
+
+#JOURNAL
+journalMonitor;prod=RIESGO;evento=EVALUA;subevento=CLI;desc=EVALUA CLIENTE (RIESGO);
+
+#SEMAFOROS
+semaforoE;img=02-semaforo-error.gif;clase=semaforoE;desc=error;
+semaforoV;img=02-semaforo1.gif;clase=semaforoV;desc=semaforo verde;
+semaforoA;img=02-semaforo2.gif;clase=semaforoA;desc=semaforo amarillo;
+semaforoR;img=02-semaforo3.gif;clase=semaforoR;desc=semaforo rojo;
+checkImagen;on=chk1.gif;off=chk0.gif;sinImagen=blanco.gif;
+
+#IMPRESION
+impresion;tipoDoc=PDF;plantillaRuta=/cl/bci/aplicaciones/cliente/validacion/xslt/;plantillaDoc=monitorDeValidaciones.xsl;plantillaDocEve=monitorDeValidacionesEve.xsl;nombreArchivo=monitorValidaciones;rutaimagenes=/resources/monitordevalidaciones/images;
+
+#REINTERPRETACION MENSAJES
+reinterpretar;lista=DOCUMENTO NO EMITIDO|Serie no corresponde al RUT;separadorElemento=|;separadorLista=,;
+
+
+#DESARROLLO MAIL PEP y OFAC
+#validaPepMail;mensajeId=AQs93KvkWK3G8MC;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-PeP;subject=Coincidencia PEP en punta;address=from|email| |victor@bcicert.cl,to|email| |jpaineq@bcicert.cl;separadorLista=,;separadorElemento=|;separadorItem=-;
+#validaOfacMail;mensajeId=AQs93KvkWK3G8MCoMiIBkIyh;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-OFAC;subject=Coincidencia OFAC en punta;address=from|email| |victor@bcicert.cl ,to|email| |jpaineq@bcicert.cl;separadorLista=,;separadorElemento=|;separadorItem=-;score=95;
+
+#CERTIFICACION MAIL PEP y OFAC
+validaPepMail;mensajeId=AQs93KvkWK3G8MC;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-PeP;subject=Coincidencia PEP en punta;address=from|email| |victor@bcicert.cl,to|email| |jpaineq@bcicert.cl;separadorLista=,;separadorElemento=|;separadorItem=-;
+validaOfacMail;mensajeId=AQs93KvkWK3G8MCoMiIBkIyh;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-OFAC;subject=Coincidencia OFAC en punta;address=from|email| |victor@bcicert.cl ,to|email| |jpaineq@bcicert.cl;separadorLista=,;separadorElemento=|;separadorItem=-;score=95;
+
+#PRODUCCION MAIL PEP y OFAC
+#validaPepMail;mensajeId=AQs93KvkWK3G8MC;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-PeP;subject=Coincidencia PEP en punta;address=from|email| |contacto@bci.cl,to|email| |amartab@bci.cl-jlobos@bci.cl;separadorLista=,;separadorElemento=|;separadorItem=-;
+#validaOfacMail;mensajeId=AQs93KvkWK3G8MCoMiIBkIyh;mensajeTs=444333222111;loginEnterprise=BCI;refContract=BCI-Reporte-OFAC;subject=Coincidencia OFAC en punta;address=from|email| |contacto@bci.cl,to|email| |sleteli@bci.cl-jlobos@bci.cl;separadorLista=,;separadorElemento=|;separadorItem=-;score=95;
+
+#SERVICIO VIRTUALIZADO
+wsdlServicioAntecedentesGeneralesPersonas;wsdl=http://161.131.140.76:9080/Asset_Servicios_Antecedentes_Generales?WSDL;
+
+#DESARROLLO MAQUINA PERSONAS
+#wsdlServicioAntecedentesGeneralesPersonas;wsdl=http://161.131.184.123:9101/esb/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+
+#CERTIFICACION MAQUINA PERSONAS
+###wsdlServicioAntecedentesGeneralesPersonas;wsdl=http://161.131.140.137:9050/esb/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+
+#PRODUCCION MAQUINA PERSONAS
+#wsdlServicioAntecedentesGeneralesPersonas;wsdl=http://alsb.bci.cl/esb/intranet/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+
+#DESARROLLO MAQUINA INTRANET
+#wsdlServicioClientes;wsdl=http://161.131.184.123:9101/esb/intranet/cliente/servicioClientes/servicioClientes/ServicioClientesPS?wsdl;
+#wsdlControlRiesgoCrediticio;wsdl=http://161.131.184.123:9101/esb/intranet/productos/colocaciones/lineasdecredito/servicioMargenes/ServicioMargenesPS?wsdl;
+#wsdlServicioAntecedentesGenerales;wsdl=http://161.131.184.123:9101/esb/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+#wsdlServicioDireccionesPS;wsdl=http://161.131.184.123:9101/esb/personas/cliente/datosbasicos/direcciones/ServicioDireccionesPS?WSDL;
+#wsdlservicioValidacionOFAC;wsdl=http://b2bdesa.bci.cl/esb/infraestructura/seguridad/validacion/ServicioValidacionOFAC?WSDL;
+#wsdlServicioValidacionPEP;wsdl=http://b2bdesa.bci.cl/esb/infraestructura/seguridad/validacion/ServicioValidacionPEP?WSDL;
+
+#CERTIFICACION MAQUINA INTRANET
+wsdlServicioClientes;wsdl=http://161.131.140.137:9050/esb/intranet/cliente/servicioClientes/servicioClientes/ServicioClientesPS?wsdl;
+wsdlControlRiesgoCrediticio;wsdl=http://161.131.140.137:9050/esb/intranet/productos/colocaciones/lineasdecredito/servicioMargenes/ServicioMargenesPS?wsdl;
+wsdlServicioAntecedentesGenerales;wsdl=http://161.131.140.137:9050/esb/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+wsdlServicioDireccionesPS;wsdl=http://161.131.140.137:9050/esb/personas/cliente/datosbasicos/direcciones/ServicioDireccionesPS?WSDL;
+wsdlservicioValidacionOFAC;wsdl=http://b2bcert.bci.cl:9050/esb/infraestructura/seguridad/validacion/ServicioValidacionOFAC?WSDL;
+wsdlServicioValidacionPEP;wsdl=http://161.131.140.137:9050/esb/infraestructura/seguridad/validacion/ServicioValidacionPEP?WSDL;
+
+#PRODUCCION MAQUINA INTRANET
+#wsdlServicioClientes;wsdl=http://alsb.bci.cl/esb/intranet/cliente/servicioClientes/servicioClientes/ServicioClientesPS?wsdl;
+#wsdlControlRiesgoCrediticio;wsdl=http://alsb.bci.cl/esb/intranet/productos/colocaciones/lineasdecredito/servicioMargenes/ServicioMargenesPS?wsdl;
+#wsdlServicioAntecedentesGenerales;wsdl=http://alsb.bci.cl/esb/intranet/cliente/antecedentes/ServicioAntecedentesGenerales?WSDL;
+#wsdlServicioDireccionesPS;wsdl=http://alsb.bci.cl/esb/intranet/cliente/datosbasicos/direcciones/ServicioDireccionesPS?WSDL;
+#wsdlservicioValidacionOFAC;wsdl=http://b2b.bci.cl/esb/intranet/infraestructura/seguridad/validacion/ServicioValidacionOFAC?WSDL;
+#wsdlServicioValidacionPEP;wsdl=http://b2b.bci.cl/esb/intranet/infraestructura/seguridad/validacion/ServicioValidacionPEP?WSDL;
+
+
+# LINK VISACION NOVA PRODUCCION
+#visacionNova;url=http://plataformaconsulta/inicio.asp
+
+# LINK VISACION NOVA CERTIFICACION
+visacionNova;url=http://plataformaconsultacert/inicio.asp
+
+# LINK VISACION NOVA DESARROLLO
+#visacionNova;url=http://plataformaconsultacert/inicio.asp
+
+#SECURITIZACION OSB
+servicioOSBMonitorOs;sistemaUyP=wsdirecc;
+servicioOSBMonitorObCon;sistemaUyP=wsclieps;
+servicioOSBMonitorConAr;sistemaUyP=wsclieps;
+servicioOSBMonitorConcl;sistemaUyP=wsclieps;
+servicioValidacionPEP;sistemaUyP=wsvpepps;
+srvAntecedentesGenerales;sistemaUyP=wsantgen;
+srvMargenesPS;sistemaUyP=wsmargen;
+srvValidacionOFACPS;uyp=wssofacp;

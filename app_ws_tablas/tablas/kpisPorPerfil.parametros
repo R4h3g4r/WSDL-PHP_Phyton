@@ -1,0 +1,25 @@
+UserProfileInversion;categorias=RITMO_VENTA,NUEVO_VOLUMEN,GESTION,OTROS,EXPERIENCIA;
+ClasesPorCategoria_UserProfileInversion;RITMO_VENTA=001;NUEVO_VOLUMEN=002;GESTION=003;OTROS=004;EXPERIENCIA=005;
+001;clase=cl.bci.aplicaciones.ejecutivos.kpis.impl.KpisRitmoVentaInversiones;
+002;clase=cl.bci.aplicaciones.ejecutivos.kpis.impl.KpisNuevoVolumenInversiones;
+003;clase=cl.bci.aplicaciones.ejecutivos.kpis.impl.KpisGestionInversiones;
+004;clase=cl.bci.aplicaciones.ejecutivos.kpis.impl.KpisOtrosInversiones;
+005;clase=cl.bci.aplicaciones.ejecutivos.kpis.impl.KpisExperienciaInversiones;
+
+UserProfileInversion_GESTION_CMP_GEST;nombre=Gestionado;formato=NUMERO;descripcion=Gestionado;
+UserProfileInversion_GESTION_CLI_CMP;nombre=Clientes Campaña;formato=NUMERO;descripcion=Clientes Campaña;
+UserProfileInversion_GESTION_CMP_ACEP;nombre=Campañas aceptadas;formato=NUMERO;descripcion=Campañas aceptadas;
+UserProfileInversion_GESTION_CLI_NUEVOS_BAM;nombre=Clientes Nuevos BAM;formato=NUMERO;descripcion=Clientes Nuevos BAM;
+UserProfileInversion_GESTION_CLI_NUEVOS_CDB;nombre=Clientes Nuevos CDB;formato=NUMERO;descripcion=Clientes Nuevos CDB;
+UserProfileInversion_OTROS_PLANES;nombre=Planes;descripcion=Planes;formato=NUMERO;
+UserProfileInversion_OTROS_ACCIONES;nombre=Acciones;descripcion=Acciones;formato=MONTO;
+UserProfileInversion_EXPERIENCIA_SNEX;nombre=SNEX;descripcion=SNEX;formato=PORCENTAJE;
+UserProfileInversion_NUEVO_VOLUMEN_FFMM;nombre=FFMM;descripcion=FFMM;formato=MONTO;
+UserProfileInversion_NUEVO_VOLUMEN_VENTA_NETA_DAP;nombre=Venta Neta DAP;descripcion=Venta Neta DAP;formato=MONTO;
+UserProfileInversion_RITMO_VENTA_DAP_CP;nombre=DAP + CP;descripcion=DAP + CP;formato=MONTO;
+UserProfileInversion_RITMO_VENTA_MYLP_RV;nombre=MYLP + RV;descripcion=MYLP + RV;formato=MONTO;
+UserProfileInversion_RITMO_VENTA_APV;nombre=APV;descripcion=APV;formato=MONTO;
+
+JNDI_SERVICIO_INVERSIONES;valor=wcorp.aplicaciones.ejecutivo.inversiones.ServicioInversiones;
+JNDI_SERVICIO_CAMPANAS;valor=wcorp.serv.campanas.ServiciosCampanasPriorizadas;
+JNDI_SERVICIO_PARTICIPES;valor=wcorp.serv.fondosmutuos.participes.ParticipesServices;

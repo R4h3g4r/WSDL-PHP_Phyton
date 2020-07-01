@@ -1,0 +1,28 @@
+#CERTIFICACION
+FTP;Servidor=161.131.232.180;Ruta=.;Servicio=ftpfae;RutaLibros=./XML_Libros/temp/;
+#PRODUCCION
+#FTP;Servidor=ataru;Ruta=.;Servicio=ftpfae;RutaLibros=./XML_Libros/temp/;
+#DESARROLLO
+#FTP;Servidor=161.131.184.81;Ruta=.;Servicio=ftpfae;RutaLibros=./XML_Libros/temp/;
+EMISOR;RUTEmisor=97006000-6;RznSoc=BANCO DE CREDITO E INVERSIONES;GiroEmis=Banco;Acteco=81011;
+TASAIVA;Iva=19;
+PDF;BackGround=extras/facturaelectronica/bcifondo.png;Resu=Res. 43 del 2005 - Verifique documento: www.sii.cl;
+PDF-BOLETAS;BackGround=extras/facturaelectronica/bcifondo.png;Resu=Res. 43 del 2005 - Verifique documento: www.sii.cl;
+LOGO;Titulo=extras/facturaelectronica/logo.png;
+MERITO;pie=extras/facturaelectronica/merito.png;
+CERTIFICADO;NombreCertificado=certificado_digital_firmante_efactura.p12;Clave=bcicacho;
+PAGINACION;NumeroRegistros=20;
+RUTADTE;Path=extras/facturaelectronica/;
+PLANTILLA_PDF;33=tablas/impresion/xslt/facturaelectronica/dte-T33.xslt;34=tablas/impresion/xslt/facturaelectronica/dte-T34.xslt;39=tablas/impresion/xslt/facturaelectronica/dte-T39.xslt;41=tablas/impresion/xslt/facturaelectronica/dte-T41.xslt;61=tablas/impresion/xslt/facturaelectronica/dte-T61.xslt;43=tablas/impresion/xslt/facturaelectronica/dte-T43.xslt;43_exento=tablas/impresion/xslt/facturaelectronica/dte-T43_exento.xslt;
+PLANTILLA_PDF_CODIGO_BARRAS;Horizontal=341;Vertical=123;
+ESCALA_CODIGO_BARRAS;Largo=258.1;Alto=67.5;
+CHARSET;codificacion=UTF-8;
+INFORME_FIN_DIA;HORA=1700;
+LISTADO_TABLAS;Lista=Seleccione,Registro general de clientes,Sucursal,Servicio;
+PAGINACION_MANTENEDOR;Total=10;
+LLAVE_INGRESO_CLIENTE;Evento=INSCRIBE;Sub-evento=CATTRI;Producto=FACTUR;Estado=;
+LLAVE_CONSULTA_CLIENTE;Evento=CNS;Sub-evento=CATTRI;Producto=FACTUR;Estado=;
+LLAVE_MODIFICA_ALTA_CLIENTES;Evento=ALTA;Sub-evento=CATTRI;Producto=FACTUR;Estado=;
+LLAVE_MODIFICA_BAJA_CLIENTES;Evento=BAJA;Sub-evento=CATTRI;Producto=FACTUR;Estado=;
+
+listaNotaCreditoMultiples;valor=33|34;

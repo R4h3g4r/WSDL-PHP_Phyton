@@ -1,0 +1,156 @@
+#PARAMETROS PARA RIESGO MERCADO
+LIBRO;TB=Negociacion;BB=Banking Book;
+TIPO_MON;INVMX=Inversion ME;DEVMX=Derivado ME;INVMN=Inversion MN;DEVMN=Derivado MN;
+CON_MON;BCON=Banco Nacional;CORN=Corporación Nacional;SOBN=Soberano Nacional;PERN=Persona Nacional;BCOI=Banco Internacional;CORI=Corporación Internacional;SOBI=Soberano Internacional;PERI=Persona Internacional;BCOMN=Banco MN;CORMN=Corporación MN;SOBMN=Soberano MN;PERMN=Persona MN;BCOMX=Banco MX;CORMX=Corporación MX;SOBMX=Soberano MX;PERMX=Persona MX;BCONMN=Banco nacional MN;BCOIMN=Banco internacional MN;BCONMX=Banco nacional MX;BCOIMX=Banco internacional MX;CORNMN=Corporacion nacional MN;CORNMX=Corporacion nacional MX;CORIMN=Corporacion internacional MN;CORIMX=Corporacion internacional MX;SOBNMN=Soberano nacional MN;SOBNMX=Soberano nacional MX;SOBIMN=Soberano internacional MN;SOBIMX=Soberano internacional MX;PERNMN=Persona nacional MN;PERNMX=Persona nacional MX;PERIMN=Persona extrenjera MN;PERIMX=Persona extranjera MX;
+TRAMO;T1=T<6M;T2=6M<T<24M;T3=24M<T;UNO=T1;DOS=T2;TRES=T3;
+TIPO_CLIENTE;TC1=Banco internacional;TC2=Banco nacional;TC3=GOBIERNO;
+RM_SIGLA;NEGOCIACION=TB;BANKING_BOOK=BB;
+
+PLANILLA;CO=Colocaciones;PV=Provisiones;CV=Cartera Vencida;
+TIPO_DEUDOR;BI=Bancos Internacionales;BN=Bancos Nacionales;CRP=Corporaciones;EMPN=Empresarial;EMPI=Empresarial Internacional;SMEC=SME Corporate;SMER=SME AS Retail; TCOL=Total Colocaciones;HIPO=Hipotecario;CONS=Consumo;GRAL=TOTAL;
+TIPO_TRAMOS;BI.T1=AAA a AA-;BI.T2=A+ a BBB-;BI.T3=BB+ a B-;BI.T4=<B-;BI.T0=Sin rating;BN.T1=AAA a AA+; BN.T2=AA a A-; BN.T3=BBB+ a B; BN.T4=<B; BN.T0=Sin rating;CRP.T1=AAA a AA-; CRP.T2=A+ a A-; CRP.T3=BBB+ a BB-; CRP.T4=<BB-; CRP.T0=Sin rating; EMPN.T1=AAA a AA-; EMPN.T2=A+ a A-; EMPN.T3=BBB+ a BB-; EMPN.T4=<BB-; EMPN.T0=Sin rating; EMPI.T1=AAA; EMPI.T2=AA+ a A+; EMPI.T3=A a BB; EMPI.T4=<BB; EMPI.T0=Sin rating; SMEC.T0=Sin rating; SMER.T0=Sin rating; M=Mitigada al ;
+
+COLUMNASGENERALES;CO=Contingentes;PL=Llenado Planilla;PV=Provisiones;CV=Cartera Vencida;
+COLUMNAS;Pond=Ponderaciones;Rest=Resto Cartera;Aval=Avales y Finanzas;Bole=Boletas de Garantia;Conf=Cartas de Creditos Confirmadas;Emit=Cartas de Credito Emitidas;Stan=Stand By;Tota=Total;Cupo=cupos No Utilizados;Comp=Compromisos de financiamientos;
+RC_SIGLA;COLOCACIONES=CO;PROVISIONES=PV;CARTERA_VENCIDA=CV;
+TOTALES_RC;TOTAL_PLANILLA=TCOL;TOTAL_CONSUMO=CONS;TOTAL_HIPOTECARIO=HIPO;CORPORACION=CRP;EMPRESARIAL=EMPN;BANCO_INTERNACIONAL=BI;BANCO_NACIONAL=BN;MINORISTA=SMER;MINORISTA_CORPORACION=SMEC;EMPRESARIAL_INTERNACIONAL=EMPI;
+RC_SIGLA_COLUMNA;ponderador=Pond;restoCartera=Rest;avales=Aval;boletas=Bole;cartasCreditoConfirmadas=Conf;cartasCreditoEmitidas=Emit;standBy=Stan;total=Tota;cuposNoUtilizados=Cupo;compromisosDeFinanciamiento=Comp;
+
+#OTROS ACTIVOS
+OTROS_ ACTIVOS;MontoTotalActivoFijoBasileaII=01AFBII;MontoTotalBienesRecEnPagoOAdjudicados=02BRPA;MontoTotalCaja=03C;MontoTotalIntangibles=04I;MontoTotalImpuestos=05I;MontoTotalDivisasPendientes=06DP;MontoTotalOtrosActivos=07OA;
+
+#Trading Book
+TRADING_BOOK;soberano=SOB_SI;
+
+#porcentajes
+RO_PORCENTAJES;Minorista=12;Comercial=15;restoActividades=18;bancaTradicional=0.035;FRC=0.5;
+
+#Riesgos
+RIESGO;AAA=0;AAMAS=1;AA=2;AAMENOS=3;AMAS=4;A=5;AMENOS=6;BBBMAS=7;BBB=8;BBBMENOS=9;BBMAS=10;BB=11;BBMENOS=12;BMAS=13;B=14;BMENOS=15;CCC=16;SC=17;TOTAL=18;
+
+#Reportes
+REPORTES;Credito=RC;Mercado=RM;Operacional=RO;base=BASE;
+
+#RUTA QISFINAL
+##### NOTA: Esta RUTA solo funciona en ambiente LOCAL, la que funciona en Bci es "tablas/qis/QIS_FINAL.xls", se debe tener la PRECAUSIÓN de NO ENVIAR esta configuración al banco.
+QISFINAL;RUTA=qis/QIS_FINAL.xls;
+
+#RUTA QISFINAL
+#QISFINAL;RUTA=tablas/qis/QIS_FINAL.xls;
+
+#inputs qis final
+## Psisiones en el excel de los inputs del  qis final
+capitalNivel1;hoja=Input;col=4;fila=26;
+capitalNivel2;hoja=Input;col=4;fila=27;
+metodoEstandarizado;hoja=Input;col=4;fila=55;
+corporacionesSinSmesEnBalanceBruto;hoja=Input;col=4;fila=89;
+corporacionesSinSmesEnBalanceNeto;hoja=Input;col=5;fila=89;
+prestamosEspecializados1;hoja=Input;col=4;fila=90;
+prestamosEspecializados2;hoja=Input;col=4;fila=92;
+bancosEnBalanceBruto;hoja=Input;col=4;fila=95;
+bancosEnBalanceNeto;hoja=Input;col=5;fila=95;
+hipotecasResidencialesEnBalanceBruto;hoja=Input;col=4;fila=97;
+hipotecasResidencialesEnBalanceNeto;hoja=Input;col=5;fila=97;
+otrosRetailBruto;hoja=Input;col=4;fila=98;
+otrosRetailNeto;hoja=Input;col=5;fila=98;
+tratadosComoCorporacionesEnBalanceBruto;hoja=Input;col=4;fila=101;
+tratadosComoCorporacionesEnBalanceNeto;hoja=Input;col=5;fila=101;
+tratadosComoRetailEnBalanceNeto;hoja=Input;col=5;fila=102;
+tratadosComoRetailEnBalanceBruto;hoja=Input;col=4;fila=102;
+aproximacionEstandarizada;hoja=Input;col=4;fila=110;
+inversionesEnEntidadesRelacionadas;hoja=Input;col=4;fila=114;
+caja;hoja=Input;col=4;fila=115;
+intangibles;hoja=Input;col=4;fila=117;
+goodwill;hoja=Input;col=4;fila=118;
+inmovilizadoNoAdquiridoPorCreditos;hoja=Input;col=4;fila=120;
+inmovilizadoAdquiridoPorCreditosBruto;hoja=Input;col=4;fila=121;
+inmovilizadoAdquiridoPorCreditosNeto;hoja=Input;col=5;fila=121;
+otrosActivosCarteraNegociacionBruto;hoja=Input;col=4;fila=124;
+otrosActivos;hoja=Input;col=4;fila=128;
+corporacionesSinSmesFueraDeBalanceNeto;hoja=Input;col=4;fila=162;
+corporacionesSinSmesFueraDeBalanceBruto;hoja=Input;col=5;fila=162;
+bancosFueraDeBalanceNeto;hoja=Input;col=4;fila=168;
+bancosFueraDeBalanceBruto;hoja=Input;col=5;fila=168;
+tratadosComoCorporacionesFueraDeBalanceNeto;hoja=Input;col=4;fila=174;
+tratadosComoCorporacionesFueraDeBalanceBruto;hoja=Input;col=5;fila=174;
+tratadosComoRetailFueraDeBalanceNeto;hoja=Input;col=4;fila=175;
+tratadosComoRetailFueraDeBalanceBruto;hoja=Input;col=5;fila=175;
+corporacionesSinSmesOtrosFueraDeBalanceBruto;hoja=Input;col=4;fila=180;
+otrosRetailFueraDeBalance;hoja=Input;col=4;fila=189;
+repoPrestamosDeValoresCorporaciones;hoja=Input;col=4;fila=213;
+repoPrestamosDeValoresSoberano;hoja=Input;col=4;fila=218;
+repoPrestamosDeValoresBanco;hoja=Input;col=4;fila=223;
+derivadosOTCBanco;hoja=Input;col=4;fila=270;
+exposicionActual;hoja=Input;col=4;fila=297;
+contabilidadSP;hoja=Input;col=6;fila=322;
+#;
+ponderacionRiesgoEmpresaUno;hoja=Current;col=4;fila=66;
+ponderacionRiesgoEmpresaDos;hoja=Current;col=4;fila=68;
+ponderacionRiesgoSoberanaUno;hoja=Current;col=4;fila=191;
+ponderacionRiesgoSoberanaDos;hoja=Current;col=4;fila=200;
+tratadosComoCorporacionesFueraDeBalanceNetoB;hoja=Current;col=5;fila=709;
+ponderacionRiesgoFinanciamientoUno;hoja=Current;col=4;fila=937;
+ponderacionRiesgoFinanciamientoDos;hoja=Current;col=4;fila=941;
+ponderacionRiesgoCarteraNegocioacionUno;hoja=Current;col=4;fila=1214;
+ponderacionRiesgoCarteraNegocioacionDos;hoja=Current;col=4;fila=1216;
+ponderacionRiesgoCorporativaElaborado;hoja=Standardised;col=4;fila=7;
+ponderacionRiesgoCorporativaElaboradoSinCalificacionUno;hoja=Standardised;col=4;fila=14;
+ponderacionRiesgoCorporativaElaboradoSinCalificacionDos;hoja=Standardised;col=4;fila=15;
+ponderacionRiesgoCorporativaElaboradoSinCalificacionTres;hoja=Standardised;col=4;fila=20;
+ponderacionRiesgoCorporativaElaboradoSinMora;hoja=Standardised;col=4;fila=21;
+corporativoElaboradoSinCalificacion;hoja=Standardised;col=4;fila=22;
+ponderacionRiesgoCorporativaNoElaboradoSinCalificacionUno;hoja=Standardised;col=4;fila=61;
+ponderacionRiesgoCorporativaNoElaboradoSinCalificacionDos;hoja=Standardised;col=4;fila=62;
+ponderacionRiesgoCorporativaNoElaboradoSinCalificacionTres;hoja=Standardised;col=4;fila=67;
+ponderacionRiesgoCorporativaEmpresasSinCalificacionUno;hoja=Standardised;col=4;fila=109;
+ponderacionRiesgoCorporativaEmpresasSinCalificacionDos;hoja=Standardised;col=4;fila=110;
+ponderacionRiesgoCorporativaEmpresasSinCalificacionTres;hoja=Standardised;col=4;fila=115;
+corporativoEmpresasSinCalificacion;hoja=Standardised;col=4;fila=117;
+ponderacionRiesgoSoberanaTres;hoja=Standardised;col=4;fila=331;
+ponderacionRiesgoSoberanaSinCalificacionUno;hoja=Standardised;col=4;fila=344;
+ponderacionRiesgoElaboradoSinCalificacionUno;hoja=Standardised;col=4;fila=472;
+ponderacionRiesgoElaboradoSinCalificacionDos;hoja=Standardised;col=4;fila=473;
+ponderacionRiesgoElaboradoSinCalificacionTres;hoja=Standardised;col=4;fila=478;
+ponderacionRiesgoElaboradoSinMoraUno;hoja=Standardised;col=4;fila=479;
+sinValorarElaborado;hoja=Standardised;col=4;fila=482;
+ponderacionRiesgoNoElaboradoSinCalificacionUno;hoja=Standardised;col=4;fila=519;
+ponderacionRiesgoNoElaboradoSinCalificacionDos;hoja=Standardised;col=4;fila=520;
+ponderacionRiesgoNoElaboradoSinCalificacionTres;hoja=Standardised;col=4;fila=525;
+ponderacionRiesgoExposicionBancoSinCalificacionUno;hoja=Standardised;col=4;fila=567;
+ponderacionRiesgoExposicionBancoSinCalificacionDos;hoja=Standardised;col=4;fila=568;
+ponderacionRiesgoExposicionBancoSinCalificacionTres;hoja=Standardised;col=4;fila=573;
+sinValorarExposicionBancoUno;hoja=Standardised;col=4;fila=576;
+sinValorarExposicionBancoDos;hoja=Standardised;col=4;fila=577;
+ponderacionRiesgoExposicionElaboradaPYMESinCalificacionUno;hoja=Standardised;col=4;fila=1208;
+ponderacionRiesgoExposicionNoElaboradaPYMESinCalificacionUno;hoja=Standardised;col=4;fila=1249;
+ponderacionRiesgoExposicionNoElaboradaPYMESinCalificacionDos;hoja=Standardised;col=4;fila=1250;
+ponderacionRiesgoPYMENoUtilizada;hoja=Standardised;col=4;fila=1424;
+ponderacionRiesgoPYMENoUtilizadaSinCalificacionUno;hoja=Standardised;col=4;fila=1437;
+ponderacionRiesgoPYMENoUtilizadaSinCalificacionDos;hoja=Standardised;col=4;fila=1478;
+ponderacionRiesgoPYMENoUtilizadaSinCalificacionTres;hoja=Standardised;col=4;fila=1479;
+ponderacionRiesgoPYMENoUtilizadaSinCalificacionCuatro;hoja=Standardised;col=4;fila=1484;
+ponderacionRiesgoPrestamosEspecializados1;hoja=Standardised;col=4;fila=1660;
+ponderacionRiesgoPrestamosEspecializados2;hoja=Standardised;col=4;fila=1681;
+exposicionGrupoRiesgoEnPesoCarteraNegocionUno;hoja=Standardised;col=4;fila=2133;
+exposicionGrupoRiesgoEnPesoCarteraNegocionDos;hoja=Standardised;col=4;fila=2134;
+ponderacionRiesgoCarteraNegocionSinCalificacionUno;hoja=Standardised;col=4;fila=2136;
+ponderacionRiesgoCarteraNegocionSinCalificacionDos;hoja=Standardised;col=4;fila=2137;
+ponderacionRiesgoCarteraNegocionSinCalificacionTres;hoja=Standardised;col=4;fila=2142;
+ponderacionRiesgoCarteraNegocionSinMora;hoja=Standardised;col=4;fila=2143;
+sinValorarRiesgoCartera;hoja=Standardised;col=4;fila=2144;
+ponderacionRiesgoExposicionCarteraNegocionUno;hoja=Standardised;col=4;fila=2174;
+ponderacionRiesgoExposicionCarteraNegocionDos;hoja=Standardised;col=4;fila=2175;
+ponderacionRiesgoExposicionCarteraNegocionTres;hoja=Standardised;col=4;fila=2179;
+ponderacionRiesgoExposicionCarteraNegocionCuatro;hoja=Standardised;col=4;fila=2180;
+financiaCorporativaMetodoAlternativoEstandarUno;hoja=Operational risk;col=3;fila=55;
+financiaCorporativaMetodoAlternativoEstandarDos;hoja=Operational risk;col=3;fila=64;
+financiaCorporativaMetodoAlternativoEstandarTres;hoja=Operational risk;col=3;fila=73;
+bancaMinoristaMetodoAlternativoEstandarUno;hoja=Operational risk;col=3;fila=85;
+bancaMinoristaMetodoAlternativoEstandarDos;hoja=Operational risk;col=3;fila=86;
+bancaMinoristaMetodoAlternativoEstandarTres;hoja=Operational risk;col=3;fila=87;
+bancaComercialMetodoAlternativoEstandarUno;hoja=Operational risk;col=3;fila=88;
+bancaComercialMetodoAlternativoEstandarDos;hoja=Operational risk;col=3;fila=89;
+bancaComercialMetodoAlternativoEstandarTres;hoja=Operational risk;col=3;fila=90;
+
+#Fechas Consola
+ANIO;Inicio=2005;Fin=2015;MesDefecto=01;AnioDefecto=2011;

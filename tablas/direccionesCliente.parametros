@@ -1,0 +1,33 @@
+# definicion de producto
+productosDirecciones;lista=DC00;vigente=S;
+DC00;desc=Consumo;porDefecto1=7;porDefecto2=9;estado=VIG;codMoneda=0999;tipoOperacion=CON;codigoAuxiliar=*;codigoRelacion=;porcentaje=0;incluyetipodireccion=;data=11;
+
+# set journal para cambios en direccion consumo
+setjournaliza;codEventoNegocio=MOD;subCodEventoNegocio=SERNAC;idProducto=DIR;medio=EVERPER;observacion=Cambio de dirección consumo SF;
+
+# Valor largo numero telefónico
+largoFono;largoMin=8;largoMax=9;
+
+tipoFono;desc=CELULAR;
+
+mensajeError;desc=Estimado ejecutivo: ha ocurrido un problema al realizar la operación por favor revise los datos.;
+
+# Direcciones sin validar comuna
+listaDirSinValidacion;desc=E,D,2;
+
+email;invalidEmail=no,sn,notiene,notienecorreo,sincorreo,sininformar,sinemail,sinmail,bci,BCI,nd,ND,noposee,NOTIENE,NN,Sin,Null,SIN,NA,N;
+
+rut;invalidRut=0-0,1-9,1578-4,222001-6,222002-4,222003-2,222004-0,222005-9,222006-7;
+
+direccion;invalidDireccion=*SIN DIRECCION,–SIN DIRECCION,-SIN DIRECCION,SIN DIRECCION;
+
+mensajeInvalidRut;desc=Rut ingresado no puede modificar direcciones.;
+
+mensajeInvalidDireccion;desc=Debe ingresar Dirección con caracteres válidos.;
+
+mensajeInvalidEmail;desc=Email tiene caracteres inválidos.;
+
+mensajeDatosInvalidos;desc=Ha ocurrido un problema al realizar la operación por favor revise los datos.;
+
+#Filtro de tipo de direccion
+filtroTipoDireccion;codigosFiltros=M,N;filtroVigente=S;

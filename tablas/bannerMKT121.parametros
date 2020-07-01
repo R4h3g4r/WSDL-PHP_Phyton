@@ -1,0 +1,10 @@
+#
+# Tabla de Parámetros para Banners MKT121
+# =============================================
+#
+#códigos de acción para direccionar a distinta URL al presionar click sobre el Banner.
+#acción 1 indica una recarga de pagina, acción 2 y 3 indica que no hay link y acción 4 indica enlace externo.
+
+POPUP;accion-1=otra;accion-2=no;accion-3=no;accion-4=si;
+
+

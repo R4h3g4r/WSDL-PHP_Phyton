@@ -1,0 +1,5 @@
+BloqueosRedbanc;Host=mqredbanc;Port=1414;Cola=COPERNICO.QM;Canal=MQSERVER.CH;Usuario=BCISTR;Password=BCIISTR;
+#BloqueosRedbanc;Host=mqredbanc;Port=1414;Cola=LUNA.QM;Canal=MQSERVER.CH;Usuario=BCISTR;Password=cbitrsl70;
+#MolNexus;BANCOUSER=TT503B7Z;BANCOPASS=503B7Z;MQUSER=BCIMOL;MQPASS=MOLBCI001;BANCOIP=aragon.bci.cl;Port=1514;ClientChannel=MOL01.CH;QueueManager=MOL01.QM;Host=163.250.2.60;TimeOut=200;DEBUG=1;IDENT=Desarrollo;ORG=503;^M
+MolNexus;BANCOUSER=SM503B70;BANCOPASS=SM503B70;MQUSER=jcerda;MQPASS=;BANCOIP=aragon.bci.cl;Port=1514;ClientChannel=MOL02.CH;QueueManager=MOL02.QM;Host=163.250.250.225;TimeOut=2000;DEBUG=1;IDENT=Desarrollo;ORG=503;^M
+

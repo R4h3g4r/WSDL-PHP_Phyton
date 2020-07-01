@@ -1,0 +1,27 @@
+
+#Informacion correo de exito de pago tarjeta monoproducto
+emailExito;nomOriginario=BancoBCI;asunto=Aviso de Pago de Tarjeta de Credito Bci;firma=BCI - Banco de Credito e Inversiones.;direcOriginario=pagotarjetas@bci.cl;
+cantidadMensajeExito;valor=7;
+mensajeExito_1;desc=Estimado cliente%SALTO_LINEA%%SALTO_LINEA%;
+mensajeExito_2;desc=Hemos realizado el pago de su Tarjeta de Credito %LOGO_TARJETA% - %ULTIMOS_DIGITOS_TARJETA%, con fecha %FECHA%, a las %HORA% horas, de acuerdo a la instruccion recibida a traves de una Transferencia de Fondos.;
+mensajeExito_3;desc=Si el pago se realizo despues de las 14:00 horas, este se registrara con la fecha contable del dia habil siguiente.%SALTO_LINEA%;
+mensajeExito_4;desc=Recuerde que el pago de su Tarjeta de Credito se ha realizado en linea, por lo que podra hacer uso inmediatamente de su disponible.%SALTO_LINEA%;
+mensajeExito_5;desc=Para revisar el detalle de esta y otras transacciones visite www.bci.cl. En caso de cualquier duda, contactase al Servicio de Asistencia Internet llamando al 600 824 2424.%SALTO_LINEA%; 
+mensajeExito_6;desc=Nota: Los tildes han sido omitidos intencionalmente.%SALTO_LINEA%;
+mensajeExito_7;desc=Atte.,;
+
+
+#Informacion correo de fracaso de pago tarjeta de credito monoproducto
+emailFracaso;nomOriginario=BancoBCI;asunto=Aviso de Pago de Tarjeta de Credito Bci;firma=Banco de Credito e Inversiones.;direcOriginario=pagotarjetas@bci.cl;
+cantidadMensajeFracaso;valor=7;
+emailFracaso_1;desc=Estimado cliente%SALTO_LINEA%%SALTO_LINEA%;
+emailFracaso_2;desc=Hemos realizado el pago de su Tarjeta de Credito Bci, con fecha %FECHA%, a las %HORA% horas, de acuerdo a la instruccion recibida a traves de una Transferencia de Fondos.;
+emailFracaso_3;desc=Si el pago se realizo despues de las 14:00 horas, este se registrara con la fecha contable del dia habil siguiente.%SALTO_LINEA%;
+emailFracaso_4;desc=Recuerde que el pago de su Tarjeta de Credito se ha realizado en linea, por lo que podra hacer uso inmediatamente de su disponible.%SALTO_LINEA%;
+emailFracaso_5;desc=Para revisar el detalle de esta y otras transacciones visite www.bci.cl. En caso de cualquier duda, contactase al Servicio de Asistencia Internet llamando al 600 824 2424.%SALTO_LINEA%;
+emailFracaso_6;desc=Nota: Los tildes han sido omitidos intencionalmente.%SALTO_LINEA%; 
+emailFracaso_7;desc=Atte.,;
+
+
+#Codigos de bancos que contienen el identificador de la TDC.
+codigoBancoCometario;codigos=0001;

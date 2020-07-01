@@ -1,0 +1,75 @@
+#
+# Parámetros para Depositos a Plazo
+# =============================================
+user;Valor= ;
+pass;Valor= ;
+xml;Valor=/export/weblogic/oracle10.3/wlsplatform/tablas/socketclienteST247.xml;
+usuario;Valor=BCI;
+ip;Valor=161.131.232.192;
+identemisor;Valor=BCI;
+filler;Valor= ;
+pctFillerInput;Valor= ;
+org;Valor=653;
+
+#
+# Parámetros para Upgrade Tarjeta
+# =============================================
+
+idCampanna;valor=99999998;
+numOrganisacion;Valor=653;
+codEmbozado;Valor=1;
+logo;Valor=
+OffsetTarjeta;Valor=0002;
+pctCicloFacturacion;Valor=10;
+numAfinidad;Valor=00;
+
+# Tabla bloqueos
+# Y=BLOQ.COBRO ADM                
+# B=BLOQ.BANCO CTAS               
+# X=BLQ. MORA FINAL               
+# W=BLOQ. INTERNAC.               
+# V=BLOQ. RENUNCIA                
+# U=BLOQ. CUMPLEANO               
+# T=BLOQ. T. SALDO                
+# S=BLOQ. BANCO                   
+# R=BLQ.MORA BLANDO               
+# Q=BLOQ. EXCESO                  
+# P=BLOQ.C.VENCIDA                
+# O=BLOQ. PERDIDA                 
+# N=BLOQ. CLIENTE                 
+# =SIN BLOQUEO                   
+# F=BLOQ. FRAUDE 
+
+# Indica bloqueo blando (algun valor de la tabla bloqueo)
+BloqueoBlando;Valor=YQRNWX;
+
+pctTipoTransaccion;Valor=D;
+pctCodigoaval;Valor=1;
+pctCodigoICAR;Valor=0;
+pctCantidadCuentasICAR;Valor=0;
+pctPromocion;Valor=0;
+pctCodigolineadelimite;Valor=0;
+pctMedioenviofisicoeecc;Valor=0;
+pctSucursalenvio;Valor=0;
+pctTipoDireccionfisica;Valor=0;
+pctNumerocasilla;Valor=0;
+pctCuentaCastigo;Valor=;
+pctDeudaCastigo;Valor=0;
+pctCodigoComunaRelacion;Valor=0;
+pctCodigoComunaParticular ;Valor=00013;
+pctCodigoComunadeenvioeecc;Valor=00013;
+pctCodigoComunalaboral;Valor=00013;
+pctMonto1;Valor=0;
+pctMonto2;Valor=0;
+pctMonto3;Valor=0;
+pctNumero1;Valor=0;
+pctNumero2;Valor=0;
+pctNumero3;Valor=0;
+pctFlag1;Valor=M;
+pctFlag2;Valor=;
+pctFlag3;Valor=;
+pctString1;Valor=;
+pctString2;Valor=;
+pctString3;Valor=;
+pctFiller2;Valor=;
+isdebug;Valor=0;

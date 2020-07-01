@@ -1,0 +1,14 @@
+# Aqui se listan los feriados excepcionales y bancarios que no han sido
+# incorporados a la clase Feriados.
+#
+# Formato para cada dia:
+# excepcionalesN;fecha=dd/mm/a+;motivo=el motivo;
+# bancariosN;fecha=dd/mm/a+;
+#
+# N=1..[cantidad de feriados de cada tipo]
+
+excepcionales;cantidad=1;
+excepcionales1;fecha=19/04/2017;motivo=Censo Nacional Abreviado;
+
+bancarios;cantidad=0;
+

@@ -1,0 +1,73 @@
+SOCKET;HOST=200.71.222.115;PORT=7100;TIMEOUT=10000;
+MENSAJE_SOLICITUD_RA;IDMENSAJE=31323030;BITMAPPRIMARIO=3030054100E18000;CODIGOPROCESAMIENTO=500000;MONTOTRANSACCION=000000000000;MODOINGRESOPUNTOACCESO=021101020044;CODIGOFUNCION=200;CODIGOTIPOCOMERCIO=4789;IDENTIFICACIONTERMINAL=2020202020202020;CODIGOADQUIRIENTE=313300000000000000000000000000;CODIGOMONEDA=152;BITMAPPRIMARIO_DATO_PRIVADO=CB81900020000000;
+
+# TRANSACCIONES
+TRANSACCION;CARGO=V0670;REVERSA_CARGO=V0678;
+MOVIMIENTO_CARGO_CCT;WEB=1070;ATM=1071;IVR=1072;CAJA=711;
+MOVIMIENTO_CARGO_CPR;WEB=1074;ATM=1075;IVR=1076;CAJA=711;
+HORA_CONTABLE;HORA=14;MINUTO=00;
+
+# WEB SERVICES Autorizador
+
+CLIENTE_WS_AUTORIZADOR;urlWSDL=http://200.71.222.22:8080/sca-switch-ws-aut/services/AutorizadorService?wsdl;
+CLIENTE_WS_ACCESOBANCO;urlWSDL=http://200.71.222.22:8080/sca-ma-ws-banco/services/MedioAccesoBancoServices?wsdl;
+
+CLIENTE_WS_ACCESO_CONVENIO;usuarioAutorizador=bciautm;passAutorizador=bciautm;
+CLIENTE_WS_ACCESO_BLOQUEO;usuarioAutorizador=bciemisor;passAutorizador=bciemisor;
+CLIENTE_WS_ACCESO_VALIDA_TARJETA;usuarioAutorizador=bciaut;passAutorizador=bciaut;
+CLIENTE_WS_ACCESO_VALIDA_CONVENIO;usuarioAutorizador=bciautm;passAutorizador=bciautm;
+
+# Monto Máximo de recarga BIP por Canal. Transantiago
+WEB-CargaTarjetaBIP;montoMaximoPermitido=20000;montoMinimoPermitido=1000;
+ATM-CargaTarjetaBIP;montoMaximoPermitido=25000;
+IVR-CargaTarjetaBIP;montoMaximoPermitido=25000;
+SMS-CargaTarjetaBIP;montoMaximoPermitido=25000;
+AUT-CargaTarjetaBIP;montoMaximoPermitido=5000000;
+
+SEMILLA;SEMILLA=RCC;
+CONVENIOS;CODIGO_CONVENIO_POSTPAGO=2;MESES_VALIDEZ_CONTRATO=24;DIAS_INICIO_VALIDEZ=1;
+PREPAGO;HORA_INICIO=10;MINUTO_INICIO=25;SEGUNDO_INICIO=00;
+ERRORES_ATM;CUENTA_SIN_SALDO=8348;PAN_SIN_BIP=5375;PROBLEMA_BIP=8320;MTO_MAX_SUPERADO=5394;
+ERRORES_IVR;CUENTA_SIN_SALDO=1;PROBLEMA_BIP=2;PROBLEMA_GENERAL=3;MTO_MAX_SUPERADO=4;
+EXITO_IVR;EXITO=0;
+
+# ENVIO DE MAILS AUTOMATICOS
+# a) MAIL CLIENTE
+EMAIL_CLIENTE_TBANC;ALIAS_MAIL=TBanc;FROM_MAIL=contacto@tbanc.cl;PIE_CONSULTA=\n\nPara cualquier duda al respecto de este mail, escribanos en el formulario de contacto en tbanc.cl o llame al fono 600 524 24 24;SLOGAN= TBanc - El Banco a Distancia;
+ASUNTO_CLIENTE_TBANC;ASUNTO_RECARGA=Confirmacion Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Confirmacion Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Confirmacion Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_CLIENTE_TBANC;CONTENIDO_RECARGA1=Estimado(a) Cliente, con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico de tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+EMAIL_CLIENTE_BCI;ALIAS_MAIL=Bci;FROM_MAIL=servicio_envio@bci.cl;PIE_CONSULTA=\n\nPara cualquier duda al respecto de este mail, escribanos a contacto@bci.cl o llame al fono 600 824 24 24;SLOGAN= Bci - Somos Diferentes;
+ASUNTO_CLIENTE_BCI;ASUNTO_RECARGA=Confirmacion Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Confirmacion Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Confirmacion Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_CLIENTE_BCI;CONTENIDO_RECARGA1=Estimado(a) Cliente, con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico de tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+EMAIL_CLIENTE_NOVA;ALIAS_MAIL=Banco Nova;FROM_MAIL=sucursalcentral@banconova.cl;PIE_CONSULTA=\n\nPara cualquier duda al respecto de este mail, escribanos en el formulario de contacto en banconova.cl o llame al fono 800 22 66 82;SLOGAN= Banco Nova de Bci;
+ASUNTO_CLIENTE_NOVA;ASUNTO_RECARGA=Confirmacion Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Confirmacion Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Confirmacion Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_CLIENTE_NOVA;CONTENIDO_RECARGA1=Estimado(a) Cliente, con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica de tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a) Cliente, con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico de tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+# b) MAIL AVISO
+EMAIL_AVISO_TBANC;ALIAS_MAIL=TBanc;FROM_MAIL=contacto@tbanc.cl;PIE_CONSULTA=\n\nRecuerda que debes activar el monto transferido a tu Tarjeta en los equipos de carga bip! ubicado en sucursales del banco o en los lugares señalizados y habilitados para dicho efecto.\nSi no efectuas dicha activacion, el monto transferido no se activara en tu tarjeta.\n\nPara cualquier duda al respecto de este mail, escribanos en el formulario de contacto en tbanc.cl o llame al fono 600 524 24 24;SLOGAN= TBanc - El Banco a Distancia;
+ASUNTO_AVISO_TBANC;ASUNTO_RECARGA=Aviso Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Aviso Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Aviso Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_AVISO_TBANC;CONTENIDO_RECARGA1=Estimado(a), con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga a tu tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a), con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica a tu tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a), con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico a su tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+EMAIL_AVISO_BCI;ALIAS_MAIL=Bci;FROM_MAIL=servicio_envio@bci.cl;PIE_CONSULTA=\n\nRecuerde que debe activar el monto transferido a su Tarjeta en los equipos de carga bip! ubicado en sucursales del banco o en los lugares señalizados y habilitados para dicho efecto.\nSi no efectua dicha activacion, el monto transferido no se activara en su tarjeta.\n\nPara cualquier duda al respecto de este mail, escribanos a contacto@bci.cl o llame al fono 600 824 24 24;SLOGAN= Bci - Somos Diferentes;
+ASUNTO_AVISO_BCI;ASUNTO_RECARGA=Aviso Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Aviso Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Aviso Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_AVISO_BCI;CONTENIDO_RECARGA1=Estimado(a), con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga a su tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a), con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica a su tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a), con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico a su tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+EMAIL_AVISO_NOVA;ALIAS_MAIL=Banco Nova;FROM_MAIL=sucursalcentral@banconova.cl;PIE_CONSULTA=\n\nRecuerda que debes activar el monto transferido a tu Tarjeta en los equipos de carga bip! ubicado en sucursales del banco o en los lugares señalizados y habilitados para dicho efecto.\nSi no efectuas dicha activacion, el monto transferido no se activara en tu tarjeta.\n\nPara cualquier duda al respecto de este mail, escribanos en el formulario de contacto en banconova.cl o llame al fono 800 22 66 82;SLOGAN= Banco Nova de Bci;
+ASUNTO_AVISO_NOVA;ASUNTO_RECARGA=Aviso Recarga de Tarjeta bip!;ASUNTO_PREPAGO=Aviso Recarga Programada de Tarjeta bip!;ASUNTO_POSPAGO=Aviso Programacion Pago Automatico de Tarjeta bip!;
+CONTENIDO_AVISO_NOVA;CONTENIDO_RECARGA1=Estimado(a), con fecha;CONTENIDO_RECARGA2=se ha realizado una recarga a tu tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_PREPAGO1=Estimado(a), con fecha;CONTENIDO_PREPAGO2=se ha programado una recarga automatica a tu tarjeta bip! El detalle de esta operacion es el siguiente:;CONTENIDO_POSPAGO1=Estimado(a), con fecha;CONTENIDO_POSPAGO2=se ha programado un pago automatico a tu tarjeta bip! El detalle de esta operacion es el siguiente:;
+
+#Topes maximos por transferencia y tipo de clave
+
+BCI; topeCCT=10000;  topeCCTPASS=25000; topeCCTTOKEN=50000; topeCPR=10000; topeCPRPASS=25000; topeCPRTOKEN=50000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+
+NOVA; topeCCT=10000;  topeCCTPASS=25000; topeCCTTOKEN=25000; topeCPR=10000; topeCPRPASS=25000; topeCPRTOKEN=25000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+
+TBANC; topeCCT=10000; topeCCTPASS=25000; topeCCTTOKEN=50000; topeCPR=10000; topeCPRPASS=25000; topeCPRTOKEN=50000; topeMPCCCT=-1; topeMPCCPR=-1;
+
+
+#numero de reintentos para una compra #RA
+MAX_REINTENTOS;VALOR=2;
+
+RESTRICCION-RECARGA;rangos=1-300.000|1.345.001-1.441.000;

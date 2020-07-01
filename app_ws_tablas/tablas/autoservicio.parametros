@@ -1,0 +1,32 @@
+#
+# Cuentas Corrientes
+# ========================
+CCT1;  Desc=Cartola;
+CCT2;  Desc=MiniCartola;
+CCT3;  Desc=Saldo;
+
+#
+# Linea de Sobregiro
+# ========================
+CCC1;  Desc=Saldo;
+CCC2;  Desc=Cupón de Pago;
+CCC3;  Desc=Estado de Bloqueo;
+
+#
+# Tarjeta de Credito
+# ========================
+TDC1;  Desc=Saldo;
+TDC2;  Desc=Cupon de Pago;
+TDC3;  Desc=Estado de Bloqueo;
+
+
+#
+#  Habilitacion de bloqueo en Redbank
+#  =======================
+
+BloqueoRedbank;Desc=NO;
+
+# Estado de tarjetas ATM que estan habilitados para autenticarse.
+cantidadEstado;cantidad=2;
+estado0;desc=003;
+estado1;desc=041;

@@ -1,0 +1,63 @@
+# explicacion de los estados
+# --------------------------
+110-TOKEN_SOLICITUD_INGRESADA;Explic=Sr. Cliente, Su solicitud de producto Bci Multipass se encuentra registrada en nuestro sistema. Nuestros ejecutivos se contactarán con usted para continuar con el proceso de obtención del producto.;
+110-TOKEN_CLAVE_REGISTRADA;Explic=Bci Multipasss en estado <b>Clave registrada</b> significa que ya se le ha asignado un Multipass pero este debe ser autorizado para su utilización.;
+110-TOKEN_CLAVE_AUTORIZADA;Explic=Enhorabuena. Su solicitud ya ha sido autorizada, para su utilización es necesario que  <a href="/seguridadwls/ConfigurarToken?paso=inicioActivacionWeb" target="seguridad" class="Ablack"><strong>Active su </strong><span class="Ablack">Bci Multipass</font></span></a>;
+110-TOKEN_ACTIVA;Explic=Sr. Cliente, Su Bci Multipass se encuentra activa por lo que ya es posible realizar transaccíones con este producto.;
+110-TOKEN_DESBLOQUEADA;Explic=Al estar su Bci Multipass en estado <b>Desbloqueada</b> significa que ya es posible utilizar el producto para realizar transacciones por Internet.;
+110-TOKEN_BLOQUEADA;Explic=Sr. Cliente, por motivos de seguridad nuestro sistema ha bloqueado su Bci Multipass. Para mayor información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+110-PASSCODE_CLAVE_EXPIRADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Expirada, si su inquietud es restablecer este producto comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+110-PASSCODE_CLAVE_BLOQUEADA;Explic=Sr. Cliente, pensando en su seguridad, si nuestros sistemas reciben 5 intentos consecutivos<br> fallidos de ingreso al sitio con su Rut, su clave se bloquea. <br> Para desbloquearla llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 824 24 24</font></b>, donde personal especializado<br> le entregará una nueva clave previa autoidentificación del cliente. Esta nueva clave<br> deberá ser obligatoriamente cambiada, como en su primera transacción.;
+110-PASSCODE_CLAVE_ELIMINADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Eliminada.;
+110-PASSCODE_CLAVE_INACTIVA;Explic=Sr. Cliente, usted registra una solicitud de <b>Clave Dos</b> la cual se encuentra en estado <b>Inactiva</b> que será entregada a usted de la forma escogida por usted. Para mas información llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 824 24 24</font></b>;
+110-PASSCODE_ACTIVA;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra en estado activa por lo que ya puede hacer uso del producto.;
+110-PASSCODE_ACTIVA-_PRIMER_USO;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra activa pero es necesario que modifique la contraseña de ésta. Para más información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>;
+
+100-TOKEN_SOLICITUD_INGRESADA;Explic=Sr. Cliente, Su solicitud de producto Tbanc Multipass se encuentra registrada en nuestro sistema. Nuestros ejecutivos se contactarán con usted para continuar con el proceso de obtención del producto.;
+100-TOKEN_CLAVE_REGISTRADA;Explic=Tbanc Multipasss en estado <b>Clave registrada</b> significa que ya se le ha asignado un Multipass pero este debe ser autorizado para su utilización.;
+100-TOKEN_CLAVE_AUTORIZADA;Explic=Enhorabuena. Su solicitud ya ha sido autorizada, para su utilización es necesario que  <a href="/seguridadwls/ConfigurarToken?paso=inicioActivacionWeb" target="seguridad" class="Ablack"><strong>Active su </strong><span class="Ablack">Tbanc Multipass</font></span></a>;
+100-TOKEN_ACTIVA;Explic=Sr. Cliente, Su Tbanc Multipass se encuentra activa por lo que ya es posible realizar transaccíones con este producto.;
+100-TOKEN_DESBLOQUEADA;Explic=Al estar su Tbanc Multipass en estado <b>Desbloqueada</b> significa que ya es posible utilizar el producto para realizar transacciones por Internet.;
+100-TOKEN_BLOQUEADA;Explic=Sr. Cliente, por motivos de seguridad nuestro sistema ha bloqueado su Tbanc Multipass. Para mayor información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">6005242424</font></b>.</p>;
+100-PASSCODE_CLAVE_EXPIRADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Expirada, si su inquietud es restablecer este producto comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">6005242424</font></b></p>;
+100-PASSCODE_CLAVE_BLOQUEADA;Explic=Sr. Cliente, pensando en su seguridad, si nuestros sistemas reciben 5 intentos consecutivos<br> fallidos de ingreso al sitio con su Rut, su clave se bloquea. <br> Para desbloquearla llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 524 24 24</font></b>, donde personal especializado<br> le entregará una nueva clave previa autoidentificación del cliente. Esta nueva clave<br> deberá ser obligatoriamente cambiada, como en su primera transacción.;
+100-PASSCODE_CLAVE_ELIMINADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Eliminada.;
+100-PASSCODE_CLAVE_INACTIVA;Explic=Sr. Cliente, usted registra una solicitud de <b>Clave Dos</b> la cual se encuentra en estado <b>Inactiva</b> que será entregada a usted de la forma escogida por usted. Para mas información llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 524 24 24</font></b>;
+100-PASSCODE_ACTIVA;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra en estado activa por lo que ya puede hacer uso del producto.;
+100-PASSCODE_ACTIVA-_PRIMER_USO;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra activa pero es necesario que modifique la contraseña de ésta. Para más información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600 524 24 24</font></b>;
+
+
+132-TOKEN_SOLICITUD_INGRESADA;Explic=Sr. Cliente, Su solicitud de producto Bci Multipass se encuentra registrada en nuestro sistema. Nuestros ejecutivos se contactarán con usted para continuar con el proceso de obtención del producto.;
+132-TOKEN_CLAVE_REGISTRADA;Explic=Bci Multipasss en estado <b>Clave registrada</b> significa que ya se le ha asignado un Multipass pero este debe ser autorizado para su utilización.;
+132-TOKEN_CLAVE_AUTORIZADA;Explic=Enhorabuena. Su solicitud ya ha sido autorizada, para su utilización es necesario que  <a href="/seguridadwls/ConfigurarToken?paso=inicioActivacionWeb" target="seguridad" class="Ablack"><strong>Active su </strong><span class="Ablack">Bci Multipass</font></span></a>;
+132-TOKEN_ACTIVA;Explic=Sr. Cliente, Su Bci Multipass se encuentra activa por lo que ya es posible realizar transaccíones con este producto.;
+132-TOKEN_DESBLOQUEADA;Explic=Al estar su Bci Multipass en estado <b>Desbloqueada</b> significa que ya es posible utilizar el producto para realizar transacciones por Internet.;
+132-TOKEN_BLOQUEADA;Explic=Sr. Cliente, por motivos de seguridad nuestro sistema ha bloqueado su Bci Multipass. Para mayor información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">02 692 85 55</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+132-PASSCODE_CLAVE_EXPIRADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Expirada, si su inquietud es restablecer este producto comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">02 692 85 55</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+132-PASSCODE_CLAVE_BLOQUEADA;Explic=Sr. Cliente, pensando en su seguridad, si nuestros sistemas reciben 5 intentos consecutivos<br> fallidos de ingreso al sitio con su Rut, su clave se bloquea. <br> Para desbloquearla llame a la Asistencia bci.cl, al<b> <font color="#FF0000">02 692 85 55</font></b>, donde personal especializado<br> le entregará una nueva clave previa autoidentificación del cliente. Esta nueva clave<br> deberá ser obligatoriamente cambiada, como en su primera transacción.;
+132-PASSCODE_CLAVE_ELIMINADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Eliminada.;
+132-PASSCODE_CLAVE_INACTIVA;Explic=Sr. Cliente, usted registra una solicitud de <b>Clave Dos</b> la cual se encuentra en estado <b>Inactiva</b> que será entregada a usted de la forma escogida por usted. Para mas información llame a la Asistencia bci.cl, al<b> <font color="#FF0000">02 692 85 55</font></b>;
+132-PASSCODE_ACTIVA;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra en estado activa por lo que ya puede hacer uso del producto.;
+132-PASSCODE_ACTIVA-_PRIMER_USO;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra activa pero es necesario que modifique la contraseña de ésta. Para más información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">02 692 85 55</font></b>;
+
+150-TOKEN_SOLICITUD_INGRESADA;Explic=El cliente tiene una solicitud de Multipass Ingresada que debe ser evaluada.;
+150-TOKEN_CLAVE_REGISTRADA;Explic=El cliente tiene un producto Multipass registrado que debe autorizarse para su utilización.;
+150-TOKEN_CLAVE_AUTORIZADA;Explic=El cliente tiene un producto Multipass en estado <b>Autorizado</b> por lo que debe activarlo para su utilización.;
+150-TOKEN_ACTIVA;Explic=El cliente tiene un Multipass en estado <b>Activo</b> por lo que puede hacer uso de éste sin ningún problema.;
+
+01-TOKEN_BLOQUEADO;Explic=Bloqueado por petición del cliente;
+02-TOKEN_BLOQUEADO;Explic=Bloqueado por intentos fallido de ingreso de Pin;
+03-TOKEN_BLOQUEADO;Explic=Bloqueado por petición Banco;
+
+800-TOKEN_SOLICITUD_INGRESADA;Explic=Sr. Cliente, Su solicitud de producto Bci Multipass se encuentra registrada en nuestro sistema. Nuestros ejecutivos se contactarán con usted para continuar con el proceso de obtención del producto.;
+800-TOKEN_CLAVE_REGISTRADA;Explic=Bci Multipasss en estado <b>Clave registrada</b> significa que ya se le ha asignado un Multipass pero este debe ser autorizado para su utilización.;
+800-TOKEN_CLAVE_AUTORIZADA;Explic=Enhorabuena. Su solicitud ya ha sido autorizada, para su utilización es necesario que  <a href="/seguridadwls/ConfigurarToken?paso=inicioActivacionWeb" target="seguridad" class="Ablack"><strong>Active su </strong><span class="Ablack">Bci Multipass</font></span></a>;
+800-TOKEN_ACTIVA;Explic=Sr. Cliente, Su Bci Multipass se encuentra activa por lo que ya es posible realizar transaccíones con este producto.;
+800-TOKEN_DESBLOQUEADA;Explic=Al estar su Bci Multipass en estado <b>Desbloqueada</b> significa que ya es posible utilizar el producto para realizar transacciones por Internet.;
+800-TOKEN_BLOQUEADA;Explic=Sr. Cliente, por motivos de seguridad nuestro sistema ha bloqueado su Bci Multipass. Para mayor información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+800-PASSCODE_CLAVE_EXPIRADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Expirada, si su inquietud es restablecer este producto comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>, o bien, envíe un e-mail a <b>consulta@bci.cl</b>.</p>;
+800-PASSCODE_CLAVE_BLOQUEADA;Explic=Sr. Cliente, pensando en su seguridad, si nuestros sistemas reciben 5 intentos consecutivos<br> fallidos de ingreso al sitio con su Rut, su clave se bloquea. <br> Para desbloquearla llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 824 24 24</font></b>, donde personal especializado<br> le entregará una nueva clave previa autoidentificación del cliente. Esta nueva clave<br> deberá ser obligatoriamente cambiada, como en su primera transacción.;
+800-PASSCODE_CLAVE_ELIMINADA;Explic=Sr. Cliente, su producto <b>Clave Dos</b> se encuentra Eliminada.;
+800-PASSCODE_CLAVE_INACTIVA;Explic=Sr. Cliente, usted registra una solicitud de <b>Clave Dos</b> la cual se encuentra en estado <b>Inactiva</b> que será entregada a usted de la forma escogida por usted. Para mas información llame a la Asistencia bci.cl, al<b> <font color="#FF0000">600 824 24 24</font></b>;
+800-PASSCODE_ACTIVA;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra en estado activa por lo que ya puede hacer uso del producto.;
+800-PASSCODE_ACTIVA-_PRIMER_USO;Explic=Sr. cliente, su <b>Clave Dos</b> se encuentra activa pero es necesario que modifique la contraseña de ésta. Para más información comuníquese con nuestra Asistencia bci.cl llamando al <b><font color="#FF0000">600-8242424</font></b>;

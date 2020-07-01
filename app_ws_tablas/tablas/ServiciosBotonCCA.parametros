@@ -1,0 +1,113 @@
+#
+# Configuracion para desarrollo
+# ==============================================================================
+#validar_usuario;param=1;
+#realizar_cargo;param=1;
+#generar_mandato;param=1;
+
+NOM_SERV_DIRECTA;param=MandatoBtnCCA;
+NOM_SERV_REVERSA;param=AnulaMandatoCCA;
+
+#
+# Definición de códigos de respuesta a CCA 
+# ==============================================================================
+RESP_OK;cod=000;
+
+#Errores genericos
+ERR_NO_DISPONIBILIDAD;cod=074;desc=En este momento no es posible procesar su transacción;
+ERR_SOLICITUD_DENEGADA;cod=099;desc=Solicitud denegada;
+ERR_TRANSACCION_NO_AUTORIZADA;cod=156;desc=Transacción no autorizada;
+
+#Errores validación
+ERR_VALID_NO_DISPONIBLE;cod=;desc=Error validación;
+ERR_VALID_TOKEN_INVALIDO;cod=061;desc=Token Inválido;
+ERR_VALID_RUT_INVALIDO;cod=;desc=Rut inválido;
+
+
+#Errores comunes cargo y abono
+ERR_TRX_CLI;cod=056;desc=Monto no válido.
+
+
+#Errores Cargo en la  cuenta del cliente
+ERR_CARGO_CLI;cod=;desc=No es posible realizar cargo en cuenta cliente;
+ERR_CARGO_CLI_CTA_NO_EXISTE;cod=;desc=No existe cuenta cliente;
+
+#Errores Abono en la cuenta de la Empresa
+ERR_ABONO_EMP;cod=;desc=No es posible realizar abono en cuenta empresa;
+ERR_ABONO_EMP_CTA_NO_EXISTE;cod=;desc=No existe cuenta empresa;
+
+#Datos para transaccion deposito
+PARAMETROS_DEPOSITO;idTerminal=1;serial=714;serial2=508;
+
+#Errores Activación mandato
+ERR_ACT_MANDATO;cod=;desc=El mandato no pudo ser activado;
+ERR_MANDATO_YA_AUTORIZADO;cod=;desc=El mandato que se intenta activar ya se encuentra autorizado en nuestro sistema;
+ERR_MANDATO_SIN_AUTORIZACION;cod=;desc=El mandato que se intenta activar se encuentra sin autorizacion en nuestro sistema;
+ERR_ID_MANDATO_YA_EXISTE;cod=;desc=El Identificador ya existe en un Mandato de otro Cliente;
+
+ERR_ACT_MANDATO_CAMPO_REQUERIDO;cod=;desc=;
+ERR_ACT_MANDATO_ERROR_FORMATO_CAMPO;cod=193;desc=Parámetro de Consulta inconsistente;
+
+#Errores Anulación mandato
+ERR_ANU_MANDATO;cod=;desc=El mandato no pudo ser anulado;
+
+
+0007	Cuenta no existe.
+0008	Cuenta cerrada.
+0009	Cuenta congelada judicialmente.
+0010	Cuenta de cliente difunto.
+0011	Cuenta con orden de cierre.
+0015	Cuenta destino no existe.
+0016	Cuenta destino cerrada.
+0017	Cuenta destino congelada judicialmente.
+0018	Cuenta destino de cliente difunto.
+0019	Cuenta destino con orden de cierre.
+0020	Cuenta con saldo insuficiente.
+0021	Cuenta VISA no existe.
+0022	Cuenta bloqueada.
+0025	No existe registro del cliente.
+0028	Monto a transferir nulo.
+0029	Monto abonado no corresponde.
+
+0036	Cuenta corriente no puede ser cargada.
+
+0048	Cuenta destino bloqueada.
+0053	Sin descripción.
+0054	Cuenta de ahorros no existe.
+
+0208	Cta cte no esta vigente
+0209	Cta de ahorro cerrada
+
+
+0058	Cliente no existe.
+
+0063	Usuario no existe.
+0064	Usuario bloqueado.
+0065	Transaccion no existe.
+0066	Transaccion no autorizada.
+
+0073	RUT no existe.
+
+0109	Cuenta cerrada.
+0117	Transacción realizada.
+
+0129	Cuenta de abono no existe.
+
+0140	Registro ya existe
+
+0147	Monto autorizado más bajo que el mínimo permitido
+0151	Banco no existe.
+
+0193	Parámetro de Consulta inconsistente
+0204	Identificador de Cliente inválido
+
+
+
+
+
+
+
+
+
+
+

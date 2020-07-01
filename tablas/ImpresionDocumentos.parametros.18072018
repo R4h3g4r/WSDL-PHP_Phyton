@@ -1,0 +1,184 @@
+ubicacion;ruta=/export/weblogic/oracle10.3/wlsplatform/tablas/;
+cuidadcontrato;ciudad=SANTIAGO;
+operaciones;ImpSeguros=SI;
+imagenes;host=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;logoSDBci=00-sd-logo.gif;logoTopBci=00-top-logo.gif;logoBciCorredoresSeguros=bci_corredores_seguros.bmp;logoBciSeguros=bci_seguros.bmp;logoBciSomosDiferentes=bci_somos_diferentes.bmp;LogoBci2=bci2.gif;logoFirmaCorredor=firma_corredor.bmp;imagenCheckOn=check-on.gif;imagenVineta=imagenVineta.bmp;caeBci=logoBci.jpg;caeTbanc=logoTbanc.bmp;firma_caeBci=Firma_Luis_Poblete.jpg;firma_caeTbanc=Firma_Luis_Poblete.jpg;
+glosaFormaDePago;1VTF=1 Vencimiento;1VTV=1 Vencimiento;AFTF=Amort.fija/Tasa fija;AFTV=Amort.fija/Tasa Variable;AITV=Amort. Informada;CFTF=Cuota fija/Tasa fija;CFTR=Cuota fija/Tasa fija Rep.;CFTV=Cuota fija/Tasa Variable
+tipoCredito;canalesIndirectos=BENCIN;
+tipoMoneda;pesos=0999;ufs=0998;simbolo_peso=$;simbolo_uf =UF;despesos=Pesos;desufs=UF;
+
+#Impresion de documentos
+listaProductosSeguros;desc=CON,PAP,PAF,ALR;
+listaSeguroCesantia;desc=;
+listaSeguroColectivo;desc=SDG,SDP,SEC,SHO,APD,API,SDC;
+listaProductosOtrosDoc;desc=ALR540,ALR650;
+listaProductosMultiCreditos;desc=ALR500,ALR600,ALR700;
+listaProductosMultiplesAbonos;desc=CON670;
+listaAdicionalMandatoDoc;desc=CON494;
+listaAdicionalCobranza;desc=CON500;
+listaProductosHojaResumen;desc=CON,PAP,PAF,ALR;
+listaProductosContratoConsumo;desc=CON,PAP,PAF,ALR;
+tituloDoc;generico=Simulación de Crédito;CON=Simulación Crédito de Consumo;COM=Simulación de Crédito Comercial
+
+#Impresion Cotizacion Credito Consumo Cae
+impresionPdfCae;plazoVigenciaCotizacion=7 días;condicionesCargoPrepagoUF=un mes y medio de intereses;condicionesCargoPrepagoPesos=un mes de intereses;atrazoInteresMoratorio=--;atrazoGastosCobranza=reverso;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaCae=impresionCotizacionCreditoConsumoCae.xsl;plantillaCaev=impresionCreditoConsumoCaev.xsl;contratoConsumoXsl=impresionContratoCreditoConsumo.xsl;avalistaXsl=aval.xsl;pagareXsl=pagare.xsl;
+impresionPdfCaev;plazoAvisoPrepago=3 días# refinanciamiento 10 días;atrazoInteresMoratorio=Tasas Máxima Convencional;descListaAvales=AVAL;
+conversionUf;formatoFecha=ddMMyyyy;tipoCambio=UFP;comando=/;
+impresionPdfSimula;plazoVigenciaCotizacion=7 días;plazoVigenciaDias=7;condicionesCargoPrepagoUF=un mes y medio de intereses;condicionesCargoPrepagoPesos=un mes de intereses;atrazoInteresMoratorio=--;atrazoGastosCobranza=reverso;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaCae=impresionSimulacionCotizacionCredito.xsl;
+mandatoPacPrevio;CENMandato=CVN;plantillaRuta=tablas/impresion/xslt/;plantillaTipo=PDF;plantillaMandatoPacPrevio=mandatoPacPrevio.xsl;
+
+#MultiEnvironment
+environmentEverest;banco=BCI;marca=BCI;cartera=BEE;usuario=EVECON;canal=110;
+
+#Seguros Del Credito
+segurosDelCredito;codConceptoSeguro=SGS;codSeguroVigencia=S;segurosCCCFiltro=SDG,SDC,SDP,SEC,APD,SHO,API,DGA;codSeguroCesantia=SDC;segurosAval=API,DGA;
+
+segurosCCCSDG;nombre=Desgravamen / Invalidez 2/3;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 2013 0331 / CAD 2 2013 1138);
+segurosCCCSDC;nombre=Cesantía Involuntaria;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 4 cuotas con un tope de UF 62,5 por pago durante la vigencia del seguro.;corredora=Bci Corredora de Seguros;compania=Bci Seguros Generales S.A.;descripcion=Cesantía Involuntaria (POL 1 2013 0122, Riesgos A y B);
+segurosCCCSDP;nombre=Doble Capital;cobertura=Se indemniza al beneficiario el saldo insoluto del crédito al cierre del mes anterior al del fallecimiento o de la resolución de Invalidez para el asegurado;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Doble Capital (POL 2 2013 0055 / CAD 3 2013 0060);
+segurosCCCSEC;nombre=Enfermedades Graves;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 6 cuotas con un tope de UF 50 por pago durante la vigencia del seguro.;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Enfermedades Graves (POL 3 2013 0507);
+segurosCCCAPD;nombre=Accidentes Personales;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 2013 0409, Letras A, B y C);
+segurosCCCSHO;nombre=Renta Hospitalización;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 6 cuotas con un tope de UF 50 durante la vigencia del seguro;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Renta por Hospitalización (POL 3 2013 0502);
+segurosCCCDGA;nombre=Desgravamen Invalidez 2/3 - Aval;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 2013 0331 / CAD 2 2013 1138);
+segurosCCCAPI;nombre=Accidentes Personales - Aval;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 2013 0409, Letras A, B y C);
+segurosCCC;codEvento=CUR;concepto=SEG*;
+#valor cobranza caev
+cobranzaCaev;valor=$5.500;
+
+#oficina Tbanc
+oficina;tbanc=247;
+
+#Gastos de cobranza
+gastoCobranza;primero=9%;segundo=6%;tercero=3%;
+
+#codigos CSC
+codigosCsc;tipoCancelacion=RCM;
+
+monedaContratoConsumo;gc0999=$ ;gc0998=UF ;gl0999= de  pesos m/l ;gl0998=Unidades de Fomento ;
+apoderadoContratoConsumo;caeBci=Luis Poblete Muñoz;caeTbanc=Luis Poblete Muñoz;
+
+anualizacionCae;activarCalculo=false;excluidos=;activarCalculoJava=true;
+mensajeCuoton;desc=(*) El valor de los intereses de la última cuota y por añadiduría, el valor final del saldo capital, estarán disponibles una vez se conozca la tasa de interés del período de la operación.
+formatoNumerosImpresos;lsDecimalSeparator=,;lsGroupingSeparator=.;
+periodoBaseTasaInteres;A=Anual;D=Diaria;M=Mensual;
+
+#Certificaciíón
+#fileSystem;server=161.131.232.180;remotePath=/fsdoccli/fsimpdoc;sistemaUyP=fsdoccli;
+
+#Producción
+fileSystem;server=161.131.232.7;remotePath=/fsdoccli/fsimpdoc;sistemaUyP=fsdoccli;
+
+documentosActivos;desc=PAG,ARA,HRC,DCC;
+listaDocumentosActivos;total=4;1=PAG;2=ARA;3=HRC;4=DCC;
+PAG;des=Pagaré;archPrefijo=Pagare;archSeparador=_;
+ARA;des=Anexo Responsabilidad del Avalista;archPrefijo=Carta_Aval;archSeparador=_;
+HRC;des=Hoja Resumen Crédito de Consumo;archPrefijo=Hoja_de_Resumen;archSeparador=_;
+DCC;des=Contrato;archPrefijo=Contrato;archSeparador=_;
+COT;des=Cotización;archPrefijo=Cotizacion;archSeparador=_;
+SIM;des=Simulación;archPrefijo=Simulacion;archSeparador=_;
+SEG;des=Póliza Colectiva;archPrefijo=Solicitud_Seguros;archSeparador=_;archPrefijoAval=Solicitud_Seguros_Aval;
+
+diasImpresion;dias=365;
+estadosSeguro;codEstadoA=Vigente;codEstadoD=Desistido;codEstadoG=Anulado;codEstadoI=Ingresado;codEstadoL=Devuelto Parcial;codEstadoP=Pendiente;codEstadoR=Rechazado;codEstadoS=Siniestrado;codEstadoT=Devuelto;
+
+#Impresion de documentos comerciales
+listaTipoProductosConsumo;desc=CON,PAP,PAF,ALR;
+listaTipoProductosComerciales;desc=COM,BGT;
+listaTipoProductosFogape;desc=COM009,COM014,COM761;
+
+listaProductosSolicitudDeCreditoComercial;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM732,COM761,COM765,BGT382,BGT383,BGT384,BGT385,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14,COM360;
+listaProductosDeclaracionJuradaFogape;desc=COM009,COM014,COM187,COM761,BGT382,BGT383,BGT384,BGT385,COM105,COM106,COMF14;
+listaProductosPagareComercial;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM732,COM761,COM765,BGT382,BGT383,BGT384,BGT385,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14,COM360;
+listaProductosAnexoNumero2Fogain;desc=;
+listaProductosAvalComercial;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM732,COM761,COM765,BGT382,BGT383,BGT384,BGT385;
+listaProductosCheckListFogape;desc=COM009,COM014,COM187,COM761,BGT382,BGT383,BGT384,BGT385;
+listaProductosDecJuradaMedioambiental;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM761,BGT382,BGT383,BGT384,BGT385;
+listaProductosRefCreditosOtorgados;desc=COM009,COM014,COM187,COM761;
+listaProductosDecPerSaludCompleta;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM761;
+listaProductosDecPerSaludSimple;desc=COM009,COM014,COM187,COM474,COM475,COM476,COM477,COM761;
+listaProductosAnexoCartaFirme;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosAnexoN2PrefCapTrabInv;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosAnexoN2PrefRenegociacion;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosAnexoN2ProyectoInversion;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosAnexoN2AnexoRefinanciamiento;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosAnexoN2AnexoCapitalTrabajo;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosCheckListFogain;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosMandatoCobroComFogain;desc=COM474,COM475,COM476,COM477,COM105,COM106,COM107,COM108,COMF10,COMF13,COMF14;
+listaProductosContratoComercial;desc=COM360;
+
+PGC;des=Pagaré Comercial;archPrefijoCom=pagare_comercial;archPrefijoBgt=pagare_boleta_garantia;archSeparador=_;
+SCC;des=Solicitud de Crédito;archPrefijo=Sol_Credito_Comercial;archSeparador=_;tipoDocumento=0001;
+DJF;des=Declaración Jurada Fogape;archPrefijo=Dec_Jurada_Fogape;archSeparador=_;tipoDocumento=0002;
+AXF;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_Fogain;archSeparador=_;tipoDocumento=0003;
+AVL;des=Aval Comercial;archPrefijo=Aval_Comercial;archSeparador=_;tipoDocumento=0004;
+CFP;des=Check List Fogape;archPrefijo=Check_List_Fogape;archSeparador=_;tipoDocumento=0005;
+DJM;des=Dec Jurada Medioambiental;archPrefijo=Dec_Jurada_Medioambiental;archSeparador=_;tipoDocumento=0006;
+RCO;des=Ref Creditos Otorgados;archPrefijo=Ref_Creditos_Otorgados;archSeparador=_;tipoDocumento=0007;
+DPC;des=Declaración Personal Salud Completa;archPrefijo=Dec_Per_Salud_Completa;archSeparador=_;tipoDocumento=0008;
+DPS;des=Declaración Personal Salud Simple;archPrefijo=Dec_Per_Salud_Simple;archSeparador=_;tipoDocumento=0009;CENDps=DPS;
+PSC;des=Propuesta seguros Comerciales;archPrefijo=Propuesta_Seguros_Com;archSeparador=_;tipoDocumento=0010;
+ACF;des=Anexo carta firme;archPrefijo=Anexo_Carta_Firme;archSeparador=_;tipoDocumento=0011;
+AX1;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_DecJurCorfo_Fogain_Pre_Cap_Trabajo_Inversion;archSeparador=_;tipoDocumento=0012;
+AX2;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_DecJurCorfo_Fogain_Pre_Renegociacion;archSeparador=_;tipoDocumento=0013;
+AX3;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_Fogain_Proyecto_Inversion;archSeparador=_;tipoDocumento=0014;
+AX4;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_Fogain_Refinanciamiento;archSeparador=_;tipoDocumento=0015;
+AX5;des=Anexo Número 2 Fogain;archPrefijo=Anexo_Num2_Fogain_Capital_Trabajo;archSeparador=_;tipoDocumento=0016;
+CFI;des=Check List Fogain;archPrefijo=Check_List_Fogain;archSeparador=_;tipoDocumento=0017;
+MCF;des=Mandato Cobro Com Fogain;archPrefijo=Mandato_Cobro_Comision_Garantia_Fogain;archSeparador=_;tipoDocumento=0018;
+PSA;des=Propuesta seguros Comerciales Aval;archPrefijo=Propuesta_Seguros_Com_Aval;archSeparador=_;tipoDocumento=0019;
+
+impresionPdfCreCom;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaScc=solicitud_de_credito_comercial.xsl;plantillaDjf=declaracion_jurada_fogape.xsl;plantillaPgc=pagare_comercial.xsl;plantillaAxf=anexo_num2_fogain.xsl;plantillaAvl=aval_comercial.xsl;plantillaCfp=check_list_fogape_comercial.xsl;plantillaDjm=dec_jurada_medioambiental.xsl;plantillaRco=ref_creditos_otorgados.xsl;plantillaDpc=dec_per_salud_completa.xsl;plantillaDps=dec_per_salud_simple.xsl;plantillaPsc=propuesta_seguros_comerciales.xsl;plantillaPsa=propuesta_seguros_comerciales_aval.xsl;plantillaAcf=anexo_carta_firme.xsl;plantillaCfi=check_list_fogain_comercial.xsl;plantillaMcf=mandato_cobro_comision_garantia_fogain.xsl;
+impresionPdfAnexoNum2;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaAx1=anexo_num2_decJurCorfo_fogain_pre_cap_trabajo_inversion.xsl;plantillaAx2=anexo_num2_decJurCorfo_fogain_pre_renegociacion.xsl;plantillaAx3=anexo_num2_fogain_proyecto_inversion.xsl;plantillaAx4=anexo_num2_fogain_refinanciamiento.xsl;plantillaAx5=anexo_num2_fogain_capital_trabajo.xsl;
+
+#Impresion de documento seguro auto facil
+impresionSeguroAutoFacil;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/seguros/venta/auto/;plantillaTipo=PDF;plantilla=impresionSeguroAutoFacil.xsl;archSeparador=_;archPrefijo=Informacion_Seguro_Auto_Facil;usoVehiculoVP=PARTICULAR;host=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;logoBciSeguros=logoBciSeguros.jpg;logoBciCorredoresSeguros=logoBciCorredoresSeguros.jpg
+
+#Comision Fogain
+fogain;comisionFogain=1.4;
+
+mensaje;desc1=El Rut ingresado es de tipo Empresa, debe ser de tipo persona.;desc2=El Rut debe ser distinto al Rut del cliente;
+
+#Seguros Del Credito Comercial
+segurosCreditoComercial;codConceptoSeguroCom=SGS;codSeguroVigenciaCom=S;segurosCOMFiltro=SDG,CCS,SCV,CAT,CIP,CR1,CR2,CR3,CR4,DGA;
+
+## Descripciones de seguros BCI Comerciales
+segurosSDG;SDG=Desgravamen (POL 2 2013 0331);
+segurosCCS;CCS=Seguro Crédito Salud (POL 3 2013 0502 / POL 3 2013 0507);
+segurosSCV;SCV=Seguro Crédito Vida (POL 2 2013 0055 / CAD 3 2013 0060);
+segurosCAT;CAT=Asistencia Total (POL 1 2013 0176);
+segurosCIP;CIP=Info Protegida (POL 1 2013 0161);
+segurosCR1;CR1=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCR2;CR2=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCR3;CR3=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCR4;CR4=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosDGA;DGA=Desgravamen Invalidez 2/3 - Aval (POL 2 2013 0331 / CAD 2 2013 1138);
+
+segurosCOMSDG;nombre=Desgravamen (POL 2 2013 0331);
+segurosCOMCCS;nombre=Seguro Crédito Salud (POL 3 2013 0502 / POL 3 2013 0507);
+segurosCOMSCV;nombre=Seguro Crédito Vida (POL 2 2013 0055 / CAD 3 2013 0060);
+segurosCOMCAT;nombre=Asistencia Total (POL 1 2013 0176);
+segurosCOMCIP;nombre=Info Protegida (POL 1 2013 0161);
+segurosCOMCR1;nombre=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCOMCR2;nombre=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCOMCR3;nombre=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCOMCR4;nombre=Responsabilidad Civil (POL 1 2013 0179 / CAD 1 2013 0384 / CAD 1 2013 0385);
+segurosCOMDGA;nombre=Desgravamen Invalidez 2/3 - Aval (POL 2 2013 0331 / CAD 2 2013 1138);
+
+//Meses Interes BGT
+meses;mes1=marzo;mes2=junio;mes3=septiembre;mes4=diciembre;
+
+//Tope valor de UF para creditos comerciales
+topeValorUF;valor=2000;
+
+//Impresión resumen cotización
+impresionResumenCotizacion;archPrefijo=Resumen;archSeparador=_;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaIrc=impresionResumenCotizacion.xsl;
+
+#Impresion contrato comercial
+impresionPdfContratoCom;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;contratoComercialXsl=impresionContratoCreditoComercial.xsl;
+
+#Mensaje impresión documentos
+msjErrorConsultaAval;desc=Error al consultar los datos básicos del Aval, se deben corregir e intentar nuevamente.;
+msjErrorConsultaConyugeAval;desc=Error al consultar los datos básicos de cónyuge del Aval, se deben corregir e intentar nuevamente.;
+msjErrorDireccionAval;desc=Error al consultar las direcciones del Aval, se deben corregir e intentar nuevamente.;
+msjErrorCodigoDireccion;desc=La comuna del cliente se encuentra inconsistente, se debe corregir e intentar nuevamente.;
+msjErrorCodigoCiudad;desc=La ciudad del cliente se encuentra inconsistente, se debe corregir e intentar nuevamente.;
+

@@ -1,0 +1,13 @@
+0;Desc=NO HAY ERRORES;
+1;Desc=Error en el cambio de estado del mandato;
+2;Desc=Error al ejecutar sp;
+3;Desc=Pago en proceso;
+4;Desc=Error en el cambio de estado del pago;
+5;Desc=No hay pago que detener;
+6;Desc=Error al grabar el log;
+7;Desc=Error en el cambio de estado del mandato;
+8;Desc=no hay mandatos habilitados;
+
+estadosMandatos;codigoEstadoVigente=015-027;codigoEstadoPendiente=001-024;codigoEstadoAnulado=016-004;codigoEstadoRechazado=025-NUL;codigoEstadoTodos=NUL-NUL;
+mensaje;Reactivar1=El pago ha expirado, por lo que no se puede reactivar.;Reactivar2=El pago no puede ser reactivado en esta etapa del proceso.;Reactivar3=El pago ya ha sido efectuado, por lo que no se puede reactivar.;Reactivar4=El pago no está detenido, por lo que no se puede reactivar.;Reactivar5=Pago reactivado correctamente.;Detener1=El pago ha expirado, por lo que no se puede detener.;Detener2=El pago no puede ser detenido en esta etapa del proceso.;Detener3=El pago ya ha sido efectuado, por lo que no se puede detener.;Detener4=El pago no está detenido, por lo que no se puede reactivar.;Detener5=No es posible detener, pago esta rechazado.;Detener6=Pago detenido correctamente.;
+

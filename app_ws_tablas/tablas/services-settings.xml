@@ -1,0 +1,830 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<services-settings>
+
+     <!-- CONOSURWLS -->
+     <conosurwls>
+          <hipotecario>
+               <service-name>hipotecario</service-name>
+               <default-security>on</default-security>
+               <default-sessionErrorForward>InternetSecurityPageError</default-sessionErrorForward>
+
+            <!-- Configuraciones especificas de Actions -->
+               <InitSimulador>
+                    <security>off</security>
+               </InitSimulador>
+            <IngresaSolicitud>
+                    <security>off</security>
+               </IngresaSolicitud>
+            <CalculaSimulacion>
+                    <security>off</security>
+               </CalculaSimulacion>
+               <ImprimirSimulacion>
+                    <security>off</security>
+               </ImprimirSimulacion>
+          </hipotecario>
+     </conosurwls>
+
+     <!-- BCINETWLS -->
+     <bcinetwls>
+
+            <!-- BCI MOVIL -->
+        <bciMovil>
+            <service-name>bciMovil</service-name>
+            <default-security>off</default-security>
+            <cartola>
+                <security>off</security>
+            </cartola>
+            <solicitud>
+                <security>off</security>
+            </solicitud>
+            <ingresaSolicitud>
+                <security>off</security>
+            </ingresaSolicitud>
+        </bciMovil>
+
+          <hipotecario>
+               <service-name>hipotecario</service-name>
+               <default-security>on</default-security>
+               <default-sessionErrorForward>InternetSecurityPageError</default-sessionErrorForward>
+
+            <!-- Configuraciones especificas de Actions -->
+               <InitSimulador>
+                    <security>off</security>
+               </InitSimulador>
+            <IngresaSolicitud>
+                    <security>off</security>
+               </IngresaSolicitud>
+            <CalculaSimulacion>
+                    <security>off</security>
+               </CalculaSimulacion>
+               <ImprimirSimulacion>
+                    <security>off</security>
+               </ImprimirSimulacion>
+          </hipotecario>
+
+        <dirclientes>
+            <service-name>DireccionesWeb</service-name>
+            <default-security>on</default-security>
+        </dirclientes>
+
+        <emergencias>
+                <service-name>Emergencias</service-name>
+                <default-security>on</default-security>
+
+                <EmergenciasHome>
+                    <security>on</security>
+                </EmergenciasHome>
+
+                 <UpdateTalonarios>
+                                <security>on</security>
+                </UpdateTalonarios>
+
+            <UpdateCheques>
+                                <security>on</security>
+                </UpdateCheques>
+
+            <ConfirmarONP>
+                                <security>on</security>
+                </ConfirmarONP>
+
+            <DarONP>
+                                <security>on</security>
+                </DarONP>
+
+            <ConfirmarBloquearTarjeta>
+                                <security>on</security>
+                </ConfirmarBloquearTarjeta>
+
+            <ConfirmarBloquearClaves>
+                                <security>on</security>
+                </ConfirmarBloquearClaves>
+
+            <BloquearTarjeta>
+                                <security>on</security>
+                </BloquearTarjeta>
+
+            <BloquearClave>
+                                <security>on</security>
+                </BloquearClave>
+        </emergencias>
+
+    <!-- AGENDAMIENTO WEB -->
+    <agenda>
+      <service-name>agenda</service-name>
+      <default-security>on</default-security>
+      <!-- Estas corresponden a las acciones no autenticadas -->
+      <estado>
+    <security>off</security>
+      </estado>
+      <solicitud>
+        <security>off</security>
+      </solicitud>
+      <agendamiento> <!-- NOK -->
+        <security>off</security>
+      </agendamiento>
+      <horario>
+        <security>off</security>    </horario>
+      <ingresa>
+        <security>off</security>
+      </ingresa>
+      <modifica>
+    <security>off</security>
+      </modifica>
+    </agenda>
+    <!-- FIN AGENDAMIENTO WEB -->
+
+    <!-- Verificador Oferta -->
+        <VerificadorOferta>
+            <service-name>VerificadorOferta</service-name>
+            <default-security>off</default-security>
+            <VerificadorDeOferta>
+                <security>off</security>
+            </VerificadorDeOferta>
+        </VerificadorOferta>
+
+       <informaciondemorosidad>
+                 <service-name>GeneralApp</service-name>
+                 <default-security>on</default-security>
+       </informaciondemorosidad>
+       
+       <etiquetas>
+                 <service-name>etiquetas</service-name>
+                 <default-security>on</default-security>
+       </etiquetas>
+       
+    </bcinetwls>
+
+
+
+     <!-- TBANCWLS -->
+     <tbancwls>
+
+            <!-- TBANC MOVIL -->
+        <TbancMovil>
+            <service-name>TbancMovil</service-name>
+            <default-security>off</default-security>
+            <cartola>
+                <security>off</security>
+            </cartola>
+            <solicitud>
+                <security>off</security>
+            </solicitud>
+            <ingresaSolicitud>
+                <security>off</security>
+            </ingresaSolicitud>
+        </TbancMovil>
+
+          <hipotecario>
+               <service-name>hipotecario</service-name>
+               <default-security>on</default-security>
+               <default-sessionErrorForward>InternetSecurityPageError</default-sessionErrorForward>
+
+            <!-- Configuraciones especificas de Actions -->
+               <InitSimulador>
+                    <security>off</security>
+               </InitSimulador>
+            <CalculaSimulacion>
+                    <security>off</security>
+               </CalculaSimulacion>
+               <ImprimirSimulacion>
+                    <security>off</security>
+               </ImprimirSimulacion>
+          </hipotecario>
+
+<emergencias>
+                <service-name>Emergencias</service-name>
+                <default-security>on</default-security>
+
+                <EmergenciasHome>
+                    <security>on</security>
+                </EmergenciasHome>
+
+                 <UpdateTalonarios>
+                                <security>on</security>
+                </UpdateTalonarios>
+
+            <UpdateCheques>
+                                <security>on</security>
+                </UpdateCheques>
+
+            <ConfirmarONP>
+                                <security>on</security>
+                </ConfirmarONP>
+
+            <DarONP>
+                                <security>on</security>
+                </DarONP>
+
+            <ConfirmarBloquearTarjeta>
+                                <security>on</security>
+                </ConfirmarBloquearTarjeta>
+
+            <ConfirmarBloquearClaves>
+                                <security>on</security>
+                </ConfirmarBloquearClaves>
+
+            <BloquearTarjeta>
+                                <security>on</security>
+                </BloquearTarjeta>
+
+            <BloquearClave>
+                                <security>on</security>
+                </BloquearClave>
+        </emergencias>
+
+<!-- Verificador Oferta -->
+        <VerificadorOferta>
+            <service-name>VerificadorOferta</service-name>
+            <default-security>off</default-security>
+            <VerificadorDeOferta>
+                <security>off</security>
+            </VerificadorDeOferta>
+        </VerificadorOferta>
+
+          <informaciondemorosidad>
+              <service-name>GeneralApp</service-name>
+              <default-security>on</default-security>
+          </informaciondemorosidad>
+
+          <etiquetas>
+               <service-name>etiquetas</service-name>
+               <default-security>on</default-security>
+          </etiquetas>
+
+    </tbancwls>
+
+     <!-- PORTALWLS -->
+    <portalwls>
+            <!-- para servicios de journal (administracion de Bci Movil) -->
+        <serviciosSMS>
+            <service-name>serviciosSMS</service-name>
+            <default-security>off</default-security>
+            <!-- home del servicio sms -->
+            <serviciosSMS>
+                <security>off</security>
+            </serviciosSMS>
+            <!-- logica para eventos -->
+            <controlEvn>
+                <security>off</security>
+            </controlEvn>
+            <addEvn>
+                <security>off</security>
+            </addEvn>
+            <updEvn>
+                <security>off</security>
+            </updEvn>
+            <!-- logica para medios -->
+            <controlMed>
+                <security>off</security>
+            </controlMed>
+            <addMed>
+                <security>off</security>
+            </addMed>
+            <updMed>
+                <security>off</security>
+            </updMed>
+            <!-- logica para servicios disponibles (relaciones) -->
+            <controlRelac>
+                <security>off</security>
+            </controlRelac>
+            <addRelac>
+                <security>off</security>
+            </addRelac>
+            <updRelac>
+                <security>off</security>
+            </updRelac>
+            <reporte>
+                <security>off</security>
+            <!-- logica para reportes -->
+            </reporte>
+            <obtenerCliente>
+                <security>off</security>
+            </obtenerCliente>
+            <!-- logica para gestion clientes -->
+            <addServCliente>
+                <security>off</security>
+            </addServCliente>
+            <updMedCli>
+                <security>off</security>
+            </updMedCli>
+            <solicitud>
+                <security>off</security>
+            </solicitud>
+            <ingresaSolicitudPortal>
+                <security>off</security>
+            </ingresaSolicitudPortal>
+        </serviciosSMS>
+
+
+       <gestionCmpIvr>
+    <service-name>gestionCmpIvr</service-name>
+        <default-security>off</default-security>
+    <GetInformeControlGestion><security>off</security>  </GetInformeControlGestion>
+    <GetReporteGestion><security>off</security></GetReporteGestion>
+    <GetIni><security>off</security></GetIni>
+    <GetExportControl><security>off</security></GetExportControl>
+    <GetExportInforme><security>off</security></GetExportInforme>
+    <GetImpGestion><security>off</security></GetImpGestion>
+    <GetImpControl><security>off</security></GetImpControl>
+   </gestionCmpIvr>
+
+        <campanasIvr>
+            <service-name>campanasIvr</service-name>
+            <default-security>off</default-security>
+            <GetListaCampanas>
+                <security>off</security>
+            </GetListaCampanas>
+            <GetApoyoRechazo>
+                <security>off</security>
+            </GetApoyoRechazo>
+            <GetArgumentosVenta>
+                <security>off</security>
+            </GetArgumentosVenta>
+            <GetRespuestaCampana>
+                <security>off</security>
+            </GetRespuestaCampana>
+            <GetAgendaCampanas>
+                <security>off</security>
+            </GetAgendaCampanas>
+            <GetRespuestaReasigna>
+                <security>off</security>
+            </GetRespuestaReasigna>
+        </campanasIvr>
+
+       <cobranza>
+           <service-name>GeneralApp</service-name>
+           <default-security>off</default-security>
+        </cobranza>
+
+          <agenda>
+               <service-name>agenda</service-name>
+               <default-security>off</default-security>
+            <!-- Configuraciones especificas de Actions -->
+               <lstAgendamiento>
+                 <security>off</security>
+               </lstAgendamiento>
+               <agendaLst>
+                 <security>off</security>
+               </agendaLst>
+               <solicitudLst>
+                 <security>off</security>
+               </solicitudLst>
+               <solicitudGet>
+                 <security>off</security>
+               </solicitudGet>
+               <agendaGet>
+                 <security>off</security>
+               </agendaGet>
+               <bloqueInsert>
+                 <security>off</security>
+               </bloqueInsert>
+               <bloqueUpdate>
+                 <security>off</security>
+               </bloqueUpdate>
+               <bloqueDelete>
+                 <security>off</security>
+               </bloqueDelete>
+               <bloqueGet>
+                 <security>off</security>
+               </bloqueGet>
+               <bloqueLst>
+                 <security>off</security>
+               </bloqueLst>
+               <ejecutivoInsert>
+                 <security>off</security>
+               </ejecutivoInsert>
+               <ejecutivoGet>
+                 <security>off</security>
+               </ejecutivoGet>
+               <ejecutivoLst>
+                 <security>off</security>
+               </ejecutivoLst>
+               <ejecutivoUpdate>
+                 <security>off</security>
+               </ejecutivoUpdate>
+               <ejecutivoDelete>
+                 <security>off</security>
+               </ejecutivoDelete>
+               <empresaInsert>
+                 <security>off</security>
+               </empresaInsert>
+               <empresaGet>
+                 <security>off</security>
+               </empresaGet>
+               <empresaLst>
+                 <security>off</security>
+               </empresaLst>
+               <empresaUpdate>
+                 <security>off</security>
+               </empresaUpdate>
+               <empresaDelete>
+                 <security>off</security>
+               </empresaDelete>
+               <zonaInsert>
+                 <security>off</security>
+               </zonaInsert>
+               <zonaGet>
+                 <security>off</security>
+               </zonaGet>
+               <zonaLst>
+                 <security>off</security>
+               </zonaLst>
+               <zonaUpdate>
+                 <security>off</security>
+               </zonaUpdate>
+               <zonaDelete>
+                 <security>off</security>
+               </zonaDelete>
+               <ciudadInsert>
+                 <security>off</security>
+               </ciudadInsert>
+               <ciudadGet>
+                 <security>off</security>
+               </ciudadGet>
+               <ciudadLst>
+                 <security>off</security>
+               </ciudadLst>
+               <ciudadUpdate>
+                 <security>off</security>
+               </ciudadUpdate>
+               <ciudadDelete>
+                 <security>off</security>
+               </ciudadDelete>
+               <comunaInsert>
+                 <security>off</security>
+               </comunaInsert>
+               <comunaGet>
+                 <security>off</security>
+               </comunaGet>
+               <comunaLst>
+                 <security>off</security>
+               </comunaLst>
+               <comunaUpdate>
+                 <security>off</security>
+               </comunaUpdate>
+               <comunaDelete>
+                 <security>off</security>
+               </comunaDelete>
+               <relEjeBloInsert>
+                 <security>off</security>
+               </relEjeBloInsert>
+               <relEjeBloDelete>
+                 <security>off</security>
+               </relEjeBloDelete>
+               <relEjeBloLst>
+                 <security>off</security>
+               </relEjeBloLst>
+               <relEjeZonInsert>
+                 <security>off</security>
+               </relEjeZonInsert>
+               <relEjeZonDelete>
+                 <security>off</security>
+               </relEjeZonDelete>
+               <relEjeZonLst>
+                 <security>off</security>
+               </relEjeZonLst>
+               <relEmpCliInsert>
+                 <security>off</security>
+               </relEmpCliInsert>
+               <relEmpCliDelete>
+                 <security>off</security>
+               </relEmpCliDelete>
+               <relEmpCliLst>
+                 <security>off</security>
+               </relEmpCliLst>
+               <relEmpZonInsert>
+                 <security>off</security>
+               </relEmpZonInsert>
+               <relEmpZonDelete>
+                 <security>off</security>
+               </relEmpZonDelete>
+               <relEmpZonLst>
+                 <security>off</security>
+               </relEmpZonLst>
+               <mnuBloque>
+                 <security>off</security>
+               </mnuBloque>
+               <mnuEjecutivo>
+                 <security>off</security>
+               </mnuEjecutivo>
+               <mnuEmpresa>
+                 <security>off</security>
+               </mnuEmpresa>
+               <mnuComuna>
+                 <security>off</security>
+               </mnuComuna>
+               <mnuCiudad>
+                 <security>off</security>
+               </mnuCiudad>
+               <mnuZona>
+                 <security>off</security>
+               </mnuZona>
+               <mnuAsignacion>
+                 <security>off</security>
+               </mnuAsignacion>
+               <mnuAgendamiento>
+                 <security>off</security>
+               </mnuAgendamiento>
+               <mnuConsulta>
+                 <security>off</security>
+               </mnuConsulta>
+               <asignaInsert>
+                 <security>off</security>
+               </asignaInsert>
+               <asignaUpdate>
+                 <security>off</security>
+               </asignaUpdate>
+               <asignaDelete>
+                 <security>off</security>
+               </asignaDelete>
+               <agendaAdmin>
+                 <security>off</security>
+               </agendaAdmin>
+               <inicio>
+                 <security>off</security>
+               </inicio>
+             </agenda>
+
+          <hipotecarios>
+               <service-name>GeneralApp</service-name>
+               <default-security>on</default-security>
+          </hipotecarios>
+
+          <portalwls_multiworkflowintegrator>
+               <service-name>GeneralApp</service-name>
+               <default-security>off</default-security>
+          </portalwls_multiworkflowintegrator>
+
+
+         <indleads>
+             <service-name>GeneralApp</service-name>
+            <default-security>on</default-security>
+            <view>
+                <name>GST_TABMDO</name>
+                <actions>
+                    <admin>ADMIN</admin>
+                </actions>
+            </view>
+         </indleads>
+
+         <pptos>
+             <service-name>GeneralApp</service-name>
+            <default-security>on</default-security>
+            <view>
+                <name>GST_PTOADM</name>
+                <actions>
+                    <gestionaProcesos>PTO_PROCESAR</gestionaProcesos>
+                    <copyEstructura>PTO_COPIAR</copyEstructura>
+                    <genPlanillas>PTO_ACTUALIZAR</genPlanillas>
+                    <cargaDatos>PTO_CARGAR</cargaDatos>
+                    <adminActores>PTO_ACTORES</adminActores>
+                    <adminTipos>PTO_NODOS</adminTipos>
+                    <adminUnidades>PTO_UNIDADES</adminUnidades>
+                    <adminPpto>PTO_CADENA</adminPpto>
+                    <adminItems>PTO_ITEMS</adminItems>
+                    <viewPlanillas>PTO_REVISAR</viewPlanillas>
+                    <editPlanillas>PTO_EDITAR</editPlanillas>
+                </actions>
+            </view>
+         </pptos>
+
+      <informaciondemorosidad>
+               <service-name>GeneralApp</service-name>
+               <default-security>on</default-security>
+               <view>
+           <name>ACCESO_SIM</name>
+           <actions>
+           <administrarParametros>ABRIR</administrarParametros>
+           <verReportes>CONSULTA</verReportes>
+           </actions>
+           </view>
+          </informaciondemorosidad>
+
+         <comisiones>
+             <service-name>GeneralApp</service-name>
+            <default-security>on</default-security>
+            <view>
+                <name>COM_COMISIONES</name>
+                <actions>
+                    <verMisLiqSgt>REV_COM_INC</verMisLiqSgt>
+                    <verMisLiqEje>CON_LIQ_EJE</verMisLiqEje>
+                    <verTodasLiq>CON_TOD_LIQ</verTodasLiq>
+                    <verMisRepSgt>REV_COM_INC</verMisRepSgt>
+                    <verMisRepEje>CON_REP_EJE</verMisRepEje>
+                    <verTodosRep>CON_REP_TOD</verTodosRep>
+                    <verTendencias>REV_COM_INC</verTendencias>
+                    <ajustarLiq>MOD_LIQ_EJE</ajustarLiq>
+                    <hacerRep>ING_REP_EJE</hacerRep>
+                    <responderRep>MOD_LIQ_REP</responderRep>
+                    <crearLiq>CRE_LIQ_EJE</crearLiq>
+                    <verParams>REV_COM_INC</verParams>
+                    <ajustarParams>ADM_AJU_PAR</ajustarParams>
+                    <verErrores>REV_COM_INC</verErrores>
+                    <verEventos>REV_COM_INC</verEventos>
+                </actions>
+            </view>
+         </comisiones>
+
+         <dirclientes>
+             <service-name>GeneralApp</service-name>
+            <default-security>on</default-security>
+            <view>
+                <name>DIR_DIRECCION</name>
+                <actions>
+                    <consultaOper>CON_DIR_PRO</consultaOper>
+                    <creaDirPpal>CRE_DIR_PRN</creaDirPpal>
+                    <editDirPpal>MOD_DIR_PRN</editDirPpal>
+                    <creaDir>CRE_OTR_DIR</creaDir>
+                    <eliminaDir>ELI_DIR_PRN</eliminaDir>
+                    <editDir>MOD_OTR_DIR</editDir>
+                    <asocia>ASO_DIR_PRO</asocia>
+                </actions>
+            </view>
+         </dirclientes>
+
+         <token>
+            <service-name>token</service-name>
+            <default-security>off</default-security>
+            <!-- Reposicion Programada -->
+            <listaReposicion>
+                <security>off</security>
+            </listaReposicion>
+            <solicitaReposicion>
+                <security>off</security>
+            </solicitaReposicion>
+          </token>
+
+                 <facturaelectronicafactoring>
+        <service-name>facturaelectronicafactoring</service-name>
+        <default-security>off</default-security>
+        <!-- home del servicio facturaelectronicafactoring -->
+            <facturaelectronicafactoring>
+                <security>off</security>
+            </facturaelectronicafactoring>
+
+            <listado_dtes>
+                <security>off</security>
+            </listado_dtes>
+
+            <ingresardte>
+                <security>off</security>
+            </ingresardte>
+
+            <cambiar_estado_aec>
+                <security>off</security>
+            </cambiar_estado_aec>
+
+            <ingresar_aec>
+                <security>off</security>
+            </ingresar_aec>
+
+            <ingresarXML>
+                <security>off</security>
+            </ingresarXML>
+
+            <eliminadte>
+                <security>off</security>
+            </eliminadte>
+
+            <filtrarbackoffice>
+                <security>off</security>
+            </filtrarbackoffice>
+
+            <actualizarestado_aec>
+                <security>off</security>
+            </actualizarestado_aec>
+
+            <verdetalledte>
+                <security>off</security>
+            </verdetalledte>
+
+            <ingresaXMLaecback>
+                <security>off</security>
+            </ingresaXMLaecback>
+
+            <imprimepdf>
+                <security>off</security>
+            </imprimepdf>
+
+            <cargamasiva>
+                <security>off</security>
+            </cargamasiva>
+
+            <volver>
+                <security>off</security>
+            </volver>
+
+            <imprimirpdfaec>
+                <security>off</security>
+            </imprimirpdfaec>
+
+            <verificarConSII>
+                <security>off</security>
+            </verificarConSII>
+      </facturaelectronicafactoring>
+      <campanas>
+        <service-name>campanas</service-name>
+        <default-security>off</default-security>
+        <listadoPriorizados><security>off</security></listadoPriorizados>
+        <filtrarProdPriorizados><security>off</security></filtrarProdPriorizados>
+        <clienteCampana><security>off</security></clienteCampana>
+        <listadoClientesAgendados><security>off</security></listadoClientesAgendados>
+        <listadoArgumentosVenta><security>off</security></listadoArgumentosVenta>
+        <buscarDatosCliente><security>off</security></buscarDatosCliente>
+        <buscarDatosFonosCliente><security>off</security></buscarDatosFonosCliente>
+        <guardarOfertas><security>off</security></guardarOfertas>
+     </campanas>
+
+        <visacion>
+            <service-name>GeneralApp</service-name>
+            <default-security>on</default-security>
+            <view>
+                <name>VISACION</name>
+                <actions>
+                    <normal>VIS_NORMAL</normal>
+                    <sinacofi>VIS_DICOM</sinacofi>
+                    <proservice>VIS_PROSERVICE</proservice>
+                </actions>
+            </view>
+        </visacion>
+
+        <portalwls_visacionmovil>
+             <service-name>GeneralApp</service-name>
+             <default-security>off</default-security>
+        </portalwls_visacionmovil>
+
+        <wapwls_visacionmovil>
+             <service-name>GeneralApp</service-name>
+             <default-security>off</default-security>
+        </wapwls_visacionmovil>
+
+    </portalwls>
+
+    <webcorp>
+         <service-name>GeneralApp</service-name>
+         <default-security>on</default-security>
+    </webcorp>
+
+    <!-- URL de aplicaciones antiguas que se les ajusto su RequestProcessor -->
+     <visacion>
+          <service-name>GeneralApp</service-name>
+          <default-security>on</default-security>
+     </visacion>
+
+     <portalwls_convenioscuentasprimas>
+             <service-name>GeneralApp</service-name>
+             <default-security>off</default-security>
+      </portalwls_convenioscuentasprimas>
+
+  <!-- BELWLS -->
+  <belwls>
+    <facturaelectronicafactoring>
+        <service-name>facturaelectronicafactoring</service-name>
+        <default-security>off</default-security>
+        <!-- home del servicio facturaelectronicafactoring -->
+        <facturaelectronicafactoring>
+            <security>off</security>
+        </facturaelectronicafactoring>
+        <listado_dtesfront>
+            <security>off</security>
+        </listado_dtesfront>
+        <ingresardtefront>
+            <security>off</security>
+        </ingresardtefront>
+        <ingresarXMLfront>
+            <security>off</security>
+        </ingresarXMLfront>
+        <ingresaraecfron>
+            <security>off</security>
+        </ingresaraecfron>
+        <ingresarXMLaecfront>
+            <security>off</security>
+        </ingresarXMLaecfront>
+        <verdetalledtefront>
+            <security>off</security>
+        </verdetalledtefront>
+        <volver>
+            <security>off</security>
+        </volver>
+    </facturaelectronicafactoring>
+  </belwls>
+
+
+     <!-- WOKSTATION -->
+  <workstationwls>
+    <visacion>
+         <service-name>GeneralApp</service-name>
+         <default-security>on</default-security>
+         <view>
+               <name>VISACION</name>
+               <actions>
+                       <normal>VIS_NORMAL</normal>
+                       <sinacofi>VIS_DICOM</sinacofi>
+                       <proservice>VIS_PROSERVICE</proservice>
+               </actions>
+         </view>
+    </visacion>
+  </workstationwls>
+
+</services-settings>

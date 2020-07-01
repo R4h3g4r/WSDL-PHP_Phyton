@@ -1,0 +1,20 @@
+#
+# Datos para el Mail
+#
+mail;from=webmaster@bci.cl;to=consulta@bci.cl;subject=Activación Clave bci.cl;
+#
+# Validar Cambio Clave
+#
+100;valida=Si;min=6;max=8;
+110;valida=Si;min=6;max=8;
+117;valida=Si;min=6;max=8;
+
+canalesCambioClave;valor=100,110,132,800;
+
+# *********************************************************
+# Valores de validaciones para el cambio de claves
+# *********************************************************
+formatoClavePermitido;valor=^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[A-Za-z\d]{8};
+numConsecutivosNoPermitidos;valor=012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210;
+
+largoClave;min=8;max=8;

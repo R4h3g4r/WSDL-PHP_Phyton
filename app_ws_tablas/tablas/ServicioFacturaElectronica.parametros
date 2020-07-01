@@ -1,0 +1,113 @@
+#
+# Nombres servicios con los que es expuesto el EJB
+# ================================================
+CONS_SERVICIOS_FACTURA-BOLETA_ELECT;param=ConServFBElect;
+CONS_COMISION_FACTURA-BOLETA_ELECT;param=ConComFBElect;
+TRX_EMISION_FACTURA-BOLETA_ELECT;param=EmFactBolElect;
+
+#
+# Datos Trx Tandem
+# ================
+NombreServTuxCargoCta;param=stvarios3p;
+NombreServTuxCargoEfe;param=stvarios2pB;
+TrxCargoCta;Directa=G0670;Reversa=G0678;
+TrxCargoEfec;Directa=G0732;Reversa=G0733;
+
+#
+# Mnemonicos por defecto para cargos
+# ----------------------------------
+NemTrxCargoCta;nemonico=73;
+NemTrxCargoEfec;nemonico=3999;
+
+#
+# Mnemonicos especificos por servicio para cargo en cuenta (opcionales)
+# ---------------------------------------------------------------------
+NemTrxCargoCta_16-00;nemonico=0065;
+NemTrxCargoCta_50-00;nemonico=0622;
+NemTrxCargoCta_000-01;nemonico=0622;
+NemTrxCargoCta_000-04;nemonico=0622;
+NemTrxCargoCta_000-05;nemonico=0065;
+NemTrxCargoCta_000-06;nemonico=0065;
+NemTrxCargoCta_000-07;nemonico=0065;
+
+#
+# Mnemonicos especificos por servicio para cargo en efectivo (opcionales)
+# -----------------------------------------------------------------------
+
+
+#
+# Configuraciones Siebel Teller (mapeo de códigos formato ISO 4217)
+# =================================================================
+SBLcodigosMonedas;CLP=00;USD=10;EUR=20;
+
+#
+# Configuraciones Sistema de Precios (MC2)
+# ========================================
+MC2ConfigVarEnv;param=1;
+MC2bancoEnv;param=BCI;
+MC2marcaEnv;param=BCI;
+MC2carteraEnv;param=BEE;
+MC2usuarioEnv;param=SIEBEL;
+MC2canalEnv;param=170;
+MC2indreqEnv;param=;
+MC2codigosMonedas;CLP=0999;UF=0998;
+MC2codEvento;param=EMI;
+MC2codConcepto;param=CCM;
+MC2codTipoCanal;param=010;
+MC2numPlazoOperacion;param=30;
+MC2indPlazoOperacion;param=D;
+MC2valMontoOperacion;param=100000;
+
+#
+# Parametros para conversiones de datos para Sistema de Precios (MC^2)
+# ====================================================================
+MC2CodigoServicio_16-00;tipoProd=BGT;subtipoProd=000;
+MC2CodigoServicio_50-00;tipoProd=VVI;subtipoProd=000;
+MC2CodigoServicio_000-01;tipoProd=VVI;subtipoProd=000;
+MC2CodigoServicio_000-04;tipoProd=VVI;subtipoProd=000;
+MC2CodigoServicio_000-05;tipoProd=BGT;subtipoProd=000;
+MC2CodigoServicio_000-06;tipoProd=BGT;subtipoProd=000;
+MC2CodigoServicio_000-07;tipoProd=BGT;subtipoProd=000;
+
+MC2ValoresAuxiliaresConsulta_001;rutFicticio=01100001;dvFicticio=0;indicadorFicticio=1;glosaClienteFicticio=;
+MC2ValoresAuxiliaresConsulta_002;rutFicticio=01100000;dvFicticio=2;indicadorFicticio=1;glosaClienteFicticio=;
+MC2ValoresAuxiliaresConsulta_003;rutFicticio=01100001;dvFicticio=0;indicadorFicticio=1;glosaClienteFicticio=;
+MC2ValoresAuxiliaresConsulta_004;rutFicticio=01100001;dvFicticio=0;indicadorFicticio=1;glosaClienteFicticio=;
+MC2ValoresAuxiliaresConsulta_005;rutFicticio=01100001;dvFicticio=0;indicadorFicticio=1;glosaClienteFicticio=;
+MC2ValoresAuxiliaresConsulta_006;rutFicticio=01100001;dvFicticio=0;indicadorFicticio=1;glosaClienteFicticio=;
+
+#
+# Parametros para conversion de codigos de servicio utilizados sólo en Siebel
+# ===========================================================================
+SBLCodigoServicio_000-01;idServicioFBElect=50;
+SBLCodigoServicio_000-04;idServicioFBElect=50;
+SBLCodigoServicio_000-05;idServicioFBElect=16;
+SBLCodigoServicio_000-06;idServicioFBElect=16;
+SBLCodigoServicio_000-07;idServicioFBElect=16;
+
+#
+# Tipos de documentos
+# ===========================================================================
+TDBoletaElectAfecta;desc=39;
+TDFacturaElectAfecta;desc=33;
+
+#
+# Parametros Manejo de Montos
+# ===========================================================================
+ParamCalcNeto;desc=1.19;
+ParamRedondeo;desc=0.5;
+
+#
+# Códigos Tipos de cliente
+# ===========================================================================
+Cliente;desc=001;
+NoCliente;desc=002;
+ClientePrime;desc=003;
+ClientePreferencial;desc=004;
+ClienteEmpresa;desc=005;
+Colaborador;desc=006;
+
+#
+# Error Tipos de cliente
+# ===========================================================================
+ErrorTipoNoCliente;desc=Tipo de comisión no corresponde al RUT;

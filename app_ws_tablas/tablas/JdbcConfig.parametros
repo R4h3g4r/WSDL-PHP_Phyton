@@ -1,0 +1,2 @@
+noticias;url=jdbc:sybase:Tds:161.131.197.145:5000;driver=com.sybase.jdbc.SybDriver;initialCapacity=4;maxCapacity=7;
+#pagos;url=jdbc:sybase:Tds:161.131.225.162:5000;driver=com.sybase.jdbc.SybDriver;initialCapacity=3;maxCapacity=7;testTable=mov;refreshTable=1;

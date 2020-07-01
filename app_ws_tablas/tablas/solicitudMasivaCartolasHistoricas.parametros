@@ -1,0 +1,13 @@
+#Filesystem Integracion
+#FILESYSTEM;servidor=161.131.141.239;servicio=cartfs;directorioarchivos=out;
+
+#Filesystem Certificacion
+FILESYSTEM;servidor=161.131.232.180;servicio=cartfs;directorioarchivos=out;
+
+#Filesystem Produccion
+#FILESYSTEM;servidor=161.131.232.35;servicio=cartfs;directorioarchivos=out;
+
+#Filesystem Desarrollo
+#FILESYSTEM;servidor=161.131.184.81;servicio=cartfs;directorioarchivos=out;
+
+JOURNAL;consulta=CNS;descarga=DESCARGA;despliegue=DESPLIEGA;subEvento=CARHIS;prod=CCT;

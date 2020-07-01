@@ -1,0 +1,172 @@
+#PAGO INTERBANCARIO - TABLA DE PARAMETROS
+cantidadProductos;valor=2;
+producto0;valor=TDC|Tarjeta de Crédito;
+producto1;valor=CHIP|Crédito Hipotecario;
+
+#monto maximo
+montoMaximo;valor=5000000;
+
+#ALSB BCIAcreedor
+#BCIAcreedor;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+BCIAcreedor;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#BCIAcreedor;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#ALSB BCIPagador
+#BCIPagador;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+BCIPagador;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#BCIPagador;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#ALSB CCAAcreedor
+#CCAAcreedor;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+CCAAcreedor;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+#CCAAcreedor;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+
+#ALSB CCAAutenticacion
+#CCAAutenticacion;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+CCAAutenticacion;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+#CCAAutenticacion;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+
+#ALSB CCAPagador
+#CCAPagador;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+CCAPagador;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#CCAPagador;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#Campos casi estáticos
+codigoBancoAcreedor;valor=16;
+codigoServicio;valor=001;
+tipoMoneda;valor=CLP;
+tipoUsuario;valor=0;
+
+# PRODUCCION
+#uRLBancoAcreedor100;valor=https://www.tbanc.cl/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+#uRLBancoAcreedor110;valor=https://portlets.bci.cl/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+#uRLBancoAcreedor800;valor=https://portlets.bci.cl/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+#uRLBancoPagador;valor=https://www.bci.cl/cl/bci/aplicaciones/productos/servicios/pagos/interbancarios/vistaPagoInterbancario.jsf; 
+
+# CERTIFICACION
+uRLBancoAcreedor100;valor=http://161.131.184.83/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+uRLBancoAcreedor110;valor=http://161.131.140.162/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+uRLBancoAcreedor800;valor=http://161.131.140.162/TBanc/resources/jsp/pagos/Acreedor/begin.do; 
+uRLBancoPagador;valor=http://161.131.232.240/cl/bci/aplicaciones/productos/servicios/pagos/interbancarios/vistaPagoInterbancario.jsf; 
+
+#TABLA CODIGOS DE RESPUESTA
+COD-0;valor=0;desc=OK;
+COD-1;valor=1;desc=Código de Banco Acreedor Inválido;
+COD-3;valor=3;desc=Rut inválido;
+COD-4;valor=4;desc=IP Cliente inválida;
+COD-10;valor=10;desc=Servicio No disponible;
+COD-20;valor=20;desc=Token Inválido;
+COD-30;valor=30;desc=Monto Excede Máximo permitido Por Transacción;
+COD-40;valor=40;desc=Monto Excede Máximo Permitido por Rut;
+COD-50;valor=50;desc=Rut no es cliente del banco pagador;
+COD-60;valor=60;desc=Ticket Inválido;
+COD-70;valor=70;desc=Time-Out;
+COD-80;valor=80;desc=Autenticación Fallida;
+COD-90;valor=90;desc=Transacción ya iniciada en proceso;
+COD-100;valor=100;desc=No existe TRX;
+
+#CANAL
+canalInter;desc=125;
+canalTDC;desc=110;
+
+#Productos
+PRD;01=CHIP;02=TDC;
+
+#Servicio tuxedo abono cca
+SRV-ABONO-ACR;desc=CtaCteAboTrf;
+SRV-CARGO-PAG;desc=CtaCteTransfGen;
+
+#MNEMONICO
+ACMnemonicoAbonoTDC;desc=1223;
+ACMnemonicoAbonoCHIP;desc=1224;
+PGMnemonicoReversaCargo;desc=1227;
+
+#CUENTA ABONO CERTIFICACION
+ACDCtaSacoTDC;desc=40001113;
+ACDCtaSacoCHIP;desc=40001113;
+
+#CUENTA ABONO PRODUCCION
+#ACDCtaSacoTDC;desc=10636803;
+#ACDCtaSacoCHIP;desc=10636811;
+
+#RUT BANCO BCI CERTIFICACION
+ACDRutCtaSacoTDC;desc=97006000;
+ACDRutCtaSacoCHIP;desc=97006000;
+
+#RUT BANCO BCI PRODUCCION
+#ACDRutCtaSacoTDC;desc=99090199;
+#ACDRutCtaSacoCHIP;desc=99090199;
+
+#Servicio tuxedo reversa
+SRV-REVERSA-ACR;desc=CtaCteRevAboTrf;
+SRV-REVERSA-PAG;desc=CtaCteRevTrnCar;
+
+#Trx reversa para StoreAndForward
+trxReversaAbono;valor=B8781;
+trxReversaCargo;valor=B8690;
+
+#Codigos BCI
+codigoAprobadoBCI;valor=110;
+codigoRechazadoBCI;valor=120;
+codigoPendienteBCI;valor=130;
+codigoExisteBCI;valor=-1;
+codigoErrorBCI;valor=1;
+codigoAprobadoCCA;valor=0;
+
+#Datos para StoreAndForward
+intentos;valor=3;
+producto;valor=PIB;
+
+#Datos para abono rtf
+operador;valor=CCA;
+ocurrencia;valor=1;
+tipoCuenta;valor=CCT;
+nombreDestino;valor=Banco BCI;
+cuentaOrigen;valor=40001113;
+rutOrigen;valor=97006000;
+nombreOrigen;valor=CCA;
+tipoError;valor=000;
+
+#Códigos para pago de dividendo
+codTabla;desc=PRM;
+codSistema;desc=PAGDIV;
+codMnemonico;desc=716;
+cargo;S=G0688;N=G0672;
+reversa;S=G0689;N=G0673;
+codError;0=proceso realizado (OK);1=Dividendo ya fue enviado a PAC;2=Credito Hipotecario no existe;3=Dividendo seleccionado invalido;4=Dividendo se encuentra cancelado;5=Valor de dividendo no corresponde;6=Dividendo anterior impago;7=Cuenta contable intercentro no existe;exitoPago=0;errorCargo=8;errorSistema=9;
+
+#Paramétros Backing
+respuetaDespachoLogin;valor=cargaDespacho;
+respuetaDespachoToken;valor=autenticacionSegundaClave;
+respuetaDespachoError;valor=/common/Error.html;
+respuetaDespachoBci;valor=http://www.bci.cl;
+despachoLogin;valor=vistaPagoInterbancario;
+despachoSegundaClave;valor=confirmarPagoInterbancario;
+despachoComprobante;valor=comprobantePagoInterbancario;
+prodJournal;valor=;
+subProdJournal;valor=;
+
+#Código de Servicio CCA
+productosCCA;001=Pago Electrónico Interbancario;010=PEI Crédito de Consumo;011=PEI Crédito Hipotecario;012=PEI Tarjeta Crédito;
+
+# PRODUCCION
+#Solicitud e Multipass o Movilpass
+#solicitaToken;desc=true;
+
+# CERTIFICACION
+#Solicitud e Multipass o Movilpass
+solicitaToken;desc=false;
+
+#envio de correo
+envioCorreo;nombreDesde=bci.cl;emailDesde=adm@bci.cl;asunto=se ha realizado nueva transferencia;
+cuerpoCorreoCHIP;Desc=Aviso Comprobante de Pago Crédito Hipotecario\n\nESTIMADO(a) <NOMBRE_CLIENTE>:\n\nLe informamos que se ha realizado el Pago de su Credito Hipotecario.\n\nSu numero de comprobante es:<COMPROBANTE>\n\nCredito <PRODUCTO>\nNumero Dividendo <NUMERO_DIVIDENDO>\n\nMonto Pagado $<MONTO_PAGADO>\nFecha de Pago <FECHA_PAGO>\nCuenta de Cargo Cuenta <BANCO_CARGO>\n\nAtentamente, <BANCO_PROCEDENCIA>;
+cuerpoCorreoTDC;Desc=Aviso Comprobante de Pago Tarjeta de Credito\n\nESTIMADO(a) <NOMBRE_CLIENTE>:\n\nLe informamos que se ha realizado el Pago de su Tarjeta de Credito.\n\n\Su numero de comprobante es:<COMPROBANTE>\n\nNumero de Tarjeta <PRODUCTO>\n\nMonto Pagado $<MONTO_PAGADO>\nFecha de Pago <FECHA_PAGO>\nCuenta de Cargo Cuenta <BANCO_CARGO>\n\nAtentamente, <BANCO_PROCEDENCIA>;
+direccionEnviador;100=contacto@tbanc.cl;110=contacto@bci.cl;800=contacto@bcinova.cl;
+nombreEnviador;100=TBanc;110=Bci;800=BciNova;
+asunto;valor=Aviso de Pago Interbancario;
+mensaje;valor=Estimado(a) #NOMBRECLIENTE# \n\nDe acuerdo con lo instruido por nuestro cliente #NOMBRECLIENTE#, \nle informamos que con fecha #FECHATRANSACCION# se ha realizado un pago \ninterbancario hacia el banco #BANCOORIGEN#.\nEl detalle de la operacion es el siguiente:\n\n    Monto transferido               : $#MONTOPAGO#\n    Cuenta de origen                : #CUENTAORIGEN#\n    Banco de destino                : #BANCOORIGEN#\n    Numero de la transaccion        : #NUMEROTRX#\n    Fecha de transaccion            : #FECHATRANSACCION#\n\nAtte,\n#BANCO#\n\nImportante:\nEste mail es generado de manera automatica, por favor no responda \na este mensaje. Ante cualquier duda, contactese con nuestro cliente.\nP.D.: Los tildes han sido omitidos en forma intencional.\n\n;
+
+
+#modalidad de pago A(acreedor), P(gagador)
+modalidadAcreedor;valor=A;
+modalidadPagador;valor=P;

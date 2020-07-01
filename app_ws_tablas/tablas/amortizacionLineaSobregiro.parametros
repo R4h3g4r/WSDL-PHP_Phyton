@@ -1,0 +1,39 @@
+#
+# Tabla de Parámetros para AmortizaciónLineaSobregiro.
+# =============================================
+
+
+ejbServiciosCuentas;desc=wcorp.serv.cuentas.ServiciosCuentas;
+jndiServDirecciones;desc=wcorp.serv.direcciones.ServiciosDirecciones;
+
+habilitado;desc=A;
+deshabilitado;desc=I;
+respuesta_ok;desc=00;
+
+
+
+#### Journal ####
+PAGO_ACTIVADO;canal=WEBBCI;medio=Cliente;evento=ACTIVA;subEvento=PAGLSG;producto=CCT;estado=P;descripcion=Cliente activa pago automático de la línea de crédito;
+PAGO_DESACTIVADO;canal=WEBBCI;medio=Cliente;evento=DESACTIVA;subEvento=PAGLSG;producto=CCT;estado=P;descripcion=Cliente desactiva pago automático de la línea de crédito;
+
+AMORTIZACION_LSG_PYME;idCanal=WEBPYME;medio=Cliente;estadoEventoNegocio=P;idProducto=CCT;subCodEventoNegocio=PAGLSG;
+
+
+diasCaducaTDC;valor=3;
+
+jndiEjbSupervisor;valor=wcorp.aplicaciones.bancaempresas.administracion.supervisor.Supervisor;
+jndiEjbFyP;valor=wcorp.aplicaciones.operacion.legal.firmasypoderes.ServiciosFirmasyPoderes;
+jndiEjbMiscelaneos;valor=wcorp.serv.misc.ServiciosMiscelaneos;
+
+mostrarSeccionPyme;valor=true;
+
+### Flag para el checkbox ###
+mostrarCheck;desc=true;
+
+correoCambioEstado;asuntoA=Comprobante cambio de estado pago automático línea de sobregiro;asuntoI=Comprobante cambio de estado pago automático línea de sobregiro;refContrato=bci_mod_datos_cliente;refTemplateA=mail-linea-sobregiro_activado;refTemplateI=mail-linea-sobregiro_desactivado;refTemplateEmpA=mail-linea-sobregiro_activado_pyme;refTemplateEmpI=mail-linea-sobregiro_desactivado_pyme;empresa=BCI;estadoPagoAutomaticoA=Activado;estadoPagoAutomaticoI=Desactivado;realizadoEn=Sitio web Bci.cl;realizadoEnIntranet=Sucursal /C. SERVICIO;
+codigoOperador;desc=0001;
+
+errorServicio;desc= No se pudo realizar el cambio estado LSG, favor contactar con soporte.
+
+cambio_realizado;desc=Cambio Realizado Correctamente.
+

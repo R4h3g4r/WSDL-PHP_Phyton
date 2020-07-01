@@ -1,0 +1,258 @@
+#dineroInstantaneo.parametros
+##Simulacion de Credito
+##=====================
+producto;codigo=CON494;moneda=0999;simbolo=$;
+garantia;codigo=4;
+tipoAbonoContable;desc=CTBL;
+codigoValeVista;codigo=VVISC;
+canalDefault;codigo=6;
+destinoCreditoDefault;codigo=A01;
+rangoCuotas;rangos=5;
+r1;rango=0-999999;cuota=12;
+r2;rango=1000000-2999999;cuota=24;
+r3;rango=3000000-4999999;cuota=36;
+r4;rango=5000000-14999999;cuota=48;
+r5;rango=15000000-x;cuota=60;
+
+#Monto maximo para seguro desempleo
+seguroDesempleo;id=SDCFLT;montoMax=83.3;
+
+#Lista gastos Notariales
+gastosNotariales;total=2;c1=PRECIO;c2=999;
+PRECIO;des=SI;
+999;des=NO;codigo=      ;
+
+tiposAbonos;cantidad=4;
+tiposAbonos0;codigo=0;desc=Seleccione;
+tiposAbonos1;codigo=CON450;desc=Libre Disponibilidad;
+tiposAbonos2;codigo=CON575;desc=Compra Cartera;
+tiposAbonos3;codigo=CON670;desc=Credicompra;
+
+formasAbonos;cantidad=4;
+formasAbonos0;codigo=0;desc=Seleccione;
+formasAbonos1;codigo=CCMA;desc=Cta. Cte;
+formasAbonos2;codigo=VVISC;desc=Vale Vista;
+formasAbonos3;codigo=CTBL;desc=Contable;
+
+tiposImpuestos;desc=Seleccione,Exento,Informado,DL;Exento=E;DL=DL;Informado=I;
+
+valorPorcentaje;valor=100;
+
+#Lista de Lineas de Credito a Mostrar (Para eliminar registro se debe dejar números de codigoLinea correlativos)
+lineas;cantidad=6;codigoLinea1=LSP;descLinea1=Línea de Sobregiro;codigoLinea2=TCP;descLinea2=Tarjeta de Crédito;codigoLinea3=LEM;descLinea3=Línea de Emergencia;codigoLinea4=CMO;descLinea4=Libre Disponibilidad;codigoLinea5=CCA;descLinea5=Compra de Cartera;codigoLinea6=CHP;descLinea6=Hipotecario;
+
+#Lista de Lineas de Credito a Aplicar Descuento
+lineasDescuento;cantidad=6;codigo1=LSP;codigo2=TCP;codigo3=LEM;codigo4=CMO;codigo5=CCA;codigo6=CHP;
+
+#Lista de Lineas de Credito a Aumentar Margen
+lineasAumentoMargen;cantidad=2;codigo1=CMO;codigo2=CCA;
+
+#Porcentaje de aumento de líneas
+porcentaje;valor=20;
+
+#Estado de CLF
+estado;codActivado=ACTIV;desActivado=Activado;codVerificado=VERIF;desVerificado=Verificado;codIngresado=INGRE;desIngresado=Ingresado;
+
+#Porcentaje de Descuento para las líneas
+valorDescuentoMargenLiquido;valor=10;
+
+#Tabla de consulta Porcentaje
+tablaPorcentaje;tabla=TAB;codigo=DEU;
+
+# Impresion Cotizacion
+imagenes;logoSDBci=/workstationwls/dineroinstantaneo/images/00-sd-logo.gif;
+
+# Canal de Aprobacion
+canal;codigo=14;
+
+
+##Activacion de Credito
+##=====================
+
+# Tipo de Activacion
+codigoActivacion;ActivacionALDia=ACA;ActivacionContable=ACB;
+
+# Mensajes en Activacion de credito
+mensajeVisacionNegativa;mensaje=El cliente tiene visación negativa en Bci o Tbanc, (código 7108);
+mensajeVisacionProblemas;mensaje=Visacion de rut cliente con Problemas;
+mensajeActivacionOK;mensaje=Operacion de crédito se ha activado con exito;
+mensajeCredito;mensajeActivado=Crédito ya activado;
+mensajeWarningDeposito;mensaje=Favor, verifique deposito en Cta.;
+mensajeWarningProductoActivable;mensaje=Operación no es posible activarla a través de esta aplicación;
+
+# codigo entidad a consultar en CEN
+codigoEntidad;codigo=LDC;codigoValeVistaCEN=DVV;codigoValeVista=DVV;codigoDatosDespacho=DDD;
+
+# codigos a consultar en MC2 para Seguros
+codigosPreciosSeguros;macroProducto=CRE;codigoEvento=CUR;codigoConcepto=SGS;tipoConsulta=E;
+
+# codigos a consultar en MC2 para Intereses
+codigosPreciosIntereses;macroProducto=CRE;codigoEvento=CUR;codigoConcepto=INT;tipoConsulta=E;
+
+# codigo para inidicar si debe visar rut de cliente
+esVisableCliente;desc=N;
+
+# codigo para indicar tipo de activacion segun tipo a abono
+tipoActivacionCTBL;aplicaActivacion=ACB;
+tipoActivacionDefault;aplicaActivacion=ACA;
+
+## Transaccion, nemonico normal y excepcional (con horario)
+transaccionNormal;TRXABO=V0776;TRXNEM=506;
+transaccionExcepc;TRXABO=V0783;TRXNEM=506;HORATOPEINI=1330;HORATOPEFIN=2000;
+
+## define codigo puede realizar deposito
+codigoTipoAbonoCCWB;deposita=N;
+
+## define glosa para de codigos de producto
+codigoALR500;desc=Compra Cartera;tipoProducto=Multicredito;
+codigoCON450;desc=Libre Disponibilidad;tipoProducto=Credito Consumo;
+codigoCON460;desc=Credicompra;tipoProducto=Credito Consumo;
+codigoCON575;desc=Compra Cartera;tipoProducto=Credito Consumo;
+codigoCON670;desc=Credicompra;tipoProducto=Credito Consumo;
+codigoCON494;desc=Credicompra;tipoProducto=Credito Consumo;
+
+## define simobolo de codigo de moneda del credito
+codigo0999;desc=$;
+codigo0998;desc=UF;
+
+#Parametros para mail de CREDICOMPRA aceptado
+#============================================
+MAenvioCorreoPorCreditcompra;vigente=S;
+MAmensajeEstadoOrden;desc=CONFIRMADA;
+MAencabezado;Desc=BciVentaWeb;
+MAcuerpo;Desc=DATOS DE LA COMPRA;
+MAremitente;Desc= webmast;
+MAcorreo;Desc=solicitud@bci.cl,exasoto@bci.cl,expmunr@bci.cl,dvasqub@bci.cl;
+MAcorreoenvio;Desc=webmast@bci.cl;
+MAdespachoMensajeFinal;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#Parametros para mail a Ejecutivo
+#============================================
+EJenvioCorreoPorActivacion;vigente=S;
+EJemailJefeOficinaFlag;Desc=N;
+EJmensajeEstadoOrden;desc=CONFIRMADA;
+EJencabezado;Desc=BciVentaWeb;
+EJcuerpo;Desc=DATOS DE LA COMPRA;
+EJremitente;Desc= webmast;
+EJcorreoenvio;Desc=webmast@bci.cl;
+EJdespachoMensajeFinal;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#Codigo de Segmento de Clientes
+Segmentos;codConcepto=SGM;altoSuperior=A,P;
+
+
+## define variables para journal
+JNjournalActivacion;producto=CRED;codEventoNegocio=ACTIVA;subCodEventoNegocio=BCINST;glosa=Activacion de Credito por Canal Everest;
+
+## define string's a eliminar de mensaje
+tiposCadena;cantidad=3;
+tiposCadena0;desc=java.lang.Exception:;
+tiposCadena1;desc=\n;
+tiposCadena2;desc=\r;
+
+## define productos activables a traves de dinero instantaneo
+productoActivable;listaProductos=CON494;delimitadorlistaProductos=,;productoActivableVigente=S;
+
+#Parametros para mail a Ejecutivo por activacion contable
+EJEmailActivacionContable;emailJefeOficinaFlag=N;asunto=Detalle curse de crédito DI cliente |n| RUT |r|;nombrecliente=|n|;rutcliente=|r|;remitente=webmast;correoenvio=webmast@bci.cl;despachoMensajeFinal;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;tipoMovimiento=CURSE;vigente=S;
+
+#formato email
+EJEmailFormato;titulo=SOLICITUD DE ACTIVACION CONTABLE;subTitulo=Enviar Formulario con copia al "JOP" y a usuario "COS";tituloOficina=CODIGO OFICINA;tituloFecha=FECHA;tituloRut=RUT;tituloTipoOpe=TIPO OPERACION;tituloTipoMov=TIPO MOVIMIENTO;tituloNumero=NUMERO DE OPERACION;tituloMonto=MONTO LIQUIDO;tituloAbono=Abonos;tituloTabla0=Abono;tituloTabla1=Producto;tituloTabla2=Monto ($);tituloTabla3=Forma de Abono;tituloTabla4=Cuenta Corriente;tituloTabla5=Rut Beneficiario;tituloTabla6=Impuesto;tituloTabla7=% de Imp.;
+EJEmailFormatoHtml;encabezado=|T&H|<html xmlns=\"http://www.w3.org/1999/xhtml\">;meta1=<meta http-equiv="Content-Type" content="text/html;meta2=charset=iso-8859-1" />;nbsp=&nbsp;
+
+#Tipos de tarjetas de creditos.
+tarjetasVisa;codigos=001,002,006,026,36;glosas=Visa Gold,Visa Classic,Visa Platinum,Visa Signature,Visa OpenSky;
+tarjetasMaster;codigos=501,506,516;glosas=MasterCard Gold,MasterCard Black,MasterCard Platinum;
+
+#Codigos correspondientes a los tipos de tarjetas.
+506;desc=MasterCard Black;valorMinimoNacional=1000000;valorMaximoNacional=50000000;valorMinimoInternacional=1000;valorMaximoInternacional=100000;
+501;desc=MasterCard Gold;valorMinimoNacional=200000;valorMaximoNacional=20000000;valorMinimoInternacional=400;valorMaximoInternacional=40000;
+516;desc=MasterCard Platinum;valorMinimoNacional=500000;valorMaximoNacional=20000000;valorMinimoInternacional=1000;valorMaximoInternacional=40000;
+002;desc=Visa Classic;valorMinimoNacional=100000;valorMaximoNacional=20000000;valorMinimoInternacional=200;valorMaximoInternacional=40000;
+001;desc=Visa Gold;valorMinimoNacional=200000;valorMaximoNacional=20000000;valorMinimoInternacional=400;valorMaximoInternacional=40000;
+006;desc=Visa Platinum;valorMinimoNacional=500000;valorMaximoNacional=20000000;valorMinimoInternacional=1000;valorMaximoInternacional=40000;
+026;desc=Visa Signature;valorMinimoNacional=1000000;valorMaximoNacional=50000000;valorMinimoInternacional=1000;valorMaximoInternacional=100000;
+36;desc=Visa OpenSky;valorMinimoNacional=500000;valorMaximoNacional=20000000;valorMinimoInternacional=1000;valorMaximoInternacional=40000;
+
+#Codigos seguros multiprotección
+segurosMultiproteccion;codigos=0,1;glosas=Preferente,Estandar;
+
+#URLS de información de productos
+informacionCostoLEM;URL=http://normativa/BCI/Universal/Tasas_y_Spread/Comisión_Línea_de_Emergencia.;
+informacionCostoSeguroMutiproteccion;URL=http://www.bci.cl/medios/BCI2/transparencia/pdf/INFORMATIVO_LSGyLDE2009_31122009.pdf ;
+informacionCostoCuentaCorriente;URL=http://normativa/BCI/Universal/Tasas_y_Spread/Comisión_Mantención_Cuenta_Corriente#Comisiones.c2.a0_y_Cuentas_Contables;
+informacionCostoTarjetaDeCredito;URL=http://normativa/BCI/Universal/Tasas_y_Spread/Tarjetas_de_Crédito;
+informacionCostoLineaDeDobregiro;URL=http://normativa/@api/deki/files/37614/=Tarifas_Prod_y_Serv_Bci_BP_(PN_y_PJ)_13.06.11.pdf ;
+informacionCostoTarjetaDeDebito;URL=http://normativa/@api/deki/files/37614/=Tarifas_Prod_y_Serv_Bci_BP_(PN_y_PJ)_13.06.11.pdf ;
+informacionTiposDeSeguroMutiproteccion;URL=/workstationwls/dineroinstantaneo/planes/informacionDeSeguro.html;
+
+#Código journal para enviar solicitud de oferta de planes.
+journalEnvioOfertaPlanes;idProducto=PLAN;codEvento=SOLIC;subCodEvento=BCIINST;estadoEvento=P;
+
+#Glosa tipos de cliente ofertaDePlanes
+tipoCliente_0;desc=Cliente sin plan ni productos vigentes;
+tipoCliente_1;desc=Cliente TDC Monoproducto;
+tipoCliente_2;desc=Cliente con producto individuales CCT;
+tipoCliente_3;desc=Cliente con plan vigente;
+tipoCliente_4;desc=Clienye con plan no vigente;
+
+#Datos Envio correo ejecutivo.
+envioCorreoOfertaPlanes;desde=no-reply@bci.cl;sufijoPara=@bci.cl;asunto=Oportunidad enviada de cliente Rut: {0};baseCuerpo=Usted ha enviado una solicitud a Epiphany para crear los siguientes productos:\n;
+
+#Codigo de Rol para un Ejecutivo Comercial.
+codigoRolEjecutivoComercial;desc=C52;
+
+#Valores predefinidos de valores que son necesarios para la inyección en Epiphany
+valoresPredefinidosEpiphany;nombreOportunidad=Dinero Instantáneo;descripcion=Dinero Instantáneo Oferta Planes;etapa=Oferta;prioridad=Alta;estadoOferta=Abierto;condicion=Asignado;direccion=Inbound;tipoInteraccion=WWW;motivo=Ventas;estadoOportunidad=Activa;sinMail=sinmail@bci.cl;sinTelefono=5555555;confirmaMonto=1;registradoEnSGCSi=si;registradoEnSGCNo=no;diasEstimadaGanada=2;factorObtencionDeCupoInternacional=2;
+
+#codigos de estructura de epiphany para cada campo de una oferta.
+
+CRM_EJC;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.responsable;base=;codigo=;valorPredifinido=;nombre=Ejecutivo;
+CRM_SUC;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.sucursal;base=;codigo=;valorPredifinido=;nombre=Sucursal;
+CRM_CCO;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.codigoProducto;base=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;codigo=codigoProducto;valorPredifinido=Cuenta Corriente;nombre=Cuenta Corriente;
+CRM_TCC;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.tipo;base=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;codigo=tipo;valor=;valorPredifinido=Unipersonal;nombre=Tipo Cuenta Corriente;
+CRM_SEG;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.segmentoFinal;base=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;codigo=segmentoFinal;valor=;valorPredifinido=;nombre=Segmento;
+CRM_PLN;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.plan;base=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;codigo=plan;valor=;valorPredifinido=;dependiente=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.segmentoFinal;nombre=Plan;
+
+CRM_SEP;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.seguroMultiproteccionPreferente.tieneSeguro;base=;codigo=;valor=;valorPredifinido=;nombre=Seguro Multiprotección Preferente;
+CRM_SEE;desc=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.seguroMultiproteccionEstandar.tieneSeguro;base=;codigo=;valor=;valorPredifinido=;nombre=Seguro Multiprotección Estandar;
+
+CRM_STA;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0].tipo;base=;codigo=;valorPredifinido=;nombre=Sub Tipo Tarjeta;
+CRM_TTA;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0].codigoProducto;base=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0];codigo=codigoProducto;valorPredifinido=;nombre=Tipo Tarjeta;
+CRM_CUN;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0].cupoNacional;base=;codigo=;valorPredifinido=;nombre=Cupo Nacional;
+CRM_CUI;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0].cupoInternacional;base=;codigo=;valorPredifinido=;nombre=Cupo Internacional;
+
+CRM_ST2;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[1].tipo;base=;codigo=;valorPredifinido=;nombre=Sub Tipo Tarjeta(2);
+CRM_TT2;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[1].codigoProducto;base=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[0];codigo=codigoProducto;valorPredifinido=;nombre=Tipo Tarjeta(2);
+CRM_MN2;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[1].cupoNacional;base=;codigo=;valorPredifinido=;nombre=Cupo Nacional(2);
+CRM_MI2;desc=CrmInteraccion.oportunidades[0].productoRelacionado.tarjetasDeCredito[1].cupoInternacional;base=;codigo=;valorPredifinido=;nombre=Cupo Internacional(2);
+
+CRM_LSG;desc=CrmInteraccion.oportunidades[0].productoRelacionado.lineaCredito.codigoProducto;base=CrmInteraccion.oportunidades[0].productoRelacionado.lineaCredito;codigo=codigoProducto;valorPredifinido=Linea de Credito;nombre=Linea Sobre Giro;
+CRM_MTP;desc=CrmInteraccion.oportunidades[0].productoRelacionado.lineaCredito.monto;base=;codigo=;valorPredifinido=;nombre=Monto Linea Sobregiro;
+
+CRM_LEM;desc=CrmInteraccion.oportunidades[0].productoRelacionado.lineaEmergencia.codigoProducto;base=CrmInteraccion.oportunidades[0].productoRelacionado.lineaEmergencia;codigo=codigoProducto;valorPredifinido=Linea de Emergencia;nombre=Linea de Emergencia;
+CRM_MLE;desc=CrmInteraccion.oportunidades[0].productoRelacionado.lineaEmergencia.monto;base=;codigo=;valorPredifinido=;nombre=Monto Linea Emergencia;
+
+notaProductosExistentes;desc=El cliente ya tiene contratados los siguientes productos:;
+notaClienteConPlan;desc=El cliente tiene el plan "{0}" con los siguientes productos contratados:;
+notaClienteConPlanAntiguo;desc=El cliente tiene el plan antiguo "{0}", No se tiene información de los productos contratados;
+notaIncorporarProductosAPlan;desc=Incorporar productos a plan {0};
+notaIncorporarProductoSuelto;desc=Incorporar como productos sueltos;
+
+textoLegal_1;desc="La aprobación definitiva de un plan o producto individual está sujeta a confirmación de antecedentes financieros y comerciales  al momento de la evaluación, la cual podría ser aprobada o rechazada.";
+textoLegal_2;desc="Con el fin de poder comparar los costos de mantención de los productos  individuales v/s un Plan, se realizó el cálculo mensual de la comisión de administración de cada producto individual";
+textoLegal_3;desc="Los valores de costo de la comisión de administración de los productos individuales y del plan son en UF.";
+textosProductos_1;desc=(1) La cuenta corriente, contratada como producto individual, está afecta a una comisión de administración mensual que varía dependiendo del tramo del saldo promedio mensual que el cliente mantiene en su cuenta corriente.;
+textosProductos_2;desc=(2) La línea de sobregiro, contratada como producto individual, está afecta a una comisión de administración anual, exenta de IVA.  Dicha comisión puede ser pagada de forma: mensual, bimestral, trimestral, cuatrimestral, semestral o anual.;
+textosProductos_3;desc=(3) La tarjeta de débito, contratada como producto individual, está afecta a una comisión de administración anual + IVA. Dicha comisión puede ser pagada de forma: mensual, bimestral, trimestral, cuatrimestral o semestral.;
+textosProductos_4;desc=(4) Las tarjetas de créditos, contratadas como productos individuales, están afectas a una comisión de  administración que se compone por: un cobro semestral de acuerdo al tipo de tarjeta y un cobro mensual por uso de la tarjeta.;
+textosProductos_5;desc=(5) La línea de emergencia (LEM) está afecta a una comisión de administración mensual que varía dependiendo de la tarifa que se contrate. Esta comisión está exenta de IVA.;
+textosProductos_6;desc=(6) La prima del Seguro Multiprotección varía dependiendo del Plan contratado por el cliente.;
+
+textoDeEntradaConsultaPreciosPlanes;desc=BCI|BCI|BEE|ES|CL|{0}|010|CUR|CCM|{1}| | |0| |{2}|{3}| | |010|{4}|0999|PLN|00{5}|1|A|{6}|1|0|0|0|0| | | | | |;
+
+glosa_lookup_plan_U;desc=Plan Ecológico;
+
+valida_maximo;LSG=N;LEM=N;TDC=N;MGL=N;
+
+html_costos_productos;url=http://161.131.166.30/costo_productos.html

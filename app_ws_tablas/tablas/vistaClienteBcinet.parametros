@@ -1,0 +1,41 @@
+#vista cliente bcinet
+
+#codigos journal TabVenta:
+codJournal_tabVenta;evento=CONSULTA;subeve=CONVTA;producto=CLIENTE;
+codJournal_cred;evento=Cons;subeve=CrxRut;producto=CRED;
+codJournal_visacion;producto=CRED;evento=VISACION;subeve=CLI;
+codJournal_hip;producto=HIP;evento=CNS;subeve= ;
+codJournal_cuentas;producto=TDCONLINE;evento=NXDMCONSAL;subeve=Pago C;
+codJournal_rentaFV;producto=RENTA;evento=CalRenta;subeve=Cons;
+codJournal_prod;producto=Productos;evento=ConProCli;subeve=Cons;estado=P;
+codJournal_resumen;producto=CLI;evento=CNSINFCLI;subeve=RESUMEN;estado=P;
+codJournal_dbasicos;producto=CLI;evento=CNSINFCLI;subeve=DBASICOS;
+codJournal_infocli;producto=BCIACCION;evento=InfoClien;subeve=Cons;estado=P;
+codJournal_buscacli;producto=BuscaClien;evento=BCIACCION;subeve=Cons;estado=P;
+codJournal_TDC_ondemand;producto=TDC;evento=CNS;subeve=CLI;
+codJournal_saldosPromedio;producto=BCIACCION;evento=InfoAdic;subeve=Cons;estado=P;
+codJournal_coment_hist;producto=CAMPAN;evento=CNS;subeve=CLI;
+codJournal_inversiones;producto=INVERS;evento=CNS;subeve=CLI;
+codJournal_ATM;producto=TARDEB;evento=CNS;subeve=CLI;
+
+glosaCampana;AGN=Agendado;ACP=Aceptado;RCH=Rechazo Cliente;NCA=Rechazo Banco;CNU=Clientes no Ubicable;No Gestionada=Cliente no Gestionado;
+
+glosaUX;sinCT=Cliente sin CT;ant=Antigüedad en el Banco ;anyo= año;anyos= años;meses= meses;mes= mes;seg=Segmento ;sinNombre=Cliente Sin Nombre;
+glosaND;ant=Antigüedad: N/D;estCiv=Estado Civil: N/D;prof=Profesión: N/D;lab=Situación Laboral: N/D;emp=Empresa: N/D;banca=Banca: N/D;seg=Segmento: N/D;plan=Plan: N/D;numCta=Número Cta: N/D;tipoCta=Tipo cta: N/D;nd=N/D;edad=Edad: N/D;noDisp=No Disponible;ndTransfer=Sin Transfer;
+
+#control productos por contratar - inversiones
+inversiones;glosaDAP=a Plazo;glosaAhorro=Ahorro;glosaFFMM=Fondos Mutuos;
+
+#xsl de impresion pdf.
+saldosPromedios;xslt=saldospromedio/saldosPromedio;GenerarXML=cl.bci.aplicaciones.impresion.saldospromedio.GenerarXMLSaldosPromedio;
+saldosDepositos;xslt=/cuentacorriente/promediodedepositos/listadoPromedioDeDepositos;GenerarXML=cl.bci.aplicaciones.impresion.saldosdeposito.GenerarXMLPromedioDeDepositos;
+datosBasicos;xslt=datosbasicoscliente;GenerarXML=cl.bci.aplicaciones.impresion.datosbasicoscliente.GenerarXMLDatosBasicos;
+
+glosasTransfer;esBci=OTBBCI;noBCI=OTB;bciConv=BCI;convRem=REM;codBci=16;codBci2=016;sinDestino=NO;sinTransfer=No Tiene Transfer;OTBBCI=Abono en BCI y Otro Banco;BCI=Abono en BCI;OTB=Abono en Otro Banco;
+
+#montoMinimo para despliegue.
+montoDespliegueProducto;tdc=600000;consumo=600000;consumoArmada=500000;inversiones=1;cantTDC=2;
+hipotecario;rentaMinUF=23;banca=PP|PRE|PBP;
+segurosValidar;lista=BCIAPEN|BCIHOG|BCITMP|BCIACAMN|BCIMULP3|BCIMULP3N|BCICAT|BCIHOGN;
+inversionesValidar;lista=Fondos Mutuos|Depósito a Plazo|Acciones|Ahorro|APV;
+parInversionValidar;Fondos Mutuos=consultaFFMM;Depósito a Plazo=consultaDap;Acciones=consultaAcciones;Ahorro=saldoAhorro;APV=APV;

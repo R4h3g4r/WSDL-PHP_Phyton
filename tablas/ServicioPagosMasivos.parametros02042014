@@ -1,0 +1,100 @@
+glosasFormasPago;corrientebci=Depósito Cuenta;cuentas=Depósito Cuenta;vvistaofic=Vale Vista;vvistacorreo=Vale Vista Correo Certificado;efectivo=Pago Efectivo (SVP);
+formasPago;codigos=CCT,VVC,EFE;CCT=Depósito Cuenta;VVC=Vale Vista;EFE=Pago Efectivo;
+formasPagosDetalle;CCT=Abono Cuenta Corriente Bci;AHO=Abono Cuenta Ahorro Bci;VVC=Vale Vista ;VVD=Vale Vista ;EFE=Pago en Efectivo;OTC=Abono Cuenta Corriente Otro Banco;OTA=Abono Cuenta Ahorro Otro Banco;
+tiposPagosMasivos;codigos=REM,DIV,PEN,OTR,PPR;
+
+comodines;todos=*;ninguno=_;
+codigosOficinasVVC;incluir=*;excluir=999,000,252,192,154,156,248;porDefecto=245;oficinaVirtual=245;
+codigosOficinasEFE;incluir=999,062;excluir=_;
+codigosBancos;porDefecto=016;
+cargaNomina;codigoEvento=CARGAR;sistemaFTP=ftpsip;sistemaFtpPPR=ftpsip;
+cargaNominaManual;subCodigoEvento=NOMMAN;glosaLogOk=Carga de Nómina Manual;glosaLogNOk=Error Carga de Nómina Manual;codServicioREM=T41OPE;codServicioPEN=T56OPE;codServicioDIV=T46OPE;codServicioOTR=T66OPE;
+cargaNominaPorArchivo;subCodigoEvento=NOMINA;glosaLogOk=Carga con Archivo de Nóminas;glosaLogNOk=Error Carga con Archivo de Nóminas;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;maximoArchivo=5242880;glosaLogBanOk=Carga con Archivo de Nóminas;glosaLogBanNOk=Error Carga con Archivo de Nóminas;
+corrigePagoObservado;codigoEvento=MODIFICA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Modificacion de pago de nómina, finalizado correctamente.;glosaLogNOk=Modificacion de pago de nómina, finalizado con errores.;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;
+enviarNominaObservada;codigoEvento=MODIFICA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Envío de nominas, finalizado correctamente.;glosaLogNOk=Envío de nominas, finalizado con errores.;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;
+eliminarNominaObservada;codigoEvento=ELIMINA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Eliminación de nómina, finalizado correctamente.;glosaLogNOk=Eliminación de nómina, finalizado con errores.;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;
+modificaFechaPagoObservadas;codigoEvento=MODIFICA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Modificación de fecha pago de nómina, finalizado correctamente.;glosaLogNOk=Modificación de fecha pago de nómina, finalizado con errores.;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;
+eliminaPagoNominaObservada;codigoEvento=ELIMINA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Eliminación de pago de nómina, finalizado correctamente.;glosaLogNOk=Eliminación de pago de nómina, finalizado con errores.;codServicioREM=T40OPE;codServicioPEN=T55OPE;codServicioDIV=T45OPE;codServicioOTR=T65OPE;codServicioPPR=PPNDP101;
+modificaFechaPago;codigoEvento=MODIFICA;subCodigoEvento=DETALLE;producto=PAGOSM;glosaLogOk=Modificación de fecha pago de nómina, finalizado correctamente.;glosaLogNOk=Modificación de fecha pago de nómina, finalizado con errores.;codServicioREM=T03OPE;codServicioPEN=T03OPE;codServicioDIV=T03OPE;codServicioOTR=T03OPE;codServicioPPR=PPCON101;
+reutilizacionNomina;subCodigoEvento=NOMREU;
+transfer;codigos=REM,DIV,PEN,OTR;codigoProducto=Prod02;
+proveedores;codigos=PPR,PRV;codigoProducto=Prod12;
+REM;glosa=Remuneraciones;codigoProducto=Prod02;pathServidor=/Recepcion_BE/transfer;ftpActivo=true;
+DIV;glosa=Dividendos;codigoProducto=Prod02;pathServidor=/Recepcion_BE/transfer;ftpActivo=true;
+PEN;glosa=Pensiones;codigoProducto=Prod02;pathServidor=/Recepcion_BE/transfer;ftpActivo=true;
+OTR;glosa=Otros Pagos;codigoProducto=Prod02;pathServidor=/Recepcion_BE/transfer;ftpActivo=true;
+PPR;glosa=Proveedores;codigoProducto=Prod12;pathServidor=/Recepcion_BE/proveedores;ftpActivo=true;
+PRV;glosa=Proveedores;codigoProducto=Prod12;
+bitacora;cargaNominaPorArchivo=CARG;cargaNominaManual=CARG;cargaNominaReutilizada=CARG;autorizacion=AUTS;creacion=CREA;detencion=DETE;eliminacionDetallePago=MODI;eliminacion=ELIM;firma=FIRM;modificacion=MODI;nominaConObservacionesCorregida=MODI;nominaConObservacionesEnviada=MODI;pagosNoRealizados=PANR;pagosRealizados=PARE;reactivacion=REAC;eliminarDocumento=MODI;
+tiposDocumentos;val1=FAC|Factura Origen Proveedor;val2=NCR|Nota Credito Origen Proveedor;val3=NDB|Nota Debito Origen Proveedor;val4=ABO|Otros Abonos al Proveedor;val5=DES|Otros Descuentos al Proveedor;val6=ODP|Pagos Proveedor;valTotal=6;
+monedas;val1=01|Pesos;val2=02|UFes;val3=03|Dolares;
+
+estadosPorAccionWeb;DETE=64002;REAC=69002;
+estadosPorAccionPay;DETE=64023;MFEC=50002;
+
+idAplicacion;web=WEB;pay=PAY;
+#PDF
+rutasGenericas;rutaBaseXsl=/cl/bci/aplicaciones/productos/servicios/pagos/masivos/;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+#estadosPagadosUnicos se deben separar por token "|"
+estadosPagadosUnicos;Desc=0000;
+#estadosMargen se deben separar por token "|" para definir un margen de estados, y por "," para definir otro margen.
+estadosMargen;Desc=5000|5500;
+
+#Firma masiva
+firmaMasiva;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteFirmaMasiva.xsl;
+firmaPrueba;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteAutorizacionyPrueba.xsl;
+#Autorizacion masiva
+autorizacionMasiva;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteAutorizacionMasiva.xsl;
+autorizacionNomina;codigoEvento=AUTORIZA;subCodigoEvento=NOMINA;rutaXSL=xsl/comprobanteAutorizacionNominas.xsl;codServicioREM=T070PE;codServicioPEN=T070PE;codServicioDIV=T070PE;codServicioOTR=T070PE;codServicioPPR=PPAFN102;glosaLogOk=Autorización de Nómina de Pago, finalizado correctamente.;glosaLogNOk=Autorización de Nómina de Pago, finalizado con errores.;
+firmaNomina;codigoEvento=FIRMA;subCodigoEvento=NOMINA;rutaXSL=xsl/comprobanteFirmaNominas.xsl;codServicioREM=T05OPE;codServicioPEN=T05OPE;codServicioDIV=T05OPE;codServicioOTR=T05OPE;codServicioPPR=PPAFN101;glosaLogOk=Firma de Nómina de Pago, finalizado correctamente.;glosaLogNOk=Firma de Nómina de Pago, finalizado con errores.;
+#Echeck
+echeck;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteEcheck.xsl;rutaXSLCreacionEcheck=xsl/comprobanteCreacionEcheck.xsl;
+#MultiEmpresas
+firmaMultiEmpresas;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteFirmaMultiEmpresas.xsl;
+
+#MultiEmpresas
+autorizacionMultiEmpresas;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteAutorizacionMultiEmpresas.xsl;
+
+reactivarNomina;rutaXSLAccionesSobreNomina=xsl/comprobanteReactivar.xsl;codServicioREM=T20OPE;codServicioPEN=T20OPE;codServicioDIV=T20OPE;codServicioOTR=T20OPE;codServicioPPR=PPADN104;glosaLogOk=Reactivación de Nómina de Pago, finalizado correctamente.;glosaLogNOk=Reactivación de Nómina de Pago, finalizado con errores.;
+detenerNomina;rutaXSLAccionesSobreNomina=xsl/comprobanteDetener.xsl;subCodigoEvento=NOMMAN;glosaLogOk=Detención Nómina de Pagos, finalizada correctamente.;glosaLogNOk=Detención Nómina de Pagos, finalizada con error.;codServicioREM=T29OPE;codServicioPEN=T29OPE;codServicioDIV=T29OPE;codServicioOTR=T29OPE;codServicioPPR=PPADN103;
+creaEcheck;subCodigoEvento=NOMMAN;glosaLogOk=Creación de Echeck, finalizada correctamente.;glosaLogNOk=Creación de Echeck, finalizada con error.;codServicioREM=CHECK001;codServicioPEN=CHECK001;codServicioDIV=CHECK001;codServicioOTR=CHECK001;codServicioPPR=CHECK004;
+firmarEcheck;subCodigoEvento=NOMMAN;glosaLogOk=Firma de Echeck, finalizada correctamente.;glosaLogNOk=Firma de Echeck, finalizada con error.;codServicioREM=CHECK002;codServicioPEN=CHECK002;codServicioDIV=CHECK002;codServicioOTR=CHECK002;codServicioPPR=CHECK005;
+eliminarEcheck;subCodigoEvento=NOMMAN;glosaLogOk=Firma de Echeck, finalizada correctamente.;glosaLogNOk=Firma de Echeck, finalizada con error.;codServicioREM=CHECK002;codServicioPEN=CHECK002;codServicioDIV=CHECK002;codServicioOTR=CHECK002;codServicioPPR=CHECK005;
+eliminarNomina;rutaXSLAccionesSobreNomina=xsl/comprobanteEliminar.xsl;
+historialNomina;rutaXSLHistorialNomina=xsl/historialNomina.xsl;
+historialEcheck;rutaXSLHistorialEcheck=xsl/historialEcheck.xsl;
+detallePagoNomina;rutaXSLDetalle=xsl/detallePagoNomina.xsl;
+
+
+limiteRangoFechas;PorDefecto=30;
+autorizacion;glosaLogOk=Nómina Autorizada;
+estadoNomina;pagoRealizado=REALI;
+firma;glosaLogOk=Nómina Firmada;errorFirma=Problema al Autorizar Firma;errorFirma0=Pendiente por Falta de Firmas;errorFirma100=El Usuario no es Apoderado;errorFirma101=Ya Firmo el Apoderado;errorFirma102=Problema al Autorizar Firma;errorFirma-1=Monto supera el maximo permitido;
+
+categoria;tipoAUT=AUT;tipoFIR=FIR;tipoDET=DET;
+duplicityCheck;habilitado=1;maximoNominas=100;
+archivoCargaNomina;path=WebBCI/cl/bci/aplicaciones/productos/servicios/pagos/masivos/carga_nominas.properties;
+idSucursales;oficinaRemPen=idOficinaRemPen;oficinaDiv=idOficinaDiv;oficinaOtr=idOficinaOtr;
+
+pagosRecibidoNormal;diaDesde=-1;horaDesde=14;minutosDesde=0;diaHasta=-1;horaHasta=23;minutosHasta=59;
+pagosRecibidoIntraDia;diaDesde=0;horaDesde=0;minutosDesde=0;diaHasta=0; horaHasta=13; minutosHasta=59;
+estadosValeVista;val1=VVPAG|Vale Vista Pagado;val2=VVENT|Vale Vista Entregado;val3=VVEMI|Vale Vista Emitido;val4=VVCAD|Vale Vista Caduco;val5=VVALL|Todos los Estados;valTotal=5;
+comentarioBitacora;glosaEchElimOk=Eliminacion de e-check;glosaModFechaPagoObs=Modificación de fecha pago de nómina con observaciones;glosaElimPagoObs=Eliminación de pago de nómina con observaciones;glosaFirmaEcheck=Firma de e-check;glosaEliminacionPago=Se elimina detalle de pago;glosaModPagObs=Modificación de datos de pago de nómina con observaciones;
+creacion;glosaLogOk= Creacion de e-check;
+
+codigosJournal;idProducto=PAGOSM;estadoEventoOk=P;estadoEventoNOk=A;eventoCrea=CREA;eventoElimina=ELIMINA;eventoModifica=MODIFICA;eventoReactivar=REACTIVAR;eventoDetener=DETENER;subEventoFormato=PLANTI;subEventoTablas=TCONVR;subEventoAccionesNominas=NOMINA;eventoCargaEcheck=CARGAR;subEventoCargaEcheck=ECHECK;
+accionesNomina;glosaLogReacOK=Reactivación exitosa de nómina;glosaLogReackNOK=Reactivación con Error de nómina;glosaLogElimOK=Eliminación exitosa de nómina;glosaLogElimNOK=Eliminación con Error de nómina;
+tablasConversion;glosaLogCreaOk=Crear Tabla de Conversión;glosaLogCreaNOK=Crear Tabla de Conversión;glosaLogModificaOk=Modifica Tabla de Conversión;glosaLogModificaNOK=Modifica Tabla de Conversión;
+
+certificadoPago;rutaXSLFolio=xsl/certificadoporfolio.xsl;rutaXSLDetalle=xsl/certificadoporbeneficiario.xsl;
+
+formasDePagoConsulta;val1=CCT|Abono Cuenta Corriente Bci;val2=AHO|Abono Cuenta Ahorro Bci;val3=OTA|Abono Cuenta Ahorro Otro Banco;val4=OTC|Abono Cuenta Corriente Otro Banco;val5=EFE|Pago en Efectivo;val6=VVD|Vale Vista por Correo Certif. C/Liq;val7=VVC|Vale Vista por Oficina C/Liq;val8=ALL|Todos;total=8;
+
+
+eliminarDoc; codigoEvento=ELIMINAR; subCodigoEvento=DOCPROV;
+
+NoDisponible; glosa=ND;
+SinPagos; glosa=ND;
+
+reversaPago;plantilla=tablas/bcipay/plantillaReversaPago.xml;
+origenesPublicarAlerta;Desc=PAY;

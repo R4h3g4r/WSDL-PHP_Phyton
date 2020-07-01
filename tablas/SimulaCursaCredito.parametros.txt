@@ -1,0 +1,702 @@
+Esta tabla contiene parámetros utilizados por aplicación de simulación de crédito.
+
+DATOS UTILIZADOS PARA REGISTRO DE INGRESO A SIMULADOR
+------------------------------------
+registroDeAvance;codigoEstado=ING;tipo=Avance;
+------------------------------------
+
+Los atributos son:
+
+- +codigoEstado: + estado que se asigna al registro cuando se ingresa al simulador.
+- +tipo: + atributo que identifica el tipo de cliente.
+
+------------------------------------
+CONSUMO ONLINE
+------------------------------------
+- +plazoEnPocExcedida+   : Variable a reconocer el los fuentes para obtener el valor (código) aceptado en IBM
+- +mensaje+              : Mensajería a mostrar al Cliente, la cual debe contar con los siguientes tag varibles.
+                         - Tag variables:
+                            - [br]          :Indica la posición en la cual se quiere dar un retorno de carro. 
+                                             Este Tag debe ser puesto cuantas veces se requiera dentro del mensaje
+                            - [FEC1ERVENC]  :Tag que contendrá el dato varibale fecha del Primer vencimiento.
+
+Descripciones de seguros BCI
+------------------------------------
+segurosSDC;SDC=Cuota Segura por Cesantía o Incapacidad Temporal;
+segurosSDG;SDG=Desgravamen;
+segurosSDP;SDP=Doble Capital;
+segurosSEC;SEC=Cuota Segura por Enfermedades Graves;
+segurosSHO;SHO=Cuota Segura por Hospitalización;
+segurosDGA;DGA=Desgravamen Aval;
+segurosHGC;HGC=Hogar Contenido;
+segurosAPD;APD=Accidentes Personales;
+segurosAPI;API=Accidentes Personales Aval;
+segurosSCV;SCV=Crédito vida;
+segurosCVA;CVA=Crédito vida aval;
+------------------------------------
+Los atributos son:
+
+- +SDC  :+ Código de Seguro Cuota Segura por Cesantía o Incapacidad Temporal
+- +SDG  :+ Código de Seguro Desgravamen
+- +SDP  :+ Código de Seguro Doble Capital
+- +SEC  :+ Código de Seguro Cuota Segura por Enfermedades Graves
+- +SHO  :+ Código de Seguro Cuota Segura por Hospitalización
+- +DGA  :+ Código de Seguro Desgravamen Aval
+- +HGC  :+ Código de Seguro Hogar Contenido
+- +APD  :+ Código de Seguro Accidentes Personales
+- +API  :+ Código de Seguro Accidentes Personales Aval
+- +SCV  :+ Crédito vida
+- +CVA  :+ Crédito vida aval
+
+
+
+
+DESCRIPCIÓN DE "CONDICIÓN GARANTÍA".
+------------------------------------
+condGarantia1;Desc=Prenda;
+------------------------------------
+
+Los atributos son:
+
+- +Desc :+ Descripción de la "Condición de Garantia"
+
+DESCRIPCIÓN DE "INDICADOR SITUACIÓN CONTABLE".
+------------------------------------
+situacionContableCAS;Desc=Castigada;
+------------------------------------
+
+Los atributos son:
+
+- +Desc :+ Descripción del "INDICADOR SITUACIÓN CONTABLE".
+
+Tipos de Creditos
+------------------------------------
+comercialesCOM;cod=COM;
+------------------------------------
+Los atributos son:
+
+-+cod :+Codigo de tipo de credito.
+
+productosDeshabilitar
+=====================
+Productos que serán omitidos en aplicación de créditos de consumo.
+
+Seguros con dependencias de vinculacion
+---------------------------------------
+Clave +segurosConDependencia+ es clave que indica que seguros tienen dependencias
+    la clave +seguros+ indica los codigos de seguros que tienen dependencia
+Clave +seguroSDGFLT+ indica seguro con dependencia definido en +seguros+
+    La Clave +dependencia+ indica los seguros que dependen de +seguroSDGFLT+
+Clave +seguroCDGFLT+ indica seguro con dependencia definido en +seguros+
+    La Clave +dependencia+ indica los seguros que dependen de +seguroSDGFLT+
+
+Indicador Declaracion Personal de Salud DPS
+---------------------------------------
+Clave +indicadorDPS+ es clave que indica cual es la marca o codigo a reconocer
+    La Clave +desc+ indica la marca o codigo a reconocer Declaracion Personal de Salud (DPS) que MC2 informa en la consulta de seguros.
+codigosCanalVenta
+=================
+Valores para canales de venta posibles.
+
+codigos
+Corresponde a los dtaos de los canales de vente de la forma GLOSA,CODIGO.
+
+validarMandato
+==============
+Flag para validar mandato multicanal en consumo online, valores true o false
+
+sinDatosDeRenta
+===============
+mensaje:Mensaje para cliente cuando no tiene datos de renta.
+excepcionRenta: Mensaje que se rescata de IBM el cual indica cliente sin datos de renta.
+
+errorChip
+=========
+mensaje: mensaje a recuperar desde IBM para controlar error CHIP en Consumo Online
+
+errorPap
+=========
+mensaje: mensaje a recuperar desde IBM para controlar error PAP en Consumo Online
+
+mensajeSegurosCrediya
+=====================
+mensaje: mensaje que se muestra al cambiar las condiciones de los seguros en Consumo Online
+
+mensajeSeguroColaborador
+========================
+mensaje: mensaje que indica a colaborador que debe seleccionar el seguro de desgravamen.
+
+rechazoSeguroColaborador
+======================
+mensaje: mensaje para colaborador si intento cursar sin seguro de desgravamen seleccionado o si fue rechazado por DPS.
+
+errorSeguroColaborador
+======================
+mensaje: mensaje para colaborador si DPS retorna error.
+
+clienteColaborador
+==================
+valor: codigos de actividad para colaboradores, puede ser mas de 1, separado por comas.
+
+diaVencimientoColaborador
+=========================
+valor: dia de vencimiento para la primera cuota.
+
+idProductoCredito
+=================
+valor: identificador producto para obtención de monto máximo disponible en marketing.
+
+idSubProductoCredito
+====================
+valor: identificador subproducto para obtención de monto máximo disponible en marketing.
+
+urlSimuCredConsumo
+==================
+Url simulador crédito de consumo en interdomain.
+
+urlSimuManual
+=============
+Url simulador manual de crédito.
+orden
+=====
+cliente: Ordenados por jerarquia los seguros que puede obtener un cliente comun.
+colaborador: Ordenados por jerarquia los seguros que puede obtener un cliente comun.
+
+
+productos a los que se aplica FactorCAE
+=============
++productosfactorCAE                 define clave principal de producto a los cuales se presenta factor CAE
+    +listaProductos=CON500,ALR500   define codigos de productos a los cuales se presenta factor CAE
+    +delimitadorlistaProductos=,;   define delimitador de la lista +listaProductos
+    +productosfactorCAEVigente=S;   define si clave principal +productosfactorCAE esta vigente de uso
+
+
+creditoOnline
+=============
+Valores tope tanto en monto como en horarios para simular un crédito.
+    +diasVencimiento                posibles días de vencimiento que son mostrados en la página.
+    +limiteCelda                    cantidad máxima de celdas mostradas en el cuadro de pago del contrato.
+    
+telefonoBCI
+===========
+Teléfono del banco bci.
+
+correo
+======
+Datos necesarios para enviar un correo con el curse del crédito.
+
+abono
+=====
+Hora límite para realizar el abono, sino se toma como el día hábil siguiente.
+
+canal
+=====
+Canal asociado al curse del crédito.
+
+edadSeguro
+==========
+Edad definida por defecto para obtener los valores de los seguros.
+
+seguroDesc
+==========
+Glosa de los seguros.
+
+seguroCod
+=========
+Códigos de los seguros.
+
+seguros
+=======
+Códigos para los seguros exclusivos de nova.
+
+cajero
+======
+Código de cajero para realizar abono a la cuenta prima.
+
+supervisor
+==========
+Código del supervisor para realizar abono a la cuenta prima.
+
+eMailGerente
+============
+Código de sucursal asociado al gerente, para así poder obtener el mail del mismo.
+
+usuario
+=======
+Código de usuario para realizar la simulación.
+
+banco
+=====
+Código de banco para realizar la simulación.
+
+marca
+=====
+Código de marca para realizar la simulación.
+
+cartera
+=======
+Código de cartera para realizar la simulación.
+
+journal
+=======
+Código de journalización al momento de realizar una simulación.
+
+periodoEntreVctoExpresaEn
+=========================
+Código para representar el périodo de vencimiento.
+
+calendarioPagoPDF
+==================
+Valores para generar calendario de pago en PDF.
+
+normativaSegurosPDF
+====================
+Valores para generar normativa de seguros en PDF.
+
+contratoPDF
+===========
+Valores para generar contrato de crédito cursado.
+
+apoderado
+=========
+Nombre y firma del apoderado del banco.
+
+CCN441
+======
+Nombre del producto.
+
++gastosAdicionalesFactorCAE    parámetros para gastos adicionales del factor CAE.
+    +activacion                define activación de la funcionalidad.
+    +tasacion                  define valor en UF para gasto de tasación.
+    +garantia                  define valor en Pesos para gasto de garantía.
+    +alzamiento                define valor en Pesos para gasto de alzamiento.
+    +codigoEvento              define codigo del evento para consulta CPE.
+    +codAlzamiento             define codigo de alzamiento para consulta CPE.
+    +codGarantia               define codigo de garantía para consulta CPE.
+    +codTasacion               define codigo de tasación para consulta CPE.
+
+errorSaldoSimulacionMovil
+=========================
+Mensaje error en saldo del cliente para simulación.
+
+errorGeneralSimulacionMovil
+==========================
+Mensaje para error general en simulación crédito movil.
+
+errorVisarSimulacionMovil
+=========================
+Mensaje para error en visacion del cliente en simulación de crédito movil.
+
+errorSinCuentaSimulacionMovil
+=============================
+Mensaje para error para cliente sin cuentas vigentes.
+
+errorNoParametrosCredito
+=========================
+Mensaje para error para falta de parámetros de crédito.
+
+errorMesesIguales
+=================
+Mensaje para error en caso de que meses de no pago sean iguales.
+
+errorMesesConsecutivos
+======================
+Mensaje para error en caso de que meses de no pago sean consecutivos.
+
+errorMesesNoPagoPrimeraCuota
+============================
+Mensaje para error en caso de que meses de no pago coincidan con la fecha de pago de la primera cuota del credito.
+
+errorDPSColaborador
+===================
+Mensaje para error en caso de que el colaborador no tenga dps actualizada.
+
+errorFechaExcedePrimerPago
+==========================
+Mensaje para error en caso de que la fecha de primer pago exceda el límite definido.
+
+errorFechaAntesPrimerPago
+=========================
+Mensaje para error en caso de que la fecha de primer pago sea antes del límite definido.
+
+errorSinFechaPrimerPago
+=======================
+Mensaje para error en caso de que la fecha de primer pago no haya sido ingresada.
+
+errorColaboradorSinSeguros
+==========================
+Mensaje para error en caso de que el colaborador no ingrese seguros.
+
+mensajeSinSeguros
+=================
+Mensaje para infomativo para indicar que no se han seleccionado seguros.
+
+errorMontoMaximo
+================
+Mensaje para error en caso de que se exceda el monto máximo a solicitar.
+
+errorMontoMinimo
+================
+Mensaje para error en caso de que se exceda el monto mínimo a solicitar.
+
+errorSinMonto
+=============
+Mensaje para error en caso de que se exceda el monto máximo a solicitar.
+
+mensajeFormulario
+=================
+Mensaje para formulario enviado.
+
+curseSinAbono
+=============
+Mensaje para informar crédito cursado pero sin abono.
+
+curseConAbono
+=============
+Mensaje para informar crédito cursado con abono a cuenta.
+
+correoExitoCreditoMovil
+=======================
+Parámetros para envio de correo de curse exitoso.
+
+paquetesSeguros
+===============
+Paquetes de seguros configurados.
+
+preaprobadoMovil
+================
+Mensaje para error en caso de que se al cursar el credito solo se preapruebe este.
+
+cargaFinancieraExcedidaMovil
+============================
+Mensaje para error en caso de que se exceda el monto máximo a solicitar.
+
+okErrorPOCMovil
+===============
+Mensaje para error en caso de que ocurra un error en la poc del producto.
+
+okErrorAbonoMovil
+=================
+Mensaje para error en caso de que se produzca un error en el abono.
+
+errorChipPapMovil
+=================
+Mensaje para error en caso de que se produzca un error con los margenes del cliente.
+
++cuotaReferencial              parámetros para cáculo de cuota referencial.
+    +codigoEvento              define código del evento.
+    +codigoConcepto            define código del concepto.
+
++proservice             parametros de seteo para obtener datos para journalizar proservice
+    +idCanal                Canal a usar.
+    +vigencia               Vigencia de este seteo.
+    +descCorta              Descripción corta del Canal.
+    +abreviacion            Abreviación del Canal.
+    +descripcion            Descripción del Canal.
+    +adicionales            Datos adicionales del Canal.
+    +espIzqAdic             Espacios al lado izquierdo del Canal.
+
+proservice
+=================
+Codigos utilizados para la journalizacion de aplicaciones Proservice.
+
+pacPrevio
+=================
+Codigos utilizados para la simulacion de credito de consumo en Everest, con convenio Pac Previo.
+
+lista
+=====
+Productos a calcular fecha primer vencimiento.
+
+logicaConceptoSpr
+=================
+
++logicaConceptoSpr Logica para concepto spr.
+    +flagActivo flag para activar la logica.
+    +aplicaciones  canal + nombre de aplicacion, separado por comas.
+    
++canal + nombre  detalle de cada aplicacion.
+    +tipoConsulta tipo de consulta que ejecutara sobre SPR.
+
+tipoDeCuenta
+============
++ tipoDeCuenta codigos para tipos de cuenta
+    +cuentaAUT cuenta tipo AUT
+
+codigosSeguros
+==============
++codigosSeguros codigos de los seguros
+    +desgravamen codigo seguro desgravamen
+    
+journalTresClic
+===============
++journalTresClic codigos para journalizacion en 3 clic
+
+simuladorTresClic
+=================
++simuladorTresClic codigos para simulador 3 CLIC
+    +activaBanda si es true activa banda de tasas, false la desactiva.
+
+renegociado
+=================
+Codigos utilizados para la simulacion de credito de consumo en Everest, con productos de consumo renegociados.
+
+Direccion de mail
+=================
++tipoDireccion          define clave principal
+    +tipoDireccion      define el tipo de direccion.
+    +tipoEmail          define el timpo de emial.
+    +estado             define estado 
+    +ingresar           define codigo de ingreso
+    +modificar          define codigo de modificacion.
+
+dimension documentos
+=================
++dimesiondocumento      define clave principal
+    +hojah              define dimension de hoja de resumen
+    +contratoh          define dimension de contrato
+    +numPaginasHoja     define numero de paginas por defecto para hoja de resumen.
+    +numPaginasContrato define numero de paginas por defecto para contrato.
+    +patron             define patron de busqueda.
+    +maximoLargo        define maximo de largo.
+
+seguro auto facil
+=================
++seguroAutoFacil             define clave principal.
+    +CCT                     define flag de validacion de Cta Cte.
+    +TDC                     define flag de validacion de Tarjeta de Cred.    
+    +CPR   
+    +promocionvigente        define flag de promocion activa.    
+    +validapuerta            define flag de validacion de Tarjeta de Cred.    
+    +vista                   define nombre vista.
+    +puertas                 define nombre puertas.    
+    +codigoProducto          define codigo de producto de seguro.
+    +anofin                  define cuantos años de antiguedad.
+    +conduccionExclusiva     define valor para conduccion.
+    +usoVehiculo             define clave de uso de vehiculo.
+    +glosausoVehiculo        define glosa de uso de vehiculo.
+    +glosausoVehiculoVP      define glosa de uso de vehiculo.
+    +tipoVehiculo            define codigo de vehiculo.
+    +valorComercial          define valor comercial 
+    +numeroSiniestro         define numero de siniestros.
+    +numeroSiniestroOcupa    define que ocupar.
+    +tipoTelefono            define tipo telefono.
+    +edadOcupa               define que edad ocupa.
+    +deducible               define valor deducible.
+    +plan                    define codigo plan seguro.
+    +tipoProducto            define codigo tipo producto.
+    +preciomoneda            define moneda del seguro.
++seguroAutoFacilCEN          define clave principal.
+    +codEntidad              define codigo entidad.
+    +glsEntidad              define glosa entidad.
+    +conceptoEntidad         define codigo concepto entidad.
+    +conceptoEntidadAux      define codigo concepto entidad auxiliar.
+    +correlauno              define correlativo uno.
+    +codigoSubEntidad        define codigo sub entidad.
+    +glsSubEntidad           define glosa sub entidad.
+    +correlados              define correlativo dos
+    +estado                  define codigo estado.
+    +codigoClase             define codigo clase.
+    +codigoClaseAux          define codigo clase auxiliar.
+    +largoCtaCte             define largo cta cte.
+    +largoTarj               define largo tarjeta credito.
+    +titulo                  define titulo.
+    +mon300                  define simbolo moneda uf.
+    +monUF                   define simbolo moneda uf.
+    +mondefault              define simbolo moneda default.
+    +numeroctas              define cuantas cuentas procesa.
+    +cantidaddigitosrut      define largo de rut.
+
+ActualizarRenta
+=================
++errorActualizarRenta             		define Error al momento de actualizar renta.
++errorActualizarRentaIntenteMasTarde    define Error al momento de actualizar renta, donde cliente puede volver a intentarlo.
+
+Validacion Cuenta
+=================
++mensajeCuentaSeleccionadaNoVigente    define mensaje para la capa de presentación en caso que ususario selecciones cuenta no vigente.
++mensajeCuentaSeleccionadaException    define mensaje de error para la validación de cuenta en caso que no se encuentre vigente o no sea del usuario.
+
+Journal Simula CCA LD
+=================
++journalSimulaCCALD 				define parametros para ingreso journal en simulacion CCA + LD
++journalSimulaCCA 					define parametros para ingreso journal en simulacion solo CCA
++journalSimulaLD 					define parametros para ingreso journal en simulacion solo LD
++journalCursaCCALD 					define parametros para ingreso journal en curse CCA + LD
++journalCursaCCA 					define parametros para ingreso journal en curse solo CCA
++journalCursaLD 					define parametros para ingreso journal en curse solo LD
+
+Journal Faculta CCA LD
+=================
++journalFacultaCCALD 				define parametros para ingreso journal en facultar CCA + LD
++journalFacultaCCA 					define parametros para ingreso journal en facultar solo CCA
++journalFacultaLD 					define parametros para ingreso journal en facultar solo LD
+
+Homologacion Seguros CDC
+=================
+homologacionSeguros            define los parametros con que se debe llamar a la cdc para usar seguros
+
+permiteCuentaPrima
+==================
+Flag para manejo de cuenta prima en simulacion.
+
+Filtro de Destinos
+==================
+COM001								Primer producto de la definición y su lista de destinos.
+
+cuadro contable
+===============
+cuadroContable						define url de ws y parametros.
+cuadroParam							define parametros de cuadro contable.
+JNDI_SERV_CUENTAS					define jndi para ejb de cuentas.
+mensajesIBM							define lista de mensajes IBM a traducir.
+
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. ??/??/???? Desconocido: versión inicial.
+. 19/06/2008 Oscar A. Otárola Torres (SEnTRA): Se agregan parámetros que se utilizarán para el registro de ingreso al simulador de multicrédito.
+. 05/03/2010 Alejandro Araya (Bee) : Se agregan parámetros de condición de garantia , situación contable y tipo de Crédtio.
+. 07/04/2010 Waldo Iriarte           (BEE   ): Se agrega mensaje a desplegar en la aplicación Consumo OnLine cuando el plazo total del crédito 
+                                               excede lo definido en la POC.
+. 15/07/2010 Luis Silva (TINet): Se agregan parámetros, los cuales corresponden
+                                 a los monto mínimos a considerar para el
+                                 despliegue de los montos de créditos en la
+                                 supercartola.
+. 20/07/2010 Roberto Hicil M.        (BEE   ): Se agregan códigos de productos a omitir en la aplicación créditos de consumo.
+. 30/05/2010 Roberto Hicil M. (BEE): Se agrega una nueva glosa de seguros (HGC) a desplegar en las aplicaciones de simulaciones de créditos
+                                               de consumo y multicredito.
+. 25/07/2010 Hector Carranza         (BEE   ): Se agrega parametros que tienen relacion con dependencias entre seguros
+                                               Se agrega parametro indicador de seguros Declaracion Personla de Salud (DPS) desde MC2
+. 17/08/2010 Roberto Hicil M.        (BEE   ): Se agregan canales de venta posibles para créditos de consumo.
+. 27/10/2010 Braulio Rivas S.        (BEE   ): Se agregan flag que valida mandato en consumo online.
+. 08/11/2010 Braulio Rivas S.        (BEE   ): Se agrega mensaje para controlar error por falta de datos en Renta del cliente.
+. 11/11/2010 Braulio Rivas S.        (BEE   ): Se agregan mensajes para controlar errores CHIP y PAP al cursar por Consumo Cnline.
+                                                                                             Se agrega mensaje para desplegar al cambiar las condiciones de los seguros en consumo Online.
+. 13/12/2010 Braulio Rivas S.        (BEE   ): Se agrega producto para colaborador a la lista de plantillas en plantillaPOC.
+. 23/12/2010 Braulio Rivas S.        (BEE   ): Se agrega mensajes para colaboradores, codigo de actividad y dia de primer vencimiento.
+. 18/05/2011 Jorge Nuñez             (BEE   ): Se agrega una nueva glosa de seguros (APD, API) a desplegar en las aplicaciones de simulaciones de créditos
+                                               de consumo y multicredito.
+. 20/06/2011 Braulio Rivas S.        (BEE   ): Se cambian glosa de seguros(SDC,SEC,SHO)
+. 31/08/2011 Francisco González V.   (SEnTRA): Se agregan parametros idProductoCredito, idSubProductoCredito, urlSimuCredConsumo, urlSimuManual.
+. 20/09/2011 Jorge Nuñez C.            (BEE   ): Se agregan parámetros referentes al producto CON 500.
+                                               Además, se incorporan parámetros correspondientes a la nueva funcionalidad FactorCAE.
+. 29/10/2011 Hector Carranza         (Bee S.A.): Se agrega  productos a los que se aplica FactorCAE
+. 30/01/2012 Braulio Rivas           (Bee S.A.): Se incorpora tipos de productos que no llevaran CAE
+. 14/12/2011 Mauricio Retamal C.        (SEnTRA): Se agregan parámetros creditoOnline, correo, abono, canal, MSJ00, MSJ01, edadSeguro, seguroDesc, seguroCod, seguros, cajero, 
+ supervisor, eMailGerente, usuario, banco, marca, cartera, journal, simulacion, periodoEntreVctoExpresaEn.
+. 19/01/2012 Marco Aicon D. (SEnTRA): Se agregan las llaves asociadas a paquetes de seguros.
+. 16/02/2012 Pablo Romero C.            (SEnTRA): Se agregan los parámetros, 
+. 15/03/2012 Marco Aicon D. (SEnTRA): Se Modifica la clave correspondiente al paquete de seguro "proteccion plus".
+. 02/04/2012 Marco Aicon D. (SEnTRA): Se agregan dentro de las claves de pac de seguros las opciones por defecto para cada pac.
+. 24/02/2012 Carlos Alvarez R.       (Bee S.A.): Se incorporan parametros para calculo del CAE de los creditos universitarios.
+. 16/04/2012 Marco Aicon D. (SEnTRA): Se Modifica la clave paquetePLU.
+. 09/07/2012 Pablo Romero C. (SEnTRA): Se agregan los parámetros contratoPDF, apoderado, CCN441, telefonoBCI y se agrega las llaves diasVencimiento, limiteCelda al parámetro creditoOnline.
+. 14/09/2012 Sergio Caceres V. (SEnTRA): Se agrega clave rutaMandato a parametro contratoPDF para ruta de xsl mandato especial.
+. 17/08/2012 Fidel Jeldres M. (Bee S.A.): Se incorpora parámetros activacion, tasacion, garantia, alzamiento, codigoEvento, codAlzamiento, codGarantia, codTasacion 
+                                          para gastos adicionales del factor CAE.
+. 17/07/2012 Francisco González V. (SEnTRA): se agregan llaves errorSaldoSimulacionMovil, errorGeneralSimulacionMovil, errorVisarSimulacionMovil, 
+                                errorSinCuentaSimulacionMovil, errorNoParametrosCredito, errorMesesIguales, errorMesesConsecutivos, 
+                                errorMesesNoPagoPrimeraCuota, errorDPSColaborador, errorFechaExcedePrimerPago, errorFechaAntesPrimerPago,
+                                errorSinFechaPrimerPago, errorColaboradorSinSeguros, mensajeSinSeguros, errorMontoMaximo, errorMontoMinimo,
+                                errorSinMonto, mensajeFormulario, curseSinAbono, curseConAbono, correoExitoCreditoMovil, paquetesSeguros.
+. 26/09/2012 Francisco González V. (SEnTRA): se agregan llaves preaprobadoMovil, cargaFinancieraExcedidaMovil, okErrorPOCMovil, okErrorAbonoMovil, errorChipPapMovil.
+. 05/09/2012 Fidel Jeldres M. (Bee S.A.): Se incorpora parametría codigoEvento y codigoConcepto para determinar cuota de referencia en documento contrato de consumo.
+. 04/10/2012 Fidel Jeldres M. (Bee S.A.): Se incorpora parámetro proservice para journalizacion de aplicaciones Proservice.
+. 10/10/2012 Waldo Iriarte O.      (Bee S.A.): Se parametrizan los datos de journalización para proservice
+. 11/01/2013 Fidel Jeldres M. (Bee S.A.): Se incorpora parámetro pacPrevio para la simulacion de credito de consumo en Everest, con convenio Pac Previo.
+. 26/02/2013 Jorge Núñez C.        (Bee S.A.): Se incorpora listado de productos para calcular fecha primer vencimiento los días cinco de cada mes.
+. 15/04/2013 Braulio Rivas (BEE) : Se agrega logica para concepto SPR, con
+                la llave logicaConceptoSpr, para la clave aplicaciones
+                se debe declarar en una nueva linea el detalle de aplicacion.
+. 16/08/2013 Hector del Mastro (GlobalLogic) : Se agregaron #Codigos journal simulacion credito movil para los canales 910 y 911.
+             Se agrego #Mensaje envio de correo para los envios de formulario exitosos.
+. 14/08/2013 Braulio Rivas (BEE) : Se agregan parametros para simulador 3CLIC, monto minimo de simulacion, 
+                                   codigo de productos para 3CLIC.
+. 19/11/2013 Braulio Rivas (BEE) : Se agrega CON301 a fecha primer vencimiento, se desactiva banda de tasas.
+. 29/10/2013 Gustavo Espinoza S      (TINet): Se parametrizan la consulta de existencia de descuento para credito automotriz y de consumo.
+. 12/02/2014 Guillermo Marambio (Sermaluc): Se agrega codigo de canal nova para credito de consumo.
+
+. 22/04/2013 Braulio Rivas (BEE) : Se agrega aplicacion 1513CL a llamado con SXR.
+. 13/01/2014 Fidel Jeldres M. (Bee S.A.): Se incorpora parámetro renegociado para la simulacion de credito de consumo en Everest, 
+                                          con productos de consumo renegociados.
+. 29/04/2014 Manuel Escárate (BEE S.A.): Se agregan oficinas que no deben aparecer en el combobox, además se agregan valores que deben
+                                         aparecer en canales de venta, y se agregan valores para identificar formas de cargo y de abono.
+. 11/09/2014 Gustavo López S. (Kubos): Se agrega llave canalesPermitidos para permitir la simulación de créditos en canal nova móvil (901).
+. 27/10/2014 Hector Carranza (BEE) : Se agrega claves en tema journalTresClic (clave journalTresClic_firma)
+                                     Se agrega claves Direccion de mail, dimension documentos
+
+. 10/07/2014 Carlos Cerda I. (Kubos): Se agregan llaves: formaDePago, loginEjecutivo, insertaCreditoNova, obtenerOferta, actualizarOferta, autenticacionCedula,
+                                autenticacionImagen, normativaSegurosPDFMovil, contratoPDFMovil, mandatoPDFMovil, archivoTemporal, cargaFtpRespaldo, nombresPdfRespaldo, 
+                                aplicacion y con_canal.
+. 22/04/2015 Jorge Núñez C  . (Bee S.A.): Se incorporan campos utilizados en la DLC incorporando el campo tipo documento (11) a PGM cuando el canal de ventas es A.                                 
+. 31/03/2015 Rafael Pizarro (TINet): Se modifica valor de las llaves 910-SimularAuto:subEvento y 911-SimularAuto;subEvento. 
+. 25/07/2015 Hector Carranza (Bee): Se agrega claves seguroAutoFacil y seguroAutoFacilCEN para seguro auto facil.
+. 11/08/2015 Jorge Núñez C  . (Bee S.A.): Se incorporan valores para el campo periodo primer vencimiento.
+. 25/11/2015 Mauricio Monsalve C  . (BCI): Se codigoReversa para revesar movimientos en Solicitud de Credito Nova.
+. 21/12/2015 Jorge Núñez C.(BEE) - Erick Ego (ing. Soft. BCI) : Se incorporan códigos para filtrar combo-box destino del crédito.</li>
+. 09/03/2016 Jorge Núñez C.(BEE) - Erick Ego (ing. Soft. BCI) : Se incorporan nuevos códigos para filtrar combo-box destino del crédito.</li>
+. 01/03/2016 Rafael Pizarro (TINet) - Juan Bustos (ing. Soft. BCI) : Se incorporan las llaves: errorActualizarRenta y errorActualizarRentaIntenteMasTarde.
+. 07/06/2016 Carlos Cerda (Kubos) - Mauricio Monsalve(Ing. Soft. BCI): Se incorporan las llaves 'mensajeCuentaSeleccionadaNoVigente' y 'mensajeCuentaSeleccionadaException'.
+. 25/07/2016 Mauricio Monsalve(Ing. Soft. BCI): Actualiza el minimoMonto que se puede cursar en BciNova
+. 07/06/2016 Jorge Núñez C. (BEE)):  Pablo Paredes (ing. Soft. BCI) : Se incorporan parametros relacionada al proyecto Curse sin grabación</li>
+. 11/06/2016 Carlos Cerda I. (Kubos) - Mauricio Monsalve (Ing. Soft. BCI): Se le agrega a la llave 'creditoOnline' el atributo: 'minimoMaximo'.
+. 30/06/2016 Rafael Pizarro (TINet) - Juan Bustos (ing. Soft. BCI) : Se modifican las llaves, 'creditoOnline', 'canalesPermitidos', 'correo' y se agregan las llaves:
+								'segurosObligatorios', todas estas relacionadas a la solicitud de crÃ©dito movil. 
+. 28/10/2016 Patricio Amestica (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 35%.
+. 08/11/2016 Patricio Amestica (Ing.Soft BCI): Se restablece porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 23/11/2016 Mauricio Monsalve C (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 24/11/2016 Mauricio Monsalve C (Ing.Soft BCI): Se restablece porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 29/11/2016 Patricio Amestica (Ing.Soft BCI): Se modifica tope de curses web BciNova de $5000000 a $10000000 por medio de parámetro "maximoMonto" a solicitud de Efectividad Comercial. 
+. 19/12/2016 Patricio Amestica (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 23/12/2016 Mauricio Monsalve C (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 18/01/2017 Mauricio Monsalve C (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 27/01/2017 Mauricio Monsalve C (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 20%.
+. 30/03/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 17/05/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 20%.
+. 22/05/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 28/05/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 01/06/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 27/06/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 20%.
+. 30/06/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 26/07/2017 Mauricio Monsalve C (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 20%.
+. 28/07/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 28/08/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 01/09/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 27/09/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 01/10/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 14/07/2017 Fernando Rebolledo (SEnTRA) - Marcelo Troncoso A (Ing.Soft BCI): Se modifica valor de la subllave "rutaFirma", actualizando el nombre de la imagen utilizada para la firma de Contrato Crédito Web Nova.
+. 25/09/2017 Pablo Gatica (BEE) - Jorge Nunez (BEE): Se agregan parametos para journalizar facultamiento en bci net
+. 26/10/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 31/10/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 06/11/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 35%.
+. 09/11/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 23/11/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 15/11/2017 Jorge Núñez C. - Pablo Gatica (BEE): Se incorporan nuevos valores correspondientes a la nueva matriz de crédito.
+. 26/11/2017 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 06/12/2017 Jorge Núñez C. - Pablo Gatica (BEE): Se incorporan nuevos valores correspondientes a las validaciones de fechas.
+. 21/12/2017 Jorge Núñez C. - Pablo Gatica (BEE): Se incorporan variables para obtener mensaje relacionado a validaciones de fechas.
+. 21/12/2017 Jorge Núñez C. - Pablo Gatica (BEE): Se incorporan variables para la homolagacion de seguros.
+. 15/01/2018 Jorge Núñez C. - Pablo Gatica (BEE): Se incorporan variables para consultar matriz de credito.
+. 29/01/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 01/02/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 26/02/2018 Cristian Fuentes Z (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 02/03/2018 Cristian Fuentes Z (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 13/12/2017 Braulio Rivas S. (BEE) - Raul Henriquez (ing.Soft.BCI): Se agrega flag para manejar cuentas primas en simulacion. 
+. 27/04/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 25%.
+. 30/04/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 04/04/2018 Daniel Dominguez.(BEE), Phoebe Medel.(Ing.Soft.BCI): Se incorporan variables para decodificacion de seguros.
+. 28/05/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 31/05/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 16/05/2018 Héctor Melo A. (BEE) Raúl Henríquez (Ing.Soft BCI): Se agregan códigos de destinos de crédito según producto.
+. 08/10/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 10/10/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 09/11/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 30%.
+. 12/11/2018 Marcelo Troncoso A (Ing.Soft BCI): Se modifica porcentaje de descuento tasa en formulario curse web BciNova a solicitud Efectividad Comercial a 10%.
+. 12/08/2019 Sergio Mansilla V (BEE): Se agrega informacion de visualización de seguros .
+. 14/11/2018 Fidel Jeldres (BEE) - Erick Ego (ing. Soft. BCI) : Se agrega el destino Refinanciado Normaliza (348) que se mostrara en la simulacion del credito de consumo.</li>
+. 28/11/2018 Hector Carranza (Bee) - Raul Henriquez  (Ing.Soft.BCI) : Se agrega claves y subclaves para Validar cuenta.
+. 23/07/2019 Braulio Rivas (Bee) - Raul Henriquez  (Ing.Soft.BCI) : Se agrega claves y subclaves para cuadro contable renegociados.
+. 20/11/2019 Pablo Gatica (Bee) - Alvaro Troncoso  (Ing.Soft.BCI) : Se agrega subclaves para salud protegida.
+==========================================

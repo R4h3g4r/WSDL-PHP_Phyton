@@ -1,0 +1,5 @@
+#Certificación
+CONEXIONJMS;jndiConnectionFactory=jms/CepConnectionFactory;jndiQueue=jms/EventoInboundQueue;initialConnectionFactory=weblogic.jndi.WLInitialContextFactory;securityPrincipal=weblogic;securityCredentials=welcome1;providerUrl=t3://161.131.140.74:9003;
+
+#Producción
+#CONEXIONJMS;jndiConnectionFactory=jms/CepConnectionFactory;jndiQueue=jms/EventoInboundQueue;initialConnectionFactory=weblogic.jndi.WLInitialContextFactory;securityPrincipal=everest;securityCredentials=wlsbam01;providerUrl=t3://161.131.199.188:7101;

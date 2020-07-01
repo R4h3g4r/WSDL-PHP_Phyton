@@ -1,0 +1,29 @@
+configuracionJms;jndi_factory=jms.connection.admProductos.CreacionProductosFactory;jndi_queue=jms.connection.admProductos.CreacionProductosQueue;jndi_jms_context=jms_context_wls10;
+
+errorInsertarResultado;desc=Se ha producido un error al insertar el resultado de la operación en la Base de datos;
+errorDatosLemNulos;desc=Datos ingresados son nulos, no se realiza llamada al servicio.
+errorValidaPlan;codigo=PLN0;
+errorPlanDistintos;codigo=PLN1;
+errorClienteSinPlan;codigo=PLN2;codigoReemplazar=0801;
+errorEnvioPlanJMS;codigo=PLN-011;
+perfilCartola;prefijoCuenta=0000;saldoUltimaCartola=000000000000000;
+parametrosTarjeta;cobro=N;motivo={0}{0};serialInicial=814;
+errorEncolarProducto;mensaje=No fue posible solicitar la creación del producto <PRODUCTO>. Por favor crear en forma manual.;
+errorVaciadoDatos;mensaje=Existe algún dato INVALIDO en la creación del producto <PRODUCTO>. Por favor crear en forma manual.;
+
+# Errores en creación del Convenio epyme.
+-1;detalle=El producto es vacio;
+-2;detalle=Problemas al grabar en CLI;
+-3;detalle=convenio ya existe;
+-4;detalle=No se pudo crear el convenio en tabla CNV;
+-5;detalle=No se pudo crear el Usuario del convenio, Tabla USU;
+-6;detalle=No se pudo crear el SUP Convenio Empresa, Tabla UCE;
+-7;detalle=No se pudo crear el Usuario del convenio Apoderado, Tabla USU;
+-17;detalle=No se pudo crear el Apoderado Usuario Convenio Empresa, Tabla UCE;
+-8;detalle=No Encuentran Productos Asociados a @Prod en tabla PDT;
+-9;detalle=No se logro Crear la Relacion Convenio Producto , tabla CPR;
+-10;detalle=No se logro Crear de Convenio Empresas , Tabla CEM;
+-11;detalle=No se logro Crearla relacion Convenio-Producto Empresa, tabla CPE;
+-20;detalle=Error en Creacion de Relacion Convenio-Producto-Servicio , Tabla CPS;
+-21;detalle=Error en Creacion de Relacion Usuario-Convenio-Servicio , Tabla UCS;
+-30;detalle=Error en Creacion de Relacion Usuario-Empresa-Producto , Tabla UEP;

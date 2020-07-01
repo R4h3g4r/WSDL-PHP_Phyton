@@ -1,0 +1,21 @@
+#BIENES GARANTÍAS Y LEASING - TABLA DE PARAMETROS
+
+# Switch de operación con WorkFlow
+# switch = SI ----> Módulos operan con WorkFlow    (Para BCI)
+# switch = NO ----> Módulos No operan con WorkFlow (Para BEE)
+operaWorkFlow;switch=SI;
+
+
+#MENSAJES
+numeroClaveGarantiaerror;desc=Numero de Garantia invalido;
+
+#CONDICIONES
+conCondiciones;confirmaIngreso=S;
+
+#REQUERIMIENTOS
+Bgl076;req=076;servicio=BglGDDIng;desc=ingreso deudor garantia;
+Bgl176;req=176;servicio=BglGDDIngLla;desc=contexto ingreso deudor garantia;
+Bgl276;req=276;servicio=BglGDDIngConf;desc=confirma ingreso deudor garantia;
+Bgl077;req=077;servicio=BglGDDCon;desc=consulta deudor garantia;
+Bgl078;req=078;servicio=BglGDDMod;desc=modificacion deudor garantia;
+

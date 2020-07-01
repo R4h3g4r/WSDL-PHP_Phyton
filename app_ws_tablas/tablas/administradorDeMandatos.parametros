@@ -1,0 +1,86 @@
+# Tabla de parametros utilizada para el administrador de mandatos 
+FMTO;glosa=Financiamiento;
+codigoEstadoMandato;vigente=VIG;revocado=REV;todos=ALL;ingresado=ING;eliminado=ELI;
+VIG;glosa=Vigente;
+REV;glosa=Revocado;
+ING;glosa=Ingresado;
+ELI;glosa=Eliminado;
+estadosCiviles;codigos=CAS,CCV,DIV,SEP,SOL,VIU,NON;
+CAS;glosa=Casado (a);
+CCV;glosa=Conviviente Civil;
+DIV;glosa=Divorciado (a);
+SEP;glosa=Separado (a);
+SOL;glosa=Soltero (a);
+VIU;glosa=Viudo (a);
+NON;glosa=No existe;
+regimenConyugal;codigos=reg1,reg2,reg3,reg4,reg5,reg6,reg9;
+reg1;glosa=Sociedad Conyugal;
+reg2;glosa=Separado de Bienes;
+reg3;glosa=Participación en Gananciales;
+reg4;glosa=Sin r&eacute{puntoYComa}gimen;
+reg5;glosa=Comunidad;
+reg6;glosa=Separación Total de Bienes;
+reg9;glosa=No existe;
+accionBitacora;modificar=MOD;ingresar=ING;activar=ACT;
+glosaBitacora;ING=Mandato Ingresado;REV=Mandato Revocado;ING_Aval=Mandato Aval Ingresado - RUT Cliente {rutCliente} - RUT Aval {rutAval};ELIAVAL=Mandato Aval eliminado - RUT Cliente {rutCliente} - RUT Aval {rutAval};ACT=Mandato Activado;ELI=Mandato Eliminado;
+mensajesError;revocacionDeudorDirecto=No es posible revocar al rut: {rutCliente} porque tiene avales vigentes.;camposVacio=Debe completar los campos de fecha para realizar una búsqueda.;fechaDesdeMayor=La fecha "Desde" debe ser anterior a la fecha "Hasta".;rangoExcedido=El rango máximo de búsqueda es de {limite} meses.;eliminarDeudorDirecto=No es posible eliminar el Mandato;
+puertasAccesoAca;consultarMandatos=BCF|WSADMDTO/CON;ingresoMandato=BCF|WSADMDTO/ACM;revocarDD=BCF|WSADMDTO/REV;activacionDD=BCF|WSADMDTO/ACT;
+estadoReporteConsultar;Desc=ALL;
+encabezadoReporte;Desc=Rut cliente|DV cliente|Estado|Tipo mandato|Fecha de cambio de estado|Fecha documento|Usuario que cambió estado|Ejecutivo cabecera|Código oficina ejecutivo|Estado garantía;
+nombreReporte;Desc=ReporteMandatos_ini_{fechaDesde}_fin_{fechaHasta}.txt;
+separadorReporte;Desc=|;
+limiteConsultaBitacora;cantidadMeses=12;
+clienteNoExiste;Desc=El Rut no está registrado en el Sistema General de Clientes.<br>Consulta otro Rut.;
+tiposGarantias;sinConstituir=SCON;noAplica=NOAP;constituida=CONS;inconsistente=ERRO;errorConsulta=ERCN;alzado=ALZA;sinAlzar=SALZ;
+SCON;glosa=Sin Constituir;
+NOAP;glosa=No Aplica;
+CONS;glosa=Constituido;
+ERRO;glosa=Inconsistente;
+ALZA;glosa=Alzado;
+SALZ;glosa=Sin Alzar;
+ERCN;glosa=Error al Consultar;
+mensajeErrorActivacion;Desc=No es posible activar el Mandato;
+encabezadoReporteRutAval;Desc=Rut aval;
+encabezadoReporteDVAval;Desc=DV aval;
+encabezadoReporteEstadoMdtAval;Desc=Estado mandato aval;
+cantMaxAvalesReporte;valor=14;
+seleccionAvales;maximo=14;
+pdfDeudorDirecto;rutaXSL=mandatos/mandatoDeudorDirecto.xsl;
+pdfDeudorIndirecto;rutaXSL=mandatos/mandatoDeudorIndirecto.xsl;
+jndiServiciosFirmasyPoderes;Desc=wcorp.aplicaciones.operacion.legal.firmasypoderes.ServiciosFirmasyPoderes;
+facultadRepresentantesLegales;valor=22;glosa=Suscribir Pagar&eacute{puntoYComa};
+facultadAvales;valor=21;glosa=Avalar Pagar&eacute{puntoYComa};
+jndiAutorizarYFirmar;Desc=wcorp.bprocess.autorizaryfirmar.AutorizarYFirmar;
+
+jndiServiciosCliente;Desc=wcorp.serv.clientes.ServiciosCliente;
+jndiServiciosDirecciones;Desc=wcorp.serv.direcciones.ServiciosDirecciones;
+jndiServiciosCreditos;Desc=wcorp.serv.creditos.ServiciosCreditos;
+representantesLegales;maximosApoderados=4;
+jndiRelacionClientes;jndi=wcorp.aplicaciones.clientes.relacionentreclientes.administracion.implementation.RelacionEntreClientes;
+diasVencimientoDatosPrellenado;desc=3;
+archivoAvalPrellenado;nombre=Mandato_Aval;
+archivoEmpresaPrellenado;nombre=Mandato_Empresa_Prellenado;
+archivoEmpresaVacio;nombre=Mandato_Empresa;
+consultaUltimaSUC;estado=140;tipoBandeja=3;
+codigosRelacion;conyuge=CY;convivienteCivil=CC;
+
+codigoEstadoMandato;vigente=VIG;revocado=REV;todos=ALL;ingresado=ING;eliminado=ELI;
+
+resultadoFinalEnvio_1;Desc=Fallo al enviar correo Exception. Retorno de código de error (1)
+resultadoFinalEnvio_2;Desc=Fallo al enviar correo From Vacio. Número de error (2)
+resultadoFinalEnvio_3;Desc=Fallo al enviar correo From Ilegal. Número de error (3)
+resultadoFinalEnvio_4;Desc=Fallo al enviar correo To Vacio. Número de error (4)
+resultadoFinalEnvio_5;Desc=Fallo al enviar correo Subject Vacio. Número de error (5)
+resultadoFinalEnvio_6;Desc=Fallo al enviar correo Cuerpo Vacio. Número de error (6)
+resultadoFinalEnvioDesconocido;Desc=Fallo al enviar correo Desconocido. Número de error {numeroError}
+
+codigosRespuestaMobilbox;ok=200;errorGeneral=400;faltanParametros=401;
+MB200;glosa=Transaccion realizada exitosamente;
+MB400;glosa=Problemas al realizar transaccion;
+MB401;glosa=Parametros de entrada obligatorios deben estar presentes o no deben ser vacios ();
+variablesObligatorias;mandatoDeudorDirecto=folioMandato,rutCliente,dvCliente,fechaMandato,rutaDocumento,tipoFirma,idEjecutivo;mandatoAval=folioMandato,rutAval,dvAval,nombreCompleto,estadoCivil,regimenConyugal,fechaDocumento,rutaDocumento,tipoFirma;
+jndiProductosCliente;desc=wcorp.bprocess.workstation.ProductosCliente;
+tipoFirmas;codigos=FEA,FM;firmaManual=FM;firmaElectronicaAvanzada=FEA;
+FEA;glosa=Firma Electrónica Avanzada;
+FM;glosa=Firma Manual;
+mensajeErrorSinRegistros;glosa=No se registran mandatos ingresados dentro de las fechas seleccionadas.

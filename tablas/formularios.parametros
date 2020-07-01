@@ -1,0 +1,24 @@
+# filtros para la busqueda de formularios
+
+tipoMoneda;Desc=PESOS,UF;
+glosatipoMoneda;PESOS=Pesos;UF=UF;
+tipoTasa;Desc=NINGUNA,FIJA,FIJAANUAL,FIJASEMESTR,FIJATRIMEST,FIJAMENSUAL;
+glosatipoTasa;NINGUNA=Sin Tasa Fija;FIJA=Tasa Fija;FIJAANUAL=Tasa Fija Anual;FIJASEMESTR=Tasa Fija Semestral;FIJATRIMEST=Tasa Fija Trimestral;FIJAMENSUAL=Tasa Fija Mensual;
+
+##################################################
+# Puerta de acceso Administrador de formularios. #
+##################################################
+
+admin.puerta;Desc=BCZ|WCFORCRD/ACC;
+Acceso;Desc=BCZ|WCFORCRD/ACC;
+Agregar_Tasa;Desc=BCZ|WCFCRATT/AGR;
+Modificar_Tasa;Desc=BCZ|WCFCRATT/MOD;
+Agregar_Moneda;Desc=BCZ|WCFCRATM/AGR;
+Modificar_Moneda;Desc=BCZ|WCFCRATM/MOD;
+Agregar_Formulario;Desc=BCZ|WCFCRAFR/AGR;
+Modificar_Formulario;Desc=BCZ|WCFCRAFR/MOD;
+Eliminar_Formulario;Desc=BCZ|WCFCRAFR/ELI;
+Agregar_Producto;Desc=BCZ|WCFCRAFR/AGR;
+Modificar_Producto;Desc=BCZ|WCFCRAFR/MOD;
+Eliminar_Producto;Desc=BCZ|WCFCRAFR/ELI;
+                              

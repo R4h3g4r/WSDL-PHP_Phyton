@@ -1,0 +1,44 @@
+#*******************************************************************************************
+# Archivo de confiración de alertas (Mensajes del Banco).
+# Por Eduardo Troncoso M. (ADA Ltda.).
+#*******************************************************************************************
+
+#===========================================================================================
+# Nombre del DataSource del cual obtiene la conexión
+#===========================================================================================
+ALERTAS;PoolName=wcorp.dsource.AlertasParaCliente;
+#===========================================================================================
+# Configuraciones para cada alerta
+#-------------------------------------------------------------------------------------------
+# En esta sección se coloca la configuración de una alerta. Dicha
+# configuración consta de:
+#
+# - Codigo de Alerta: A la izquierda de una nueva línea. Lleva el
+#                 código de la alerta según tabla ALT (base
+#                 de datos de alertas)
+# - Descripcion : Descripción narrativa de la alerta
+# - Periodicidad: Periodo (en días) que indica cada cuanto se evalúa si es necesario
+#                 insertar una nueva alerta o no.
+# - DuplicidadAlerta: Indica si se inserta una nueva alerta (S=Si, N=No) al existir una aun
+#                 vigente
+#===========================================================================================
+MOROSIDAD;Descripcion=Morosidad;Periodicidad=30;DuplicidadAlerta=N;
+ACT_RENTA;Descripcion=Actualizacion de Renta;Periodicidad=30;DuplicidadAlerta=N;
+ACT_RENSI;Descripcion=Actualizacion de Renta S/I;Periodicidad=30;DuplicidadAlerta=N;
+
+
+#LINKS asociados a detalle de mensajes de alerta de morosidad
+link100;URL=TBANC;
+link110;URL=<a href="/bcinetwls/informaciondemorosidad/ShowAlarma.do?exec=on">Ver detalle</a>;
+link800;URL=;
+
+#Conexión a Filesystem's de destino de archivo para ejecución Batch de Alertas para Clientes.
+#======================================================================================
+#Desarrollo
+#FYLESYSTEM_ALERTAS;host=161.131.184.81;usr=sipe;pwd=sipe01;directorio=/tmp/MjsBco/in/;
+#Certificación
+FYLESYSTEM_ALERTAS;host=161.131.232.180;usr=mjesbco;pwd=mjesbco01;directorio=/MjsBco/in/;
+#Producción
+#FYLESYSTEM_ALERTAS;host=161.131.232.7.;usr=mjesbco;pwd=mjesbco01;directorio=/MjsBco/in/;
+
+NOMBRE_ARCHIVO_BATCH;desc=mensajesBanco;

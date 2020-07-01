@@ -1,0 +1,16 @@
+#archivo de parametros
+
+codigoRelacion;total=2;
+codigoRelacion0;codigo=*;desc=Seleccione;
+codigoRelacion1;codigo=D2;desc=D2;
+
+mensajes;relacionAgregadaOk=La relación fue agregada exitosamente;relacionAgregadaError=Error al Agregar Relación: ;consultaRelacionError=Error al Consultar Relación: ;relacionExistente=La relación ya existe.;
+validaNomina;-1=ARCHIVO EXCEDE EL MAXIMO DE REGISTROS;-2=RUT NO CORRESPONDE;-3=CODIGO RELACION NO CORRESPONDE;-4=ERROR EN NOMINA;-5=ERROR EN FECHAS DE CABECERA;noIngSybase=NO SE INGRESO EN SYBASE;errSubidaNomina=ERROR EN SUBIDA DE NOMINA;
+consultaGrupo;titulos=RUT_FIC|DV_FIC|DAT_ADI_FIC|RUT_CLI|DV_CLI|FEC_INI|FEC_FIN|VIG;
+fileSystem;sistema=gestormc;server=161.131.232.35;remotePathAutorizarCarga=/gestormc2/in/carga_porautorizar;remotePathProcesarCarga=/gestormc2/in/carga_porprocesar;remotePathProcesadoCarga=/gestormc2/out/carga_procesado;remotePathAutorizarElimina=/gestormc2/in/eliminacion_porautorizar;remotePathProcesarElimina=/gestormc2/in/eliminacion_porprocesar;remotePathProcesadoElimina=/gestormc2/out/eliminacion_procesado;sistemaUyP=gestormc;
+nomina;registrosMaximos=75000;paginacion=10;
+paramBatch;nombre=MC2FGR;sistema=DAP;llaveLectura=A;cicTabla=1;extTabla=S;indReq=T;
+
+accionesNomina;CN=Carga Nueva;CA=Carga Agregada;ET=Eliminacion Total;EP=Eliminacion Parcial;
+estadosNomina;EPA=POR AUTORIZAR;EPP=POR PROCESAR;EPN=PROCESANDO;EPD=PROCESADO;
+estadosItk;G=EPP;P=EPN;C=EPD;

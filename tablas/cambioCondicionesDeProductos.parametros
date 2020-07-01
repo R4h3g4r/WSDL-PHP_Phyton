@@ -1,0 +1,6 @@
+DATOS-TAREA;comentario=Rechazo de uno o más cambios de condiciones de productos.;nivel01=101;nivel02=280;nivel03=P71;nivel04=194;tiempoSolucion=2;glosa=Soporte Postventa/Pedidos/Servicios/Modificacion de Condiciones, Productos y Datos;areaDestino=C2M;rolDestino=D34;ejecutivoDestino=R;listaSubProducto=193|194;solucionEsperada=Revisión del cambio de condiciones.;
+
+LISTADO-CAMPOS-EVENTO;valor=/Rut Cliente/Nombre Cliente/Direccion Particular/Comuna Particular/Telefono Direccion Particular/Email Particular/Direccion Comercial/Comuna Comercial/Telefono Direccion Comercial/Email Comercial/Celular/Como quiere que le avisemos?/Tipo Producto/Nro. Identificacion Producto/Oficina Responsable/Area causante del evento/Banca Cliente/Resumen Ejecutivo/Origen Transmision;
+VALORES-CAMPOS-EVENTO;modalidadAviso=;tipoProducto=OTROS;identificacionProducto=;oficinaResponsable=;areaCausanteEvento=WEB;resumenEjecutivo=;origenTransmision=;
+
+MSJ-CAMBIO-CONDICION;valor=Estimado cliente, como una forma de premiar su buen comportamiento hemos dispuesto ofrecerle un aumento en el cupo disponible de su <NOMBRE-PRODUCTO> Nº <b><NUMERO-OPERACION></b>.  Por lo anterior, su nuevo cupo sería de <b><NUEVO-CUPO> UF</b>. Para registrar su consentimiento o rechazo, marque la opción que corresponda en el recuadro correspondiente;

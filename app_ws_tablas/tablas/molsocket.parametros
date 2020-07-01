@@ -1,0 +1,8 @@
+# Parametros Tarjetas Virtuales en Nexus
+config;bancoUser=TT503B7Z;bancoPasswd=503B7Z;bancoIp=161.131.154.162;file=/export/weblogic/bea/wlsplatform/tablas/molsockt.xml;DEBUG=0;
+503;user=SAN_MOL;passwd=SAN_MOL;
+653;user=SAN_MOL1;passwd=SAN_MOL1;
+solicita;codServicio=10;maxCompras=1;horasVigencia=48;factorMontoMaximo=1.0;filler=" filler  ";
+anula;codServicio=11;filler=" filler  ";
+consulta;codServicio=20;filler=" filler  ";
+estados;A=Tarjeta Vigente;I=Tarjeta No Vigente;U=Tarjeta Utilizada;X=Tarjeta Anulada;

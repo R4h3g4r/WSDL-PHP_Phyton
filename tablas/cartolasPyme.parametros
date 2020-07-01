@@ -1,0 +1,102 @@
+#
+# Tabla de parametros para todas las funcionalidades de cartolas para Pyme.
+#
+codigoMovCargo;cod=4892,4895,4896;
+costosServicio;val=0,025;
+costosServicioCartolaHisto;val=0,025;
+costosServicioSolicitudCartola;val=0,06;
+periodosCartolaHistorica;minimo=3;maximo=7;
+periodosCartolaHistoricaLSG;valor=2;
+codigosJournal;codEvent=CNS;codSubEvent=CARTHI;codProducto=LSG;
+codigosJournalCartola;codEvent=CNS;codSubEvent=CARTHI;codProducto=LSG;pdt_cod=Prod21;ser_cod=x77ope;
+codigosJournalPago;pdt_cod=Prod21;ser_cod=x18ope;
+
+#
+# Patrón numérico para valores de cargos y abonos
+#
+formatoDeNumero;pattern=#,##0;
+
+#
+# Valores Impresion Excel.
+#
+xml;version=1.0;encoding=ISO-8859-1;
+excel;xsl=impresion/xslt/lineaSobregiro/saldoLSG.xsl;
+
+#
+# Mensajes
+#
+MensajesLSG;lblMsgInteresMinimoLSG=Estimado Cliente: <br />El monto mínimo a amortizar son los intereses más $1.;lblMsgSinDeudaLSG=Estimado Cliente: <br />Su línea de Sobregiro no tiene deuda vigente.;lblMsgMontoExcedeDeudaLSG=Estimado Cliente: <br /> El monto ingresado excede a la deuda actual  de su Línea de Sobregiro.;lblMsgMontoExcedeSaldoLSG=Estimado Cliente: <br /> El monto ingresado excede al monto disponible en su Cuenta Corriente Número {0};
+MensajesError;lblMsgErrorSaldos=Estimado Cliente: <br /> Ocurrió un error al recuperar los datos de pago. Por favor inténtelo más tarde.;lblMsgErrorCuenta=La cuenta indicada no corresponde al cliente<br/>;errorGeneral=Estimado Cliente: <br /> Ocurrió un error al realizar la solicitud.;lblMsgErrorValidarPago=Estimado Cliente: <br /> El monto que desea cancelar excede el monto disponible.;
+MensajesValidacion;lblMsgCero=Debe ingresar un monto a pagar mayor que cero.;lblMsgInteres=Debe abonar, como mínimo, el Interés + $1.;lblMsgMonto=El monto a transferir supera el total disponible en su cuenta.;lblMsgMaximo=Debe abonar, como máximo, la deuda total.;
+MensajeComprobantePDF;val=Con fecha <!--fecha-->, hemos recibido su Solicitud de Cartolas Historicas para la Cuenta <br /> Corriente Nro. <!--numCC--> la cual será atendida por la Plataforma de Apoyo Empresarios,<br /> quienes se contactaran con usted a través del correo electrónico registrado en un plazo <br /> máximo de 24 hrs. hábiles.<br/>El costo en pesos de su solicitud corresponderá al valor de la UF del día que sean enviadas <br /> la(s) cartola(s) solicitada(s).;
+MensajeIva;val=+ IVA por cada cartola.;
+#
+# Funcionalidades Cartola Histórica.
+#
+CuentasVinculadas;val=false;
+#
+#Parametros del selector
+#
+indicePagina;numero=1;
+numeroMovimientos;cantidad=2000;
+
+#
+#Últimos Movimientos Comex
+#
+UltMovComex;meses_storage=1;cantidad_registros=5;
+
+#
+# Nombre Archivos
+#
+incluyeCuentasPrimas;val=false;
+nombreArchivoMovHoy;nombre=MovimientosHoy;
+nombreArchivoMovMes;nombre=MovimientosMes;
+nombreArchivoMinicartola;nombre=MovimientosMiniCartola;
+superCartolaExport;nombre=superCartola;
+registrosGrillaSuperCartola;cantidad=5;
+regGrillaChqSuperCartola;cantidad=5;
+mesesBusquedaTransfer;cantidad=6;
+
+
+#
+#Envío de correo
+#
+EnvioCorreo;emailFrom=apoyoempresarios@bci.cl;emailTo=apoyoempresarios@bci.cl;subject=Solicitud de cartolas Pyme;
+
+#
+#Solicitud Cartolas Historicas
+#
+comprobanteCartolaHistorica;rutaRecuso=/resources/pyme/plantilla/;plantillaSolicitud=comprobante_solicitud_cartola_cc.html;
+correoSolicitudcartolaHistorica;rutaRecuso=/resources/pyme/plantilla/;plantillaCorreo=correo_solicitud_cartola_cc.html;
+codigosJournalCartolaHistorica;codEvent=CARTOLA;codSubEvent=HIST;codProducto=CCT;comision=OK;pdt_cod=Prod21;ser_cod=x05ope;
+codigosJournalSolicitud;codEvent=SOLICITA;codSubEvent=CARTHI;codProducto=CCT;pdt_cod=;ser_cod=;
+
+#
+#Movimientos Cuenta Corriente
+#
+periodoMesesAtras;meses=3;dias=1;
+tituloExcel;val=Movimientos Históricos Cuenta Corriente;
+#
+# Títulos tablas
+#
+tituloTablaMovimientoLineaSobregiro;Desc=Movimiento de su Linea de Sobregiro;
+#
+# Descripción movimiento linea sobregiro
+#
+codMovimiento;10=Abono por Autoservicio;30=Traspaso a Cuenta Corriente;
+fechaComparar;Desc=19700101000000;
+idMenuMiPerfil;Desc=act_direcciones;
+idMenuSuperCartola;Desc=super_cartola;
+cantidadRegistrosMostrar;Desc=3000;
+rangoDiasPermitidos;Desc=31;
+
+anchoColumnasExcel;col0=3000;col1=5000;col2=5000;col3=5000;col4=5000;
+coloresLIME;rojo=202;verde=209;azul=235;
+coloresAQUA;rojo=44;verde=71;azul=162;
+
+excelCartolaActual;titulo=Movimientos de su cuenta;tituloCol0=Saldo Disponible;tituloCol1=Saldo Contable;tituloCol2=Retenciones;tituloCol3=Sobregiro Disponible;tituloCol4=Sobregiro Utilizado;tituloCol5=Linea de Emergencia;
+excelUltimosMovimientos;movHoy=Movimientos de hoy de su cuenta corriente;movMes=Movimientos del mes de su cuenta corriente;miniCartola=Movimientos de Minicartola de su cuenta corriente;
+
+#Costo para operaciones en cartola actual
+costoVerImagen;valor=119;
+correoSolicitud;detalleSolicitud=Numero Cartola - Fecha Inicio Periodo;detallePedido=Detalle pedido:;detalleCantidad=Cantidad de Cartolas Solicitadas:;detalleTelefono=Telefono Contacto Apoderado:;detalleCorreo=Correo Electronico Apoderado:;detalleNombreApoderado=Nombre Apoderado:;detalleRutApoderado=Rut Apoderado:;detalleNumeroCuenta=Numero de cuenta:;detalleNumeroConvenio=Numero Convenio:;detalleNombreEmpresa=Nombre Empresa:;detalleRutEmpresa=Rut Empresa:;detalleMensaje=Esta solicitud ha sido ingresada a traves del sitio Empresarios, por un apoderado autorizado de la empresa.;

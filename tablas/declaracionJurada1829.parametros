@@ -1,0 +1,95 @@
+#Opciones para los comboBox de la vista inicial del mantenedor DJ Anual
+ProductoMantenedorDJAnual;opcionesProducto=1/Forward-2/Futuro-3/Swap-4/Cross Currency Swap-5/Credit Default Swap-6/Opción Call Americana-7/Opción Put Americana-8/Opción Call Europea-9/Opción Put Europea-10/Opción Call Asiática-11/Opción Put Asiática-12/Otros derivados incluidos en el N° 2 del artículo 2°, de la Ley 20.544, de 2011-13/Otros derivados incluidos en el N° 3 del artículo 2°, de la Ley 20.544, de 2011-14/Otros (indicar nombre del instrumento);
+GlosaProductosDJAnual;1=Forward;2=Futuro;3=Swap;4=Cross Currency Swap;5=Credit Default Swap;6=Opción Call Americana;7=Opción Put Americana;8=Opción Call Europea;9=Opción Put Europea;10=Opción Call Asiática;11=Opción Put Asiática;12=Otros derivados incluidos en el N° 2 del artículo 2°, de la Ley 20.544, de 2011;13=Otros derivados incluidos en el N° 3 del artículo 2°, de la Ley 20.544, de 2011;14=Otros (indicar nombre del instrumento);
+
+#Opción comboBox Detalle Operación DJ Anual.
+RelacionContraParte;valor=1/Relación de propiedad-2/Participación en la dirección o administración-3/Otros tipos de relación-4/Contraparte constituida en paraíso tributario-99/No hay relación;
+ModalidadContratacion;valor=1/Derivado contratado en bolsa de valores nacional-2/Derivado contratado en bolsa extranjera-3/Derivado contratado con la intervención de agentes o corredores autorizados-4/Derivado contratado fuera de bolsas de valores en conformidad a modelos de contratos-5/Derivado contratado fuera de bolsas de valores-6/Otra modalidad de contratación;
+TipoAcuerdo;valor=1/Condiciones Generales de Contratos de Derivados en el Mercado Local-2/Contrato Marco de la International Swap and Derivatives Association-3/Otros contratos marco;
+ContratoVencidoEjercicio;valor=1/Vencido o liquidado en el período informado-2/Vigente al 31 de diciembre del año que se informa;
+EstadoContratoConfirmacion;valor=1|Suscrito-2|Modificado / Recouponing-3|Contrato proveniente del ejercicio anterior-4|Cedido;
+ModalidadCumplimientoContrato;valor=1/Compensación-2/Entrega física;
+ProductoDJAnual;valor=1/Forward-2/Futuro-3/Swap-4/Cross Currency Swap-5/Credit Default Swap-6/Opción Call Americana-7/Opción Put Americana-8/Opción Call Europea-9/Opción Put Europea-10/Opción Call Asiática-11/Opción Put Asiática-12/Otros derivados incluidos en el N° 2 del artículo 2°, de la Ley 20.544, de 2011-13/Otros derivados incluidos en el N° 3 del artículo 2°, de la Ley 20.544, de 2011-14/Otros (indicar nombre del instrumento);
+PosicionDeclaranteContrato;valor=1/Venta-2/Compra;
+TipoActivoSubyacente;valor=1|Moneda-2|Tasa de interés-3|Producto Básico / Commodity-4|Unidad de Fomento-5|Acciones-6|Índice bursátil-7|Otros (especificar);
+TasaDeInteres;valor=1/Fija-2/Variable;
+ProductoBasico;valor=1/Cobre-2/Oro-3/Plata-4/Zinc-5/Plomo-6/Aluminio-7/Níquel-8/Petróleo-9/Gas Propano-10/Jet Fuel 54-11/Heating Oil-12/Oil Wti-13/Fuel Oil 3.5-14/Otros (especificar);
+TasaInteresVariable;valor=1/EURIBOR 1 MES-2/EURIBOR 3 MESES-3/EURIBOR 6 MESES-4/EURIBOR 12 MESES-5/LIBOR DÓLAR CANADIENSE 3 MESES-6/LIBOR DÓLAR CANADIENSE 6 MESES-7/LIBOR DÓLAR CANADIENSE 12 MESES-8/LIBOR EURO 1 MES-9/LIBOR EURO 3 MESES-10/LIBOR EURO 6 MESES-11/LIBOR EURO 12 MESES-12/LIBOR LIBRA ESTERLINA 1 MES-13/LIBOR LIBRA ESTERLINA 3 MESES-14/LIBOR LIBRA ESTERLINA 6 MESES-15/LIBOR LIBRA ESTERLINA 12 MESES-16/LIBOR USD 1 MES-17/LIBOR USD 2 MESES-18/LIBOR USD 3 MESES-19/LIBOR USD 4 MESES-20/LIBOR USD 6 MESES-21/LIBOR USD 12 MESES-22/LIBOR YEN 1 MES-23/LIBOR YEN 3 MESES-24/LIBOR YEN 6 MESES-25/LIBOR YEN 12 MESES-26/LIBOR FRANCO SUIZO 1 MES-27/LIBOR FRANCO SUIZO 3 MESES-28/LIBOR FRANCO SUIZO 6 MESES-29/LIBOR FRANCO SUIZO 12 MESES-30/PIBOR (PARIS INTERBANK OFFERED RATE)-31/PRIME USA-32/SHORT TERM PRIME RATE, YEN-33/TAB UF 3 MESES-34/TAB UF 6 MESES-35/TAB UF 12 MESES-36/TAB NOMINAL 1 MES-37/TAB NOMINAL 3 MESES-38/TAB NOMINAL 6 MESES-39/TAB NOMINAL 12 MESES-40/OTRAS;
+TipoSegundoActivoSubyacente;valor=1/Moneda-2/Tasa de interés-3/Producto Básico / Commodity-4/Unidad de Fomento-5/Acciones-6/Índice bursátil-7/Otros (especificar);
+CodigoDePrecio;valor=1/Valor Monetario-2/Tasa (%);
+Unidad;valor=1/Pesos Chilenos-2/US Dólares-3/Unidad de Fomento-4/Libras esterlinas-5/Euros-6/Yenes-7/Libras-8/Toneladas-9/Onzas-10/Barriles-11/Galón Americano-12/Galón Inglés-13/Otros;
+SegundaUnidad;valor=1/Pesos Chilenos-2/US Dólares-3/Unidad de Fomento-4/Libras esterlinas-5/Euros-6/Yenes-7/Libras-8/Toneladas-9/Onzas-10/Barriles-11/Galón Americano-12/Galón Inglés-13/Otros;
+CodigoDePrecioMercadoSubyacente;valor=1/Valor Monetario-2/Tasa (%);
+ModalidadDePagoEfectuadoEjercicio;valor=1/En dinero (efectivo, vales vista u otros equivalentes)-2/En acciones-3/En derechos sociales-4/En otras especies;
+TipoDeDeclaracion;valor=O/Original-R/Rectificatoria;
+
+##Mensajes de respuestas 
+mantenedorDjAnualMensajeExito;agregarOk=El registro se ha ingresado con éxito.;modificarOk=El registro se ha modificado con éxito.;eliminarOk=El registro se ha eliminado con éxito.;
+
+##Parámetros estáticos para ingresar una DJ Anual
+parametrosDJAnual;tipoDeRegistro=2;numeroFormulario=1829;codigoDePresentacion=I;rutDeclarante=97006000;dvDeclarante=6;modalidadCont=4;
+
+#Carga de Archivo
+#Integracion
+#cargaArchivos;sistema=wlsa;iP=161.131.184.80;tiposValidos=Balance,Cobertura;
+#Certificacion
+cargaArchivos;sistema=saofmd;iP=161.131.232.185;tiposValidos=Balance,Cobertura;
+#Produccion
+#cargaArchivos;sistema=saofmd;iP=161.131.232.32;tiposValidos=Balance,Cobertura;
+#pathDestinoDJ;pathDestino_balance=/saof_md/in/balance;pathDestino_cobertura=/saof_md/in/cobertura;
+
+#Codigos para journalizar
+journalDJAnual;eventoJournalModificar=;subEventoJournalModificar=;idProductojournalModificar=;eventoJournalAgregar=;subEventoJournalAgregar=;idProductojournalAgregar=;eventoJournalConsulta=;subEventoJournalConsulta=;idProductojournalConsulta=;eventoJournalEliminar=;subEventoJournalEliminar=;idProductojournalEliminar=;
+
+##Descripcion de validacion SII Log Error
+Regla-H1451;H1451=Los campos Código País Contraparte (C11), Tipo de Relación con contraparte (C12), Modalidad de contratación (C13), Contrato / Confirmación: Número / Identificador (C17), Contrato / Confirmación: fecha suscripción (C18), Contrato vencido en el ejercicio (C19), Tipo de Contrato (C21), Modalidad de cumplimiento (C23), Activo Subyacente: Tipo (C25), Unidad (C36), Monto/cantidad contratado o nocional (C37), fecha de vencimiento (C40), Precio de mercado del subyacente al cierre del ejercicio o liquidación: Código de precio (C42), Precio de mercado del subyacente al cierre del ejercicio o liquidación: Precio (C43) son de llenado obligatorio y con valores validos de acuerdo al tipo de dato;
+Regla-H1452;H1452=La columna relación de contraparte (C12) debe indicar valores según tabla Tipo de Relación con Contraparte (TRC);
+Regla-H1453;H1453=La columna código País contraparte (C11) se debe indicar valores según listado de Códigos País de Residencia para el AT respectivo, según instrucciones del suplemento tributario;
+Regla-H1454;H1454=Si existe valor distinto de cero o vacio en la columna tipo de acuerdo marco (C14) entonces solo deben ser valores según tabla Acuerdo Marco, tipo (AMT);
+Regla-H1455;H1455=La columna contrato vencido en el ejercicio (C19) debe indicar valores según tabla Contrato vencido en el ejercicio (CVE);
+Regla-H1456;H1456=Si existe valor distinto de cero o vacio en la columna la columna Estado del Contrato/Confirmación (C20) entonces se debe indicar valores según tabla Contrato/Confirmación (ECC);
+Regla-H1457;H1457=La columna tipo de contrato (C21) debe indicar valores según tabla tipo de contrato (TC);
+Regla-H1458;H1458=La columna Modalidad de cumplimiento (C23) debe indicar valores según tabla Modalidad de cumplimiento (MC);
+Regla-H1459;H1459=Si el tipo de contrato es distinto de Swap entonces la columna Posición del declarante (C24) debe indicar valores según tabla Posición del declarante (PD);
+Regla-H1460;H1460=La columna tipo de activo subyacente (C25) debe indicar valores según tabla tipo de activo subyacente (AS);
+Regla-H1461;H1461=Al indicar tipo de Activo Subyacente (C25) Moneda {1} Se debe indicar valores en (C26) según Tabla Códigos Monedas AT respectivo;
+Regla-H1462;H1462=Si el campo Tipo de activo subyacente (C25) es 2 (Tasa de interés), en el campo Código activo subyacente (C26) debe indicar valores según tabla instruida (1 o 2);
+Regla-H1463;H1463=Si el campo Tipo de activo subyacente (C25) es 3 (Producto básico), en el campo Código activo subyacente (C26) debe indicar valores según tabla instruida (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 o 14);
+Regla-H1464;H1464=Al indicar código Activo Subyacente (C26) la opción VARIABLE {2}, cuando tipo de Activo Subyacente (C25) es tasa de interés {2} en la columna otros (C27) se debe indicar valores según tabla de tasas variables (TIV);
+Regla-H1465;H1465=Si el campo Tipo de contrato (C21) es Swap (3, 4 o 5), en el campo Segundo activo subyacente (C29), debe indicar valores según tabla activo subyacente (1, 2, 3, 4, 5, 6 o 7);
+Regla-H1466;H1466=Si el campo Tipo de segundo activo subyacente (C29) es 1 (Moneda), en el campo Código segundo activo subyacente (C30) debe indicar valores según tabla de códigos de monedas del AT;
+Regla-H1467;H1467=Si el campo Tipo de segundo activo subyacente (C29) es 2 (Tasa de interés), en el campo Código segundo activo subyacente (C30) debe indicar valores según tabla instruida (1 o 2);
+Regla-H1468;H1468=Si el campo Tipo de segundo activo subyacente (C29) es 2 (Tasa de interés) y campo Código activo subyacente (C30) es 2 (variable), en el campo Otros/Segundo activo subyacente (C31) debe indicar valores según tabla de variables (1 al 40);
+Regla-H1469;H1469=Si tipo de contrato ( C21 ) es distinto de Swap la columna código de precio (C33) debe indicar valores según tabla Código de precio (CP);
+Regla-H1470;H1470=Si existe valor distinto de cero o vacio en la columna moneda (C35) entonces se debe indicar valores según Tabla Códigos Monedas AT respectivo;
+Regla-H1471;H1471=En la columna unidad (C36) Se debe indicar valores según tabla unidad (UM);
+Regla-H1472;H1472=El campo Código de precio mercado (C42) debe indicar valores según tabla instruida: 1 o 2;
+Regla-H1473;H1473=Si se indicó en la columna código del activo subyacente (C26) opción ”FIJA” {1}, la columna Tasa fija / Spread (C28) debe ser distinta de cero;
+Regla-H1474;H1474=Si se indicó en la columna código del segundo activo subyacente (C30) opción ”FIJA”{1}, la columna (C32) debe ser mayor o igual a cero;
+Regla-H1475;H1475=La fecha de suscripción del contrato/confirmación (C18) debe ser anterior o igual al 31 de Diciembre del año tributario menos 1. Ejemplo si el AT 2013, (C18) debe ser a lo más 31/12/2012;
+Regla-H1477;H1477=El campo Modalidad de contratación (C13) debe indicar valores según tabla instruida (1, 2, 3, 4, 5, 6);
+Regla-H1478;H1478=Si la columna Montos pagados o adeudados (C54) es mayor a cero, entonces en la columna modalidad de pago (C55) se debe indicar valores según tabla (MPag);
+Regla-H1479;H1479=La sumatoria de la columna resultado del ejercicio (C45) debe ser igual a lo informado en la columna total resultado del ejercicio (C58) del cuadro resumen;
+Regla-H1480;H1480=La sumatoria de la columna efecto en patrimonio (C47) debe ser igual a lo informado en la columna total efecto en patrimonio (C59) del cuadro resumen;
+Regla-H1481;H1481=Si no existe Rut de la contraparte (C8) debe existir Tax ID de la contraparte (C10);
+Regla-H1482;H1482=Si contrato está vencido en el ejercicio informado el estado del contrato descrito en (C20) debe ser vacio;
+Regla-H1483;H1483=Si el campo Tipo de contrato (C21) es 3, 4 o 5, el campo Posición del declarante (C24) debe ser cero;
+Regla-H1484;H1484=Si el campo Tipo de contrato (C21) es distinto de 3, 4 o 5, los campos del Segundo Activo Subyacente: Tipo (C29), Código (C30), Otros (C31), Tasa fija / Spread (C32) deben ser vacías o cero de acuerdo al tipo de dato;
+Regla-H1485;H1485=Si el campo Tipo de contrato (C21) es 3, 4 o 5, los campos de Precio futuro contratado: Código de Precio (C33), Precio (C34) y Moneda (C35) deben estar en blanco;
+Regla-H1486;H1486=Si el campo Código de precio (C33) es 2 (tasa), los campos de Precio futuro contratado: Precio (C34) y Moneda (C35) deben estar en blanco;
+Regla-H1487;H1487=Alguno de los campos RutContraparte (C8) o Tax-ID de la Contraparte (C10) deben tener valor;
+Regla-H1488;H1488=Si tipo de contrato (C21) es igual a opción otros {12,13,14}, debe existir nombre del instrumento (C22);
+Regla-H1489;H1489=Si tipo de activo subyacente (C25) es igual a opción otros {7}, debe existir detalle de instrumento en otros (especificacion) (C27);
+Regla-H1491;H1491=Al indicar tipo de contrato (C21) la opción Swap {3,4,5} la columna Segunda unidad (solo Swap) (C38) y en monto segundo nocional swap (C39), deben ser distinto de cero;
+Regla-H1492;H1492=Si existe código de precio mercado (C42) debe existir precio (C43);
+Regla-H1493;H1493=Si existe valor de prima en columna (C50) es porque el tipo de contrato (C21) es [Opción Call Americana · Opción Put Americana · Opción Call Europea · Opción Put Europea · Opción Call Asiática · Opción Put Asiática · Otros derivados incluidos en el N° 2 del artículo 2°, de la Ley 20.544, de 2011 · Otros derivados incluidos en el N° 3 del artículo 2°, de la Ley 20.544, de 2011 · Otros (indicar nombre del instrumento)];
+Regla-H1494;H1494=Si existe unidad (C36) debe existir monto de unidad (C37);
+Regla-H1495;H1495=Si tipo de contrato es swap (3 , 4, 5) y existe segunda unidad (C38) debe existir segundo monto nocional (C39);
+Regla-H1496;H1496=Si existe resultado ejercicio (C45) es distinto de cero,debe existir cuenta contable (C46);
+Regla-H1497;H1497=Si efecto en patrimonio es negativo (C47) es distinto de cero, debe existir cuenta contable (C48);
+Regla-H1498;H1498=Si existe monto pago al exterior ejercicio (C54) debe existir modalidad de pago (C55);
+Regla-H1499;H1499=Si contrato está vencido en el ejercicio (C19) es 1, la columna  fecha de liquidación (C41) debe ser distinta de cero;
+Regla-H1500;H1500=Si existe fecha de suscripción del acuerdo marco (C16), debe ser anterior o igual a la fecha del contrato de confirmación. (C18);
+Regla-H1501;H1501=Si la fecha de vencimiento o liquidacion (C40) es distinta de  01011900, debe ser  mayor o igual a la fecha de suscripción del contrato (C18);
+Regla-H1502;H1502=Si existe fecha de liquidación (C41)  y la fecha de vencimiento es distinta de 01011900, entonces la fecha de liquidacion  debe ser menor o igual a la fecha de vencimiento (C40);
+Regla-H1516;H1516=Si el campo Tipo de segundo activo subyacente (C29) es 3 (Producto básico), en el campo Código activo subyacente (C30) debe indicar valores según tabla instruida (1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 o 14);

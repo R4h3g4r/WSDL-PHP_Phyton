@@ -1,0 +1,19 @@
+#COMPORTAMIENTO DE PAGOS - TABLA DE PARAMETROS
+
+ModalidadesCredito;VIGENTES=vigentes;HISTORICAS=historicas;
+
+MensajesExcepcion;CLIENTESINCREDITOSVIGENTES=[Cliente no posee créditos vigentes.];
+
+Multiambiente.Everest;codigoBanco=BCI;codigoCanal=151;codigoEjecutivo=EVEREST;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;idSistema=Everest;
+Multiambiente.Portal;codigoBanco=BCI;codigoCanal=150;codigoEjecutivo=PORTAL;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;
+
+impresionCartolaPago;plantillaTipo=PDF;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaCartola=impresionComportamientoPago.xsl;
+
+ibmDesMonedas;desPesos=PESOS;desUF=U.FOMENTO;
+mensajes;errDetCredito=Error al obtener detalle del crédito (consulta).;
+
+msgDetalleCred;msgCincoMilUF=No se puede generar certificado, crédito superior a 5000UF;msgJudicial=No se puede generar certificado, crédito en estado Judicial;msgCastigada=No se puede generar certificado, crédito en mora;msgVencida=No se puede generar certificado, crédito en mora;    
+monedaOpc;comando=/;tipoCambio=UFP;desPeso=PESOS;formatoFecha=ddMMyyyy;
+sitCartera;vencida=VCD;catigada=CAS;
+sitCobranza;judicial=JUDIC;
+montosMaximoCertifica;montoUF=5000;

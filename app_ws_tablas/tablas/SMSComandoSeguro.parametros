@@ -1,0 +1,8 @@
+#=========================================================
+# CONFIGURACION DE COMANDO SMS PARA SOLICITAR INFORMACION
+# O EL SEGURO DE SALUD
+#=========================================================
+# MENSAJES DE ERRORES, EXCEPCIONES Y MENSAJES
+#=========================================================
+sms.credito.error.msg.errorinterno; valor=Estimado Cliente, en este momento no podemos resolver su requerimiento.\n+ info en www.bci.cl 6928000;
+sms.credito.error.msg.rutinvalido; valor=El rut ingresado no es correcto.\nwww.bci.cl Fono:6928000;

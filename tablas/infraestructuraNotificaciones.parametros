@@ -1,0 +1,69 @@
+#####################################################
+#	 Rutas Servicio Rest.							#
+#####################################################
+
+##Servicio REST Desarrollo Motor Canal 270##
+#nodoRest_270;cantidad=1;
+#nodoRest_270_1;url=http://10.3.6.90:7001/svcRest/mensajes/publicar;
+
+##Servicio REST Integracion Motor Canal 270##
+#nodoRest_270;cantidad=1;
+#nodoRest_270_1;url=http://161.131.140.63:9111/svcRest/mensajes/publicar;
+
+##Servicio REST Desarrollo Canal 270##
+#nodoRest_270;cantidad=1;
+#nodoRest_270_1;url=http://161.131.141.245:9111/svcRest/mensajes/publicar;
+
+##Servicio REST Certificacion Canal 270##
+nodoRest_270;cantidad=2;
+nodoRest_270_1;url=http://161.131.232.178:17003/svcRest/mensajes/publicar;
+nodoRest_270_2;url=http://161.131.232.237:17003/svcRest/mensajes/publicar;
+
+##Servicio REST Produccion Canal 270##
+#nodoRest_270;cantidad=8;
+#nodoRest_270_1;url=http://everestl11:8111/svcRest/mensajes/publicar;
+#nodoRest_270_2;url=http://everestl12:8111/svcRest/mensajes/publicar;
+#nodoRest_270_3;url=http://everestl21:8111/svcRest/mensajes/publicar;
+#nodoRest_270_4;url=http://everestl22:8111/svcRest/mensajes/publicar;
+#nodoRest_270_5;url=http://everestm11:8111/svcRest/mensajes/publicar;
+#nodoRest_270_6;url=http://everestm12:8111/svcRest/mensajes/publicar;
+#nodoRest_270_7;url=http://everestm21:8111/svcRest/mensajes/publicar;
+#nodoRest_270_8;url=http://everestm22:8111/svcRest/mensajes/publicar;
+
+
+#####################################################
+#	 URL del servicio en OSB.						#
+#####################################################
+PERSONA;osb=;
+EMPRESA;osb=;
+
+# Desarrollo
+#INTRANET;osb=http://10.3.6.175:8011/esb/INTRANET/infraestructura/mensajeria/notificacion/ServicioNotificacionPS?wsdl;
+
+# Certificación
+INTRANET;osb=http://161.131.140.137:9050/esb/INTRANET/infraestructura/mensajeria/notificacion/ServicioNotificacionPS?wsdl;
+
+# Producción
+#INTRANET;osb=http://alsb.bci.cl/esb/INTRANET/infraestructura/mensajeria/notificacion/ServicioNotificacionPS?wsdl;
+
+#####################################################
+#	 Estado por defecto es 2						#
+#####################################################
+ESTADO;est=2;
+
+#####################################################
+#	 Codigo semilla para formar id mensaje			#
+#####################################################
+SEMILLA;codSemilla=PMB;
+mensajeTrazaInsercion;desc=Inserción en BD;
+mensajeTrazaInsercionError;desc=Error Inserción en BD;
+mensajeTrazaEjecucion;desc=Ejecución de Servicio REST;
+mensajeTrazaEjecucionError;desc=Error Ejecución de Servicio REST;
+mensajeTrazaRespuesta;desc=Respuesta de Servicio REST;
+serverNotificaciones;desc=serverNotificaciones;
+canalHttpPublicacion;desc=canalHttpPublicacion;
+
+#################################################################
+#	 Parametros para invocacion de WS de Notificaciones			#
+#################################################################
+WSNotificacionesParametros;requestTimeOut=4000;connectTimeOut=1000;sistema=wlsalsb;

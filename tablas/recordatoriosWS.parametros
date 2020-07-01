@@ -1,0 +1,5 @@
+RESTRICCIONES_RECORDATORIOS;retorno=20;maximoingreso=20;largorecordatorio=100;
+
+#Mesanjes de error
+MENSAJE_ERROR;consultaRecordatorio=El recordatorio no existe o no está asociado al ejecutivo en sesión.;noAutorizado=El ejecutivo no se encuentra autentificado.;noEliminado=El recordatorio no pudo ser eliminado.;noModificado=El recordatorio no pudo ser modificado.;maximoInsertado=Se ha superado el máximo diario de recordatorios ingresados.;validacionRecordatorio=El texto no puede ser vacío y no puede superar el máximo de caracteres.;
+ERROR_USUARIO;EJECUTIVO_NO_CORRESPONDE=El ejecutivo no corresponde al que ha iniciado sesión.;

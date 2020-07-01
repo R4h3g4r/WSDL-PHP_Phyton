@@ -1,0 +1,85 @@
+JNDI_SERVICIOS_DPS_CLIENTE;Desc=wcorp.aplicaciones.clientes.dps.DPSCliente;
+JNDI_SERVICIOS_ECM;Desc=wcorp.infraestructura.filenet.ecm.ECMService;
+contratante;nombre=BANCO CREDITO E INVERSIONES;rut=97006000;dv=6;
+codigoCompania;Desc=bicevida;
+impresion;Desc=/cl/bci/aplicaciones/cliente/declaracionpersonalsalud/vista/pdf/declaracionSalud.xsl;
+imagenLogo;Desc=/resources/img/02-logo-bci.gif;
+
+estados;rechazado=RECHAZADO;aceptado=Aceptado;evaluacion=Evaluación;ingresado=Ingresado;
+
+#OSB Desarrollo
+#servicioecm;wsdl=http://b2bdesa.bci.cl:9050/esb/infraestructura/ecm/ServicioECMPS?wsdl;
+#serviciovisualizacion;wsdl=http://b2bdesa.bci.cl:9050/esb/infraestructura/ecm/ServicioVisualizacionPS?wsdl;
+
+#OSB Certificacion
+servicioecm;wsdl=http://b2bcert.bci.cl:9050/esb/infraestructura/ecm/ServicioECMPS?wsdl;
+serviciovisualizacion;wsdl=http://b2bcert.bci.cl:9050/esb/infraestructura/ecm/ServicioVisualizacionPS?wsdl;
+
+#OSB Produccion
+#servicioecm;wsdl=http://alsb.bci.cl/esb/intranet/infraestructura/ecm/ServicioECMPS?wsdl;
+#serviciovisualizacion;wsdl=http://alsb.bci.cl/esb/intranet/infraestructura/ecm/ServicioVisualizacionPS?wsdl;
+
+
+#Servicio de suscripcion Dsarrollo
+#evaluacion_bice;url=http://localhost:8088/mockSuscripcionEvaluacionPortBinding?WSDL;sistemauyp=uyp_dps;timeOut=5;
+
+#Servicio de suscripcion Integracion
+#evaluacion_bice;url=http://esbinte.bci.cl/cxf/SuscripcionEvaluacion?wsdl;sistemauyp=uyp_dps;timeOut=50;
+
+#Servicio de suscripcion Certificacion
+evaluacion_bice;url=http://esbcert.bci.cl/cxf/SuscripcionEvaluacion?wsdl;sistemauyp=uyp_dps;timeOut=50;
+
+#Servicio de suscripcion Produccion
+#evaluacion_bice;url=http://esb.bci.cl/cxf/SuscripcionEvaluacion?wsdl;sistemauyp=uyp_dps;timeOut=200;
+
+###########
+# FILENET #
+###########
+service;valor=FileNetP8WSI;
+objectStore;valor=DocumentosTemporales;
+clase;valor=DocumentoCliente;
+mime;valor=application/pdf;
+carpetaCargaDocumento;path=/DocumentosClientes;
+
+#Domain Desarrollo
+#domain;valor=FilenetP8V3;
+
+#Domain Certificacion
+domain;valor=FNETCERT;
+
+#Domain Integracion
+#domain;valor=BCIINTE;
+
+#Domain produccion
+#domain;valor=BCIPROD;
+
+#SistemaUyP para produccion y certificacion
+FileNetsistemaUyP;valor=uyp_dps;
+
+#SistemaUyP para desarrollo e integracion
+#FileNetsistemaUyP;valor=uyp_dps;
+
+#Cantidad maxima dias exportar DPS
+maximoDiasExportar;valor=730
+
+#cabeceras archivo exportar
+cabecerasExport;valor=FECHA_DPS|DPS_NUMERO|NOMBRE_EJECUTIVO|MAIL_EJECUTIVO|RUT_ASEGURADO|DV_ASEGURADO|APELLIDO_PATERNO|APELLIDO_MATERNO|NOMBRES|TELEFONO|TELEFONO_CELULAR|MAIL_CONTACTO|MONTO_CREDITO_UF|PLAZO_TIPO|PLAZO_CANTIDAD|RECURSE|NUMERO_RECURSE|ESTADO_DPS|EDAD|SEXO|FECHA_NACIMIENTO|ESTADO_CIVIL|DIRECCION|REGION|CIUDAD|COMUNA|PESO|ESTATURA|PRIMA_UF|RESPUESTA1|DETALLE1|RESPUESTA2|DETALLE2|RESPUESTA3|DETALLE3|RESPUESTA4|DETALLE4|RESPUESTA5|DETALLE5|RESPUESTA6|DETALLE6|RESPUESTA7|DETALLE7|RESPUESTA8|DETALLE8|RESPUESTA9|DETALLE9|RESPUESTA10|DETALLE10;
+caracterSeparadorExport;valor=|;
+
+#validacion archivo importar
+tamanoMaximoImportar;valor=2048;
+cantidadCamposArchivoImp;valor=4;
+formatoArchivoImp;valor=text/csv|application/vnd.ms-excel;
+extensionArchivoImp;valor=txt;
+caracterSeparadorImport;valor=|;
+posicionesCamposArchivoImp;id=0;estado=1;fecha=2;glosa=3;
+
+#Aseguradoras configuradas para servicio web de evaluacion
+aseguradoras;bice=bicevida;
+
+#Dominio correo ejecutivo
+dominioCorreo;bci=@bci.cl;
+
+tipoDocumental;valor=DPS;
+
+caracteresEscapar;cantidad=6;aReemplazar=&iquest#&aacute#&oacute#&ntilde#&iacute#&uacute;&iquest=¿;&aacute=á;&oacute=ó;&ntilde=ñ;&iacute=í;&uacute=ú;&eacute=é;

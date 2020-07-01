@@ -1,0 +1,115 @@
+#
+# Configuracion para cola.
+#
+JMSConf;conFactory=jms.alcancia.AlcanciaConnectionFactory;queueName=jms.alcancia.AlcanciaQueue;
+
+#
+# Estados del enrolamiento.
+#
+estadosEnrolamiento;activo=0;bloqueado=1;U=0;L=1;0=activo;noEnrolado=2;preEnrolado=3;enrolamientoValidado=4;1=bloqueado;2=No enrolado;3=Enrolamiento no finalizado;4=Enrolamiento no finalizado;
+
+#
+# Movimientos.
+#
+descripcionMovimientos;1=Abono por ahorro alcancia;2=Cargo por rescate de ahorro alcancia;abono=1;cargo=2;
+
+#
+# Estados del movimiento.
+#
+estadosMovimiento;OK=0;NOK=1;
+
+#
+# Variables de ahorro.
+#
+ahorro;monto=1000;
+
+#
+# Cantidad de movimientos para cartola.
+#
+cantidadMovimientos;valor=18;
+
+#
+# Código de error
+#
+codigoError;500=NOOK;
+
+#
+# Servicio para segunda clave.
+#
+servicioSegundaClave;valor=EnrolamientoPagameIndustria;
+
+#
+# Condiciones ahorro
+#
+condicionesAhorro;tarifaMensual=0;numeroGiroOtroBanco=0;tarifaGiroBci=0;tarifaGiroOtroBanco=0,0357;comisionCartolaAdicional=0,0357;plazoVigencia=Anual Renovable Automático;comisionCartolaHistorica=0,0714;
+
+#
+# DatosBanco
+#
+datosBanco;nombreBanco=Banco de Crédito e Inversiones;rutBanco=97.006.000-6;domicilioBanco=Avenida El Golf N° 125, Las Condes, Santiago;representanteBanco=Francisco Mendoza Muñiz;
+
+#
+# Variables de envío de email.
+#
+loginEnterprise;Desc=BCI;
+refContract;Desc=WEBBCI_ENR_ALC_MOV;
+refTemplate;Desc=tmpl_WEBBCI_ENR_ALC_MOV;
+subject;Desc=Contrato Cuenta Vista Alcancía BciNova;
+largoSecuencia;valor=15;
+#
+# Variables remitente de envío para certificación.
+#
+#remitente;valor=jpaineq@bcicert.cl;
+#
+# Variables remitente de envío para producción.
+#
+remitente;valor=contacto@bci.cl;
+tipo;valor=application/pdf;
+
+#
+# Datos para Journalizar
+#
+datosJournalizar;eventoEnrola=ENROLA;eventoApertura=APERTURA;subEventoCtades=CTADES;subEventoOk=OK;subEventoNok=NOK;productoCpr=CPR;productoAlcanc=ALCANC;estadoP=P;
+
+# 
+# PDF
+#
+contratoPDFMovil;rutaXsl=/conosurwls/servicios/ahorro/pdf/bciNova.xsl;rutaLogo=/conosurwls/servicios/ahorro/pdf/images/;
+
+#
+# FTP Certificación
+#
+#ftpAhorro;servidor=161.131.232.185;directorioBase=/Alcancia/in;sistemaUyP=alcancia;
+
+#
+# FTP Producción
+#
+ftpAhorro;servidor=161.131.232.12;directorioBase=/Alcancia/in;sistemaUyP=alcancia;
+
+# 
+# Parámetros Servicio Apertura Cuenta.
+#
+fecha;desc=1999-11-26;
+cantidad;desc=01;
+subTipoOp;desc=ALC;
+tipoOperacion;desc=CPR;
+reposicion;desc=   ;
+codMatrizRet;desc=2;
+codExcencion;desc=00;
+plan;desc= ;
+intereses;desc=N;
+valorCambio;desc=      ;
+parametro2;desc=                                        ;
+parametro3;desc=                                        ;
+talonarios;desc= ;
+parametro4;desc=   ;
+numTalonario;desc=  ;
+tipoClienteApertura;desc=001;
+codParametro;desc=  ;
+tipoCompra;desc=01;
+cuenta;desc=            ;
+periodoPago;desc=M;
+tipoUsuario;desc=P;
+indicadorTipoAcc;desc= ;
+codigo2;desc=      ;
+codigo3;desc= ;

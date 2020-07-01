@@ -1,0 +1,350 @@
+BCI_PUBLICO;valor=122;
+
+productoSimulacionPublico;SSP=CON465;CU=CON499;porDefecto=ALR500;AUTO_DEFECTO=CON502;
+productoSimulacionSeguro;CON=CON300;CON_COL=PAP328;CU=CON499;CD=CON467;CD_COL=PAP400;SSP=CON465;SSP_COL=PAP330;porDefecto=ALR500;AUTO_DEFECTO=CON801;AUTO_DEFECTO_COL=PAP494;CCA=CON300;
+
+MONEDA;AUTO_DEFECTO=0999;AUTO_DEFECTO_COL=0999;
+aniosVehiculo;cantidad=15;
+
+AUTO_COL;desc=PAP494;
+110AUTO;desc=CON801; 
+100AUTO;desc=CON801;
+122AUTO;desc=CON502;
+
+PROD_PAP494;desc=Cuota Colaborador;
+PROD_CON800;desc=Cuota Fija;
+PROD_CON801;desc=Siempre Nuevo;
+PROD_CON501;desc=Cuota Fija;
+PROD_CON502;desc=Siempre Nuevo;
+
+cuotasCreditoCON801;desc=2;
+cuota1-CON801;valor=24 + 1;etiqueta=24 + 1;
+cuota2-CON801;valor=36 + 1;etiqueta=36 + 1;
+
+cuotasCreditoCON502;desc=2;
+cuota1-CON502;valor=24 + 1;etiqueta=24 + 1;
+cuota2-CON502;valor=36 + 1;etiqueta=36 + 1;
+
+porcentajesUltimaCuota24 + 1;desc=30|35|40|45|50;
+porcentajesUltimaCuota36 + 1;desc=30|35|40;
+
+
+## Descripciones de seguros BCI
+segurosSDCFLT;SDCFLT=Cesantia o Incapacidad Temporal;codigo=(POL 1 2013 0122, Riesgos A y B);
+segurosSDGFLT;SDGFLT=Desgravamen;codigo=(POL 2 2013 0331 / CAD 2 2013 1138);
+segurosSDPFLT;SDPFLT=Doble Capital;codigo=(POL 2 2013 0055 / CAD 3 2013 0060);
+segurosSECFLT;SECFLT=Enfermedades Graves;codigo=(POL 3 2013 0507);
+segurosSHOFLT;SHOFLT=Hospitalizacion;codigo=(POL 2 2013 0502);
+segurosDGAFLT;DGAFLT=Desgravamen Aval;
+segurosHGCFLT;HGCFLT=Hogar Contenido;
+segurosAPDFLT;APDFLT=Accidentes Personales;codigo=(POL 3 2013 0409, Letras A, B y C);
+segurosAPIFLT;APIFLT=Accidentes Personales Aval;
+segurosSCVFLT;SCVFLT=Credito vida;
+segurosCVAFLT;CVAFLT=Credito vida aval;
+
+##PAQUETES DE SEGUROS
+##opciones disponibles op1, op2 y op3;
+opcionPaqueteActiva;desc=op2;
+
+##definicion de paquetes opcion 1
+tiposPAQop1;desc=FUL|PLU|BAS;default=PLU
+
+##seguros asociados a cada paquete opcion 1
+paqueteBAS;seguros=SDGFLT;desc=Protección Seguro Desgravamen;
+paquetePLU;seguros=SDGFLT|SDCFLT;desc=Protección Seguro Desgravamen + Cesantía;
+paqueteFUL;seguros=SDGFLT|SDCFLT|SDPFLT|SECFLT|SHOFLT;desc=Protección Full;
+
+##definicion de paquetes opcion 2
+tiposPAQop2;desc=DES|PVID|PSAL;
+
+##seguros asociados a cada paquete opcion 2
+paqueteDES;seguros=SDGFLT;desc=Protección Básica;
+paquetePVID;seguros=SDPFLT;desc=Protección Vida;
+paquetePSAL;seguros=SDCFLT|SECFLT|SHOFLT;desc=Protección Salud;
+
+##opciones de mail de solicitud
+CON300;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciMulticreditoFastTrack,;from=webmast@bci.cl;fromNombre=BCI;
+CON465;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciMulticredito,;from=webmast@bci.cl;fromNombre=BCI;
+CON499;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciMulticredito,;from=webmast@bci.cl;fromNombre=BCI;
+PAP330;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciMulticredito,;from=webmast@bci.cl;fromNombre=BCI;
+PAP400;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciMulticredito,;from=webmast@bci.cl;fromNombre=BCI;
+CON467;to=solicitud@bci.cl,leadbv@bci.cl;asunto=BciConsolidacionDeudas,;from=webmast@bci.cl;fromNombre=BCI;
+
+
+##Dia de vencimiento para cuotas de colaboradores
+diaVencimientoColaborador;valor=10;
+
+#Consolidador
+idProductoCredito;valor=CDC;
+idSubProductoCredito;valor=MDC;
+
+#codigo de journalización
+122-SOL-CON-PUB;codEvento=SOLIC;codSubEvento=CONSUM;codProducto=CRED;
+122-SIM-CON-PUB;codEvento=SIMULAC;codSubEvento=CONSUM;codProducto=CRED;
+122-SOL-CU-PUB;codEvento=SOLIC;codSubEvento=UNIVER;codProducto=CRED;
+122-SIM-CU-PUB;codEvento=SIMULAC;codSubEvento=UNIVER;codProducto=CRED;
+122-SIM-CON501-PUB;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+122-SIM-CON502-PUB;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+122-SOL-CON501-PUB;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+122-SOL-CON502-PUB;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+
+110-SOL-CON-SEG;codEvento=SOLIC;codSubEvento=CONSUM;codProducto=CRED;
+110-SIM-CON-SEG;codEvento=SIMULAC;codSubEvento=CONSUM;codProducto=CRED;
+110-SIM-CON-MAT;codEvento=SELECMT;codSubEvento=CONSUM;codProducto=CRED;
+110-CUR-CON-SEG;codEvento=CURSE;codSubEvento=CONSUM;codProducto=CRED;
+110-1OP-CON-MAT;codEvento=SIMU1OP;codSubEvento=CONSUM;codProducto=CRED;
+110-1OP-CON-MATCCA;codEvento=SIMU1OP;codSubEvento=COMCAR;codProducto=CRED;
+110-SIM-CON-MATCCA;codEvento=SELECMT;codSubEvento=COMCAR;codProducto=CRED;
+110-COM-LLA-COK;codEvento=CALLOK;codSubEvento=COMCAR;codProducto=CRED;
+110-COM-LLA-NOK;codEvento=ERCALLM;codSubEvento=COMCAR;codProducto=CRED;
+110-COM-CAL-COK;codEvento=CALVVOK;codSubEvento=COMCAR;codProducto=CRED;
+110-COM-CAL-NOK;codEvento=ERCALVV;codSubEvento=COMCAR;codProducto=CRED;
+110-SIM-CON-SEGCCA;codEvento=SIMULAC;codSubEvento=COMCAR;codProducto=CRED;
+110-CUR-CON-SEGCCA;codEvento=CURSE;codSubEvento=COMCAR;codProducto=CRED;
+110-SOL-CD-SEG;codEvento=SOLIC;codSubEvento=COMCAR;codProducto=CRED;
+110-SIM-CD-SEG;codEvento=SIMULAC;codSubEvento=COMCAR;codProducto=CRED;
+110-SOL-CU-SEG;codEvento=SOLIC;codSubEvento=UNIVER;codProducto=CRED;
+110-SIM-CU-SEG;codEvento=SIMULAC;codSubEvento=UNIVER;codProducto=CRED;
+110-SOL-SSP-SEG;codEvento=SOLIC;codSubEvento=CONSMN;codProducto=CRED;
+110-SIM-SSP-SEG;codEvento=SIMULAC;codSubEvento=CONSMN;codProducto=CRED;
+
+110-FOL-CON-FOLIOK;codEvento=FOLIOOK;codSubEvento=COMCAR;codProducto=CRED;
+110-FOL-CON-FOLINOK;codEvento=FOLIONOK;codSubEvento=COMCAR;codProducto=CRED;
+
+110-SIM-CON-FA1;codEvento=SIMULAC;codSubEvento=OP1;codProducto=CRED;
+110-SIM-CON-FA2;codEvento=SIMULAC;codSubEvento=OP2;codProducto=CRED;
+110-SIM-CON-FA3;codEvento=SIMULAC;codSubEvento=OP3;codProducto=CRED;
+
+110-EJE-CON-RCH;codEvento=CLINOCON;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-COR;codEvento=CLINOCOR;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-LIS;codEvento=CONLIS;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-ABO;codEvento=EXITO;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-VIS;codEvento=FRSGP1;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-MAR;codEvento=MGRMIN;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-MAN;codEvento=SNCNCR;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-CON;codEvento=ESNCNC;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-CON-REN;codEvento=RNDS;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-REC-REN;codEvento=ERNDS;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-EST-REN;codEvento=ERNDSP;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-ACT-REN;codEvento=RNDSPV;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-DPS-ERR;codEvento=EDPS;codSubEvento=CONSUM;codProducto=CRED;
+110-EJE-DPS-REC;codEvento=DPSNOK;codSubEvento=CONSUM;codProducto=CRED;
+
+100-SOL-CON-SEG;codEvento=SOLIC;codSubEvento=CONSUM;codProducto=CRED;
+100-SIM-CON-SEG;codEvento=SIMULAC;codSubEvento=CONSUM;codProducto=CRED;
+100-SIM-CON-MAT;codEvento=SELECMT;codSubEvento=CONSUM;codProducto=CRED;
+100-CUR-CON-SEG;codEvento=CURSE;codSubEvento=CONSUM;codProducto=CRED;
+100-1OP-CON-MAT;codEvento=SIMU1OP;codSubEvento=CONSUM;codProducto=CRED;
+100-1OP-CON-MATCCA;codEvento=SIMU1OP;codSubEvento=COMCAR;codProducto=CRED;
+100-SIM-CON-MATCCA;codEvento=SELECMT;codSubEvento=COMCAR;codProducto=CRED;
+100-COM-LLA-COK;codEvento=CALLOK;codSubEvento=COMCAR;codProducto=CRED;
+100-COM-LLA-NOK;codEvento=ERCALLM;codSubEvento=COMCAR;codProducto=CRED;
+100-COM-CAL-COK;codEvento=CALVVOK;codSubEvento=COMCAR;codProducto=CRED;
+100-COM-CAL-NOK;codEvento=ERCALVV;codSubEvento=COMCAR;codProducto=CRED;
+100-SIM-CON-SEGCCA;codEvento=SIMULAC;codSubEvento=COMCAR;codProducto=CRED;
+100-CUR-CON-SEGCCA;codEvento=CURSE;codSubEvento=COMCAR;codProducto=CRED;
+100-SOL-CD-SEG;codEvento=SOLIC;codSubEvento=COMCAR;codProducto=CRED;
+100-SIM-CD-SEG;codEvento=SIMULAC;codSubEvento=COMCAR;codProducto=CRED;
+100-SOL-CU-SEG;codEvento=SOLIC;codSubEvento=UNIVER;codProducto=CRED;
+100-SIM-CU-SEG;codEvento=SIMULAC;codSubEvento=UNIVER;codProducto=CRED;
+100-SOL-SSP-SEG;codEvento=SOLIC;codSubEvento=CONSMN;codProducto=CRED;
+100-SIM-SSP-SEG;codEvento=SIMULAC;codSubEvento=CONSMN;codProducto=CRED;
+
+100-EJE-CON-RCH;codEvento=CLINOCON;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-LIS;codEvento=CLINOCOR;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-COR;codEvento=CONLIS;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-ABO;codEvento=EXITO;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-VIS;codEvento=FRSGP1;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-MAR;codEvento=MGRMIN;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-MAN;codEvento=SNCNCR;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-CON;codEvento=ESNCNC;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-CON-REN;codEvento=RNDS;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-REC-REN;codEvento=ERNDS;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-EST-REN;codEvento=ERNDSP;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-ACT-REN;codEvento=RNDSPV;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-DPS-ERR;codEvento=EDPS;codSubEvento=CONSUM;codProducto=CRED;
+100-EJE-DPS-REC;codEvento=DPSNOK;codSubEvento=CONSUM;codProducto=CRED;
+
+110-SIM-PAP494-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+110-SIM-CON800-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+110-SIM-CON801-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+110-CUR-PAP494-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+110-CUR-CON800-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+110-CUR-CON801-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+110-SOL-PAP494-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+110-SOL-CON800-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+110-SOL-CON801-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+100-SIM-PAP494-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+100-SIM-CON800-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+100-SIM-CON801-SEG;codEvento=SIMULAC;codSubEvento=AUTOMO;codProducto=CRED;
+100-CUR-PAP494-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+100-CUR-CON800-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+100-CUR-CON801-SEG;codEvento=CURSE;codSubEvento=AUTOMO;codProducto=CRED;
+100-SOL-PAP494-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+100-SOL-CON800-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+100-SOL-CON801-SEG;codEvento=SOLIC;codSubEvento=AUTOMO;codProducto=CRED;
+
+100-FOL-CON-FOLIOK;codEvento=FOLIOOK;codSubEvento=COMCAR;codProducto=CRED;
+100-FOL-CON-FOLINOK;codEvento=FOLIONOK;codSubEvento=COMCAR;codProducto=CRED;
+
+100-SIM-CON-FA1;codEvento=SIMULAC;codSubEvento=OP1;codProducto=CRED;
+100-SIM-CON-FA2;codEvento=SIMULAC;codSubEvento=OP2;codProducto=CRED;
+100-SIM-CON-FA3;codEvento=SIMULAC;codSubEvento=OP3;codProducto=CRED;
+
+journal;medioMkt=MKT;medioCuota=SIMUCUOT;medioMonto=SIMUMONT;medioCCA=COMCAR;medioCSG=CSG;idCSG=CONSGR;medioFlash=CREDFA;
+productoWeb;codigomkt=CON;
+
+firmaDigital;valor=/resources/images/html/firma_digital_luis_poblete.jpg;
+logo;valor=/resources/images/html/logo_bci_print.jpg;
+xslhojaresumenconsumo;valor=/cl/bci/aplicaciones/productos/colocaciones/hojaresumenconsumo.xsl;
+xslcontratoconsumo;valor=/cl/bci/aplicaciones/productos/colocaciones/contratoconsumo.xsl;
+xslvalevista;valor=/cl/bci/aplicaciones/productos/colocaciones/informativovalevista.xsl;
+nombreapoderadoBanco;valor=Luis Poblete Muñoz;
+fechaContrato;valor=30/04/2093;
+
+firmaDigitalAutomotriz110;valor=/resources/images/html/firma_digital_luis_poblete.jpg;
+logoAutomotriz110;valor=/resources/images/html/logo_bci_print.jpg;
+xslhojaresumenconsumoAutomotriz;valor=/cl/bci/aplicaciones/productos/colocaciones/simuladorCreditoAutomotriz/vistas/hojaresumenconsumo.xsl;
+xslcontratoconsumoAutomotriz;valor=/cl/bci/aplicaciones/productos/colocaciones/simuladorCreditoAutomotriz/vistas/contratoconsumo.xsl;
+nombreapoderadoBancoAutomotriz110;valor=Luis Poblete Muñoz;
+fechaContratoAutomotriz;valor=30/04/2093;
+
+firmaDigitalAutomotriz100;valor=/resources/images/html/firma_digital_luis_poblete.jpg;
+logoAutomotriz100;valor=/resources/tbanc/menu/images/html/logo_tbanc.gif;
+nombreapoderadoBancoAutomotriz100;valor=Luis Poblete Muñoz;
+
+errorChip;mensaje=(APR):%E04%EXIST033;
+errorPap;mensaje=(APR):%E04%EXIST033;
+
+revisionMandato;valor=false;
+
+clienteColaborador;valor=99001;
+firmaDigital100;valor=/resources/images/html/firma_digital_luis_poblete.jpg;
+logo100;valor=/resources/tbanc/menu/images/html/logo_tbanc.gif
+nombreapoderadoBanco100;valor=Luis Poblete Muñoz;
+
+firmaDigital110;valor=/resources/images/html/firma_digital_luis_poblete.jpg;
+logo110;valor=/resources/images/html/logo_bci_print.jpg;
+nombreapoderadoBanco110;valor=Luis Poblete Muñoz;
+
+rutGNpublico;valor=222001;
+dvGNpublico;valor=6;
+
+GLOSA-PAP494;desc=ClienteCreditoAutomotriz;
+GLOSA-CON800;desc=ClienteCreditoAutomotriz;   
+GLOSA-CON801;desc=ClienteCreditoAutomotriz;
+GLOSA-CON465;desc=NoClienteConsumo;
+GLOSA-CON499;desc=NoClienteUniversal;
+GLOSA-CON300;desc=ClienteConsumo;
+GLOSA-PAP328;desc=ClienteConsumo;
+GLOSA-CON499;desc=ClienteUniversal;
+GLOSA-CON467;desc=ClienteCompraCartera;
+GLOSA-PAP400;desc=ClienteCompraCartera;
+GLOSA-CON465Seguro;desc=ClienteManual;
+GLOSA-PAP330;desc=ClienteManual;
+GLOSA-CON501;desc=NoClienteCreditoAutomotriz;
+GLOSA-CON502;desc=NoClienteCreditoAutomotriz;
+
+
+fechaDefecto;desc=01/01/1900;
+
+rutSiempreNuevo;valor=222006-7;
+
+CORREO_CONFIRMACION_AUTOMOTRIZ;TEMPLATE=PBP_AUTOMOTRIZ_CORREO;LOGIN=BCI;CONTRACT=PBP_AUTOMOTRIZ_CORREO_CONT;FROM_NAME=contacto@bci.cl;ASUNTO=Información Crédito  BCI N° ;
+CORREO_CONFIRMACION_CONSUMO;TEMPLATE=PBP_CONSUMO_CORREO;LOGIN=BCI;CONTRACT=PBP_CONSUMO_CORREO_CONT;FROM_NAME=contacto@bci.cl;ASUNTO=Información Crédito  BCI N° ;
+CORREO_CONFIRMACION_CONSUMO_CCALD;TEMPLATE=tmpl_PBP_SIMCONSUMO_CORREO_CONT_CCALD;LOGIN=BCI;CONTRACT=PBP_SIMCONSUMO_CORREO_CONT_CCALD;FROM_NAME=contacto@bci.cl;ASUNTO=Su crédito ha sido cursado con éxito;
+CORREO_CONFIRMACION_CONSUMO_CCA;TEMPLATE=tmpl_PBP_SIMCONSUMO_CORREO_CONT_CCA;LOGIN=BCI;CONTRACT=PBP_SIMCONSUMO_CORREO_CONT_CCA;FROM_NAME=contacto@bci.cl;ASUNTO=Su crédito ha sido cursado con éxito;
+CORREO_CONFIRMACION_CONSUMO_LD;TEMPLATE=tmpl_PBP_SIMCONSUMO_CORREO_CONT_LD;LOGIN=BCI;CONTRACT=PBP_SIMCONSUMO_CORREO_CONT_LD;FROM_NAME=contacto@bci.cl;ASUNTO=Su crédito ha sido cursado con éxito;
+CORREO_CONFIRMACION_COMPRA_CARTERA;TEMPLATE=tmpl_ WEBBCI_COMPRA_CARTERA;LOGIN=BCI;CONTRACT=WEBBCI_COMPRA_CARTERA;FROM_NAME=contacto@bci.cl;ASUNTO=Información Crédito  BCI Nº ;ASUNTO2=cursado a través de WEB;
+puedeCursar;desc=CON300-CON800-CON801-PAP328-PAP330-PAP494-CON440-CON450;
+matrizActivaBcicl;valor=true;
+matrizCdc;codigoLiquido=L;codigoBruto=B;codigoCuota=C;modoGdmBcicl=M01;modoGdmViajeCliente=V01;modoGdmPaqBAS=SM1;modoGdmPaqPLU=SM2;modoGdmPaqFUL=SM3;modoGdmPaq=SM4;modoGdmLucFlash=SM2;
+#parametros para ATM
+atmCdc;codigoLiquido=L;codigoBruto=B;modoGdmBcicl=ATM;
+atmParam;tipoOperacion=CON;codigoAuxiliar=300;moneda=0999;tipoCargo=AUT;tipoAbono=CCWB;destinoCredito=112;codigoNotaria=PRECIO;codigoSeguro=SINSEG;
+atmError;validaPOC=1;simulacion=2;tarifasMc2=3;general=4;abono=5;
+
+matrizSimuladorPublico;datoBL=L;
+datosSolicitudExtra;sinCodigo=NN;observacion=Campana Credito web;caracteristicaNC=No cliente;
+
+110PUB;moneda=0999;tipo=CON;codigo=465;paqueteSeguro=PLU|Protección Seguro Desgravamen + Cesantía|SDG-SDC;
+110UNI;moneda=0999;tipo=CON;codigo=499;paqueteSeguro=BAS|Protección Seguro Desgravamen|SDG;
+100PUB;moneda=0999;tipo=CON;codigo=465;paqueteSeguro=PLU|Protección Seguro Desgravamen + Cesantía|SDG-SDC;
+100UNI;moneda=0999;tipo=CON;codigo=499;paqueteSeguro=BAS|Protección Seguro Desgravamen|SDG;
+800PUB;moneda=0999;tipo=CON;codigo=465;paqueteSeguro=PLU|Protección Seguro Desgravamen + Cesantía|SDG-SDC;
+800UNI;moneda=0999;tipo=CON;codigo=499;paqueteSeguro=BAS|Protección Seguro Desgravamen|SDG;
+
+journalizaInicializarPrimerIngreso;evento=INGSIM;subEvento=OK;idProducto=CONSUM;estadoEvento=P;
+journalizaInicializarErrorPOC;evento=INGSIM;subEvento=EPOC;idProducto=CONSUM;estadoEvento=E;
+
+journalizaSimular1;evento=CRED;subEvento=SIMU1OP;idProducto=CONSUM;estadoEvento=P;
+journalizaSimular2;evento=CRED;subEvento=SIMULAC;idProducto=CONSUM;estadoEvento=P;idSvs=P1AP2;
+journalizaSimular3;evento=CRED;subEvento=SELECMT;idProducto=CONSUM;estadoEvento=P;
+journalizaSimular4;evento=CRED;subEvento=SIMULAC;idProducto=CONSUM;estadoEvento=P;idSvs=MAP2;
+journalizaSimularError;evento=CRED;subEvento=ESIM;idProducto=CONSUM;estadoEvento=E;
+
+journalizaSolicitar;evento=SIMULAC;subEvento=CONSUM;idProducto=CRED;estadoEvento=P;idSvs=P2AP3;
+journalizaSolicitarErrorVisacion;evento=SIMULAC;subEvento=EVIS;idProducto=CRED;estadoEvento=E;idSvs=P2AP3;
+journalizaSolicitarErrorGeneral;evento=SIMULAC;subEvento=EGEN;idProducto=CRED;estadoEvento=E;idSvs=P2AP3;
+
+activarImagenNuevo;valor=true;
+
+montoMaximoPoc;simuladorConsumo=30000000;producto=CON300;compraCartera=30000000;
+montoMaximoColab;simuladorConsumo=70000000;producto=PAP328;
+montoMaximoBancaPBP;simuladorConsumo=70000000;
+
+bancosCalc;permitidos=1|9|12|14|17|27|28|31|37|39|49|51|53|55|56|57|747;fijos=Banco de Chile-Edwards-Credichile:97004000-5|Banco Internacional:97011000-3|Banco del Estado de Chile:97030000-7|Banco Scotiabank:97018000-1|Banco do Brasil:97003000-K|Banco CorpBanca:97023000-9|Banco Bice:97080000-K|HSBC Bank (Chile):97042000-2|Banco Santander-Banefe:97007000-1|Banco Itau:97041000-7|Banco Security:97053000-2|Banco Falabella:96509660-4|Banco Ripley:97947000-2|Banco Consorcio:94730000-8|Banco Penta:97952000-K|Banco Paris:99565970-0|Banco BBVA:82-5;
+productosCalc;permitidos=2AI|955|AVC|CMO|LEM|LSG;fijos=CON:Crédito de Consumo|TDC:Tarjeta de Crédito|LSG:Lí­nea de Sobregiro;
+
+calculoCuotas;cuotaMaxima=36;cuotaSumar=5;
+
+consolidadorDeuda;codigoValeVista=ACWB;idCuentaDefault=0000;codigoLDC=LDC;codigoDVV=DVV;productoCCA=CON575;productoCMO=CON300;glosaPago=CCA Web;tituloArchivo=vv_cca_;extArchivo=.txt;codigoDesgravamen=SDG;anexoSeguro=FLT;saltosCuota=6;
+
+googleanAlytics;codigoGA=UA-57766770-6; asyncHide=GTM-T6SXG5;createAnalytics=UA-57766770-43;requireGtm=GTM-T6SXG5R;gtm=GTM-WNH6W5;
+#googleanAlytics;codigoGA=UA-75412162-1;
+
+curseSinGrabacion;productos=CON450|CON440|CON300|PAP328;codEntidad=CSG;estadoCancelacion=A;estadoConcretada=C;productosEverest=CON450|CON440;tipoDocumento=PGM;tipoEvc=EVCNOPAGO;tipoCalculoNoPago=NP;
+
+mailCurseSinGrabacionCancelacion;asunto=Cliente rechazó oportunidad de Crédito en WEB;
+mailCurseSinGrabacionAbono;asunto=Cliente aceptó crédito vía WEB;asuntoCCA=Atención: Cliente aceptó vía WEB;
+mailCurseSinGrabacionRechazo;asunto=Cliente con rechazo de condiciones vía WEB;
+
+cuerpoRechazoOportunidad;estimado=Estimado Ejecutivo,;cliente=Cliente;rechazoWebCredito=rechazó en WEB crédito;ingresandoEverest=ingresado a través de;favorGestionar=Everest, favor gestionar con cliente nueva oportunidad,;gracias=Gracias;
+cuerpoAbonoExito;estimado=Estimado Ejecutivo,;cliente=Cliente;aceptoCredito=acepto crédito;ingresandoEverest=ingresado a través de Everest. Oportunidad;ganada=ganada,;gracias=Gracias;
+cuerpoRechazoValidacion;estimado=Estimado Ejecutivo,;favorGestionar=Favor gestionar venta a través de WEB, cliente;tieneRechazo=tiene rechazo por;validacionCondiciones=validación de condiciones de curse. Motivo:;comuniquese=.Comuniquese con cliente para aclarar situación,;gracias=Gracias.;
+cuerpoRechazoValidacionCCALD;estimado=Estimado Ejecutivo,;cliente=El Cliente RUT:;rechazo=rechazó en WEB crédito;ingresandoEverest=ingresado a través de Everest.;contactar=Contactar a cliente para generar nueva oportunidad;gracias=Gracias.;
+
+cuerpoAbonoExitoCCA;estimado=Estimado Ejecutivo,;cliente=El Cliente RUT:;aceptoCredito=ha cursado exitosamente el crédito N°;ingresandoEverest=ingresado a través de Everest.;recordarVV=El cliente está esperando tu llamado para coordinar detalles correspondientes a la emisión de los vale vistas.;ganada=Oportunidad ganada.;gracias=Gracias;
+cuerpoAbonoExitoLD;estimado=Estimado Ejecutivo,;cliente=El Cliente RUT:;aceptoCredito=ha cursado exitosamente el crédito N°;ingresandoEverest=ingresado a través de Everest.;ganada=Oportunidad ganada.;gracias=Gracias;
+
+
+motivosRechazo;noPuedeCursar=No cumple condiciones para poder cursar(Revisar mandato canal remoto, montos margenes y existencia cuenta corriente o prima);noPuedeCursarPorWeb=El producto no puede cursarse por web;opeNoSimuloCurso=Operación no simulo/curso correctamente;rentaDesactualizada=Sin renta actualizada;dpsError=No tiene DPS aceptada;cuentaBiPersonal=Se ha seleccionado una cuenta de cargo bipersonal;rechazoVisacion2=Rechazado por visación que se realiza al momento de cursar el crédito;
+
+emailsCurseSinGrabacion;desc=contacto@bci.cl;quienEnvia=Banco Bci;
+
+
+mailViajeCliente;de=BCI;mailOrigen=contacto@bci.cl;extCorreo=@bci.cl;asunto=Cliente cursó crédito Compra de Cartera vía WEB;
+mailViajeClienteLabel;estimado=Estimado Ejecutivo,;sucliente=Su cliente;cursocredito=cursó crédito Compra Cartera;canalweb=a través de canal WEB.;detalle=Detalle del Crédito:;montoCredito=Monto Solicitado: $;paraDeudas=Para sus deudas: $;montoLibre=Libre disponible: $;numeroCuota=Número de cuotas:;primeraCuota=Primera cuota:;mesnopago=Meses de no pago:;tasainteres=Tasa interés mensual:;impuesto=Impuestos: $;gastonotarial=Gastos notariales: $;montoFinal=Monto final del crédito: $;costoTotal=Costo total del crédito (CTC): $;factorCae=Carga anual equivalente (CAE):;detaleVV=Detalle de Vale Vista:;rut=, RUT;gracias=Gracias.;
+mailViajeClientePie1;msj=El o los Vale Vista(s) estará(n) disponible(s) para su retiro el día hábil siguiente a contar de la fecha de curse del crédito.  El cliente podrá  retirarlo(s)  en cualquier sucursal BCI del país presentando su Cédula de Identidad. Le recordamos que mientras no retire el vale vista y lo entregue al Banco acreedor para su imputación al pago de su deuda, esta última se verá incrementada en su monto por el devengo de intereses del capital no pagado, y es probable que el monto del vale vista no alcance a cubrir el monto total adeudado a la fecha efectiva de pago. Es necesario considerar que se debe retirar un Vale Vista por cada Banco Acreedor en los casos que corresponda.;
+mailViajeClientePie2;msj=Le sugerimos contactar a su cliente para brindarle esta información resaltándole la importancia de ir a retirar y depositar los Vales Vistas lo antes posible. En caso de que su cliente tenga algún inconveniente con el depósito de Vale Vistas le agradecemos pueda asistirlo en la re-emisión de estos.
+
+glosaPaquetesCCA;BAS=Sólo desgravamen;PLU=Cesantía + desgravamen;FUL=Protección full;
+usoMaximoBanca;usar=1;
+JNDI;JNDI_SIMULACURSACREDITO=wcorp.bprocess.simulacion.SimulaCursaCredito;JNDI_NAME_PRECIO=wcorp.bprocess.precioscontextos.PreciosContextos;JNDI_NAME_COLOCACIONES=wcorp.serv.colocaciones.ServiciosColocaciones;JNDI_RIESGO=wcorp.bprocess.riesgo.Riesgo;EJB_JNDI_PAGOS_MASIVOS=wcorp.aplicaciones.productos.servicios.pagos.pagosmasivos.ServiciosDePagosMasivos;JNDI_SERVICIOS_TCORP=wcorp.serv.tcorp.ServiciosTCorp;JNDI_SERVICIOS_ECONOMIA=wcorp.serv.economia.ServiciosEconomia;EJB_JNDI_CREDITO=wcorp.aplicaciones.productos.colocaciones.consumo.facade.CreditoDeConsumoFacade;EJB_JNDI_DIR=wcorp.serv.direcciones.ServiciosDirecciones;JNDI_NAME_OFERTA=wcorp.bprocess.mkt121despofertas.DespliegueOfertas;
+
+montoMaximoBancaDefaultPer;simuladorDefaultPer=30000000;prodPer=CON300;
+montoMaximoBancaDefaultCol;simuladorDefaultCol=40000000;prodCol=PAP328;
+
+JNDIServiciosCobros;valor=wcorp.serv.cobros.ServiciosCobros;
+
+lucasFlash;cantidadOfertas=3;montoMin=300000;opc1=Opción 1;opc2=Opción 2;opc3=Opción 3;rango1=900000;rango2=1800000;rango3=3600000;rango4=5400000;rango5=10000000;cuota_R1=6;cuota_R2=12;cuota_R3=24;cuota_R4=36;cuota_R5=48;cuota_R6=60;mostrarTexto=true;oferta1=0.33;oferta2=0.67;oferta3=1.0;
+segFlash;default=paquetePLU;paqueteBAS=Seguro Desgravamen;paquetePLU=Seguro Desgravamen + Cesantía;paqueteFUL=Protección Full;
+showChat;letsTalk=true;
+DescuentoCCA;show=true;minimo=5;
+
+
+segurosConsumo;total=3;
+seg1;codigo=SDG;glosa=Seguro Desgravamen;propuesto=true;name=Seguro Desgravamen;id=desgravamen;tooltip=tooltipDesgravamen;
+seg2;codigo=SDC;glosa=Seguro Cesantía;propuesto=true;name=Seguro Cesantía;id=cesantia;tooltip=tooltipCesantia;
+seg3;codigo=CHO;glosa=Seguro Salud;propuesto=false; name=Seguro Salud;id=salud;tooltip=tooltipSalud;
+ 

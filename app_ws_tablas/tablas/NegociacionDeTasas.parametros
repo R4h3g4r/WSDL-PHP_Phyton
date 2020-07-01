@@ -1,0 +1,137 @@
+#PRECIOS MULTICANAL - TABLA DE PARAMETROS
+
+# Códigos de Monedas
+moneda;peso=0999;uf=0998;dolar=1013;euro=1142;porcentaje=P;mil=M;
+
+#parametros por default para ingreso de plantillas y reglas de negocio
+tipoTasaBase;desc=V;
+tipoTasaPeriodo;desc=A;
+tipoTasaPeriodoBajo;desc=S;
+tipoTasaPeriodoSobre;desc=S;
+tipoTasaVariable;desc=POC;
+tipoTasaTipoFechaRepacto;desc= ;
+tipoTasaPeriodoRepacto;desc=0;
+tipoTasaExpresado;desc= ;
+TasaCostoFondo;desc=S;
+TasaaccionCostoFondo;desc=+;
+TasaFactorRiesgo;desc=N;
+TasaaccionFactorRiesgo;desc= ;
+TasaDisponible;desc=U;
+TasaaccionDisponible;desc=S;
+TasaSpreadRorac;desc=;
+TasaaccionSpreadRorac;desc= ;
+codigoSistema;desc=CRE;
+codigoEvento;desc=CUR;
+codigoMoneda;desc= ;
+tipoPlantilla;desc=P;
+fechaInicio;desc= ;
+horaInicio;desc= ;
+fechaTermino;desc=31122099;
+horaTermino;desc=232301;
+descripcion;desc= ;
+codigoTipoValor;desc=TAS;
+montoTope;desc=9999999999999;
+plazotope;desc=99999;
+expresadoplazotope;desc=M;
+codigotipoCanal;desc= ;
+codigocanal;desc= ;
+codigoConcepto;desc=INT;
+codigoHayMas;desc=R;
+
+# parametros por default para comisiones
+prefijoPlan;desc=PNEG;
+prefijoCin;desc=;
+tipoPlazoTotal;desc=M;
+productoBEX;desc=BEX;
+productoBGT;desc=BGT;
+productoCOM;desc=COM;
+productoAVC;desc=AVC;
+conceptoBEX;desc=CCM;
+conceptoBGT;desc=INT;
+conceptoCOM;desc=INT;
+conceptoAVC;desc=INT;
+ 
+# consulta CGC
+caiPlantilla;desc=PNEG;
+codSistema;desc=CRE;
+codEvento;desc=CUR;
+tipPlantilla;desc=R;
+codConcepto;desc=PLN;
+codEstado;desc=A;
+
+multiEnvironment;banco=BCI;marca=BCI;cartera=BEE;idioma=ES;pais=CL;
+tableManager;instance=wcorp.util.tables.core.impl.WebTableManagerImpl;
+monedas;filtro=0999-0998;
+productos;filtro=BEX-BGT-COM-AVC;
+comisionEmision;filtro=FAC-MFI;
+tipoTasaEmision;filtro=P-M;
+plazoTotal;filtro=IPER;
+spread;filtro=PBTI;
+spreadPeriodo;filtro=A-M;
+monedasMontoBruto;filtro=0999-0998;
+tipoCanal;desc=;
+horaDefault;desc=000001;
+
+tipoProducto;producto=producto;grupo=grupo;
+
+descuento;desc=S;
+cargoAbono;desc=C;
+comisones;desc=EMI-002;
+comisionEMI;desc=EMI;
+comision002;desc=002;
+tipo2;desc=TAS;
+cobroEMI;desc=FLT;
+cobro002;desc=VCD;
+obligatoriedad;desc=S;
+tipo2FAC;desc=FAC;
+tipo2MFI;desc=MFI;
+moneda002;desc=P     ;
+codConceptoFAC;desc=CAP;
+codConceptoMFI;desc= ;
+codConcepto002;desc=CAP;
+ivaEMI;desc=S;
+iva002;desc=N;
+indExpresado;desc= ;
+numeroVig;desc=0;
+miscelaneoUTVD;desc= ;
+edadTope;desc=0;
+indRespecto;desc= ;
+numeroEventos;desc=0;
+minimo;desc=0;
+maximo;desc=0;
+monedaMinMax;desc= ;
+numeroMaximoCobro;desc=0;
+indicadorAcumulador;desc= ;
+numeroLicitacion;desc= ;
+baseTasaVariable;desc= ;
+tipoFechaPeriodoRepacto;desc= ;
+periodoRepacto;desc=0;
+mscExpresado;desc= ;
+situacionContable;desc= ;
+indTasaCredito;desc= ;
+modoCalculo;desc= ;
+mora;desc=0;
+tipoTasaBaseCEMI;desc= ;
+periodoTasaBaseEMI;desc= ;
+bajoPeriodoBaseEMI;desc= ;
+sobrePeriodoBaseEMI;desc= ;
+tipoTasaBaseC002;desc=V;
+periodoTasaBase002;desc=A;
+bajoPeriodoBase002;desc=S;
+sobrePeriodoBase002;desc=S;
+
+tipoCoversionUF;desc=UFP;
+porcentajeConversion;desc=10;
+
+POCPOCINEXMENSAJEINEXISTENTE;desc=PRODUCTO NO EXISTE;
+
+negTasaMonedas;value=0993  /IND.CAM.PROM,0994  /$ REAJ US$,0998  /U.FOMENTO,0999  /PESOS,1006  /DOLAR CANADI,1013  /DOLAR U.S.A,1082  /FRANCO SUIZO,1142  /EURO;
+negTasaTio;value=0993  DPF/DAP FIJO,0993  PPF/PAG DAP FIJO,0994  DPF/DAP FIJO,0994  PPF/PAG DAP FIJO,0998  DPF/DAP FIJO,0998  DPI/DAP RENOV,0998  PFF/PAG F/TRIBUT,0998  PFI/PAG I TRIBUT,0998  PFT/PAG T TRIBUT,0998  PPF/PAG DAP FIJO,0998  PPI/PAG DAP RENO,0999  DPF/DAP FIJO,0999  DPI/DAP RENOV,0999  PFF/PAG F/TRIBUT,0999  PFI/PAG I TRIBUT,0999  PPF/PAG DAP FIJO,0999  PPI/PAG DAP RENO,1006  DPF/DAP FIJO,1013  DPF/DAP FIJO,1013  DPI/DAP RENOV,1013  PFF/PAG F/TRIBUT,1013  PFI/PAG I TRIBUT,1013  PPF/PAG DAP FIJO,1013  PPI/PAG DAP RENO,1082  DPF/DAP FIJO,1142  DPF/DAP FIJO,1142  DPI/DAP RENOV,1142  PPF/PAG DAP FIJO;
+negTasaAux;value=0993  DPFICP/ICP ENDOS,0993  PPFICP/ICP ENDOS,0994  DPFFEN/T/F ENDOSAB,0994  PPFFEN/T/F ENDOSAB,0998  DPFFEN/T/F ENDOSAB,0998  DPFFNN/T/F N/-1 A,0998  DPFT90/TAB90 ENDOS,0998  DPIDPC/T/F N/366DS,0998  DPIDPV/T/F N/366DS,0998  DPIE18/T/F E/180DS,0998  DPIE90/T/F E/90DS,0998  DPIN18/T/F N/180DS,0998  DPIN90/T/F N/90DS,0998  PFFFNN/T/F N/+1 ANO,0998  PFIFNN/T/F N/+1 ANO,0998  PFTFNN/T/F N/+1 ANO,0998  PPFCRF/T/F/E CORFO,0998  PPFFEN/T/F ENDOSAB,0998  PPFFNN/T/F NOMINAT,0998  PPFT18/TAB180 ENDOS,0998  PPFT36/TAB360 ENDOS,0998  PPFT90/TAB90 ENDOS,0998  PPIFNN/T/F N/+1 ANO,0999  DPFE29/T/F END 7-29,0999  DPFERN/FLE S/RET EN,0999  DPFFEN/T/F ENDOSAB,0999  DPFFNN/T/F N/-1 A,0999  DPFN29/T/F NOM 7-29,0999  DPFNRN/FLE S/RET NO,0999  DPFNRS/FLE C/RET NO,0999  DPFT30/TAB30 ENDOS,0999  DPFT90/TAB90 ENDOS,0999  DPIDPC/T/F N/366DS,0999  DPIDPV/T/F N/366DS,0999  DPIE29/T/F END 7-29,0999  DPIE30/T/F E/30DS,0999  DPIE35/T/F E/35DS,0999  DPIE60/T/F E/60DS,0999  DPIE90/T/F E/90DS,0999  DPIN29/T/F NOM 7-29,0999  DPIN30/T/F N/30DS,0999  DPIN35/T/F N/35DS,0999  DPIN60/T/F N/60DS,0999  DPIN90/T/F N/90DS,0999  PFFFNN/T/F N/+1 ANO,0999  PFIFNN/T/F N/+1 ANO,0999  PPFFEN/T/F ENDOSAB,0999  PPFT18/TAB180 ENDOS,0999  PPFT30/TAB30 ENDOS,0999  PPFT36/TAB360 ENDOS,0999  PPFT90/TAB90 ENDOS,0999  PPIFEN/T/F ENDOSAB,0999  PPIFNN/T/F N/+1 ANO,1006  DPFFNN/T/F N/-1 A,1006  DPFN29/T/F NOM 7-29,1013  DPFE29/T/F END 7-29,1013  DPFFEN/T/F ENDOSAB,1013  DPFFNN/T/F N/-1 A,1013  DPFL30/LIBOR30 ENDO,1013  DPFL90/LIBOR90 ENDO,1013  DPFN29/T/F NOM 7-29,1013  DPIDPC/T/F N/366DS,1013  DPIDPV/T/F N/366DS,1013  DPIE18/T/F E/180DS,1013  DPIE29/T/F END 7-29,1013  DPIE30/T/F E/30DS,1013  DPIE35/T/F E/35DS,1013  DPIE60/T/F E/60DS,1013  DPIE90/T/F E/90DS,1013  DPIN18/T/F N/180DS,1013  DPIN29/T/F NOM 7-29,1013  DPIN30/T/F N/30DS,1013  DPIN35/T/F N/35DS,1013  DPIN60/T/F N/60DS,1013  DPIN90/T/F N/90DS,1013  PFFFNN/T/F N/+1 ANO,1013  PFIFNN/T/F N/+1 ANO,1013  PPFFEN/T/F ENDOSAB,1013  PPFL18/LIBOR180ENDO,1013  PPFL30/LIBOR30 ENDO,1013  PPFL36/LIBOR360ENDO,1013  PPFL90/LIBOR90 ENDO,1013  PPIFEN/T/F ENDOSAB,1082  DPFFEN/T/F ENDOSAB,1142  DPFE29/T/F END 7-29,1142  DPFFEN/T/F ENDOSAB,1142  DPFFNN/T/F N/-1 A,1142  DPFL30/LIBOR30 ENDO,1142  DPFL90/LIBOR90 ENDO,1142  DPFN29/T/F NOM 7-29,1142  DPIE18/T/F E/180DS,1142  DPIE29/T/F END 7-29,1142  DPIE30/T/F E/30DS,1142  DPIE35/T/F E/35DS,1142  DPIE60/T/F E/60DS,1142  DPIE90/T/F E/90DS,1142  DPIN18/T/F N/180DS,1142  DPIN29/T/F NOM 7-29,1142  DPIN30/T/F N/30DS,1142  DPIN35/T/F N/35DS,1142  DPIN60/T/F N/60DS,1142  DPIN90/T/F N/90DS,1142  PPFFEN/T/F ENDOSAB,1142  PPFL18/LIBOR180ENDO,1142  PPFL30/LIBOR30 ENDO,1142  PPFL36/LIBOR360ENDO,1142  PPFL90/LIBOR90 ENDO;
+negTasaProducto;value=GDAP0999    /DAP_PESOS                         ,GDAP0998    /DAP_UF                            ,GDAP1013    /DAP_DOLAR                         ,GDAP1142    /DAP_EURO                          ,GDAP0993    /DAP_INDICE_CAMARA_PROMEDIO        ,GDAP0994    /DAP_PESOS_REAJUSTABLE_DOLAR_OBS   ,GDAP1082    /DAP_FRANCO_SUIZO                  ,GDAP1006    /DAP_DOLAR_CANADIENSE              ;
+negTasaCbxTasa;value=A/ANUAL,M/MENSUAL;
+
+descRangos;0993=1;0994=1;0998=1;0999=1;1006=1;1013=1;1082=1;1142=1;
+datosPti;codTipoValor=TAS;
+datosCin;caiCin=NDAP;codSistema=DPM;codEvento=CUR;indPlantilla=P;codUnidadTiempo=D;indTipTasBas=V;insBajPerBas=S;indSobPerBas=S;
+datosRcc;codTipoCanal=010;codConcepto=INT;

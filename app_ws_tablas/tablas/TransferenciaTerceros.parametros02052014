@@ -1,0 +1,458 @@
+#
+# Configuración de las transferencias de fondos
+#
+
+codigoBCI;    valor=016;    desc_800=BCI/TBANC/NOVA;    desc_110=BCI/TBANC/NOVA;    desc_100=TBANC/BCI/NOVA;    desc_150=BCI/TBANC/NOVA;    desc_151=BCI/TBANC/NOVA;desc_901=BCI/TBANC/NOVA;desc_905=TBANC/BCI/NOVA;  desc_230=BCI/TBANC/NOVA; desc_117=BCI/TBANC/NOVA;desc_910=BCI/TBANC/NOVA;desc_911=TBANC/BCI/NOVA;desc_132=BCI/TBANC/NOVA;desc_650=BCI/TBANC/NOVA;
+
+#
+# Comisión por concepto de transferencia a otro banco 
+# (independiente del monto)
+#
+comision;    valor=285;
+
+#
+# Cuenta Saco donde se cargara (SIPE) la transferencia hasta
+# que SIPE la mueva hacia el otro banco
+#
+cuentaSaco;    valor=25510835;
+
+#
+# Codigo de transferencia para obtener el folio SIPE
+#
+#
+codTranf;    codEmpresa=998;    codPersona=997;
+
+#
+# Origen de la transferencia
+# Formato:
+#         <canalID>=oriTrans;
+#
+oriTrans;    110=BCI;    100=TBC;    150=WCC;    800=BCI;    160=WCC;    151=WCC; 119=BCI; 117=BCI;
+
+#
+# Montos máximos autorizados
+#
+# Incorporado Procesamiento de TOKEN
+# Proyecto Liderado por Carolina Duran/Sebastian Correa
+#
+110; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+230; topeCCT=99999999;  topeCCTPASS=99999999; topeCCTTOKEN=99999999; topeLINEACCTTOKEN=99999999; topeCPR=99999999; topeCPRPASS=99999999; topeCPRTOKEN=99999999; topeLINEACPRTOKEN=99999999; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+132; topeCCT=99999999;  topeCCTPASS=99999999; topeCCTTOKEN=99999999; topeLINEACCTTOKEN=99999999; topeCPR=99999999; topeCPRPASS=99999999; topeCPRTOKEN=99999999; topeLINEACPRTOKEN=99999999; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+800; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+100; topeCCT=5000000; topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+150; topeCCT=200000; topeCCTPASS=200000; topeCCTTOKEN=200000; topeCPR=200000; topeCPRPASS=200000; topeCPRTOKEN=200000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+151; topeCCT=200000; topeCCTPASS=200000; topeCCTTOKEN=200000; topeCPR=200000; topeCPRPASS=200000; topeCPRTOKEN=200000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+530; topeCCT=500000;  topeCCTPASS=2000000; topeCCTTOKEN=2000000; topeCPR=200000; topeCPRPASS=200000; topeCPRTOKEN=200000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+550; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+551; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+552; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+555; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+119; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+901; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+905; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+117; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+910; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+911; topeCCT=5000000;  topeCCTPASS=5000000; topeCCTTOKEN=5000000; topeLINEACCTTOKEN=5000000; topeCPR=5000000; topeCPRPASS=5000000; topeCPRTOKEN=5000000; topeLINEACPRTOKEN=5000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+
+verifica;    150=true;    110=false;    100=false;    800=false;    151=true; 117=false;
+
+#
+# Estados de eventos
+#
+estados; ingreso=ITF; ingresoReversa=IRV; fin=TOK; finError=NOK; sipeIng=CES; sipeFolio=COB; reversaOK=NOR; reversaNOK=NNR; envioCCA=OPE; traceNumber=OTN; abono=AOK; storeAndForward=S&F;
+
+
+#
+# Destinatario Otro Banco para determinar folio
+#
+destinatarioOB;    Empresa=EMP;    Persona=PER;
+
+#
+# Servlet's de Transferencias
+#
+
+#
+# Entre cuentas
+#
+EntreCuentas;    actionURL=/cuentaswls/TransferenciasEntreCuentas;
+
+#
+# 3ros BCI
+#
+TercerosBCI;    actionURL=/cuentaswls/TransferenciaTercerosBCI;
+
+#
+# Otros Bancos
+#
+OtrosBancos;    actionURL=/cuentaswls/TransferenciasOtrosBancos;
+
+#
+# Opcion de envio de correo al cliente
+#
+correo;     envioCorreoCliente=true;    mailFrom=transferencias@bci.cl; mail.server=smtp.bci.cl;nombreDelOriginario=Transferencias de fondos BCI;
+#
+# Opcion de debug
+#
+debug;    valor=true;
+
+#
+# Tipos de cuenta
+#
+tiposCuenta;        corriente=CCT;       prima=CPR;       ahorro=AHO;       tarjeta=TDC;       extranjera=CCX; 
+
+#
+# Identificador de los tipos de cuentas para CCA
+#
+idTiposCuentaLinea; CCT=20; CPR=40; AHO=10;
+
+
+#
+# Bancos autorizados para alias y abonos de transferencias en línea
+#
+BancosEnLinea; codigos=1,12,14,16,27,28,37,39,49,51,54,504,507,31,9,53,55,57;
+BancosEnLineaAbono;codigos=1,12,14,16,27,28,37,39,49,51,54,504,507,31,9,53,55,57;
+
+#
+# Tipos de monedas para transferencias en línea
+#
+tipoMoneda; Peso=152; Dolar=840;
+
+#
+# Cuentas validas autorizadas origen/destino x canal
+#
+cuentasAutorizadas; origen_800=CCT&CPR; destino_800=CCT&CPR&AHO; origen_110=CCT&CPR; destino_110=CCT&CPR&AHO; origen_100=CCT&CPR; destino_100=CCT&CPR&AHO; origen_150=CCT&CPR&AHO&TDC; destino_150=CCT&CPR&AHO&TDC&LDC; origen_otro=CCT&CPR&AHO&TDC; destino_otro=CCT&CPR&AHO&TDC; origen_151=CCT&CPR&AHO&TDC; destino_151=CCT&CPR&AHO&TDC&LDC; origen_119=CCT&CPR; destino_119=CCT&CPR&AHO; origen_117=CCT&CPR; destino_117=CCT&CPR&AHO;
+
+#
+# Control de Número de Giros de ahorros
+#  0 = Número de giros depende de lo contratado
+#
+008;Desc=BCI Gran Ahorro Plus;Giros=4;TopeUF=0;
+009;Desc=BCI Más Ahorro;Giros=0;TopeUF=30;
+010;Desc=BCI Pop Ahorro;Giros=6;TopeUF=30;
+011;Desc=BCI Requete Ahorro;Giros=6;TopeUF=30;
+012;Desc=BCI Gran Ahorro Clásico;Giros=3;TopeUF=30;
+ahorros;       maxGiros=3;
+
+#
+# Nuevos estados del SIPE
+#
+estadosSipe;     exito=0000;      revisar=6201;
+
+#
+# Tipos de tarjeta credito
+#
+tipoTarj;      490=VISA;    500=MASTERCARD;
+codTarj;       VISA=490;    MASTERCARD=500;
+
+#
+# Formatos para Transferencias y Abonos en Línea.
+#
+producto;Tandem=00009;CCT=0009;AHO=9;datoReversaCodigo=0121000000000;
+
+#
+# Transferencias de fondos para vista ejecutivo.
+#
+# Montos máximos para transferencias de fondos para vista ejecutivo (canal 151).
+TRF-EJE-MMX-150; topeCCT=10000000; topeCCTPASS=10000000; topeCCTTOKEN=10000000; topeCPR=10000000; topeCPRPASS=10000000; topeCPRTOKEN=10000000; topeMPCCCT=-1; topeMPCCPR=-1; topeMPCCCTPASS=-1; topeMPCCCTTOK=-1; topeMPCCPRPASS=-1; topeMPCCPRTOK=-1;
+
+# Tipos de cuentas autorizados para transferencias terceros vista ejecutivo (canal 150).
+TRF-EJE-AUT-150; origen=CCT&CPR; destino=CCT&CPR;
+
+#
+# Transacción y nemónico para las Transferencias y Abonos en Línea
+#
+codigoTransferenciasLinea; desc=B0774;
+nemonicoTransferenciasLinea; desc=1104;
+nemonicoAbonosLinea; desc=1117;
+nemonicoTransferencias;desc=0000000001116;
+
+#
+# Código de autorización de tarjetas, para transferencias en línea
+#
+codAutorizacion; valor=000000;
+
+#
+# Mesaje para cuando el cliente tenga posea una trf programada y por motivo de esta
+# no tenga saldo suficiente para realizar una trf en línea.
+#
+#BCI
+mensajeTrfProgramada;desc=Estimado cliente: Ud. posee una o varias transferencia(s) programada(s) para hoy que se ejecutará(n) a las 11:30 AM. aproximadamente y la transferencia que está realizando ocupará los fondos disponibles. Recuerde depositar los fondos necesarios en su cuenta de lo contrario su transferencia programada quedará rechazada por falta de fondos.;
+#TBanc
+mensajeTrfProgramadaTBanc;desc=Te recordamos que posees una o varias transferencia(s) programada(s) para hoy que se ejecutará(n) a las 11:30 AM. aproximadamente y la transferencia que estás realizando ocupará los fondos disponibles. Recuerda depositar los fondos necesarios en tu cuenta, de lo contrario tu transferencia programada quedará rechazada por falta de fondos.;
+
+#
+# Códigos de los estados No OK de las TTFF
+#
+codigosEstados;valor=ITF,NNR,NOK,NOR,OTN,CCA,OPE;
+
+#
+# Códigos de los estados por efectuar de las TTFF
+#
+codigosEstadosPorEfectuar;valor=CES,COB,TPP,S&F;
+
+#
+# Valor boolean con el cual se maneja que este operativo o no las TTFF en línea
+#
+verificaProcede;valor=true;
+
+#
+# Valor entero de los meses en que se busca hacia atrás en los abonos recibidos.
+#
+mesesCartolaAbono;valor=6;
+#
+# Descripción del tipo de transferencia.
+#
+tipoAbono;desc=Transferencia en Línea;
+
+#
+# Parametros para Transferencias Programadas en Línea.
+#
+trfPrg;canalPrg=100;tipoAuten=Token;tipoTrans=PRG;codAlias=0;
+
+#
+# Valores de los estados de la actualización de la tabla prg
+#
+estadosAcualizacion;procesada=4;pendiente=5;noProcesar=6;proceso=0;reProceso=1;ok=Transferencia Programada Exitosa;fallo=desconocido;
+
+#
+# Tipos de respuestas devueltos por CCA para las Transferencias en Línea
+#
+0041;mensaje=El número de cuenta corriente de destinatario es incorrecto. Por favor valide la información del beneficiario.;tipo=NOKCLIENTE;
+0042;mensaje=La cuenta a la cual esta intentando transferir fue cerrada por el banco de destino.;tipo=NOKCLIENTE;
+0046;mensaje=El número de cuenta corriente del destinatario no corresponde al rut ingresado;tipo=NOKCLIENTE;
+0057;mensaje=Rut del destinatario incorrecto;tipo=NOKCLIENTE;
+0051;mensaje=La cuenta a la cual está intentando transferir no existe. Por favor valide la información del beneficiario.;tipo=NOKCLIENTE;
+0044;mensaje=La cuenta a la cual está intentando transferir no existe en el banco de destino.;tipo=NOKCLIENTE;
+0045;mensaje=Rut del destinatario incorrecto;tipo=NOKCLIENTE;
+0020;mensaje=Número Cuenta Corriente Origen sin informar;tipo=NOKCLIENTE;
+0021;mensaje=Número Cuenta Corriente Destino sin informar;tipo=NOKCLIENTE;
+0025;mensaje=Rut Destino sin informar;tipo=NOKCLIENTE;
+0028;mensaje=Monto sin informar;tipo=NOKCLIENTE;
+0017;mensaje=No se pudo completar validación de cuenta destino, favor contacte a su ejecutivo;tipo=NOKCLIENTE;
+0031;mensaje=Banco Origen sin informar;tipo=NOKCLIENTE;
+0032;mensaje=Banco Destino sin informar;tipo=NOKCLIENTE;
+0035;mensaje=Tipo de cuentas sin informar;tipo=NOKCLIENTE;vuelveIntentar=si;
+0011;mensaje=Mensaje inválido;tipo=NOKCLIENTE;vuelveIntentar=si;
+0033;mensaje=Banco Origen inválido;tipo=NOKCLIENTE;
+0034;mensaje=Banco Destino inválido;tipo=NOKCLIENTE;
+0036;mensaje=Tipo de cuentas Inválido;tipo=NOKCLIENTE;vuelveIntentar=si;
+0052;mensaje=Tipo de cuentas Inválida;tipo=NOKCLIENTE;
+0055;mensaje=Fecha Efectiva Inválida;tipo=NOKCLIENTE;
+0043;mensaje=Identificador de banco receptor incorrecto;tipo=NOKCLIENTE;vuelveIntentar=si;
+0049;mensaje=Banco receptor, cuenta y tipo de cuenta incorrecto;tipo=NOKCLIENTE;
+0029;mensaje=Monto inválido;tipo=NOKCLIENTE;
+0050;mensaje=Tipo de Cuenta no Habilitado;tipo=NOKCLIENTE;
+0053;mensaje=Banco receptor no es Participe;tipo=NOKCLIENTE;
+0054;mensaje=Error en Edición del Registro;tipo=NOKCLIENTE;
+0056;mensaje=Error en Campo Monto;tipo=NOKCLIENTE;
+0058;mensaje=Transferencia duplicada;tipo=NOKCLIENTE;vuelveIntentar=si;
+0059;mensaje=Error Campo Obligatorio;tipo=NOKCLIENTE;
+0060;mensaje=Error en identificador de transacción Trace Number;tipo=NOKCLIENTE;
+0061;mensaje=Producto Cuenta no Habilitado;tipo=NOKCLIENTE;
+0062;mensaje=Monto Excede el Máximo Permitido;tipo=NOKCLIENTE;
+0064;mensaje=Cuenta destino con restricción de abono;tipo=NOKCLIENTE;
+0065;mensaje=Número de Identificador Duplicado - Transferencia no Duplicada;tipo=NOKCLIENTE;
+0047;mensaje=Código de Transacción Incorrecto. Tipo Cuenta Incorrecto;tipo=NOKCLIENTE;vuelveIntentar=si;
+0063;mensaje=Rechazada;tipo=NOKCLIENTE;vuelveIntentar=si;
+0048;mensaje=Error en número de ocurrencia;tipo=NOKCLIENTE;vuelveIntentar=si;
+0038;mensaje=Banco de destino temporalmente fuera de servicio por mantenciones programadas;tipo=NOKCLIENTE;vuelveIntentar=si;
+0015;mensaje=Transferencia no puede ser enviada a banco destino (15);tipo=NOKCLIENTE;vuelveIntentar=si;
+0016;mensaje=Transferencia no puede ser enviada a banco destino (16);tipo=NOKCLIENTE;vuelveIntentar=si;
+0091; mensaje=Host no disponible; tipo=NOKSISTEMA;vuelveIntentar=si;
+0037;mensaje=Timeout de Banco Destino;tipo=NOKSISTEMA;vuelveIntentar=si;
+0000;mensaje=Aprobada;tipo=OK;
+BCO_NO_DISPONIBLE;mensaje=Estimado cliente, en estos momentos <bancoDestino> no se encuentra disponible para recibir transferencias de fondos.;
+
+#
+# Tipos de cuenta para realizar TTFF
+#
+menuTiposCuenta;codigos=AHO|CCT;
+glosaTipoCuenta;AHO=Cuenta de Ahorro;CCT=Cuenta Corriente o Vista;
+codigoTipoCuenta; 10=AHO; 20=CCT;
+
+#
+# Tipos de transferencias
+#
+tipoTransferencia;linea=TLN;mismoBanco=TMB;
+
+#
+# Motivo de reversa IFO (Institución Financiera Originadora)
+#
+motivoReversa;valor=003;
+
+#
+# Monto Máximo Diario TTFF En Línea Otros Bancos
+#
+montoMax;valor=50000000;
+
+#
+# Parametros para genaracion y validacion de MAC (Message Authentication Code).
+#
+MAC;fechaOperacion=200001010000;respuesta=000;clave=00000000;largo=008;operar=false;institucionFinancieraOriginadora=IFO;institucionFinancieraReceptora=IFR;
+
+#
+# Parámetros para el envío del email con los datos de la cuenta frecuente (alias) creada.
+#
+msgEmail;footer=Atentamente,\nBCI - Somos Diferentes.\n\nImportante:\nEste mail es generado de manera automatica, por favor no responda a este mensaje.\nP.D.: Los tildes han sido omitidos en forma intencional.\n\n";cuerpo=Estimado(a): %nombre%\n\nPor el medio del presente le hacemos entrega del numero de verificacion N° %id% para autorizar a su destinatario "%alias%",\ncuyos datos registrados en nuestro banco son:\n\nNombre destinatario\t: %nombreDestino%\nRut destino\t\t: %rutDestino%\nCuenta destino\t\t: %cuentaDestino%\nBanco destino\t\t: %bancoDestino%\nCorreo destino\t\t: %mailDestino%\n\nPor favor revise esta informacion y si es correcta ingrese nuevamente a nuestro sitio y usando el menu "Mis Destinatarios",\nautorice a su destinatario con el numero de verificacion aqui enviado. Una vez realizado este paso podra comenzar a enviarle\ntransferencias de fondos.\n\n;
+subjectEmail;valor="Destinatario Transferencias de Fondos";
+
+actionFinal;desc=/bcinetwls/gestorpagostransferencias/GrabaNuevaTransferencia;
+
+#
+# Estados de alias
+#
+estadoAlias; pendiente=P; autorizado=A; nuevo=N; 
+
+#
+# Monto máximo de ttff para un nuevo alias
+#
+montoMaximoAlias; valor=250000;  valorMensaje=250.000;
+
+#
+# Monto máximo de ttff para un nuevo alias
+#
+bancoMontoRestringido; codigos=1,12,14,16,27,28,37,39,49,51,54,504,507,31,9,53,55,57;
+
+#
+# Ventana de tiempo en horas para buscar alias eliminados al crear nuevo alias
+#
+ventanaAliasEliminado;horas=24;
+
+#
+# Codigo de la Transaccion Tandem a procesar
+#
+Trx;     valor=B8690;
+
+#
+# Subject del email en las transferencias a terceros
+#
+asuntoEmail;  valor=Aviso de Transferencia de Fondos.
+
+#
+# Códigos para realizar una consulta de estados de la transferencia en el operador.
+#
+consultaTransferencia;tipoOperacion=30;tipoCuentaOrigen=00;tipoCuentaDestino=00;
+operadorSecundario;valor=RBC;codigos=036;
+operadorPrimario;valor=CCA;codigos=018;
+
+#
+# Parámetros utilizados en la cartola de pagos JSF.
+#
+formasDePago;transfereciaDeFondos=1;pac=2;redcompra=4;bci=5;servipag=6;pagueDirecto=7;recargaCelular=8;
+tipoOrigenDeFondos;cuentaCorriente=CCT;vacio=XXX;
+journal;codigoEvento=CARTOLA;subCodPagoEfectuados=PAGEFEC;subCodPagoPorEfectuar=PGXEFE;subCodPagoFallidos=PGFALL;idProducto=PAGOS;fueraLinea=N;modo=N;estadoEvento=P;
+
+mensajeInfo;100=Estimado Cliente,<br>Recuerde que cada vez que se cree un destinatario nuevo se le enviará un código de verificación a su correo electrónico vigente para la activación.Le recomendamos revisar su carpeta de correo no deseado (spam) en caso de no recibirlo en su bandeja de entrada.<br>Correo electr&oacutenico vigente:;110=Recuerde que cada vez que se cree un destinatario nuevo se le enviará un código de verificación a su correo electrónico vigente para la activación. Le recomendamos revisar su carpeta de correo no deseado (spam) en caso de no recibirlo en su bandeja de entrada. <br>Correo electrónico vigente:;800=Estimado Cliente,<br>Recuerde que cada vez que se cree un destinatario nuevo se le enviará un código de verificación a su correo electrónico vigente para la activación.Le recomendamos revisar su carpeta de correo no deseado (spam) en caso de no recibirlo en su bandeja de entrada.<br>Si este no corresponde a su correo vigente, favor modif&iacutequelo antes de ingresar un nuevo destinatario llamando a uno de nuestros ejecutivos al <strong>600-6928000</strong>.<br>Correo electr&oacutenico vigente:;
+mensajeAlerta;100=Estimado Cliente, Comprometidos con su seguridad queremos informale que durante el proceso de validaci&oacuten de una nueva cuenta,<strong> s&oacutelo podrá realizar una transferencia hasta por un monto de máximo de $ 250.000</strong>. Este proceso dura 24 horas, luego de esto podrá transferir hasta $5.000.000.<br>Para mayor informaci&oacuten comuníquese con nuestro Servicio de Atenci&oacuten <strong>600-5242424.</strong>;110=Estimado Cliente, comprometidos con su seguridad queremos informarle que durante el proceso de validación de una nueva cuenta, sólo podrá realizar una transferencia hasta por un monto  máximo de $ 250.000. Este proceso dura 24 horas, luego de esto podrá transferir hasta $5.000.000.<br>Para mayor información comuníquese con nuestro Servicio de Atención <strong>600-8242424.</strong>;800=Estimado Cliente, Comprometidos con su seguridad queremos informale que durante el proceso de validaci&oacuten de una nueva cuenta, <strong>s&oacutelo podrá realizar una transferencia hasta por un monto de máximo de $ 250.000.</strong> Este proceso dura 24 horas, luego de esto podrá transferir hasta $5.000.000.<br>Para mayor informaci&oacuten comuníquese con nuestro Servicio de Atenci&oacuten <strong>600-6928000.</strong>;
+
+mensajeInfoNuevo;100=Estimado Cliente, <br/>Recuerda que cada vez que se crea un destinatario nuevo se enviar&aacute un código de verificaci&oacuten a tu correo electr&oacutenico vigente para la activaci&oacuten. Recomendamos revisar tu carpeta de correo no deseado (spam) en caso de no recibirlo en tu bandeja de entrada. <br/> Correo electr&oacutenico vigente: &nbsp;110=Estimado Cliente, Cada vez que ingrese un <strong> nuevo destinatario se le enviar&aacute un c&oacutedigo de verificaci&oacuten a su correo electr&oacutenico vigente para la activaci&oacuten. Le recomendamos revisar su carpeta de correo no deseado (spam) </strong> en caso de no recibirlo en su bandeja de entrada. Correo electr&oacutenico vigente: ;800=Estimado Cliente, Cada vez que ingrese un <strong> nuevo destinatario se le enviar&aacute un c&oacutedigo de verificaci&oacuten a su correo electr&oacutenico vigente para la activaci&oacuten. Le recomendamos revisar su carpeta de correo no deseado (spam) </strong> en caso de no recibirlo en su bandeja de entrada. Correo electr&oacutenico vigente: ;
+mensajeAlertaNuevo;100=Estimado Cliente, comprometidos con tu seguridad queremos informarte que durante el proceso de validaci&oacuten de una nueva cuenta, <strong> s&oacutelo podr&aacutes realizar una transferencia hasta por un monto de m&aacuteximo de $ 250.000. </strong>Este proceso dura 24 horas, luego de esto podr&aacutes transferir hasta $5.000.000.</br>Si usted <strong>elimin&oacute un destinatario</strong>, podr&aacute volver a crearlo <strong>despu&eacutes de 24 horas</strong>.</br></br>Para mayor informaci&oacuten comun&iacutecate con nuestro Servicio de Atención <strong>600-5242424. </strong>;110=Estimado Cliente, <br/>Comprometidos con su seguridad queremos informarle que durante el proceso de <strong> validaci&oacuten de una nueva cuenta, s&oacutelo podr&aacute realizar una transferencia hasta por un monto de m&aacuteximo de $ 250.000. </strong> Este proceso dura 24 horas, luego de &eacutesto podr&aacute transferir hasta $5.000.000.</br>Si usted <strong>elimin&oacute un destinatario</strong>, podr&aacute volver a crearlo <strong>despu&eacutes de 24 horas</strong>. <br/> <br/> Para mayor informaci&oacuten comun&iacutequese con nuestro Servicio de Atenci&oacuten <strong> 600 824 24 24. </strong>;800=Estimado Cliente, <br/>Comprometidos con su seguridad queremos informarle que durante el proceso de <strong> validaci&oacuten de una nueva cuenta, s&oacutelo podr&aacute realizar una transferencia hasta por un monto de m&aacuteximo de $ 250.000. </strong> Este proceso dura 24 horas, luego de &eacutesto podr&aacute transferir hasta $5.000.000.</br>Si usted <strong>elimin&oacute un destinatario</strong>, podr&aacute volver a crearlo <strong>despu&eacutes de 24 horas</strong>. <br/> <br/> Para mayor informaci&oacuten comun&iacutequese con nuestro Servicio de Atenci&oacuten <strong> 600 824 24 24. </strong>;
+
+mensajeSuperior;valor=Durante el proceso de validación de una nueva cuenta, sólo podrá realizar una transferencia hasta por un monto de máximo de $ 250.000. Este proceso dura 24 horas, luego de ésto podrá transferir hasta $5.000.000.;
+
+#
+# Configuracion Correo
+#
+tipoCorreo;latinia=false;
+correo100;mailFrom=transferencias@bci.cl;
+correo110;mailFrom=transferencias@bci.cl;
+correo800;mailFrom=transferencias@bci.cl;
+correo901;mailFrom=transferencias@bci.cl;
+correo905;mailFrom=transferencias@bci.cl;
+correo119;mailFrom=transferencias@bci.cl;
+correo910;mailFrom=transferencias@bci.cl;
+correo911;mailFrom=transferencias@bci.cl;
+correo230;mailFrom=transferencias@bci.cl;
+correo132;mailFrom=transferencias@bci.cl;
+loginEnterprise100;banco=bci;
+loginEnterprise110;banco=bci;
+loginEnterprise800;banco=bci;
+loginEnterprise901;banco=bci;
+loginEnterprise905;banco=bci;
+loginEnterprise119;banco=bci;
+loginEnterprise910;banco=bci;
+loginEnterprise911;banco=bci;
+loginEnterprise230;banco=bci;
+loginEnterprise132;banco=bci;
+contract100;refContract=WEBTBANC_AVISO_TTFF;
+contract110;refContract=WEBBCI_AVISO_TTFF;
+contract800;refContract=WEBCONOSUR_AVISO_TTFF;
+contract901;refContract=WEBBCI_AVISO_TTFF;
+contract905;refContract=WEBTBANC_AVISO_TTFF;
+contract119;refContract=WEBBCI_AVISO_TTFF;
+contract910;refContract=WEBBCI_AVISO_TTFF;
+contract911;refContract=WEBTBANC_AVISO_TTFF;
+contract230;refContract=bciexpress_AVISO_TTFF;
+contract132;refContract=WEBPYME_AVISO_TTFF;
+
+#
+# Copia de tabla BCO
+#
+BANCO-28;codigo=028;nombre=BANCO BICE;codCca=2
+BANCO-55;codigo=055;nombre=BANCO CONSORCIO;codCca=2
+BANCO-27;codigo=027;nombre=BANCO CORP BANCA;codCca=2
+BANCO-1;codigo=001;nombre=BANCO DE CHILE-EDWARDS;codCca=2
+BANCO-43;codigo=043;nombre=BANCO DE LA NACION ARGENTINA;codCca=0
+BANCO-507;codigo=507;nombre=BANCO DEL DESARROLLO;codCca=2
+BANCO-17;codigo=017;nombre=BANCO DO BRASIL S.A;codCca=0
+BANCO-12;codigo=012;nombre=BANCO ESTADO;codCca=2
+BANCO-51;codigo=051;nombre=BANCO FALABELLA;codCca=2
+BANCO-9;codigo=009;nombre=BANCO INTERNACIONAL;codCca=2
+BANCO-39;codigo=039;nombre=BANCO ITAU;codCca=2
+BANCO-57;codigo=057;nombre=BANCO PARIS;codCca=2
+BANCO-56;codigo=056;nombre=BANCO PENTA;codCca=0
+BANCO-53;codigo=053;nombre=BANCO RIPLEY;codCca=0
+BANCO-37;codigo=037;nombre=BANCO SANTANDER-SANTIAGO;codCca=2
+BANCO-49;codigo=049;nombre=BANCO SECURITY;codCca=2
+BANCO-504;codigo=504;nombre=BBVA;codCca=2
+BANCO-16;codigo=016;nombre=BCI-TBANC-NOVA;codCca=0
+BANCO-33;codigo=033;nombre=CITIBANK N.A.;codCca=2
+BANCO-672;codigo=672;nombre=COOPEUCH;codCca=2
+BANCO-52;codigo=052;nombre=DEUTSCHE BANK;codCca=0
+BANCO-31;codigo=031;nombre=HSBC BANK (CHILE);codCca=2
+BANCO-54;codigo=054;nombre=RABOBANK;codCca=2
+BANCO-14;codigo=014;nombre=SCOTIABANK;codCca=2
+BANCO-45;codigo=045;nombre=THE BANK OF TOKIO;codCca=0
+BANCO-46;codigo=046;nombre=THE ROYAL BANK OF SCOTLAND;codCca=0
+BANCO-266;codigo=266;nombre=TRANSBANK;codCca=2
+
+#
+# Configuración envio de correo al crear alias
+#
+
+banderaMisDestinatarios; envioCorreo=true; safeSigner=false;
+resultadoMail;0= el correo se envió con éxito al servidor de correo;1= algo falló al tratar de enviar el correo;2= a dirección de quien envía el correo está vacía;3= la dirección de quien envía el correo está mal formada;4= la dirección del destinatario está vacía;5= el asunto del correo está vacío;6= el cuerpo del correo está vacío;
+
+#
+# reglas transferencia de fondos.
+#
+reglas;valor=1-true-Estimado cliente la cuenta de Destino debe ser distinta a la cuenta de Cargo.,2-true-Estimado cliente el monto ingresado para la transferencia es superior al monto máximo permitido.,3-true-Estimado cliente queremos informarle que durante el proceso de validación de una nueva cuenta sólo podrá realizar una transferencia hasta por un máximo de $250.000. Este proceso dura 24 horas.,4-true-Estimado cliente la cuenta de Destino no coincide con el rut de destinatario.,5-true-Estimado cliente el banco de destino no se encuentra disponible para transferencias en linea.,6-true-Estimado cliente Ud. ya realizó una transferencia con los mismo datos.,7-true-Estimado cliente el monto a transferir supera el máximo disponible.;
+reglasSafeSigner;valor=1-true-Estimado cliente la cuenta de Destino debe ser distinta a la cuenta de Cargo.,2-true-Estimado cliente el monto ingresado para la transferencia es superior al monto máximo permitido.,3-true-Estimado cliente queremos informarle que durante el proceso de validación de una nueva cuenta sólo podrá realizar una transferencia hasta por un máximo de $250.000. Este proceso dura 24 horas.,4-true-Estimado cliente la cuenta de Destino no coincide con el rut de destinatario.,5-true-Estimado cliente el banco de destino no se encuentra disponible para transferencias en linea.,6-true-Estimado cliente Ud. ya realizó una transferencia con los mismo datos.,7-true-Estimado cliente el monto a transferir supera el máximo disponible.;
+reglasProgramadasSafeSigner;valor=1-true-Estimado cliente la cuenta de Destino debe ser distinta a la cuenta de Cargo.,2-true-Estimado cliente el monto ingresado para la transferencia es superior al monto máximo permitido.,3-true-Estimado cliente queremos informarle que durante el proceso de validación de una nueva cuenta sólo podrá realizar una transferencia hasta por un máximo de $250.000. Este proceso dura 24 horas.,4-true-Estimado cliente la cuenta de Destino no coincide con el rut de destinatario.,5-true-Estimado cliente el banco de destino no se encuentra disponible para transferencias en linea.,6-true-Estimado cliente Ud. ya realizó una transferencia con los mismo datos.,7-true-Estimado cliente la fecha de primera transferencia no esta permitida.,8-true-Estimado cliente el monto a transferir supera el máximo disponible.;
+reglasProgramadas;valor=1-true-Estimado cliente la cuenta de Destino debe ser distinta a la cuenta de Cargo.,2-true-Estimado cliente el monto ingresado para la transferencia es superior al monto máximo permitido.,3-true-Estimado cliente queremos informarle que durante el proceso de validación de una nueva cuenta sólo podrá realizar una transferencia hasta por un máximo de $250.000. Este proceso dura 24 horas.,4-true-Estimado cliente la cuenta de Destino no coincide con el rut de destinatario.,5-true-Estimado cliente el banco de destino no se encuentra disponible para transferencias en linea.,6-true-Estimado cliente Ud. ya realizó una transferencia con los mismo datos.,7-true-Estimado cliente la fecha de primera transferencia no esta permitida.,8-true-Estimado cliente el monto a transferir supera el máximo disponible.;
+#
+# Mensajes Validacion TTFF duplicadas
+#
+TTFFDUP-RECIEN;desc=menos de 1 minuto;
+TTFFDUP-INDEFINIDO;desc=menos de 24 horas;
+
+#
+# Mapeo (a códigos CCA) de errores producidos por el servicio
+#
+ErroresTandemCCA;0058=045;0028=059;0020=062;0015=046;0007=051;0002=063;0009=064;0010=064;0011=064;0008=042;0003=063;0139=065;0490=063;0197=063;
+#
+#Url de la imagen a desplegar en el comprobante de transferencia.
+#
+URL-COMPROBANTE;url=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_multicredito.jpg;
+URL-COMPROBANTE_100;url=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_multicredito.jpg;
+URL-COMPROBANTE_110;url=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_multicredito.jpg;
+URL-COMPROBANTE_800;url=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_multicredito.jpg;
+#
+#Mensajes informativos en transferencia de fondo para Clientes con safesigner
+#
+MSJ-CLIENTES-SAFESIGNER;validarcliente=true;
+CambiaEstadoTTFF;Desc=SI;NuevoEstadoEncabezado=PRP;
+#
+# Codigo de eliminación en BorrarTransferenciaMasiva
+#
+BorrarTEF; codServicio=-;

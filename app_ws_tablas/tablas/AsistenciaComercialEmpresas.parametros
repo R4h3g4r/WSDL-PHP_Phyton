@@ -1,0 +1,8 @@
+encabezado;desc=Informacion de Servicios No Asignados;
+remitente;desc=contacto@bci.cl;
+cuerpo;desc=Estimado %SUPERVISOR%, le informamos que el usuario %USUARIO% ha solicitado informacion a nuestra mesa de soporte respecto al servicio %SERVICIOS%. El cual no esta autorizado segun la lista de sus servicios asignados.%SALTO_LINEA%Si Ud. desea que tenga acceso a este servicio recuerde que debe asignarlo a traves de bciexpress en http://www.bci.cl/empresario%SALTO_LINEA%%SALTO_LINEA%Atte.%SALTO_LINEA%Plataforma Apoyo Empresa%SALTO_LINEA%BCI%SALTO_LINEA%;
+
+#Servicios a journalizar
+#En esta seccion se deben indicar los servicios a Journalizar segun el ejemplo. Los codigos se obtienen de galileo_III/banele/SER - serv_cod
+#BDE02CCT;codEventoNegocio=CNS;codsubtipoEventoNegocio=CARTOL;idProducto=CCT;
+

@@ -1,0 +1,72 @@
+#PRECIOS MULTICANAL - TABLA DE PARAMETROS
+
+# Switch de Acciones
+switch;leetablamoneda=N;
+
+# Códigos de Monedas
+moneda;peso=0999;uf=0998;dolar=1013;euro=1142;porcentaje=P;mil=M;
+
+# Descripción de Monedas
+descripcionMoneda;peso=PESOS;uf=UF;dolar=DOLAR;euro=EURO;porcentaje=PORCENTAJE;mil=MIL PORCIENTO;
+
+#parametros por default para ingreso de plantillas y reglas de negocio
+tipoTasaBase;desc=V;
+tipoTasaPeriodo;desc=A;
+tipoTasaPeriodoBajo;desc=S;
+tipoTasaPeriodoSobre;desc=S;
+tipoTasaVariable;desc=POC;
+tipoTasaTipoFechaRepacto;desc= ;
+tipoTasaPeriodoRepacto;desc=0;
+tipoTasaExpresado;desc= ;
+TasaCostoFondo;desc=S;
+TasaaccionCostoFondo;desc=+;
+TasaFactorRiesgo;desc=N;
+TasaaccionFactorRiesgo;desc= ;
+TasaDisponible;desc=N;
+TasaaccionDisponible;desc= ;
+TasaSpreadRorac;desc=N;
+TasaaccionSpreadRorac;desc= ;
+prefijoPlan;desc=PRSG;
+prefijoCin;desc=R;
+codigoSistema;desc=CRE;
+codigoEvento;desc=CUR;
+codigoMoneda;desc= ;
+tipoPlantilla;desc=P;
+fechaInicio;desc= ;
+horaInicio;desc= ;
+fechaTermino;desc=31122099;
+horaTermino;desc=232300;
+descripcion;desc= ;
+codigoTipoValor;desc=TAS;
+montoTope;desc=9999999999999;
+plazotope;desc=99999;
+expresadoplazotope;desc=M;
+codigotipoCanal;desc= ;
+codigocanal;desc= ;
+codigoConcepto;desc=INT;
+codigoHayMas;desc=R;
+#Prioridad Dinamica
+prioridaddinamica;concepto=PDM;
+conceptoPDM;filtros=LBR-CLT-GRP;
+
+#Seteo de datos para la matriz de conceptointereses
+terminadorMatrizNumerico;desc=_9999999999999@;
+
+#codigo especiales para sistemas
+codigosSistemasEspeciales;lista=DPM;separador=,;
+
+#define parametros para codigos especiales
+codigoespecialDPM;ruta=depositoaplazomulticanal/;
+
+#codigo especiales para sistemas
+indicadoresPlantillasAjuste;lista=A,B,C,E,F,S;separador=,;
+
+#Precios por cliente everest
+preciosClienteEverest;total=7;precioKey1=precioConf1;precioKey2=precioConf2;precioKey3=precioConf3;precioKey4=precioConf4;precioKey5=precioConf5;precioKey6=precioConf6;precioKey7=precioConf7
+precioConf1;codProducto=COM001;nombreProducto=Crédito Comercial CP;codTipoCanal=010;canal=;codMoneda=0999;tipoOperacion=COM;codConcepto=INT;codAuxiliar=001;plazo=90;tipoPlazo=D;monto=10000000;vencimientos=1;
+precioConf2;codProducto=COM050;nombreProducto=Crédito Comercial LP;codTipoCanal=010;canal=;codMoneda=0999;tipoOperacion=COM;codConcepto=INT;codAuxiliar=050;plazo=24;tipoPlazo=M;monto=10000000;vencimientos=24;
+precioConf3;codProducto=BGT450;nombreProducto=Boleta Garantía CP;codTipoCanal=010;canal=;codMoneda=0999;tipoOperacion=BGT;codConcepto=INT;codAuxiliar=450;plazo=90;tipoPlazo=D;monto=10000000;vencimientos=1;
+precioConf4;codProducto=BGT450;nombreProducto=Boleta Garantía LP;codTipoCanal=010;canal=;codMoneda=0999;tipoOperacion=BGT;codConcepto=INT;codAuxiliar=450;plazo=24;tipoPlazo=M;monto=10000000;vencimientos=24;
+precioConf5;codProducto=AVC010;nombreProducto=Multilínea;codTipoCanal=010;canal=;codMoneda=0999;tipoOperacion=AVC;codConcepto=INT;codAuxiliar=010;plazo=90;tipoPlazo=D;monto=10000000;vencimientos=1;
+precioConf6;codProducto=AVC010;nombreProducto=Multilínea Web;codTipoCanal=230;canal=;codMoneda=0999;tipoOperacion=AVC;codConcepto=INT;codAuxiliar=010;plazo=90;tipoPlazo=D;monto=10000000;vencimientos=1;
+precioConf7;codProducto=BEX308;nombreProducto=Boleta Exenta Web;codTipoCanal=230;canal=;codMoneda=0999;tipoOperacion=BEX;codConcepto=CCM;codAuxiliar=308;plazo=90;tipoPlazo=D;monto=10000000;vencimientos=1;

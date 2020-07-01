@@ -1,0 +1,15 @@
+#Cantidad maxima de tarjetas que se pueden solicitar
+#--------------------------------------------------------
+max.solicitudes.internet;Desc=2;
+max.solicitudes.sucursales;Desc=2;
+max.solicitudes.adicionales;Desc=2;
+
+#Datos para el formulario de ingreso
+#--------------------------------------------------------
+prefijos.telefonos;fijo=02;cel1=08;cel2=09;
+
+#Datos de contacto que se envian en los mails automaticos
+#--------------------------------------------------------
+contacto.bci;email=contacto@bci.cl;fono=600 824 24 24;asunto=Comprobante solicitud tarjeta bip!;
+contacto.tbanc;email=contacto@bci.cl;fono=600 524 24 24;asunto=Comprobante solicitud tarjeta bip!;
+contacto.nova;email=contacto@bci.cl;fono=800 22 6682;asunto=Comprobante solicitud tarjeta bip!;

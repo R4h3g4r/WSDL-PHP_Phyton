@@ -1,0 +1,34 @@
+# Produccion
+#facWsld;ruta=http://alsb.bci.cl/esb/intranet/infraestructuradenegocio/precio/servicioFacultamiento/ServicioFacultamientoPS?wsdl;
+# Certificacion
+facWsld;ruta=http://161.131.140.137:9050/esb/intranet/infraestructuradenegocio/precio/servicioFacultamiento/ServicioFacultamientoPS?wsdl;
+# Desarrollo
+#facWsld;ruta=http://161.131.184.123:9101/esb/intranet/infraestructuradenegocio/precio/servicioFacultamiento/ServicioFacultamientoPS?wsdl;
+
+
+# Valores que habilitan la consulta o grabación en Sybase e IBM
+grabaDB;desc=true;
+consultaDB;desc=false;
+grabaIBMFCM;desc=false;
+consultaFCM;desc=true;
+usaFiltroOficina;desc=false;
+usaFiltroOficinaGrabar;desc=false;
+oficinaFiltrada;desc=120;
+grabaIBMMC2;desc=false;
+
+
+# Tipos de rol facultador (Homologación IBM/Sybase)
+tiposDeRol;EJEC=001;COM=P05;REG=P03;JOF=P02;
+
+# Origen
+codOrigen;desc=ORIGEN;
+indCliNue;desc=T;
+
+# Valor UF
+conversionUf;formatoFecha=ddMMyyyy;tipoCambio=UFP;comando=/;
+
+renegociado;indicador=SI;dias=30;
+
+#SECURITIZACION OSB
+ServicioFacultamiento;sistemaUyP=wsfacult;
+

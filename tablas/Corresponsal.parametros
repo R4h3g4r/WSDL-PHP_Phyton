@@ -1,0 +1,8 @@
+# Contexto que indica el cluster donde esta el EJB + JCA
+# Contexto jca_snetctx se debe agregar a JNDIConfig.parametros
+ContextoJca;valor=jca_snetctx;
+
+# URL de webservices para consulta de minicartola.
+WebServiceMinicartola;url1=http://161.131.232.192:9111/WSCuentasIFX/WSCuentasIFX?WSDL;url2=http://161.131.232.197:9111/WSCuentasIFX/WSCuentasIFX?WSDL;
+
+# Configuracion de datos usados en la invocacion del EJB de transferencia a otros bancos

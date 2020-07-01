@@ -1,0 +1,350 @@
+
+#
+#Horas de inicio y de cierre de las sucursales.
+#===============================================================================
+
+horaInicioSucursal;Desc=8;
+horaCierreSucursal;Desc=20;
+
+
+#Parametros para navegacion Tiempo de Expiracion y Aviso de Expiracion (Minutos)
+#===============================================================================
+TiempoExp;Desc=10;
+TiempoAvisoExp;Desc=3;
+
+#
+#Tiempo de validacion del comprobante de pago (Minutos)
+#===============================================================================
+
+TiempoValidacionComprobante;Desc=30;
+TiempoValidacionTicketRetiro;Desc=30;
+#
+#Datos de Pronto
+#==============================================================================
+CtaCtePronto;Desc=10507167;
+RutPronto;Desc=77215640;
+
+#
+#Respuestas del pago en linea para Pronto
+#===============================================================================
+ExitoPago;Cod=EXI;Desc=Exito;
+ErrorSerial;Cod=ESE;Desc=Error en el serial;
+ErrorCuentaPagada;Cod=ECP;Desc=Error la cuenta se encuentra pagada;
+ErrorEnvioServipag;Cod=EES;Desc=Error en el envio a servipag;
+ErrorAgregarPago;Cod=EAP;Desc=Error al agregar el cargo a copec;
+ErrorComprobanteVencido;Cod=ECV;Desc=Error el comprobante se encuentra vencido;
+ErrorTransaccionNoExiste;Cod=ETR;Desc=La transaccion no existe;
+ErrorComprobantePagado;Cod=ECP;Desc=El comprobante se encuentra pagado;
+ErrorComprobanteNoPagado;Cod=ECN;Desc=El comprobante no se encuentra pagado;
+ErrorComprobanteTransito;Cod=ECT;Desc=El comprobante esta siendo procesado por otra transaccion;
+ComprobanteReversado;Cod=REV;Desc=El comprobante fue aprobado para realizar la devolucion del dinero;
+ComprobanteNoReversado;Cod=NCR;Desc=El comprobante no fue aprobado para realizar la devolucion del dinero;
+ErrorEstadoComprobanteInvalido;Cod=INV;Desc=El estado del ticket no esta registrado;
+ErrorSistemasAFT;Cod=TSG;Desc=Error en servicios AFT;
+
+
+Encabezado;Desc=Fallo en el proceso de cobro a Pronto;
+Cuerpo;Desc=No se pudo completar el proceso de cobro a Pronto;
+Remitente;Desc=Yo;
+Correoenvio;Desc=eochoa@bci.cl;
+CorreoDestinatario;Desc=eochoa@bci.cl;
+
+#
+#Parametros para el cobro a pronto
+#===============================================================================
+
+Transaccion;Desc=B0688;
+CodigoDelMovimiento;Desc=106;
+EstadoPagado;Desc=AA;
+
+#
+#Comisiones
+#===============================================================================
+
+ComisionPagoEnLinea;Desc=0;
+TarifaServicio;Desc=0;
+TarifaRetiro;Desc=0;
+InteresTarifaRetiro;Desc=0;
+InteresTarifaServicio;Desc=0;
+montoPremiacionBip;Desc=1000;
+montoPremiacionPagoServicios;Desc=20000;
+
+
+
+#
+#Parametros para utilizacion de WebService
+#=========================================
+Host;Desc=10.3.18.31;
+Puerto;Desc=7001;
+TipoCodigo;Desc=code39;
+
+#
+#Usuario para autentificacion 
+#================================================
+User;Desc=autoatencionPronto;
+Password;Desc=12345678;
+
+
+
+#
+#Estados de la aplicacion
+#========================
+ESTNPT;Desc=No se pueden generar mas tickets;
+ESTINV;Desc=Codigo no valido del ticket;
+ESTDCD;Desc=Deposito caducado;
+ESTRET;Desc=Retiro de dinero;
+ESTDEP;Desc=Deposito de dinero;
+ESTEND;Desc=El emisor no puede retirar el dinero;
+ESTOGT;Desc=Se puede generar ticket;
+
+#
+#Codigo de barras
+#================
+codebar;Desc=code128;
+
+
+#
+#SKU para los productos Pronto
+#================================================
+
+SkuPagoServicio;Desc=5011841;
+SkuAvisoClasificado;Desc=5016907;
+SkuAvisoClasificadoDevuelto;Desc=5016907;
+SkuRetiroPremio;Desc=9999999;
+SkuRecargaTarjetaBip;Desc=5017188;
+SkuPagoSeguroObligatorio;Desc=5055234;
+SkuVentaPaseDiario;Desc=5015569;
+SkuRecargaCelular;Desc=5015725;
+
+#
+#Mensajes Parametricos
+#
+mensaje;Desc=El Presente ticket no representa comprobante de pago, la operación sólo se completa una vez que este ticket es pagado en caja;
+mensajeRetiroPremio;Desc=Para hacer efectivo su premio, por favor diriga a la caja y presente este cupón;
+
+#---------------------------------------------------------------
+#Avisos Clasificados
+#---------------------------------------------------------------
+
+telefonoReclamoAC;Desc=02-3301133;
+textoLegalAC;Desc=Favor revise su aviso. El texto, la clasificación y fechas de publicación se asume aprobado por el cliente. El Mercurio publicará este aviso de acuerdo a lo impreso en este comprobante.;
+notaParaReclamoAC;Desc=Nota: El Presente ticket no representa comprobante de pago, la operación sólo se completa una vez que este ticket es pagado en caja;
+
+
+# Identificador de Pronto y Local
+# Para avisos Clasificados
+
+identificadorPronto;Desc=123123;
+identificadorLocal;Desc=11;
+
+#WSDL Servicio web Telefono Rojo EMOL
+
+wsdlEmol;Desc=http://wstelefonorojo.emol.cl/AvisoConsulta.asmx?WSDL;
+
+
+# Configuracion de Horario de Cierre de Avisos Clasificados    
+
+# Horario disponible para ingreso de avisos.                   
+# se especifica solamente horaminuto - sin guiones             
+# Si separa los minutos de los segundos dejara de funcionar  
+
+
+mensajeEsperaAvisosClasificados;Desc=En estos momentos no es posible publicar un nuevo aviso, los horarios para publicación de nuevos avisos son:;
+Lunes;horarioCierreLunes=2100;
+Martes;horarioCierreMartes=2100;
+Miercoles;horarioCierreMiercoles=2100;
+Jueves;horarioCierreJueves=2100;
+Viernes;horarioCierreViernes=2100;
+Sabado;horarioCierreSabado=2100;
+Domingo;horarioCierreDomingo=0001;
+
+
+
+# Configuracion fecha de tope, (el texto se puede modificar)          
+# Esta es la hora que se imprime en cupon de avisos clasificados    
+
+
+lunesAUT;Desc=16:30;
+lunesPRO;Desc=16:30;
+lunesOCLA;Desc=16:30;
+
+martesAUT;Desc=16:30;
+martesPRO;Desc=16:30;
+martesOCLA;Desc=16:30;
+
+miercolesAUT;Desc=16:30;
+miercolesPRO;Desc=16:30;
+miercolesOCLA;Desc=16:30;
+
+juevesAUT;Desc=17:30;
+juevesPRO;Desc=17:30;
+juevesOCLA;Desc=17:30;
+
+viernesAUT;Desc=12:00 p.m;
+viernesPRO;Desc=17:00;
+viernesOCLA;Desc=17:30;
+
+sabadoAUT;Desc=12:00 p.m;
+sabadoPRO;Desc=12:00 p.m;
+sabadoOCLA;Desc=12:00 p.m;
+
+domingoAUT;Desc=00:00 a.m;
+domingoPRO;Desc=00:00 a.m;
+domingoOCLA;Desc=00:00 a.m;
+
+
+#Hagase cliente
+#================================================
+
+visacionOK;Desc=Su solicitud ha sido ingresada. Dentro de las próximas horas un ejecutivo Bci se contactará con usted para confirmar sus datos y coordinar la entrega de los productos solicitados;
+visacionNOK;Desc=Mensaje de prueba para problemas de visacion (CAMBIAR);
+visacionSND;Desc=Servicio No Disponible;
+
+#Flag que indica si imprimimos el premio por incorporacion de cliente
+#Valores posibles SI ó NO.
+
+desplegarMensajeRetiroPremio;Desc=SI;
+
+#
+#Codigo de empresas
+#
+105identificadorPronto;Desc=888;
+Emol;Desc=333;
+105identificadorAutopista;Desc=589;
+105identificadorCelular;Desc=590;
+pronto;Desc=888;
+emol;Desc=333;
+bci;Desc=777;
+servipag;Desc=444;
+
+#
+#Datasources
+#
+pronBci;Desc=wcorp.dsource.AutoatencionDataSource;
+
+
+#------------------------------------------------------------|
+#Codigo Servicios
+#------------------------------------------------------------|
+codigoServicioAvisosClasificados;Desc=ACM;
+codigoServicioRecargaCelular;Desc=RCL;
+codigoServicioVentaPaseDiario;Desc=VPS;
+
+#----------------------------------------------------------------|
+#Parametros de configuracion proceso de conciliación generico    |
+#----------------------------------------------------------------|
+#
+# Las operaciones de PAG tienen asociadas [Cargo/Abono] [1]
+# Las operaciones de DEV tienen asociadas [Abono/Cargo] [2]
+# 
+# OBSERVACION: LOS ESTADOS FINALES SON CON MAYUSCULA.
+#
+# 1PAG = ejecutar Cargo/Abono para el estado PAG de la tabla CPC
+# 2DEV = ejecutar Abono/Cargo para el estado DEV de la tabla CPC
+# 1XXX = ejecutar Cargo/Abono para el estado XXX de la tabla CPC
+
+# En Pronto (888) Emol (333) Ofrece el servicio de AvisosClasificados (ACM)
+# donde los estados finales son Pago ( Cargo /Abono) y Reversa (Abono /Cargo)
+# los estados deben estar separados por COMA
+
+333888ACM;Desc=1PAG,2REV;
+interesConciliacionAvisosClasificados;Desc=15;
+
+#-------------------------------------------------------------
+# Definición de cuentas y codigos de transacción
+#-------------------------------------------------------------
+
+# Cuenta corriente Pronto
+888Cuenta;Desc=10507167;
+
+# Cuenta corriente BCI
+777Cuenta;Desc=CTA_BCI;
+
+# Cuenta corriente Emol
+333Cuenta;Desc=10109391;
+
+nemonicoCargo;Desc=1110;
+nemonicoAbono;Desc=1111;
+
+transaccionCargo;Desc=V0670;
+transaccionAbono;Desc=V0770;
+
+#-------------------------------------------------------------------------------------
+# Estados de los registros para la tabla conciliacion, Los registros pueden ser       |
+#-------------------------------------------------------------------------------------|            
+# 0 = error , Descripcion : Hubieron problemas al realizar la transferencia de dinero |
+# 1 = exito , Descripcion : la transferencia de dinero fue exitosa                    |
+# 2 = ingresado, Descripcion : Ingresado para reproceso                               |
+#-------------------------------------------------------------------------------------
+ConciliacionExitosa;identificadorEstadoOperacion=1;
+ConciliacionError;identificadorEstadoOperacion=0;
+ConciliacionIngresoRegistro;identificadorEstadoOperacion=2;
+
+
+#
+# Configuracion Proxy 
+# ====================================================================================
+
+
+
+proxyHost;Desc=navegador.bci.cl;
+proxyPort;Desc=8000;
+proxyUser;Desc=multybox;
+proxyPassword;Desc=bcimultybox;
+
+
+
+
+
+
+#-------------------------------------------------------------------------------------
+#Premiación
+#------------------------------------------------------------------------------------- 
+mensajePagoAutomaticoCuentaMenor;Desc=¡Felicitaciones!, Multybox lo ha premiado con el pago total de su cuenta.;
+mensajePagoAutomaticoCuentaMayor1;Desc=Gracias a Multybox, usted ha sido premiado con un abono de hasta  ;
+mensajePagoAutomaticoCuentaMayor2;Desc=para el pago de esta cuenta, que ser hará efectivo al momento de pagar su cupón en caja.;
+mensajeClienteGanadorRecargaTarjetaBip1;Desc=Gracias a Multybox, usted ha sido premiado con una recarga adicional de  ;
+premioPorTarjetaBip;Desc=$1500;
+mensajeClienteGanadorRecargaTarjetaBip2;Desc=, la que se hará efectiva al momento de pagar su cupón en caja.;
+mensajeServicioNoDisponible;Desc=En estos momentos el servicio no se encuentra disponible;
+
+# Cantidad de dias para la sorteo
+frecuenciaPremioTarjetaBIP;Desc=1;
+frecuenciaPremioPagoDeCuentas;Desc=7;
+mensajeDescuentoTasa;Desc=15% de descuento en la tasa de tu cr&eacutedito de consumo Bci;
+mensajeDescuentoTasaBD;Desc=15% de descuento en la tasa de tu credito de consumo Bci;
+
+# -------------------------------------------------------------
+# Configuracion para sorteos Tarjeta Bip y Pago de cuentas #
+# Activar    = 1   
+# Desactivar = 0
+# -------------------------------------------------------------
+sorteosActivosBIP;Desc=0;
+sorteosActivosPAC;Desc=0;
+
+# --------------------------------------------------------------
+# Configuracion del formato de la hora 						   
+# El formato puede cambiar en BD y en Servidor de aplicaciones 
+# Formatos
+#      h:mm:ss  == 12 horas
+#      HH:mm:ss == 24 horas
+#
+# --------------------------------------------------------------
+
+formatoHoraSistema;Desc=HH:mm:ss;
+
+
+#Envío de correo.
+
+DESTINO;Desc=pcaceres@ada.cl,mvergara@ada.cl,eochoa@bci.cl;
+EMAIL;smtp=smtp.bci.cl;from=multybox@bci.cl;mensaje=Se adjunta la informacion detallada de movimientos en multybox;subject=Envio de reportes de gestion MULTYBOX;
+ArchPath;temp=temp/;
+
+#URL servicio que realiza llamada telefonica.
+
+clicToCallUrl;Desc=http://voice.virtualiza.com/click/secret.php?;
+
+
+# Url de Multybox.
+mutyboxUrl;Desc=http://multybox.bci.cl;
+

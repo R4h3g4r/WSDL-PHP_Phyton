@@ -1,0 +1,30 @@
+# Tabla de parámetros para la aplicación cartera de clientes.
+
+# Cantidad máxima de registros por página que devolverá la consulta de clientes.
+CONSULTA;CANTIDAD_REGISTROS=99999999;
+registrosPag;cant=99999999;registrosIniciales=5;
+
+seleccione;FBanca=Seleccione Banca;FZona=Seleccione Comercial;FRegional=Seleccione Regional;FOficina=Seleccione Oficina;FEjecutivo=Seleccione Ejecutivo;
+IMPL_USUARIO;BASE=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;GTE_P=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;GTE_P_REG=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteZonal;GES=cl.bci.aplicaciones.ejecutivos.jerarquias.SupervisorTotal;GTE_P_P=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;GTE_REG_P=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;JOF_090_A_P=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_090_B_P=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_090_C_P=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_P=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;EJE_P=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;GTE_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;JOF_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;JOF_090_A_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;JOF_090_B_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;JOF_090_F_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;JOF_090_F_P=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;EJE_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;GTE_E=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;GTE_REG_E=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;GTE_PLT_E=cl.bci.aplicaciones.ejecutivos.jerarquias.GerentePlataforma;EJE_E=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;GTE_FCT=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;JOF_FCT_RM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_FCT_RG=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_FCT_C=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;EJE_FCT=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;GTE_LEA=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;JOF_LEA_RG=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_LEA_RM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_LEA_C=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_LEA_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;EJE_LEA=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;EJE_LEA_C=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;EJE_LEA_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;JOF_143_B_PBP=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_PBP=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_143_A_PBP=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_TBC=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;JOF_TBANC=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;EJE_TBANC=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;EJE_INV=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;EJE_EPM=cl.bci.aplicaciones.ejecutivos.jerarquias.Ejecutivo;JOF_EPM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeCentroEmpresario;GTE_EPM_REG=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;GTE_EPM=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;GTE_INM=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;GTE_IS=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_IP=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_PLT_C=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;SGTE_INV=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteZonal;GTE_CMX=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;GTE_BEL=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;JOF_CMX_C=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_CMX_MX=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_CMX_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_CMX_PMR=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_CMX_RG=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_CMX_RM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_BEL_C=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_BEL_PM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_BEL_RG=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;JOF_BEL_RM=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_PRO=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;GTE_REG_PRO=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;JOF_PRO=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_REG_FVT=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteRegional;JOF_FVT=cl.bci.aplicaciones.ejecutivos.jerarquias.JefeOficina;GTE_INV=cl.bci.aplicaciones.ejecutivos.jerarquias.GerenteBanca;
+
+FILTROS_POR_CARGOEJECUTIVO;SupervisorTotal=FBanca,FZona,FRegional,FOficina,FEjecutivo;GerenteBanca=FZona,FRegional,FOficina,FEjecutivo;GerenteZonal=FRegional,FOficina,FEjecutivo;GerenteRegional=FOficina,FEjecutivo;JefeCentroEmpresario=FEjecutivo;GerentePlataforma=FEjecutivo;JefeOficina=FEjecutivo;Ejecutivo=;
+BANCA_CAMBIAR_EJECUTIVO;PP=P;LEC=LEA;LEP=LEA;LEE=LEA;
+NIVEL_GERENTEZONAL;P=2;E=2;PM=1;INV=2;VALOR=1;
+
+indicadorSexo;masculino=M;femenino=F;
+indicadorSiNo;si=SI;no=NO;
+textoSinData;segmento=SIN SEGMENTO;
+
+#WSDL de Cartera Ejecutivo
+#######################################
+#Produccion
+#WSDL;ServicioCarteraEjecutivo=http://alsb.bci.cl/esb/intranet/ejecutivos/ServicioCarteraEjecutivo?wsdl;
+#Certificacion
+WSDL;ServicioCarteraEjecutivo=http://161.131.140.137:9050/esb/ejecutivos/ServicioCarteraEjecutivo?wsdl;
+#Desarrollo
+#WSDL;ServicioCarteraEjecutivo=http://161.131.184.123:9101/esb/ejecutivos/ServicioCarteraEjecutivo?wsdl;
+#local
+#WSDL;ServicioCarteraEjecutivo=http://170.1.1.111:8011/esb/ejecutivos/ServicioCarteraEjecutivo?wsdl;
+
+
+Banca;idBanca=1

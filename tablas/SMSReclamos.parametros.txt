@@ -1,0 +1,22 @@
+Esta tabla contiene los valores a usarse por el comando SMS
+encargado de recibir los reclamos hechos por personas hacia el banco.
+
+El contenido de la tabla es el siguiente:
+
+sms.reclamos.error.msg.[identificador]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mensajes de error utilizados por el comando SMS. Por ejemplo
+'sms.reclamos.error.msg.errorinterno' almacena el aviso de error
+que se envía a la persona cuando hay problemas de servicio durante
+el procesamiento del mensaje.
+
+sms.reclamos.msg.[identificador]
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Contienen los mensajes (obviamente no errores) que maneja el comando SMS.
+Por ejemplo 'sms.reclamos.msg.registrook' hace referencia al aviso utilizado
+cuando el mensaje enviado por el cliente fue procesado correctamente.
+
+[REGISTRODEVERSIONES]
+==========================================
+. 09/09/2010 Luis Silva (TINet): Versión inicial.
+==========================================

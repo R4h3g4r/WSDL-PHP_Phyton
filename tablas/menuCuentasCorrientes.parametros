@@ -1,0 +1,127 @@
+# Año por defecto en caso de que la consulta de cartola venga con año nulo.
+tiposCartolasEmitidas; anyoCartolaEmitida=2006; tipoCuenta=Cuenta Corriente;
+
+# Mensaje de error cuando existen problemas para recuperar los saldos de cuentas
+# corrientes.
+
+listadoCuentasCorrientes; mensajeErrorSaldos=No posee información disponible.;
+
+# Tope de giros mor defecto para el módulo de Traspasos y Transferencias.
+
+traspasosYTransferencias; topeGirosPorDefecto=3;
+
+# Consulta de moras
+
+diasMoras; treintaDias=30; noventaDias=90; cientoOchentaDias=180;
+
+################################################################################
+# Definiciones comunes.
+################################################################################
+# vistaValida (String).
+# accionesValidas (String[]).
+# tipo (numérico).
+# descripcion (String).
+# nombrePopUp (String).
+# opcionesPopUp (String).
+################################################################################
+
+################################################################################
+# Definicion de datos comunes.
+################################################################################
+POPUP-NOMBRE-POR-DEFECTO;valor=pop1;
+POPUP-OPCIONES-POR-DEFECTO;valor=scrollbars=yes,width=640,height=480;
+OPCIONES-DESCRIPCION-POR-DEFECTO;valor=;
+
+################################################################################
+# Definicion del nodo inicial del menú. Por defecto es de tipo MENU.
+# Este nodo no será desplegado.
+################################################################################
+ RAIZ-MENU;nodosMenu=MENU-CTA-NACIONAL,MENU-CTA-EXTRANJERA;
+
+################################################################################
+# Definicion del menú MENU-CTA-NACIONAL.
+################################################################################
+MENU-CTA-NACIONAL;tipoNodo=MENU;nombre=Cuenta Corriente Nacional;nodosMenu=OPCION-TODAS-CUENTAS,OPCION-MINICARTOLA,OPCION-CARTOLA,OPCION-CARTOLA-HISTORICA,OPCION-TIPOS-CARTOLA-EMITIDA,OPCION-TRASPASOS-TRASFERENCIA,OPCION-PROTESTOS-RETENCIONES-DEVOLUCIONES-ONP,OPCION-TALONARIOS,OPCION-TALONARIOS-DOMICILIO,OPCION-TRASLADO-OFICINA-TALONARIOS,OPCION-COMISIONES,OPCION-DETALLE-PAGO-INTERESES,OPCION-PODERES-SIMPLES,OPCION-COMICROM;descripcion=Cta. Corriente Nacional;tipo=1;
+
+# Definicion de opción "Todas las Cuentas".
+OPCION-TODAS-CUENTAS;tipoNodo=OPCION;nombre=Todas las Cuentas;url=/workstationwls/empresa/cuentascorrientes/consultarCuentasCorrientes.do?accion=cargarTodasCuentas;nombrePopUp=todasCuentas;
+
+# Definicion de opción "Minicartola".
+OPCION-MINICARTOLA;tipoNodo=OPCION;nombre=Minicartola;url=/workstationwls/empresa/cuentascorrientes/consultarMinicartolaMonedaNacional.do?accion=cargarMinicartolaCuentasCorrientes;nombrePopUp=minicartola;
+
+# Definicion de opción "Cartola".
+OPCION-CARTOLA;tipoNodo=OPCION;nombre=Cartola;url=/workstationwls/empresa/cuentascorrientes/consultarCartolaMonedaNacional.do?accion=cargarCartolaCuentasCorrientes;nombrePopUp=cartola;
+
+# Definicion de opción "Cartola Histórica".
+OPCION-CARTOLA-HISTORICA;tipoNodo=OPCION;nombre=Cartola Histórica;url=/workstationwls/empresa/cuentascorrientes/consultarCartolaHistoricaMonedaNacional.do?accion=cargarCartolaHistoricaCuentasCorrientes;nombrePopUp=cartolaHistorica;
+
+# Definicion de opción "Tipos de Cartolas Emitidas".
+OPCION-TIPOS-CARTOLA-EMITIDA;tipoNodo=OPCION;nombre=Tipos de Cartolas Emitidas;url=/workstationwls/empresa/cuentascorrientes/consultarTiposCartolasEmitidasMonedaNacional.do?accion=cargarCartolasEmitidas;nombrePopUp=cartolasEmitidas;
+
+# Definicion de opción "Traspasos y Transferencias".
+#OPCION-TRASPASOS-TRASFERENCIA;tipoNodo=OPCION;nombre=Traspasos y Transferencias;url=/workstationwls/empresa/cuentascorrientes/consultarTransferenciasMonedaNacional.do?accion=cargarTraspasosYTransferenciasMonedaNacional;nombrePopUp=traspasosTransferencias;
+OPCION-TRASPASOS-TRASFERENCIA;tipoNodo=OPCION;nombre=Traspasos y Transferencias;url=transferir;nombrePopUp=traspasosTransferencias;
+
+# Definicion de opción "Protestos, Retenciones, Devoluciones, ONP".
+OPCION-PROTESTOS-RETENCIONES-DEVOLUCIONES-ONP;tipoNodo=OPCION;nombre=Protestos, Retenciones, Devoluciones, ONP;url=/workstationwls/empresa/cuentascorrientes/consultarDocumentosMonedaNacional.do?accion=cargarDocumentos;nombrePopUp=documentos;
+
+# Definicion de opción "Talonarios".
+OPCION-TALONARIOS;tipoNodo=OPCION;nombre=Talonarios;url=/workstationwls/empresa/cuentascorrientes/consultarTalonariosMonedaNacional.do?accion=consultarTalonarios;nombrePopUp=talonarios;
+
+# Definicion de opción "Solicitud Talonarios a Domicilio".
+OPCION-TALONARIOS-DOMICILIO;tipoNodo=OPCION;nombre=Solicitud Talonarios a Domicilio;url=/workstationwls/empresa/cuentascorrientes/solicitarTalonarioADomicilioMonedaNacional.do?accion=consultarTalonarioADomicilio;nombrePopUp=solicitudTalonarios;
+
+# Definicion de opción "Traslado Oficina de Talonario".
+OPCION-TRASLADO-OFICINA-TALONARIOS;tipoNodo=OPCION;nombre=Traslado Oficina de Talonario;url=/workstationwls/empresa/cuentascorrientes/trasladoOficinaTalonarioMonedaNacional.do?accion=trasladoOficinaTalonario;nombrePopUp=trasladoOficina;
+
+# Definicion de opción "Comisiones".
+OPCION-COMISIONES;tipoNodo=OPCION;nombre=Comisiones;url=/workstationwls/empresa/cuentascorrientes/consultarComisionesMonedaNacional.do?accion=consultarComisiones;nombrePopUp=comisiones;
+
+# Definicion de opción "Detalle Pago Intereses".
+OPCION-DETALLE-PAGO-INTERESES;tipoNodo=OPCION;nombre=Detalle Pago Intereses;url=/workstationwls/empresa/cuentascorrientes/consultarInteresesMonedaNacional.do?accion=consultarIntereses;nombrePopUp=detalleIntereses;
+
+# Definicion de opción "Poderes Simples".
+OPCION-PODERES-SIMPLES;tipoNodo=OPCION;nombre=Poderes Simples;url=/workstationwls/empresa/cuentascorrientes/consultarPoderesSimplesMonedaNacional.do?accion=consultarPoderesSimples;nombrePopUp=poderesSimples;
+
+# Definicion de opción "Comicrom".
+OPCION-COMICROM;tipoNodo=OPCION;nombre=Comicrom;url=http://192.168.246.150/;nombrePopUp=comicrom;
+
+################################################################################
+# Definicion del menú MENU-CTA-EXTRANJERA.
+################################################################################
+MENU-CTA-EXTRANJERA;tipoNodo=MENU;nombre=Cuenta Corriente Monex;nodosMenu=OPCION-TODAS-CUENTAS-MX,OPCION-MINICARTOLA-MX,OPCION-CARTOLA-MX,OPCION-MOVIMIENTOS-UN-DIA-MX,OPCION-ESTADO-CUENTA-MX,OPCION-CONSULTA-CONDICIONES-MX,OPCION-PROTESTOS-ONP-MX,OPCION-TALONARIOS-MX;descripcion=Cta. Corriente Monex;tipo=1;
+
+# Definicion de opción "Todas las Cuentas".
+OPCION-TODAS-CUENTAS-MX;tipoNodo=OPCION;nombre=Todas las Cuentas;url=/workstationwls/empresa/cuentascorrientes/consultarCuentasCorrientes.do?accion=cargarTodasCuentas;
+
+# Definicion de opción "Minicartola".
+OPCION-MINICARTOLA-MX;tipoNodo=OPCION;nombre=Minicartola;url=/workstationwls/empresa/cuentascorrientes/consultarMiniCartolaMonedaExtranjera.do?;
+
+# Definicion de opción "Cartola".
+OPCION-CARTOLA-MX;tipoNodo=OPCION;nombre=Cartola;url=/workstationwls/empresa/cuentascorrientes/consultarCartolaMonedaExtranjera.do?;
+
+# Definicion de opción "Cartola Histórica".
+OPCION-CARTOLA-HISTORICA-MX;tipoNodo=OPCION;nombre=Cartola Histórica;url=/workstationwls/empresa/cuentascorrientes/consultarCartolasHistoricasMonedaExtranjera.do?accion=seleccionarPeriodo;
+
+# Definicion de opción "Movimientos 1 Día".
+OPCION-MOVIMIENTOS-UN-DIA-MX;tipoNodo=OPCION;nombre=Movimientos 1 Día;url=/workstationwls/empresa/cuentascorrientes/consultarMovimientosUnDiaMonedaExtranjera.do?accion=seleccionarFecha;
+
+# Definicion de opción "Estado de Cuenta".
+OPCION-ESTADO-CUENTA-MX;tipoNodo=OPCION;nombre=Estado de Cuenta;url=/workstationwls/empresa/cuentascorrientes/consultarEstadoDeCuentaMonedaExtranjera.do?accion=seleccionarPeriodos;
+
+# Definicion de opción "Consulta Condiciones".
+OPCION-CONSULTA-CONDICIONES-MX;tipoNodo=OPCION;nombre=Consulta Condiciones;url=/workstationwls/empresa/cuentascorrientes/consultarCondicionesMonedaExtranjera.do?;
+
+# Definicion de opción "Protestos, ONP".
+OPCION-PROTESTOS-ONP-MX;tipoNodo=OPCION;nombre=Protestos, ONP;url=/workstationwls/empresa/cuentascorrientes/consultarProtestosOrdenesNoPagoMonedaExtranjera.do?;
+
+# Definicion de opción "Talonarios".
+OPCION-TALONARIOS-MX;tipoNodo=OPCION;nombre=Talonarios;url=/workstationwls/empresa/cuentascorrientes/consultarTalonariosMonedaExtranjera.do?;
+
+################################################################################
+# Definicion del menú MENU-CTA-TRANSFER.
+################################################################################
+MENU-CTA-TRANSFER;tipoNodo=MENU;nombre=Cuenta Transfer;nodosMenu=OPCION-CUENTA-TRANSFER;descripcion=Cuenta Transfer;tipo=0;
+
+# Definicion de opción "Cartola".
+OPCION-CUENTA-TRANSFER;tipoNodo=OPCION;nombre=Cartola;url=/workstationwls/empresa/cuentascorrientes/cuentatransfer/consultarCuentaTransfer.do?accion=consultarDetalleCuentaTransfer;

@@ -1,0 +1,9 @@
+temasSemaforo;eventosPendientesResumenCliente=semaforoRAV;
+
+semaforoRAV;R=/workstationwls/images/02-semaforo3.gif;A=/workstationwls/images/02-semaforo2.gif;V=/workstationwls/images/02-semaforo1.gif;T=/workstationwls/images/02-semaforo-error.gif;
+semaforoAGV;R=/workstationwls/visacion/images/AGV/02-semaforo3.gif;A=/workstationwls/visacion/images/AGV/02-semaforo2.gif;V=/workstationwls/visacion/images/AGV/02-semaforo1.gif;T=/workstationwls/visacion/images/AGV/02-semaforo-error.gif;
+
+temasGlosasColorSemaforo;eventosPendientesResumenCliente=glosaColorSemaforoRAV;
+
+glosaColorSemaforoRAV;R=Rojo;A=Amarillo;V=Verde;T=N/D;
+glosaColorSemaforoAGV;R=Azul;A=Gris;V=Verde;T=N/D;

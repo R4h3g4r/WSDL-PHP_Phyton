@@ -1,0 +1,11 @@
+
+#Valores de márgen y tope máximo
+margen5;desc=Tope máximo clientes relacionados por gestión o propiedad.;valor=5%;
+margen10;desc=Tope máximo sin garantía.;valor=10%;
+margen25;desc=Tope máximo clientes relacionados por gestión con garantías.;valor=25%;
+margen30;desc=Tope máximo de crédito válido para instituciones bancarias sin garantía.;valor=30%;
+margen100;desc=Patrimonio efectivo del banco.;valor=100%;
+# Inicio - errores articulo 85        							#
+#################################################################
+CMA85001;Desc=No se encuentra cargado en Filenet el documento del Articulo 85;
+CMA85002;Desc=Servicio No disponible en estos momentos;

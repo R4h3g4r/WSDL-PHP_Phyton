@@ -1,0 +1,26 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<database>
+	<server>Srv-Apcred-Desa</server>
+	<name>Empresa/RIB1</name>
+	<query>
+		<view>QryRIB</view>
+		<key>Rut</key>
+	</query>
+	<document>
+		<field java_name="strSocio1">s</field>
+		<field java_name="strSocio2">s</field>
+		<field java_name="strSocio3">s</field>
+		<field java_name="strSocio4">s</field>
+		<field java_name="strSocio5">s</field>
+		<field java_name="strRut1">s</field>
+		<field java_name="strRut2">s</field>
+		<field java_name="strRut3">s</field>
+		<field java_name="strRut4">s</field>
+		<field java_name="strRut5">s</field>
+		<field java_name="numParticip1">i</field>
+		<field java_name="numParticip2">i</field>
+		<field java_name="numParticip3">i</field>
+		<field java_name="numParticip4">i</field>
+		<field java_name="numParticip5">i</field>
+	</document>
+</database>

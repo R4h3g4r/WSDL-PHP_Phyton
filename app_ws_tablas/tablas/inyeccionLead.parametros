@@ -1,0 +1,98 @@
+
+#Configuracion Certificacion
+AGENTE_RESPONSABLE;DESC=pespinm;
+codigoEjecutivo;nombreCampo=codigoEjecutivo;valor=pespinm;
+RESPONSABLE;DESC=pespinm;
+CREADOR;DESC=pespinm;
+
+#Configuracion Produccion
+#AGENTE_RESPONSABLE;DESC=ejewebpl;
+#AGENTE_RESPONSABLE_INTER;DESC=pmleadplanes;
+#RESPONSABLE_LEAD;DESC=pmleadplanes;
+
+codigoEjecutivo;nombreCampo=codigoEjecutivo;valor=ejewebpl;
+RESPONSABLE;DESC=ejewebpl;
+CREADOR;DESC=ejewebpl;
+
+codigoEjecutivoLead;nombreCampo=codigoEjecutivo;valor=pmleadplanes;
+creadorInter;DESC=pmleadplanes;
+creadorLead;DESC=pmleadplanes;
+
+# Códigos de bancas persona posibles
+bancasPersona;valor=PP|PBP|RG|RM|PBM|PE|PEQ|PR|PRE|PBU;
+
+#Valores para inyectar a CRM Epiphany (Interaccion)
+prioridad;nombreCampo=prioridad;valor=Normal;
+estado;nombreCampo=estado;valor=Abierto;
+origen;nombreCampo=origen;valor=Inbound;
+condicion;nombreCampo=condicion;valor=Nuevo;
+tipo;nombreCampo=tipo;valor=WWW;
+motivo;nombreCampo=motivo;valor=Ventas;
+tipoTelefono;campo=Celular;valor=Desconocido;
+asuntoInteraccion;campo=asunto;valor=Web Planes TBanc;
+asuntoInteraccionLead;campo=asunto;valor=Venta Plan Empresario;
+
+plataformaInteraccion;nombreCampo=plataforma;valor=Web TBANC;
+plataformaInteraccionLead;nombreCampo=plataforma;valor=Plan Empresario;
+
+#Valores para inyectar a CRM Epiphany (Lead)
+unidadDeNegocio;nombreCampo=unidadDeNegocio;valor=TB_PLANES;
+unidadDeNegocioLead;nombreCampo=unidadDeNegocio;valor=PM_PLANES_EMPRESARIO;
+
+familiaDeProductos;campo=familiaDeProductos;valor=TB_PLANES - Planes;
+
+familiaDeProductosLead;campo=familiaDeProductos;valor=Planes_Empresarios;
+
+estadoLead;campo=estado;valor=Nuevo;
+tipoBanca;nombreCampo=tipoBanca;valor=P;
+
+tipoBancaClienteLead;nombreCampo=tipoBanca;valor=M;
+
+campania;nombreCampo=campania;valor=Formulario Web Planes TBanc;
+campaniaLead;nombreCampo=campania;valor=Lead Plan Empresario;
+prioridadLead;nombreCampo=prioridad;valor0=Alta;valor2=Nomal;
+
+#Valores para correos
+correoDesde;nombreCampo=correoDesde;valor=asl@bci.cl;
+correoPara;nombreCampo=correoPara;valor=leadwebtbanc@bci.cl;
+
+asuntoCorreoAlerta;valor=TB_PLANES_WEB VERIFICACION ASL-EPIPHANY;
+asuntoCorreoError;valor=TB_PLANES_WEB CONFLICTO ASL-EPIPHANY;
+asuntoCorreoBanca;valor=TB_WEB_PLANES CLIENTE BANCA PERSONAS;
+
+mensajeCorreoAlerta;valor=Estimado(a):\n\nVerificar que la inyección realizada a ASL-Epiphany asociada al formulario de apertura de planes desde el sitio público Tbanc mantenga la información entregada por el cliente:\n\n;
+mensajeCorreoError;valor=Estimado(a):\n\nPor problemas técnicos no se pudo inyectar la interacción asociada al formulario de apertura de planes desde el sitio web de TBanc, cliente:\n\n;
+mensajeCorreoBanca;valor=Estimado(a):\n\nEl cliente pertenece a una banca distinta a Banca Personas, no se pudo inyectar la interacción asociada al formulario de apertura de planes desde el sitio web de TBanc:\n\n;
+
+notaCorreoAlerta;valor=NOTA: DE NO EXISTIR EN EPIPHANY, SE DEBE GESTIONAR CONDICIÓN CLIENTE EN FORMA MANUAL;
+notaGestionManual;valor=NOTA: GESTIONAR CONDICIÓN CLIENTE EN FORMA MANUAL;
+
+nombreCorreo;Desc=Nombre;
+apellidoPaternoCorreo;Desc=Apellido Paterno;
+apellidoMaternoCorreo;Desc=Apellido Materno;
+rutCorreo;Desc=Rut;
+emailCorreo;Desc=Email;
+telefonoCorreo;Desc=Telefono;
+
+
+#paginas destino
+destinoError;Desc=https://www.tbanc.cl/cl/bci/aplicaciones/solicitudes/tbanc/sitioPublico/form_error.html;
+destinoExito;Desc=https://www.tbanc.cl/cl/bci/aplicaciones/solicitudes/tbanc/sitioPublico/form_respuesta.html;
+
+canal;valor=100;
+filtrosLead;valor=LEAD_BCI|LEAD_SBIF|LEAD_SINACOFI;
+pymeWeb;valor=PYME_WEB;
+
+#Se agrega llave en duro, debido a que, la API banco no implementa el lookup para el servicio solicitado. Identificador es transversal entre ambientes.
+codigoCRMTipoContacto;desc=87BE4A694A641146870CB4F0617D5FE3;
+estadoInteraccion;desc=32686A3FA56B4B9EBE02781D5B8C42E8;
+prioridadInteraccion;desc=5B683267D1E84B0EB2D5C8C4988781D4;
+origenInteraccion;desc=90DF291C0A03FFFF003EE849D4854A42;
+condicionInteraccion;desc=D85B25350A03FFFF0006DB54F94FA1B9;
+motivoInteraccion;desc=D85B26250A03FFFF0006DB545B6C5105;
+tipoInteraccion;desc=90DF293A0A03FFFF003EE849C328F4EF;
+familiaProdLead;desc=6695E174A8EE3144AC31CF7AE6692BF6;
+estadoLeadHexa;desc=0471F6360C1C3E48AF7AAB2EE692ABDD;
+unidadNegocio;desc=D4AFC0E9FFFFFFC005162D46322D173A;
+tipoTelefonoHexa;desc=90DF2D2D0A03FFFF003EE84913C4C7D8;
+flagInteracciones;desc=si;

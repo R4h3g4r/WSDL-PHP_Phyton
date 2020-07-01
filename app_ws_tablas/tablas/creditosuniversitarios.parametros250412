@@ -1,0 +1,104 @@
+# Tabla de parámetros
+
+sistemasCredito; creditoUniversitario = creditouniversitario;
+
+FormatoFechas;fecha=dd/MM/yyyy;fechaHora=dd/MM/yyyy - HH:mm;
+
+Productos; productoCreditoEstudio=CON360; productoCreditoEgreso=CON361;
+
+#Instancias del Cliente
+TiposCliente; tipo1=1;tipo2=2;tipo3=3;tipo4=4;
+GruposDocumentos; tipo1=P1,SCMA,SISDADD,SISDAA,MEI,IS,CP,CE; tipo2=P1,SCMA,SISDADD,SISDAA,MEI,IS,CL,AL,CP,CE; tipo3=P2,SCMA,SISDADD,IS,CL,AL,CE; tipo4=P1,SCMA,SISDADD,SISDAA,MEI,IS,CL,AL,CP,CE;
+
+#Documentos
+directorioDocumentos; nombre=documentosCurse;
+CBCIU; archivo=ContratoBCIUniversitario.pdf; nombre=Contrato BCI Univesitario;
+P1; archivo=PagareBciUniversitario.doc; nombre=Pagaré Periodo de Estudios;
+P2; archivo=PagarePesosTasaFijaCuotaFijaVctosMensuales.doc; nombre=Pagaré Repactación Saldo Capital Final (Periodo de Egreso);
+SCMA; archivo=SolicituddeCreditoReducida(19-12-07).pdf; nombre=Solicitud de crédito por monto a cursar en año en cuestión o final en caso de repactación saldo capital;
+SISDADD; archivo=SolicitudIncorporacionColocacionesManual2.pdf; nombre=Solicitud de Incorporación Seguro del deudor directo para el año en curso;
+SISDAA; archivo=SolicitudIncorporacionColocacionesManual2.pdf; nombre=Solicitud de Incorporación Seguro Desgravamen aval para el año en curso;
+MEI; archivo=Mandato.pdf; nombre=Mandato especial Irrevocable;
+IS; archivo=InformativoDesgravamenConsumo(06.02.07).pdf; nombre=Informativo seguro;
+CL; archivo=CERTIFICADODEDEUDALEYN.20130.doc; nombre=Certificación exención impuesto Ley 20.130;
+AL; archivo=Ley20.130AutorizacionAdheridaAPagarBCI.doc; nombre=Autorización adherida al pagaré para pagar créditos Bci;
+CP; archivo=CertificadoOptarCreditoPregrado.pdf; nombre=Certificado para optar a Crédito Pregrado;
+CE; archivo=CobranzaExterna.pdf; nombre=Cobranza Externa;
+
+TipoMoneda; monedaCreditoEstudio=UF; monedaCreditoEgreso=$; pesosId=0999; pesosDesc=$; ufId=0998; ufDesc=UF;
+
+EstadoCredito; estadoVigente=ACA; estadoActivado=ACTIVADO;
+
+EnviarMail;origen=Vencimientos@bci.cl;destino=cdcabello@bee.cl;nombreOrigen=Everest-Credito Universitario;asunto=Proximo Vencimiento;cuerpo=Estimado Cliente, Paga las calillas;firma=Atte. BCI.cl;
+EnviarMailEjecutivo;origen=bcimail@bci.cl;destino=kecheverria@bee.cl;nombreOrigen=Everest-Credito Universitario;asunto=AVISO CLIENTES VENCIMIENTO CUOTON CREDITO BCI UNIVERSITARIO, <DIA> de <MES>.;cuerpo=Estimado Ejecutivo, \n Los clientes deben ser contactados para gestionar el financiamiento de un nuevo año de estudio o su repactación. Recuerda que a partir de la fecha de vencimiento de la última cuota pactada el cliente dispone de 3 meses para acercarse a Bci. En caso de no acercarse antes del vencimiento el saldo capital de su operación será cargado integro en su cuenta corriente. En caso de no haber saldo este caerá en mora. \n \n \n ;cuerpo2=A los clientes también se les ha informado de su situación a través de un correo.;firma=Atentamente, \n Bci - Somos Diferentes;
+EnviarMailCliente;origen=bcimail@bci.cl;destino=kecheverria@bee.cl;nombreOrigen=Everest-Credito Universitario;asunto=Bci - Información importante sobre su Crédito Bci Universitario;cuerpo1=Estimado(a) Cliente: \n Le recordamos que el <DIA>/<MES> vence la ultima cuota de su credito Bci Universitario N° <OPERACION>. A partir de ese momento ud. dispondrá de hasta 3 meses de gracia para gestionar el refinanciamiento del saldo. \n De no concurrir a realizar esta gestion en el plazo indicado el credito entra en mora. En caso de poseer PAC el saldo sera cargado integramente en su Cuenta Corriente.  \n Si ud. ya realizo esta gestion con su ejecutivo, le pedimos hacer caso omiso de esta comunicacion.  \n \n Nota: \n - Este mail es generado de manera automatica, por favor no lo conteste \n - Los tildes han sido omitidos intencionalmente \n;cuerpo2=Estimado Cliente: \n Le recordamos que el <DIA> del <MES> vencio la ultima cuota de su credito Bci Universitario N° <OPERACION>. A partir de ese momento ud. dispondra de hasta 2 meses de gracia para gestionar el refinanciamiento del saldo. \n De no concurrir a realizar esta gestion en el plazo indicado el credito entra en mora. En caso de poseer PAC el saldo sera cargado integramente en su Cuenta Corriente.  \n Si ud. ya realizo esta gestion con su ejecutivo, le pedimos hacer caso omiso de esta comunicacion. \n \n Nota: \n - Este mail es generado de manera automatica, por favor no lo conteste \n - Los tildes han sido omitidos intencionalmente \n;firma=Atentamente, \nBci - Somos Diferentes;
+
+tipoCargo;abonoDescr1=Cuenta Corriente;abono1=AUT;abonoDescr2=Tarjeta Crédito;abono2=PAT;
+
+tipoAbono;cantidad=2;abonoDescr1=Vale Vista;abonoCodigo1=VVTA;grupo1=2;abonoDescr2=Provisión de Fondos;abonoCodigo2=PROF;grupo2=3;
+
+#Codigos de seguros del producto de credito para cuota de egreso
+segurosCON450;codigos=SDGFLT,SDPFLT,SDCFLT,SECFLT,SHOFLT,DGAFLT;
+segurosPorDefectoCON450;codigos=SDGFLT,DGAFLT;
+
+#Proporcion entre cuota de estudio / cuota de egreso
+proporcionCuotaEstudioCuotaEgreso;valor=0.7;
+periodoGracia;valor=12;
+
+# Valores por defecto sobre información de carrera
+ValoresCarreraDefecto;semestresAprobados=0;duracionAnyos=1;duracionSemestres=2;numCuotasEstudio=12;anioIngreso=2000;
+
+# Descripciones para capturar y manejar excepciones definidas en servicios.
+MensajesError;ErrorConsultaSegurosOperacion=NO EXISTE RELACION OPERACION CONCEPTO(S);
+
+CodigosSeguros;SeguroAval=DGAFLT;DesgravamenDeudor=SDGFLT;
+
+ValoresMonedaDefecto;NumeroDecimales=0;Signo0999=$;
+
+DiasVencimientoCuoton;cantidad1=15;cantidad2=-15;reporte=45;diaReporte=15;cantidad=10;
+
+Redireccion;redireccionMultiplesAbonos=creditosgenerales/presimulacion.do?sistemaCredito=creditoUniversitario&idCredito=creditoSimuladorCurseUniversitario;redireccionar=true;relativaContexto=true;
+
+OficinaValeVista;codigo=245;
+
+rutNoCliente;rut=1578;dv=4;
+
+ValoresSpreadDefecto;plazo=24;monto=400;vencimientos=13;plazoMenor=12;
+
+EstadoOperacion; simulada=SIM; cursada=CUR; pagada=PAG; consumoConAca=CCA; activada=ACA; eliminada=ELI;
+
+DiasVencimientoOperacion; cantidad=30;
+
+DatosDefectoProducto; cantMinCred=1; cantMaxCred=1000;
+
+periodoGraciaFinEstudio;valor=3;
+
+canalVenta;canales=2,4,6;
+tasaImpuesto;valor=0.0005;
+
+colaboradores;codigos=FI,EE,EC;
+
+financiamiento;ejecutivo=20;jefeOficina=30;
+
+moraPermitida;dias=30;
+#Ruta imagenes
+imagen; logoBci=/workstationwls/creditouniversitario/images/logobci.jpg; logoBciSeguros=/workstationwls/creditouniversitario/images/bciseguros_vertical.gif; logoBciCorredoraSeguros=/workstationwls/creditouniversitario/images/bci_corredores.gif;
+
+#CAE Cuadro de Pago
+tipoOperacion;codigo1=CAE001;codigo2=CAE002;codigo3=CAE003;codigo4=CAE004;
+mensajesDatosCredito;tipoCartera=TGR;servicioDeuda=NO;cuotaImpaga=0;cobranzaJudicial=NO;
+tipoCarteras;carteraTGR=TGR;carteraBCI=BCI;
+excel;nombre=CuadroPagoCAE_;fecha=yyyyMMddHHmmss;
+
+# Estilos Excel
+styleTitulo;HF_fontName=Arial;HF_fontHeightInPoints=18;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;
+styleSubTitulo;HF_fontName=Arial;HF_fontHeightInPoints=11;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+styleDescripcion;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;
+styleEncabezadoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;filasHorizontal=3;
+styleEncabezadoTablaCenter;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;filasHorizontal=3;
+styleDatosTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+styleDatosTablaCenter;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+styleFechaTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;formatoFecha=dd/MM/yyyy;
+styleMontoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=3;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;formatoMonto=#,###;
+styleTextoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+

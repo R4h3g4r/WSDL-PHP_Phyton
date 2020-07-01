@@ -1,0 +1,67 @@
+#   
+# Tabla de parámetros que registra todas las páginas JSF desplegadas dentro 
+# de Everest y Webcorp.
+# El fin de esta página es que el proyecto BCINET tenga un orden de magnitud 
+# de todos los desarrollos JSF que deberán encontrar una nueva ubicación 
+# dentro de la nueva estación de trabajo BCINET.  
+#
+# OBSERVACIÓN:
+# 1.- La definición de qué tabla de parámetros leer, está en la 
+# la tabla de parámetros: switchAplicacionesSensibles.parametros
+# en la clave: 
+# logica_sin_login_jsf;..tablaParametros=paginasIntranetSinLoginJSF.parametros;  
+#
+#
+# 2.- Para que se habilite la validación de:
+#    a)Sessión BCI y
+#    b)Verificación una página JSF inscrita
+# la tabla de parámetros: switchAplicacionesSensibles.parametros,
+# debe tener la siguiente configuración:
+# logica_sin_login_jsf;habilitar=SI;buscarPaginaEnListado=SI;
+#
+# 3.- Para que solamente de habilite la verificación de la sessionBCI 
+# la tabla de parámetros: switchAplicacionesSensibles.parametros,
+# debe tener la siguiente configuración:
+# logica_sin_login_jsf;habilitar=SI;buscarPaginaEnListado=NO;
+#
+# La configuración es la siguiente:
+# Páginas JSF en everest:
+#pagina_jsf_everest_0001;application_0001=DEFINIR_PATH_1;
+#pagina_jsf_everest_0002;application_0002=DEFINIR_PATH_a;
+# .....................................................
+#pagina_jsf_everest_000n;application_000N=DEFINIR_PATH_n;
+#
+#Paginas asociadas a Administracion de Contratos
+#pagina_jsf_everest_0001;admcontrato_inicio=/cl/bci/aplicaciones/infraestructuradenegocios/vista/inicio.jsf;
+#pagina_jsf_everest_0002;admcontrato_buscar=/cl/bci/aplicaciones/infraestructuradenegocios/vista/buscar.jsf;
+#pagina_jsf_everest_0003;admcontrato_contrato=/cl/bci/aplicaciones/infraestructuradenegocios/vista/contrato.jsf;
+#pagina_jsf_everest_0004;admcontrato_abono=/cl/bci/aplicaciones/infraestructuradenegocios/vista/abono.jsf;
+#pagina_jsf_everest_0005;admcontrato_comision=/cl/bci/aplicaciones/infraestructuradenegocios/vista/comision.jsf;
+#pagina_jsf_everest_0006;admcontrato_abono=/cl/bci/aplicaciones/infraestructuradenegocios/vista/consultarAlertas.jsf;
+#pagina_jsf_everest_0007;admcontrato_consultaralertas=/cl/bci/aplicaciones/infraestructuradenegocios/vista/covenants.jsf;
+#pagina_jsf_everest_0008;admcontrato_estadoalertas=/cl/bci/aplicaciones/infraestructuradenegocios/vista/estadoAlertas.jsf;
+#pagina_jsf_everest_0009;admcontrato_estructuradepago=/cl/bci/aplicaciones/infraestructuradenegocios/vista/estructura_de_pago.jsf;
+#pagina_jsf_everest_0010;admcontrato_garantia=/cl/bci/aplicaciones/infraestructuradenegocios/vista/garantia.jsf;
+#pagina_jsf_everest_0011;admcontrato_historico=/cl/bci/aplicaciones/infraestructuradenegocios/vista/historico.jsf;
+#pagina_jsf_everest_0012;admcontrato_mantenedorabogados=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorAbogados.jsf;
+#pagina_jsf_everest_0013;admcontrato_mantenedoralertas=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorAlertas.jsf;
+#pagina_jsf_everest_0014;admcontrato_mantenedorbanqueros=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorBanqueros.jsf;
+#pagina_jsf_everest_0015;admcontrato_mantenedorclientes=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorClientes.jsf;
+#pagina_jsf_everest_0016;admcontrato_mantenedorcontratos=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorContratos.jsf;
+#pagina_jsf_everest_0017;admcontrato_mantenedorcovenants=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorCovenants.jsf;
+#pagina_jsf_everest_0018;admcontrato_mantenedordestinoDeFondos=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorDestinoDeFondos.jsf;
+#pagina_jsf_everest_0019;admcontrato_mantenedorgerentesbanqueros=/cl/bci/aplicaciones/infraestructuradenegocios/vista/mantenedorGerentesBanqueros.jsf;
+#pagina_jsf_everest_0020;admcontrato_obligaciones=/cl/bci/aplicaciones/infraestructuradenegocios/vista/obligaciones.jsf;
+#pagina_jsf_everest_0021;admcontrato_poliza=/cl/bci/aplicaciones/infraestructuradenegocios/vista/poliza.jsf;
+#pagina_jsf_everest_0022;admcontrato_presentacioncontrato=/cl/bci/aplicaciones/infraestructuradenegocios/vista/presentacionContrato.jsf;
+
+
+# Páginas JSF en Webcorp:
+#pagina_jsf_webcorp_0001;application_0001=DEFINIR_PATH_1;
+#pagina_jsf_webcorp_0002;application_0002=DEFINIR_PATH_a;
+# .....................................................
+#pagina_jsf_webcorp_000N;application_0003=DEFINIR_PATH_n;
+#
+#
+
+

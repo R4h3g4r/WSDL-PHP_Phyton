@@ -1,0 +1,30 @@
+#
+# Condiciones Creacion Mandatos Transferencia Terceros
+#
+#abiertoMismoBanco;    topeCCT=500000;     topeCPR=500000;
+#abiertoOtroBanco;     topeCCT=500000;     topeCPR=500000;
+#cerradoMismoBanco;    topeCCT=500000;     topeCPR=500000;
+#cerradoOtroBanco;     topeCCT=500000;     topeCPR=500000;
+
+abiertoMismoBanco;    topeCCT=200000;     topeCPR=200000;  topeCCTPASS=2000000;topeCPRPASS=200000;
+abiertoOtroBanco;     topeCCT=200000;     topeCPR=200000;  topeCCTPASS=2000000;topeCPRPASS=200000;
+
+cerradoMismoBanco;    topeCCT=200000;     topeCPR=200000;
+cerradoOtroBanco;     topeCCT=200000;     topeCPR=200000;  topeCCTPASS=2000000;topeCPRPASS=200000;
+
+tbancTope;            topeCCT=1000000;    topeCPR=200000;  topeCCTPASS=2000000;topeCPRPASS=200000;
+bciTope;              topeCCT=500000;     topeCPR=200000;  topeCCTPASS=2000000;topeCPRPASS=200000;
+
+tbancUsePasscode;valor=false;
+# Comisión
+comision;valor=250;
+# Cuentas Saco
+cuentaSaco;cuenta=25510835;
+# Códigos
+00;Desc=Error(Reintentar falla sp);
+01;Desc=La cuenta de destino se ha ingresado con éxito;
+02;Desc=Mandato ya existe(Intenta hacer mandato abierto==>mandato abierto);
+03;Desc=Hoy ya realizó transferencias,  modificar mañana;
+04;Desc=Las transferencias realizadas hoy exceden el nuevo monto máximo permitido, realizar mañana(Intenta hacer mandato cerrado==>mandato cerrado, donde nuevo mandato cerrado tiene máximo permitido inferior a lo que ya ha transferido hoy);
+05;Desc=Su mandato ha sido ingresado exitósamente;
+10;Desc=No aplica;

@@ -1,0 +1,41 @@
+Documentación de la tabla conciliaciones.parametros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+La tabla +conciliaciones.parametros+ corresponde a una 
+lista de parámetros que se utilizan en el Aplicativo 
+FBP.
+
+El archivo se encuentra separado en tres secciones principales:
+
+- TABLA DE PARAMETROS
+Se detallan los parametros transversales del sistema.
+Estos parámetros son utilizados por todos los módulos.
+
+- PARAMETROS DE MENUS
+Cada seccion dentro de FBP_CBC está identificada con un ID.
+Utilizando este ID, se ha configurado la parametría de cada módulo
+en cada una de las filas de esta seccion del archivo. 
+
+Cada fila representa una sección y la estructura de 
+cada fila es la siguiente (es la misma estructura para todas las 
+filas):
+
+- MENSAJES
+carga los mensajes de acceso denegado y no sesión.
+
+------------------------------------------------------------------
+- La llave de la fila es el ID de la sección (obligatorio).
+- Debe seguir un campo +MENU+ con el título del menu de la sección
+(obligatorio).
+- Debe seguir un campo +DESC+ con la descripción de la sección
+(obligatorio).
+- Debe seguir un campo +acc+ que indica la PUERTA asociada que debe
+poseer el usuario en su perfil para poder acceder a la sección
+(Obligatorio)
+------------------------------------------------------------------
+
+[REGISTRODEVERSIONES]
+======================================================
+
+. 07/05/2018 Alfonso Ibarra C. (BCX): versión inicial.
+
+======================================================

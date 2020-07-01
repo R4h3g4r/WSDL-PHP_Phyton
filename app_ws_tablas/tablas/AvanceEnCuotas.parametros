@@ -1,0 +1,116 @@
+# AvanceEnCuotas
+#=========================================
+maxAvances;    valor=2;                  Desc=numero máximo de avances por día.;
+correo;        from=webmast@bci.cl; 110to=solicitud@bci.cl; 100to=solicitud@bci.cl;150to=aerazo@bci.cl;151to=aerazo@bci.cl;105to=aerazo@bci.cl;  Desc=direcciones de correo desde donde y hacia donde se envía un mail por el avance en cuotas.;
+tasa;          100=0.0109;110=0.0109;    Desc=tasa a aplicar.;
+comision;      valor=0;unidad=PESOS;  Desc=comisión .;
+impuesto;      cota=12;valor1=0.01608;valor2=0.00134;Desc=impuesto a aplicar.;
+maxMesesGracia;valor=1;                  Desc=Numero máximo de meses de gracia;
+maxNumCuotas;  valor=24;                 Desc=Numero máximo de cuotas;
+maxNumCuotasPortal;  valor=48;                 Desc=Numero máximo de cuotas;
+maxNumCuotasBcinet;  valor=48;                 Desc=Numero máximo de cuotas;
+maxNumCuotasBci;  valor=48;                 Desc=Numero máximo de cuotas;
+montoMinimo;   valor=50000;               Desc=Valor mínimo a solicitar;
+maxMonto;      valor=20000000;unidad=PESOS;      Desc=Valor máximo por el que puede simular y transferir;
+factor;        cupo=0.70;disponible=0.90;Desc=Factores a aplicar a montos correspondientes al cupo y al disponible.;
+dias;          valor=45;                 Desc=Numero de dias que pasaran desde la compra hasta el cargo de la primera cuota.;
+meses;         valor=2;                  Desc=Numero de meses que se suman a la fecha actual para determinar si una tarjeta está vigente o no.;
+site_id;       100=1505;110=1504;        Desc=Site Id para los tags de certifica;
+cuotas; 		valor=Sin Cuotas,4,6,12,18,24;	Desc=Cuotas a disponibles para avance.;
+cuotasPortal;valor=Sin Cuotas,4,6,12,18,24,36,48;Desc=Cuotas a disponibles para avance.;
+cuotasBcinet;valor=Sin Cuotas,4,6,12,18,24,36,48;Desc=Cuotas a disponibles para avance.;
+cuotasBci;valor=Sin Cuotas,4,6,12,18,24,36,48;Desc=Cuotas a disponibles para avance.;cuota36=36;cuota48=48;
+codCanalEverest;		    valor=151;		    Desc=Codigo de canal Everest.;
+codCanalPyme;		    	valor=132;		    Desc=Codigo de canal Pyme.;
+comisionPorcentaje105;      valor=0.3;         Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal BCINet.;
+comisionPorcentaje110;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Bci.;
+comisionPorcentaje132;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Pyme.;
+comisionPorcentaje650;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Pyme Movil.;
+comisionPorcentaje100;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal TBanc.;
+comisionPorcentaje230;      valor=0.3;          Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Empresas.;
+comisionPorcentaje800;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal BciNova.;
+comisionPorcentaje151;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Everest.;
+comisionPorcentaje910;      valor=0.3;          Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Bci.;
+comisionPorcentaje915;      valor=0.3;         Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal BciNova.;
+comisionPorcentaje911;      valor=0.3;          Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal TBanc.;
+comisionPorcentaje150;		valor=0.3;			Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Portal.;
+comisionPorcentaje102;      valor=0.3;          Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Bci Accesible.;
+comisionPorcentaje901;      valor=0.3;          Desc=Factor aplicado a la UF actual para cobro de comisión por avance Efectivo canal Bci Web Movil.;
+comisionPorcentaje;valor=0.3;Desc=Factor aplicado a la UF actual para cobro de comisión por avance en cuotas.;
+comisionPorcentaje_800;valor=0.15;Desc=Factor aplicado a la UF actual para cobro de comisión por avance en cuotas.;
+mesesGraciaCampana; valor=0;                 Desc=Numero de meses de gracia Generico para Campaña Avance;
+montoMenorMinimo;	        valor=Montro ingresado menor al minimo permitido;	Desc=Mensaje de error cuando monto solicitado menor al minimo permitido.;
+banco;              valor=BCI;               Desc=Banco multienvironment.;
+marca;              valor=BCI;               Desc=Marca multienvironment.;
+cartera;            valor=BEE;               Desc=Cartera multienvironment.;
+usuario;            valor=WEBTCR;            Desc=Usuario multienvironment.;
+prefijoid;          valor=AC;                Desc=Prefijo ID avance;
+clientesincorreo;   valor=Sin Email;         Desc=mensaje cliente sin correo.;
+
+mensajeTransaccionExitosa;				valor=Estimado Cliente <br /><br />La transacción se ha realizado exitosamente, se ha enviado una copia a su email registrado.;
+mensajeTransaccionExitosaSinCorreo;		valor=Estimado Cliente <br /><br />Se ha presentado un problema en el envio del Comprobante a su correo.<br />Para mayor información puede ir a la cartola de <a href="/cl/bci/aplicaciones/cartola/cuenta/vistaMiniCartola.jsf">cuenta corriente.</a><br />;
+mensajeTranExitosaSinCorreoEverest;		valor=Estimado Cliente <br /><br />Se ha presentado un problema en el envio del Comprobante a su correo.<br />Para mayor información puede ir a la cartola de cuenta corriente.<br />;
+mensajeTranExitosaSinCorreoEmpresa;		valor=Estimado Cliente <br /><br />Se ha presentado un problema en el envio del Comprobante a su correo.<br />Para mayor información puede ir a la cartola de cuenta corriente.<br />;
+mensajeTranExitosaSinCorreoPyme;		valor=Estimado Cliente <br /><br />Se ha presentado un problema en el envio del Comprobante a su correo.<br />Para mayor información puede ir a la cartola de <a href="" onclick="fnVinculoAccesoDirecto('saldos_ult_mov')">cuenta corriente.</a><br />;
+
+errorGenerico;              valor=Estimado cliente, por el momento no podemos atender su solicitud, por favor intente más tarde;       Desc= mensaje de error cuando el servicio no esta disponible;
+clienteNoAutorizado;        valor=Usted no se encuentra autorizado para realizar esta operación.;                       Desc=mensaje error cliente no autorizado.;
+clienteSinCuenta;           valor=Estimado Cliente, Usted no posee cuenta, favor contacte a su ejecutivo.;              Desc=mesaje error sin cuenta;
+tarjetaInhabilitada;        valor=Tarjeta inhabilitada para realizar transacciones, favor contacte a su ejecutivo.;     Desc=mensaje de error tarjeta inhabilitada; valorBcinet=Tarjeta Inhabilitada;
+tarjetaActiva;              valorBcinet=Activa;
+datoNoDisponible;           valor=N/D;
+problemaAlSimular;          valor=Ocurrieron problemas al simular efectivo en cuotas, favor intente más tarde.;         Desc=mensaje de error al simular;
+montoMayorAlSaldo;          valor=Monto solicitado supera el disponible de la tarjeta.;                                 Desc=mensaje error monto solicitado superior al saldo tdc;
+errorAvanceCuotas;          valor=Ocurrieron problemas al simular efectivo en cuotas, favor intente mas tarde;          Desc=mensaje de error simular avance cuotas;
+errorAlEjecutarAvance;      valor=Ocurrieron problemas al ejecutar el avance, favor intente mas tarde;                  Desc=mensaje de error ejecutar avance;
+montomaximoavancediario;    valor=El monto máximo diario permitido para realizar avance es de $3.500.000.;              Desc=mensaje de error maximo avance diario;
+errorMontoCampanaMayorSaldo;valor=<b>Estimado Cliente:</b><br/>Usted no posee cupo disponible para realizar un avance en cuotas.;   Desc=mensaje de error monto avance campana mayor a saldo;
+usuarioNoApoderadoAutorizado;valor=<b>Estimado Cliente:</b><br/>Para su información, el servicio de Avance a través de internet para Tarjeta de Crédito Bci Empresario está definido para quien en la empresa se encuentra como Apoderado Autorizado del convenio e-pyme.;      Desc=mensaje de error apoderado no autorizado;
+errorNumeroCuotas; valor=Estimado Cliente, el número de cuotas ingresado no corresponde.;Desc=mensaje de error al validar el número de cuotas;
+errorCuentaDestino; valor=Estimado Cliente, cuenta de destino no corresponde.; Desc=Error con la cuenta de destino ingresada.;
+
+mailMensaje;empresa=BCI;from=victor@bcicert.cl;subject=Comprobante Avance de TDC;TEMP_110=tmpl_WEBBCI_AVAEFE_TDC_COMPROBANTE;TEMP_800=tmpl_WEBNOVA_AVAEFE_TDC_COMPROBANTE;TEMP_100=tmpl_WEBTBANC_AVAEFE_TDC_COMPROBANTE;TEMP_132=tmpl_WEBPYME_AVAEFE_TDC_COMPROBANTE;TEMP_230=tmpl_WEBEMP_AVAEFE_TDC_COMPROBANTE;TEMP_105=tmpl_WEBBCI_AVAEFE_TDC_COMPROBANTE;LOGIN=BCI;CONTRA_110=WEBBCI_AVANCE_TDC_COMPROBANTE;CONTRA_800=WEBNOVA_AVANCE_TDC_COMPROBANTE;CONTRA_100=WEBTBANC_AVANCE_TDC_COMPROBANTE;CONTRA_132=WEBPYME_AVANCE_TDC_COMPROBANTE;CONTRA_230=WEBEMP_AVANCE_TDC_COMPROBANTE;CONTRA_105=WEBBCI_AVANCE_TDC_COMPROBANTE;
+
+destino;	valor=alarma@bcicert.cl;
+
+correoRemitente;	Desc=bci@bci.cl;
+nombreRemitente;	Desc=BCI;
+subject;			Desc=Comprobante Avance de TDC;
+loginEnterprise;	Desc=bci;
+refContract;		Desc=WEB_AVANCE_TDC;
+
+#RUTA PARA AMBIENTES BCI
+crearPDF;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteAvanceTDC=comprobanteAvanceTDCPyme.html;comprobanteAvanceTDCEfe=comprobanteAvanceTDCPymeEfe.html;
+#RUTA DESARROLLO
+#crearPDF;rutaRecursosPDF=C:/export/weblogic/oracle10.3/wlsplatform/config/desarrolloPC/applications/wcorpWebApp/resources/icono/;comprobanteAvanceTDC=comprobanteAvanceTDCPyme.html;comprobanteAvanceTDCEfe=comprobanteAvanceTDCPymeEfe.html;
+dummyAvanceTDCActivo; 		valor=1;           Desc=Usar Dummy Nexus.;
+
+mailCuotaMensajes;TEMPCUO_110=tmpl_WEBBCI_AVACUO_TDC_COMPROBANTE;TEMPCUO_800=tmpl_WEBNOVA_AVACUO_TDC_COMPROBANTE;TEMPCUO_100=tmpl_WEBTBANC_AVACUO_TDC_COMPROBANTE;TEMPCUO_132=tmpl_WEBPYME_AVACUO_TDC_COMPROBANTE;TEMPCUO_230=tmpl_WEBEMP_AVACUO_TDC_COMPROBANTE;TEMPCUO_105=tmpl_WEBBCI_AVACUO_TDC_COMPROBANTE;
+
+pathCssIntranet;path=intranet/;
+
+
+valeVista;numeroCta=25655558;cuentaCte=25655558;tipoCta=CCT;numeroDocumento=PagoValeVista;nombre=Vale Vista;
+AbonoCta;nombre=Abono Cta;
+puertaVV;listaAcciones=VER_VV;nombreVista=TDC_CUOEFEC;
+puertaSinAutenticacionManual;accionSinAutenticacionManual=VALIDAR;vistaSinAutenticacionManual=TDC_CUOEFEC;
+
+consolidadorDeuda;codigoValeVista=ACWB;idCuentaDefault=0000;codigoLDC=LDC;codigoDVV=DVV;productoCCA=CON575;productoCMO=CON300;glosaPago=CCA Web;tituloArchivo=vv_cca_;extArchivo=.txt;codigoDesgravamen=SDG;anexoSeguro=FLT;
+# Integracion
+#NOMINA_VV_CCA;rutEmp=9666516;dvEmp=4;codConvenio=944;tipoConvPago=OTR;tipoPago=VVC;canal=b2b;rutApo=9666516;dvApo=4;pin=webdesa1;bancoDestino=016;tipoDocPago=ABO;codOficina=245;idPlantilla=999999999;
+# Certificacion
+NOMINA_VV_CCA;rutEmp=9666516;dvEmp=4;codConvenio=944;tipoConvPago=OTR;tipoPago=VVC;canal=b2b;rutApo=9666516;dvApo=4;pin=webdesa1;bancoDestino=016;tipoDocPago=ABO;codOficina=245;idPlantilla=999999999;
+# Produccion
+#NOMINA_VV_CCA;rutEmp=97006000;dvEmp=6;codConvenio=186741;tipoConvPago=OTR;tipoPago=VVC;canal=b2b;rutApo=7696612;dvApo=5;pin=santiago;bancoDestino=016;tipoDocPago=ABO;codOficina=245;idPlantilla=1992718312;
+
+pagosMasivos;jndi=wcorp.bprocess.pagosmasivos.transferencias.PagosMasivos;
+serviciosEconomia;jndi=wcorp.serv.economia.ServiciosEconomia;
+
+#configuracion para generacion de comprobante
+comprobanteAvance;xslt=avance/comprobanteAvanceTDCBcinet;GenerarXML=cl.bci.aplicaciones.impresion.tcredito.GenerarXMLAvancesTDC;xsltSinCuota=avance/comprobanteAvanceTDCBcinetSinCuota;
+habilitaOpcion;servicioCuotas=SI;servicioCuotasBcinet=SI;
+#cantidad de cuotas adicionales que seran llamadas desde el servicio. 
+cuotasServicio;desde=25;cantidad=2;
+cuotasServicioCustom;desde=25;cantidad=2;
+cuentasBcinet;agregarCtas=SI;
+cuentasVV;agregarCtas=SI;

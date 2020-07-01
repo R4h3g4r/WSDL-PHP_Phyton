@@ -1,0 +1,42 @@
+CALCULO_VENTA_PROM;MESES=2;
+VALIDACION;PERSPECTIVA=NRE|NR|NE;
+bancas;permitidas=PM|PME|PMR|EM|EMQ;excluidas=PMN;PM=Emprendedores;PME=Empresarios;PMR=Empresario Renace;EM=Empresa_Mediana;EMQ=Empresa_Relacionada_A_Mediana;
+MAXIMO_ENDEUDAMIENTO;Desc=17700;
+MAXIMO_OFERTA;Desc=4000;
+TIPO_CLIENTE;TITULAR=TITULAR;SOCIO=SOCIO;
+TIPO_RELACION;DEUDOR_COMPLEMENTARIO=DC;COMPLEMENTARIO_DEUDOR=CD;
+PORCENTAJE_RELACION;Desc=100;
+PARAMETRO_VALIDACION;TITULAR=SML;SOCIO=LES;
+MARCA_RENEGOCIADO;Desc=marca_renegociado_operacion;
+PI_LIMITE;Desc=7.2577;
+MODELO_PROVISION_NEGATIVO;Desc=Individual;
+APROBADA;Desc=APRO;
+RECHAZADA;Desc=RECH;
+INGRESADA;Desc=ING;
+
+impresion;Desc=/cl/bci/aplicaciones/productos/colocaciones/solicitudes/pdf/simulacionMultileasing.xsl;
+imagenLogo;Desc=/resources/flujounicodesolicitudes/img/logoBCI.gif
+
+condicionSucAprocred; Desc=- Recuerde que siempre debe ratificar esta evaluación vía SUC o Aprocred, según corresponda. Previo al curse, el Margen evaluado debe estar correctamente inyectado en el sistema de margen.;
+condicionesGrupo; Desc=- Recuerde que grupo económico no debe presentar eventos negativos al momento del curse.;
+condicionesExcesoMargen; Desc=- Recuerde que tanto el margen como la deuda del cliente, no puede exceder en su conjunto a UF18.000, caso contrario debe ser atendido por Modelo y política individual.;
+advertenciaArticulo85; Desc=- El art 85 vigente, no presenta el 100% de socios ingresados , recuerde que para una correcta evaluación deberá quedar completo en los sistemas.;
+advertenciaVentasEstafin; Desc=- Cliente no presenta actualizadas las ventas en los sistemas, recuerde que para una mejor evaluación debe ingresarlas en el modulo cliente/estados financieros, de Everest.;
+alertaLineaCreditoGlobal; desc=- Oferta Máxima evaluada es Inferior al tope de UF200, debe velar que el monto sea suficiente para cursar.
+
+condicionesCurseFalso;Desc=Condiciones de curse;
+condicionesCurseVerdadero;Desc=Evaluación solo valida como simulación, sujeta a:;
+TITULAR;desc=TITULAR;
+PORCENTAJE_SOCIOS;Desc=10;
+ACTIVIDAD_RESTRINGIDA;Desc=02_Act. Restr.;
+ANTIGUEADAD_CTA_CTE;Desc=6;
+MIN_LINEA_DISPONIBLE;Desc=1;
+
+SUC_SIMULACION_APROBADA;Desc=Existe simulacion vigente aprobada por un monto de UF [XX] a un plazo [YY] meses.;
+PERFIL_XML;P01=1;P02=2;P03=3;P04=4;P05=5;P06=6;P07=7;sin respuesta=sin respuesta;
+MINIMO_OFERTA;Desc=100;
+MONTO_MINIMO_ALERTA;Desc=200;
+APAGADO_FILTRO_33;Desc=SI;
+
+ANTIGUEDAD_MESES;Desc=12;
+MODELOS_PERMITIDOS;LLAMADA=Comercial Grupal y FFGG|;Comercial Grupal y FFGG=Comercial_Grupal_nov_18;

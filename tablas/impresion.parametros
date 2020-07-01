@@ -1,0 +1,36 @@
+#
+# Valores Impresion
+#
+xml;version=1.0;encoding=ISO-8859-1;
+
+# Desarrollo
+#PATHSFO;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portaldesa/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHS;XSLTPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;IMG_URL=/portalwls/img;XSLTPATH_100=/export/weblogic/beaportal/wlsplatform/portaldesa/tablas/impresion/xslt/;XSLTPATH_110=/export/weblogic/oracle10.3/wlsplatform/config/portalBciCert/tablas/impresion/xslt/;
+#PATHSFO_100;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/tbanc/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portaldesa/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHSFO_110;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/Bci/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portaldesa/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+
+# Certificacion
+PATHSFO;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+PATHSFO_100;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/tbanc/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+PATHSFO_110;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/Bci/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+PATHS;XSLTPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;IMG_URL=/portalwls/img;XSLTPATH_100=/export/weblogic/beaportal/wlsplatform/portalcert/tablas/impresion/xslt/;XSLTPATH_110=/export/weblogic/oracle10.3/wlsplatform/config/portalBciCert/tablas/impresion/xslt/;
+
+# Certificacion BCI INTERDOMAIN
+PATHSFO;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+PATHS;XSLTPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;IMG_URL=/portalwls/img;XSLTPATH_100=/export/weblogic/oracle10.3/wlsplatform/config/portalBciCert/tablas/impresion/xslt/;XSLTPATH_110=/export/weblogic/oracle10.3/wlsplatform/config/portalBciCert/tablas/impresion/xslt/;
+PATHSFO_100;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/tbanc/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+PATHSFO_110;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/Bci/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalcert/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+
+# Produccion
+#PATHSFO;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalprod/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHSFO_100;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/tbanc/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalprod/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHSFO_110;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/Bci/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalprod/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHS;XSLTPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;IMG_URL=/portalwls/img;XSLTPATH_100=/export/weblogic/beaportal/wlsplatform/portalprod/tablas/impresion/xslt/;XSLTPATH_110=/export/weblogic/beaportal/wlsplatform/bciportalprod/tablas/impresion/xslt/;
+
+# Produccion BCI INTERDOMAIN
+#PATHSFO;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalprod/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+#PATHS;XSLTPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;IMG_URL=/portalwls/img;XSLTPATH_100=/export/weblogic/beaportal/wlsplatform/bciportalprod/tablas/impresion/xslt/;XSLTPATH_110=/export/weblogic/beaportal/wlsplatform/bciportalprod/tablas/impresion/xslt/;
+#PATHSFO_100;XSLFOPATH=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslfo/;IMAGEN=/export/weblogic/oracle10.3/wlsplatform/applications/wcorpWebApp/resources/Webbci/tbanc/images/;IMAGEN-TBANC=/export/weblogic/beaportal/wlsplatform/portalprod/extras/tbancpdf/imagenes/;IMAGEN-CALFINANCIERO=/resources/images/calendarioFinanciero;
+
+#parametros a excluir
+EXCLUIR_PARAMS;listado=*,(,),&,[,],`,~,$,%,^,?,:,{,},!,',/,=,<,>,+,|;

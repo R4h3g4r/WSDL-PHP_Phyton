@@ -1,0 +1,783 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+<!DOCTYPE definitions PUBLIC "-//BEE S.A.//DTD Data Report//ES" "http://www.bee.cl/dtds/XMLDataReport.dtd" >
+
+<!-- <== version: 2006/07/16 21:41 ==> -->
+
+<definitions>
+
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  <!--                                                                                                                -->
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+
+  <report identifier="ESTADOCREDIT" class_name="wcorp.serv.mcicobranza.DetalleOperacion" line_type = "C001"> <!-- 998 -->
+
+    <data offset="0"   length="04" field="caiOperacion"                 type="String" />
+    <data offset="04"  length="08" field="iicOperacion"                 type="String" />
+    <data offset="12"  length="16" field="glosaOperacion"               type="String" />
+    <data offset="28"  length="30" field="estadoOperacion"              type="String" />
+    <data offset="58"  length="30" field="tipoSubtipo"                  type="String" />
+    <data offset="88"  length="30" field="oficina"                      type="String" />
+    <data offset="118" length="30" field="moneda"                       type="String" />
+    <data offset="148" length="10" field="curse"                        type="Date"   format="dd/MM/yyyy" />
+    <data offset="158" length="10" field="primerVencimientoOriginal"    type="Date"   format="dd/MM/yyyy" />
+    <data offset="168" length="10" field="primerVencimientoImpago"      type="Date"   format="dd/MM/yyyy" />
+    <data offset="178" length="10" field="ultimoVencimiento"            type="Date"   format="dd/MM/yyyy" />
+    <data offset="188" length="10" field="situacionContable"            type="String" />
+    <data offset="198" length="08" field="tasaSpreadPactado"            type="float"  format="###.####" />
+    <data offset="206" length="03" field="cuotasCanceladas"             type="int"    />
+    <data offset="209" length="03" field="cuotasImpagas"                type="int"    />
+    <data offset="212" length="20" field="capitalOriginalMOPeso"        type="double" format="##,###,###,###.####" />
+    <data offset="232" length="20" field="saldoInsolutoPeso"            type="double" format="##,###,###,###.####" />
+    <data offset="252" length="20" field="capitalOriginalPeso"          type="double" format="##,###,###,###.####" />
+    <data offset="272" length="20" field="interesVencimientoImpagoPeso" type="double" format="##,###,###,###.####" />
+    <data offset="292" length="20" field="totalImpago$"                 type="double" format="##,###,###,###.####" />
+
+    <struct line_type = "F001" variable="garantiasEspecificas">
+
+      <data offset="0"   length="04" field="caiGarantia"      type="String" />
+      <data offset="4"   length="08" field="iicGarantia"      type="String" />
+      <data offset="12"  length="30" field="tipoSubtipo"      type="String" />
+      <data offset="42"  length="02" field="real"             type="String" />
+      <data offset="44"  length="30" field="moneda"           type="String" />
+      <data offset="74"  length="20" field="valorComercial"   type="double" format="##,###,###,###.####" />
+      <data offset="94"  length="20" field="valorLiquidacion" type="double" format="##,###,###,###.####" />
+      <data offset="114" length="20" field="valorPonderado"   type="double" format="##,###,###,###.####" />
+    </struct>
+
+    <struct line_type = "F002" variable="deudores">
+
+      <data offset="0"  length="08" field="rut"        type="String" />
+      <data offset="8"  length="01" field="digVer"     type="char"   />
+      <data offset="9"  length="10" field="tipoDeudor" type="String" />
+      <data offset="19" length="50" field="nombre"     type="String" />
+    </struct>
+
+    <struct line_type = "F003" variable="documentos">
+
+      <data offset="0"  length="30" field="tipo"   type="String" />
+      <data offset="30" length="30" field="estado" type="String" />
+    </struct>
+
+    <struct line_type = "F004" variable="movimientos">
+
+      <data offset="0"  length="10" field="fecha"        type="Date"   format="dd/MM/yyyy" />
+      <data offset="10" length="08" field="hora"         type="int"    />
+      <data offset="18" length="30" field="evento"       type="String" />
+      <data offset="48" length="30" field="realizadoPor" type="String" />
+    </struct>
+
+    <struct line_type = "F005" variable="detallesDeuda">
+
+      <data offset="0"  length="04" field="caiRecuperacion"  type="String" />
+      <data offset="4"  length="08" field="iicRecuperacion"  type="String" />
+      <data offset="12" length="10" field="fechaVencimiento" type="Date"   format="dd/MM/yyyy" />
+      <data offset="22" length="20" field="capital"          type="double" format="##,###,###,###.####" />
+      <data offset="42" length="20" field="interes"          type="double" format="##,###,###,###.####" />
+      <data offset="62" length="20" field="honorarios"       type="double" format="##,###,###,###.####" />
+      <data offset="82" length="20" field="total"            type="double" format="##,###,###,###.####" />
+    </struct>
+
+    <struct line_type = "F006" variable="pagosOmision">
+
+      <data offset="0"   length="30" field="etapa"            type="String"/>
+      <data offset="30"  length="10" field="tipo"             type="String"/>
+      <data offset="40"  length="10" field="fechaVencimiento" type="Date"   format="dd/MM/yyyy" />
+      <data offset="50"  length="10" field="fechaPago"        type="Date"   format="dd/MM/yyyy" />
+      <data offset="60"  length="20" field="capital"          type="double" format="##,###,###,###.####" />
+      <data offset="80"  length="20" field="interes"          type="double" format="##,###,###,###.####" />
+      <data offset="100" length="20" field="honorarios"       type="double" format="##,###,###,###.####" />
+      <data offset="120" length="20" field="total"            type="double" format="##,###,###,###.####" />
+    </struct>
+
+  </report>
+
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  <!--                                                                                                                -->
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+
+  <report identifier="LIQUIDACION" class_name="wcorp.serv.mcicobranza.LiquidacionConsolidada" line_type = "C001">
+
+    <data offset="0"   length="40"  field="nombreCliente"      type="String" />
+    <data offset="40"  length="8"   field="idPClienterut"      type="String" />
+    <data offset="48"  length="1"   field="idPClientedv"       type="char"   />
+    <data offset="49"  length="30"  field="oficina"            type="String" />
+    <data offset="79"  length="30"  field="ejecutivo"          type="String" />
+    <data offset="109" length="30"  field="banca"              type="String" />
+    <data offset="139" length="30"  field="actividadEconomica" type="String" />
+    <data offset="169" length="12"  field="segmento"           type="String" />
+    <data offset="181" length="30"  field="abogado"            type="String" />
+    <data offset="211" length="256" field="comentarios"        type="String" />
+    <data offset="467" length="10"  field="fechaJOperaciones"  type="Date"  format="dd/MM/yyyy" />
+    <data offset="477" length="10"  field="fechaUACJ"          type="Date"  format="dd/MM/yyyy" />
+    <data offset="487" length="10"  field="fechaJOficina"      type="Date"  format="dd/MM/yyyy" />
+    <data offset="497" length="10"  field="fechaAbogado"       type="Date"  format="dd/MM/yyyy" />
+    <data offset="507" length="40"  field="nombreAbogado"      type="String" />
+
+    <struct line_type = "F001" variable="direccionesCliente">
+      <data offset="0"   length="10"  field="relacion"  type="String" />
+      <data offset="10"  length="20"  field="tipodir"   type="String" />
+      <data offset="30"  length="60"  field="direccion" type="String" />
+      <data offset="90"  length="30"  field="comunadir" type="String" />
+      <data offset="120" length="20"  field="estadodir" type="String" />
+      <data offset="140" length="20"  field="telefono"  type="String" />
+      <data offset="160" length="20"  field="estado"    type="String" />
+      <data offset="180" length="20"  field="codPostal" type="String" />
+      <data offset="200" length="10"  field="fechaVer"  type="Date"   format="dd/MM/yyyy" />
+    </struct>
+
+    <struct line_type = "F002" variable="gestionesCobranza">
+
+      <data offset="0"   length="10"  field="fecha"            type="Date"   format="dd/MM/yyyy" />
+      <data offset="10"  length="8"   field="hora"             type="String" />
+      <data offset="18"  length="30"  field="gestor"           type="String" />
+      <data offset="48"  length="30"  field="gestion"          type="String" />
+      <data offset="78"  length="30"  field="contacto"         type="String" />
+      <data offset="108" length="30"  field="respuestagestion" type="String" />
+      <data offset="138" length="256" field="observaciones"    type="String" />
+    </struct>
+
+    <struct line_type = "F003" variable="detalleGarantiasGenerales">
+
+      <data offset="0"   length="4"   field="garantiaNumeroCai" type="String" />
+      <data offset="4"   length="8"   field="garantiaNumeroIic" type="String" />
+      <data offset="12"  length="30"  field="tipoSubtipo"       type="String" />
+      <data offset="42"  length="20"  field="oficinagar"        type="String" />
+      <data offset="62"  length="20"  field="monedagar"         type="String" />
+      <data offset="82"  length="40"  field="descripcion"       type="String" />
+      <data offset="122" length="30"  field="rol"               type="String" />
+      <data offset="152" length="30"  field="ejecutivogar"      type="String" />
+      <data offset="182" length="10"  field="ingreso"           type="Date"   format="dd/MM/yyyy" />
+      <data offset="192" length="10"  field="constitucion"      type="Date"   format="dd/MM/yyyy" />
+      <data offset="202" length="10"  field="vencimiento"       type="Date"   format="dd/MM/yyyy" />
+      <data offset="212" length="10"  field="limite"            type="String" />
+      <data offset="222" length="20"  field="estadoGarantia"    type="String" />
+      <data offset="242" length="20"  field="procesoJuridico"   type="String" />
+      <data offset="262" length="2"   field="propClteBanco"     type="String" />
+      <data offset="264" length="8"   field="idPPropietarioRut" type="String" />
+      <data offset="272" length="1"   field="idPPropietarioDv"  type="char"   />
+      <data offset="273" length="40"  field="nombrePropietario" type="String" />
+      <data offset="313" length="40"  field="direccionUbi"      type="String" />
+      <data offset="353" length="10"  field="numero"            type="String" />
+      <data offset="363" length="40"  field="otros"             type="String" />
+      <data offset="403" length="30"  field="comuna"            type="String" />
+      <data offset="433" length="30"  field="agenteAduana"      type="String" />
+      <data offset="463" length="30"  field="almacenFilial"     type="String" />
+      <data offset="493" length="40"  field="ubicacion"         type="String" />
+      <data offset="533" length="10"  field="depositoPrenda"    type="String" />
+
+      <struct line_type = "F004" variable="deudoresGarantia">
+        <data offset="0"   length="8"   field="clienteRut"   type="String" />
+        <data offset="8"   length="1"   field="clienteDv"    type="char"   />
+        <data offset="9"   length="40"  field="nombreDeudor" type="String" />
+        <data offset="49"  length="20"  field="montoLimite"  type="double" format="##,###,###,###.####" />
+        <data offset="69"  length="20"  field="porcLimite"   type="double" format="##,###,###,###.####" />
+      </struct>
+
+      <struct line_type = "F005" variable="valoresGarantia">
+
+        <data offset="0"   length="3"   field="numeroAvaluo"    type="String" />
+        <data offset="3"   length="1"   field="avaluoParcial"   type="String" />
+        <data offset="4"   length="20"  field="valorTasacion"   type="double" format="##,###,###,###.####" />
+        <data offset="24"  length="20"  field="gtiasFacultades" type="double" format="##,###,###,###.####" />
+        <data offset="44"  length="10"  field="tasacion"        type="Date"   format="dd/MM/yyyy"       />
+        <data offset="54"  length="30"  field="tasador"         type="String" />
+      </struct>
+
+      <struct line_type = "F006" variable="operacionEspecifica">
+
+        <data offset="0"   length="3"   field="especificacion" type="String" />
+        <data offset="3"   length="4"   field="idcaiOperacion" type="String" />
+        <data offset="7"   length="8"  field="idiicOperacion" type="String" />
+        <data offset="15"  length="10"  field="vencimiento"    type="Date"   format="dd/MM/yyyy" />
+        <data offset="25"  length="20"  field="monedaLimite"   type="String" />
+        <data offset="45"  length="20"  field="montoLimite"    type="double" format="##,###,###,###.####" />
+        <data offset="65"  length="20"  field="porcLimite"     type="double" format="##,###,###,###.####" />
+      </struct>
+
+      <struct line_type = "F007" variable="acreedoresPreferenciales">
+
+        <data offset="0"   length="3"   field="prioridad"      type="String" />
+        <data offset="3"   length="8"   field="idPAcreedorRut" type="String" />
+        <data offset="11"  length="1"   field="idPAcreedorDv"  type="char"   />
+        <data offset="12"  length="40"  field="nombreAcreedor" type="String" />
+        <data offset="52"  length="1"  field="bancoAcreedor"  type="String" />
+        <data offset="53"  length="2"   field="clienteBanco"   type="String" />
+        <data offset="55"  length="10"  field="montoPorc"      type="String" />
+        <data offset="65" length="20"  field="valorAcreencia" type="double" format="##,###,###,###.####" />
+      </struct>
+
+      <struct line_type = "F008" variable="datosLegalesGarantia">
+
+        <data offset="0"   length="3"   field="prioridad"           type="String" />
+        <data offset="3"   length="30"  field="abogado"             type="String" />
+        <data offset="33"  length="30"  field="notaria"             type="String" />
+        <data offset="63"  length="30"  field="instrumento"         type="String" />
+        <data offset="93"  length="30"  field="rolImpuestoInternos" type="String" />
+        <data offset="123" length="30"  field="registro"            type="String" />
+        <data offset="153" length="30"  field="estado"              type="String" />
+        <data offset="183" length="30"  field="localidadRegistro"   type="String" />
+        <data offset="213" length="30"  field="comuna"              type="String" />
+        <data offset="243" length="12"  field="idFiscalia"          type="String" />
+        <data offset="255" length="10"  field="escritura"           type="Date"   format="dd/MM/yyyy" />
+        <data offset="265" length="10"  field="fojasHip"            type="String" />
+        <data offset="275" length="5"  field="numeroHip"           type="String" />
+        <data offset="280" length="4"  field="anoHip"              type="String" />
+        <data offset="284" length="10"  field="fojasProh"           type="String" />
+        <data offset="294" length="5"  field="numeroProh"          type="String" />
+        <data offset="299" length="4"  field="anoProh"             type="String" />
+      </struct>
+    </struct>
+
+    <struct line_type = "F009" variable="detalleOperaciones">
+
+      <data offset="0"   length="16"  field="detalledelaOperacionNumero" type="String" />
+      <data offset="16"  length="30"  field="tipoSubtipoOpe"             type="String" />
+      <data offset="46"  length="30"  field="estadoOperacion"            type="String" />
+      <data offset="76"  length="30"  field="oficina"                    type="String" />
+      <data offset="106" length="30"  field="monedaOpe"                  type="String" />
+      <data offset="136" length="10"  field="colocacion"                 type="Date"   format="dd/MM/yyyy"       />
+      <data offset="146" length="10"  field="fecPrimerVencOriginal"      type="Date"   format="dd/MM/yyyy"       />
+      <data offset="156" length="10"  field="fecPrimerVencImpago"        type="Date"   format="dd/MM/yyyy"       />
+      <data offset="166" length="10"  field="fecUltimoVenc"              type="Date"   format="dd/MM/yyyy"       />
+      <data offset="176" length="10"  field="situacionContable"          type="String" />
+      <data offset="186" length="8"   field="tasaSpreadPactado"          type="double" format="##,###,###,###.####" />
+      <data offset="194" length="3"   field="cuotasCanceladas"           type="int"    />
+      <data offset="197" length="3"   field="cuotasImpagas"              type="int"    />
+      <data offset="200" length="20"  field="capitalOriginalMO"          type="double" format="##,###,###,###.####" />
+      <data offset="220" length="20"  field="saldoInsoluto"              type="double" format="##,###,###,###.####" />
+      <data offset="240" length="20"  field="capitalOriginal"            type="double" format="##,###,###,###.####" />
+      <data offset="260" length="20"  field="interesVencimientoImpago"   type="double" format="##,###,###,###.####" />
+      <data offset="280" length="20"  field="totalImpago"                type="double" format="##,###,###,###.####" />
+      <data offset="300" length="12"  field="operacionCol"               type="String" />
+
+      <struct line_type = "F010" variable="deudoresCredito">
+
+        <data offset="0"   length="8"   field="idPClienterut" type="String" />
+        <data offset="8"   length="1"   field="idPClientedv"  type="char"   />
+        <data offset="9"   length="50"  field="nombreCliente" type="String" />
+        <data offset="59"  length="10"  field="tipoDeudor"    type="String" />
+      </struct>
+
+      <struct line_type = "F011" variable="garantiasEspecificas">
+
+        <data offset="0"   length="12"  field="idGarantia"       type="String" />
+        <data offset="12"  length="30"  field="tipoSubtipoEsp"   type="String" />
+        <data offset="42"  length="30"   field="real"             type="String" />
+        <data offset="72"  length="30"  field="monedaEsp"        type="String" />
+        <data offset="102"  length="20"  field="valorComercial"   type="double" format="##,###,###,###.####" />
+        <data offset="122"  length="20"  field="valorLiquidacion" type="double" format="##,###,###,###.####" />
+        <data offset="142" length="20"  field="valorPonderado"   type="double" format="##,###,###,###.####" />
+      </struct>
+
+      <struct line_type = "F012" variable="documentacionAdjunta">
+
+        <data offset="0"   length="30"  field="tipo"   type="String" />
+        <data offset="30"  length="30"  field="estado" type="String" />
+        <data offset="60"  length="10"  field="motivo" type="String" />
+      </struct>
+
+      <struct line_type = "F013" variable="planPagos">
+
+        <data offset="0"   length="03"  field="numeroCuota"       type="int"    />
+        <data offset="3"   length="10"  field="fecVencimiento"    type="Date"   format="dd/MM/yyyy"       />
+        <data offset="13"  length="20"  field="valorAmortizacion" type="double" format="##,###,###,###.####" />
+        <data offset="33"  length="20"  field="valorInteres"      type="double" format="##,###,###,###.####" />
+        <data offset="53"  length="20"  field="valorComision"     type="double" format="##,###,###,###.####" />
+        <data offset="73"  length="20"  field="valorCuota"        type="double" format="##,###,###,###.####" />
+      </struct>
+
+    </struct>
+
+  </report>
+
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  <!--                                                                                                                -->
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+
+  <report identifier="FICHAVISITA" class_name="wcorp.serv.mcicobranza.FichaCliente" line_type = "C001">
+
+    <struct line_type = "F001" variable="deudores">
+
+      <data offset="0"   length="3"   field="tipoDeudor"      type="String"    />
+      <data offset="3"   length="50"  field="nombreCliente"   type="String"    />
+      <data offset="53"  length="8"   field="idPClienterut"   type="String"    />
+      <data offset="61"  length="1"   field="idPClientedv"    type="char"      />
+      <data offset="62"  length="2"   field="preaprobado"     type="String"    />
+      <data offset="64"  length="40"  field="banca"           type="String"    />
+      <data offset="104" length="40"  field="convenioAlianza" type="String"    />
+      <data offset="144" length="20"  field="dicomMora"       type="double"    format="##,###,###,###.####" />
+      <data offset="164" length="10"  field="dicomProtestos"  type="int"       />
+      <data offset="174" length="10"  field="dicomCastigos"   type="int"       />
+      <data offset="184" length="10"  field="dicomVencida"    type="Date"      format="dd/MM/yyyy" />
+
+      <struct line_type = "F002" variable="direccionesCliente">
+
+        <data offset="0"   length="10"  field="relacion"   type="int"       />
+        <data offset="10"  length="1"   field="tipodir"    type="String"    />
+        <data offset="11"  length="40"  field="glstipodir" type="String"    />
+        <data offset="51"  length="60"  field="direccion"  type="String"    />
+        <data offset="111" length="30"  field="comunadir"  type="String"    />
+        <data offset="141" length="20"  field="estadodir"  type="String"    />
+        <data offset="161" length="20"  field="telefono"   type="String"    />
+        <data offset="181" length="20"  field="estado"     type="String"    />
+        <data offset="201" length="20"  field="codPostal"  type="String"    />
+        <data offset="221" length="10"  field="fechaVer"   type="Date"      format="dd/MM/yyyy" />
+      </struct>
+
+      <struct line_type = "F003" variable="sociedades">
+
+        <data offset="0"   length="40"  field="nombre" type="String"    />
+      </struct>
+    </struct>
+
+    <struct line_type = "F004" variable="antecedentesOperacion">
+
+      <data offset="0"   length="16"  field="numeroOperacion"   type="String"    />
+      <data offset="16"  length="30"  field="tipoOperacion"     type="String"    />
+      <data offset="46"  length="10"  field="situacionContable" type="String"    />
+      <data offset="56"  length="30"  field="oficina"           type="String"    />
+      <data offset="86"  length="30"  field="ejecutivo"         type="String"    />
+      <data offset="116" length="8"   field="anexo"             type="String"    />
+      <data offset="124" length="30"  field="moneda"            type="String"    />
+      <data offset="154" length="10"  field="vencimiento"       type="Date"      format="dd/MM/yyyy" />
+      <data offset="164" length="10"  field="ultimoPago"        type="Date"      format="dd/MM/yyyy" />
+      <data offset="174" length="20"  field="saldoInsoluto"     type="double"    format="##,###,###,###.####" />
+      <data offset="194" length="20"  field="capitalMora"       type="double"    format="##,###,###,###.####" />
+      <data offset="214" length="20"  field="interesMora"       type="double"    format="##,###,###,###.####" />
+      <data offset="234" length="20"  field="saldoMora"         type="double"    format="##,###,###,###.####" />
+      <data offset="254" length="10"  field="cuotasMora"        type="int"       />
+      <data offset="264" length="10"  field="diasMora"          type="int"       />
+
+      <struct line_type = "F005" variable="garantiasEspecificas">
+
+        <data offset="0"   length="40"  field="garantias" type="String"    />
+        <data offset="40"  length="40"  field="ubicacion" type="String"    />
+      </struct>
+
+    </struct>
+
+    <struct line_type = "F006" variable="gestionesCobranza">
+
+      <data offset="0"   length="10"  field="fecha"            type="Date"      format="dd/MM/yyyy" />
+      <data offset="10"  length="8"   field="hora"             type="String"    />
+      <data offset="18"  length="30"  field="gestor"           type="String"    />
+      <data offset="48"  length="30"  field="gestion"          type="String"    />
+      <data offset="78"  length="30"  field="contacto"         type="String"    />
+      <data offset="108" length="30"  field="respuestagestion" type="String"    />
+      <data offset="138" length="256" field="observaciones"    type="String"    />
+    </struct>
+
+  </report>
+
+  <report identifier="ENTREGAABO" class_name="wcorp.serv.mcicobranza.EntregaAbogado" line_type = "C001">
+
+      <data offset="0" length="40" field="nombreAbogado" type="String" />
+
+      <struct line_type = "F001" variable="entregaLiquidaciones">
+
+        <data offset="0"   length="12"  field="idLiquidacion"   type="String" />
+        <data offset="12"  length="40"  field="nombreCliente"   type="String" />
+        <data offset="52"  length="8"   field="idPClienterut"   type="String" />
+        <data offset="60"  length="1"   field="idPClientedv"    type="char"   />
+        <data offset="61"  length="10"  field="fechaGeneracion" type="Date"   format="dd/MM/yyyy" />
+        <data offset="71"  length="20"  field="montoTotal"      type="double" format="##,###,###,###.####" />
+        
+        <struct line_type = "F002" variable="liquidacionOperaciones">
+           <data offset="0"   length="16"  field="operacion"     type="String" />
+           <data offset="16"  length="20"  field="montoCobranza" type="double" format="##,###,###,###.####" />
+           <data offset="36"  length="12"  field="producto"      type="String"  />
+        </struct>
+        
+      </struct>
+  
+  </report>
+  
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  <!-- Validar Inhibición Parcial                                                                                     -->
+  <!-- -------------------------------------------------------------------------------------------------------------- -->
+  <report identifier="VALINHIBPAR" class_name="wcorp.serv.mcicobranza.ResultValidarInhibicionParcial" line_type = "C001">
+  
+      <data offset="0"  length="1"  field="respuesta" type="Integer" />
+      
+      <data offset="1"  length="40" field="glosa1"    type="String" />
+      
+      <data offset="41" length="40" field="glosa2"    type="String" />
+    
+  </report>
+
+<report identifier="NEGVIGENTES" class_name="wcorp.serv.bciexpress.NegociosVigentes" line_type = "000">
+
+    <struct line_type = "F001" variable="cuentasCtes">
+      <!--
+      CUENTAS CTES                               APERT    PROM.TRIM.M$   PRT ACL
+      ===============================================================================
+                   DICOM                        123456              0     3   3
+      123456789012 123456789012 12345 12345 123 123456 12345678901234   345 789
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6     x   7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"    type="String"    />
+      <data offset="13"  length="12"  field="glosaCtaCte"      type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"      type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"     type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"          type="String"    />
+      <data offset="42"  length="6"   field="fechaApertura"    type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="promTrimestral"   type="double"    format="##,###,###,###" />
+      <data offset="66"  length="3"   field="cantProtestos"    type="int"       />
+      <data offset="70"  length="3"   field="cantProtestosAcl" type="int"       />
+    </struct>
+
+    <struct line_type = "F002" variable="colocaciones">
+      <!--
+      COLOCAC M/N                                V.MAX      ACTUAL M$    MTO.ORIGM$
+      ===============================================================================
+      D09071954646 PTCON CUOT F PESOS CTRAL DIR 050906            350          350  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6   x     7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaColocacion" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaMaxVenc"    type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"     type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"   type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F003" variable="lineasCredito">
+      <!--
+      LINEAS CRED.                               VCTO    UTILIZADO M$  CUPO ORIG M$
+      ===============================================================================
+      A02520735599 LINEA CRED   PESOS WTCEN DIR 071206          1.695        1.695  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6   x     7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaLineaCredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"      type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaVencimiento"  type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoUtilizado"    type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="cupoOriginal"      type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F004" variable="multiLineas">
+      <!--
+      L.GLOBAL MAX                              TERMINO     CUPO MAX.
+      ===============================================================================
+      L10000004707 L.GLOBAL MAX U.F.  WTCEN DIR 031009         13.000               C
+                01 L SOB CTA CT PESOS           031009      1.795.000               C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6         7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaMultiLinea" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaTermino"    type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="cupoMaximo"      type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F005" variable="avanceMultilineas">
+      <!--
+      AVANCE MULT.                              PRX.VTO     ACTUAL M$    MTO.ORIGM$
+      ===============================================================================
+      D09072644760 AVC 1 VCTO   PESOS CTRAL DIR 070706          1.000        1.000  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6   x     7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaMultiCredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="oficina"           type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaProxVenc"     type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"       type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"     type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F006" variable="creditoHipotecarios">
+      <!--
+      CRED.HIPOTEC                              PRX.VTO      ACTUAL M$   MTO.ORIGM$
+      ===============================================================================
+      F90000618640 OTROS        U.F.  CTRAL DIR 101106         45.585       51.745  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6   x     7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaMultiCredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="oficina"           type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaProxVenc"     type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"       type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"     type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F007" variable="factoring">
+      <!--
+      FACTORING                                   VCTO          SALDO  MONTO ORIG.
+      ===============================================================================
+      K09004002175 OP.FACTORING PESOS CTRAL DIR 062010          1.350        1.350  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1  x      2     x   3 x     x 4 x      x5         6   x     7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaMultiCredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="oficina"           type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaMaxVenc"      type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"       type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"     type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F008" variable="multiCreditos">
+      <!--
+      MULTICREDITO                               V.MAX      ACTUAL M$    MTO.ORIGM$
+      ===============================================================================
+      D09065024741 MULTICR CTA+ PESOS CTRAL DIR 130706            511          511  C
+      123456789012 123456789012 12345 12345 123 123456 12345678901234 123456789012
+      ===============================================================================
+      0         1         2         3         4         5         6         7
+      0123456789012345678901234567890123456789012345678901234567890123456789012345678
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaMultiCredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="oficina"           type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaMaxVenc"      type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"       type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"     type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F009" variable="depositosAPlazo">
+      <!--
+      D A P
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaDap"        type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaVcto"       type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoVcto"       type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F010" variable="colocacionesME">
+      <!--
+      COLOCAC.M/E
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaColocacion" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaMaxVenc"    type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"     type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoOriginal"   type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F011" variable="pagosAutomaticosDeCuentas">
+      <!--
+      P A C
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaPac"        type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"       type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="ultimoPago"      type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F012" variable="recaudaciones">
+      <!--
+      RECAUDACION
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"    type="String"    />
+      <data offset="13"  length="12"  field="glosaRecaudacion" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"      type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"     type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"          type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"        type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="acumMes"          type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F013" variable="tranValores">
+      <!--
+      TRAN.VALORES
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosatranVal"    type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaContrato"   type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="factura"         type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F014" variable="cobranzasNac">
+      <!--
+      COBRANZA NAC
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="tipoOperacion"   type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"       type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"     type="double"    format="##,###,###,###" />
+      <data offset="64"  length="12"  field="montoIngMes"     type="double"    format="###,###,###" />
+    </struct>
+
+    <struct line_type = "F015" variable="ctasAhorro">
+      <!--
+      CTAS.AHORRO
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="tipoOperacion"   type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaApertura"   type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="saldoReal"       type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F016" variable="tarjetaBci">
+      <!--
+      TARJETA BCI
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="tipoOperacion"   type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"       type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="ultCobro"        type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F017" variable="garantias">
+      <!--
+      GARANTIAS
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="tipoOperacion"   type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaConst"      type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="margenLegal"     type="double"    format="##,###,###,###" />
+    </struct>
+    
+    <struct line_type = "F018" variable="bancreditos">
+      <!--
+      BANCREDITO
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaBancredito" type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"       type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"     type="double"    format="##,###,###,###" />
+    </struct>
+
+    <struct line_type = "F019" variable="informesDeImportacion">
+      <!--
+      IMPORT
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"   type="String"    />
+      <data offset="13"  length="12"  field="glosaInforme"    type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"     type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"    type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"         type="String"    />
+      <data offset="42"  length="6"   field="fechaAprobacion" type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoInformado"  type="double"    format="##,###,###,###" />
+    </struct>
+    
+    <struct line_type = "F020" variable="cobranzasMonedaExtranjera">
+      <!--
+      COBRANZA EXT
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"     type="String"    />
+      <data offset="13"  length="12"  field="glosaCobranza"     type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"       type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"      type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"           type="String"    />
+      <data offset="42"  length="6"   field="fechaPresentacion" type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="montoActual"       type="double"    format="##,###,###,###" />
+    </struct>
+    
+    <struct line_type = "F021" variable="bancasTelefonicasBci">
+      <!--
+      BANCA TELEF
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"            type="String"    />
+      <data offset="13"  length="12"  field="glosaBancaTelefonica"     type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"              type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"             type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"                  type="String"    />
+      <data offset="42"  length="6"   field="fechaInic"                type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="usosEnElMes"              type="double"    format="##,###,###,###" />
+    </struct>
+    
+    <struct line_type = "F022" variable="cajasDeSeguridad">
+      <!--
+      CAJA SEGURID
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador" type="String"    />
+      <data offset="13"  length="12"  field="glosaCaja"     type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"   type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"  type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"       type="String"    />
+      <data offset="42"  length="6"   field="fechaContrato" type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="valorCaja"     type="double"    format="##,###,###,###" />
+    </struct>
+    
+    <struct line_type = "F023" variable="cajasDeSeguridad">
+      <!--
+      BANLEASING
+      ===============================================================================
+      -->
+      <data offset="0"   length="12"  field="identificador"       type="String"    />
+      <data offset="13"  length="12"  field="glosaBanleasing"     type="String"    />
+      <data offset="26"  length="5"   field="glosaMoneda"         type="String"    />
+      <data offset="32"  length="5"   field="glosaOficina"        type="String"    />
+      <data offset="38"  length="3"   field="tipoRel"             type="String"    />
+      <data offset="42"  length="6"   field="fechaInicio"         type="Date"      format="ddMMyy" />
+      <data offset="49"  length="14"  field="saldoActual"         type="double"    format="##,###,###,###" />
+    </struct>
+  </report>
+</definitions>

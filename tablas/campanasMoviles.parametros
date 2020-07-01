@@ -1,0 +1,18 @@
+#Atributos utilizados para envio de mail a traves de Latinia
+loginEnterprise;Desc=BCI;
+refContract;901=ContactanosMovilBCI;905=ContactanosMovilTBanc;
+
+
+#Parámetros utilizado para obtener mail de detino
+correoDestino;901=bci@bci.cl;905=tbanc@bci.cl;
+
+
+#Parámetro utilizado para identificar la cantidad de campañas que se desean consultar
+cantidadCampanas;Desc=1;
+
+mensajeIngresoSolicitud;Desc=su numero de solicitud es;
+
+#Parámetro utilizado para identificar mensajes al envio de mail a traves de latinia
+mensajeMailEnviado;0=mail se envio con Exito a la Plataforma;
+mensajeMailNoEnviado;1=Problemas de comunicacion;4=Direccion del destinatario esta vacia;7=referencia del servicio nula o vacia;
+mostrar;valor=1;

@@ -1,0 +1,27 @@
+codTabla;Desc=PRM;
+codSistema;Desc=PAGDIV;
+cargo;S=G0688;N=G0672;
+reversa;S=G0689;N=G0673;
+codMnemonico;Desc=716;
+codEvento;Desc=PagDiv;
+codSubEvento;Cargo=PgdCRG;Reverso=PgdRVS;PagoDiv=PgdVPD;
+idProducto;Desc=HIP;
+codOficina;id=090;
+formaPago;tipo=4;
+operador;Desc=3000;
+mensaje;fueraHorario=Estimado(a) cliente:<br> Esta operación sólo se puede efectuar entre 7:00 y 20:00 horas de lunes a domingo.<br>Lamentamos los inconvenientes que pudiéramos ocasionarle.<br>Atte.,<p><p>Bci - Somos Diferentes;fueraHorarioTBanc=Esta operación sólo se puede efectuar entre 7:00 y 20:00 horas de lunes a domingo.<br>Lamentamos los inconvenientes que pudiéramos ocasionarle.;
+codError;0=proceso realizado (OK);1=Dividendo ya fue enviado a PAC;2=Credito Hipotecario no existe;3=Dividendo seleccionado invalido;4=Dividendo se encuentra cancelado;5=Valor de dividendo no corresponde;6=Dividendo anterior impago;7=Cuenta contable intercentro no existe;exitoPago=0;errorCargo=8;errorSistema=9;
+codErrorVacio;Desc=Error en la generacion del Pago.;
+DEST;VALOR=exrpena@bci.cl,exjadas@bci.cl;
+SUBJ;VALOR=Pago CHIP erroneo;
+nombreEnvia;Desc=Bci;DescTBanc=TBanc;
+emailEnvia;Desc=pagochip@bci.cl;DescTBanc=pagochip@tbanc.cl;
+pdf;path=pdf/pagoDividendos/comprobantePagoDividendo.xsl;
+horarioPago;horaInicioPago=06;minutoInicioPago=00;segundoInicioPago=00;horaFinPago=23;minutoFinPago=59;segundoFinPago=59;
+mensajePopUp;valor=El pago en línea de tu Crédito Hipotecario no se encuentra disponible entre las 21:00 y las 05:59 horas. Intenta pagando entre las 06:00 y las 20:59 horas.;activo=true;
+
+#Adapter Servicio Tuxedo
+servicioAdapter;Desc=stvarios3p;
+
+# Operador para servicio Tuxedo
+operadorSN;Desc=WEBHIPOTECAR;

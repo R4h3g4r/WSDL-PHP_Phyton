@@ -1,0 +1,16 @@
+servidor;ip=161.131.232.10;puerto=26;
+acceso;usuario=emails;password=emails123;
+directorio;path=/emails/ftpin/;
+directorioTemporal;pathWin=\export\weblogic\bea\wlsplatform\temp\;pathUnix=/export/weblogic/bea/wlsplatform/temp/;
+tiempo;horaInicio=23;minutoInicio=59;
+
+refContract;Desc=WEBBEL_TTFF_MONEX;
+loginEnterprise;Desc=BCI;
+subject;Desc=WEBBEL_TTFF_MONEX;
+to;Desc=transfercomex@bci.cl;
+refContract_contrato_pyme;Desc=WEBBEL_CONTRATO_PYME;
+loginEnterprise_contrato_pyme;Desc=BCI;
+refTemplate_contrato_pyme;Desc=template_contrato_pyme;
+subject_contrato_pyme;Desc=Autorizacion para Enviar Instrucciones de Transferencia de Fondos via Correo Electronico;
+MSJ_LAT_ERROR;Desc=Hubo un problema al intentar enviar correo a su casilla registrada;
+MSJ_ERROR_GRAL;Desc=Problemas en la aplicacion, favor intente mas tarde;

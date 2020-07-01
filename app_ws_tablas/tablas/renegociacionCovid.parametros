@@ -1,0 +1,29 @@
+
+######################
+# tabla de parametros para aplicacion renegociacion Covidad
+######################
+
+MONEDA_PESO;0999=0999;999=999;
+MONEDA_UF;0998=0998;998=998;
+MONEDA_DOLAR;USD=USD;
+MONEDA_EURO;EUR=EUR;
+GLOSA_MONEDA;999=Pesos;0999=Pesos;998=U.F.;0998=U.F.;EUR=Euro;USD=Dolar;
+error;Refinanciamiento=No se pudo informar la Operación....por favor intente de nuevo;covid=No se pudo informar la Operación....por favor intente de nuevo;general=No se pudo informar la Operación....por favor intente de nuevo;tasa=Error al obtener las tasas de cambio;
+flujoCorrecto;Desc=Proceso realizado con éxito.;msjAprobacion=Tipos de cambio ya acordados con el cliente.;
+codigoEstado;OK=6;
+monedaOrigen;dolar=CLP;euro=CLP;
+monedaDestino;dolar=USD;euro=EUR;
+nota;Msje=Nota: Por favor revise que ninguna de estas operaciones sea conexa, en caso de serla comuniquese con su ejecutivo especialista para coordinar comunicacion clara al cliente.;MsjBuscarAprobacion=Tipo de cambio ya acordado con el cliente.;MsjGuardarAprobacion=Tipo de cambio acordado con el cliente ingresado de manera exitosa.;MsjeHorarioTipoCambio=Estimado(a) Banquero(a), la formalización de la Negociación y fijación de Tipo de Cambio debe ser realizada sólo en día HÁBIL de 09:00 a 13:30 hrs, siempre y cuando esté seguro(a) de la recepción de documentos el mismo dia
+monto_maximo_moneda;USD=150000;EUR=130000;
+monedas_guardar;USD=USD;EUR;EUR;998=998;0998=0998;
+codigoProducto;Desc=CVD;
+origenSolicitud;Desc=WEB;
+EJB_COMEX;valor=wcorp.serv.comex.ServiciosComex;
+EJB_COLOCACIONES;valor=wcorp.bprocess.colocaciones.Colocaciones;
+codigoError;OK=0;errorEjecucion=2;
+EJB_COVID;valor=wcorp.serv.creditocovid.ServiciosCreditosCovid;
+HORARIO_TIPO_CAMBIO;horaInicio=09:00:00;horaFin=21:30:00;
+mensaje;SinCreditos=Cliente sin créditos vigentes a reprogramar;SinSolicitud=Cliente no ha inscrito su solicitud de Financiamiento COVID;
+BD;valor=bcicomex2;
+MONEDA_NACIONAL;0999=0999;999=999;0998=0998;998=998;
+MONTO_REF_CERO;valor=El cliente consultado tiene crédito(s) con tasa variable y su monto a reprogramar se muestra en "0", ya que valor debe ser calculado manualmente con equipo Pricing. El monto total del crédito reprogramación debe considerar todos los créditos del cliente (tasa fija + variable) para ser cancelados en conjunto y de forma manual con equipo ACA Santiago o Regiones, según sea el caso;

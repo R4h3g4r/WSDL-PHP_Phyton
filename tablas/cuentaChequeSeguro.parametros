@@ -1,0 +1,33 @@
+acciones;I=Ingresar;E=Eliminar;M=Modificar;
+tiposCuenta;CHQ=Cheque Seguro;CTA=Cuenta Segura;
+
+#DESARROLLO
+#carga;servidor=161.131.184.80;directorio=/ChequeSeguro/in;usuario=chqsegur;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteCargaNomina=/comprobanteCargaNomina.html;comprobanteFirmaNominas=comprobanteFirmaNominas.html;comprobanteFirmaNominaIndividual=comprobanteFirmaNominaIndividual.html;
+
+#INTEGRACION
+#carga;servidor=161.131.141.238;directorio=/ChequeSeguro/in;usuario=chqsegur;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteCargaNominaCheque=/comprobanteCargaNominaChequeSeguro.html;comprobanteFirmaNominas=comprobanteFirmaNominas.html;comprobanteFirmaNominaIndividual=comprobanteFirmaNominaIndividual.html;comprobanteConsultaChequeSeguro=comprobanteConsultaChequeSeguro.html;
+#CERTIFICACION
+carga;servidor=161.131.232.185;directorio=/ChequeSeguro/in;usuario=chqsegur;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteCargaNomina=/comprobanteCargaNomina.html;comprobanteFirmaNominas=comprobanteFirmaNominas.html;comprobanteFirmaNominaIndividual=comprobanteFirmaNominaIndividual.html;
+
+#PRODUCCION
+#carga;servidor=161.131.232.35;directorio=/ChequeSeguro/in;usuario=chqsegur;rutaRecursosPDF=applications/wcorpWebApp/resources/icono/;comprobanteCargaNomina=/comprobanteCargaNomina.html;comprobanteFirmaNominas=comprobanteFirmaNominas.html;comprobanteFirmaNominaIndividual=comprobanteFirmaNominaIndividual.html;
+#Cuando el valor del separador es vacio, se toma por defecto el punto y coma.
+#separador;caracter=;
+#tipoArchivo;csv=csv;excel=xls;
+#codigoMiscelaneo;valor=17;
+#Mensajes de error
+#mensaje;msj01=No coincide la extension del archivo con el tipo de archivo seleccionado;msj02=Error al enviar la nomina;msj03=Error al obtener las nominas;msj04=No se ha suplido el número de nómina;msj05=Error al generar archivo para descargar;msj06=Nomina no corresponde a la empresa;msj07=No es posible eliminar un cheque que está En Proceso.;msj08=Número de serie ya existe en el listado;msj09=Error al eliminar la nómina.;msj10=Error al obtener el cheque.;msj11=Error al obtener nómina.;msj12=Error al obtener cuentas seguras.;msj13=Error al guardar cheque.;
+#errorNoPuedeFirmar;msj=No está autorizado para ingresar a esta sección.;
+#errorFirma;msj=Se ha producido un error al firmar nóminas seleccionadas.;
+#errorComprobantes;msj=Se ha producido un error al obtener comprobantes;
+#estadoNomina;inicio=INI;observacion=OBS;pendiente=PEN;
+#codigoServicio;firma=CHQS004;carga=CHQS002;
+#codigoProducto;230=Prod01;132=Prod21;
+#eventosIngresoNomina;evento=INGRESO;subEvento=NOMINA;producto=CTASEG;glosaEvento=Ingreso de nómina de Cuenta Segura / Cheque Seguro;
+#eventosAutorizaNomina;evento=AUTORIZA;subEvento=NOMINA;producto=CTASEG;glosaEvento=Autorizacion de nómina de Cuenta Segura / Cheque Seguro;
+#eventosEliminarNomina;evento=ELIMINA;subEvento=NOMINA;producto=CTASEG;glosaEvento=Eliminación de nómina de Cuenta Segura / Cheque Seguro;
+#modalidad;cheque_gls=Cheque Seguro;cuenta_gls=Cuenta Segura;cheque_cod=CHQ;cuenta_cod=CTA;
+#Firma nomina
+#firma;comprobanteListaNominas=applications/wcorpWebApp/resources/icono/comprobanteListaNominasChequeSeguro.html;tablaComprobanteListaNominas=<div class="fondo_borde_gris borde_ie_10 txt_12 txt_gris"><div class="form_comprobante"><div class="clear"></div><table width="80%" border="0" cellpadding="0" cellspacing="0" class="tabla_comprobante display_inline"><tbody><tr><td colspan="2">Nombre Empresa</td></tr><tr><td colspan="2"><strong><!--nombreEmpresa--></strong></td></tr><tr><td style="width: 61%??"><!--espacio--></td><td><!--espacio--></td></tr><tr><td width="50%">Rut Empresa</td><td>Fecha y Hora</td></tr><tr><td><strong><!--rutEmpresa--></strong></td><td><strong><!--fechaHora--></strong></td></tr><tr><td></td><td></td></tr><tr><td class="align_left" width="60%">C&oacute??digo Identificaci&oacute??n </td><td class="align_left">Nombre de N&oacute??mina </td></tr><tr><td class="align_left"><strong><!--codigoIdentificacion--></strong></td><td class="align_left"><strong><!--nombreNomina--></strong></td></tr><tr><td> </td><td> </td></tr><tr><td class="align_left" width="50%">Cantidad de Cheques </td><td class="align_left">Monto N&oacute??mina </td></tr><tr><td class="align_left"><strong><!--cantidadCheques--></strong></td><td class="align_left"><strong><!--montoNomina--></strong></td></tr><tr><td> </td><td> </td></tr><tr><td class="align_left" colspan="2"><strong>Apoderados que firmaron:</strong></td></tr><!--apoderados--></tbody></table></div></div>;comprobanteNomina=resources/icono/comprobanteNominaCuentaSegura.html;tablaComprobanteNominaApoderados=<tr><td class="align_left"><strong><!--rutApoderado--></strong></td><td class="align_left"><strong><!--nombreApoderado--></strong></td></tr>;comprobanteResumenFirma=resources/icono/comprobanteResumenFirmaCuentaSegura.html;comprobanteNominasFirmadas=resources/icono/comprobanteNominasFirmadasCuentaSegura.html;tablaComprobanteNominasFirmadas=<tr id="tblFirmadas_row_0" class="ui-widget-content ui-datatable-even"><td><div class="align_center"><!--espacio--></div></td><td><div class="align_center"><!--numeroNomina--></div></td><td><div class="align_center"><!--nombreNomina--></div></td><td><div class="align_center"><!--fechaCarga--></div></td><td><div class="align_center"><!--numeroCheques--></div></td><td><div class="align_center"><!--montoNomina--></div></td><td><div class="align_center"><!--espacio--></div></td></tr>;
+#diasAntiguedadFirma;valor=10;
+#respuestaJoltObservacion;valor=0091;

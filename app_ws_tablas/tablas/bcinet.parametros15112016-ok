@@ -1,0 +1,250 @@
+##############
+# url de despacho para ambiente prueba.
+##############
+#urlDespacho;valor=http://intranetinte/Bcinet/template/common/bcinet-pivote-workstation.jsf;
+
+##############
+# url de despacho para ambiente certificación Bci.
+##############
+urlDespacho;valor=http://intranetcert/Bcinet/template/common/bcinet-pivote-workstation.jsf;
+
+##############
+# url de despacho para ambiente producción Bci.
+##############
+#urlDespacho;valor=http://bcinet.bci.cl/Bcinet/template/common/bcinet-pivote-workstation.jsf;
+
+
+
+
+
+# Códigos de journalización
+
+#login
+LOGIN;medio=LOGIN;codEventoNegocio=LOGIN;subCodEventoNegocio=OK;idProducto=BciNET;idComentario=Login Ejecutivo;
+
+
+# Carpeta Digital Journal
+###########################
+CARDIGING;medio=BNTPER;codEventoNegocio=INGRESO;subCodEventoNegocio=CARDIG;idProducto=CLI;idComentario=Acc Carpeta Digital;
+CARDIGBUS;medio=BNTPER;codEventoNegocio=CONSULTA;subCodEventoNegocio=CARDIG;idProducto=CLI;idComentario=Acc Documento Consultado;
+CARDIGDES;medio=BNTPER;codEventoNegocio=DESCARGA;subCodEventoNegocio=CARDIG;idProducto=CLI;idComentario=Acc Documento Descargado;
+
+# Pagina direccionamiento Local
+###############################
+#fa fa-group;url=http://intranetinte/Bcinet/template/common/bcinet-pivote-workstation.jsf?idUsuario=<USUARIO>&url=/workstationwls/portal/consultaCarteraClientes.do?accion=iniciarConsultaPersonas@canal=BCINET@idUsuario=<USUARIO>;journalizar=true;
+#fa fa-barcode;url=http://intranetinte/Bcinet/cl/bci/aplicaciones/ejecutivos/favoritos/bcinet-favorito.jsf;
+
+
+# Pagina direccionamiento Certificación
+#######################################
+fa fa-group;url=http://intranetcert/Bcinet/template/common/bcinet-pivote-workstation.jsf?idUsuario=<USUARIO>&url=/workstationwls/portal/consultaCarteraClientes.do?accion=iniciarConsultaPersonas@canal=BCINET@idUsuario=<USUARIO>;journalizar=true;
+fa fa-barcode;url=http://intranetcert/Bcinet/cl/bci/aplicaciones/ejecutivos/favoritos/bcinet-favorito.jsf;
+
+# Pagina direccionamiento Producción
+####################################
+#fa fa-group;url=http://bcinet/Bcinet/template/common/bcinet-pivote-workstation.jsf?idUsuario=<USUARIO>&url=/workstationwls/portal/consultaCarteraClientes.do?accion=iniciarConsultaPersonas@canal=BCINET@idUsuario=<USUARIO>;journalizar=true;
+#fa fa-barcode;url=http://bcinet/Bcinet/cl/bci/aplicaciones/ejecutivos/favoritos/bcinet-favorito.jsf;
+
+#WSDL de Kpi Ejecutivo
+#######################################
+#Produccion
+#servicioKpi;protocolo=http;servidor=alsb.bci.cl;url=/esb/intranet/ejecutivos/kpi/ServicioKpiEjecutivos/ServicioKpiEjecutivosContract?wsdl;
+#Certificacion
+servicioKpi;protocolo=http;servidor=161.131.140.137:9050;url=/esb/ejecutivos/kpi/ServicioKpiEjecutivos/ServicioKpiEjecutivosContract?wsdl;
+#Desarrollo
+#servicioKpi;protocolo=http;servidor=161.131.184.123:9101;url=/esb/ejecutivos/kpi/ServicioKpiEjecutivos/ServicioKpiEjecutivosContract?wsdl;
+
+layout;UserProfileDefault=layoutDefault;UserProfileTelecanal=telecanalLayout;UserProfileEjecutivoBack=ejecutivoBackLayout;UserProfileJofComercial=layoutJofComercial;UserProfileInversion=inversionLayout;UserProfileOutTelecanal=layoutOutboundTele;UserProfileEjecutivoSPV=ejecutivoSPVLayout;UserProfileLiderSPV=liderSPVLayout;UserProfileComercial=comercialLayout;UserProfileRegional=regionalLayout;UserProfileCorporativo=corporativoLayout;UserProfileInbTelecanal=ejecutivoInbTeleLayout;UserProfileOnbTelecanal=layoutOnboardingTele;UserProfileRetTelecanal=ejecutivoRetTeleLayout;
+ejecutivoBackLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/ejecutivoBack/MenuBCI_bcinetEjecutivoBack.xml;vistaInicial=/template/common/index.jsf;
+layoutDefault;url=/template/common/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bcinet.xml;menuRestringido=tablas/bcinetTemporal/MenuBCI_bcinetRestringido.xml;vistaInicial=/template/common/index.jsf;
+telecanalLayout;url=/telecanal/index.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bcinet2.xml;vistaInicial=/telecanal/index.jsf;
+layoutJofComercial;url=/template/layoutJofComercial/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bcinetJofComercial.xml;vistaInicial=/template/common/index.jsf;
+layoutOutboundTele;url=;menu=tablas/bcinetTemporal/MenuBCI_bciNetOutboundTelecanal.xml;vistaInicial=/resources/bcinetweb/redirect.html;
+inversionLayout;url=/template/ejecutivoInversion/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bcinetInversion.xml;vistaInicial=/template/common/index.jsf;
+ejecutivoSPVLayout;url=/template/ejecutivoSPV/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_ejecutivoSPV.xml;vistaInicial=/template/common/index.jsf;menuRestringido=tablas/bcinetTemporal/MenuBCI_ejecutivoSPVRestringido.xml;
+liderSPVLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_liderSPV.xml;vistaInicial=/template/common/index.jsf;
+comercialLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/menuBciNetComercial/MenuBCI_bcinetComercial.xml;vistaInicial=/template/common/index.jsf;
+regionalLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/menuBciNetRegional/MenuBCI_bcinetRegional.xml;vistaInicial=/template/common/index.jsf;
+corporativoLayout;url=/template/layoutCorporativo/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bcinetCorporativo.xml;vistaInicial=/resources/bcinetweb/redirect.html;
+ejecutivoInbTeleLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bciNetInboundTelecanal.xml;vistaInicial=/resources/bcinetweb/redirect.html;
+layoutOnboardingTele;url=/template/common/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bciNetOnboardingTelecanal.xml;vistaInicial=/resources/bcinetweb/redirect.html;
+ejecutivoRetTeleLayout;url=/template/common/layoutBcinet.xhtml;menu=tablas/bcinetTemporal/MenuBCI_bciNetRetencionTelecanal.xml;vistaInicial=/resources/bcinetweb/redirect.html;
+
+#URL Indicadores_Financiero
+##############################
+URL_INDICADOR_UserProfileInversion;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileDefault;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileJofComercial;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileTelecanal;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileEjecutivoBack;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileEjecutivoSPV;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+URL_INDICADOR_UserProfileOutTelecanal;url=http://www.bci.show.finmarketslive.cl/www/publicfull.html;
+
+#WSDL de Servicios Inversiones
+#######################################
+#Produccion
+#WSDL_INV;ServicioToken=http://alsb.bci.cl/NEGOCIO/bcinet/EjecutivoInversiones/srvTokenPS?WSDL;ServicioCartera=http://alsb.bci.cl/esb/intranet/aplicaciones/everest/srvObtencionCarteraClientesEjecutivoPS?WSDL;ServicioGraficoEjeInv=http://alsb.bci.cl/NEGOCIO/bcinet/EjecutivoInversiones/srvGraficoPS?WSDL;ServicioCarteraInv=http://alsb.bci.cl/esb/intranet/ejecutivos/inversiones/ServicioCarteraInversiones/ServicioCarteraInversionesContract?WSDL;ServicioListadoClientes=http://esb.bci.cl/cxf/proxy/listadoclientes?wsdl;ServicioInfoEjecutivo=http://alsb.bci.cl/esb/intranet/ejecutivos/inversiones/informacionejecutivo/ServicioInfoEjecutivo?WSDL;
+#Certificacion
+WSDL_INV;ServicioToken=http://161.131.140.137:9050/NEGOCIO/bcinet/EjecutivoInversiones/srvTokenPS?WSDL;ServicioCartera=http://161.131.140.137:9050/NEGOCIO/bcinet/EjecutivoInversiones/srvObtencionCarteraClientesEjecutivoPS?WSDL;ServicioGraficoEjeInv=http://161.131.140.137:9050/NEGOCIO/bcinet/EjecutivoInversiones/srvGraficoPS?WSDL;ServicioCarteraInv=http://161.131.140.137:9050/esb/ejecutivos/inversiones/ServicioCarteraInversiones/ServicioCarteraInversionesContract?WSDL;ServicioListadoClientes=http://esbcert.bci.cl/cxf/proxy/listadoclientes?wsdl;ServicioInfoEjecutivo=http://161.131.140.137:9050/esb/ejecutivos/inversiones/informacionejecutivo/ServicioInfoEjecutivo?WSDL;
+#Desarrollo
+#WSDL_INV;ServicioToken=http://161.131.184.123:9101/NEGOCIO/bcinet/EjecutivoInversiones/srvTokenPS?WSDL;ServicioCartera=http://161.131.184.123:9101/NEGOCIO/bcinet/EjecutivoInversiones/srvObtencionCarteraClientesEjecutivoPS?WSDL;ServicioGraficoEjeInv=http://161.131.184.123:9101/NEGOCIO/bcinet/EjecutivoInversiones/srvGraficoPS?WSDL;ServicioCarteraInv=http://161.131.184.123:9101/esb/ejecutivos/inversiones/ServicioCarteraInversiones/ServicioCarteraInversionesContract?WSDL;ServicioListadoClientes=http://esbinte.bci.cl/cxf/proxy/listadoclientes?wsdl;ServicioInfoEjecutivo=http://161.131.184.123:9101/esb/ejecutivos/inversiones/informacionejecutivo/ServicioInfoEjecutivo?WSDL;
+
+# Pagina inicial sistema VIGIA
+###################################
+sistVIGIA;urlVistaCliente=/cl/bci/aplicaciones/bcinet/cliente/vistaCliente.jsf?autenticado=SI;urlErrorLogin=/cl/bci/aplicaciones/bcinet/cliente/error.jsf;
+
+
+#Vista y acciones.
+GRUPO_EXPERIENCIA;vista=accionesExperiencia;accion=Desplegar;
+GRUPO_RIESGO;vista=accionesRiesgo;accion=Desplegar;
+GRUPO_VENTA;vista=accionesVenta;accion=Desplegar;
+ACCION_001;vista=accionesRiesgo;accion=ResuelvePagodelaConsultaSNP;
+ACCION_01;vista=accionesRiesgo;accion=PagoConsulta;
+ACCION_03;vista=accionesRiesgo;accion=ChequesprotestadosaAutomaticamente;
+ACCION_04;vista=accionesRiesgo;accion=ChequesPagadosAutomaticamente;
+ACCION_21;vista=accionesRiesgo;accion=ProtestosPorForma;
+ACCION_002;vista=accionesRiesgo;accion=ManejaCarteraAlDia;
+ACCION_05;vista=accionesRiesgo;accion=ClientesCriticosConSobregiroNoPactadoDelDia;
+ACCION_17;vista=accionesRiesgo;accion=ClientesNoCriticosConSobregiroNoPactadoDelDia;
+ACCION_07;vista=accionesRiesgo;accion=ClientesSobregiradosDelDiaAnterior;
+ACCION_06;vista=accionesRiesgo;accion=ClientesMorososAlDia;
+ACCION_08;vista=accionesRiesgo;accion=ClientesMorososDelDiaAnterior;
+ACCION_14;vista=accionesRiesgo;accion=ProximosVencimientosComerciales;
+ACCION_003;vista=accionesRiesgo;accion=RevisaEnviosBoletin;
+ACCION_09;vista=accionesRiesgo;accion=PagaresMorosos;
+ACCION_10;vista=accionesRiesgo;accion=ChequesProtestados;
+ACCION_60;vista=accionesRiesgo;accion=ProximosVencimientosConsumos;
+ACCION_004;vista=accionesVenta;accion=EfectuaTuBloqueDeContactos;
+ACCION_12;vista=accionesVenta;accion=ClientesPriorizadosEnCampanaPendientesDeGestionar;
+ACCION_11;vista=accionesVenta;accion=ClientesPriorizadosEnCampanaGestionados;
+ACCION_18;vista=accionesVenta;accion=ClientesNoPriorizadosEnCampanaGestionados;
+ACCION_006;vista=accionesVenta;accion=BandejaDeEntradaSUC;
+ACCION_007;vista=accionesExperiencia;accion=RevisaTusEventosPendientes;
+ACCION_19;vista=accionesExperiencia;accion=EventosDeDevolucionDeLlamados;
+ACCION_20;vista=accionesExperiencia;accion=OtrosEventos;
+ACCION_009;vista=accionesExperiencia;accion=CumpleCompromisosDeAgenda;
+ACCION_15;vista=accionesExperiencia;accion=ClienteDeCumpleanos;
+ACCION_16;vista=accionesExperiencia;accion=AgendamientosDelDia;
+ACCION_62;vista=accionesRiesgo;accion=MigracionPagoConsulta;
+ACCION_64;vista=accionesRiesgo;accion=MigracionPagoConsulta;
+ACCION_65;vista=accionesRiesgo;accion=MigracionPagoConsulta;
+ACCION_66;vista=accionesRiesgo;accion=MigracionPagoConsulta;
+ACCION_010;vista=accionesVenta;accion=TubodeNegocios;
+ACCION_25;vista=accionesVenta;accion=ASLenEstadodeActivacion;
+ACCION_24;vista=accionesVenta;accion=ASLenEstadodeAprobacion;
+ACCION_22;vista=accionesVenta;accion=CreditosHipotecarios;
+ACCION_23;vista=accionesVenta;accion=OportunidadescanceladasenASL;
+ACCION_37;vista=accionesVenta;accion=BandejaDeEntradaSUC;
+ACCION_024;vista=accionesVenta;accion=ProximosVencimientosHipotecarios;
+ACCION_61;vista=accionesVenta;accion=ClientesAgendados;
+ACCION_030;vista=accionesVenta;accion=MostrarMacroAccionCampana;
+ACCION_67;vista=accionesVenta;accion=MostrarAccionClientesPriorizados;
+ACCION_68;vista=accionesVenta;accion=MostrarAccionClientesAgendados;
+ACCION_69;vista=accionesVenta;accion=MostrarAccionClientesGestionados;
+ACCION_70;vista=hipotecarios;accion=ProximosVencimientosCHIP;
+ACCION_014;vista=accionesVenta;accion=RevisaClientesQueTienenVencDAP;
+ACCION_087;vista=accionesRiesgo;accion=RevisaClientesConDAPFijoVencido;
+ACCION_088;vista=accionesVenta;accion=ClientesFugadosInversiones;
+ACCION_089;vista=accionesRiesgo;accion=ActualizaPerfilInversiones;
+
+#Definición de alias para Profiles
+aliasProfile;DEFAULT=N/D;UserProfileDefault=Ejecutivo;UserProfileTelecanal=Telecanal;UserProfileJofComercial=JOF;UserProfileEjecutivoSPV=Ejecutivo SPV;UserProfileInversion=Ejecutivo INV;UserProfileEjecutivoBack=BackOffice;UserProfileOutTelecanal=Ejecutivo Outbound Telecanal;UserProfileLiderSPV=Lider SPV;UserProfileCorporativo=Ejecutivo Corporativo;UserProfileInbTelecanal=Ejecutivo Inbound Telecanal;UserProfileOnbTelecanal=Ejecutivo Onboarding Telecanal;UserProfileRetTelecanal=Ejecutivo Retención Telecanal;
+nombreLayout;DEFAULT=N/D;UserProfileDefault=Vista Ejecutivo;UserProfileTelecanal=Vista Telecanal;UserProfileJofComercial=Vista Jefe Oficina;UserProfileEjecutivoSPV=Vista Ejecutivo Soporte PostVenta;UserProfileInversion=Vista Ejecutivo Inversiones;UserProfileEjecutivoBack=Vista Ejecutivo BackOffice;UserProfileOutTelecanal=Vista Ejecutivo Outbound Telecanal;UserProfileLiderSPV=Vista Lider Soporte PostVenta;UserProfileComercial=Vista Gerente Comercial;UserProfileRegional=Vista Gerente Regional;UserProfileCorporativo=Vista Ejecutivo Corporativo;UserProfileInbTelecanal=Vista Ejecutivo Inbound Telecanal;UserProfileOnbTelecanal=Vista Ejecutivo Onboarding;UserProfileRetTelecanal=Vista Retención Telecanal;
+
+#WSDL de Servicio Cliente
+#######################################
+#Produccion
+#servicioCliente;protocolo=http;servidor=alsb.bci.cl;url=/esb/intranet/cliente/ServicioClientesPS?wsdl;
+#Certificacion
+servicioCliente;protocolo=http;servidor=161.131.140.137:9050;url=/esb/cliente/ServicioClientesPS?wsdl;
+#Desarrollo(integracion)
+#servicioCliente;protocolo=http;servidor=161.131.184.123:9101;url=/esb/cliente/ServicioClientesPS?wsdl;
+
+#Busqueda vista Cliente
+#########################################
+ValoresNombreCliente;Pagina=1;rangoPagina=1000; 
+ValoresRazonSocial;Pagina=1;rangoPagina=1000; 
+
+
+# Gráficos Cartera Inversiones
+####################################
+carteraInversiones;urlVistaCliente=/workstationwls/cliente/consultaColaborador.do?consulta=cliente@rut=;urlGestionBam=http://161.131.198.62:8080/gatherWS/cInit.html?;urlGestion=http://161.131.198.62:8080/gatherWS/eInit.html?;
+coloresGraficos;CP01=Sin Perfil|#A859C6,Muy Conservador|#4060A0,Conservador|#30A828,Balanceado|#E8B038,Agresivo|#D03030,Muy Agresivo|#000000;FM01=Si|#4060A0,No|#D03030;DP01=Si|#4060A0,No|#D03030;AC01=Si|#4060A0,No|#D03030;
+
+etiquetasPerfiles;SIN PERFIL=Sin Perfil;MUY CONSERVADOR=Muy Conservador;CONSERVADOR=Conservador;BALANCEADO=Balanceado;AGRESIVO=Agresivo;MUY AGRESIVO=Muy Agresivo;
+
+
+#Para generar url vista cliente bcinet 
+sisUrlCustom;vistaClienteBcinet=/cl/bci/aplicaciones/ejecutivos/clientes/vistaClienteEjecutivo.xhtml;carteraCliente=/template/common/bcinet-pivote-angular.xhtml;vistaClienteRestringida=/cl/bci/aplicaciones/ejecutivos/clientes/vistaClienteEjecutivo_restringida.xhtml;vistaClienteBcinetTelecanal=/cl/bci/aplicaciones/ejecutivos/telecanal/clientes/vistaClienteEjecutivo.xhtml;vistaClienteRestringidaTelecanal=/cl/bci/aplicaciones/ejecutivos/clientes/vistaClienteEjecutivo_restringida.xhtml;vistaClienteInvBcinet=/cl/bci/aplicaciones/ejecutivos/inversiones/clientes/vistaClienteEjecutivo.xhtml;
+
+
+#vista cliene bcinet
+#vistaClienteEjecutivo;endpoint=http://170.1.1.205:8011/esb/ejecutivos/resumenantecedentescliente?wsdl;
+#Integracion
+#vistaClienteEjecutivo;endpoint=http://161.131.184.123:9101/esb/ejecutivos/resumenantecedentescliente?wsdl;
+#certificacion
+vistaClienteEjecutivo;endpoint=http://161.131.140.137:9050/esb/ejecutivos/resumenantecedentescliente?wsdl;
+#produccion
+#vistaClienteEjecutivo;endpoint=http://alsb.bci.cl/esb/intranet/ejecutivos/resumenantecedentescliente?wsdl;
+
+
+##############
+# url de despacho nueva vista cliente para ambiente local.
+##############
+#urlDespachoCliente;valor=/Bcinet/template/common/bcinet-pivote-vistaCliente.jsf;
+
+##############
+# url de despacho nueva vista cliente para ambiente prueba.
+##############
+#urlDespachoCliente;valor=http://intranetinte/Bcinet/template/common/bcinet-pivote-vistaCliente.jsf;
+
+##############
+# url de despacho nueva vista cliente para ambiente certificación Bci.
+##############
+urlDespachoCliente;valor=http://intranetcert/Bcinet/template/common/bcinet-pivote-vistaCliente.jsf;
+
+##############
+# url de despacho nueva vista cliente para ambiente producción Bci.
+##############
+#urlDespachoCliente;valor=http://bcinet/Bcinet/template/common/bcinet-pivote-vistaCliente.jsf;
+
+##############
+# url de banner informativo Produccion
+##############
+#urlBanner;valor=https://mundo.bci.cl/bcinet/alertas/posts.json;
+#tiempoRefresco;valor=1800;
+#maximoAlertas;valor=5;
+
+##############
+# url de banner informativo ambiente local
+##############
+urlBanner;valor=http://10.7.3.111:7001/Bcinet/template/common/bcinet-banner-prueba.jsp;
+tiempoRefresco;valor=60;
+maximoAlertas;valor=5;
+
+#profile a cargar en la vista.
+#profile;nombre=UserProfileComercial;
+#profile;nombre=UserProfileRegional;
+#profile;nombre=UserProfileDefault;
+#profile;nombre=UserProfileJofComercial;
+#profile;nombre=UserProfileInversion;plorca=UserProfileDefault;
+profile;nombre=UserProfileJofComercial;plorca=UserProfileDefault;
+
+##############
+# Url de despacho Vista Cliente Everest sin LBS.
+##############
+urlDespachoClienteNoLBS;valor=/Bcinet/template/common/bcinet-pivote-vistaCliente-no-LBS.jsf;
+
+##############
+# path correspondiente a "panel" de bcinet.
+##############
+pathPanel;valor=/cl/bci/aplicaciones/ejecutivos/acciones/bcinet-light.xhtml;
+
+ServicioListadoClientes;user=cliente01;pass=4rGdYJfQeggwE9Lo;
+
+#############
+# tipo de banca
+#############}
+tipoBanca;cod=PE;
+
+ServicioInfoEjecutivo;user=cliente01;pass=4rGdYJfQeggwE910;

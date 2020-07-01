@@ -1,0 +1,9 @@
+Endpoint;valor=http://192.168.110.131:8080/AdaptiveAuthentication/services/AdaptiveAuthentication?WSDL;
+connectionFactory;valor=wcorp.jms.AdaptiveAuthenticationConnectionFactory;
+queueName;valor=wcorp.jms.IntegracionAdaptiveAuthQueue;
+credentials;user=rsawsuser;password=rsa1234!;timeout=10;
+reintentos;value=1;
+bank;fromCode=0016;
+flags;habilitaEnrolamiento=si;habilitaTransferencia=si;
+formatoDecimal;valor=0000;
+

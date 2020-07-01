@@ -1,0 +1,31 @@
+# Parametros para Depositos a Plazo
+# =============================================
+user;Valor= ;
+pass;Valor= ;
+xml;Valor=/export/weblogic/oracle10.3/wlsplatform/tablas/socketclienteST247.xml;
+usuario;Valor=BCI;
+ip;Valor=192.168.169.113;
+identemisor;Valor=BCI;
+filler;Valor= ;
+pctFillerInput;Valor= ;
+org;Valor=653;
+
+# Tabla bloqueos
+# Y=BLOQ.COBRO ADM                
+# B=BLOQ.BANCO CTAS               
+# X=BLQ. MORA FINAL               
+# W=BLOQ. INTERNAC.               
+# V=BLOQ. RENUNCIA                
+# U=BLOQ. CUMPLEANO               
+# T=BLOQ. T. SALDO                
+# S=BLOQ. BANCO                   
+# R=BLQ.MORA BLANDO               
+# Q=BLOQ. EXCESO                  
+# P=BLOQ.C.VENCIDA                
+# O=BLOQ. PERDIDA                 
+# N=BLOQ. CLIENTE                 
+# =SIN BLOQUEO                   
+# F=BLOQ. FRAUDE 
+
+# Indica bloqueo blando (algun valor de la tabla bloqueo)
+BloqueoBlando;Valor=YQRNWX;

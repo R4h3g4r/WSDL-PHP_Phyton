@@ -1,0 +1,47 @@
+eventoParaAumentoCupo;tipo=100;subTipo=013;subProducto=013;evento=LKU;area=WBC;rol=D37;mensajeDetalle=Solicitud aumento de cupo linea de sobregiro cuenta [cuenta].;
+eventosGenericosTBanc;codEvento1=100;codEvento2=014;codEvento3=135;codArea=WEB;codEjecutivo=WEB_TBANC;
+flujoManualAumentoLSG;valor=NO;
+xsl;valor=/cl/bci/aplicaciones/solicitudes/lineasobregiro/xsl/aumentoLineaSobregiro.xsl;imagen=/resources/images/html/sello_comprobante.gif;manual=/cl/bci/aplicaciones/solicitudes/lineasobregiro/xsl/solicitudManualLineaSobregiro.xsl;
+bancaEstudiante;valor=PBU;
+
+datosDinamicosEvento; RUT=Rut Cliente; NOM=Nombre Cliente; EMAIL=Mail Contacto Cliente; TEL1_KEY=Telefono Contacto 1; TEL2_KEY=Telefono Contacto 2; TIP_CLI_KEY=Tipo Cliente; CTA_CTE_KEY=Cuenta Corriente; SUC_KEY=Sucursal Cliente; OFF_KEY=Oficina Responsable; AME_CIER_KEY=Amenaza de Cierre;
+
+comentarioSolicitudAumentoCupo;910=Solicitud aumento de cupo linea de sobregiro cuenta [cuenta] realizado desde aplicacion movil.;911=Aumento de cupo solicitado via aplicacion movil;915=Solicitud aumento de cupo linea de sobregiro cuenta [cuenta] realizado desde aplicacion movil.;
+
+##Aumento LSG pyme##
+msjesError;sinLSG=La Cuenta no posee linea de Sobregiro.;aumPen=Actualmente usted posee una solicitud pendiente de Aumento de Cupo de Línea de Sobregiro.<br/> Revise si tiene solicitudes pendientes de firma ingresando a Aumento Pendientes de firma.;comEje=No es posible gestionar su solicitud de Aumento de Cupo de Línea de Sobregiro por esta vía. Por favor contacte a su Ejecutivo de Cuenta;linVen=Linea Vencida.;errEliPen=No fue posible Eliminar el Aumento Pendiente.;sinCuentasLsg=Le informamos que usted no ha contratado aún el producto <strong>Línea de Sobregiro</strong>, el que le permitirá enfrentar posibles situaciones de sobregiro en su Cuenta Corriente.<br/>En caso que usted requiera contratar este servicio, debe solicitarlo a través de su Ejecutivo de Cuenta Corriente.;
+codLsg;PYME=L.SOB;
+xslPyme;imagen=/resources/images/html/sello_comprobante.gif;manual=/cl/bci/aplicaciones/solicitudes/lineasobregiroPyme/xsl/solicitudManualLineaSobregiroPyme.xsl;
+crearPDF;aumento=applications/wcorpWebApp/resources/icono/comprobanteAumentoLsgPyme.html;
+###PRODUCCION
+#mailMensaje;empresa=BCI;subject=Solicitud Aumento de Cupo;from=contacto@bci.cl;TEMPLATE=PYME_AUMENTO_CUPO_LSG;LOGIN=BCI;CONTRACT=PYME_AUMENTO_CUPO_LSG;
+###INTEGRACION - CERTIFICACION
+mailMensaje;empresa=BCI;subject=Solicitud Aumento de Cupo;TEMPLATE=PYME_AUMENTO_CUPO_LSG;LOGIN=BCI;CONTRACT=PYME_AUMENTO_CUPO_LSG;
+
+##Aumento LSG megaMkt##
+#Desarrollo
+#megaMktLsg;redirect=http://localhost:7001/cl/bci/aplicaciones/solicitudes/lineasobregiro/confirmaAumentoCupoEnLinea.jsf;
+#Integracion
+#megaMktLsg;redirect=http://integracionbci/cl/bci/aplicaciones/solicitudes/lineasobregiro/confirmaAumentoCupoEnLinea.jsf;
+#Certificacion
+megaMktLsg;redirect=http://bcicert.bci.cl/cl/bci/aplicaciones/solicitudes/lineasobregiro/confirmaAumentoCupoEnLinea.jsf;
+#Produccion
+#megaMktLsg;redirect=https://www.bci.cl/cl/bci/aplicaciones/solicitudes/lineasobregiro/confirmaAumentoCupoEnLinea.jsf;
+
+mailMensajeEjecutivo;fromNombre=BCI;fromDireccion=bci@bci.cl;subject=Solicitud Aumento de Cupo;
+mensaje1;Desc=Estimado(a) ;
+mensaje2;Desc=Su cliente nombre Empresa cuyo rut es ;
+mensaje3;Desc=, ha generado a través de la web la solicitud  N° ;
+mensaje4;Desc=para Aumento de Cupo de LSG por $;
+mensaje5;Desc=. Por favor tomar contacto a la brevedad para gestionar su requerimiento. El cliente ya fue informado de que usted lo contactará dentro de las próximas 48 horas.\n Datos del Cliente: \n;
+mensaje6;Desc=Rut Empresa: ;
+mensaje7;Desc=Nombre Apoderado: ;
+mensaje8;Desc=Email: ;
+mensaje9;Desc=Teléfono: ;
+mensaje10;Desc=Atentamente,\n Banco Bci;
+diasCaducaLsgPyme;valor=3;
+journalAumentpPyme;idProducto=LSG;visacion=VISACION;subVisacion=RECHAZO;evtFirma=SOLICITA;subFirmaPen=AUMCUP;codAumento=ACTIVA;subCodAumento=AUMCUP;evtFirmar=APRUEBA;subCodFirmar=AUMCUP;codEnvioMail=ENVIO;subEnvioNOK=MAIL_NOK;subEnvioOK=MAIL_OK;
+
+##Aumento Linea de Sobregiro Everest y Portal##
+COD_LSG_PC;Plataforma_Comercial=L.SOB;
+

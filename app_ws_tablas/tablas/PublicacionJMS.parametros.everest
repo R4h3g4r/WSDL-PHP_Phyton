@@ -1,0 +1,5 @@
+versionEnUso;version=6;
+cantidadDestinos;cantidad=2;
+0;destino=jms.auditing.JournalQueue;factory=jms.auditing.JournalConnectionFactory;ubicacion=interno;
+#0;destino=jms.v1.journal.JournalQueue;factory=jms.v1.journal.JournalConnectionFactory;
+1;destino=jms.v2.journal.JournalHistorialClienteQueue;factory=jms.v2.journal.JournalHistorialClienteConnectionFactory;ubicacion=interno;

@@ -1,0 +1,38 @@
+DESGRAVAMEN;valor=2925;
+pagina;valor=/personas/noticias/detalle_serv_cliente.html;
+codigolineaemergencia;valor=LEM;
+
+# Mensajes despliegue Linea de Emergencia
+110; mensaje=Monto incluye Línea de Emergencia;
+100; mensaje=Monto incluye Línea de Emergencia;
+800; mensaje=Monto incluye Línea de Emergencia;
+230; mensaje=El saldo de línea de crédito informada incluye saldo de línea de sobregiro de emergencia, en caso de tenerla contratada.;
+#110-ejemplo; mensaje=Mensaje particular para el servicio 'ejemplo' de canal Bci;
+#100-ejemplo; mensaje=Mensaje particular para el servicio 'ejemplo' de canal Tbanc;
+#230-ejemplo; mensaje=Mensaje particular para el servicio 'ejemplo' de canal Empresas;
+
+#Tarifas
+tarifaCodConcepto;Desc=CCM;
+tarifaCodTipoConsulta;Desc=CON;
+tarifaIicOperacion;Desc=0;
+tarifaCodMoneda;Desc=0999;
+tarifaCodTipoOperacion;Desc=LEM;
+tarifaCodAuxiliar;Desc=000;
+tarifaNumPlazoOperacion;Desc=365;
+tarifaIndPlazoOperacion;Desc=D;
+tarifaValMontoOperacion;Desc=0000010000000000;
+tarifaValSaldoOperacion;Desc=0000000000000000;
+tarifaVctoOperacion;Desc=0000000000000000;
+tarifaValInteOperacion;Desc=0000000000000000;
+tarifaValMontoAdicional;Desc=0000000000000000;
+tarifaCodFactorRiesgo;Desc=000;
+tarifaIndTipoPago;Desc=0;
+tarifaCaiOperacionRcc;Desc=0;
+
+#Para Firma
+indEstado;valor=1;
+autoTran;valor=8;
+fecha_defa;valor=01/01/1900;
+idEPyme;valor=1;
+#Destinatario de correos de Solicitud de Línea de Emergencia
+correoDestinatario;valor=lineadeemergencia@bci.cl;

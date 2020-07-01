@@ -1,0 +1,13 @@
+#Certificacion
+CONEXIONJMS;initialConnectionFactory=weblogic.jndi.WLInitialContextFactory;securityPrincipal=weblogic;securityCredentials=oracle123;providerUrl=t3://161.131.140.74:9003,t3://161.131.140.74:9005;
+CONNECTION_FACTORY;jndiConnectionFactory=jms/Cluster/CepConnectionFactory;
+QUEUE_NAMES;queue1=defaultQueue;queue2=colaSistemaEventos;
+QUEUE_JNDI;defaultQueue=jms/Cluster/EverestInboundQueue;colaSistemaEventos=jms/Cluster/EventoInboundQueue;
+ACTIVO;defaultQueue=SI;colaSistemaEventos=SI;
+
+#Produccion
+#CONEXIONJMS;initialConnectionFactory=weblogic.jndi.WLInitialContextFactory;securityPrincipal=everest;securityCredentials=wlsbam01;providerUrl=t3://161.131.55.231:7101,t3://161.131.55.229:7101;
+#CONNECTION_FACTORY;jndiConnectionFactory=jms/Cluster/CepConnectionFactory;
+#QUEUE_NAMES;queue1=defaultQueue;queue2=colaSistemaEventos;
+#QUEUE_JNDI;defaultQueue=jms/Cluster/EverestInboundQueue;colaSistemaEventos=jms/Cluster/EventoInboundQueue;
+#ACTIVO;defaultQueue=NO;colaSistemaEventos=SI;

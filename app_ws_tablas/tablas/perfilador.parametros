@@ -1,0 +1,30 @@
+#
+#	Perfilador WEB
+
+# Datos para el proceso de FAST-TRACK
+AUDAZ_FAST_TRACK;valor=1;
+MODERADO_FAST_TRACK;valor=2;
+CONSERVADOR_FAST_TRACK;valor=3;
+
+# Id del segmento por defecto para FAST-TRACK
+ID_SEGMENTO_FAST_TRACK;valor=1;
+
+# Monto inversión por defecto para FAST-TRACK
+MONTO_FAST_TRACK;valor=6000000;
+
+# Nombre de segmento para perfilar
+SEGMENTO;valor=Canales Remotos;
+
+# Datos obligatorios para generación de correo de contacto de inversión
+NAME_FROM;valor=Perfilador Web;
+EMAIL_FROM;valor=webmast@bci.cl;
+EMAIL_TO;valor=gesweb@bci.cl;
+EMAIL_SUBJECT;valor=Solicitud de Inversión;
+EMAIL_SUBJECT_FAST_TRACK;valor=Solicitud de Inversión Fast Track;
+
+# Datos opcionales para la generación de correo de contacto
+# Puede ir más de una dirección de correo separadas por coma (,)
+EMAIL_CC;valor=contacto@bci.cl;
+
+
+

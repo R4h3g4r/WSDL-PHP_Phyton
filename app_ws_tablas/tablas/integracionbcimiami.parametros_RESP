@@ -1,0 +1,8 @@
+#codigos para identificar los tipos de cuenta corriente
+CODIGO_TCTACTE;REGULAR_CHECKING=01;CODIGO_PRODUCTO_MIAMI=CCXMIA;
+#codigos para conexion de web services
+URL_WSDL;ACCOUNT_SERVICE=http://161.131.184.71:80/servicios/productos/captaciones/cuentacorriente/GestionCuentasMiamiService?WSDL;TIMEOUT=4;
+#codigo de paginacion
+PAGINACION;ITEMSXPAGINA_CARTOLA_EXTRANJERA_DIA=20;
+#codigos para manipular informacion de web services
+CONST_CMMA;IDENTIFICADOR_ABONO=5;ES_MOVIMIENTO=M;

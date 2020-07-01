@@ -1,0 +1,132 @@
+# Tabla de parámetros
+ 
+FormatoFechas;fecha=dd/MM/yyyy;fechaHora=dd/MM/yyyy - HH:mm;
+
+Sistema;id=everest;
+
+RUTSimulacionDefecto;rut=1578;dv=4;
+
+tipoCargo;abonoDescr1=Cuenta Corriente;abono1=AUT;abonoDescr2=Tarjeta Crédito;abono2=PAT;
+
+tipoAbono;item1=Cuenta Corriente;item2=WEB;item3=Cuenta Contable;item4=Vale Vista otro Banco;
+
+garantias;garantiasConAval=2,13;garantiaPorDefecto=4;segurosAsociados=DGAFLT;
+
+abonosHabilitados;codigos=CCMA,CCWB,VVTA,PROF,PFNC,PHIP,HONO,CPRO,LPAG,VVTM,CCPAT;
+CCMA;tipo=formatoCuentaCorriente;puertas=;
+CCWB;tipo=formatoCuentaCorriente;puertas=;
+VVTA;tipo=formatoValeVistaOtraInstitucion;puertas=;
+PROF;tipo=formatoCuentaContable;puertas=;
+PFNC;tipo=formatoCuentaContable;puertas=;
+PHIP;tipo=formatoCuentaContable;puertas=;
+HONO;tipo=formatoCuentaContable;puertas=;
+CPRO;tipo=formatoCuentaContable;puertas=;
+LPAG;tipo=formatoCuentaContable;puertas=;
+VVTM;tipo=formatoValeVista;puertas=;
+CCPAT;tipo=formatoCuentaCorriente;puertas=;
+
+codigosFormato;formatoCuentaCorriente=1;formatoValeVistaOtraInstitucion=2;formatoCuentaContable=3;formatoValeVista=4;
+
+#validaciones;formatoCuentaCorriente=CCMA,CCWB;formatoValeVistaOtraInstitucion=VVTA;formatoCuentaContable=PROF,PFNC,PHIP,HONO,CPRO,LPAG;formatoValeVista=VVTM;
+
+sistemasCredito;creditoComercial=reprogramacionCorfo;
+
+# Codigo para abonos multiples
+AbonosMultiples;numeroMaximo=9;codigo=M   ;
+
+# Parámetros para actualizar listados de productos
+actualizacionCache;ultimaActualizacion=20080326140000;
+
+# Parametro para porcentaje superior de margen disponible para facultad del JOF (rango de 0 a 100)
+MargenDisponible;porcentaje=10.0;
+
+# Codigos de glosas para los tipos de descuentos de tasa
+TIPOTASAPRECIO;%=DESCUENTO {0}%;P={0} PIZARRA;M=DESCUENTO {0} PUNTOS;X=RECARGO {0}%;Y=RECARGO {0} PUNTOS;CF=COSTO FONDO;SP=SPREAD {0};
+
+# Valores de tasa de impuesto según el año seleccionado
+TASAIMPUESTO;menor2007=0.00134;menor2008=0.00125;menor2009=0.001125;defecto=0.001;
+
+# Valores del rango de tiempo (en años) de vigencia de ua tasa especifica
+VigenciaImpuesto;periodo1=2007;periodo2=2008;periodo3=2009;
+
+# Valores para cargar matriz de TMC
+valoresTMC;rango=1000;hasta=20000;
+
+# Puerta únicamente asignada a ejecutivos de celula de consumo.
+puertaEjecutivoCelula;sistema=BCY;puerta=WSTSYVTA/SOC;
+
+#Generacion de Excel
+# Estilos Excel
+styleTitulo;HF_fontName=Arial;HF_fontHeightInPoints=17;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;HCS_v_alignment=1;
+styleSubTitulo;HF_fontName=Arial;HF_fontHeightInPoints=17;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=3;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;HCS_v_alignment=1;
+styleEncabezadoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=31;HCS_alignment=1;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;filasHorizontal=3;HCS_v_alignment=1;
+styleDatosTablaLeft;HF_fontName=Arial;HF_fontHeightInPoints=10;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;HCS_v_alignment=1;
+styleDatosTablaRight;HF_fontName=Arial;HF_fontHeightInPoints=10;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=3;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;HCS_v_alignment=1;
+styleDatosTablaCenter;HF_fontName=Arial;HF_fontHeightInPoints=10;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;HCS_v_alignment=1;
+styleMontoTabla;HF_fontName=Arial;HF_fontHeightInPoints=10;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;formatoMonto=#,###;HCS_v_alignment=1;
+styleMontoTablaRight;HF_fontName=Arial;HF_fontHeightInPoints=10;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=3;HCS_borderBottom=6;HCS_borderLeft=6;HCS_borderRight=6;HCS_borderTop=6;formatoMonto=#,###;HCS_v_alignment=1;
+
+formatosMonto;UF=#,##0.####;PESOS=#,##0;
+
+#bancas cliente seguros
+bancaSeguros;codigos=PM,PMR,PMN;
+
+#Ancho columnas de excel
+anchocolumna;0=1200;1=4000;2=3000;3=3000;4=3000;5=4000;6=4500;7=3000;8=3000;9=3000;10=6500;11=3000;12=4000;
+
+#Columnas para excel
+columnas;nombre=N°,FECHA,CAPITAL,INTERESES,TOTAL,INSOLUTO,K_GARANTIZADO,INTERESES,TOTAL,COMISIÓN,INSOLUTO GARANTIZADO;
+
+#periodos de pago
+periodo;total=4;c1=1;c2=3;c3=6;c4=12;
+1;des=MENSUAL;
+3;des=TRIMESTRAL;
+6;des=SEMESTRAL;
+12;des=ANUAL;
+
+#clasificacion de riesgo
+riesgo;valor=A,B,B-,C,D,SC;
+
+GruposDocumentos; documentos=AIS,ARC,GCE,HPPA,SC,SD,CHL;
+
+AIS;  archivo=Anexo_Informativo_Seguros.pdf; nombre=Anexo Informativo Seguros;
+ARC;  archivo=Anexos_(Corfo Reprogramación).pdf; nombre=Anexos (Corfo Reprogramacion);
+GCE;  archivo=Gasto_de_Cobranza_Extrajudicial.pdf; nombre=Gasto de Cobranza Extrajudicial;
+HPPA; archivo=Hoja_de_Prolongacion_de_Pagares_Avales(27.11.2006).pdf; nombre=Hoja de Prolongacion de Pagares Avales;
+SC;   archivo=Solicitud_De_Credito.pdf; nombre=Solicitud de Credito;
+SD;   archivo=Solicitud_Desgravamen.pdf; nombre=Solicitud de incorporación de seguros;
+CHL;  archivo=CHECK_LIST_CORFO_REPROGRAMACION.xls; nombre=Check List Reprogramacion Corfo;
+
+PC1$; archivo=Pagare_Cuota_Fija_Tasa_Fija_Mensual$.pdf; nombre=Pagare_Cuota_Fija_Tasa_Fija_Mensual$;
+PC3$; archivo=Pagare_Cuota_Fija_Tasa_Fija_Trimestral$.pdf; nombre=Pagare_Cuota_Fija_Tasa_Fija_Trimestral$;
+PC6$; archivo=Pagare_Cuota_Fija_Tasa_Fija_Semestral$.pdf; nombre=Pagare_Cuota_Fija_Tasa_Fija_Semestral$;
+PC12$; archivo=Pagare_Cuota_Fija_Tasa_Fija_Anual$.pdf; nombre=Pagare_Cuota_Fija_Tasa_Fija_Anual$;
+PC1UF;archivo=Pagare_Cuota_Mensual_Fija_Tasa_Fija_UF.pdf; nombre=Pagare_Cuota_Mensual_Fija_Tasa_Fija_UF;
+PC3UF;archivo=Pagare_Cuota_Trimestral_Fija_Tasa_Fija_UF.pdf; nombre=Pagare_Cuota _Trimestral_Fija_Tasa_Fija_UF;
+PC6UF;archivo=Pagare_Cuota_Semestral_Fija_Tasa_Fija_UF.pdf; nombre=Pagare_Cuota_Semestral_Fija_Tasa_Fija_UF;
+PC12UF;archivo=Pagare_Cuota_Anual_Fija_Tasa_Fija_UF.pdf; nombre=Pagare_Cuota_Anual_Fija_Tasa_Fija_UF;
+
+#seguros
+codigoSeguros;desgravamen=SDGFLT;desgravamenAval=DGAFLT;asistenciaTotal=CATFLT;infoProtegida=CIPFLT;creditoSalud=CCSFLT;respCivil100=CR1FLT;respCivil500=CR2FLT;respCivil1000=CR3FLT;creditoSaludAval=CSAFLT;creditoVidaAval=CVAFLT;creditoVidaDirecto=SCVFLT;
+#Documentos
+directorioDocumentos; nombre=documentosCurse;
+
+#estados bex
+estadosBex;vigente=VIG;porEmitir=PEM;
+cuotaMaxParam;value=140;
+
+tipoBeneficiario;BEX308=PER;BEX321=PUB;BEX406=PUB;BEX419=PER;
+etapasBex;noAutorizado=NOA;
+estadosProcFirma;procFirmaDefault=FDF;
+prefijosLog;preclase=Log;
+LogAction;evento=GLO;descripcion1=;codServicio=XBGE001;
+valoresNulos;convenio=no_cnv;rutUsuario=0;dv_Usuario=-;
+
+#Ruta imagenes
+imagen;firmaCorredoresSeguros=applications/wcorpWebApp/workstationwls/simuladorcreditoscomerciales/images/firma_corredor_cred_com.bmp; logoBci=applications/wcorpWebApp/portalwls/img/bci_somos_diferentes.bmp; logoBciSeguros=applications/wcorpWebApp/portalwls/img/bci_somos_diferentes.bmp; logoBciCorredoraSeguros=applications/wcorpWebApp/portalwls/img/bci_somos_diferentes.bmp;
+
+#Lista gastos Notariales
+gastosNotariales;total=2;c1=PRECIO;c2=999;
+PRECIO;des=SI;
+999;des=NO;codigo=      ;
+

@@ -1,0 +1,188 @@
+#  
+#Parámetros para Fondos Mutuos
+# =============================================
+#
+productoCartolaFFMM;Desc=FFMM;
+eventoCartolaFFMM;Desc=CARTOLA;
+subEventoCartolaFFMM;Desc=;
+productoSaldoFFMM;Desc=FFMM;
+eventoSaldoFFMM;Desc=CNSDO;
+subEventoSaldoFFMM;Desc=;
+productoInversionFFMM;Desc=FFMM;
+eventoInversionFFMM;Desc=SOLIC;
+subEventoInversionFFMM;Desc=INVERS;
+productoRescateFFMM;Desc=FFMM;
+eventoRescateFFMM;Desc=SOLIC;
+subEventoRescateFFMM;Desc=RESCA;
+productoCartolaSinSaldoFFMM;Desc=FFMM;
+eventoCartolaSinSaldoFFMM;Desc=CARTOLAINSALDO;
+subEventoCartolaSinSaldoFFMM;Desc=;
+#
+#Filiales FFMM
+montoFilialFFMM;Desc=0;
+clienteRelacionadoFilialFFMM;Desc=N;
+institucionalFilialFFMM;Desc=N;
+fechaEmpresaFilialFFMM;Desc=19000101;
+notariaFilialFFMM;Desc=;
+nroInscripcionFilialFFMM;Desc=;
+tipoControlFilialFFMM;Desc=INVERSION;
+usuarioFilialFFMM;Desc=E-BCI;
+previsionFilialFFMM;Desc=;
+cajaFilialFFMM;Desc=;
+pensionadoFilialFFMM;Desc=N;
+ejecutivoFilialFFMM;Desc=SIN_EJE;
+sucursalFilialFFMM;Desc=201;
+contactoFilialFFMM;Desc=N;
+principalFilialFFMM;Desc=S;
+problemaFilialFFMM;Desc=N;
+eventoFilialFFMM;Desc=;
+correoFilialFFMM;Desc=S;
+tipoConsultaFFMM;Desc=CON;
+#
+#Estado Civil
+CAS;Desc=C;
+SEP;Desc=N;
+SOL;Desc=S;
+VIU;Desc=V;
+#
+#Nivel Educacional
+BAS;Desc=BA;
+MED;Desc=ME;
+TEC;Desc=TEC;
+UNV;Desc=UNI;
+EUN;Desc=N;
+#Tipo de dirección
+D;Desc=PART;
+E;Desc=COMER;
+#
+#
+#
+#Parámetros para Mi Portafolio
+# =============================================
+#
+productoPortafolio;Desc=INVER;
+eventoPortafolio;Desc=CNS;
+subEventoPortafolio;Desc=PORTFOLIO;
+#
+#
+#Parámetros para Depositos a Plazo
+# =============================================
+#
+productoConsultaDAP;Desc=DAP;
+eventoConsultaDAP;Desc=CNS;
+subEventoConsultaDAP;Desc=;
+productoTomaDAP;Desc=DAP;
+eventoTomaDAP;Desc=SOLIC;
+subEventoTomaDAP;Desc=INVERS;
+productoLiquidaDAP;Desc=DAP;
+eventoLiquidaDAP;Desc=SOLIC;
+subEventoLiquidaDAP;Desc=LIQ;
+subEventoLiquidaAnticipDAP;Desc=LIQANT;
+#
+#
+#Parámetros para Ahorro
+# =============================================
+#
+productoCartolaAhorro;Desc=AHO;
+eventoCartolaAhorro;Desc=CARTOLA;
+subEventoCartolaAhorro;Desc=;
+productoSaldoAhorro;Desc=AHO;
+eventoSaldoAhorro;Desc=CNSSDO;
+subEventoSaldoAhorro;Desc=;
+productoDepositoAhorro;Desc=TRANSF;
+eventoDepositoAhorro;Desc=TRFCCTAHO;
+subEventoDepositoAhorro;Desc=;
+productoGiroAhorro;Desc=TRANSF;
+eventoGiroAhorro;Desc=TRFAHOCCT;
+subEventoGiroAhorro;Desc=;
+#
+#
+#Parámetros para Acciones
+# =============================================
+#
+productoEstadoAcciones;Desc=ACC;
+eventoEstadoAcciones;Desc=CNS;
+subEventoEstadoAcciones;Desc=ESTADO;
+productoMovtoAcciones;Desc=ACC;
+eventoMovtoAcciones;Desc=CNS;
+subEventoMovtoAcciones;Desc=MOVTOS;
+productoSaldoAcciones;Desc=ACC;
+eventoSaldoAcciones;Desc=CNSDO;
+subEventoSaldoAcciones;Desc=CUSTODIA;
+productoCompraAcciones;Desc=ACC;
+eventoCompraAcciones;Desc=SOLIC;
+subEventoCompraAcciones;Desc=COMPRA;
+productoVentaAcciones;Desc=ACC;
+eventoVentaAcciones;Desc=SOLIC;
+subEventoVentaAcciones;Desc=VENTA;
+estadosAcciones;valor=NR|Pendiente,VT|Pendiente,RR|Pendiente,ER|Pendiente,SA|Anulacion Pendiente,EA|Anulacion Pendiente,AN|Orden Anulada,PE|Orden parcialmente ejecutada,EJ|Orden ejecutada completamente,RC|Orden rechazada,CA|Orden Anulada,AN|Orden Anulada,A|Pendiente,C|Pendiente;
+estadosAnularPermitidos;Desc=SA,NR,VT,ER,PE,RR,A,C;
+estadoCantada;Desc=C;
+estadoEjecutadaParcialmente;Desc=PE;
+estadoEjecutadaCompletamente;Desc=EJ;
+tipoDireccionEmail;Desc=7;
+fromNombre;Desc=BCI Inversiones;
+mailFrom;Desc=contacto@bci.cl;
+subject;Desc=Comprobante de Orden de $$1 de Acciones;
+signatureFrom;Desc=Le recordamos que usted puede revisar el estado de sus ordenes en Internet.\n\n\nAtte\nBci - Somos Diferentes\n\n\nImportante:\n- Este mail es generado de manera automatica, por favor no lo responda.\n- Ante cualquier duda, contactese al 600 824 24 24.\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+plantillaResumenInversionesXSL;valor=/inversioneswls/common/plantillaspdf/resumen/resumendeinversiones.xsl;
+plantillaPrincipalXSL;valor=/inversioneswls/common/plantillaspdf/acciones/principaldeacciones.xsl;
+plantillaCompraXSL;valor=/inversioneswls/common/plantillaspdf/acciones/compradeacciones.xsl;
+plantillaVentaXSL;valor=/inversioneswls/common/plantillaspdf/acciones/ventadeacciones.xsl;
+plantillaDetalleXSL;valor=/inversioneswls/common/plantillaspdf/acciones/detalledeacciones.xsl;
+rutaLogoResumenInversiones;valor=/inversioneswls/common/images/logo2.jpg;
+rutaLogoComprobante;valor=/inversioneswls/common/images/logo.jpg;
+rutaLogoDetalle;valor=/inversioneswls/common/images/logo2.jpg;
+mensajeNoEsPersonaNatural;Desc=este servicio es sólo para personas naturales con cuenta corriente en Bci;
+montoMaximoInversion;valor=3000000;
+montoMinimoInversion;valor=100000;
+mensajeExcedeMontoMaximo;Desc=Estimado cliente, el monto máximo para efectuar la operación no puede exceder de los $3.000.000;
+mensajeExcedeMontoMinimo;Desc=Estimado cliente, el monto mínimo para efectuar la operación no puede ser inferior a $100.000;
+urlTagGoogleNoClienteCompraAcc;Desc=/personas/comprar_acciones/no_cliente;
+urlTagGoogleNoClienteVentaAcc;Desc=/personas/vender_acciones/no_cliente;
+urlTagGoogleSinMandatoCompraAcc;Desc=/personas/comprar_acciones/sin_mandatos;
+urlTagGoogleSinMandatoVentaAcc;Desc=/personas/vender_acciones/sin_mandatos;
+urlTagGoogleErrorCompraAcc;Desc=/personas/comprar_acciones/error;
+urlTagGoogleErrorVentaAcc;Desc=/personas/vender_acciones/error;
+#journalizacion anulaciones
+productoAnulaAcciones;Desc=ACC;
+eventoAnulaAcciones;Desc=SOLIC;
+subEventoAnulaAcciones;Desc=ANULA;
+tipoOrdenAnulaAcciones;Desc=A;
+
+#valores obtener las condiciones de compra y venta desde el webservices
+CODIGO_SECRUT;valor=00
+CODIGO_PRODUCTO;valor=ICAC
+
+
+
+
+
+
+#
+#
+#Parámetros para Resumen de Inversiones
+# =============================================
+#
+productoCartolaResumen;Desc=RES;
+eventoCartolaResumen;Desc=CNS;
+subEventoCartolaResumen;Desc=CNS;
+plantillaResumenInversionesXSL;valor=/inversioneswls/common/plantillaspdf/resumen/ResumenInversion.xsl;
+accionesEnCustodiaBCI;secuencia=00;mercado=AC;
+inversionesSimultaneasPactosBCI;secuencia=-1;operacion=0;moneda=-1;
+inversionesWeb;orden=DAP|AHO|PACTO|FFMM|FFINV|ACC|SIMU;
+
+#
+#
+#Parámetros para Cartola Integrada
+# =============================================
+#
+ValorCuotaDiariaFFMM;servidor=64.76.170.99;usuario=bciffmm;password=bciffmm;archivo=FFMM_ddMMyy.xls;
+tituloAdministradora;Desc=Administradora;
+MensajeErrorSessionExpirada;Desc=Error session expirada;
+eventoConsultarPortafolio;Desc=CNS;
+subEventoConsolidadoPortafolio;Desc=ConSol;
+subEventoBCIPortafolio;Desc=ConBci;
+subEventoOtrasInstitucionesPortafolio;Desc=ConOtr;
+eventoAgregarAPortafolio;Desc=ING;
+eventoEliminarDePortafolio;Desc=ELI;

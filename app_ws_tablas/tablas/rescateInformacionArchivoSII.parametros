@@ -1,0 +1,21 @@
+formato;primero=/IFIN;segundo=016;cuarto=#F22.txt,#F29.txt,#ACT.txt,#BRS.txt,#CON.txt,#DIR.txt,#IMT.txt,#OBS.txt,#PAR.txt,#RLG.txt,#SOC.txt,#TIM.txt;formatosii=SII;
+ruta;rutatar=/APPBASH01/home/batchjava/IFIN/bancos/IFIN016/;
+error;error1= Error: archivo con formato incorrecto;error2= Error: archivo con contenido incorrecto;error3=Error: al menos un archivo no cumple con las especificaciones;error4= Error de procesamiento;
+correcto;correcto1= Subido;correcto2= Procesado;
+pathDestino;pathDestino_archivo=/CapturaSII/in;
+ejbName;ruta=wcorp.bprocess.estadofinanciero.EstadoFinanciero;
+
+#Codigos para journalizar
+journalRescate;eventoJournalConsulta=CARGA;subEventoJournalConsulta=CAPSII;idProductojournalConsulta=CLI;
+
+#Filesystem Desarrollo
+#cargaArchivos;sistema=CapSIIfs;iP=161.131.184.80;
+
+#Filesystem Integracion
+#cargaArchivos;sistema=CapSIIfs;iP=161.131.141.239;
+
+#Filesystem Certificacion
+cargaArchivos;sistema=CapSIIfs;iP=161.131.232.180;
+
+#Filesystem Produccion
+#cargaArchivos;sistema=CapSIIfs;iP=clappmor;

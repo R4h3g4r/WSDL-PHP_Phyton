@@ -1,0 +1,13 @@
+MODO_DEBUG;100=true;105=true;110=true;120=true;130=true;132=true;150=true;151=true;160=true;200=true;230=true;800=true;901=true;905=true;907=true;
+TOKEN_DINAMICO;on=false;
+CSRF__CANTIDAD_PERMITIR;valor=0;
+CSRF_PERMITIR_0;urls=www.permitir.com;
+CSRF__CANTIDAD_DENEGAR;valor=0;
+CSRF_DENEGAR_0;urls=www.denegar.com;
+
+#CSRF_SAME_ORIGIN_POLICY validacion Struts
+CSRF_SAME_ORIGIN_POLICY_integracionbci;url=http://integracionbci;
+CSRF_SAME_ORIGIN_POLICY_bcicert;url=http://bcicert;
+CSRF_SAME_ORIGIN_POLICY_www.bci.cl;url=https://www.bci.cl;
+CSRF_SAME_ORIGIN_POLICY_www.bcinova.cl;url=https://www.bcinova.cl;
+CSRF_SAME_ORIGIN_POLICY_www.tbanc.cl;url=https://www.tbanc.cl;

@@ -1,0 +1,37 @@
+articulo85;estadoA=Vigente;estadoP=Vigente;estadoV=No Vigente;segmentoSocios=CD;tipoConsulta=R;estadoVigente=A;estadoPorVencer=P;estadoVencido=V;vigenciaS=S;segmentoSociosEmpresas=DC;vigenciaN=N;parteIdFirma=MS;expresadoEn=P;
+journalArt85;codEventoIndicaActualizada=APRUEBA;codSubEventoIndicaActualizada=SIMSCT;productoIndicaActualizada=CLI;codEventoActualiza=ACTUALIZA;codSubEventoActualiza=ARTI85;productoActualiza=CLI;codEventoIndicaNoActualizada=APRUEBA;codSubEventoIndicaNoActualizada=NOMSCT;productoIndicaNoActualizada=CLI;
+facultadades;art85=1;creditoComercial=8;
+rutaPdf;mandatoAval=/cl/bci/aplicaciones/clientes/informaciondecliente/antecedentesclientes/mandatos/documentos/Mandato_Socio.pdf;mandatoDeudor=/cl/bci/aplicaciones/clientes/informaciondecliente/antecedentesclientes/mandatos/documentos/Mandato_Empresa.pdf;
+codigosJournal_mandatoDeudor;evento=DESCARGAR;subEvento=MANDEU;producto=CLI;estadoEventoOk=P;estadoEventoNOk=A;glosa=Cliente descarga mandato de deudor;
+codigosJournal_mandatoAval;evento=DESCARGAR;subEvento=MANAVA;producto=CLI;estadoEventoOk=P;estadoEventoNOk=A;glosa=Cliente descarga mandato de AVAL;
+
+##false = Valida mandato en sistema antiguo (Retail)
+##true  = Valida mandato en sistema nuevo (Everest)
+##both  = Valida en sistema nuevo, si no tiene, valida en sistema antiguo
+usaSistemaMandatos;valor=true;
+
+FMTO;glosa=Financiamiento;codigo=FMTO;
+codigoEstadoMandato;vigente=VIG;revocado=REV;todos=ALL;
+simulador;url=/cl/bci/aplicaciones/productos/servicios/multilinea/vistaCCL.jsf;
+mensajeError;participacionExiste=Participación ya ingresada para este rut;rutIngresadoNoExiste=El R.U.T. ingresado no está registrado en nuestro sistema. Por favor contacte a su ejecutivo.;
+nivelPrioridad;1=Baja;2=Media;3=Alta;4=Máxima;
+puntosDeGestion;ECT=Entrega Carpeta Tributaria,3;DME=Descarga Mandato Empresa,4;DMS=Descarga Mandato Socios,4;AA85=Actualiza Articulo 85,2;
+datosCorreo;receptor=creditocomercialenlinea@bci.cl;nombreEmisor=Financiamiento en Linea;emisor=financiamientoenlinea@bci.cl;asunto=Cliente %1s - %2s intentando actualizar sus antecedentes, contactar a la brevedad;
+cuerpoCorreo;tipoGestion=TIPO DE GESTIÓN %nPunto de gestión: %1s %nNivel de prioridad: %2s  %nFecha y Hora: %3s %n%n;antecedentes=ANTECEDENTES DEL CLIENTE %nRazón social: %1s %nRUT: %2s %nBanca: %3s %nEjecutivo: %4s %nOficina: %5s %n;
+errorFlujoFirma;errorFirma=Estimado cliente: Por el momento el servicio no se encuentra disponible, por favor ingrese más tarde.;
+sii;url=https://zeusr.sii.cl/AUT2000/InicioAutenticacion/IngresoRutClave.html?https://zeus.sii.cl/dii_cgi/carpeta_tributaria/cte_para_creditos_00.cgi;
+jndiRelacionClientes;jndi=wcorp.aplicaciones.clientes.relacionentreclientes.administracion.implementation.RelacionEntreClientes;
+perfilesOperadorSinAcceso;lista=operador,ope,opr;vigente=S;  
+
+#Certificación
+#inquiry;idCoordinarMotoboy=657;idClienteSinMandato=749;
+##Producción
+inquiry;idCoordinarMotoboy=662;idClienteSinMandato=748;
+
+estadoEpiphany;Desc=F2C496C5A21E4A7EA2B4328CEDA7DCC3;
+jndiServiciosCRM;Desc=wcorp.aplicaciones.epiphany.integracion.facade.ServiciosCRM;
+nombreProducto;Desc=PM_COMERCIALES - Financiamiento en línea;
+unidadNegocio;Desc=PM_COMERCIALES;
+periodoConsultaEpiphany;dias=60;
+segmentoArt85;segmentoSocios=CD;segmentoSociosEmpresas=DC;ambos=ALL;segmentoSinParticipacion=SP;
+

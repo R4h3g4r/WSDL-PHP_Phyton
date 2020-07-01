@@ -1,0 +1,14 @@
+urlDetalleEvento;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaDetalleEvento@MethodType=ENQUIRETASKDETAILS@urlServlet=@portalwls@tareas@ConfigurationServlet@checkeados=@tareasProrrogar=@parametrosRequest=@portalwls@tareas@ConfigurationServlet%3FMethodType%3DCONSULTAAGENTE@tipoConsulta=consultaAgente@TASK_TYPE=BCI@TIPO_USR=BCI@TaskId=;
+urlImprimir;valor=/portalwls/tareas/ConfigurationServlet?MethodType=IMPRIMIRPEDIDOS@checkeados=;
+urlReasignar;valor=/portalwls/tareas/ConfigurationServlet?MethodType=POPREASSIGNMASI@TASK_TYPE=BCI@TIPO_USR=BCI@accionMasiva=;
+urlProrrogar;valor=/portalwls/tareas/ConfigurationServlet?MethodType=POPPROMISERESDATEMASI@TASK_TYPE=BCI@TIPO_USR=BCI@accionMasiva=;
+urlReemplazo;valor=/portalwls/portal/reemplazosAction.do?accion=inicio;
+urlEditar;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaModificaEvento@TASK_TYPE=BCI@tipoConsulta=consultaAgente@MethodType=CARGAMODIFICARCAMPOS@TaskId=;
+
+#vista cliente
+urlIngresarEventoCliente;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaIngresarEventoCliente@MethodType=INGRESARTAREA@hdCritTipoTarea=@hdCritSubTipoTarea=@hdCritTarea=@hdCritFecIni=@hdCritFecFin=@hdCritEstadoTarea=@clienteSession=[rutCliente]@digitoSession=[dvCliente]@isChief=false@taskType=BCI@TASK_TYPE=BCI@TIPO_USR=BCI@tipoConsulta=consultaCliente@parametrosRequest=null@campo=@ascendente=@contador=10@tamanoObjeto=19@esListaHistorica=true@seleccion=estado@statusTypeCode=@startDate=@endDate=@seleccionAccion=ingresarEvento;
+urlDetalleEventoCliente;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaDetalleEventoCliente@MethodType=ENQUIRETASKDETAILS@TASK_TYPE=BCI@TIPO_USR=BCI@tipoConsulta=consultaCliente@clienteSession=[rutCliente]@digitoSession=[dvCliente]@TaskId=;
+urlBuscarNumEventoCliente;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaDetalleEventoCliente@MethodType=GETASKDETAILS@hdCritTipoTarea=@hdCritSubTipoTarea=@hdCritTarea=@hdCritFecIni=@hdCritFecFin=@hdCritEstadoTarea=@urlServlet=%2Fportalwls%2Ftareas%2FConfigurationServlet@clienteSession=[rutCliente]@digitoSession=[dvCliente]@isChief=false@taskType=BCI@TASK_TYPE=BCI@TIPO_USR=BCI@tipoConsulta=consultaCliente@parametrosRequest=null@campo=@ascendente=@contador=10@tamanoObjeto=19@esListaHistorica=true@seleccion=numero@seleccionAccion=0@Tarea=;
+urlEditarCliente;valor=/workstationwls/tareas/PrecargaDatosEvento.do?metodo=precargaModificaEventoCliente@TASK_TYPE=BCI@tipoConsulta=consultaCliente@MethodType=CARGAMODIFICARCAMPOS@clienteSession=[rutCliente]@digitoSession=[dvCliente]@TaskId=;
+
+

@@ -1,0 +1,50 @@
+
+VALIDATION;value=pns-register-service;
+MENSAJE_EXITO;value=Estimado Cliente su inscripción fue exitosa.;resultado=true;
+MENSAJE_ERROR;value=Estimado Cliente, lamentablemente su solicitud de inscripción no fue posible realizar..;resultado=false;
+MENSAJE_ERROR_INESPERADO;value=Estimado Cliente, se ha producido un error. No ha sido posible inscribir su solicitud..;resultado=false;
+MENSAJE_USUARIO_EXISTE_SIN_CAMBIOS;value=Estimado Cliente, sus datos ya están  inscritos.;resultado=true;
+MENSAJE_ACTUALIZACION_APLICACION;value=Estimado Cliente, se ha actualizado la aplicación usuario.;resultado=true;
+MENSAJE_NOTIFICACION_DESACTIVADA;value=Estimado Cliente, la suscripción se encuentra desactivada.;resultado=false;
+MENSAJE_USUARIO_CON_TOKEN;value=Estimado Usuario, posee token;resultado=true;
+
+#INTEGRACION
+#WSDL_SUSCRIPCION;value=http://161.131.184.123:9050/esb/productos/servicios/alertas/SuscripcionAlertas?wsdl;
+#CERTIFICACION
+WSDL_SUSCRIPCION;value=http://161.131.140.137:9050/esb/productos/servicios/alertas/SuscripcionAlertas?wsdl;
+#PRODUCCION
+#WSDL_SUSCRIPCION;value=http://alsb.bci.cl/esb/personas/productos/servicios/alertas/SuscripcionAlertas?wsdl
+
+COMPANIA;value=BCI;
+GSM;value=gsm;
+FORMATOFECHA;value=dd/MM/yyyy;
+PUSH_ACTIVADO;value=true;
+
+#LOCAL
+#WSDL_MENSAJERIA_PRIVADA_PUSH;value=http://localhost:9050/esb/personas/infraestructura/mensajeria/ServicioMensajeriaPrivadaPS?wsdl;
+#INTEGRACION
+#WSDL_MENSAJERIA_PRIVADA_PUSH;value=http://161.131.184.123:9101/esb/infraestructura/mensajeria/ServicioMensajeriaPrivadaPS?wsdl;
+#CERTIFICACION
+WSDL_MENSAJERIA_PRIVADA_PUSH;value=http://161.131.140.23:9101/esb/infraestructura/mensajeria/ServicioMensajeriaPrivadaPS?wsdl;
+#PRODUCCION
+#WSDL_MENSAJERIA_PRIVADA_PUSH;value=http://alsb.bci.cl/esb/personas/infraestructura/mensajeria/ServicioMensajeriaPrivadaPS?wsdl;
+
+MENSAJERIA_PRIVADA_PUSH_CONSUMER;Code=bMovilNat;Name=bancaMovilNativa;
+MENSAJERIA_PRIVADA_PUSH_SERVICE;Code=SrvMensajeriaPrivada;Name=ServicioMensajeriaPrivada;
+
+JOURNALIZAR_MENSAJERIA_PRIVADA_PUSH;valorAcepta=ACEPTA;valorRechaza=RECHAZA;producto=PUSH;
+
+#INTEGRACION
+#WSDL_ENVIO_PUSH_GEO;value=http://b2bdesa.bci.cl:9050/esb/infraestructura/mensajeria/notificacionpush/EnvioAlertasPS?wsdl;
+#CERTIFICACION
+WSDL_ENVIO_PUSH_GEO;value=http://b2bcert.bci.cl:9050/esb/infraestructura/mensajeria/notificacionpush/EnvioAlertasPS?wsdl;
+#PRODUCCION
+#WSDL_ENVIO_PUSH_GEO;value=http://alsb.bci.cl/esb/personas/infraestructura/mensajeria/notificacionpush/EnvioAlertasPS?wsdl;
+
+GEOFENCE;ReferenciaContrato=PushBciMovil;Plantilla=TMPL_PushGenerico;SimpleContent=Protege tus tarjetas y cuentas en el extranjero contratando el Seguro Multiprotección desde tu App Bci Móvil.;NombreListaDatos1=srv;SimpleContentListaDatos1=SMP;NombreListaDatos2=geo;SimpleContentListaDatos2=SMP;
+
+#SECURITIZACION WS
+##################
+SrvSuscrpAlert;sistemaUyP=wssusale;
+srvEnvioAlertas;uyp=wsenvale;
+srvMensajePrivado;uyp=wsmsjpri;

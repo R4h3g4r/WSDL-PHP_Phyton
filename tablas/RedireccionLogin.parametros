@@ -1,0 +1,39 @@
+## Parametros para la redireccion de login en casos de error.
+## Composicion: [NUM_CANAL]-[CODIGO_ERROR];activado=[true/false];url=[URL_DESPACHO_REDIRECCION]
+##
+## Glosario canales: WebBCI:110, Tbanc:100, BCI Nova:800, Pyme:132, Empresas:230
+
+## Clave Erronea ##
+110-USERLOGIN-110;activado=true;url=http://www.bci.cl/personas/clave_invalida.html;
+100-USERLOGIN-100;activado=true;url=http://www.tbanc.cl/clave_invalida_act.html;
+800-USERLOGIN-800;activado=true;url=http://www.bcinova.cl/clave_invalida.html;
+132-USERLOGIN-132;activado=true;url=https://www.bci.cl/empresarios/clave-invalida;
+230-USERLOGIN-230;activado=true;url=https://www.bci.cl/empresas/clave-invalida;
+
+## Sin clave para este canal ##
+110-0438;activado=false;url=http://www.bci.cl/personas/clave_invalida.html;
+100-0438;activado=false;url=http://www.tbanc.cl/clave_invalida_act.html;
+800-0438;activado=false;url=http://www.bcinova.cl/clave_invalida.html;
+132-0438;activado=true;url=https://www.bci.cl/empresarios/clave-invalida;
+230-0438;activado=true;url=https://www.bci.cl/empresas/clave-invalida;
+
+## Clave Expirada ##
+110-0433;activado=false;url=http://www.bci.cl/personas/clave_invalida.html;
+100-0433;activado=false;url=http://www.tbanc.cl/clave_invalida_act.html;
+800-0433;activado=false;url=http://www.bcinova.cl/clave_invalida.html;
+132-0433;activado=false;url=https://www.bci.cl/empresarios/clave-invalida;
+230-0433;activado=false;url=https://www.bci.cl/empresas/clave-invalida;
+
+## Clave Bloqueada ##
+110-0432;activado=true;url=http://www.bci.cl/personas/clave_bloqueada.html;
+100-0432;activado=true;url=https://www.tbanc.cl/personas/clave-bloqueada;
+800-0432;activado=true;url=http://www.bcinova.cl/clave_bloqueada.html;
+132-0432;activado=true;url=https://www.bci.cl/empresarios/clave-bloqueada;
+230-0432;activado=true;url=https://www.bci.cl/empresas/clave-bloqueada;
+
+## Flag de redireccion a pagina de error modyo y URL de redireccionamiento ##
+110-0058;activado=true;url=http://www.bci.cl/personas/clave_invalida.html;
+100-0058;activado=false;url=http://www.tbanc.cl/clave_invalida_act.html;
+800-0058;activado=true;url=http://www.bcinova.cl/clave_invalida.html;
+132-0058;activado=true;url=https://www.bci.cl/empresarios/clave-invalida;
+230-0058;activado=true;url=https://www.bci.cl/empresas/clave-invalida;

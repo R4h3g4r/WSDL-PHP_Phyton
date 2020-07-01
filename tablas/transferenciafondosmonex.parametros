@@ -1,0 +1,22 @@
+#codigo para cargo y abono,cuenta contable
+CODIGO_TRX;CARGO=1124;ABONO=1126;CUENTA_CONTABLE=300561015;
+#sucursal,usuario,supervisor
+TRFMX;SUCURSAL=090;USUARIO=TRFMONEX;SUPERVISOR=TRFMONEX;CANAL=540;CODIGO_SEMILLA=MMX;NUMERO_COLILLA_PAGUE_DIRECTO=1299;
+correo;fraseParaBeneficiario=Estimado(a). clientebeneficiario: Le informamos que hoy, fecha, nuestro(a) cliente empresapagadora ha instruído una transferencia de fondos a su cuenta con el siguiente detalle:;
+correo1;asunto=Aviso de transferencia electrónica de fondos en Monex;
+
+# Propiedades para el archivo cargado
+PROPIEDADES_ARCHIVO;BYTES_MAXIMOS_PERMITIDOS=5242880;
+# Propiedades para manejo de XML
+PROPIEDADES_XML;DIR_BASE_DOC=tablas/monex/transfermonex;XML=/xml/transferencia.xml;XSD=/xsd/transferencia.xsd;XSL=/xsl/transferencia.xsl;
+# Mensaje advertencia fondo insuficiente
+MENSAJE_FONDO_INSUFICIENTE;Desc= \\tque esta firmando no existen fondos disponibles en la cuenta indicada por ustedes. Una vez reunidas las firmas necesarias el sistema volverá a consultar fondos, si no encuentra hará reintentos cada 15 minutos hasta las 17:00 hrs. para completar con exito el envío de sus remesas.\\n\\nSi al completar este horario no se encuentan los fondos, la nomina se rechazará.;
+#Horario de Cierre en formato 24h
+HORARIO_FIRMA_NOMINA;INICIO=9:00;TERMINO=17:00;
+MENSAJE_SERVICIO_SALDO_INSUFICIENTE;Desc=Objetado por sistema cuentas corrientes Causal : Saldo Real Insuficiente;
+MENSAJE_SERVICIO_ENCABEZADO_MODIFICADO;Desc=El ecabezado de la nomina fue modificado por otro usuario;
+
+MONEDA;CLP=0999;USD=1013;EUR=1142;
+
+# Codigos para Firmas y poderes
+MONEDAFP;CLP=0999;USD=1013;EUR=1142;CAD=100601;AUD=103601;DKK=105101;JPY=107201;CHF=108201;NOK=109601;NZD=109701;GBP=110201;SEK=111301;MXN=113201;

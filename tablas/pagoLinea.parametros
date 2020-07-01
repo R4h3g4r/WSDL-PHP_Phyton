@@ -1,0 +1,87 @@
+convServiPag;Desc=0780537906;
+codTx;Desc=00502;
+estadoCuadratura;Desc=P;
+cuentaDestino;Desc=C;
+codRetornoIni;Desc=II;
+codRetornoFalla;Desc=RR;
+codRetornoFallaAbono;Desc=NR;
+codRetornoPago;Desc=AP;
+codRetornoOK;Desc=AA;
+codRechazoIni;Desc=W200;
+codRechazoPago;Desc=0000;
+
+# Valores de tope para realizar pago en linea segun canal y tipo Clave
+110; topeCCT=500000;  topeCCTPASS=1000000; topeCCTTOKEN=3000000; topeCPR=200000; topeCPRPASS=500000; topeCPRTOKEN=500000;
+100; topeCCT=1000000; topeCCTPASS=1000000; topeCCTTOKEN=3000000; topeCPR=200000; topeCPRPASS=200000; topeCPRTOKEN=200000;
+154; topeCCT=500000;  topeCCTPASS=1000000; topeCCTTOKEN=3000000; topeCPR=200000; topeCPRPASS=500000; topeCPRTOKEN=500000;
+
+# Valor de tope de conexion en pago en linea
+Timeout; valor=20000;
+
+# Id de Biller que deben ser excluidos separados por "-"
+# 741 TELMEX CHILE
+billers;codigos=;
+
+# Id de servicios especificos que debe ser suprimido de un biller en particular, separados por un "-".
+# [Biller.Serv]   ej: 741.7-741.12
+servicios;codigos=;
+MensajeBci;desc=En 24 hrs. se hará efectivo el pago de esta(s) boleta(s).;
+MensajeTBanc;desc=En 24 hrs. se hará efectivo el pago de esta(s) boleta(s).;
+mensajeFalloEnvioTbanc;Desc=MENSAJE RESCATADO PAGO LINEA TBANC;
+mensajeFalloEnvioBCI;Desc=MENSAJE RESCATADO PAGO LINEA BCI;
+mensajePagoSimilarTBanc;Desc=Cliente posee un pago similar al ingresado, se realizará el pago de todas maneras.;
+
+msjErrorBoleta; desc=No fue posible obtener la boleta.;
+
+cadenasARetirar; desc=R1: |]|=;
+
+
+# mensajes de error.
+OBJECTREQUIRED; desc=No fue posible obtener la boleta.;
+CODIGOSEMPRESA/SERVICIONODEFINIDOSPARACANALDEPAGO(1,14);desc=Por término Convenio Chilectra/Servipag realice su pago en Chilectra.cl, contratando PAC o PAT.;
+
+DIAS_VALIDEZ; valor=5;
+
+#Configuracion envio notificacion masiva de boletad disponibles
+servicioPagoSMSOculto; desc=false;
+cfgMasiva; host=161.131.55.220; usuario=filereader; password=flr.12; archivoLocal=./temp/PAGO_SMS.ready; archivoRemoto=PAGO_SMS_%TIMESTAMP%.ready; comandoChmod=CHMOD 664;
+smsMasivo; desc=Estimado Cliente la cuenta %DESCRIPCION% está disponible para ser pagada por un monto de %MONTO%. Envie PAGAR %DESCRIPCION% al 2242;
+smsMasivoHead; desc=BCI|NotificacionCuentaSMS||sms1|NotificacionSMS|;
+smsPagoOK; desc=Estimado Cliente, el pago de su cuenta %DESCRIPCION% fue realizado exitosamente, Muchas Gracias por operar con SMS BCI;
+smsPagoSaldo; desc=Estimado cliente, el pago de su cuenta %DESCRIPCION% no ha podido ser realizado debido a que el saldo en su cuenta es insuficiente;
+smsPagoError; desc=Estimado Cliente, hubo un problema al realizar el pago de su cuenta %DESCRIPCION% por favor intente mas tarde;
+smsPagoSinAvs; desc=Estimado Cliente, hubo un problema al realizar el pago. Su cuenta %DESCRIPCION% no existe;
+smsPagoNew; desc=Estimado cliente existe una nueva boleta disponible para  la cuenta %DESCRIPCION% por un monto de %MONTO%. Envie PAGAR %DESCRIPCION% al 2242;
+smsPagoMtoCmb; desc=Estimado cliente, la cuenta %DESCRIPCION% que se dispone a pagar tiene un nuevo monto de %MONTO%. Envie PAGAR %DESCRIPCION% al 2242;
+smsPagoSinSdo; desc=Estimado cliente el pago de %DESCRIPCION% no pudo ser realizado debido a que esta cuenta no posee saldo pendiente, gracias por operar con SMS BCI;
+largoNumero; desc=3;
+
+# mensajes de exito.
+MensajeBciExito;desc=El pago de su cuenta se ha realizado con éxito.<br>;
+mensajeActivarPagoSMS; top=Haga clic aquí para recibir sus cuentas por SMS.; bottom=El valor del servicio es de $200 por cada cuenta pagada
+mensajeRecordarConfirmacionSMS;top=Estimado(a) cliente recuerde que debe confirmar la suscripción al servicio de Transacciones SMS enviando OK al 2241.; bottom=
+mensajeInscripcionAlertasSMS;top=Estimado(a) cliente suscribase al nuevo servicio de Transacciones SMS aquí.; bottom=
+mensajeInscripcionMultipass; desc=La clave Multipass será solicitada solo una vez durante la inscripción al servicio.
+codAlertaPagoSMS; desc=91
+separador; desc=@@
+respuestaSMS; desc=texto=BCI. Estimado cliente: El estado del pago de su cuenta %DESCRIPCION_ALIAS% es: %CODIGO_RESPUESTA%, gracias por operar con Bci.
+
+
+loginEnterprise; desc=bci
+refContract; desc=ComprobantePagoSMS;
+refTemplate; desc=ComprobantePagoSMS;
+subject; desc=Comprobante de Pago via SMS.
+comprobanteMail; titulo=Pago de Cuenta en Linea;firma=Para cualquier duda al respecto de este email, escribanos a contacto@bci.cl o llame al fono 600 824 24 24.\n\n Atentamente, \nBci - Somos Diferentes\n\nNota:\n- Este mail es generado de manera automatica, por favor no lo conteste\n- Los tildes han sido omitidos intencionalmente;cuerpo=Estimado(a) Cliente:\n\nCon fecha %FECHA_PAGO_PEL% se ha realizado el siguiente pago en linea: \n\nEmpresa: %EMPRESA%\nServicio: %SERVICIO%\nNumero Cliente: %CLIENTE%\nCuenta:  %CUENTA%\nMonto: $%MONTO%;
+
+MensajeError:El servicio ya fue pagado; estado=CUENTA-PAGADA
+MensajeError:Cliente No Registra Deuda; estado=CUENTA-PAGADA
+MensajeError:Documento ya registra un Pago..; estado=CUENTA-PAGADA
+
+correoRemitente; desc=contacto@bci.cl;
+nombreRemitente; desc=BCI;
+pagosmsCorreoLegacy;glosaTitulo=Comprobante de Pago en Linea;glosaEstimado=Estimado (a);glosa1=Con fecha;glosa2=se ha realizado el siguiente pago en linea:;glosaEmpresa=Empresa:;glosaServicio=Servicio:;glosaNCliente=Numero Cliente:;glosaCuenta=Cuenta:;glosaMonto=Monto:;glosa3=Para cualquier duda al respecto de este email, escribanos en el formulario de contacto \n en bci.cl o llamenos al fono 600 824 24 24.;
+
+link_100;banco=/cl/tbanc/aplicaciones/menu/cargaOpciones.jsf?idServicio=transacciones_SMS;
+link_110;banco=/cl/bci/aplicaciones/menu/cargaOpciones.jsf?idServicio=transacciones_SMS;
+link_800;banco=/cl/bci/aplicaciones/bciNova/menu/cargaOpciones.jsf?idServicio=transacciones_SMS;
+link_154;banco=/cl/bci/aplicaciones/menu/cargaOpciones.jsf?idServicio=transacciones_SMS;

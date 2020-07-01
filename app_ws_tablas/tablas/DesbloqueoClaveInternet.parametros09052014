@@ -1,0 +1,72 @@
+#Consulta clave internet
+#=================================================
+
+codigo;     valor=00;  Desc=codigo consulta;
+idcanal;    valor=02;  Desc=identificador del canal;
+
+#Modifica estado de la calve
+#=================================================
+
+inicioTarjeta; valor=000002;   Desc=numero con que parte la tarjeta;
+estado;        valor=00;       Desc=estado de la clave;
+motivo;        valor=03;       Desc=Motivo de la actualización;
+indicador;     valor=N;        Desc=Indicador;
+
+emailFrom;100=contacto@bci.cl;117=contacto@bci.cl;110=contacto@bci.cl;800=contacto@bci.cl;230=contacto@bci.cl;
+
+emailSubject;100=Nueva Clave Internet;110=Nueva Clave Internet;117=Nueva Clave Internet;800=Nueva Clave Internet;230-RES=Nueva Clave Internet;230-DES=Clave Internet Desbloqueada;230-AVISO=Cambio Clave Internet de Apoderado;
+
+emailCuerpo100;Desc=Por medio del presente te hacemos entrega de tu nueva clave Internet que fue solicitada en nuestra pagina web.\n\nAdjunto encontraras un archivo con tu nueva clave.\n\nPor motivos de seguridad te recomendamos que una vez que ingreses al sitio realices un cambio de clave.\n\n\nAtentamente,\nTBanc - El banco a distancia.\n\n\n\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debes tener instalado el programa Acrobat Reader. Si no lo tienes, descarga una version gratuita desde el sitio de la empresa Acrobat.;
+
+emailCuerpo110;Desc=Por medio del presente le hacemos entrega de su nueva clave Internet que fue solicitada en nuestra pagina web.\n\nAdjunto encontrara archivo con su nueva clave.\n\nPor motivos de seguridad le recomendamos que una vez que ingrese al sitio realice cambio de clave.\n\n\nAtentamente,\nBci - Somos diferentes.\n\n\n\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debe tener instalado el programa Acrobat Reader. Si no lo tiene, descargue una version gratuita desde el sitio de la empresa Acrobat.;
+
+emailCuerpo117;Desc=Por medio del presente le hacemos entrega de su nueva clave Internet que fue solicitada en nuestra pagina web.\n\nAdjunto encontrara archivo con su nueva clave.\n\nPor motivos de seguridad le recomendamos que una vez que ingrese al sitio realice cambio de clave.\n\n\nAtentamente,\nBci - Somos diferentes.\n\n\n\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debe tener instalado el programa Acrobat Reader. Si no lo tiene, descargue una version gratuita desde el sitio de la empresa Acrobat.;
+
+emailCuerpo800;Desc=Por medio del presente le hacemos entrega de su nueva clave Internet que fue solicitada en nuestra pagina web.\n\nAdjunto encontrara archivo con su nueva clave.\n\nPor motivos de seguridad le recomendamos que una vez que ingrese al sitio realice cambio de clave.\n\n\nAtentamente,\nNova.\n\n\n\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debe tener instalado el programa Acrobat Reader. Si no lo tiene, descargue una version gratuita desde el sitio de la empresa Acrobat.;
+
+emailCuerpo230;RES=\n\nAdjunto a este email se encuentra su clave temporal para el ingreso a www.bci.cl/empresarios y/o www.bci.cl/empresas\n\nLuego de ingresar al sitio se le pedira que cambie su clave.\n\nEsta clave temporal es válida solo por hoy por lo cual sugerimos hacer el cambio lo antes posible.\n\nImportante:\nPor su seguridad el archivo PDF esta encriptado y para abrirlo requerirá una contraseña que es su Rut sin digito verificador ni puntos. En el caso que su Rut tenga menos de 8 digitos tiene que anteponer ceros hasta completar los 8 digitos.\nSi ha recibido este mail pero ud. no ha solicitado una nueva clave, favor pongase en contacto con su ejecutivo comercial.\n\nAtentamente\nBci – somos diferentes\n\nNota:  Puede descargar el programa para visualizar el archivo desde http://get.adobe.com/es/reader/;DES=Le informamos que de acuerdo a lo solicitado por ud. se ha desbloqueado su clave para que pueda ingresar a:\n\nwww.bci.cl/empresarios y/o www.bci.cl/empresas\n\nCon su clave actual tendra dos nuevos intentos para ingresar. Si no pudiera ingresar esta clave sera bloqueada.  Podra liberarla desde los sitios web antes indicados o a traves de su ejecutivo comercial.\n\nImportante:\nSi ha recibido este mail pero ud. no ha solicitado el desbloqueo de su clave, favor pongase en contacto con su ejecutivo comercial.\n\nAtentamente\n\nBci – somos diferentes;AVISO=\n\nEl apoderado [APODERADO] ha modificado su Clave Internet para el ingreso a www.bci.cl/empresarios y/o www.bci.cl/empresas.\n\nAtentamente\nBci – somos diferentes;
+
+nombrePdfAdjunto;100=ClaveInternet.pdf;117=ClaveInternet.pdf;110=ClaveInternet.pdf;800=ClaveInternet.pdf;230=ClaveInternet.pdf;
+nombreXsl;100=ReseteoClave.xsl;110=ReseteoClave.xsl;117=ReseteoClave117.xsl;800=ReseteoClave.xsl;230=ReseteoClave230.xsl;
+
+codigosJournalInicio;evento=DESBLOQUEA;subEvento=INICIO;producto=INT;
+codigosJournalReseteo;evento=RESETEA;subEvento=OK;producto=INT;
+codigosJournalDesbloqueo;evento=DESBLOQUEA;subEvento=OK;producto=INT;
+
+rutaXsl;230=/belwls/bciexpress/desbloqueoClaveInternet/;
+
+msjNoCliente;Desc=Sr. Usuario, debe activar su cuenta en alguna sucursal.;
+msjNoClaveInternet;Desc=Sr(a). <%Usuario%> debe retirar su clave desde alguna sucursal.;
+msjNoClaveBloq;Desc=Sr(a). <%Usuario%> usted no posee una clave bloqueada .;
+msjClaveBloqBco;Desc=Sr(a). <%Usuario%> su clave esta bloqueada. Diríjase a una sucursal para solicitar una nueva.;
+msjNoEnrolamiento;Desc=Sr(a). <%Usuario%> aún no esta enrolado. Favor realizar esos pasos.;
+msjIntNoValido;DES=Estimado(a) Cliente: Su clave se encuentra bloqueada. Por favor contáctese con la mesa de ayuda banca electrónica al 800692855 o desde celulares al 6928555 para recuperar su clave.;RES=Sr(a). <%Usuario%> la información ingresada no es correcta. Por favor acercarse a una sucursal para solicitar una nueva clave.;
+msjSinMedioAuten;Desc=Sr(a). <%Usuario%> ud. no posee los medios de autentificación para solicitar una nueva clave, favor acercarse a una sucursal para solicitarla.;
+msjErrorPreg;Desc=Sr(a). <%Usuario%> no han coincidido las respuestas entregadas. Por favor diríjase con su ejecutivo comercial para solicitar una nueva clave.;
+msjErrorClaves;Desc=Sr(a). <%Usuario%> su clave no corresponde al rut. Reintente nuevamente.;
+msjErrorGeneral;Desc=Estimado(a) Cliente: En este momento la página esta con problemas, inténtelo más tarde, gracias.;
+msjErrorSimple;DES=Estimado(a) Cliente: La información ingresada no es correcta. Reintente nuevamente.;RES=Sr(a). <%Usuario%> la información ingresada no es correcta. Reintente nuevamente.;
+msjErrorSerio;DES=Estimado(a) Cliente: La información  ingresada no es correcta. Por favor contáctese con la mesa de ayuda banca electrónica al 800692855 o desde celulares al 6928555 para recuperar su clave.;RES=Sr(a). <%Usuario%> la información ingresada no es correcta.  Por favor acercarse a una sucursal para solicitar una nueva clave.;
+
+usuario;desc=banele;
+
+intentoCambioMensaje;230=2;
+
+codigosJournalInicioClienteMonoProducto;evento=DESBLOQUEA;subEvento=INT;producto=SEGURI;estadoOK="";estadoNOK=NOK;
+codigosJournalCambioClienteMonoProducto;evento=DESBLOQUEA;subEvento=INT;producto=SEGURI;estadoOK="";estadoNOK=NOK;
+codigosJournalDesbloqueoClienteMonoProducto;evento=DESBLOQUEA;subEvento=INT;producto=SEGURI;estadoOK="";estadoNOK=NOK;
+
+# Atributos envio de correo
+
+cuerpoCorreoDesbloqueo;Desc=Estimado Cliente:\n\nLe comunicamos que su Clave Internet ha sido desbloqueada\nsatisfactoriamente.;
+asuntoCorreoDesbloqueo;Desc=Su Clave Internet ha sido desbloqueada con exito.;
+emisorCorreo;Desc=Banco BCI.;
+codigoEmisorCorreo;Desc=contacto@bci.cl;
+
+urlDesbloqueoClave-110;url=https://portlets.bci.cl/TBanc/appmanager/bciwlp/publico?_nfpb=true&_pageLabel=page_bci_pub_desbloqueo;
+urlDesbloqueoClave-800;url=http://www.bcinova.cl/desbloquear_clave.html;
+urlDesbloqueoClave-100;url=https://portlets.bci.cl/TBanc/appmanager/bciwlp/publico?_nfpb=true&_pageLabel=page_tbanc_desbloqueo_pub;
+urlDesbloqueoClave-230;url=https://bel.bci.cl/belwls/bciexpress/desbloqueoClaveInternet/Desbloqueo.do?metodo=inicio&accion=DES;
+urlDesbloqueoClave-132;url=https://bel.bci.cl/belwls/bciexpress/desbloqueoClaveInternet/Desbloqueo.do?metodo=inicio&accion=DES;
+
+segundaClaveDefecto;valor=TOK;Multipass=TOK;SafeSigner=MPM;

@@ -1,0 +1,70 @@
+
+#DESARROLLO
+#FILESYSTEM;servidor=161.131.184.80;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=2;
+#IDPRODUCTOSELECIONADO;ID=2;
+#ID_SISTEMA_COMEX;valor=3;
+#ID_SISTEMA;idSistemaComex=3;idSistemaCash=2;
+
+#INTEGRACION
+#FILESYSTEM;servidor=161.131.141.238;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=3;
+#IDPRODUCTOSELECIONADO;ID=3;
+#ID_SISTEMA_COMEX;valor=4;
+#ID_SISTEMA;idSistemaComex=4;idSistemaCash=3;idSistemaCredito=14;
+
+#CERTIFICACION
+FILESYSTEM;servidor=161.131.232.185;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+idSistemaCashManagement;valor=14;
+IDPRODUCTOSELECIONADO;ID=14;
+ID_SISTEMA_COMEX;valor=15;
+ID_SISTEMA;idSistemaComex=15;idSistemaCash=14;idSistemaCredito=1;
+
+#PRODUCCION
+#FILESYSTEM;servidor=161.131.232.11;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=2;
+#IDPRODUCTOSELECIONADO;ID=2;
+#ID_SISTEMA_COMEX;valor=3;
+#ID_SISTEMA;idSistemaComex=3;idSistemaCash=2;idSistemaCredito=1;
+
+#CODIFICACION EN SERVIDOR
+CODIFICACION_SERVIDOR;formatoVista=iso-8859-1;formatoServidor=UTF-8;
+
+Prod01-2-1;servicios=BGE004,CSH000,PAG09,TR03OPE,TRF07,VDOC001,X69OPE,X70OPE,X71OPE,X72OPE,X75OPE,x05ope;
+Prod09-2-2;servicios=TFULL001,TFULL002;
+Prod02-2-3;servicios=TAHO0001,TCCT0001,TEFE0001,TOTA0001,TOTC0001,TVVD0001,TVVO0001,TVVV0001;
+prod06-2-6;servicios=P20OPE,P21OPE,P22OPE,P23OPE;
+Prod08-2-7;servicios=CERPD1,CERPM4,CERPQ3,CERPS2,X30OPE,X31OPE,X32OPE,X33OPE;
+Prod27-2-8;servicios=PDI-T1;
+Prod12-2-9;servicios=Â P4CP0001,PCCT0001,PDOC0001,POTC0001,PVVD0001,PVVO0001,PVVV0001;
+Prod01-2-17;servicios=SUSPAC,X27OPE,X65OPE,X66OPE,X67OPE,X68OPE,X69OPE,X70OPE,X71OPE,X72OPE;
+
+
+productosBaneleDesplegables;valor=Prod01,Prod09,prod06,Prod08,Prod27,Prod12;
+garantiasAConsiderar;garantiaHipotecaria=SI;garantiaPrendas=SI;garantiaWarrents=SI;garantiaLetrasYPagares=SI;
+
+#===============================================================
+# Validacion Panel de Precios
+#===============================================================
+
+BANQUERO;ID=4;
+EJECUTIVOCASH;ID=5;
+FECHA;ID=2;
+GERENTEBANQUERO;ID=3;
+GRUPOECONOMICO;ID=6;
+PRODUCTO;ID=7;
+RAZONNEGOCIOPERDIDO;ID=1;
+idSistemaCash;valor=Cash Management;
+
+#======================================
+# Servicios de Clientes y Margenes
+#======================================
+
+JNDI_REC;servicio=wcorp.aplicaciones.clientes.relacionentreclientes.administracion.implementation.RelacionEntreClientes;
+JNDI_DBC;servicio=wcorp.serv.clientes.ServiciosCliente;
+JNDI_MULTI;servicio=wcorp.bprocess.multilinea.Multilinea;
+
+#======================================
+# Tipos de Plazos
+#======================================
+TIPOSDEPLAZOS;1=Años;2=Meses;3=Días;

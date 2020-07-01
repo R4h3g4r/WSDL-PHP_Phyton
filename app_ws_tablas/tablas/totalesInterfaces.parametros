@@ -1,0 +1,7 @@
+#Codigos de campo para a utilizar para calcular los totales de las interfaces. (en orden desde T1,T2,...,Tn de acuerdo a la Interfaz)
+#Interfaz Demografica - Actualizacion de Cuentas
+101;totales=Total Emisión|Total Bloqueos|Total Desbloqueos|Total Renuncias|Total Desrenuncias|Total Eliminación|Total Activación|Total otras modificaciones;codigo=0|31|32|33|33|36|0|-1;
+#Interfaz Demografica - Actualizacion de Tarjetas
+102;totales=Total Emisión|Total Bloqueos|Total Desbloqueos|Total Eliminación|Total Activación|Total Reimpresiones|Total otras modificaciones;codigo=0|12|13|9|10|11|-1;
+#Interfaz Monetaria - Credito
+2001;totales=Total reg. Ajuste Nota Crédito Nacional|Total Monto Nota Crédito Nacional|Total reg. Ajuste Nota Crédito Internacional|Total Monto Nota Crédito Internacional;

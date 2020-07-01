@@ -1,0 +1,123 @@
+<?xml version = "1.0" encoding = "ISO-8859-1" ?>
+
+<service xmlns = "http://wcorp/util/bee/serviciosdedatos"
+         xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation = "http://wcorp/util/bee/serviciosdedatos
+                              XMLService.xsd"
+         name = "Pr_CEII_Spe20020_InfoOdp_w3"><!-- JDBC: nombre stored procedure -->
+
+  <context>
+
+    <boolean_false value="1" />
+
+    <boolean_true value="0" />
+
+    <general_exception_codigo value="ESPECIAL" />
+
+    <es_funcion value="no" />
+
+    <struct_result acquire_value_by="position" />
+
+  </context>
+
+  <input>
+
+        <field
+          java_name = "numFolio"
+          type = "String"
+          size = "12"
+          middle_name = "numFolio"
+        />
+
+        <field
+          java_name = "pagTipo"
+          type = "String"
+          size = "3"
+          middle_name = "ptr_fmt"
+        />
+
+  </input>
+
+  <output>
+
+    <struct struct_size = "10" class_name = "IteracionExtraeTotalesNominaProveedores" var_name = "extraetotalesnominaproveedores" >
+
+          <field
+            java_name = "codTipoPago"
+            type = "String"
+            size = "3"
+            middle_name = "codTipoAgente"
+          />
+
+          <field
+            java_name = "desTipoPago"
+            type = "String"
+            size = "35"
+            middle_name = "tdp_des"
+          />
+
+          <field
+            java_name = "regCantidad"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "cantidad2"
+          />
+
+          <field
+            java_name = "regAceptado"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "numeroRegistros"
+          />
+
+          <field
+            java_name = "regRechazado"
+            type = "int"
+            size = "9"
+            sign = "no"
+            integers = "9"
+            decimals = "0"
+            middle_name = "rechazosMes"
+          />
+
+          <field
+            java_name = "totalRec"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "montoTotal1"
+          />
+
+          <field
+            java_name = "monAceptado"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "montoTotalInvers"
+          />
+
+          <field
+            java_name = "monRechazo"
+            type = "double"
+            size = "9"
+            sign = "no"
+            integers = "11"
+            decimals = "4"
+            middle_name = "monto1"
+          />
+
+    </struct>
+
+  </output>
+
+</service>

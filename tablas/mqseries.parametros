@@ -1,0 +1,6 @@
+#BloqueosRedbanc;Host=mqredbanc;Port=1414;Cola=COPERNICO.QM;Canal=MQSERVER.CH;Usuario=BCISTR;Password=BCIISTR;
+BloqueosRedbanc;Host=mqredbanc;Port=1414;Cola=LUNA.QM;Canal=MQSERVER.CH;Usuario=BCISTR;Password=cbitrs170;
+#MolNexus;BANCOUSER=TT503B7Z;BANCOPASS=503B7Z;MQUSER=BCIMOL;MQPASS=MOLBCI001;BANCOIP=161.131.196.20;Port=1514;ClientChannel=MOL01.CH;QueueManager=MOL01.QM;Host=163.250.2.60;TimeOut=200;
+MolNexus;BANCOUSER=TT503B7Z;BANCOPASS=503B7Z;MQUSER=BCIMOL;MQPASS=MOLBCI001;BANCOIP=bci.cl;Port=1514;ClientChannel=MOL01.CH;QueueManager=MOL01.QM;Host=163.250.2.60;TimeOut=200;DEBUG=0;IDENT=Produccion;ORG=503;
+TodocuentaTelefonica;Desc=Servicio TodoCuenta en Produccion;Host=166.75.2.16;Port=1414;QueueManager=CTCGEST_QM;Cola=CTC.PCAJAS.PAGOS;COlaRespuesta=BCI.PCAJAS.RESPUESTAS;Canal=BCI_CLIENTE;Usuario=;Password=;
+

@@ -1,0 +1,49 @@
+DATA_SOURCE_CUENTASMX;JNDI=wcorp.datasource.cuentacorriente.monex.CtaCteMonexCuentasMxDS;
+DATA_SOURCE_CTL;JNDI=wcorp.datasource.cuentacorriente.monex.CtaCteMonexCtlDS;
+CUENTAS;cantCheques=4;
+MINI_CARTOLA;cantCheques=8;
+CARTOLA;cantCheques=8;
+#PAGINAR;INICIO=0;FIN=2;CANTIDAD=3;
+PAGINAR;INICIO=0;FIN=19;CANTIDAD=20;
+#
+condicion1;glosa=No Cobro Impuestos;
+condicion2;glosa=No Cobro Comp. Dep. Efectivo;
+condicion3;glosa=Contactar Ejecutivo Com.;
+condicion4;glosa=Correspondencia en COMEX;
+condicion5;glosa=Cheques Devueltos;
+condicion6;glosa=Cuenta en Observación;
+condicion7;glosa=Requiere 2 Firmas (Cheque);
+condicion8;glosa=Actualizar Información Cliente;
+condicion9;glosa=Persona Jurídica;
+condicion10;glosa=Cliente Difunto;
+condicion11;glosa=Deudor Moroso;
+condicion12;glosa=Solo Titular;
+condicion13;glosa=Bloqueo Robo / Pérdida;
+condicion14;glosa=Bloqueo Orden Cliente;
+condicion15;glosa=Bloqueo Motivo Especial;
+condicion16;glosa=Bloqueo Deudor Moroso;
+condicion17;glosa=Orden Judicial;
+condicion18;glosa=Cliente con Retención Especial;
+#
+ONP_PAGADO;codigos=71,40,61,62;
+#
+PROT_ESTADO_EPA;codigos=62;
+PROT_ESTADO_PAG;codigos=61,71;
+PROT_ESTADO_PRT;codigos=20;
+PROT_ESTADO_ACL;codigos=21,30,31;
+PROT_ESTADO_ELI;codigos=22;
+#
+ONP;1=Extravío;2=Robo;3=Incumplimiento;
+
+#indicadores de estados de la cuenta
+ESTADO_CUENTA;cuentaCerrada=C;
+
+#Errores Máquinas depositarias dolares
+CUENTA_DESTINO_CERRADA;codigo=0016;
+CUENTA_NO_EXISTE;codigo=0015;
+CUENTA_BLOQUEADA;codigo=0022;
+SISTEMA_NO_DISPONIBLE;codigo=0002;
+
+#Datos para deposito/cargo, maquina depositaria de dolares
+mnemonicoAbonoViaMaquina;DESC=500;
+supervisor;DESC=MONEX;

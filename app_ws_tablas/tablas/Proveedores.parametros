@@ -1,0 +1,271 @@
+archivoNomina;path=/Recepcion_BE/proveedores;pathXml=xml\
+#
+# Configuracion Botones Dinamicos 
+# doc: analisis_estados_bci_v3.xls
+# autor: FJM
+# fecha: 24-10-2006
+#
+# Formato linea:
+# Categoria_Subcategoria_ID; Modulo; Estado; Eliminar; Modificar; Consultar; Descargar; Detener; Ver detalle (folio); Corregir Reg. Rechazados; Aceptar Pago;
+#
+configurarBotones; boton0=eliminar; boton1=modificar; boton2=consultar; boton3=descargar; boton4=detener; boton5=verDetalle; boton6=rechazados; boton7=aceptarPago; boton6=timbre; boton7=bajarPdf; boton8=autorizar; boton9=firmar;boton10=timbrePagado;boton11=timbreFirmado;boton12=timbreAutorizado;boton13=verDocumentos;
+procesosBotones; proceso0=Resumen_0;Proceso1=Detalle_0;Proceso2=Registro_0;Proceso3=Resumen_1;Proceso4=Detalle_1;Proceso5=Registro_1;Proceso6=Resumen_2;Proceso7=Detalle_2;Proceso8=Registro_2;Proceso9=Resumen_3;Proceso10=Detalle_3;Proceso11=Registro_3;Proceso12=Resumen_4;Proceso13=Detalle_4;Proceso14=Registro_4;Proceso15=Resumen_5;Proceso16=Detalle_5;Proceso17=Registro_5;Proceso18=Resumen_6;Proceso19=Detalle_6;Proceso20=Registro_6;Proceso21=Resumen_7;Proceso22=Detalle_7;Proceso23=Registro_7;Proceso24=Resumen_8;Proceso25=Detalle_8;Proceso26=Registro_8;Proceso27=Resumen_9;Proceso28=Detalle_9;Proceso29=Registro_9;Proceso30=Resumen_10;Proceso31=Detalle_10;Proceso32=Registro_10;Proceso33=Resumen_11;Proceso34=Detalle_11;Proceso35=Registro_11;Proceso36=Resumen_12;Proceso37=Detalle_12;Proceso38=Registro_12;Proceso39=Resumen_13;Proceso40=Detalle_13;Proceso41=Registro_13;Proceso42=Resumen_14;Proceso43=Detalle_14;Proceso44=Registro_14;Proceso45=Resumen_15;Proceso46=Detalle_15;Proceso47=Registro_15;Proceso48=Resumen_16;Proceso49=Detalle_16;Proceso50=Registro_16;Proceso51=Resumen_17;Proceso52=Detalle_17;Proceso53=Registro_17;Proceso54=Documentos_0;
+tipoPagina; tipoResumen=Resumen; tipoDetalle=Detalle; tipoRegistro=Registro;tipoDetalleDoc=Documentos;
+### ProcTerminado_Realizados
+Resumen_0;  modulo=m==3; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_0;  modulo=m==3; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_0; modulo=m==3; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_1;  modulo=m==5; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_1;  modulo=m==5; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_1; modulo=m==5; estado=e==0000; eliminar=-1; modificar=-1; consultar=1; descargar=1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarPdf=1; autorizar=-1; firmar=-1; timbrePagado=1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### ProcTerminado_NoRealizados
+Resumen_2;  modulo=m==4; estado=e==6400; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_2;  modulo=m==4; estado=e==6400; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_2; modulo=m==4; estado=e==6400; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_3;  modulo=m==3; estado=e==6410; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_3;  modulo=m==3; estado=e==6410; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_3; modulo=m==3; estado=e==6410; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_4;  modulo=m==3; estado=e==6420; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_4;  modulo=m==3; estado=e==6420; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_4; modulo=m==3; estado=e==6420; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_5;  modulo=m==2; estado=e==6920; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_5;  modulo=m==2; estado=e==6920; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_5; modulo=m==2; estado=e==6920; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarPdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### ListosBanco_Listos
+Resumen_6;  modulo=m==2 || m==3; estado=e>=5000 && e<=5500; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_6;  modulo=m==2 || m==3; estado=e>=5000 && e<=5500; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_6; modulo=m==2 || m==3; estado=e>=5000 && e<=5500; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### ListosBanco_ListosSinFondos
+Resumen_7;  modulo=m==3; estado=e==0020; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Detalle_7;  modulo=m==3; estado=e==0020; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_7; modulo=m==3; estado=e==0020; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### AutorizaFirma_PorAutorizar
+Resumen_8;  modulo=m==2; estado=e==6900; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_8;  modulo=m==2; estado=e==6900; eliminar=1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_8; modulo=m==2; estado=e==6900; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### AutorizaFirma_PorFirmar
+Resumen_9;  modulo=m==2; estado=e==6910; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_9;  modulo=m==2; estado=e==6910; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_9; modulo=m==2; estado=e==6910; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### EnProcesoObs_EnProceso
+Resumen_10; modulo=m==1; estado=e>=5000 && e<=5100; eliminar=-1; modificar=-1; consultar=0; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_10; modulo=m==1; estado=e>=5000 && e<=5100; eliminar=1; modificar=-1; consultar=0; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_10;modulo=m==1; estado=e>=5000 && e<=5100; eliminar=-1; modificar=-1; consultar=0; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+### EnProcesoObs_conObservacion
+Resumen_11; modulo=m!=1 && m!=3 && m!=4 && m!=5 && m!=6; estado=e!=0000; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_11; modulo=m!=1 && m!=3 && m!=4 && m!=5 && m!=6; estado=e!=0000; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_11;modulo=m!=1 && m!=3 && m!=4 && m!=5 && m!=6; estado=e!=0000; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_12; modulo=m!=3; estado=e!=0020; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_12; modulo=m!=3; estado=e!=0020; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_12;modulo=m!=3; estado=e!=0020; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1;  bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_13; modulo=m!=3; estado=e!=0000 && (e<5000 || e>=5500); eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_13; modulo=m!=3; estado=e!=0000 && (e<5000 || e>=5500); eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_13;modulo=m!=3; estado=e!=0000 && (e<5000 || e>=5500); eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_14; modulo=m!=2; estado=e!=0000 && e!=5000 && e!=5200 && e!=6900 && e!=6910 && e!=6920; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_14; modulo=m!=2; estado=e!=0000 && e!=5000 && e!=5200 && e!=6900 && e!=6910 && e!=6920; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_14;modulo=m!=2; estado=e!=0000 && e!=5000 && e!=5200 && e!=6900 && e!=6910 && e!=6920; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_15; modulo=m!=3; estado=e!=6410 && e!=6420 && e!=6421 && e!=6422; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_15; modulo=m!=3; estado=e!=6410 && e!=6420 && e!=6421 && e!=6422; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_15;modulo=m!=3; estado=e!=6410 && e!=6420 && e!=6421 && e!=6422; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_16; modulo=m==1; estado=e==6000 || e==6235 || e==6320 || e==6400; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_16; modulo=m==1; estado=e==6000 || e==6235 || e==6320 || e==6400; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_16;modulo=m==1; estado=e==6000 || e==6235 || e==6320 || e==6400; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=-1; autorizar=-1; firmar=-1; timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Resumen_17; modulo=m==1; estado=e==5500; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=1; aceptarPago=1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=1;
+Detalle_17; modulo=m==1; estado=e==5500; eliminar=1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=1; aceptarPago=1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+Registro_17;modulo=m==1; estado=e==5500; eliminar=-1; modificar=-1; consultar=1; descargar=-1; detener=-1; verDetalle=-1; rechazados=1; aceptarPago=1; bajarpdf=-1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+#Ver Documentos
+Documentos_0; modulo=m>=0; estado=e>=0; eliminar=-1; modificar=-1; consultar=-1; descargar=-1; detener=-1; verDetalle=-1; rechazados=-1; aceptarPago=-1; bajarpdf=1; autorizar=-1; firmar=-1;  timbrePagado=-1; timbreFirmado=-1; timbreAutorizado=-1;verDocumentos=-1;
+
+
+
+modificacionAutorizar;valor1=30010;valor2=0;valor3=1;valor4=2;valor5=3;valor6=4;valor7=5;desc1=Error en actualizacion de la Nomina;desc2=El cambio de fecha se realizo exitosamente;desc3=La fecha ingresada no es un dia habil;desc4=No es posible cambiar la fecha de pago;desc5=Debido a las Formas de Pago, la fecha debe ser superior a dos dias habiles;desc6=Debido a las Formas de Pago, la fecha debe ser superior a un dia habil;desc7=No se puede cambiar la fecha, la nomina ha sido financiada;
+proveedores;largoConvenio=10;tipoPago=PPR;rangoFecha=7;indModalidad=1;tipoPagAnt=Prv;
+
+###############################################################
+#                    tipos de proceso                         #
+###############################################################
+tipoProceso; pagosListos=0; pagosListosSinFondo=1; pagosRealizados=2; pagosNoRealizados=3;
+
+###############################################################
+#                  formato de  plantillas                     #
+###############################################################
+nombresPrvCamposPlantilla;campo0=DET-MOD-SER;campo1=TITULO;campo2=DET-NRO-RUT;campo3=DET-DIV-RUT;campo4=DET-UNI-DAD;campo5=DET-RAZ-SOC;campo6=DET-MED-AVI;campo7=DET-DIR-AVI;campo8=DET-COD-COM;campo9=TITULO;campo10=DET-FOR-PAG;campo11=DET-BCO-DES;campo12=DET-CTA-ABO;campo13=DET-COD-OFI;campo14=TITULO;campo15=DET-TIP-DOC;campo16=DET-IDE-DOC;campo17=DET-IDE-REL;campo18=DET-MON-IDO;campo19=DET-MON-PAG;campo20=DET-EST-PAG;campo21=DET-FEC-EMI;campo22=DET-FEC-VEN;campo23=DET-FEC-PAG;campo24=DET-NUM-OPE;campo25=DET-GLS-DOC;campo26=TITULO;campo27=DET-RUT-RT1;campo28=DET-DIV-RT1;campo29=DET-APA-RT1;campo30=DET-AMA-RT1;campo31=DET-NOM-RT1;campo32=DET-RUT-RT2;campo33=DET-DIV-RT2;campo34=DET-APA-RT2;campo35=DET-AMA-RT2;campo36=DET-NOM-RT2;
+correlativosPrvCamposPlantilla;campo0=0;campo1=1;campo2=2;campo3=3;campo4=4;campo5=5;campo6=6;campo7=7;campo8=8;campo9=9;campo10=10;campo11=11;campo12=12;campo13=13;campo14=14;campo15=15;campo16=16;campo17=17;campo18=18;campo19=19;campo20=20;campo21=21;campo22=22;campo23=23;campo24=24;campo25=25;campo26=26;campo27=27;campo28=28;campo29=29;campo30=30;campo31=31;campo32=32;campo33=33;campo34=34;campo35=35;campo36=36;
+maximoPrvCamposPlantilla;campo0=1;campo1=0;campo2=12;campo3=1;campo4=25;campo5=45;campo6=3;campo7=60;campo8=35;campo9=0;campo10=3;campo11=3;campo12=20;campo13=3;campo14=0;campo15=3;campo16=25;campo17=25;campo18=11;campo19=11;campo20=10;campo21=8;campo22=8;campo23=8;campo24=10;campo25=200;campo26=0;campo27=12;campo28=1;campo29=25;campo30=25;campo31=25;campo32=12;campo33=1;campo34=25;campo35=25;campo36=25;
+plantillaBase;identificador=999999999;rutEmpresa=99999999;divEmpresa=9;numConvenio=9999999999;
+consultaTCVMonedas;campo1=Pesos;campo2=UFes;campo3=Dolares;
+
+PreFijoTCV;preBanco=BCO;preFdP=FDP;preComuna=COM;preMoneda=MON;preEstado=EST 
+mediosdeAvisoDes;val1=no contratado;val2=fax;val3=email;val4=correo;val5=wap
+mediosdeAvisoCod;val1=N;val2=F;val3=M;val4=C;val5=W;
+prefijosPrv;anterior=PRV;detalle=PPP;
+modalidadServCod;val1=P;val2=G;val3=F;
+modalidadServDes;val1=Publicacion;val2=Pagos;val3=Factoring;valor1=P;valor2=G;valor3=F;
+
+###############################################################
+#                    Calendario de Pagos                      #
+###############################################################
+tiposCalendario; tipoProveedor=p; tipoMonto=m; tipoGeneral=g;
+periodicidadPago; periodoSemanal=s; periodoQuincenal=q; periodoMensual=m;
+periodoHabil; periodoAnterior=a; periodoPosterior=p;
+diaHabil; diaAnterior=a; diaPosterior=p;
+
+###############################################################
+#                    Consulta Dia del Mes                     #
+###############################################################
+consultaDiaMes; diaInicial=1; diafinal=28;
+
+###############################################################
+#            Consulta Factoring Gestion Global                #
+###############################################################
+factoring; fechaInicio=01/01/; fechaFinal=31/12/; consultaGestionGlobal=6;
+
+estadosPago;porAutorizar=6900;porFirmar=6800;insertar=5080;codTemporal=5090;codFTPError=6400;codTemporalPM=5082;insertarPM=5082;codCargaPM=5082;
+cargaNomina;servidor=161.131.232.30;directorio=/DATOS_MOR/express/webftp/file_transfer/file_input;usuario=sipe;password=sipe97;activarFTP=false;
+descargaNomina;servidor=161.131.232.30;directorio=/Envio_BE;usuario=sipe;password=sipe97;activarFTP=true;
+
+###############################################################
+#            Carga con Archivos de datos                      #
+###############################################################
+ingresocargaarchivo;largoConvenio=10;tipoPago=PPR;prefijoNomina=P;rangoFecha=7;rangoFechaAnt=-7;archivoParametros=Proveedores.parametros;sistema=Proveedores;valorstring=;codTemporal=5090;codEstadoOK=5098;desEstadoOKZip=POR PROCESAR;nombreZIP=ZIP;prefijoZIP=P;extencionZIP=.zip;desEstadoNoOK=ERROR HASH;codEstadoModif=5098;desEstadoModif=POR PROCESAR;
+cargadatosconarchivo;pagarYpublicar=G;soloPublicar=P;actualizaraCargaYaRealizada=A;incluiraEnArchivoFechaPago=1;indicarAquiFechaPago=2;considerarCalendarioPago=3;formaPagoConCalendario=P;todosLosProveedores=F;informadoEnArchivo=G;incluiraEnArchivoForma=I;informadaAProveedorForma=C;soloDetalle=3;soloPagos=2;pagosYdetalle=1;
+cargadatosconarchivo.posicion;clienteMigrado=72;efactoring=3;
+actualizaFolioEnviado;noExisteTipoPago=NOTIPPAG;noExisteFolio=NOENCONT;operacionError=CONERROR;operacionExitosa=SINERROR;
+validaUsuario;carMasiva=PPNDP101;carMasivaZIP=PPNDP104;revEnvNomina=PPNDP102;editaNomina=PPCON101;adminPago=PPNDP103;vBContralor=PPAFN102;autApoderados=PPAFN101;vBContMulti=PPAFN103;vBApoMulti=PPAFN104;consSimple=;consAvanzada=PPCON103;mantPago=PPCON101;adminPlantilla=PPCNV103;beneficiario=;tablaConv=PPCNV104;respAfi=1;respNeg=0;
+
+
+###############################################################
+#                    PDF's Gral                               #
+###############################################################
+
+xslt_path;path=/export/weblogic/bea/wlsplatform/tablas/pagosMasivos/xslt/;
+img_path;path=/export/weblogic/bea/wlsplatform/tablas/imgbciexpress/pdf/;
+
+###############################################################
+#                    PDF's Proveedores                        #
+###############################################################
+
+#consultas
+ProvDetalleFolioBuscFechaAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#pagFecCreacion#apoderado;atributosDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;maximasColEncabezado=3;formatoDatoDetalle=String#miles#miles#miles#miles#miles#miles;totalizar=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetalleFolioBuscFechaActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+ProvDetalleRegistrosBusquedaAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;objTotalesDetalle=ObjectPDF4;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#PagFecCreacion#apoderado;atributosDetalle=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;atributosTotDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;maximasColEncabezado=3;formatoDatoDetalle=String#String#miles#String#String#String#String#String;totalizar=0#0#0#0#0#0#0#0;formatoDatoTotDetalle=String#miles#miles#miles#miles#miles#miles;totalizarDet=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;separadoresCamposCompuestosDet=;eliminaObjetoSesion=true;
+ProvDetalleRegistrosBusquedaActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaDetalleTotales;modulo=proveedores;
+
+#Detalle Documentos
+ProvDetalleDocumentosAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#pagFecCreacion#apoderado;atributosDetalle=NumDocumento#RazonSocial#BenefRut#CodTipDoc#FecVencimiento#MonTotal#DesEstado;maximasColEncabezado=3;formatoDatoDetalle=String#String#String#String#ddMMyyyy#miles#String;totalizar=0#0#0#0#0#0#0;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=BenefRut,BenefDiv;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetalleDocumentosActionArchivo;archivoSalida=DetalleDocumentos.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+#pagos listos
+ProvResumenPagoListoAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#TipoConvenio#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;maximasColEncabezado=3;formatoDatoDetalle=String#miles#miles#miles#miles#miles#miles;totalizar=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvResumenPagoListoActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+ProvDetallePagoListoAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#TipoConvenio#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;maximasColEncabezado=3;formatoDatoDetalle=String,String,miles,String,String,String,String,String;totalizar=0#0#0#0#0#0#0#0;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoListoActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaDetalle;modulo=proveedores;
+
+ProvDetalleFolioAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#TipoConvenio#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;maximasColEncabezado=3;formatoDatoDetalle=String#miles#miles#miles#miles#miles#miles;totalizar=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetalleFolioActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+ProvDetallePagosTermAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#TipoConvenio#NomArchivo#CuentaTransfer#pagFecCreacion#null;atributosDetalle=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#EstDescripcion;maximasColEncabezado=3;formatoDatoDetalle=String#String#miles#String#String#String#String#String;totalizar=0#0#0#0#0#0#0#0;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;
+ProvDetallePagosTermActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaDetalle;modulo=proveedores;
+
+#autorizar
+ProvDetallePagoAutorizarAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#EstDescripcion;maximasColEncabezado=3;formatoDatoDetalle=String#String#miles#String#String#String#String#String;totalizar=0#0#0#0#0#0#0#0;camposCompuestoEncabezado=;camposCompuestoDetalle=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoAutorizarActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaDetalle;modulo=proveedores;
+
+ProvResumenPagoAutorizarAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo#TotRegCant#TotMontOri#TotRegAcep#TotMontAcep#TotRegRech#TotMontRech;maximasColEncabezado=3;formatoDatoDetalle=String#miles#miles#miles#miles#miles#miles;totalizar=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvResumenPagoAutorizarActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+
+#firmar
+ProvResumenPagoFirmarAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#pagFecCreacion#null;atributosDetalle=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;maximasColEncabezado=3;formatoDatoDetalle=String#miles#miles#miles#miles#miles#miles;totalizar=0#1#1#1#1#1#1;camposCompuestoEncabezado=RutEmpresa,DivEmpresa;camposCompuestoDetalle=RutEmpresa,DivEmpresa;
+ProvResumenPagoFirmarActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+ProvDetallePagoFirmarAction;objEncabezado=ObjectPDF;objDetalle=ObjectPDF2;atributosCabezera=DesEstado#RutEmpresa#PagFecha#NomEmpresa#NumFolio#NumConvenioInt#NomArchivo#CuentaTransfer#PagFecDesde#apoderado;atributosDetalle=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;maximasColEncabezado=3;formatoDatoDetalle=String#String#miles#String#String#String#String#String;totalizar=0#0#0#0#0#0#0#0;camposCompuestoEncabezado=;camposCompuestoDetalle=RutEmpresa,DivEmpresa;camposCompuestoDetalle=;objApoderados=ObjectPDF3;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoFirmarActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaDetalle;modulo=proveedores;
+
+
+#autorizar comprobante
+ProvAutorizarPagoAction;objEncabezado=;objDetalle=ObjectPDF;atributosDetalle=PagFecha#NumFolio#RegCantidad#MonTotal#RegRechazado#MonRechazo#EstDescripcion;formatoDatoDetalle=ddMMyyyy#String#miles#miles#miles#miles#String;totalizar=0#0#0#1#0#0#0;camposCompuestoEncabezado=;camposCompuestoDetalle=;marcadoresTitulo=_marcadorDia#_marcadorHora;
+ProvAutorizarPagoActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaComprobante;modulo=proveedores;
+
+#Firmar comprobante
+ProvFirmarPagoAction;objEncabezado=;objDetalle=ObjectPDF;atributosDetalle=PagFecha#NumFolio#RegCantidad#MonTotal#RegRechazado#MonRechazo#apoderado#EstDescripcion;formatoDatoDetalle=ddMMyyyy#String#miles#miles#miles#miles#String#String;totalizar=0#0#0#1#0#0#0#0;camposCompuestoEncabezado=;camposCompuestoDetalle=;marcadoresTitulo=_marcadorDia#_marcadorHora;objApoderadosDetalle=ObjectPDF3;atributosApoderadosDetalle=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderadosDetalle=apoderado;separadoresCamposCompuestosDet=;eliminaObjetoSesion=false;
+ProvFirmarPagoActionArchivo;archivoSalida=plantillaDetalle.pdf;plantilla=plantillaComprobante;modulo=proveedores;
+
+ProvDetalleDocAction;objEncabezado=ObjectPDF;objDetalle=;maximasColEncabezado=3;atributosCabezera=CodProducto#BenefRut#NumDocumento#BenefNombre#DocRelacionado#Observacion#CodTipDoc#null#FecEmision#null#FecVencimiento#null#PagFecha#null#MontoMaximo;atributosDetalle=formatoDatoDetalle=;totalizar=;camposCompuestoEncabezado=BenefRut,BenefDiv;camposCompuestoDetalle=;marcadoresTitulo=;eliminaObjetoSesion=false;
+ProvDetalleDocActionArchivo;archivoSalida=plantillaResumen.pdf;plantilla=plantillaResumen;modulo=proveedores;
+
+#Detalle de Pago
+ProvEditaRegistroConsultaAction;objEncabezado=ObjectPDF;objEncabezado2=ObjectPDF4;objDetalle=ObjectPDF2;maximasColEncabezado=4;atributosCabezera=BenefRut#NumFolio#BenefNombre#RutEmpresa#null#NomEmpresa#null;atributosCabezera2=PagForma#PagFecha#CuentaAbono#MonAceptado#BcoNombre#CodEstado#DesEstado;atributosDetalle=NumDocumento#DocRelacionado#CodTipDoc#FecVencimiento#MonTotal#DocDescripcion;formatoDatoEncabezado2=String#ddMMyyyy#String#Miles#String#String#String;formatoDatoDetalle=String#String#String#ddMMyyyy#String#String;totalizar=0#0#0#0#0#0;camposCompuestoEncabezado=BenefRut,BenefDiv#RutEmpresa,DigitoEmpresa;separadorCompuestos=BenefRut,-#RutEmpresa,-;eliminaObjetoSesion=false;
+ProvEditaRegistroConsultaActionArchivo;archivoSalida=DetallePago.pdf;plantilla=plantillaResumenDetalle;modulo=proveedores;
+
+#Vale Vista#
+ProvEditaRegistroConsultaVVAction;objEncabezado=ObjectPDF;objEncabezado2=ObjectPDF4;objDetalle=ObjectPDF2;maximasColEncabezado=4;atributosCabezera=BenefRut#NumFolio#BenefNombre#RutEmpresa#null#NomEmpresa#null#null#null#null#null;atributosCabezera2=PagForma#PagFecha#NomOficina#MonAceptado#NomComuna#DesEstado#DirBenef#RutReiterador2#RutReiterador1#NomReiterador2#NomReiterador1;atributosDetalle=NumDocumento#DocRelacionado#CodTipDoc#FecVencimiento#MonTotal#DocDescripcion;formatoDatoEncabezado2=String#ddMMyyyy#String#Miles#String#String#String#String#String#String#String;formatoDatoDetalle=String#String#String#ddMMyyyy#String#String;totalizar=0#0#0#0#0#0;camposCompuestoEncabezado=BenefRut,BenefDiv#RutEmpresa,DigitoEmpresa#RutReiterador1,Ret1Div#RutReiterador2,Ret2Div;separadorCompuestos=BenefRut,-#RutEmpresa,-#RutReiterador1,-#RutReiterador2,-;eliminaObjetoSesion=false;
+ProvEditaRegistroConsultaVVActionArchivo;archivoSalida=DetallePago.pdf;plantilla=plantillaResumenDetalle;modulo=proveedores;
+
+###############################################################
+#                  Nueva forma de Generar Excel               #
+###############################################################                
+excel;colorfondocabecera=1;colortextocabecera=0;colorListadoDatos1=1;colorListadoDatos2=1;inicioFila=0;inicioColumna=0;anchoColumnas=9500;glosaTitulo=.titulo;glosaSubtitulo=.subtitulo;glosadetalleBusqueda=.detalleBusqueda;sistema=Proveedores;
+
+#autorizar
+ProvResumenPagoAutorizarActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoAutorizarActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#EstDescripcion;archivoSalida=DetallesPagos.xls;totales=0#0#0#0#0#0#0#0;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#autorizar comprobante
+ProvAutorizarPagoActionExcel;atributosListado=PagFecha#NumFolio#RegCantidad#MonTotal#RegRechazado#MonRechazo#EstDescripcion;archivoSalida=PagosAutorizados.xls;totales=0#0#0#1#0#0#0;camposCompuestoEncabezado=;camposCompuestosListado=;separadorCompuestos=;
+
+#Firmar
+ProvResumenPagoFirmarActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoFirmarActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;archivoSalida=DetallesPagos.xls;totales=0#0#0#0#0#0#0#0;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Firmar comprobante
+ProvFirmarPagoActionExcel;atributosListado=PagFecha#NumFolio#RegCantidad#MonTotal#RegRechazado#MonRechazo#apoderados#EstDescripcion;archivoSalida=PagosAutorizados.xls;totales=0#0#0#1#0#0#0#0;camposCompuestoEncabezado=;camposCompuestosListado=;separadorCompuestos=;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Procesos Terminados
+ProvDetalleFolioActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#pagFecCreacion#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Listos para pago
+ProvResumenPagoListoActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetallePagoListoActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;archivoSalida=DetallesPagos.xls;totales=0#0#0#0#0#0#0#0;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Consultas
+ProvDetalleFolioBuscFechaActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecCreacion#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetalleRegistrosBusquedaActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecCreacion#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=RutEmpresa#NomEmpresa#PagMonTotal#PagForma#CuentaVV#BcoNombre#CodEstado#Glosa;atributosTotales=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=DetallesPagos.xls;totales=0#0#0#0#0#0#0#0;totalesListado=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;mostrarTotales=True;
+ProvConsBenefActionExcel;numeroRegistros=0;atributosListado=RutEmpresa#NomEmpresa#PagFecha#PagMonTotal#Glosa#PagForma#CuentaVV#BcoNombre#NumFolio;archivoSalida=DetallesPagos.xls;totales=0#0#0#1#0#0#0#0#0;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;
+ProvConsDocActionExcel;numeroRegistros=0;atributosListado=NumDocumento#BenefRut#CodTipDoc#PagFecha#FecVencimiento#MonTotal#DesEstado;archivoSalida=DetallesPagos.xls;totales=0#0#0#0#0#1#0;camposCompuestosListado=BenefRut,BenefDiv;separadorCompuestos=BenefRut,-;
+ProvDetalleFolioCopiaActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecDesde#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=DesTipoPago#RegCantidad#TotalRec#RegAceptado#MonAceptado#RegRechazado#MonRechazo;archivoSalida=ResumenPagos.xls;totales=0#1#1#1#1#1#1;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=RutEmpresa,DivEmpresa;separadorCompuestos=RutEmpresa,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvConsSemanaAnteriorActionExcel;atributosResumen=;numeroRegistros=0;atributosListado=EstDescripcion#PagFecha#NumFolio#NomArchivo#EnvFecDesde#RegCantidad#MonTotal#RegRechazado#MonRechazo#apoderados;archivoSalida=ConsultaPagos.xls;totales=0#0#0#0#0#0#0#0#0#0;camposCompuestosListado=;separadorCompuestos=;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvConsBuscFechaActionExcel;atributosResumen=;numeroRegistros=0;atributosListado=EstDescripcion#PagFecha#NumFolio#NomArchivo#EnvFecDesde#RegCantidad#MonTotal#RegRechazado#MonRechazo#apoderados;archivoSalida=ConsultaPagos.xls;totales=0#0#0#0#0#0#0#0#0#0;camposCompuestosListado=;separadorCompuestos=;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+ProvDetalleDocumentosActionExcel;atributosResumen=DesEstado#PagFecha#NumFolio#NomArchivo#PagFecCreacion#RutEmpresa#NomEmpresa#NumConvenioInt#CuentaTransfer#apoderados;numeroRegistros=5;atributosListado=NumDocumento#RazonSocial#BenefRut#CodTipDoc#FecVencimiento#MonTotal#DesEstado;archivoSalida=ResumenPagos.xls;totales=0#0#0#0#0#0#0;camposCompuestosResumen=RutEmpresa,DivEmpresa;camposCompuestosListado=BenefRut,BenefDiv;separadorCompuestos=BenefRut,-;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Carga Manual
+ProvDigitarDetalleActionExcel;numeroRegistros=0;atributosListado=BenefRut#BenefNombre#PagForma#BcoNombre#CuentaAbono#PagMonTotal;archivoSalida=CargaManual.xls;totales=0#0#0#0#0#0;camposCompuestosListado=BenefRut,BenefDiv#BenefNombre,BenefApPaterno#BenefApPaterno,BenefApMaterno;separadorCompuestos=BenefRut,-#BenefNombre,''#BenefApPaterno,''#BenefApMaterno,'';
+ProvResulCargaManActionExcel;numeroRegistros=0;atributosListado=EstDescripcion#PagFecha#NumFolio#NomArchivo#EnvFecDesde#RegCantidad#MonTotal;archivoSalida=CargaManual.xls;totales=0#0#0#0#0#0#0;camposCompuestosListado=;separadorCompuestos=;
+ProvDetalleRegistrosCarManActionExcel;numeroRegistros=0;atributosListado=BenefRut#BenefNombre#PagEstado#PagForma#BcoNombre#CuentaAbono#PagMonTotal;archivoSalida=CargaManual.xls;totales=0#0#0#0#0#0#0#0;camposCompuestosListado=BenefRut,BenefDiv#BenefNombre,BenefApPaterno#BenefApPaterno,BenefApMaterno;separadorCompuestos=BenefRut,-#BenefNombre,''#BenefApPaterno,''#BenefApMaterno,'';
+
+#Pagos Listos
+ProvDetPagosBancoActionExcel;numeroRegistros=0;atributosListado=PagFecha#NumFolio#NomArchivo#PagFecCreacion#PagCantidad#PagMonTotal#RegCantidad#MonRechazo#DesEstado#apoderados;archivoSalida=ListosPagos.xls;totales=0#0#0#0#0#0#0#0#0#0;camposCompuestosListado=;separadorCompuestos=;campoApoderado=apoderados;atributosApoderados=ApoderadoNombre#ApoderadoApePat#ApoderadoApeMat;campoApoderados=apoderado;
+
+#Pagos Terminados
+ProvConsRendicionPagosActionExcel;numeroRegistros=0;atributosListado=PagFecha#NumFolio#NomArchivo#ArchEtiqueta#PagFecCreacion#PagCantidad#PagMonTotal#DesEstado;archivoSalida=PagosTerminados.xls;totales=0#0#0#0#0#0#0#0;camposCompuestosListado=;separadorCompuestos=;
+
+#consulta de Documentos
+ProvDetalleDocActionExcel;numeroRegistros=8;atributosResumen=CodProducto#NumDocumento#DocRelacionado#CodTipDoc#FecEmision#FecVencimiento#PagFecha#MontoMaximo#BenefRut#BenefNombre#Observacion;archivoSalida=DetalleDoc.xls;camposCompuestosResumen=BenefRut,BenefDiv;separadorCompuestos=BenefRut,-;
+
+#Detalle de Pago
+ProvEditaRegistroConsultaActionExcel;numeroRegistros=3;atributosResumen=BenefRut#BenefNombre#null#NumFolio#RutEmpresa#NomEmpresa;atributosResumen2=PagForma#CuentaAbono#BcoNombre#DesEstado#PagFecha#MonAceptado#CodEstado;numeroRegistros2=4;atributosListado=NumDocumento#DocRelacionado#CodTipDoc#FecVencimiento#MonTotal#DocDescripcion;archivoSalida=DetallePagos.xls;totalizar=0#0#0#0#0#0;camposCompuestosResumen=BenefRut,BenefDiv#RutEmpresa,DigitoEmpresa;separadorCompuestos=BenefRut,-#RutEmpresa,-;
+
+#Vale Vista#
+ProvEditaRegistroConsultaVVActionExcel;numeroRegistros=3;atributosResumen=BenefRut#BenefNombre#null#NumFolio#RutEmpresa#NomEmpresa#null#null#null#null#null;atributosResumen2=PagForma#NomOficina#NomComuna#DirBenef#RutReiterador1#NomReiterador1#PagFecha#MonAceptado#DesEstado#RutReiterador2#NomReiterador2;numeroRegistros2=6;atributosListado=NumDocumento#DocRelacionado#CodTipDoc#FecVencimiento#MonTotal#DocDescripcion;archivoSalida=DetallePagos.xls;totalizar=0#0#0#0#0#0;camposCompuestosResumen=BenefRut,BenefDiv#RutEmpresa,DigitoEmpresa;separadorCompuestos=BenefRut,-#RutEmpresa,-;
+
+#Factoring#
+ProvRentabilidadPorFechasActionExcel;atributosListado=PagFecha#MontoTotal#MontoFinanciado#SaldoDisponible;archivoSalida=ConsultasFactoring.xls;totales=0#1#1#1;
+ProvRentabilidadPorMesActionExcel;atributosListado=Anio#Mes#MontoTotal#MontoFinanciado#SaldoDisponible#Rentabilidad;archivoSalida=ConsultasFactoring.xls;totales=0#0#1#1#1#1;
+ProvRentabilidadPorMesProveedorActionExcel;atributosListado=RutProveedor#RazonSocial#MontoTotal#MontoFinanciado#SaldoDisponible#Rentabilidad;archivoSalida=ConsultasFactoring.xls;totales=0#0#1#1#1#1;camposCompuestosListado=RutProveedor,DivProveedor;separadorCompuestos=RutProveedor,-;
+ProvDetalleFinanciamientoProveedorActionExcel;atributosResumen=rutProveedor#RazonSocial#EstadoGlosa#FechaInicioOPE#FechaFinalOPE#Rentabilidad;numeroRegistros=3;atributosListado=NumeroGrupo#PagoFecha#MontoTotal#MontoFinanciado#SaldoDisponible#Rentabilidad;archivoSalida=ConsultasFactoring.xls;totales=0#0#1#1#1#1;camposCompuestosResumen=rutProveedor,DivProveedor;separadorCompuestos=rutProveedor,-;
+###############################################################
+#                  RequestController Pagosmasivos             #
+###############################################################    
+requestController;common_error=/belwls/common/Error.jsp;no_session_error=/common/Error.html;error=/common/Error.html;

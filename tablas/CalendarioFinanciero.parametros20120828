@@ -1,0 +1,34 @@
+periodicidad00; dias=30; nombre=Mensual;
+periodicidad01; dias=15; nombre=Quincenal; 
+periodicidad02; dias=7; nombre=Semanal;
+periodicidad03; dias=1; nombre=Una Sola Vez;
+cantidad; cantidadPeriodo = 4;
+
+
+atributosPAC;cantidad=2;
+atributosPAC_1;glosaEnBD=Descripcion;glosaEnObjeto=descripcion;
+atributosPAC_2;glosaEnBD=Autorizado;glosaEnObjeto=montoAutorizado;
+
+atributosTTFFPrg;cantidad=4;
+atributosTTFFPrg_1;glosaEnBD=Nombre Destinatario;glosaEnObjeto=destinatario;
+atributosTTFFPrg_2;glosaEnBD=Cuenta;glosaEnObjeto=cuentaDestino;
+atributosTTFFPrg_3;glosaEnBD=Banco Destino;glosaEnObjeto=glosaBancoDestino;
+atributosTTFFPrg_4;glosaEnBD=Frecuencia;glosaEnObjeto=glosaFrecuencia;
+
+atributosINVPrg;cantidad=3;
+atributosINVPrg_1;glosaEnBD=glosa;glosaEnObjeto=glosa;
+atributosINVPrg_2;glosaEnBD=descFrecuencia;glosaEnObjeto=descFrecuencia;
+atributosINVPrg_3;glosaEnBD=descEstado;glosaEnObjeto=descEstado;
+
+atributosCRE;cantidad=3;
+atributosCRE_1;glosaEnBD=descripcion;glosaEnObjeto=descripcion;
+atributosCRE_2;glosaEnBD=cuota;glosaEnObjeto=numeroCuota;
+atributosCRE_3;glosaEnBD=totalCuota;glosaEnObjeto=totalCuotas;
+
+atributosDAP;cantidad=4;
+atributosDAP_1;glosaEnBD=numOpe;glosaEnObjeto=numeroOperacion;
+atributosDAP_2;glosaEnBD=fechaInicio;glosaEnObjeto=fechaToma;
+atributosDAP_3;glosaEnBD=tasa;glosaEnObjeto=tasa;
+atributosDAP_4;glosaEnBD=mtoInv;glosaEnObjeto=montoInversion;
+
+suscripcionCalendario;codigo=1;medioWEB=WEB;

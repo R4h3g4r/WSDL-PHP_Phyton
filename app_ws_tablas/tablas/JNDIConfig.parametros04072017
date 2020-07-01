@@ -1,0 +1,25 @@
+## Valores JNDI Cluster
+#
+cluster;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+#wtc_context;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+#wtcmeson_context;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+#wtc_context;param=t3://161.131.232.197:7101;
+wtc_context;param=t3://161.131.232.192:9101;
+#wtcmeson_context;param=t3://161.131.232.197:9101;
+wtcmeson_context;param=t3://161.131.232.192:9101;
+wli_context;param=t3://161.131.232.190:7121;
+jms_context;param=t3://161.131.232.197:9131,161.131.232.192:9131;
+ejb_context;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+web_context;param=t3://161.131.232.197:9111,161.131.232.192:9111;
+all_context;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+mwi_context;param=t3://161.131.232.190:9121,161.131.232.191:9121;
+persistencia_de_datos;param=t3://161.131.232.197:9101,161.131.232.192:9101;
+jms_latinia_context;param=t3://161.131.141.240:8010,161.131.141.240:8020;
+mwi_context;param=t3://161.131.232.190:7121;
+webAppServer1_remote_context;param=t3://161.131.232.190:7121;
+ejbServer2_remote_context;param=t3://161.131.232.190:7121;
+ejbServer1_remote_context;param=t3://161.131.232.190:7121;
+jms_opf_context;param=t3://161.131.140.248:7005;
+cep_context;param=t3://161.131.140.74:9003;
+jms_context_wls10;param=t3://161.131.232.197:9131,161.131.232.192:9131;
+journal_context;param=t3://161.131.232.197:9131,161.131.232.197:9131;

@@ -1,0 +1,36 @@
+# Parametros de la aplicacion portal TBanc
+
+#Produccion
+#login_to_URL;redirectURL=http://www.tbanc.cl/cierresesion_act.html;
+#logout_to_URL;redirectURL=http://www.tbanc.cl/cierresesion_act.html;
+#avance_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Avance;
+#logout_morosidad;redirectURL=http://www.tbanc.cl/TBanc/resources/jsp/logoutMorosidad/logout.jsp;
+#redirect;value=true;
+#cambioClave_to_URL;redirectURL=https://www.tbanc.cl/cl/bci/aplicaciones/menu/vistas/emergencia/cambiarClaveInternet.jsf;
+#bienvenida_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_clientes_bienvenida;
+#compra_irresistible_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/comprairresistible?_nfpb=true&_pageLabel=page_compra_irresistible;
+#inicioDarseAlta_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/cambioclave?_nfpb=true&_pageLabel=page_darse_alta;
+#urlSimulacionManual;100=http://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Simuladores;110=https://www.bci.cl/seguridadwls/CheckSession?servicio=SolicitarMultiCredito&canal=110;
+#inicioDesbloqueoClave_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/cambioclave?_nfpb=true&_pageLabel=page_tbanc_pub_desbloqueo;
+#logoutSincronizacion_to_URL;redirectURL=https://www.tbanc.cl/TBanc/resources/jsp/sincronizacionMultipass/respuesta.jsp;
+
+#Certificacion
+login_to_URL;redirectURL=https://www.pilototbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=book_clientes_bel_cuentacorriente;
+logout_to_URL;redirectURL=http://www.pilototbanc.cl/TBanc/resources/jsp/logout/cierre.jsp;
+avance_to_URL;redirectURL=https://www.pilototbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Avance;
+logout_morosidad;redirectURL=http://www.pilototbanc.cl/TBanc/resources/jsp/logoutMorosidad/logout.jsp;
+redirect;value=true;
+cambioClave_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/cambioclave?_nfpb=true&_pageLabel=page_cambio_clave;
+bienvenida_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_clientes_bienvenida;
+compra_irresistible_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/comprairresistible?_nfpb=true&_pageLabel=page_compra_irresistible;
+inicioDarseAlta_to_URL;redirectURL=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/cambioclave?_nfpb=true&_pageLabel=page_darse_alta;
+urlSimulacionManual;100=http://www.pilototbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Simuladores;110=http://161.131.141.242:7111/seguridadwls/CheckSession?servicio=SolicitarMultiCredito&canal=110;
+inicioDesbloqueoClave_to_URL;redirectURL=http://www.pilototbanc.cl/TBanc/appmanager/tbancwlp/cambioclave?_nfpb=true&_pageLabel=page_tbanc_pub_desbloqueo;
+logoutSincronizacion_to_URL;redirectURL=https://www.pilototbanc.cl/TBanc/resources/jsp/sincronizacionMultipass/respuesta.jsp;
+
+
+#Parametros de aplicacion Tbanc JSF.
+#URL de despacho en login
+cambio_clave;desc=/cl/bci/aplicaciones/menu/vistas/emergencia/cambiarClaveInternet.jsf;
+segunda_clave;desc=/cl/bci/aplicaciones/seguridad/autenticacion/autenticacionSegundaClave.jsf;
+activacion_mp;desc=/seguridadwls/ConfigurarToken?paso=inicioActivacionWeb;

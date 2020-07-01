@@ -1,0 +1,571 @@
+# --------------------------------------------------------------------------------
+# Estados del Viaje.
+# 01 = Activo
+# 02 = Finalizado
+# 03 = Lead
+# 04 = Rechazado
+# --------------------------------------------------------------------------------
+
+# --------------------------------------------------------------------------------
+# Definición de planes.
+# --------------------------------------------------------------------------------
+
+planes;codigos=planClasico,planPremier,planPremierB,planPreferencial,planPreferencialB,planAdvantage;
+planClasico;plan=Plan Clásico;codigo=9;rentaMin=400;rentaMax=1300;cupoLsgRenta=1;tarifa=01;
+planPremier;plan=Plan Premier;codigo=Z;rentaMin=1300;rentaMax=2500;cupoLsgRenta=1;edadMax=35;tarifa=02;
+planPremierB;plan=Plan Premier;codigo=Z;rentaMin=1300;rentaMax=3000;cupoLsgRenta=1;edadMin=36;tarifa=02;
+planPreferencial;plan=Plan Preferencial;codigo=W;rentaMin=2500;rentaMax=;cupoLsgRenta=1;edadMax=35;tarifa=03;
+planPreferencialB;plan=Plan Preferencial;codigo=W;rentaMin=3000;cupoLsgRenta=1;edadMin=36;tarifa=03;
+planAdvantage;plan=Plan Bci/AAdvantage;codigo=A;rentaMin=750;cupoLsgRenta=1;edadMin=18;tarifa=04;
+planescodigos;codigos=A,Z,W,9;
+planSegmentoA;codigos=A;
+planSegmentoB;codigos=Z,W,9;
+planesDescPorCodigo;A=Plan Bci/AAdvantage;Z=Plan Premier;W=Plan Preferencial;9=Plan Clásico;
+
+# --------------------------------------------------------------------------------
+#Definición de código interno plan por código de plan
+# --------------------------------------------------------------------------------
+plan_9;codigoInterno=planClasico;
+plan_A;codigoInterno=planAdvantage;
+plan_W;codigoInterno=planPreferencial;
+plan_Z;codigoInterno=planPremier;
+
+# --------------------------------------------------------------------------------
+# Definición de planes especiales.
+# --------------------------------------------------------------------------------
+planUniversitario;plan=Plan Universitario;edadMax=28;rentaMax=399999;
+planIndependiente;plan=Plan Independiente;
+
+# --------------------------------------------------------------------------------
+# Definición de tarifas.
+# --------------------------------------------------------------------------------
+Tarifa01;T1=0.45;T2=0.32;T3=0.26;Grat1=0;Grat2=6;SpreadLSG=2.15;
+Tarifa02;T1=0.40;T2=0;T3=0;Grat1=3;Grat2=6;SpreadLSG=1.70;
+Tarifa03;T1=0.21;T2=0;T3=0;Grat1=3;Grat2=12;SpreadLSG=1.20;
+Tarifa04;T1=0.55;T2=0.30;T3=0.20;Grat1=3;Grat2=0;SpreadLSG=1.70;
+
+# --------------------------------------------------------------------------------
+# Definición de Tarjetas de Crédito
+# --------------------------------------------------------------------------------
+
+definicionTC01;tarjetas=002;
+definicionTC02;tarjetas=001,501;
+definicionTC03;tarjetas=036,006,516;
+definicionTC04;tarjetas=026,506,036;
+definicionTC05;tarjetas=041;
+definicionTC06;tarjetas=096,536;
+
+tarjeta002;nombre=Bci Visa Classic;
+tarjeta001;nombre=Bci Visa Gold;
+tarjeta501;nombre=Bci Mastercard Dorada;
+tarjeta036;nombre=Bci Visa OpenSky;factorInt=0.8;
+tarjeta006;nombre=Bci Visa Platinum;
+tarjeta516;nombre=Bci Mastercard Platinum;
+tarjeta026;nombre=Bci Visa Signature;
+tarjeta506;nombre=Bci MasterCard Black;
+tarjeta041;nombre=Bci / AAdvantage Visa Gold;
+tarjeta096;nombre=Bci / AAdvantage Visa Signature;
+tarjeta536;nombre=Bci / AAdvantage MasterCard Black;
+
+# --------------------------------------------------------------------------------
+#Cupo de TC y razon peso por dolar
+# --------------------------------------------------------------------------------
+cupoTC01;factorNac=1;factorInt=0.5;
+cupoTC02;factorNac=2;factorInt=0.8;
+cupoTC03;factorNac=1;factorInt=0.8;
+cupoTC04;factorNac=1;factorInt=1;
+cupoTC05;cupoNac=750000;factorInt=0.5;
+cupoTC06;cupoNac=4000000;factorInt=1;
+pesoXDolar;razon=500;
+
+
+
+# --------------------------------------------------------------------------------
+#Definición plan por renta
+# --------------------------------------------------------------------------------
+rangoRenta;rangos=400_550,550_750,750_1050,1050_1200,1200_1300,1300_2000,2000_2500,2500_3000,3000_;
+renta400_550;plan=planClasico;definicionTC=01;cantidadTC=1;cupoTC=01;
+renta550_750;plan=planClasico;definicionTC=02;cantidadTC=1;cupoTC=01;
+renta750_1050;plan=planClasico,planAdvantage;definicionTC=02,05;cantidadTC=1,1;cupoTC=01,05;
+renta1050_1200;plan=planClasico,planAdvantage;definicionTC=02,05;cantidadTC=1,1;cupoTC=02,05;
+renta1200_1300;plan=planClasico,planAdvantage;definicionTC=03,05;cantidadTC=1,1;cupoTC=02,05;
+renta1300_2000;plan=planPremier,planPremierB,planAdvantage;definicionTC=03,03,05;cantidadTC=1,1,1;cupoTC=02,02,05;
+renta2000_2500;plan=planPremier,planPremierB,planAdvantage;definicionTC=03,03,05;cantidadTC=2,2,1;cupoTC=03,03,05;
+renta2500_3000;plan=planPremierB,planPreferencial,planAdvantage;definicionTC=03,03,06;cantidadTC=2,2,2;cupoTC=03,03,06;
+renta3000_;plan=planPreferencial,planPreferencialB,planAdvantage;definicionTC=04,04,06;cantidadTC=2,2,2;cupoTC=04,04,06;
+
+
+# --------------------------------------------------------------------------------
+# Parametros infoValor del registro Lead
+# --------------------------------------------------------------------------------
+
+registroProspecto_Lead;parametrosInfoValor=13;
+infoValorLead1;componente=CrmInteraccion;atributo=estado;nombreValor=Abierto;claveMap=CrmInteraccion.estado;
+infoValorLead2;componente=CrmInteraccion;atributo=prioridad;nombreValor=Normal;claveMap=CrmInteraccion.prioridad;
+infoValorLead3;componente=CrmInteraccion;atributo=origen;nombreValor=Inbound;claveMap=CrmInteraccion.origen;
+infoValorLead4;componente=CrmInteraccion;atributo=condicion;nombreValor=Nuevo;claveMap=CrmInteraccion.condicion;
+infoValorLead5;componente=CrmInteraccion;atributo=motivo;nombreValor=Ventas;claveMap=CrmInteraccion.motivo;
+infoValorLead6;componente=CrmInteraccion;atributo=tipo;nombreValor=WWW;claveMap=CrmInteraccion.tipo;
+infoValorLead7;componente=CrmCliente.telefonos;atributo=tipoDeTelefono;nombreValor=Desconocido;claveMap=CrmInteraccion.cliente.telefonos.tipoDeTelefono;
+infoValorLead8;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=CrmInteraccion.leads.familiaDeProductos;
+infoValorLead9;componente=CrmLead;atributo=estado;nombreValor=Nuevo;claveMap=CrmInteraccion.leads.estado;
+infoValorLead10;componente=CrmLead;atributo=unidadDeNegocio;nombreValor=BP__PLANES;claveMap=CrmInteraccion.leads.unidadDeNegocio;
+infoValorLead11;componente=CrmOportunidad.campania;atributo=codigo;nombreValor=Formulario Web Planes TBanc;claveMap=CrmInteraccion.leads.campania.codigo;
+infoValorLead12;componente=CrmCliente.telefonos;atributo=tipoDeTelefono;nombreValor=Desconocido;claveMap=CrmInteraccion.leads.cliente.telefonos.tipoDeTelefono;
+infoValorLead13;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=Oportunidad.familiaDeProducto;
+oportunidad_etapa;valor=Oferta;
+oportunidad_registradoEnSGC;valor=no;
+
+
+#---------------------------------------------------------------------------------
+# Valores por defecto prospecto (primer registro)
+#---------------------------------------------------------------------------------
+usuarioActualiza;valor= ;
+emailProspecto;valor= ;
+
+# --------------------------------------------------------------------------------
+# Valores con monto mínimo y máximo a transferir.
+# --------------------------------------------------------------------------------
+montos;valor=1,99;
+montosOtrosBancos;valor=100,999;
+
+# --------------------------------------------------------------------------------
+# Código de bancos.
+# --------------------------------------------------------------------------------
+codigoBci;valor=016;
+bancosSoloMonto;valor=001,012,014,016,027,028,037,039,049,051,504,507,031,009,053,055,057;
+
+# --------------------------------------------------------------------------------
+# valores utilizado para la transferencia.
+# --------------------------------------------------------------------------------
+canal;valor=110;
+tipoCuentaOrigen;valor=CCT;
+tipoAutenticacion;valor=Token;
+codigoErrorDatosIncorrectosTEF;valor=TRF026;
+#PRODUCCION
+#rutClienteOrigen;valor=97006000;
+#CERTIFICACION
+rutClienteOrigen;valor=6243264;
+cuentas;valor=13469541-58217703-58238808;
+#INTEGRACION
+#rutClienteOrigen;valor=6243264;
+#cuentas;valor=13469541-58217703-58238808;
+
+# --------------------------------------------------------------------------------
+# Valores con límite de intentos para transferencia y autenticación según código de banco.
+# --------------------------------------------------------------------------------
+intentosBancos;014=2;037=2;001=3;009=3;011=3;012=3;016=3;017=3;018=3;027=3;028=3;029=3;031=3;032=3;033=3;034=3;035=3;036=3;038=3;039=3;049=3;041=3;042=3;043=3;045=3;046=3;049=3;051=3;052=3;053=3;054=3;055=3;056=3;057=3;266=3;504=3;507=3;672=3;716=3;733=3;734=3;
+
+#---------------------------------------------------------------------------------
+# Parámetros filtro Viajes.
+#---------------------------------------------------------------------------------
+operacionesPublicas;valores=ofertaPlanesPorRenta,registrarProspecto,enviarDatosAutenticacion,listasFormulario,verificarProspecto,validarTicket,insertarProcesoBatchLead,subirImagenViajeClienteFTP,consultaEquifax,respuestasEquifax,verificarProspectoEquifax;
+
+#---------------------------------------------------------------------------------
+# Página destino según etapa del viaje cliente.
+#---------------------------------------------------------------------------------
+
+paginaEtapa3;codigoPagina=08;refPagina=planSugerido;
+paginaEtapa4;codigoPagina=12,13;refPagina=activos,seleccionarProductos;accion=0;
+paginaEtapa7;codigoPagina=13;refPagina=confirmacionProductos;
+paginaEtapa8;codigoPagina=16;refPagina=confirmacionProductos;
+paginaEtapa9;codigoPagina=17;refPagina=exito;
+
+# --------------------------------------------------------------------------------
+# Texto para armar plantilla de envío de correo con ticket del prospecto.
+# --------------------------------------------------------------------------------
+plantilla;linea1=Estimado(a) <NOMBREDESTIN>\n\n;linea2=le informamos que con fecha <FECHA> su numero de ticket <NUMEROTICKET> ha sido generado.;linea3=\n\nAtte,\nBCI - Banco Credito Inversiones\n\nImportante:\n;linea4=Este mail es generado de manera automatica, por favor no responda a este mensaje. Ante cualquier duda, contactese al 600 824 24 24.;linea5=\nP.D.: Los tildes han sido omitidos en forma intencional.\n\n;
+loginEnterprise;desc=bci;
+refContract;desc=WEBBCI_AVISO_TTFF;
+subject;desc=Confirmacion codigo de ticket;
+
+# --------------------------------------------------------------------------------
+# Datos para el envío de correo con plantilla por latinia.
+# --------------------------------------------------------------------------------
+loginEnterprise;desc=bci;
+subject;desc=Confirmación codigo ticket;
+refContract;desc=WEBBCI_VIAJE_COD_SEG;
+template;desc=tmpl_WEBBCI_VIAJE_COD_SEG;
+
+#INTEGRACION/CERTIFICACION
+fromDireccion;desc=jpaineq@bcicert.cl;
+hostEmail;desc=bcicert.cl;
+#PRODUCCION
+#fromDireccion;desc=planonline@bci.cl;
+#hostEmail;desc=bci.cl;
+subject;desc=Confirmación código de ticket;
+
+# --------------------------------------------------------------------------------
+# Valores con código de banca.
+# --------------------------------------------------------------------------------
+tipoBanca;preferencial=PBP;premier=PRE;clasica=PP;universitario=PBU;
+
+# --------------------------------------------------------------------------------
+# Datos para creación de Solicitud Única de Crédito (SUC).
+# --------------------------------------------------------------------------------
+tipoPersona;valor=P;
+idEjecutivo;valor=USUFICT;
+telefonoEjecutivo;valor=-1;
+codigoOficinaEjecutivo;valor=090;
+cicCliente;valor=0;
+tipoXmlNuevo;valor=Nuevo;
+antiguedadLaboral;valor=12;
+canalContacto;valor=110;
+contratoIndefinido;valor=Indefinido;
+
+
+# --------------------------------------------------------------------------------
+# Mensajes de error de negocio
+# --------------------------------------------------------------------------------
+errorIngresarViaje;02=errorClienteViajeFinalizado;03=errorClienteExisteEnLead;04=errorProspectoViajeRechazado;
+ERRPLNVIAJE55;Desc=Ejecutivo No Posee Oficina.;
+errorRutInvalido;Desc=Estimado Cliente, el Rut ingresado es inválido. Por favor inténtelo nuevamente.;
+errorEtapaIncorrectaValidarProspecto;Desc=Estimado Cliente, para realizar esta acción debe registrarse y validar su identidad transfiriendole a su cuenta en otro banco.;
+errorEtapaIncorrectaValidarProspectoEquifax;Desc=Estimado Cliente, para realizar esta acción debe registrarse y validar su identidad.;
+errorCedulaIdentidad;Desc=En base a la información que nos ha proporcionado hemos detectado que su cédula de identidad no se encuentra vinculada al número de Run proporcionado. Por favor vuelva a ingresar dicha información.;
+errorClienteOportunidadOtroCanal;Desc=Estimado cliente, según nuestros registros usted ha contratado o está en proceso de contratar la apertura de alguno de nuestros productos. Si requiere realizar un cambio de plan o tiene dudas respecto a sus productos, le solicitamos pueda comunicarse directamente con su ejecutivo asignado o con nuestra mesa de ayuda web al 600 824 2424.;
+errorEdadInsuficiente;Desc=Estimado cliente, la edad mínima para contratar un plan de cuenta corriente, es de 18 años.;
+errorPlanesNoDisponiblesRenta;Desc=Lamentablemente nos es imposible atender su solicitud a través de nuestra página web, por favor intente más tarde.;
+clienteRegistradoLead;Desc=Estimado cliente: uno de nuestros ejecutivos se comunicará con usted y lo guiará en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorProspectoActivo;Desc=Estimado cliente, usted ya ha iniciado anteriormente un proceso para solicitar un Plan a través de la web. Por favor retome su proceso con su Rut y número de Código de Seguimiento.;
+errorEtapaProspecto;Desc=Estimado Cliente, usted ya se encuentra autenticado. Ingrese su Rut y su Código de Seguimiento para continuar con el proceso de contratación de su Plan en Línea.;
+errorNoRegistroAntecedentes;Desc=En base a la información que nos ha proporcionado hemos detectado que su cédula de identidad no se encuentra vinculada al número de Run proporcionado. Por favor vuelva a ingresar dicha información.;
+errorPlanInvalido;Desc=Estimado Cliente, el plan seleccionado es inválido. Por favor seleccione nuevamente otro plan.;
+errorClienteExisteEnLead;Desc=Estimado Cliente, su solicitud de Plan ya se encuentra registrada y en proceso. Un ejecutivo se contactará con usted a la brevedad.;
+errorPropectoInvalido;Desc=Propecto no es válido, verifique los datos del prospecto.;
+errorViajeInvalido;Desc=Estimado Cliente, ha ocurrido un error en el proceso. Por favor vuelva a intentar más tarde.;
+errorConsultaRutProspecto;Desc=Estimado cliente, el Rut ingresado no es correcto. Por favor, inténtelo nuevamente.;
+errorLimiteIntentos;Desc=Lo sentimos, la información ingresada no coincide con la requerida para validar su identidad. Por medidas de seguridad, hemos limitado la cantidad de intentos para cursar su solicitud, por lo que si usted superó los intentos permitidos, puede dirigirse a cualquier sucursal Bci, donde uno de nuestros ejecutivos podrá guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorNoPoseeTicket;Desc=Estimado Cliente: usted no posee Código de Seguimiento. Lo invitamos a contratar su Plan de cuenta Corriente en Línea.;
+errorNoCodigoPagina;Desc=Estimado Cliente, la opción ingresada no es válida. Por favor verifique su solicitud.;
+errorServicioNoAutorizado;Desc=Estimado Cliente: En este momento no podemos atender su solicitud, por favor intente más tarde.;
+errorCuentaDestino;Desc=Estimado cliente: el número de cuenta ingresado es inválido. Por favor inténtelo nuevamente.;
+errorTranferencia;Desc=Estimado cliente, ha ocurrido un error durante la transferencia, por favor intente mas tarde.;
+errorValidacionPrecondicionesSuc;Desc=Etapa rechazada, por favor, verifique los datos.;
+errorRentaNoValida;Desc=Estimado Cliente: La Renta ingresada no corresponde. Por favor inténtelo nuevamente.;
+errorArchivoInvalido;Desc=El archivo proporcionado es inválido, por favor, verifique nuevamente.;
+errorSubirArchivo;Desc=Estimado Cliente: Ocurrió un error al intentar subir el archivo. Por favor vuelva  a intentar.;
+errorTicketInvalido;Desc=Estimado Cliente: El Código de Seguimiento es inválido. Por favor inténtelo nuevamente.;
+errorCodigoArchivoInvalido;Desc=Estimado Cliente: existe un error en la carga del archivo. Por favor vuelva  a intentarlo.;
+errorSizeArchivo;Desc=Estimado Cliente: el archivo no puede superar el tamaño máximo de 2MB.;
+errorUniversitarioOIndependiente;Desc=Lamentablemente nos es imposible atender su solicitud a través de nuestra página web. Por favor ingrese su información de contacto para que uno de nuestros ejecutivos se comuniquen con usted y podamos guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+clienteExiste;Desc=Estimado cliente, según nuestros registros usted ha contratado o está en proceso de contratar la apertura de alguno de nuestros productos. Si requiere realizar un cambio de plan o tiene dudas respecto a sus productos, le solicitamos pueda comunicarse directamente con su ejecutivo asignado o con nuestra mesa de ayuda web al 600 824 2424.;
+errorCtaCteNoCoincideConRut;Desc=El número  de cuenta corriente ingresada no corresponde al número de  Run ingresado.  Por lo anterior, le solicitamos que vuelva al paso anterior para reingresar los datos correctamente. Recuerde que por medidas de seguridad, hemos limitado la cantidad de intentos para cursar su solicitud, por lo que si superó los intentos permitidos, puede dirigirse a cualquier sucursal Bci donde uno de nuestros ejecutivos podrá guiarlo en la apertura del plan de cuenta corriente que mejor se ajuste a sus necesidades.;
+errorServicioVisacion;Desc=Estimado(a) Cliente: En base a los antecedentes proporcionados por usted, le informamos que de acuerdo a nuestras políticas de riesgo, no podremos acoger por el momento su solicitud.;
+errorRechazoVisacion;Desc=Estimado(a) Cliente: En base a los antecedentes proporcionados por usted, le informamos que de acuerdo a nuestras políticas de riesgo, no podremos acoger por el momento su solicitud.;
+errorClienteViajeFinalizado;Desc=Estimado Cliente, su solicitud a concluido exitosamente.;
+errorProspectoViajeRechazado;Desc=Estimado Cliente, su solicitud ha sido rechazada. Por favor acérquese a cualquier sucursal BCI donde podrá recibir mayor información por uno de nuestros ejecutivos.;
+errorExtensionArchivo;Desc=Estimado Cliente: La extensión del archivo que intenta subir no es válida. Por favor solo utilice archivos .pdf, .jpeg, .jpg, .png;
+# --------------------------------------------------------------------------------
+# Definición de Listas Formulario.
+# --------------------------------------------------------------------------------
+ListasDetallePerfilDesc;paises=PAI;estadoCivil=ECV;nivelEducacional=NED;actividadLaboral=ACT;profesion=PRF;regimenConyugal=RCY;regiones=REG;
+ListasDetallePerfil;listados=paises,estadoCivil,nivelEducacional,actividadLaboral,profesion,regimenConyugal,regiones;
+ListaRegiones;regiones=REG;
+
+# --------------------------------------------------------------------------------
+# Informacion Complementar Perfil
+# --------------------------------------------------------------------------------
+actualizacionDesdeProspecto;Desc=PROSPECTO;
+situacionLaboral;Desc=DE1;
+tipoPersonaProspecto;Desc=P;
+
+# --------------------------------------------------------------------------------
+# cantidad Tarjetas a seleccionar
+# --------------------------------------------------------------------------------
+rentaTC;rentaMinimaPlan1=400000;rentaMaximaPlan1=2000000;rentaMinimaPlan2=750000;rentaMaximaPlan2=2500000;tcsuc=8000000;
+
+# --------------------------------------------------------------------------------
+# Código de Etapas Viaje Plan.
+# --------------------------------------------------------------------------------
+
+codigoEtapa;ingreso=1;pendienteAutenticacion=2;autenticado=3;perfil=4;ingresoActivos=5;consultaCuposOferta=6;sucursalProducto=7;confirmacionDetalle=8;
+
+# --------------------------------------------------------------------------------
+# Informacion Subir imagen
+# --------------------------------------------------------------------------------
+#INTEGRACIÓN
+#ftpviaje;host=161.131.141.238;sistema=prospftp;pathOportunidad=in;
+#CERTIFICACION
+ftpviaje;host=161.131.232.185;sistema=prospftp;pathOportunidad=in;
+#PRODUCCION
+#ftpviaje;host=161.131.232.12;sistema=prospftp;pathOportunidad=in;
+extensiones;validas=pdf,jpeg,jpg,png;
+
+# --------------------------------------------------------------------------------
+# Información para consultar detalle a confirmar
+# --------------------------------------------------------------------------------
+fechaRetiro;cantidadDiasSiguientes=7;
+horarioAtencion;valor=Lunes a Viernes de 9:00 a 14:00 hrs;
+
+# -------------------------------------------------------------------------------
+#  Informacion para reemplazar caracteres con tilde y enies
+#--------------------------------------------------------------------------------
+original;valor=áàäéèëíìïóòöúùuñÁÀÄÉÈËÍÌÏÓÒÖÚÙÜÑçÇ;
+ascii;valor=aaaeeeiiiooouuunAAAEEEIIIOOOUUUNcC;
+
+# Parametros infoValor inyeccion Oportunidades CRM
+# --------------------------------------------------------------------------------
+
+registroProspecto_Inyeccion;parametrosInfoValor=11;
+infoValorOportunidad1;componente=CrmInteraccion;atributo=estado;nombreValor=Abierto;claveMap=CrmInteraccion.estado;
+infoValorOportunidad2;componente=CrmInteraccion;atributo=prioridad;nombreValor=Normal;claveMap=CrmInteraccion.prioridad;
+infoValorOportunidad3;componente=CrmInteraccion;atributo=origen;nombreValor=Inbound;claveMap=CrmInteraccion.origen;
+infoValorOportunidad4;componente=CrmInteraccion;atributo=condicion;nombreValor=Nuevo;claveMap=CrmInteraccion.condicion;
+infoValorOportunidad5;componente=CrmInteraccion;atributo=motivo;nombreValor=Ventas;claveMap=CrmInteraccion.motivo;
+infoValorOportunidad6;componente=CrmInteraccion;atributo=tipo;nombreValor=WWW;claveMap=CrmInteraccion.tipo;
+infoValorOportunidad7;componente=CrmInteraccion.oportunidades[0];atributo=estado;nombreValor=Activa;claveMap=CrmInteraccion.oportunidades[0].estado;
+infoValorOportunidad8;componente=CrmInteraccion.oportunidades[0].familiaDeProducto;atributo=codigo;nombreValor=Planes;claveMap=CrmInteraccion.oportunidades[0].familiaDeProducto.codigo;
+infoValorOportunidad9;componente=CrmInteraccion.oportunidades[0].unidadDeNegocio;atributo=codigo;nombreValor=BP__PLANES;claveMap=CrmInteraccion.oportunidades[0].unidadDeNegocio;
+infoValorOportunidad10;componente=CrmInteraccion.oportunidades[0];atributo=etapaActual;nombreValor=BP__PLANES|Aprobación;claveMap=CrmInteraccion.oportunidades[0].etapaActual;
+infoValorOportunidad11;componente=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente;atributo=tipo;nombreValor=Unipersonal;claveMap=CrmInteraccion.oportunidades[0].productoRelacionado.cuentaCorriente.tipo;
+inyectaOportunidad_registradoEnSGC;valor=si;
+
+# --------------------------------------------------------------------------------
+# Parametros inyeccion Oportunidades
+# --------------------------------------------------------------------------------
+#Valores para inyectar a Oportunidades 
+agenteResponsable;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+plataformaInteraccion;nombreCampo=Plan Persona Web;valor=Plan Persona Web;
+asuntoInteraccion;nombreCampo=definir;valor=Web Planes;
+fechaDeTerminoInteraccion;nombreCampo=30/05/2016;valor=30/05/2016;
+agenteResponsableOportunidad;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+creadorOportunidad;nombreCampo= ejeviajeplan;valor= ejeviajeplan;
+nombreOportunidad;nombreCampo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoCliente;nombreCampo=desconocido;valor=desconocido;
+tipoDeTelefonoCliente;nombreCampo=2;valor=2;
+codigoDeAreaCliente;nombreCampo=56;valor=56;
+cliente.sucursalCliente;nombreCampo=DEF6;valor=DEF6;
+codigoEjecutivoTerminonombreEtapa0;Campo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoTerminoEtapa1;Campo=ejeviajeplan;valor=ejeviajeplan;
+codigoEjecutivoTerminoEtapa2;Campo=ejeviajeplan;valor=ejeviajeplan;
+ejecutivoQueFinalizaTareas;Campo=ejeviajeplan;valor=ejeviajeplan;
+fechaEstimadaDeCierre;Campo=cierreEstimado;valor=cierreEstimado;
+motivoExencion;Campo=texto;valor=texto;
+codigoAfinidad;Campo=texto;valor=texto;
+cobroDeAdministracion;Campo=texto;valor=texto;
+envioDeTarjeta;Campo=texto;valor=texto;
+sucursalEnvio;Campo=texto;valor=texto;
+tipoBancaOportunidades;Campo=P;valor=P;
+responsableTareas;Campo=ejeviajeplan;valor=ejeviajeplan;
+cuentaCorrienteresponsable;nombreCampo=ejeviaje;valor=ejeviaje;
+cuentaCorrientePlan;valor=A6787CC47D5B447A85C33F7A9BEF441A;
+seguroDesgravamen;Campo=1;valor=1;
+tipoLead;lead1=Cliente universitario;lead2=Cliente independiente;lead3=Cliente FATCA;lead4=Cliente no desean el Plan ofertado;lead5=Cliente no posee cuenta corriente;
+
+# --------------------------------------------------------------------------------
+# Configuracion wsdl webservice finalizar viaje.
+# --------------------------------------------------------------------------------
+# INTEGRACION
+#wsdlServicioAperturaPlan;wsdl=http://b2bdesa.bci.cl:9050/esb/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# CERTIFICACION
+wsdlServicioAperturaPlan;wsdl=http://b2bcert.bci.cl:9050/esb/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# PRODUCCION
+#wsdlServicioAperturaPlan;wsdl=http://alsb.bci.cl/esb/personas/atencioncliente/venta/oportunidad/ServicioAperturaPlan?WSDL;
+# --------------------------------------------------------------------------------
+# Configuracion wsdl webservice Equifax.
+# --------------------------------------------------------------------------------
+# INTEGRACION
+#wsdlServicioEquifaxConsulta;wsdl=http://161.131.184.123:9101/NEGOCIO/Infraestructura/Seguridad/Verificacion/VerificacionIdentidadEquifax/VerificacionIdentidadEquifax?WSDL;
+# CERTIFICACION
+wsdlServicioEquifaxConsulta;wsdl=http://b2bcert.bci.cl:9050/NEGOCIO/Infraestructura/Seguridad/Verificacion/VerificacionIdentidadEquifax/VerificacionIdentidadEquifax?WSDL;
+# PRODUCCION
+#wsdlServicioEquifaxConsulta;wsdl=http://alsb.bci.cl/esb/personas/infraestructura/seguridad/VerificacionIdentidadEquifax?WSDL;
+# Accesos al Servicio.
+EquifaxAccess;user=/bci;pass=KRscLVT0JRKlzOQsa22rS53Kk210SLLG;
+#Acceso al Servicio para Produccion o UAT
+#EquifaxService;service=uat;
+EquifaxService;service=prod;
+
+
+#---------------------------------------------------------------------------------
+# Parametros finalizar viaje
+#---------------------------------------------------------------------------------
+
+paramFinalizarViaje;etapaRequerida=8;canalInyeccionMargen=16;
+
+# --------------------------------------------------------------------------------
+# Parámetros para la creación de cuenta del cliente, finalizar viaje.
+# --------------------------------------------------------------------------------
+crearCuentaCliente;nroDireccion=01;fecha=1999-11-26;cantidad=01;tipoOperacion=CCT;reposicion=000;codMatrizRet=2;codExcencion=;plan=;interes=N;valorCambio=;talonarios=1;parametro4=001;numTalonario=01;tipoCliente=001;codParametro=;tipoCompra=;cuenta= ;periodoPago=M;tipoUsuario=;indicadorTipoAcc=D;cta=;parametro3=;
+
+# INTEGRACION/CERTIFICACION
+ejecutivoCrearCtaCte;valor=NMELLA;
+sucursalCrearCtaCte;valor=244;
+
+# PRODUCCION
+#ejecutivoCrearCtaCte;valor=USUFICT;
+#sucursalCrearCtaCte;valor=090;
+
+# --------------------------------------------------------------------------------
+# Parámetros para la creación del perfil cartola del cliente, finalizar viaje.
+# --------------------------------------------------------------------------------
+crearPerfilCartola;periodoEmisionNor=00;periodoEmisionRef=00;oficinaRefer=000;tipo=G;folioUltimaCart=00000;saldoUltimaCart=000000000000000;movCtd=00000;cantidadMov=0;emisor=;tipoEstado=;tipoDireccionRef=0;canalEnvioNor=C;canalEnvioRef=;referencia=G;oficinaReceptora=000;indicador=;numDirecEnvioRef=0;indicadorEnvio=1;numDirecEnvioNor=1;codigoCambio=;tipoCartola=;tipoDireccionNor=D;periodicidad=;segmento=;
+
+
+# --------------------------------------------------------------------------------
+# constantes obtener Plan Cliente
+# --------------------------------------------------------------------------------
+filler;valor=00000000000000000000000000000;
+IOPE;valor=000000000000;
+modalidadDeCobroDelPlan;valor=F;
+modalidadDeIngresoAlPlan;valor=A;
+moneda;valor=0998  ;
+periodicidadDeCobro;valor=M;
+periodoDeGracia;valor=00;
+subtipoProductoP;valor=000;
+tipoAccion;valor=I;
+tipoCanal;valor=   ;
+tipoProducto;valor=PLN00;
+tipoProductoP;valor=000;
+valorDelPlan;valor=000000000000000000;
+ValorUno;valor=0000000000000000;
+ValorDos;valor=0000000000000000;
+cuotasDelPlan;valor=00;
+
+# --------------------------------------------------------------------------------
+# constantes obtener spread
+# --------------------------------------------------------------------------------
+codEvento;valor=CUR;
+codConcepto;valor=INT;
+caiOperacion;valor=SIM;
+extOperacion;valor=0000;
+codMoneda;valor=0999;
+codTipoOperacion;valor=LSG;
+codAuxiliar;valor=400;
+indPlazoOperacion;valor=D;
+codTipoConsulta;valor=;
+iicOperacion;valor=0;
+numPlazoOperacion;valor=365;
+valSaldoOperacion;valor=0;
+vctoOperacion;valor=0;
+valInteOperacion;valor=0;
+valMontoAdicional;valor=0;
+codClfRentabilidad;valor=;
+codFactorRiesgo;valor=000;
+indTipoPago;valor=0;
+caiOperacionRcc;valor=;
+codigoSegmento;valor=;
+codigoOrigen;valor=000001;
+codigoTx;valor=HV01BCIBCIBEEESCL NMELLA      110              TABPPTPGS;
+
+# --------------------------------------------------------------------------------
+# constantes linea de sobregiro
+# --------------------------------------------------------------------------------
+cobroLSG;valor=;
+codGarantia;valor=SIN;
+porcentajeLSG;valor=0;
+codComision;valor=0;
+periodoPago;valor=0;
+seguroDesgravamen;valor=N;
+codPlan;valor=9;
+seguroCesantia;valor=N;
+tipoUsuario;valor=SC;
+tipoLinea;valor=1;
+modo;valor=N;
+porcenDescuento;valor=0000000;
+
+# --------------------------------------------------------------------------------
+# constantes cuenta corriente para tarjeta de débito
+# --------------------------------------------------------------------------------
+cobro;valor=N;
+motivo;valor=0;
+serialInicial;valor=814;
+pos;valor=0;
+tipoTarjeta;valor=00;
+claseTarjeta;valor=00;
+codigoServicio;valor=2;
+periodoPagoTarjeta;valor=M;
+tipoOperacionTarjeta;valor=CCT;
+cadenaAQuitarNroCtaCte;valor=0009;
+# --------------------------------------------------------------------------------
+# Parametros inyeccion Oportunidades
+# --------------------------------------------------------------------------------
+#Valores para inyectar a Oportunidades 
+CrmInteraccionOportunidadEstado;valor=Activa;
+crmInteraccionCondicion;valor=Nuevo;
+crmInteraccionEstado;valor=Abierto;
+crmInteraccionMotivo;valor=Consulta General;
+crmInteraccionOrigen;valor=inbound;
+crmInteraccionPrioridad;valor=Normal;
+crmInteraccionTipo;valor=WWW;
+clienteregistradoEnSGC;valor=si;
+agenteResponsable;valor=ejeviaje;
+codigoEjecutivo;valor=ejeviaje;
+tipoBancaOportunidades;valor=P;
+familiaDeProductoCodigo;valor=Planes;
+oportunidadfamiliaDeProducto;valor=planes;
+oportunidadetapa;valor=Oferta;
+canalNombre;valor=Web;
+unidadDeNegocioCodigo;valor=BP__PLANES;
+creadorOportunidad;valor=ejeviaje;
+responsableOportunidad;valor=ejeviaje;
+cuentaCorrienteresponsable;valor=ejeviaje;
+talonarioDeChequesInicioSerie;valor=1;
+talonarioDeChequesTerminoSerie;valor=100;
+numeroDeSerie;valor=100;
+talonarioTitular;valor=1;
+tipoDireccion;valor=casa;
+productoRelacionadoTarjetaCreditoFechaPago;valor=8;
+productoRelacionadoTarjetaCredito;valor=Sucursal;
+codigoAfinidad;valor=00;
+crmInteraccionTarjetaCreditoConfirmaMonto;valor=1;
+codigoEjecutivoTerminoEtapaOferta;valor=ejeWeb;
+codigoEjecutivoTerminoEtapaCierre;valor=ejeWeb;
+codigoEjecutivoTerminoAprobacion;valor=ejeviaje;
+ejecutivoQueFinalizaTareasOferta;valor=ejeWeb;
+ejecutivoQueFinalizaPropuestaCli;valor=ejeWeb;
+ejecutivoQueFinalizaVistoBuenoJof;valor=ejeWeb;
+ejecutivoQueFinalizaAprobacion;valor=ejeWeb;
+ejecutivoQueFinalizaAprobacionAC;valor=ejeWeb;
+crmInteraccionOportunidadesNombre;valor=Oportunidad Viaje Planes;
+horaEntrega;valor=14:00 a 16:45;
+tarjetaCreditoFechaDePago;valor=8;
+tarjetaSucursalDestino;valor=93;
+tarjetaformaDePago;valor=3= Pago Mínimo 3% en Cta Cte;
+tarjetaCobroDeAdministracion;valor=Cobro Semestral;
+tarjetaPreemitida;valor=0;
+ctaTipoTalonario;valor=Derecho;
+ctaTipo;valor=Unipersonal;
+ctaSegmentoFinal;valor=Masivo Emergente;
+cuentaCorrienteDobleEjecutivo;valor=0;
+responsableTareaOferta;valor=ejeWeb;
+responsableTareaCA;valor=ejeWeb;
+responsableTareaAP;valor=ejeWeb;
+responsableTareaAC;valor=ejeWeb;
+CodigosTarjetaVisa;valor=001,002,001,036,006,026,041,096;
+CodigoTarjetaMaster;valor=501,516,506,536;
+cantidadDiasFechaEstimadaCierre;valor=5;
+cantidadDiasFechaCierre;valor=0;
+situacionLaboralOportunidad;valor=DEPENDIENTE;
+datosEmpleador;rut=76378340;dv=5;razonSocial=Por defecto;direccion=Dirección por defecto;comuna=Santiago;ciudad=Santiago;
+lineaDeCredito;seguroCesantia=0;seguroDesgravamen=1;
+tarjetaATM;valor=1;
+talonarioTitular;valor=1;
+etapasOportunidad;oferta=BP__PLANES|Oferta;cierreAcordado=BP__PLANES|Cierre Acordado;aprobacion=BP__PLANES|Aprobación;activacion=BP__PLANES|Activación;
+validarRenta;desc=La renta declarada en viaje digital es de {0}. Por favor validar con la renta ingresada en Everest por Célula de Renta.;
+validarDireccionComercial;desc=Verificar Dirección Comercial: Dirección/Región/Comuna.;
+envioElectronico;valor=Envío Electrónico;
+# --------------------------------------------------------------------------------
+# Codigos de Comuna y Region por defecto 
+# --------------------------------------------------------------------------------
+datosComunaRegion;codComunaDefecto=080;codRegionDefecto=13;
+
+valoresInvalidosListas;regiones=99;nivelEducacional=X01,X02,X03;estadoCivil=DIVORCIADO;listaBancos=016;comunasPorRegion=510,511;
+valoresReemplazoListas;regiones=13;
+regiones;13=REGION METROPOLITANA;
+
+# --------------------------------------------------------------------------------
+# Correo para ejecutivo bcinet
+# --------------------------------------------------------------------------------
+correoSucursal;desc=Estimado <!-- nombre -->\n\n Por la presente comunicación, le hacemos entrega del siguiente Código de\n Seguimiento, para continuar con el proceso de contratación de su Plan de\n Cuenta Corriente, iniciado por usted a través de nuestra página web www.bci.cl.\n\n \t\t\tCódigo de Seguimiento N° <!-- ticket -->\n\n Usted deberá ingresar nuevamente a nuestro sitio web y accediendo a través\n del menú "Planes", seleccionar "Contrata tu Plan Online" y luego ingresar el\n Código de Seguimiento informado, que el sistema le solicitará.\n\n Este código es válido para retomar el proceso de contratación cuando usted lo\n desee, tanto a través de la página web del Banco o directamente en nuestras\n sucursales, donde además podrá contar con el apoyo de uno de nuestros\n ejecutivos.\n\n Atentamente\n BCI - Somos Diferentes. ;
+# --------------------------------------------------------------------------------
+# Parametro que permite habilitar/inhabilitar flujo de equifax en el viaje
+# --------------------------------------------------------------------------------
+equifaxHabilitado;valor=S;
+
+# --------------------------------------------------------------------------------
+# Mensaje para validacion fallida por equifax.
+# --------------------------------------------------------------------------------
+mensaje;valor=Estimado (a). Lamentablemente no podemos validar su identidad con las respuestas proporcionadas. Por favor, vuelva a intentar.;
+topeIntentosEquifax;valor=5;

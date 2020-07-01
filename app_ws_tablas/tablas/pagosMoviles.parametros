@@ -1,0 +1,201 @@
+#
+# Journal
+#
+journal;producto=DBIT;evento=PAGOS;eventoDevolucion=REVER;subEventoOk=OK;subEventoNok=NOK;
+
+#
+# Configuración de las transferencias de fondos
+#
+codigoBCI;valor=016;desc_800=BCI/TBANC/NOVA;desc_110=BCI/TBANC/NOVA;desc_100=TBANC/BCI/NOVA;desc_150=BCI/TBANC/NOVA;desc_151=BCI/TBANC/NOVA;desc_901=BCI/TBANC/NOVA;desc_905=TBANC/BCI/NOVA;desc_907=BCI/TBANC/NOVA;desc_230=BCI/TBANC/NOVA;desc_117=BCI/TBANC/NOVA;desc_910=BCI/TBANC/NOVA;desc_911=TBANC/BCI/NOVA;desc_132=BCI/TBANC/NOVA;desc_650=BCI/TBANC/NOVA;desc_912=BCI/TBANC/NOVA;
+
+#
+# Estados de eventos
+#
+estadosPago;ingreso=IPG;fin=POK;finError=PNO;traceNumber=PTN;storeAndForward=S&F;operador=OPE;reversaOK=NOR;reversaNOK=NNR;
+
+#
+# Formatos para cargos y abonos.
+#
+producto;Tandem=00009;CCT=0009;
+
+#
+# Tipo operación.
+#
+tipoOperacion;valor=50;
+
+#
+# Identificador de los tipos de cuentas.
+#
+idTiposCuentaLinea;CCT=20;CPR=40;AHO=10;
+
+#
+# Tipos de monedas.
+#
+tipoMoneda;Peso=152;Dolar=840;
+
+#
+# Parametros para genaracion y validacion de MAC (Message Authentication Code).
+#
+MAC;operar=true;largo=008;clave=00000000;
+
+#
+# Motivo de reversa IFO (Institución Financiera Originadora)
+#
+motivoReversa;valor=003;
+
+#
+# Código de autorización de tarjetas, para transferencias en línea
+#
+codAutorizacion;valor=000000;
+
+#
+# Monto máximo y mínimo industrial.
+#
+monto;maximo=5000000;minimo=1;
+
+#
+# Mapeo (a códigos operador) de errores producidos por el servicio
+#
+ErroresTandemCCA;0058=045;0028=059;0020=062;0015=046;0007=051;0002=063;0009=064;0010=064;0011=064;0008=042;0003=063;0139=063;0490=063;0197=063;
+
+#
+# Bancos autorizados para abono móvil.
+#
+BancosEnLineaAbono;codigos=1,12,14,16,27,28,37,39,49,51,54,504,507,31,9,53,55,57;
+
+#
+# Tipos de Transferencias.
+#
+tiposTransferencias;mismoBanco=TMB;otroBanco=TLN;
+
+# Monto máximo de pago.
+montoMaximo;valor=150000;
+
+# Conversión entre tipos de cuenta del operador bci.
+tipoCuentaOperador;STC=0;CCT=1;CPR=2;AHO=3;0=STC;1=CCT;2=CPR;3=AHO;
+
+# Estados del enrolamieno.
+estadosEnrolamiento;inicio=IEN;validar=VEN;CCA=R;enrolado=EOK;
+
+#
+# Configuraciones para envío de sms.
+#
+formatSms;valor=text;
+loginEnterpriseSms;valor=BCI;
+mrouteSms;valor=MT;
+refContractSms;valor=PagoMovilIndustria;
+prefixMessageId;valor=enviosms;
+mensajeSMS;valor=texto=Su codigo de activacion Pagame es: {RANDOM};
+prefixTelefono;valor=9;
+prefixTelefonoSms;valor=+56;
+
+#
+# Opción de consulta de estado.
+#
+opcion;valor=BD;
+
+#
+# Código OK de CCA.
+#
+codigoOkCCA;valor=00;
+
+#
+# Código No enrolado CCA.
+#
+codigoNECCA;valor=02;
+
+#
+# Código NOK de BCI.
+#
+codigoNokBCI;valor=0;
+
+#
+# Código OK de SafeSigner.
+#
+codigoOkSafeSigner;valor=0;
+
+#
+# Largo del random a enviar por sms.
+#
+largoSecuancia;valor=5;
+
+#
+# Tiempo máximo para realizar una reversa (milisegudos).
+#
+tiempoMaximoReversa;valor=1000000;
+
+#
+# Servicio para segunda clave.
+#
+servicioSegundaClave;valor=EnrolamientoPagameIndustria;
+
+#
+# Atributos para validación Firma Transaccional
+#
+atributosSafeSigner;valor=idTransaccionOperador,rutClienteOrigen,codigoBancoOrigen,monto;
+
+#
+# Configuraciones para envío de email.
+#
+email;from=recaudacionmovil@bci.cl;latinia=false;subjectAbono=Aviso de Recaudacion Movil;subjectCargo=Aviso de Recaudacion Movil;
+loginEnterprise100;banco=bci;
+loginEnterprise110;banco=bci;
+loginEnterprise800;banco=bci;
+loginEnterprise901;banco=bci;
+loginEnterprise905;banco=bci;
+loginEnterprise119;banco=bci;
+loginEnterprise907;banco=bci;
+loginEnterprise910;banco=bci;
+loginEnterprise911;banco=bci;
+loginEnterprise912;banco=bci;
+loginEnterprise230;banco=bci;
+loginEnterprise132;banco=bci;
+contract100;refContract=WEBTBANC_AVISO_TTFF;
+contract110;refContract=WEBBCI_AVISO_TTFF;
+contract800;refContract=WEBCONOSUR_AVISO_TTFF;
+contract901;refContract=WEBBCI_AVISO_TTFF;
+contract905;refContract=WEBTBANC_AVISO_TTFF;
+contract907;refContract=WEBCONOSUR_AVISO_TTFF;
+contract119;refContract=WEBBCI_AVISO_TTFF;
+contract910;refContract=WEBBCI_AVISO_TTFF;
+contract911;refContract=WEBTBANC_AVISO_TTFF;
+contract912;refContract=WEBTBANC_AVISO_TTFF;
+contract230;refContract=bciexpress_AVISO_TTFF;
+contract132;refContract=WEBPYME_AVISO_TTFF;
+
+#Desarrollo
+#enrolarClienteCCA;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#obtenerEstadoEnrolamientoCCA;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#administrarEnrolamientoCCA;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#ingresarCliente;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#consultarCliente;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#actualizarCliente;url=http://b2bdesa.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#enviarSms;url=http://b2bdesa.bci.cl:9050/esb/infraestructura/mensajeria/sms/ServicioMensajeriaSMSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#enrolarUsuario;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#activarUsuarioEnrolado;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#validarFirmaGenerada;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+
+
+#Certificación
+enrolarClienteCCA;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+obtenerEstadoEnrolamientoCCA;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+administrarEnrolamientoCCA;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+ingresarCliente;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+consultarCliente;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+actualizarCliente;url=http://b2bcert.bci.cl:9050/esb/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+enviarSms;url=http://b2bcert.bci.cl:9050/esb/infraestructura/mensajeria/sms/ServicioMensajeriaSMSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+enrolarUsuario;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=8;
+activarUsuarioEnrolado;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=8;
+validarFirmaGenerada;url=http://161.131.184.123:9050/esb/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=8;
+
+#Producción
+#enrolarClienteCCA;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#obtenerEstadoEnrolamientoCCA;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#administrarEnrolamientoCCA;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#ingresarCliente;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#consultarCliente;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#actualizarCliente;url=http://b2b.bci.cl/esb/personas/productos/servicios/pagos/ServicioPagoMoviPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#enviarSms;url=http://b2b.bci.cl/esb/personas/infraestructura/mensajeria/sms/ServicioMensajeriaSMSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#enrolarUsuario;url=http://b2b.bci.cl/esb/personas/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#activarUsuarioEnrolado;url=http://b2b.bci.cl/esb/personas/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;
+#validarFirmaGenerada;url=http://b2b.bci.cl/esb/personas/infraestructura/seguridad/ServicioFirmaTransaccionalSSPS?wsdl;sistemaOSB=wlsalsb;timeout=5;

@@ -1,0 +1,12 @@
+detalleMensaje20;Desc=Número de Referencia de la transacción;
+detalleMensaje25;Desc=Identificación de la cuenta;
+detalleMensaje28C;Desc=Número Declaración/Número secuencia;
+detalleMensaje60F;Desc=Saldo inicial;
+detalleMensaje61;Desc=Movimientos;
+detalleMensaje86;Desc=Información al propietario de la Cuenta;
+detalleMensaje62F;Desc=Saldo Final;
+detalleMensaje64;Desc=Cierre de saldo Disponible (Fondos Disponibles);
+
+pdf;xsl_detalle=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/cartolamonex/mensajeSwift.xsl;xsl_listado=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/cartolamonex/listadoMensajes.xsl;
+
+productos;mensaje=SW;cartola=CA;

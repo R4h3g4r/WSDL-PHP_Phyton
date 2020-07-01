@@ -1,0 +1,129 @@
+
+TOTAL_tipoProd; cantidad=5; desc=tipoProd;
+
+tipoProd0; desc=Remuneraciones; prod=TRF; sigla=Prod02; indProd=indTRF;
+tipoProd1; desc=Pensiones; prod=TRF; sigla=Prod02; indProd=indTRF;
+tipoProd2; desc=Dividendos; prod=TRF; sigla=Prod02; indProd=indTRF;
+tipoProd3; desc=Otros pagos; prod=TRF; sigla=Prod02; indProd=indTRF;
+tipoProd4; desc=Proveedores; prod=PRV; sigla=Prod12; indProd=indPRV;
+
+########## Para completar TRANFER
+TOTAL_indTRF; desc=43;
+
+### indice - Servicio - Atributo - InicioCPE - FinCPE - LargoCampo ###
+indTRF0;servicio=BelAgreement;total=9;
+indTRF1;servicio=BelAgreement;ubicacion=CPE;atributo=WorkWithSignaturesAndPowers;tipo=boolean;inicio=33;fin=34;caracteres=1;
+indTRF2;servicio=BelAgreement;ubicacion=CPE;atributo=UseCurrentAccount;tipo=boolean;inicio=69;fin=70;caracteres=1;
+indTRF3;servicio=BelAgreement;ubicacion=CPE;atributo=RenditionPeriod;tipo=selection;inicio=70;fin=71;caracteres=1;valoresPosibles=;valoresTraduc=;
+indTRF4;servicio=BelAgreement;ubicacion=CPE;atributo=TypeOfAgreement;tipo=selection;inicio=100;fin=101;caracteres=1;valoresPosibles=;valoresTraduc=;
+indTRF5;servicio=BelAgreement;ubicacion=CPE;atributo=DktIdentifier;tipo=text;inicio=26;fin=33;caracteres=7;
+indTRF6;servicio=BelAgreement;ubicacion=mcv;atributo=OriginOffice;tipo=selection;campo=ofi_cod;valoresPosibles=;valoresTraduc=;
+indTRF7;servicio=BelAgreement;ubicacion=mcv;atributo=ExecutiveId;tipo=selection;campo=mcv_cod_eje;valoresPosibles=;valoresTraduc=;
+indTRF8;servicio=BelAgreement;ubicacion=mcv;atributo=TradeName;tipo=text;campo=mcv_rso;
+indTRF9;servicio=BelAgreement;ubicacion=mcv;atributo=TradeAbbrev;tipo=text;campo=mcv_rso_abr;
+indTRF10;servicio=ProductCodes;total=1;
+indTRF11;servicio=ProductCodes;ubicacion=dcv;atributo=PaymentTypeCode;tipo=text;campo=dcv_tip_cnv_pag;
+indTRF12;servicio=CustomerClassification;total=1;
+indTRF13;servicio=CustomerClassification;ubicacion=dcv;atributo=CustomerClassification;tipo=selection;campo=odp_ind_car_fzo;valoresPosibles=1,2;valoresTraduc=;
+indTRF14;servicio=Authorization;total=8;
+indTRF15;servicio=Authorization;ubicacion=dcv;atributo=ApprovalsRequired;tipo=selection;campo=dcv_idn_pod;valoresPosibles=0,1;valoresTraduc=;
+indTRF16;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionCCT;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF17;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionAHO;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF18;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionOTC;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF19;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionOTA;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF20;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionVVC;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF21;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionVVD;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF22;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionEFE;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indTRF23;servicio=Rendition;total=1;
+indTRF24;servicio=Rendition;ubicacion=dcv;atributo=RenditionType;tipo=selection;campo=dcv_via_rnd_cli;valoresPosibles=FAX,CCA,EDI;valoresTraduc=;
+indTRF25;servicio=Liquidation;total=3;
+indTRF26;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationCCT;tipo=selection;campo=dcv_ind_liq_cct;valoresPosibles=1,2;valoresTraduc=;
+indTRF27;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationOTC;tipo=selection;campo=dcv_ind_liq_otc;valoresPosibles=1,2;valoresTraduc=;
+indTRF28;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationVVI;tipo=selection;campo=dcv_ind_liq_vvi;valoresPosibles=1,2;valoresTraduc=;
+indTRF29;servicio=Ungroup;total=1;
+indTRF30;servicio=Ungroup;ubicacion=CPE;atributo=SplitVVsOverMaximumAmount;tipo=boolean;inicio=59;fin=60;caracteres=1;
+indTRF31;servicio=ValeVistaExpiration;total=1;
+indTRF32;servicio=ValeVistaExpiration;ubicacion=dcv;atributo=ExpirationPeriodDays;tipo=naturalNumber;campo=dcv_cta_dia;
+indTRF33;servicio=ValeVistaCentralized;total=1;
+indTRF34;servicio=ValeVistaCentralized;ubicacion=CPE;atributo=PhysicalRenditionCentralized;tipo=boolean;inicio=61;fin=62;caracteres=1;
+indTRF35;servicio=ValeVistaRemote;total=1;
+indTRF36;servicio=ValeVistaRemote;ubicacion=CPE;atributo=PhysicalRenditionRemote;tipo=boolean;inicio=61;fin=62;caracteres=1;
+indTRF37;servicio=ValeVistaVirtual;total=1;
+indTRF38;servicio=ValeVistaVirtual;ubicacion=CPE;atributo=PhysicalRenditionVirtual;tipo=boolean;inicio=53;fin=54;caracteres=1;
+indTRF39;servicio=ServipagExpiration;total=1;
+indTRF40;servicio=ServipagExpiration;ubicacion=CPE;atributo=ExpirationPeriodDays;tipo=naturalNumber;inicio=57;fin=59;caracteres=2;
+indTRF41;servicio=ReturnsRejections;total=1;
+indTRF42;servicio=ReturnsRejections;ubicacion=CPE;atributo=RetryRecoveryWithVV;tipo=boolean;inicio=71;fin=72;caracteres=1;
+
+
+########## Para completar PROVEEDORES
+TOTAL_indPRV; desc=79;
+
+### indice - Servicio - Atributo - InicioCPE - FinCPE - LargoCampo ###
+indPRV0;servicio=BelAgreement;total=9;
+indPRV1;servicio=BelAgreement;ubicacion=CPE;atributo=WorkWithSignaturesAndPowers;tipo=boolean;inicio=33;fin=34;caracteres=1;
+indPRV2;servicio=BelAgreement;ubicacion=CPE;atributo=UseCurrentAccount;tipo=boolean;inicio=69;fin=70;caracteres=1;
+indPRV3;servicio=BelAgreement;ubicacion=CPE;atributo=RenditionPeriod;tipo=selection;inicio=70;fin=71;caracteres=1;valoresPosibles=;valoresTraduc=;
+indPRV4;servicio=BelAgreement;ubicacion=CPE;atributo=TypeOfAgreement;tipo=selection;inicio=100;fin=101;caracteres=1;valoresPosibles=;valoresTraduc=;
+indPRV5;servicio=BelAgreement;ubicacion=CPE;atributo=DktIdentifier;tipo=text;inicio=26;fin=33;caracteres=7;
+indPRV6;servicio=BelAgreement;ubicacion=mcv;atributo=OriginOffice;tipo=selection;campo=ofi_cod;valoresPosibles=;valoresTraduc=;
+indPRV7;servicio=BelAgreement;ubicacion=mcv;atributo=ExecutiveId;tipo=selection;campo=mcv_cod_eje;valoresPosibles=;valoresTraduc=;
+indPRV8;servicio=BelAgreement;ubicacion=mcv;atributo=TradeName;tipo=text;campo=mcv_rso;
+indPRV9;servicio=BelAgreement;ubicacion=mcv;atributo=TradeAbbrev;tipo=text;campo=mcv_rso_abr;
+indPRV10;servicio=ProductCodes;total=1;
+indPRV11;servicio=ProductCodes;ubicacion=dcv;atributo=PaymentTypeCode;tipo=text;campo=dcv_tip_cnv_pag;
+indPRV12;servicio=CustomerClassification;total=1;
+indPRV13;servicio=CustomerClassification;ubicacion=dcv;atributo=CustomerClassification;tipo=selection;campo=odp_ind_car_fzo;valoresPosibles=1,2;valoresTraduc=;
+indPRV14;servicio=Authorization;total=8;
+indPRV15;servicio=Authorization;ubicacion=dcv;atributo=ApprovalsRequired;tipo=selection;campo=dcv_idn_pod;valoresPosibles=0,1;valoresTraduc=;
+indPRV16;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionCCT;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV17;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionAHO;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV18;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionOTC;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV19;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionOTA;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV20;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionVVC;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV21;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionVVD;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV22;servicio=Authorization;ubicacion=dcv;atributo=TimingConditionEFE;tipo=selection;campo=dcv_cnd_hor_cnv;valoresPosibles=3,4,5;valoresTraduc=0,1,2;
+indPRV23;servicio=Rendition;total=1;
+indPRV24;servicio=Rendition;ubicacion=dcv;atributo=RenditionType;tipo=selection;campo=dcv_via_rnd_cli;valoresPosibles=FAX,CCA,EDI;valoresTraduc=;
+indPRV25;servicio=Liquidation;total=3;
+indPRV26;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationCCT;tipo=selection;campo=dcv_ind_liq_cct;valoresPosibles=1,2;valoresTraduc=;
+indPRV27;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationOTC;tipo=selection;campo=dcv_ind_liq_otc;valoresPosibles=1,2;valoresTraduc=;
+indPRV28;servicio=Liquidation;ubicacion=dcv;atributo=LiquidationVVI;tipo=selection;campo=dcv_ind_liq_vvi;valoresPosibles=1,2;valoresTraduc=;
+indPRV29;servicio=Factoring;total=12;
+indPRV30;servicio=Factoring;ubicacion=CPE;atributo=CalculatedAmounts;tipo=boolean;inicio=49;fin=50;caracteres=1;
+indPRV31;servicio=Factoring;ubicacion=CPE;atributo=SendPublicationPayroll;tipo=boolean;inicio=1;fin=2;caracteres=1;
+indPRV32;servicio=Factoring;ubicacion=CPE;atributo=SendPayroll;tipo=boolean;inicio=2;fin=3;caracteres=1;
+indPRV33;servicio=Factoring;ubicacion=CPE;atributo=SendFactoringPayroll;tipo=boolean;inicio=3;fin=4;caracteres=1;
+indPRV34;servicio=Factoring;ubicacion=CPE;atributo=FactoringType;tipo=selection;inicio=4;fin=5;caracteres=1;valoresPosibles=1,2,3;valoresTraduc=;
+indPRV35;servicio=Factoring;ubicacion=CPE;atributo=WorkOrDoesntWorkWithElectronicSignature;tipo=boolean;inicio=62;fin=63;caracteres=1;
+indPRV36;servicio=Factoring;ubicacion=CPE;atributo=ApplySHERPASI;tipo=boolean;inicio=63;fin=64;caracteres=1;
+indPRV37;servicio=Factoring;ubicacion=CPE;atributo=SendMailToBeneficiary;tipo=boolean;inicio=64;fin=65;caracteres=1;
+indPRV38;servicio=Factoring;ubicacion=CPE;atributo=DisplayFactoringPayroll;tipo=boolean;inicio=66;fin=67;caracteres=1;
+indPRV39;servicio=Factoring;ubicacion=CPE;atributo=SendDetailedEmail;tipo=boolean;inicio=67;fin=68;caracteres=1;
+indPRV40;servicio=Factoring;ubicacion=CPE;atributo=BillingType;tipo=selection;inicio=73;fin=74;caracteres=1;valoresPosibles=D,A;valoresTraduc=;
+indPRV41;servicio=Factoring;ubicacion=CPE;atributo=ApplySHERPASII;tipo=boolean;inicio=75;fin=76;caracteres=1;
+indPRV42;servicio=Ungroup;total=1;
+indPRV43;servicio=Ungroup;ubicacion=CPE;atributo=SplitVVsOverMaximumAmount;tipo=boolean;inicio=59;fin=60;caracteres=1;
+indPRV44;servicio=ValeVistaExpiration;total=1;
+indPRV45;servicio=ValeVistaExpiration;ubicacion=dcv;atributo=ExpirationPeriodDays;tipo=naturalNumber;campo=dcv_cta_dia;
+indPRV46;servicio=4Copy;total=1;
+indPRV47;servicio=4Copy;ubicacion=CPE;atributo=Allows4CopyFor;tipo=boolean;inicio=68;fin=69;caracteres=1;
+indPRV48;servicio=ValeVistaCentralized;total=1;
+indPRV49;servicio=ValeVistaCentralized;ubicacion=CPE;atributo=PhysicalRenditionCentralized;tipo=boolean;inicio=61;fin=62;caracteres=1;
+indPRV50;servicio=ValeVistaRemote;total=1;
+indPRV51;servicio=ValeVistaRemote;ubicacion=CPE;atributo=PhysicalRenditionRemote;tipo=boolean;inicio=61;fin=62;caracteres=1;
+indPRV52;servicio=ValeVistaVirtual;total=1;
+indPRV53;servicio=ValeVistaVirtual;ubicacion=CPE;atributo=PhysicalRenditionVirtual;tipo=boolean;inicio=53;fin=54;caracteres=1;
+indPRV54;servicio=ServipagExpiration;total=1;
+indPRV55;servicio=ServipagExpiration;ubicacion=CPE;atributo=ExpirationPeriodDays;tipo=naturalNumber;inicio=57;fin=59;caracteres=2;
+indPRV56;servicio=ReturnsRejections;total=1;
+indPRV57;servicio=ReturnsRejections;ubicacion=CPE;atributo=RetryRecoveryWithVV;tipo=boolean;inicio=71;fin=72;caracteres=1;
+
+
+########## Para completar CUENTAS
+TOTAL_cuenta; desc=cuenta; cantidad=3;
+
+cuenta0; desc=corriente1;
+cuenta1; desc=corriente2;
+cuenta2; desc=corriente3;
+

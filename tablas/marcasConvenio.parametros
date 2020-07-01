@@ -1,0 +1,9 @@
+tieneEFactoring;desc=Indica si tiene eFactoring;largo=1;Prod12=3;
+esPPRMigrado;desc=Indica si el proveedor es migrado;largo=1;Prod12=72;
+tieneValeVistaVirtual;desc=Indica si tiene disponible la oficina virtual para la forma de pago vale vista;largo=1;Prod02=51;Prod12=51;
+indicadorFyP;desc=Marca que define si tiene que ir al sistema de firma y poderes;largo=1;Prod02=33;Prod12=33;
+diasCaducidadEfectivo;desc=Días de caducidad para pagos en efectivo;largo=2;Prod02=57;
+cargoCuentaCorriente;desc=Marca que especifica si el convenio opera con cargo a una cuenta corriente;largo=1;Prod02=69;Prod12=69;
+marcaCnvFactoring;desc=Indica si el convenio opera con factoring;largo=1;Prod12=66;
+clienteMigradoPagosMasivos;desc=Indica si el cliente esta migrado al nuevo sitio de Pagos Masivos;largo=1;Prod02=84;Prod12=84;
+tieneReinsistenciaDePago;desc=Indica si el cliente tiene contratado servicio de Reinsistencia de Pagos;largo=1;Prod02=71;Prod12=71;

@@ -1,0 +1,394 @@
+# Parametros de Servicio Eventos Contables
+# ==============================================
+
+DSOURCE_JNDI_NAME_EVENTOSCONTABLES;Desc=wcorp.dsource.EVENTOSCONTABLESDataSource;
+SERV_ADAPTER_CTA;Desc=stmiscelaneocta;
+SERV_ADAPTER_MISC;Desc=stmiscelaneo;
+
+CARGO_CTA;TrxCargoCtaDirecta=G0634;TrxCargoCtaReversa=G0635;
+ABONO_CTA;TrxAbonoCtaDirecta=G0734;TrxAbonoCtaReversa=G0735;
+
+CARGO_MISC;TrxCargoMiscDirecta=G0632;TrxCargoMiscReversa=G0633;
+ABONO_MISC;TrxAbonoMiscDirecta=G0732;TrxAbonoMiscReversa=G0733;
+
+CUENTAS_DISP;tipoCta1=CCT;tipoCta2=CPR;
+
+glosaTipoCuenta;CCT=Cta.Cte.;CPR=Cta. Prima;
+
+UNIDAD090MN;036=Frente Cajas Cuenta Cte.;028=Tesorería General;061=Centro de Negocios;
+UNIDAD090MX;016=Frente Cajas Cuenta Cte.;033=Tesorería General;059=Centro de Negocios;
+SUCURSAL_CAJA;MN=010;MX=024;
+NEMONICO_EMP;Codigo=999;
+
+#Monto mínimo que requiere llave de supervisor
+##############################################
+montoLlaveSuper;monto=300000;
+
+#Tipos de Eventos
+#################
+tipo01;Desc=Trx con ATM Oficina 150;Ofi=TODAS;
+#tipo02;Desc=DAP;Ofi=TODAS;
+tipo03;Desc=Ajuste por Error en Depósito;Ofi=TODAS;
+tipo04;Desc=Eventos Fuera de Línea;Ofi=TODAS;
+#tipo05;Desc=Giro Electrónico;Ofi=TODAS;
+tipo06;Desc=Hipotecario;Ofi=TODAS;
+tipo07;Desc=Nova;Ofi=TODAS;
+tipo08;Desc=Operación Pendiente;Ofi=TODAS;
+tipo09;Desc=Provisión de Fondos;Ofi=TODAS;
+tipo10;Desc=Recibido/Pagado;Ofi=TODAS;
+tipo11;Desc=Remesa;Ofi=TODAS;
+tipo12;Desc=Pago Servicios Oficina;Ofi=SUC;
+#tipo13;Desc=VVI;Ofi=TODAS;
+tipo14;Desc=Curse Boleta de Garantía a la Vista;Ofi=TODAS;
+tipo15;Desc=Curse Boleta de Garantía con Aviso;Ofi=TODAS;
+tipo16;Desc=Liquidación Boleta de Garantía a la Vista;Ofi=TODAS;
+tipo17;Desc=Liquidación Boleta de Garantía con Aviso;Ofi=TODAS;
+
+#Subtipos de Eventos
+####################
+
+#Trx con ATM Oficina 150
+subtipo0020;Desc=ATM Depósitos Sobres con Efectivo;
+subtipo0040;Desc=Ingreso de Efectivo en Cajero ATM Of_150;
+subtipo0060;Desc=Retiro de Efectivo de Cajero ATM Of_150;
+
+#DAP
+subtipo0070;Desc=Curse de Provisión de Fondos proveniente de Liquidación de DAP;
+subtipo0080;Desc=Liquidación de Provisión de Fondos para Curse de DAP;
+
+#Ajuste por Error en Depósito
+subtipo0090;Desc=Cargo en CCT o CPR por error en Depósito Efectivo;
+subtipo0110;Desc=Abono en CCT o CPR por error en Depósito Efectivo;
+
+#Eventos Fuera de Línea
+subtipo0130;Desc=Recaudación fuera de Línea en Efectivo, Por regularizar en Oficina;
+subtipo0150;Desc=Recaudación fuera de Línea en Efectivo enviada a Unidad de Recaudación;
+subtipo0180;Desc=Abono Recaudación fuera de Línea con Dcto. otros Bancos;
+subtipo0190;Desc=Abono Crédito  fuera de Línea en Efectivo por regularizar en Oficina;
+subtipo0220;Desc=Abono Crédito  fuera de Línea con Dcto. otro Bco., por regularizar en Oficina;
+subtipo0230;Desc=Dividendos Hipotecarios Fuera de Línea en Efectivo por regularizar en Oficina;
+subtipo0260;Desc=Dividendos Hipotecarios Fuera de Línea con Dcto. otro Bco. por regularizar en Oficina;
+subtipo0280;Desc=Dividendo Hipotecario Fuera de Línea con Dcto. otros Bcos. por regularizar, en Dpto. Hipotecario sucursales;
+subtipo0290;Desc=Div. Hipot. fuera de Línea en Efectivo enviada a Dpto. Hipotecario;
+subtipo0291;Desc=Div. Hipot. Fuera de Línea con cargo en CCT - CPR;
+
+#Giro Electrónico
+subtipo0310;Desc=Curse de Giro Electrónico tomado en Efectivo;
+subtipo0330;Desc=Pago de Giro Electrónico;
+subtipo0360;Desc=Curse de Giro Electrónico con cargo a CCT o CPR;
+
+#Hipotecario
+subtipo0370;Desc=Prepago Total o Parcial CHIP con Efectivo;
+subtipo0400;Desc=Prepago Total o Parcial CHIP con Dctos. otros Bancos;
+subtipo0401;Desc=Prepago Total CHIP con  cargo a CCT o CPR;
+
+#Nova
+subtipo0420;Desc=Cancelación en Efectivo de VVI NOVA en Oficinas BCI;
+subtipo0440;Desc=Cancelación Cheques Bci/Canje recepcionados en Oficinas NOVA;
+
+#Operación Pendiente
+subtipo0450;Desc=Curse por Diferencia de Caja a Favor - Cajero Bci;
+subtipo0470;Desc=Curse por Diferencia de Caja a Favor - Cajero Externo;
+subtipo0490;Desc=Curse por Diferencia de Caja en Contra - Cajero Bci;
+subtipo0510;Desc=Curse por Diferencia de Caja en Contra - Cajero Externo;
+subtipo0530;Desc=Curse por Diferencia de Caja a Favor en MX;
+subtipo0550;Desc=Curse por Diferencia de Caja en Contra en MX;
+subtipo0570;Desc=Liquidación por Diferencia de Caja a Favor - Cajero Bci;
+subtipo0590;Desc=Liquidación por Diferencia de Caja a Favor - Cajero Externo;
+subtipo0610;Desc=Liquidación por Diferencia de Caja en Contra - Cajero Bci;
+subtipo0630;Desc=Liquidación por Diferencia de Caja en Contra - Cajero Externo;
+subtipo0650;Desc=Liquidación por Diferencia de Caja en Contra en MX;
+subtipo0670;Desc=Liquidación por Diferencia de Caja a Favor en MX;
+
+#Provisión de Fondos
+subtipo0690;Desc=Curse Provisión de Fondos en Efectivo;
+subtipo0720;Desc=Curse Provisión de Fondos con Documentos Otros Bancos;
+subtipo0730;Desc=Curse Provisión de Fondos en Efectivo para ser aplicados en Otra Oficina;
+subtipo0760;Desc=Curse Provisión de Fondos con Cargo en Cta. Cte.;
+subtipo0780;Desc=Curse Provisión de Fondos con cargo a CCT o CPR, para ser aplicados en Otra Oficina;
+subtipo0800;Desc=Liquidación de Fondos Provisionados con abono a CCT o CPR;
+subtipo0810;Desc=Liquidación Provisión de Fondos en Efectivo;
+subtipo0840;Desc=Liquidación de Fondos Provisionados para ser enviados a Otra Oficina;
+
+#Recibido/Pagado
+#subtipo0850;Desc=Recibido del Día_Cierre de Operaciones;
+#subtipo0860;Desc=Pagado del Día_Cierre de Operaciones;
+subtipo0880;Desc=Traspaso de Efectivo_Recibido;
+subtipo0900;Desc=Traspaso de Efectivo_Pagado;
+subtipo0910;Desc=Contab. Recibido Efectivo_por Emis. Facturac. Electrónica;
+
+#Remesa
+subtipo0940;Desc=Remesa Enviada;
+subtipo0960;Desc=Remesa Recibida;
+
+#Pago Servicios Oficina
+subtipo0970;Desc=Consumo de Electricidad Oficina - Sucursales;
+subtipo0980;Desc=Consumo de Agua Oficina - Sucursales;
+subtipo0990;Desc=Consumo de Gas Oficina - Sucursales;
+subtipo1000;Desc=Eventos R.R.H.H. - Sucursales;
+
+#VVI
+subtipo1010;Desc=Cargo a CCT - CPR por Curse VVI;
+subtipo1020;Desc=Abono CCT - CPR por Liquidación de VVI;
+subtipo1030;Desc=Ingreso de Efectivo para Curse de VVI;
+subtipo1040;Desc=Egreso de Efectivo por Liquidación de VVI;
+subtipo1050;Desc=Curse Provisión de Fondos proveniente de Liquidación de VVI;
+subtipo1060;Desc=Liquidación de Provisión de Fondos para Curse de VVI;
+
+#Boleta de Garantía(Curse)
+subtipo1080;Desc=Sector Publico en Efectivo;
+subtipo1100;Desc=Sector Publico con Cargo a CCT o CPR;
+subtipo1120;Desc=Sector Privado en Efectivo;
+subtipo1140;Desc=Sector Privado con Cargo a CCT o CPR;
+
+#Boleta de Garantía (Liquidación)
+subtipo1160;Desc=Sector Publico Cancelado en Efectivo;
+subtipo1180;Desc=Sector Privado Cancelado en Efectivo;
+
+#Tipos de Monedas
+#################
+
+moneda00;Desc=Pesos;codigo=999;NroDecimales=0;tipoMoneda=MN;
+moneda10;Desc=Dólar;codigo=013;NroDecimales=2;tipoMoneda=MX;
+moneda20;Desc=Euro;codigo=142;NroDecimales=2;tipoMoneda=MX;
+moneda04;Desc=UF;codigo=;NroDecimales=4;tipoMoneda=MN;
+
+#Tipos de Operaciones
+#####################
+OPERACION1;glosa=A la Vista;
+OPERACION2;glosa=Con Aviso;
+
+#Tipos de Boleta de Garantia (Sec.Publico $,UF,US y Sec.Privado $,UF, US)
+#########################################################################
+BOLETAT1;cod=SPUBPE;
+BOLETAT2;cod=SPUBUF;
+BOLETAT3;cod=SPUBDO;
+BOLETAT4;cod=SPRIVPE;
+BOLETAT5;cod=SPRIVUF;
+BOLETAT6;cod=SPRIVDO;
+
+BOLETAT7;cod=SPRIVPECA;
+BOLETAT8;cod=SPUBPECA;
+BOLETAT9;cod=SPRIVUFCA;
+BOLETAT10;cod=SPUBUFCA;
+
+#EVENTO DE TIPO 01 (ATM_oficina 150)
+##################
+
+evento0020;codigo=9213;codigoSiebelTeller=0045,0046;tipo=01;moneda=00;subtipo=0020;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0040;codigo=9214;codigoSiebelTeller=0047,0048;tipo=01;moneda=00;subtipo=0040;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0060;codigo=9215;codigoSiebelTeller=0049,0050;tipo=01;moneda=00;subtipo=0060;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;
+
+#EVENTO DE TIPO 02 (DAP)
+##################
+
+evento0070;codigo=9259;codigoSiebelTeller=9999;tipo=02;moneda=00;subtipo=0070;movCaja=I;nemonico=000;instrumento=E;acumula=NO;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0080;codigo=9260;codigoSiebelTeller=9999;tipo=02;moneda=00;subtipo=0080;movCaja=I;nemonico=000;instrumento=E;acumula=NO;campos=numVigente,numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,superuser,superpassword;llavesuper=02;
+
+#EVENTO DE TIPO 03 (Ajuste por Error deposito)
+##################
+
+evento0090;codigo=9261;codigoSiebelTeller=0051,0052;tipo=03;moneda=00;subtipo=0090;movCaja=I;nemonico=000;instrumento=E;acumula=;nemonicocta=612;enviaCuenta=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0110;codigo=9262;codigoSiebelTeller=0053,0054;tipo=03;moneda=00;subtipo=0110;movCaja=E ;nemonico=000;instrumento=E;acumula=;nemonicocta=45;enviaCuenta=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=02;
+
+#EVENTO DE TIPO 04 (Fuera de Linea)
+##################
+
+evento0130;codigo=9222;codigoSiebelTeller=0055,0056;tipo=04;moneda=00;subtipo=0130;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0150;codigo=9223;codigoSiebelTeller=0057,0058;tipo=04;moneda=00;subtipo=0150;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0180;codigo=9226;codigoSiebelTeller=0059,0060;tipo=04;moneda=00;subtipo=0180;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0190;codigo=9227;codigoSiebelTeller=0061,0062;tipo=04;moneda=00;subtipo=0190;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0220;codigo=9228;codigoSiebelTeller=0063,0064;tipo=04;moneda=00;subtipo=0220;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0230;codigo=9229;codigoSiebelTeller=0065,0066;tipo=04;moneda=00;subtipo=0230;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0260;codigo=9230;codigoSiebelTeller=0067,0068;tipo=04;moneda=00;subtipo=0260;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0280;codigo=9231;codigoSiebelTeller=0069,0070;tipo=04;moneda=00;subtipo=0280;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0290;codigo=9232;codigoSiebelTeller=0071,0072;tipo=04;moneda=00;subtipo=0290;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0291;codigo=9264;codigoSiebelTeller=0075,0076;tipo=04;moneda=00;subtipo=0291;movCaja=I;nemonico=000;instrumento=;acumula=NO;nemonicocta=7P;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+
+#EVENTO DE TIPO 05 (Giro Electronico)
+##################
+
+evento0310;codigo=9216;codigoSiebelTeller=9999;tipo=05;moneda=00;subtipo=0310;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0330;codigo=9217;codigoSiebelTeller=9999;tipo=05;moneda=00;subtipo=0330;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0360;codigo=9263;codigoSiebelTeller=9999;tipo=05;moneda=00;subtipo=0360;movCaja=I;nemonico=000;instrumento=;acumula=NO;nemonicocta=61;enviaCuenta=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,unidadOf090,superuser,superpassword;llavesuper=02;
+																									 
+#EVENTO DE TIPO 06 (Hipotecario)
+##################
+
+evento0370;codigo=9237;codigoSiebelTeller=0081,0082;tipo=06;moneda=00;subtipo=0370;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0400;codigo=9238;codigoSiebelTeller=0083,0084;tipo=06;moneda=00;subtipo=0400;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0401;codigo=9248;codigoSiebelTeller=0085,0086;tipo=06;moneda=00;subtipo=0401;movCaja=I;nemonico=000;instrumento=;acumula=NO;nemonicocta=7P;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+
+
+#EVENTO DE TIPO 07 (Nova)
+##################
+
+evento0420;codigo=9269;codigoSiebelTeller=0095,0096;tipo=07;moneda=00;subtipo=0420;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,oficinaDestino,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0440;codigo=9268;codigoSiebelTeller=0097,0098;tipo=07;moneda=00;subtipo=0440;movCaja=;nemonico=000;instrumento=D;acumula=SI;campos=montoTrx,oficinaDestino,unidadOf090,superuser,superpassword;llavesuper=01;
+
+#EVENTO DE TIPO 08 (Operacion Pendiente)
+##################
+
+evento0450;codigo=9205;codigoSiebelTeller=0001,0003;tipo=08;moneda=00;subtipo=0450;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0470;codigo=9206;codigoSiebelTeller=0002,0004;tipo=08;moneda=00;subtipo=0470;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0490;codigo=9207;codigoSiebelTeller=0005,0007;tipo=08;moneda=00;subtipo=0490;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+evento0510;codigo=9208;codigoSiebelTeller=0006,0008;tipo=08;moneda=00;subtipo=0510;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+
+evento0530;codigo=9209;codigoSiebelTeller=0009,0010;tipo=08;moneda=10;subtipo=0530;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0550;codigo=9210;codigoSiebelTeller=0011,0012;tipo=08;moneda=10;subtipo=0550;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+evento0570;codigo=9209;codigoSiebelTeller=0009,0010;tipo=08;moneda=20;subtipo=0530;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0590;codigo=9210;codigoSiebelTeller=0011,0012;tipo=08;moneda=20;subtipo=0550;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+
+evento0610;codigo=9218;codigoSiebelTeller=0013,0015;tipo=08;moneda=00;subtipo=0570;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0630;codigo=9219;codigoSiebelTeller=0014,0016;tipo=08;moneda=00;subtipo=0590;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0650;codigo=9220;codigoSiebelTeller=0017,0019;tipo=08;moneda=00;subtipo=0610;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0670;codigo=9221;codigoSiebelTeller=0018,0020;tipo=08;moneda=00;subtipo=0630;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;
+
+evento0690;codigo=9224;codigoSiebelTeller=0021,0022;tipo=08;moneda=10;subtipo=0650;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0710;codigo=9225;codigoSiebelTeller=0023,0024;tipo=08;moneda=10;subtipo=0670;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0730;codigo=9224;codigoSiebelTeller=0021,0022;tipo=08;moneda=20;subtipo=0650;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0750;codigo=9225;codigoSiebelTeller=0023,0024;tipo=08;moneda=20;subtipo=0670;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+
+#EVENTO DE TIPO 09 (Provision de fondos)
+##################
+
+evento0770;codigo=9239;codigoSiebelTeller=0025,0026;tipo=09;moneda=00;subtipo=0690;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0800;codigo=9240;codigoSiebelTeller=0027,0028;tipo=09;moneda=00;subtipo=0720;movCaja=I;nemonico=000;instrumento=D;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0810;codigo=9241;codigoSiebelTeller=0029,0030;tipo=09;moneda=00;subtipo=0730;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,oficinaDestino,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0840;codigo=9247;codigoSiebelTeller=0031,0032;tipo=09;moneda=00;subtipo=0760;movCaja=I;nemonico=000;instrumento=;acumula=NO;nemonicocta=1121;enviaCuenta=SI;campos=montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento0860;codigo=9249;codigoSiebelTeller=0033,0034;tipo=09;moneda=00;subtipo=0780;movCaja=I;nemonico=000;instrumento=;acumula=NO;nemonicocta=1121;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,oficinaDestino,numCuenta,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+evento0880;codigo=9250;codigoSiebelTeller=0035,0036;tipo=09;moneda=00;subtipo=0800;movCaja=E;nemonico=000;instrumento=;acumula=NO;nemonicocta=1129;campos=numVigente,numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,numCuenta,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0890;codigo=9251;codigoSiebelTeller=0039,0040;tipo=09;moneda=00;subtipo=0810;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0920;codigo=9267;codigoSiebelTeller=0037,0038;tipo=09;moneda=00;subtipo=0840;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,oficinaDestino,unidadOf090,superuser,superpassword;llavesuper=01;
+
+#EVENTO DE TIPO 10 (Recibido /Pagado)
+##################
+#estas 2 trx solo se ejecutan desde Génesis.
+evento0930;codigo=9201;codigoSiebelTeller=9999;tipo=;moneda=00;subtipo=;movCaja=I;nemonico=000;instrumento=;acumula=;campos=montoTrx,superuser,superpassword;llavesuper=02;
+evento0940;codigo=9202;codigoSiebelTeller=9999;tipo=;moneda=00;subtipo=;movCaja=E;nemonico=000;instrumento=;acumula=;campos=montoTrx,superuser,superpassword;llavesuper=01;
+
+evento0960;codigo=9203;codigoSiebelTeller=9999;tipo=10;moneda=00;subtipo=0880;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=02;
+evento0980;codigo=9204;codigoSiebelTeller=9999;tipo=10;moneda=00;subtipo=0900;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,unidadOf090,superuser,superpassword;llavesuper=01;
+evento0990;codigo=9242;codigoSiebelTeller=0076,0077;tipo=10;moneda=00;subtipo=0910;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=numOperacion,montoTrx,rutCliente,nomCliente,apellidoPaterno,apellidoMaterno,unidadOf090,superuser,superpassword;llavesuper=02;
+
+#EVENTO DE TIPO 11 (Remesa)
+##################
+
+evento1020;codigo=9211;codigoSiebelTeller=0041,0043;tipo=11;moneda=00;subtipo=0940;movCaja=E;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,oficinaDestino,unidadOf090,superuser,superpassword;llavesuper=01;vigenteAitc=0;
+evento1040;codigo=9212;codigoSiebelTeller=0042,0044;tipo=11;moneda=00;subtipo=0960;movCaja=I;nemonico=000;instrumento=E;acumula=SI;campos=montoTrx,numVigente,unidadOf090,superuser,superpassword;llavesuper=02;
+
+
+#EVENTO DE TIPO 12 (Pago Servicios)
+##################
+
+evento1050;codigo=9233;codigoSiebelTeller=0077;tipo=12;moneda=00;subtipo=0970;movCaja=;nemonico=000;instrumento=;acumula=NO;campos=montoTrx,rutCliente,nomCliente,centroCosto,superuser,superpassword;llavesuper=02;
+evento1060;codigo=9234;codigoSiebelTeller=0078;tipo=12;moneda=00;subtipo=0980;movCaja=;nemonico=000;instrumento=;acumula=NO;campos=montoTrx,rutCliente,nomCliente,centroCosto,superuser,superpassword;llavesuper=02;
+evento1070;codigo=9235;codigoSiebelTeller=0079;tipo=12;moneda=00;subtipo=0990;movCaja=;nemonico=000;instrumento=;acumula=NO;campos=montoTrx,rutCliente,nomCliente,centroCosto,superuser,superpassword;llavesuper=02;
+evento1080;codigo=9236;codigoSiebelTeller=0080;tipo=12;moneda=00;subtipo=1000;movCaja=;nemonico=000;instrumento=;acumula=NO;campos=montoTrx,rutCliente,nomCliente,centroCosto,superuser,superpassword;llavesuper=02;
+
+
+#EVENTO DE TIPO 13 (Vale Vista)
+##################
+
+evento1090;codigo=9253;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1010;movCaja=E;nemonico=000;nemonicocta=616;instrumento=D;acumula=NO;campos=montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,superuser,superpassword;llavesuper=01;
+evento1100;codigo=9254;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1020;movCaja=I;nemonico=000;nemonicocta=40;instrumento=D;acumula=NO;campos=numOperacion,montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,numCuenta,superuser,superpassword;llavesuper=02;
+evento1110;codigo=9255;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1030;movCaja=I;nemonico=000;instrumento=E;acumula=NO;campos=montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,superuser,superpassword;llavesuper=02;
+evento1120;codigo=9256;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1040;movCaja=E;nemonico=000;instrumento=E;acumula=NO;campos=numOperacion,montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,superuser,superpassword;llavesuper=01;
+evento1130;codigo=9257;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1050;movCaja=I;nemonico=000;instrumento=E;acumula=NO;campos=numOperacion,montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,superuser,superpassword;llavesuper=02;vigenteAitc=0;
+evento1140;codigo=9258;codigoSiebelTeller=9999;tipo=13;moneda=00;subtipo=1060;movCaja=I;nemonico=000;instrumento=E;acumula=NO;campos=numOperacion,montoTrx,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,numVigente,superuser,superpassword;llavesuper=02;
+
+#EVENTO DE TIPO 14 (Curse Boleta de Garantía a la Vista)
+##################
+#Pesos
+evento1150;codigo=9243;codigoSiebelTeller=9999;tipo=14;moneda=00;subtipo=1080;movCaja=I;nemonico=000;tipoB=BOLETAT1;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1160;codigo=9252;codigoSiebelTeller=9999;tipo=14;moneda=00;subtipo=1100;movCaja=I;nemonico=000;nemonicocta=1005;tipoB=BOLETAT1;instrumento=;acumula=NO;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1170;codigo=9243;codigoSiebelTeller=9999;tipo=14;moneda=00;subtipo=1120;movCaja=I;nemonico=000;tipoB=BOLETAT4;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1180;codigo=9252;codigoSiebelTeller=9999;tipo=14;moneda=00;subtipo=1140;movCaja=I;nemonico=000;nemonicocta=1005;tipoB=BOLETAT4;instrumento=;acumula=NO;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+
+#Dolar.
+evento1230;codigo=9244;codigoSiebelTeller=9999;tipo=14;moneda=10;subtipo=1080;movCaja=I;nemonico=000;tipoB=BOLETAT3;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1240;codigo=9244;codigoSiebelTeller=9999;tipo=14;moneda=10;subtipo=1120;movCaja=I;nemonico=000;tipoB=BOLETAT6;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+
+#UF.
+evento1270;codigo=9243;codigoSiebelTeller=9999;tipo=14;moneda=04;subtipo=1080;movCaja=I;tipoB=BOLETAT2;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1280;codigo=9252;codigoSiebelTeller=9999;tipo=14;moneda=04;subtipo=1100;movCaja=I;tipoB=BOLETAT2;nemonico=000;nemonicocta=1005;instrumento=;acumula=NO;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1290;codigo=9243;codigoSiebelTeller=9999;tipo=14;moneda=04;subtipo=1120;movCaja=I;tipoB=BOLETAT5;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+evento1300;codigo=9252;codigoSiebelTeller=9999;tipo=14;moneda=04;subtipo=1140;movCaja=I;tipoB=BOLETAT5;nemonico=000;nemonicocta=1005;instrumento=;acumula=NO;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION1;
+
+#EVENTO DE TIPO 15 (Curse Boleta de Garantía con Aviso)
+##################
+#Pesos.
+evento1360;codigo=9243;codigoSiebelTeller=9999;tipo=15;moneda=00;subtipo=1080;movCaja=I;tipoB=BOLETAT8;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1380;codigo=9252;codigoSiebelTeller=9999;tipo=15;moneda=00;subtipo=1100;movCaja=I;tipoB=BOLETAT8;nemonico=000;instrumento=;acumula=NO;nemonicocta=1005;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1400;codigo=9243;codigoSiebelTeller=9999;tipo=15;moneda=00;subtipo=1120;movCaja=I;tipoB=BOLETAT7;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1420;codigo=9252;codigoSiebelTeller=9999;tipo=15;moneda=00;subtipo=1140;movCaja=I;tipoB=BOLETAT7;nemonico=000;instrumento=;acumula=NO;nemonicocta=1005;campos=numVigente,montoTrx,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+
+#UF.
+evento1480;codigo=9243;codigoSiebelTeller=9999;tipo=15;moneda=04;subtipo=1080;movCaja=I;tipoB=BOLETAT10;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1500;codigo=9252;codigoSiebelTeller=9999;tipo=15;moneda=04;subtipo=1100;movCaja=I;tipoB=BOLETAT10;nemonico=000;nemonicocta=1005;instrumento=;acumula=NO;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1520;codigo=9243;codigoSiebelTeller=9999;tipo=15;moneda=04;subtipo=1120;movCaja=I;tipoB=BOLETAT9;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+evento1540;codigo=9252;codigoSiebelTeller=9999;tipo=15;moneda=04;subtipo=1140;movCaja=I;tipoB=BOLETAT9;nemonico=000;nemonicocta=1005;instrumento=;acumula=NO;campos=numVigente,montoEnUF,valorPesos,cambioMoneda,rutTomador,rutBeneficiario,fechaVencimiento,nomTomador,apellidoPTomador,apellidoMTomador,nomBeneficiario,apellidoPBenef,apellidoMBenef,numCuenta,glosaBoleta,unidadOf090,superuser,superpassword;llavesuper=02;operacion=OPERACION2;
+
+#EVENTO DE TIPO 16 (Liquidación de Boleta de Garantía a la vista)
+##################
+#Pesos.
+evento1560;codigo=9245;codigoSiebelTeller=9999;tipo=16;moneda=00;subtipo=1160;movCaja=E;tipoB=BOLETAT1;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+evento1580;codigo=9245;codigoSiebelTeller=9999;tipo=16;moneda=00;subtipo=1180;movCaja=E;tipoB=BOLETAT4;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+#Dolar.
+evento1600;codigo=9246;codigoSiebelTeller=9999;tipo=16;moneda=10;subtipo=1160;movCaja=E;tipoB=BOLETAT3;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+evento1620;codigo=9246;codigoSiebelTeller=9999;tipo=16;moneda=10;subtipo=1180;movCaja=E;tipoB=BOLETAT6;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+#UF.
+evento1640;codigo=9245;codigoSiebelTeller=9999;tipo=16;moneda=04;subtipo=1160;movCaja=E;tipoB=BOLETAT2;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,valorPesos,montoUF,montoReajustes,montoTotal,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+evento1660;codigo=9245;codigoSiebelTeller=9999;tipo=16;moneda=04;subtipo=1180;movCaja=E;tipoB=BOLETAT5;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,valorPesos,montoUF,montoReajustes,montoTotal,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION1;
+
+#EVENTO DE TIPO 17 (Liquidación de Boleta de Garantía con Aviso)
+##################
+#Pesos.
+evento1680;codigo=9245;codigoSiebelTeller=9999;tipo=17;moneda=00;subtipo=1160;movCaja=E;tipoB=BOLETAT8;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION2;
+evento1700;codigo=9245;codigoSiebelTeller=9999;tipo=17;moneda=00;subtipo=1180;movCaja=E;tipoB=BOLETAT7;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,montoTrx,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomtomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION2;
+
+#UF.
+evento1740;codigo=9245;codigoSiebelTeller=9999;tipo=17;moneda=04;subtipo=1160;movCaja=E;tipoB=BOLETAT10;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,valorPesos,montoUF,montoReajustes,montoTotal,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION2;
+evento1760;codigo=9245;codigoSiebelTeller=9999;tipo=17;moneda=04;subtipo=1180;movCaja=E;tipoB=BOLETAT9;nemonico=000;instrumento=E;acumula=SI;campos=numVigente,valorPesos,montoUF,montoReajustes,montoTotal,rutBeneficiario,nomBeneficiario,apellidoPBenef,apellidoMBenef,rutTomador,nomTomador,apellidoPTomador,apellidoMTomador,fechaVencimiento,unidadOf090,superuser,superpassword;llavesuper=01;operacion=OPERACION2;
+
+
+#CAMPOS DISPONIBLES PARA LOS FORMULARIOS
+########################################
+
+numVigente;nombre=numVigente;Desc=Número Vigente;
+numOperacion;nombre=numOperacion;Desc=Número Operación;
+montoTrx;nombre=montoTrx;Desc=Monto Transacción;
+rutCliente;nombre=rutCliente;Desc=Rut Cliente;
+rutTomador;nombre=rutCliente;Desc=Rut Tomador;
+nomCliente;nombre=nombreCliente;Desc=Nombre Cliente;
+apellidoPaterno;nombre=apellidoPaternoCliente;Desc=Apellido Paterno Cliente;
+apellidoMaterno;nombre=apellidoMaternoCliente;Desc=Apellido Materno Cliente;
+nomTomador;nombre=nombreCliente;Desc=Nombre Tomador;
+apellidoPTomador;nombre=apellidoPaternoCliente;Desc=Apellido Paterno Tomador;
+apellidoMTomador;nombre=apellidoMaternoCliente;Desc=Apellido Materno Tomador;
+centroCosto;nombre=centroCosto;Desc=Centro de Costo;
+oficinaDestino;nombre=oficinaDestino;Desc=Oficina de Destino;
+numCuenta;nombre=numCuenta;Desc=Cuenta Cte o Prima;
+unidadOf090;nombre=unidadOf090;Desc=Unidad de Of. 090;
+montoReajustes;nombre=montoReajustes;Desc=Monto de Reajustes;
+valorPesos;nombre=montoTrx;Desc=Monto en Pesos;
+
+#monto en UF para liquidacion
+montoUF;nombre=montoUF;Desc=Monto en UF;
+
+#monto en UF para curse
+montoEnUF;nombre=montoPagado;Desc=Monto en UF;
+
+montoTotal;nombre=montoPagado;Desc=Monto Total;
+nomBeneficiario;nombre=nomBeneficiario;Desc=Nombre Beneficiario;
+apellidoPBenef;nombre=apellidoPaternoBeneficiario;Desc=Apellido Paterno Beneficiario;
+apellidoMBenef;nombre=apellidoMaternoBeneficiario;Desc=Apellido Materno Beneficiario;
+glosaBoleta;nombre=glosa;Desc=Glosa;
+fechaVencimiento;nombre=fechaVencimiento;Desc=Fecha de Vencimiento;
+rutBeneficiario;nombre=rutBeneficiario;Desc=Rut Beneficiario;
+cambioMoneda;nombre=cambioMoneda;Desc=Tipo de Cambio;
+superuser;nombre=superUser;Desc=Id Supervisor;
+superpassword;nombre=superPassword;Desc=Clave Supervisor;
+puertaUsuarioSupervisor;puerta=WCEVCNTB/SUP;sistema=BCY;
+puertaCajeroTesorero;puerta=WCEVCNTB/SPD;sistema=BCY;
+

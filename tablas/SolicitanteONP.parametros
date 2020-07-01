@@ -1,0 +1,19 @@
+#Solicitante de Onp
+#===================
+1;Desc=Titular;
+2;Desc=Beneficiario;
+3;Desc=Juez;
+4;Desc=Titular Telefonico;
+6;Desc=Beneficiario Telefonico;
+
+
+#Mensajes a Usuario
+#==================
+MSG001;Desc=Informar al cliente el caracter provisorio de las ONP ingresadas y que debe acudir a una sucursal a efectuar la ratificación,antes de las 09:30 del día hábil siguiente.<br>Informar al cliente que al no ratificar la Onp ingresada genera un cobro por alzamiento automático de $1.716 por cada rango de cheques.;
+MSG002;Desc=Se han ingresado las siguientes Orden(es) de no pago;
+MSG003;Desc=Se generará un cargo por pago de orden de no pago por: $;
+MSG004;Desc=Se han ingresado las orden(es) de no pago, pero ocurrió un problema al tratar de;
+MSG010;Desc= ;
+MSG011;Desc=Informar al cliente que su cuenta será sobregirada por (comisión ONP + publicación) y que debe acudir a una sucursal para abonar su cuenta. Informar al cliente la comisión por Sobregiro No Pactado.;
+MSG012;Desc=*** Ingresar Tarea "Ingreso ONP Sin Saldo" al Asistente Comercial para que efectúe el proceso de cargo correspondiente en la cuenta corriente ***;
+MSG013;Desc=No hay cobro.;

@@ -1,0 +1,54 @@
+#
+#
+#Parametros paginas de exito y rechazo
+#=====================================
+URLOK100;desc=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_test_pago_soap_tdc&;
+URLNOK100;desc=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_test_pago_soap_tdc&;
+
+
+#
+#
+#URL WebPay direccion de comunicacion con el servicio de TransBank
+#=================================================================
+URLWebPay;desc=http://200.68.28.153/cgi-bin/tbk_bp_pago.cgi;
+
+#
+#Tarjetas Utilizadas
+#
+#=====================================
+454886;desc=Visa Classic -;id=VCLA;
+496617;desc=Visa Dorada -;id=VDOR;
+454812;desc=Visa Internacional -;id=VINT;
+448165;desc=Visa Platinum -;id=VPLA;
+448542;desc=Visa Purchasing -;id=VPUR;
+403351;desc=Visa Corporate -;id=VCOR;
+450600;desc=Visa Nacional -;id=VNAC;
+454851;desc=Visa Empresarial -;id=VEMP;
+450800;desc=VISA PRUEBA -;id=VPRU;
+539021;desc=MASTERCARD PRUEBA -;id=MPRU;
+552273;desc=MASTERCARD PRUEBA -;id=MPRU;
+517980;desc=Mastercard Dorada -;id=MAST;
+VCLA;desc=Visa Classic -;
+VDOR;desc=Visa Dorada -;
+VINT;desc=Visa Internacional -;
+VPLA;desc=Visa Platinum -;
+VPUR;desc=Visa Purchasing -;
+VCOR;desc=Visa Corporate -;
+VNAC;desc=Visa Nacional -;
+VEMP;desc=Visa Empresarial -;
+VPRU;desc=VISA PRUEBA -;
+MPRU;desc=MASTERCARD PRUEBA -;
+MAST;desc=Mastercard Dorada -;
+
+#
+#oferta Utilizada
+#
+#=====================================
+oferta;desc=20090420|ZZZ&Prueba CI Tbanc;
+
+#
+#condiciones
+#
+#=====================================
+CONDICIONES100;desc=http://www.tbanc.cl/TBanc/resources/images/comprasTbanc/Terminos_Condiciones.pdf;
+CONDICIONES110;desc=http://www.bci.cl/medios/personas/pehuen/Terminos_Condiciones.pdf;

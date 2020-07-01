@@ -1,0 +1,80 @@
+########################
+#Propiedades para NAMING
+########################
+NAMING;FACTORY_INITIAL=weblogic.jndi.WLInitialContextFactory;PROVIDER_URL=t3s://autmqas.bci.cl:7002;
+################################
+#Propiedades para USUARIO REMOTO
+################################
+COM_RSA_CMDCLIENT;USER=CmdClient_6tlhzdap;USER_PASSWORD=oRxv0qHIRR;
+#########################
+#Propiedades para RSA SSL
+#########################
+COM_RSA_SSL_CLIENTE_ID;STORE_PASSWORD=oRxv0qHIRR;KEY_PASSWORD=oRxv0qHIRR;
+#####################
+#Propiedades para SSL
+#####################
+IMS_SSL_CLIENT;CLIENT_PROVIDER_URL=t3s://autmqas.bci.cl:7022;IDENTITY_KEYSTORE_FILENAME=cacerts;KEY_ALIAS=client-identity;ROOT_CA_ALIAS=rsa_am_ca;
+######################
+#Propiedades para SOAP
+######################
+IMS_SOAP_CLIENT;PROVIDER_URL=https://autmqas.bci.cl:7002/ims-ws/services/CommandServer;
+#####################
+#Propiedades para USR
+#####################
+config;usr_aplicativo_id=authJeeClient;usr_aplicativo_pwd=_qazwsx.125_;jndi=ServicioDeAutentificacionYAutorizacionFacade;agente_autenticacion=/export/weblogic/oracle10.3/wlsplatform/tablas/rsasecurid/authagent.properties;
+####################
+#Propiedades para AM
+# 0:Habilitado
+# Otro:Apagado
+####################
+operacion;habilita_am_administracion=0;habilita_am_autentificacion=0;
+#operacion;habilita=0;habilita_am_autentificacion=0;
+###################################
+ERROR_AUT;ID_ERROR_INI=TK10;ID_ERROR_GEN=TK10;ID_ERROR_DEF=TK04;ACCESS_DENIED=TOKENST05;1-ACCESS_NOK=TK04;RESPUESTA_NULA=TK00;2-NEXT_CODE_REQUIRED=TK04;
+ERROR_AUT_MIA;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK10;ID_ERROR_DEF=TK04;ACCESS_DENIED=TOKENST05;1-ACCESS_NOK=TK04;RESPUESTA_NULA=TK00;2-NEXT_CODE_REQUIRED=TK04;
+############################
+#Codigo de error de bloqueo
+###########################
+ERROR_BLOQUEO;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;
+##############################
+#Codigo de error de desbloqueo
+##############################
+ERROR_DESBLOQUEO;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;
+##############################
+#Codigo de error de asignacion
+##############################
+ERROR_ASIGNA;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;
+#############################
+#Codigo de error de desasigna
+#############################
+ERROR_DESASIGNA;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;DAL_OBJECT_NOT_FOUND_BY_CRITERIA=TK00;
+###################################
+#Codigo de error de autentificacion
+###################################
+ERROR_PIN;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK05;RESPUESTA_NULA=TK00;
+#################################
+#Codigo de error de crear usuario
+#################################
+ERROR_CREAUSU;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;PRINCIPAL_USERID_EXISTS_IN_REALM=TK00;DAL_OBJECT_NOT_FOUND_BY_CRITERIA=TK00;TOKENMGT_TO
+KEN_ALREADY_ASSIGNED=TK00;
+##########################
+#Codigo de error de estado
+##########################
+ERROR_ESTADO_TKN;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK01;USUARIO_NO_EXISTE=TK05;USUARIO_SIN_TOKEN=TK05;ERROR_BUSQUEDA=TK02;TOKEN_CREADO=TOKENST03;TOKEN_BLOQUEADO
+=TOKENST07;NO_PREPARADO_AUTENTIFICACION=TOKENST06;RESPUESTA_NULA=TK00;
+ERROR_ESTADO_MLTKN;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK01;RESPUESTA_NULA=TK05;
+##################################
+#Codigo de error de sincronizacion
+##################################
+ERROR_SINC;ID_ERROR_INI=TK00;ID_ERROR_GEN=TK24;ID_ERROR_DEF=TK24;TOKENMGT_TOKENCODE_REUSE=TK24;RESPUESTA_NULA=TK00;TOKENMGT_INVALID_TOKENCODE=TK_04;DAL_OBJECT_NOT_FOUND_BY_CRITERIA=TK01;
+##################################
+#Codigo de error de eliminar token
+##################################
+ERROR_ELTK;ID_ERROR_INI=TK00;ID_ERROR_GEN=TKM-E007;RESPUESTA_NULA=TK00;
+#################################
+#Codigo de error de asignar token
+#################################
+ERROR_ASIG_TKN;ID_ERROR_GEN=TK00;RESPUESTA_NULA=TK00;USUARIO_NO_EXISTE=TK00;DAL_OBJECT_NOT_FOUND_BY_CRITERIA=TK00;TOKENMGT_TOKEN_ALREADY_ASSIGNED=TK00;TOKENM
+GT_MAX_TOKEN_ASSIGNMENTS=TK00;
+
+

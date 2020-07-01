@@ -1,0 +1,4 @@
+INT;IP=localhost;PATH=/Envio_BE;USER=ftpBE;PASS=sipebe;
+EXT;IP=localhost;PATH=/Envio_BE;USER=ftpBE;PASS=sipebe;
+OUTPUT_DTD;SYSTEM=https://www.bci.cl/WsBEL/ws_rendicion_respuesta.dtd;PUBLIC=-//BCI//DTD//ws_rendicion_respuesta.dtd;
+Carga;IP=localhost;PATH=/Recepcion_BE/websvc;USER=ftpBE;PASS=sipebe;

@@ -1,0 +1,22 @@
+# 
+# Configuración de productos
+#
+TransferenciasPersonas;producto=TRF;codigos=0002,0003,0139,0197,TUX;intentos=3;
+TransferenciasEmpresas;producto=TRF;codigos=0002,0003,0139,0197,TUX;intentos=3;
+PagosEnLinea;producto=PEL;
+Multicredito;producto=MUL;
+AbonoEnLinea;producto=ABO;codigos=0002,0003,0139,0197,TUX;intentos=3;
+TarjetaDeCredito;producto=TDC;codigos=2013,2015,-3308,3307,333,9999,-3308;intentos=3;
+ConsultaTransferencias;producto=CTF;codigos=0002,0003,0139,0197,TUX;intentos=3;
+ConsultaTransferenciasEmpresas;producto=TFE;codigos=0002,0003,0139,0197,TUX;intentos=3;
+ActualizaEstadoTransferenciasEmpresas;producto=ACT;codigos=0002,0003,0139,0197,TUX;intentos=3;
+ConciliaAltosMontos;producto=CAM;intentos=3;
+RepactaDeudaInternacional;producto=RDI;intentos=3;estado=P;
+PagosMoviles;producto=TRF;codigos=0002,0003,0139,0197,TUX,PG006,PG009;intentos=3;
+Soma;producto=VSO;intentos=3;sistemaUyP=mdpbci;
+ReversaAbonoEnLinea;producto=RAL;codigos=0002,0003,0139,0197,TUX;intentos=3;
+
+#Atributos utilizados para reproceso en la creación de linea de sobregiro y tarjeta BCI, ademas del envio de mail a traves de Latinia
+ReProcesoServicioEpiphany;delayMS=6000;intentosMaximo=1;from=info@bci.cl;fromName=Creación productos epiphany;to=rodrigo.ortiz@bci.cl;cc=rseguel@everis.com;subject=Problemas en la creación de productos de Epiphany;body=Se ha producido un error en la llamada a los tuxedos que realizan la creación de productos desde Epiphany, se ha intentado reprocesar sin exito;
+loginEnterprise;Desc=BCI;
+refContract;Desc=Banco BCI.;

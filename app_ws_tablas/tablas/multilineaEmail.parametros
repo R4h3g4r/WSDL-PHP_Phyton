@@ -1,0 +1,18 @@
+
+ANTECEDENTES DEL CREDITO
+Fecha y Hora de la Solicitud   : ${fechaHora}
+Monto del Credito              : ${montoCredito}
+Cuotas                         : ${totalVencimientos}
+Fecha 1° vencimiento           : ${fechaPrimerVcto}
+Número de operacion            : ${numeroOperacion}
+Destino del credito            : ${destinoCredito}
+Estado del Avance Multilínea   : ${opcion}
+Tasa de Interes                : ${tasaInteres}
+Estado del Avance              : ${estadoAvance}
+
+ANTECEDENTES DEL CLIENTE
+Nombre                         : ${nombreEmpresa}
+Rut                            : ${rutEmpresa}
+Banca                          : ${codBanca}
+Ejecutivo                      : ${codigoEjecutivo}
+Oficina                        : ${glosaOficina}

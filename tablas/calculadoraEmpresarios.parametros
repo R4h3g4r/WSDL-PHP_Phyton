@@ -1,0 +1,29 @@
+#################################################################
+#	Parametros de la calculadora y modulo administración		#
+#################################################################
+
+idAntiguedad;Desc=RAN12,RAN34,RAN5;
+AntiguedadGiro;RAN12=1 a 2 años;RAN34=3 a 4 años;RAN5=Más de 4 años;
+idRentabilidad;Desc=MEI10,MAE10;
+RentabilidadGiro;MAE10=>10%;MEI10=<=10%;
+Rentable;Desc=MAE10;
+EstacionesTrabajo;Desc=PERSONAS,EMPRESAS,EMPRESARIOS;
+EstTrabajoPorDefecto;Desc=PERSONAS;
+nombreParametros;Desc=VTAPROM,RENTNEG,GARREAL,TOPBONGR,TOPBON;
+giroGenerico;Desc=1;
+nombreDetalle;Desc=MERCADO OBJETIVO,INFRAESTRUCTURA MINIMA ACEPTABLE,EXPERIENCIA Y GESTION DE LOS PROPIETARIOS,FINANCIAMIENTOS TIPOS Y LIMITES,INDICES FINANCIEROS DEL NEGOCIO,GENERACION DE FONDOS,CONTROL FLUJOS,GARANTIAS,FORTALEZAS ADICIONALES BUSCADAS,EXCEPCIONES A LA POLITICA Y CAA;
+detalleCriterio;MERCADO OBJETIVO=detallemercadoobj;INFRAESTRUCTURA MINIMA ACEPTABLE=detalleinfraestruct;EXPERIENCIA Y GESTION DE LOS PROPIETARIOS=detalleexpgesprop;FINANCIAMIENTOS TIPOS Y LIMITES=detalletipfinlim;INDICES FINANCIEROS DEL NEGOCIO=detalleindfinneg;GENERACION DE FONDOS=detallegenfondos;CONTROL FLUJOS=detallectrlflujos;GARANTIAS=detallegarantias;FORTALEZAS ADICIONALES BUSCADAS=detallefortalezas;EXCEPCIONES A LA POLITICA Y CAA=detalleexcepciones;
+
+##################################################################
+#	Mensajes a Margen no calculable	por giro o valores ingresados#
+##################################################################
+
+mensajesMargen;Desc=REVISAR POLÍTICA DE CRITERIOS DE ACEPTACIÓN DE RIESGO;MargenCopado=CLIENTE CON MARGEN COPADO;
+mensajeEspecial;Desc=7;7=REVISAR PLANILLA DE TRANSPORTES;
+plantillaXls;7=/workstationwls/calculadora/xls/PlanillaTransporte.xls;
+
+#############################################
+#	valores para despliegue de resultados   #
+#############################################
+Unidad;Desc=M$;
+mensajeRecarga;Desc=Calculando...;

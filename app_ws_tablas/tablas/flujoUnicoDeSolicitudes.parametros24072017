@@ -1,0 +1,710 @@
+ESTADOS_SOLICITUD;INGRESO=10;REVISION_JEFE_CENTRO=21;REVISION_JEFE_PLATAFORMA=22;REVISION_JOF=20;RECOMENDACION=30;RECHAZADA=40;APROBADA=50;DEVUELTA=60;INSISTIDA=70;ANULADA=80;RESUELTA=90;ENVIADA=100;ENVIADARIESGO=110;ENEVALUACION=120;ENVIADAMARGEN=140;POR EVALUAR CDA=150;ENVCOMPYME=160;APRONOAUTORIZADA=210;
+
+ACCIONES_WORKFLOW_SOLICITUD;APROBAR=50;ANULAR=80;ASIGNAR=100;DEVOLVER=60;RECHAZAR=40;RECOMENDAR=30;EVALUAR=130;VERIFICAR=200;APROBADA_NOAUTORIZADA=210;LISTADO_ACCIONES=APROBAR,ANULAR,ASIGNAR,DEVOLVER,RECHAZAR,RECOMENDAR,EVALUAR,VERIFICAR,APROBACION,APROBADA_NOAUTORIZADA;ACC_RECOMENDAR=RECOMENDAR;
+
+WF_ORDENAR_DESTINATARIOS;USERID_COMINTE=COMITE-BP;COM_BP_REGIONAL=true;COM_BP_JOF=true;COM_BP_LIDERCEL=true;
+
+#===============================================
+# DATOS BASICOS
+#===============================================
+MENSAJE_NO_DISP;Desc=No Disponible Banco;
+MENSAJE_SIN_INFO;Desc=Sin Información;
+MENSAJE_EXITO_GUARDAR_DATOS_BASICOS;Desc=Los datos se guardaron Correctamente.;
+
+DATOS_BASICOS;SECTORECONOMICO=ECN;CODIGO_CASADO=CAS;CODIGO_ESTUDIANTE_UNV=EUN;CODIGO_SIT_LAB_ESTUDIANTE=IT2;CODIGO_SIT_LAB_EMPRESA=DE1,DE2,IN1,IN3;CODIGOS_VAL_ACT_EMPRESA=97001,84291;MESES_PERIODORENTA=12;CODIGO_DUENYO_CASA=95800;COD_VLD_DEPENDIENTE=DE1,DE2;SECTOR_ECONOMICO_EMPRESARIO=SEE;TIPO_ADMINISTRACION_EMPRESARIO=TAE;ANTIGUEDAD_GIRO_EMPRESARIO=AGE;
+
+CATEGORIA_CLIENTE;PERSONA_NATURAL_CON_GIRO=PERNA;PERSONA_NATURAL=PERNAT;PERSONA_JURIDICA=PERJU;
+#===============================================
+# ESTADO FINANCIERO Y VENTAS
+#===============================================
+CODIGO_APP_EST_FINAN;CODIGO=X00000000000;
+
+MENSAJE_EXITO_GUARDAR_ESTADO_FINAN;Desc=Los datos se guardaron Correctamente.;
+PERSONA_NATURAL;CODIGO=P;
+CANT_PERIODO_DESPLEGAR;EST_FINAN=2;VENTAS=2;
+VENTAS;MESES_ACT=2;COD_SIN_BALANCE=001;DIA_POR_DEFECTO=31;MES_POR_DEFECTO=12;GUARDAR_SUC=true;FEC_LIMITE=01/04/;HRS_LIMITE=23:59:59;DIA_CONSULTA=31;MES_CONSULTA=12;HRS_CONSULTA=00:00:00;
+ESTADO_FINANCIERO;COD_SIN_BALANCE=001,002,003,004;FEC_LIMITE=31/05/;HRS_LIMITE=23:59:59;DIA_CONSULTA=31;MES_CONSULTA=12;HRS_CONSULTA=00:00:00;
+
+#===============================================
+# RESOLUCION
+#===============================================
+MENSAJE_EXITO_GUARDAR_AJUSTE_GARANT;Desc=Los datos se guardaron Correctamente.;
+MENSAJE_EXITO_GUARDAR_ESTADO_SOL;Desc=Los datos se Guardaron Correctamente.;
+MENSAJE_EXITO_GUARDAR_ESTADO_EVAL_SOL;Desc=Los datos se Guardaron Correctamente.;
+
+RESOLUCION;ESTADOS_TERMINALES=3,5;COD_APP_VISACION=VIS;DIAS_ACT_SEM_ICR=2;
+TIPOS_RESOLUCION;APROBACIONDP=1;
+CODIGOS_SEMAFORO_UNIFICADO;1=R;2=A;0=V;
+
+#===============================================
+# TIPOS DE ITEM EN RESUMEN DE ESTADO SITUACION
+#===============================================
+FORWARD_ITEM;AAD=detalleDap;BR=detalleBienesRaices;VEH=detalleVehiculos;PAS=detalleParticipacionSoc;BCP=detalleBancos;CCO=detalleCasasComerciales;BLP=detalleBancos;HIP=detalleHipotecarios;OTR=detalleOtros;OTRACT=detalleOtrosActivos;
+
+#===============================================
+# Ingreso Solicitud
+#===============================================
+TIPOS_DE_SOLICITUD;listado=Evaluación Crediticia;
+
+#===============================================
+# Opciones solicitud
+#===============================================
+OPCIONES_CLIENTE_SOLICITUD;listado=Linea de Crédito,Datos Básicos,Grupo Económico y/o Aval,Estado Finan. y Ventas,Estado Sit. y Carga Finan.;path=/lineaDeCredito.do?accion=desplegarLineas,/datosBasicosCliente.do?accion=obtenerDatosBasicos,/administrarGrupoEconomico.do?accion=desplegarGrupoEconomico,/desplegarEstadoFinanciero.do?accion=obtenerListado,/desplegarEstadoSituacion.do?accion=obtenerEstadoSituacion;forward=desplegarOpciones;
+OPCIONES_CLIENTE_SOLICITUD_PYME;listado=Linea de Crédito,Datos Básicos,Grupo Económico y/o Aval,Estado Finan. y Ventas,Estado Situación,Carga Financiera;path=/lineaDeCredito.do?accion=desplegarLineas,/datosBasicosCliente.do?accion=obtenerDatosBasicos,/administrarGrupoEconomico.do?accion=desplegarGrupoEconomico,/desplegarEstadoFinanciero.do?accion=obtenerListado,/desplegarEstadoSituacion.do?accion=obtenerEstadoSituacion,/cargaFinancieraPyme.do?accion=cargarCargaFinancieraPymeManual;forward=desplegarOpciones;
+
+#=================================
+#Tipos de Bandejas en ciclo de Solicitudes
+#=================================
+BANDEJAS;ENTRADA=1;TRABAJO=2;SALIDA=3;
+OPCIONES_WORKFLOW_SOLICITUD;listado=Bandeja Entrada,Bandeja Trabajo,Bandeja Salida,Seguimiento operaciones;path=/buscarSolicitudesWF.do?accion=obtenerSolicitudes,/buscarSolicitudesWF.do?accion=obtenerSolicitudes,/buscarSolicitudesWF.do?accion=obtenerSolicitudes,/buscarSolicitudesWF.do?accion=obtenerSolicitudes;forward=bandejaSolicitudes;codigos=ENTRADA,TRABAJO,SALIDA,SEG_OPE;
+OPCIONES_WF_SOLICITUD_CONTENEDOR;listado=Ciclo Solicitudes,Asignación Solicitudes,Búsqueda Solicitud,Rescatar Asignacion,Asignación Solicitudes Pyme;codigos=CICLO,ASIGNAR,BUSQUEDA,RESCATAR,ASIGNAR_PYME;path=/administrarCicloSolicitudes.do?accion=iniciarCicloSolicitudes,/asignarSolicitudes.do?accion=iniciarAsignacion,/administrarCicloSolicitudes.do?accion=iniciarBusquedaSolicitudes,/administrarCicloSolicitudes.do?accion=iniciarRescatarAsignacion,/asignarSolicitudesPyme.do?accion=desplegarBandejaAsignacion;forward=contenedorCicloSolicitudes;
+
+
+#=================================
+#Claves Busqueda de solicitudes.
+#=================================
+OPCIONES_WF_BUSQUEDA_SOLICITUD;CANTIDAD_MAXIMA_REGISTRO=100;CODIGO-EJECUTIVO-RIESGO=EJECUTIVO BP;
+CODIGOS-EJECUTIVOS-NORM;LISTA_EJECUTIVOS=ZONAL_NOR,JZONAL_NOR,GTE_ZON_NOR;ZONAL_NOR=true;JZONAL_NOR=true;GTE_ZON_NOR=true;
+CODIGOS-EJECUTIVOS-PYME-ASIGNACION;LISTA_EJECUTIVOS=ZONAL_PYME,GTE_REG_PYME;ZONAL_PYME=true;GTE_REG_PYME=true;
+CODIGOS-EJECUTIVOS-PYME-REASIGNAR;LISTA_EJECUTIVOS=ZONAL_NOR,ZONAL_PYME,GTE_REG_PYME;ZONAL_NOR=true;ZONAL_PYME=true;GTE_REG_PYME=true;
+CODIGOS-EJECUTIVOS-RIESGO-PYME;LISTA_EJECUTIVOS=ZONAL_PYME,GTE_REG_PYME,ZONAL_NOR,JZONAL_NOR,GTE_ZON_NOR;ZONAL_PYME=true;GTE_REG_PYME=true;ZONAL_NOR=true;JZONAL_NOR=true;GTE_ZON_NOR=true;
+CODIGOS-EJECUTIVOS-COMERCIAL-PYME;LISTA_EJECUTIVOS=EJECELULA,EJE_COM,EJE_VENTAS,EJE_LEASING,JCE,JPE,REGIONAL,SUP_VENTAS,SUP_LEASING;EJECELULA=true;EJE_COM=true;EJE_VENTAS=true;EJE_LEASING=true;SUP_VENTAS=true;SUP_LEASING=true;JCE=true;JPE=true;REGIONAL=true;
+ 
+#=================================
+#Claves Busqueda de solicitudes para Pyme.
+#=================================  
+CODIGOS-EJECUTIVOS-PYME;LISTA_EJECUTIVOS=ZONAL_NOR,JZONAL_NOR,GTE_ZON_NOR,ZONAL_PYME,GTE_REG_PYME;
+CODIGOS-JEFES-PYME;LISTA_EJECUTIVOS=JCE,JPE;JCE=true;JPE=true;
+CODIGOS-EJECUTIVOS-COMERCIAL-CELULA;LISTA_EJECUTIVOS=EJECELULA,EJE_COM;EJECELULA=true;EJE_COM=true;
+CODIGOS-EJECUTIVOS-GERENCIAL;LISTA_EJECUTIVOS=JZONAL_NOR,GTE_ZON_NOR,ZONAL_PYME,GTE_REG_PYME;JZONAL_NOR=true;GTE_ZON_NOR=true;ZONAL_PYME=true;GTE_REG_PYME=true;EJE_COM=false;EJE_LEASING=false;EJE_VENTAS=false;JCE=false;JPE=false;REGIONAL=false;REGIONAL_COM=false;SUP_LEASING=false;SUP_VENTAS=false;ZONAL_NOR=false;
+CODIGOS-EJECUTIVOS-LEASING;LISTA_EJECUTIVOS=EJE_LEASING,SUP_LEASING;SUP_LEASING=true;
+CODIGOS-EJECUTIVOS-VENTAS;LISTA_EJECUTIVOS=EJE_VENTAS,SUP_VENTAS;SUP_VENTAS=true;
+  
+#=============================================================================
+#Perfiles para las opciones despegadas en forma parametrica al cliente.
+#=============================================================================
+PERFILES_OPCIONES_WF_SOLICITUD_CONTENEDOR;VALIDAR=true;VISTA_ASIGNAR=VST_SUC_WORKF;ACCION_ASIGNAR=ACC_ASIGNAR;VISTA_RESCATAR=VST_SUC_WORKF;ACCION_RESCATAR=VIS_REASIG;VISTA_ASIGNAR_PYME=VST_SUC_WORKF;ACCION_ASIGNAR_PYME=ACC_ASIGNAR;VISTA_RESCATAR_PYME=VST_SUC_WORKF;ACCION_RESCATAR_PYME=VIS_REASIG;
+PERFILES_OPCIONES_WORKFLOW_SOLICITUD;VALIDAR=true;VISTA_SEG_OPE=VST_SUC_WORKF;ACCION_SEG_OPE=VIS_SEG_OPE;
+
+#=================================
+#Grupo de Parámetros
+#=================================
+GRUPO_PARAMETRO;TIPO_DEUDA_PORCENTAJE=TDP;TIPO_BIEN=BR;TIPO_DEUDA=TD;TIPO_GARANTIA=TGA;SUB_TIPO_ACTIVO=AAD;TIPO_CREDITOS-BLP=CRL;TIPO_CREDITOS-BCP=CRC;CASA_COMERCIALES=CCO;TIPO_HIPOTECARIO=HIP;GRUPO=GPE;PRESENTACION=CLP;PERSPECTIVA=PSP;TRASPASOBANCA=TSB;UNIVERSIDADES=UNV;FACTOR_ANUAL_CARGA_FINANCIERA=FAC;FACTOR_MENSUAL_CARGA_FINANCIERA=FMC;
+
+#=================================
+#Estado Situacion
+#=================================
+ESTADO_SITUACION;MESES_CADUCIDAD=12;
+RUT_EMPRESA;CODIGO=E;
+CODIGO_ITEM;ACTIVOS=ACT;PASIVOS=PAS;PATRIMONIO=PAT;BIEN_RAIZ=BR;INVERSIONES=AAD;VEHICULOS=VEH;
+
+#=================================
+#Datos de FTP para SUC
+#=================================
+FTP_SUC;SERVER=161.131.232.7;USER=ftpsolic;PASSWORD=fsolic;PATH=/succorporativa/ftp/in;
+ARCHIVO;tamanio=2097152;
+
+#=================================
+#Analisis Solicitud
+#=================================
+ANALISIS;CANTIDAD_OBS=8;CANT_COMENTARIOS_USUARIOS=5;OBS_HISTORIA=HIS;OBS_RECOMEND=SRE;OBS_COMENT=COM;OBS_BALANC=CBL;OBS_EST_RESUL=CER;OBS_HECHOS_REL=HR;OBS_OTROS=OTR;OBS_COMENT_USUARIOS=COU;
+BLOQUEA_ANALISIS;EST_SOLICITUD=40,50,80,110,140,120,160,210;FILTRO_ENVIADA_COMITEPYME=160;
+JEFATURAS;EJECELULA=EJE_COM,JCE,JPE;EJE_COM=JCE,JPE;EJE_LEASING=JCE,JPE,SUP_LEASING;EJE_VENTAS=SUP_VENTAS,JCE,JPE;
+HABILITA_COMENTARIOS;ESTADOS_SOLICITUD=50,40,60;
+
+#=================================
+#Ciclo Solicitud
+#=================================
+CICLO_SOLICITUD;cantidadDiasAnterior=5;
+
+#=================================
+#Linea de Credito
+#=================================
+DETALLE_LINEA_CREDITO;TIPOS_LINEA_DETALLE=CHP,ANT,LPH,DSP;CODIGO_SIN_GARANTIA=S;CODIGO_GARNTIA_CONJUNTA=Y;CODIGO_GARNTIA_INDISTINTA=O;CANT_MAXIMA_GARANTIAS=9;CODIGO_LDC_NUEVA=N;
+DETALLE_CREDITO_HIPOTECARIO;financiamiento=CHP;tipoCredito=THP;tipoBien=TBN;pie=PIE;objetivo=OBJ;antiguedadVivienda=AVI;plazoMaximo=PMX;tiposAval=TAV;COD_POSEE_AVAL=S;
+DETALLE_PREGRADO;financiamiento=TFP;carreras=PRF;
+DETALLE_POSTGRADO;financiamiento=TFO;grados=GRA;
+GARANTIAS;clave=0;tasacion=Tasado,Por Tasar;tasacionCodigo=T,P;vigencia=Vigente,Nueva;vigenciaCodigo=V,N;V=Vigente;N=Nueva;P=Por Tasar;T=Tasado;cobertura=A,E,G;glosaCobertura=Ambas,Específica,General;A=Ambas;E=Específica;G=General;
+GARANTIAS_REGISTRADAS;tiposVigencia=Vigente,No Vigente,Alzamiento;valoresTipos=VI,NV,AL;VI=Vigente;NV=No Vigente;AL=Alzamiento;ALZAMIENTO=AL;NOVIGENTE=NV;
+VALIDAR_INGRESO_GARANTIAS;O=true;U=true;Y=true;S=false;
+TIPOS_LINEA;LDC_SOBREGIRO_CTACTE= LSB;LDC_SOBREGIRO_BP=LSP;TARJETA_CREDITO_PER=TCP ;CREDITO_CONSUMO=CMO;MULTICREDITO=LCR;LINEA_EMERGENCIA=LEM;CREDITO_HIPOTECARIO=CHP;PRESTAMO_HIPOTECARIO=LPH;CREDITO_PREGRADO=ANT;CREDITO_POSTGRADO=DSP;CORFO_ESTUDIANTE=CFO;
+
+INYECCION_MARGEN;MAX_REINTENTOS=0;TIEMPO_ESPERA=60000;OBS_CAMBIO_EST=Solicitud Enviada a Margen.;DIFERENCIA_ANYOS_PERIODO_VIG=2;ESTADO_LDC_ACTIVA=A;CANAL_APROBACION_MTR=16;CANAL_APROBACION_SUC=15;MAXIMO_DIAS_PERIODO_VIG=999;COD_CLF_VERIFICADA=V;MONEDA_DOLAR_IBM=101301;MONEDA_PESOS_IBM=0999;MONEDA_UF_IBM=0998;CANAL_APROBACION_SUC_PYME_CDA=19;CANAL_APROBACION_SUC_PYME=18;
+
+ERROR_INYECCION;FALLO_ACT_IN_MAR=0000;FALLO_IN_MAR=0001;ERROR_DATOS=002;ERROR_MODIFICACION=003;ERROR_INGRESO=004;CAMBIO_ESTADO_NOK=005;CAMBIO_ESTADO_ERR=006;ERROR_ACTIVACION=007;
+GLOSA_INYECCION;INYECCION_CORRECTA=Rut [**] Nº de solicitud [--]. La inyección a margen se realizó en forma correcta pero, no se logro realizar la activación del margen inyectado.;FALLO_ACT_IN_MAR=Rut [**] Nº de solicitud [--]. No se actualizó el estado de la inyección a margen.;FALLO_IN_MAR=Rut [**] Nº de solicitud [--]. No se logró realizar la inyección a margen.;ERROR_DATOS=Rut [**] Nº de solicitud [--]. La solicitud no posee todos los datos necesarios para realizar la inyección a margen.;ERROR_MODIFICACION=Rut [**] Nº de solicitud [--]. No se logró actualizar el margen del cliente.;ERROR_INGRESO=Rut [**] Nº de solicitud [--]. No se logró ingresar el margen del cliente.;CAMBIO_ESTADO_OK=Nº de solicitud [--]. El cambio de estado de la solicitud fue exitoso.;CAMBIO_ESTADO_NOK=Nº de solicitud [--]. No se realizó el cambio de estado de la solicitud.;CAMBIO_ESTADO_ERR=Nº de solicitud [--]. No se logró realizar el cambio de estado para la solicitud.;INYECT_INT_ANT=Rut [**] Nº de solicitud [--]. El margen del cliente fue inyectado y activado en un intento anterior.;SUP_MAX_INT=Rut [**] Nº de solicitud [--]. Se ha sobrepasado el número de intentos permitidos para la inyección a Margen.;INYECCION_ACTIVADA=Rut [**] Nº de solicitud [--]. El margen del cliente fue inyectado y activado.;
+ACTIVACION_MARGEN;GLOSA_ACT_OK=Margen Activado en forma correcta.;GLOSA_INGRESADA_OK=Margen Ingresado en forma correcta.;GLOSA_ACTUALIZADA_OK=Margen actualizado en forma correcta.;GLOSA_ACT_NOK=No se logro activar el margen para el cliente.;GLOSA_EXIST_MRG=Existe margen en IBM pero, no se encuentra almacenado en la SUC.;
+VALIDACIONES_INY_MARGEN;COD_FIANZA_SOLIDARIA=FIA;COD_AVAL=AVL;
+
+#===============================================
+# Mensaje nº de intentos inyección a margen. 
+#===============================================
+INTENTOS_INYECCION;MSG_ERR=No se logro obtener el número de intentos restantes para la inyección a margen;MSG_DISP=Intentos de inyección disponibles: [XX];
+
+#=================================
+#Correo electrónico cambio estado de la solicitud.
+#=================================
+DATOS_CORREO_CAMBIO_ESTADO;NOMBRE_CORREO_ORIGEN=No Responder;CORREO_ORIGEN=noresponder@bci.cl;ASUNTO=Cambio de Estado Solicitud **;EXTENSION=@bci.cl;FIRMA=Correo generado automáticamente por el sistema 'SUC';NUMERO_LINEAS=2;
+LINEA_1_CUERPO;DESC=Estimado colaborador. ;
+LINEA_2_CUERPO;DESC=Se ha realizado un cambio en la solicitud Nº ** A través de la aplicación SUC (Solicitud Única de Créditos).;
+
+#=================================
+#Relacionados Solicitud
+#=================================
+RELACIONADOS;anyosRelacionados=-10;cantidadMaximaEvaluacion=6;
+
+#=================================
+#Grupo Económico solicitante
+#=================================
+GRUPO_ECONOMICO;MAX_INTEGRANTES=7;
+GRUPO_ECONOMICO_ALERTA;Desc=Recuerde que debe ingresar estado de situación y carga financiera para los socios que no está administrando.;
+#=================================
+#Validaciones Vista/acción
+#=================================
+VISTAS;DATOS_BASICOS=VST_SUC_CLIENTE;GRUPO_ECONOMICO=VST_SUC_CLIENTE;EST_FINAN=VST_SUC_CLIENTE;LIN_CRED=VST_SUC_CLIENTE;ANALISIS=VST_SUC_CLIENTE;ASIGNAR_SOL=VST_SUC_WORKF;
+ACCIONES;DATOS_BASICOS=VIS_DATOSBASIC;GRUPO_ECONOMICO=VIS_GRUPOECON;EST_FINAN=VIS_ESTFINAN;LIN_CRED=VIS_LGC;ANALISIS=VIS_ANALISIS;ASIGNAR_SOL=ACC_ASIGNAR;
+TIPO_BUSQUEDA;ACTIVA=no;
+
+#=================================
+#Dias de carga financiera actualizada.
+#=================================
+DIAS_MAX_CARGA_FINACIERA;DIAS=15;
+
+#=================================
+#Valores utilizados durante las impresiones.
+#=================================
+VALORES_DEFECTO_IMPRESION;NO_APLICA=N/A;PORCENTAJE=0;NO_DISPONIBLE=N/D;FUENTE_INGRESO=Otros;GLOSA_EXCEDENTE=EXCEDENTE;GLOSA_DEFICIT=DÉFICIT;
+IMPRESION_SUC;XML_IMP_SUC=/impresion/solicitud/solicitudDeCredito.xml;XSL_IMP_SUC=flujounicodesolicitudes/informeSolicitudCredito.xsl;XML_IMP_SUC_PYME=/impresion/solicitud/solicitudDeCreditoPyme.xml;XSL_IMP_SUC_PYME=flujounicodesolicitudes/informeSolicitudCreditoPyme.xsl;XML_IMP_ANS=/impresion/solicitud/analisisSolicitudDeCredito.xml;XSL_IMP_ANS=flujounicodesolicitudes/analisisSolicitudCredito.xsl;DESCARGA_IMP_ANALI=true;DESCARGA_IMP_SUC=false;NOM_IMP_ANALI=Analisis_solicitud;NOM_IMP_SUC=Solicitud_credito;
+IMPRESION_CUADRO_HIP;CHP=true;LPH=true;
+
+#=================================
+#Errores que poseen requerimientos especiales dentro de la SUC.
+#=================================
+COD_ERRORES;SIN_RELACIONADOS=ESPECIAL;
+DESC_ERRORES;SIN_RELACIONADOS=NO EXISTEN RELACIONES;SIN_MARGEN=CLIENTE SIN MARGEN;CLIENTE_NO_EXISTE=CLIENTE NO EXISTE;MARGEN_ACTIVADO=CALIFICACION YA ACTIVADA;
+
+#===============================================
+# CODIGOS ACTIVIDADES DE CLIENTES
+#===============================================
+ACTIVIDADES_COD;COD=15041,31219,53026,61561,93400;
+
+#=================================
+#Estados de solicitud que se debe realiza validación exhaustiva .
+#=================================
+VALIDACION_DE_SOLICITUD;APROBAR=SI;RECHAZAR=NO;RECOMENDAR=SI;DEVOLVER=NO;ANULAR=NO;EVALUAR=SI;APROBADA_EMP=SI;
+
+#=================================
+#Condiciones de garantías para las cuales se valida que se posea al menos una garantía válida.
+#=================================
+VALIDACION_DE_GARANTIAS;O=true;S=false;U=true;Y=true;
+
+#=================================
+#Mensajes de validación de solicitud.(categorías: ERROR, ALERTA, INFO)
+#=================================
+VALIDA_TIENE_SECTOR_ECONOMICO;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Sector Económico;
+VALIDA_TIENE_FECHA_NACIMIENTO;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra fecha de nacimiento;
+VALIDA_TIENE_RUT_CONYUGE;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra el RUT del cónyuge;
+VALIDA_TIENE_RENTA_CONYUGE;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra la renta fija o variable del cónyuge;
+VALIDA_TIENE_RENTA_SOLICITANTE;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra la renta fija o variable del solicitante;
+VALIDA_TIENE_PERIODO_RENTA_FIJA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registran periodo de Renta Fija;
+VALIDA_RENTA_FIJA_CADUCADA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=Renta Fija  del solicitante esta caducada, debe ser menor a [XX] meses ;
+VALIDA_TIENE_PERIODO_RENTA_VARIABLE;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registran periodo de Renta Variable;
+VALIDA_RENTA_VARIABLE_CADUCADA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=Renta Variable  del solicitante esta caducada, debe ser menor a [XX] meses;
+VALIDA_TIENE_NOMBRE_UNIVERSIDAD;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra nombre de la universidad;
+VALIDA_TIENE_ANYO_UNIVERSIDAD;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra año ingreso universidad;
+VALIDA_TIENE_CARRERA_UNIVERSIDAD;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se indica carrera universidad;
+VALIDA_TIENE_DATOS_EMPLEADOR;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registran datos del empleador;
+VALIDA_TIENE_FECHA_PRIMERA_CTA_CTE;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Fecha Cuenta Corriente;
+VALIDA_TIENE_SEGMENTO;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Segmento;
+VALIDA_TIENE_PLAN;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Tipo de Plan;
+VALIDA_TIENE_FECHA_INICIO;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Fecha de Inicio;
+VALIDA_TIENE_BANCA_EMPRESA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Banca Empresa;
+VALIDA_TIENE_CATEGORIA_EMPRESA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Categoría Empresa;
+VALIDA_ACTIVIDAD_NO_ESPECIFICADA_EMPRESA;CATEGORIA=ALERTA;MODULO=Datos Básicos;GLOSA_MENSAJE=No se registra Actividad de la empresa, debe ingresarla en datos básicos;
+VALIDA_CADUCIDAD_ESTADO_SITUACION;CATEGORIA=ALERTA;MODULO=Estado Situación;GLOSA_MENSAJE=Estado situación caducada, debe ser menor a [XX] meses;
+VALIDA_CARGA_FINACIERA_CADUCADA;CATEGORIA=ALERTA;MODULO=Carga Financiera;GLOSA_MENSAJE=Carga financiera caducada, debe ser menor a [XX] días;
+VALIDA_TIENE_ESTADO_FINANCIERO_ACTUAL;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=No se registra Estado Financiero para periodo actual;
+VALIDA_TIENE_ESTADO_FINANCIERO_ANTERIOR;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=No se registra Estado Financiero para periodo anterior;
+VALIDA_ESTADO_FINANCIERO_ACTUAL_CADUCADA;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=Estado Financiero actual caducado;
+VALIDA_ESTADO_FINANCIERO_ANTERIOR_CADUCADA;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=Estado Financiero anterior caducado;
+VALIDA_TIENE_VENTAS_ACTUAL;CATEGORIA=ALERTA;MODULO=Ventas;GLOSA_MENSAJE=No se registran Ventas para el periodo actual;
+VALIDA_TIENE_VENTAS_ANTERIOR;CATEGORIA=ALERTA;MODULO=Ventas;GLOSA_MENSAJE=No se registran Ventas para el periodo anterior;
+VALIDA_VENTA_RETRAZO;CATEGORIA=ALERTA;MODULO=Ventas;GLOSA_MENSAJE=Ventas con retraso, debe ser menor a [XX] meses;
+VALIDA_BALANCE_CADUCADO;CATEGORIA=ALERTA;MODULO=Ventas;GLOSA_MENSAJE=Balance para año [XX] esta caducado;
+VALIDA_TIENE_SEMAFORO_FILTRO_RIESGO;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=No se ha generado el Semáforo de Filtro de Riesgo;
+VALIDA_TIENE_SEMAFORO_CARGA_FINACIERA;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=No se ha generado el Semáforo de Carga Financiera;
+VALIDA_TIENE_SEMAFORO_PATRIMONIO;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=No se ha generado el Semáforo de Patrimonio;
+VALIDA_ULTIMOS_ESTADOS_FINANCIEROS;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=No existen estados financieros para los periodos: [XX];
+VALIDA_EXISTENCIA_VENTAS;CATEGORIA=ALERTA;MODULO=Ventas;GLOSA_MENSAJE=No existen ventas para los periodos: [XX];
+
+#====================================================================================
+#Mensajes de validación Línea de crédito solicitada - CLF y LDC. (categorías: ERROR, ALERTA, INFO)
+#====================================================================================
+
+VALIDA_CLF_SIN_DATOS;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No se registra línea de crédito solicitada.;
+VALIDA_CLF_TIENE_MONTO;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No se registra Margen Global solicitado en pesos.;
+VALIDA_CLF_TIENE_MONTO_UF;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No se registra Margen Global solicitado en UF.;
+VALIDA_CLF_TIENE_MONEDA;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No se indica la moneda para Margen.;
+VALIDA_CLF_FECHA_VENC;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Fecha de Vencimiento para el margen global solicitado se encuentra desactualizada.;
+VALIDA_CLF_PLAZO_VENC;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Línea global solicitada posee un plazo superior a los [XX] meses.;
+
+VALIDA_LDC_SIN_DATOS;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No se registran Líneas de Créditos solicitadas.;
+VALIDA_LDC_MONTOS_CERO;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas de crédito poseen monto máximo igual a cero: [XX].;
+VALIDA_LDC_MONTOS_MAYOR_CLF;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas de crédito poseen monto máximo superior al margen global: [XX].;
+VALIDA_LDC_VENC;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas de crédito poseen su fecha de vencimiento desactualizada: [XX].;
+VALIDA_LDC_VENC_MAYOR_CLF;CATEGORIA=ALERTA;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas de crédito poseen un vencimiento superior al margen global: [XX].;
+VALIDA_LDC_PLAZO_VENC;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes línea de crédito poseen un plazo superior a su límite en meses: [XX].;
+VALIDA_LDC_GARANTIAS;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas deben tener al menos una garantía: [XX].;
+VALIDA_LDC_GARANTIAS_INV;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas poseen garantías inválidas (No poseen tipo o subtipo o cobertura): [XX].;
+VALIDA_LDC_SIN_COND_CON_GAR;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas deberían tener Condición de garantías: [XX].;
+VALIDA_LINEA_REPETIDAS;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=No es posible ingresar las siguientes líneas más de una vez para el cliente: [XX].;
+VALIDA_LDC_GARANTIAS_REP;CATEGORIA=ERROR;MODULO=Línea de Crédito;GLOSA_MENSAJE=Las siguientes líneas poseen tipos de garantías repetidas: [XX].;
+
+#====================================================================================
+#Mensajes de validación clonación Línea de crédito. (categorías: ERROR, ALERTA, INFO)
+#====================================================================================
+VALIDA_CLONACION_VENC_MARGEN_SOLICITADO;CATEGORIA=ALERTA;MODULO=Línea de Crédito;GLOSA_MENSAJE=Fecha de Vencimiento para el margen global solicitado se encuentra desactualizada.;
+VALIDA_CLONACION_FECHA_VENCIMIENTO_LDC_DESACT;CATEGORIA=ALERTA;MODULO=Línea de Crédito;GLOSA_MENSAJE=La fecha de vencimiento de la línea de crédito clonada se encuentra desactualizada.;
+VALIDA_CLONACION_VENC_LDC_MAYOR_A_MARGEN;CATEGORIA=ALERTA;MODULO=Línea de Crédito;GLOSA_MENSAJE=La fecha de vencimiento de la línea de crédito clonada es mayor que el vencimiento del margen global solicitado.;
+VALIDA_CLONACION_MONTOS_LDC_MAYOR_A_MARGEN;CATEGORIA=ALERTA;MODULO=Línea de Crédito;GLOSA_MENSAJE=El monto máximo de la línea de crédito clonada es mayor al monto máximo del margen global solicitado.;
+
+#===============================================================
+# Código Tipo Relación desde Servicio asociado al código en base de datos SUC
+#===============================================================
+COD_TIPO_RELACION_VALIDO_DESDE_SERVICIO;CD=SOC;DC=DC;SP=SP;EMSOC=SOC;FUSOC=SOC;
+
+#===============================================================
+# Código Tipo Relación valido para la pestaña del Grupo Economico de la Suc automatica.
+#===============================================================
+COD_TIPO_RELACION_VALIDO_SUC_AUTOMATICA;CD=SOC;DC=DC;SP=SP;EMSOC=SOC;FUSOC=SOC;
+
+#===============================================================
+# Código Tipo Relación valido impresion de relacionados de un cliente desde base de datos SUC.
+#===============================================================
+COD_TIPO_RELACION_VALIDO_DESDE_BD_SUC;CD=SOC;DC=DC;SP=SP;EMSOC=SOC;FUSOC=SOC;AV=AVA;CY=CNY;OTRO=OTR;
+
+#===============================================
+# CODIGOS REASIGNACION SOLICITUD
+#===============================================
+REASIGNACION_COD;OBSERVACION=Envío a Reasignacion de Solcitud;MENSAJE_EXITO_GUARDAR=Los datos se Guardaron Correctamente.;
+
+#===============================================================
+# Datos Web Services para conectarse al Motor de Decisión
+#===============================================================
+
+#Servicio virtualizado para planes
+#WebService;path=http://161.131.140.76:9080/PRX_MotorDeRiesgo?wsdl;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_110;path=http://161.131.140.76:9080/PRX_MotorDeRiesgo?wsdl;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_captura;path=http://161.131.140.76:9080/PRX_MotorDeRiesgo?wsdl;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+
+#Desarrollo
+#WebService;path=http://b2bdesa.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_captura;path=http://b2bdesa.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_110;path=http://b2bdesa.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+
+#Certificación
+WebService;path=http://b2bcert.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+WebService_captura;path=http://b2bcert.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+WebService_110;path=http://b2bcert.bci.cl:9050/esb/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=alsbcert;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+
+#Producción
+#WebService;path=http://alsb.bci.cl/esb/intranet/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_captura;path=http://alsb.bci.cl/esb/intranet/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+#WebService_110;path=http://alsb.bci.cl/esb/personas/productos/colocaciones/solicitudes/EvaluacionCreditoService?WSDL;sistemaOSB=wlsalsb;timeout=2;INVESTIGAR=Investigate;APROBADA=Approve;RECHAZADA=Decline;estadoDecisionFinal=Final;XML_ENTRADA=/solicitud/solicitud_persona_captura.xml;XML_SALIDA_SOLICITUD=/respuesta/respuesta_motor_evaluacion_aut.xml;
+
+#===============================================================
+# Motor de decisiones Evaluación automática.
+#===============================================================
+CAMBIO_CODIGO_LDC_CDA;Hipotecario=CHP;Cons_Libre_Dispon=CMO;Linea_Sobregiro=LSP;Tjta_Credito=TCP;Cons_Compra_Cart=CCA;ANT=ANT;BAS=BAS;BCE=BCE;BEM=BEM;CFO=CFO;CLI=CLI;CPC=CPC;DCP=DCP;DLP=DLP;DSP=DSP;EFC=EFC;FCE=FCE;FCF=FCF;FCT=FCT;FEM=FEM;L01=L01;L09=L09;L2A=L2A;LBE=LBE;LBG=LBG;LCP=LCP;LCR=LCR;LDD=LDD;LEA=LEA;LEM=LEM;LEX=LEX;LFU=LFU;LME=LME;LPH=LPH;LSB=LSB;LSE=LSE;LTC=LTC;MLE=MLE;MLI=MLI;MLT=MLT;MMD=MMD;OPS=OPS;PYM=PYM;STB=STB;TAB=TAB;YBO=YBO;Hipotecario_Fines_Generales=CHP;
+CONSULTA_TARJETAS_CREDITO;CODIGO_INTERNACIONAL=I;CODIGO_NACIONAL=N;
+CONSULTA_PRODUCTOS_VIGENTES;CODIGO_CREDITOS_VIGENTES=CRDVIG;CODIGO_LINEA_SOBRREGIRO=lsg;
+
+ES_PRODUCTO_CONSUMO;CCN418=true;CCN419=true;CCN420=true;CCN421=true;CCN422=true;CCN423=true;CCN424=true;CCN425=true;CCN426=true;CCN427=true;CCN428=true;CCN429=true;CCN430=true;CCN431=true;CCN432=true;CCN433=true;CCN434=true;CCN435=true;CCN436=true;CCN437=true;CCN438=true;CCN439=true;CCN440=true;CCN441=true;CCN442=true;CCN443=true;CCN444=true;CCN445=true;CCN446=true;CCN447=true;CCN448=true;CCN449=true;CCN451=true;CCN454=true;CCN455=true;CCN470=true;CCN471=true;CCN480=true;CCN484=true;CCN489=true;CCN490=true;CCN500=true;CCN530=true;CCN531=true;CCN538=true;CCN539=true;CCN541=true;CCN561=true;CCN562=true;CCN566=true;CCN567=true;CCN568=true;CCN640=true;CCN641=true;CCN646=true;CCN647=true;CCN650=true;CCN656=true;CCN666=true;CCN668=true;CCN675=true;CCN685=true;CCN724=true;CCN725=true;CCN729=true;CCN730=true;CCN731=true;CCN732=true;CCN733=true;CCN734=true;CCN736=true;CCN737=true;CCN738=true;CCN739=true;CCN740=true;CCN741=true;CCN745=true;CCN748=true;CCN751=true;CCN780=true;CCN781=true;CCN981=true;CON001=true;CON002=true;CON004=true;CON006=true;CON007=true;CON009=true;CON011=true;CON012=true;CON014=true;CON015=true;CON016=true;CON017=true;CON020=true;CON023=true;CON050=true;CON051=true;CON052=true;CON070=true;CON071=true;CON072=true;CON077=true;CON078=true;CON081=true;CON100=true;CON115=true;CON129=true;CON130=true;CON204=true;CON222=true;CON300=true;CON301=true;CON302=true;CON310=true;CON313=true;CON319=true;CON320=true;CON333=true;CON360=true;CON361=true;CON368=true;CON369=true;CON370=true;CON371=true;CON372=true;CON373=true;CON374=true;CON375=true;CON376=true;CON377=true;CON402=true;CON405=true;CON417=true;CON423=true;CON424=true;CON440=true;CON445=true;CON450=true;CON456=true;CON457=true;CON460=true;CON465=true;CON467=true;CON478=true;CON479=true;CON480=true;CON481=true;CON482=true;CON483=true;CON484=true;CON485=true;CON486=true;CON487=true;CON488=true;CON494=true;CON499=true;CON500=true;CON501=true;CON502=true;CON509=true;CON510=true;CON517=true;CON518=true;CON523=true;CON524=true;CON550=true;CON575=true;CON602=true;CON605=true;CON607=true;CON610=true;CON611=true;CON614=true;CON615=true;CON617=true;CON619=true;CON620=true;CON624=true;CON627=true;CON628=true;CON629=true;CON630=true;CON660=true;CON670=true;CON675=true;CON676=true;CON677=true;CON678=true;CON679=true;CON680=true;CON706=true;CON707=true;CON708=true;CON709=true;CON717=true;CON719=true;CON721=true;CON724=true;CON730=true;CON731=true;CON732=true;CON735=true;CON736=true;CON739=true;CON740=true;CON751=true;CON752=true;CON800=true;CON801=true;CON823=true;CON891=true;CON892=true;CON893=true;CON896=true;CON902=true;CON905=true;CON907=true;CON910=true;CON911=true;CON918=true;CON919=true;CON920=true;CON921=true;CON922=true;CON929=true;CON930=true;CON935=true;CON936=true;CON937=true;CON940=true;CON941=true;CON942=true;CON943=true;CON951=true;CON952=true;CON960=true;CON961=true;CON962=true;CON980=true;CON981=true;CON984=true;ECA101=true;ECA103=true;PAF309=true;PAF416=true;PAF711=true;PAF822=true;PAP005=true;PAP018=true;PAP024=true;PAP031=true;PAP033=true;PAP215=true;PAP322=true;PAP324=true;PAP325=true;PAP328=true;PAP329=true;PAP330=true;PAP400=true;PAP490=true;PAP491=true;PAP492=true;PAP493=true;PAP494=true;PAP523=true;PAP524=true;PAP616=true;PAP621=true;SOB937=true;SOB938=true;SOB939=true;PAP702=true;PAP717=true;PAP718=true;PAP723=true;PAP922=true;TCR552=true;TCR661=true;PAP623=true;PAP624=true;TCR818=true;TCR903=true;VDE528=true;VDE530=true;TCR821=true;TCR824=true;
+ES_PRODUCTO_MULTICREDITO;ALR500=true;ALR510=true;ALR540=true;ALR600=true;ALR650=true;ALR700=true;ALR780=true;DDE020=true;
+ES_PRODUCTO_COMPRACARTERA;TODOS=false;
+ES_PRODUCTO_COMERCIAL;COM=true;CEX=true;MLE=true;COMB02=true;COMF01=true;COMF02=true;COMF03=true;COMF04=true;COMF07=true;COMF10=true;COMF11=true;COMV01=true;COMV02=true;COMV03=true;COMV04=true;COMV05=true;COMV06=true;COMV07=true;COMV08=true;COMV09=true;COMV11=true;COMV12=true;COMV19=true;COM001=true;COM005=true;COM006=true;COM008=true;COM009=true;COM013=true;COM014=true;COM015=true;COM021=true;COM023=true;COM025=true;COM049=true;COM050=true;COM051=true;COM052=true;COM053=true;COM066=true;COM070=true;COM081=true;COM085=true;COM100=true;COM101=true;COM102=true;COM106=true;COM118=true;COM121=true;COM123=true;COM127=true;COM128=true;COM131=true;COM132=true;COM133=true;COM134=true;COM137=true;COM138=true;COM140=true;COM143=true;COM150=true;COM151=true;COM152=true;COM153=true;COM154=true;COM155=true;COM166=true;COM177=true;COM187=true;COM188=true;COM201=true;COM207=true;COM209=true;COM213=true;COM232=true;COM233=true;COM234=true;COM240=true;COM241=true;COM245=true;COM246=true;COM247=true;COM248=true;COM249=true;COM250=true;COM251=true;COM252=true;COM253=true;COM254=true;COM255=true;COM266=true;COM277=true;COM287=true;COM288=true;COM289=true;COM291=true;COM299=true;COM301=true;COM302=true;COM303=true;COM304=true;COM306=true;COM307=true;COM308=true;COM311=true;COM312=true;COM313=true;COM314=true;COM315=true;COM318=true;COM323=true;COM327=true;COM328=true;COM329=true;COM330=true;COM331=true;COM334=true;COM335=true;COM336=true;COM337=true;COM338=true;COM339=true;COM340=true;COM341=true;COM343=true;COM344=true;COM345=true;COM346=true;COM347=true;COM348=true;COM349=true;COM350=true;COM353=true;COM354=true;COM355=true;COM356=true;COM357=true;COM358=true;COM359=true;COM363=true;COM364=true;COM366=true;COM367=true;COM368=true;COM378=true;COM380=true;COM381=true;COM390=true;COM391=true;COM393=true;COM394=true;COM395=true;COM396=true;COM399=true;COM400=true;COM415=true;COM418=true;COM425=true;COM427=true;COM428=true;COM429=true;COM430=true;COM431=true;COM433=true;COM437=true;COM438=true;COM454=true;COM457=true;COM458=true;COM460=true;COM461=true;COM462=true;COM463=true;COM464=true;COM465=true;COM466=true;COM467=true;COM468=true;COM469=true;COM470=true;COM471=true;COM472=true;COM473=true;COM474=true;COM475=true;COM476=true;COM477=true;COM478=true;COM479=true;COM480=true;COM481=true;COM482=true;COM483=true;COM484=true;COM485=true;COM486=true;COM487=true;COM488=true;COM489=true;COM490=true;COM491=true;COM492=true;COM493=true;COM494=true;COM495=true;COM496=true;COM497=true;COM498=true;COM499=true;COM500=true;COM501=true;COM502=true;COM503=true;COM504=true;COM505=true;COM507=true;COM510=true;COM511=true;COM512=true;COM513=true;COM514=true;COM515=true;COM516=true;COM522=true;COM525=true;COM537=true;COM538=true;COM547=true;COM558=true;COM561=true;COM569=true;COM571=true;COM572=true;COM573=true;COM574=true;COM577=true;COM578=true;COM591=true;COM592=true;COM593=true;COM603=true;COM604=true;COM606=true;COM607=true;COM610=true;COM637=true;COM641=true;COM642=true;COM648=true;COM650=true;COM651=true;COM674=true;COM681=true;COM682=true;COM683=true;COM684=true;COM694=true;COM695=true;COM705=true;COM708=true;COM712=true;COM722=true;COM732=true;COM733=true;COM734=true;COM737=true;COM738=true;COM753=true;COM754=true;COM755=true;COM758=true;COM759=true;COM761=true;COM765=true;COM766=true;COM800=true;COM801=true;COM802=true;COM803=true;COM804=true;COM805=true;COM806=true;COM807=true;COM808=true;COM809=true;COM810=true;COM811=true;COM819=true;COM830=true;COM840=true;COM850=true;COM860=true;COM901=true;COM903=true;COM904=true;COM906=true;COM907=true;COM915=true;COM916=true;COM918=true;COM919=true;COM921=true;COM924=true;COM927=true;COM928=true;COM930=true;COM931=true;COM932=true;COM935=true;COM936=true;COM950=true;COM951=true;COM952=true;COM960=true;COM961=true;COM962=true;COM963=true;COM970=true;COM980=true;COM981=true;COM982=true;COM983=true;COM996=true;COM997=true;COM998=true;PCF711=true;PCP621=true;
+
+OBSERVACION_CDA;USUARIO_RESOLUTOR=EVAL_AUT;CHIP_CCA=S;OBSERVACION_AUT=Solicitud evaluada por el motor de decisiones banca personas.;OBS_COMPRA_CART=Crédito Compra de Cartera por M$[xx] hasta 60 meses plazo con lo cual se cancela total deuda corto plazo No BCI. Emitir Vale Vista Nominativo;OBSERVACION_MAXIMA=Según tramo de Renta Líquida Mensual y de acuerdo a Política, Cliente califica para una Carga Financiera Máxima de [bb]% y para un Nivel de Endeudamiento Máximo de [cc] Veces Renta;OBSERVACION_REAL=Cliente presenta hoy una Carga Financiera real de [dd]% y un endeudamiento de [ee] Veces Renta;
+OBSERVACION_CDA_POR_PRODUCTO;Cons_Libre_Dispon=Credito Consumo Libre Disponibilidad:M$ [xx], a [yy] meses plazo;Cons_Compra_Cart=Credito Consumo Compra Cartera:M$ [xx], a [yy] meses plazo;LEM=LEM:M$ [xx];Linea_Sobregiro=Linea Sobregiro:M$ [xx];LCR=Multicredito:M$ [xx];Tjta_Credito=Tarjeta de Credito:M$ [xx];Hipotecario=Hipotecario Vivienda:UF [xx], a [yy] años plazo, con [zz] % de financiamiento;
+
+#====================Observación hipotecaio===========================
+OBS_CHIP_CONJ;Desc=Conforme, se aprueba Mutuo Hipotecario vivienda cuyo monto máximo a financiar no podrá exceder el [zz]% del menor valor entre precio de venta y/o tasación, con tope UF[xx] hasta [yy] años plazo. Operación debe contar con aval propuesto rut [aa] y seguro de desgravamen 100% para cada uno. Pie debe estar acreditado con recursos propios previo al curse.;
+OBS_CHIP_CONJ_CCA;Desc=Conforme, se aprueba Mutuo Hipotecario vivienda cuyo monto máximo a financiar no podrá exceder el [zz]% del valor  tasación, con tope UF[xx] hasta [yy] años plazo y destino compra deuda hipotecaria otra institución. Operación debe contar con aval propuesto rut [aa] y seguro de desgravamen 100% para cada uno. Operar con carta de resguardo la cual debe estar debidamente visada por fiscalía.;
+OBS_CHIP_UNIC_CCA;Desc=Conforme, se aprueba Mutuo Hipotecario vivienda cuyo monto máximo a financiar no podrá exceder el [zz]% del valor  tasación, con tope UF[xx] hasta [yy] años plazo y destino compra deuda hipotecaria otra institución. Operar con carta de resguardo la cual debe estar debidamente visada por fiscalía.;
+OBS_CHIP_UNIC;Desc=Conforme, se aprueba Mutuo Hipotecario vivienda cuyo monto máximo a financiar no podrá exceder el [zz]% del menor valor entre precio de venta y/o tasación, con tope UF[xx] hasta [yy] años plazo. Pie debe estar acreditado con recursos propios previo al curse.;
+#=================Termino Observación hipotecaio=========================
+
+MONEDAS_POR_PRODUCTO_MOTOR;Cons_Libre_Dispon=999;LCR=999;Hipotecario=998;Linea_Sobregiro=999;Tjta_Credito=999;LEM=999;Cons_Compra_Cart=999;DEFAULT=998;
+MONEDAS_POR_LINEAS_MOTOR;CMO=999;LCR=999;CHP=998;LSP=999;TCP=999;LEM=999;CCA=999;DEFAULT=998;
+
+GLOSA_MONEDA_MOTOR;999=M$;998=UF;
+
+VIGENCIA_OFERTAS_MOTOR;CODIGO_NUEVA_MTR=Nueva;CODIGO_VIGENTE_MTR=Vigente;Nueva=N;Vigente=V;
+
+SOLICITANTE_CDA;CLI_TITULAR=Titular;COD_DEPENDIENTE=Dependiente;COD_EXTRANJERO=Extranjero;COD_CHILENO=Chileno;CLI_CASADO=CAS;CLI_CONYUGE=Conyuge;CLI_HIPOTECARIO=Hipotecario;CLI_DISTINTO_A_CONYUGE=Distinto de Conyuge;CLI_AVAL=Aval;CLI_SIN_AVAL=Sin aval;COD_CLI_TITULAR_TARJ_CRED=T;COD_INDEFINIDO=Indefinido;CLI_DISTINTO_A_CONYUGE_CAPTURA=Distinto de Conyuge;
+
+CAMBIO_CODIGO_LDC_SUBPROD;LSP=Linea_Sobregiro;LSB=Linea_Sobregiro;LSE=Linea_Sobregiro;TCP=Tjta_Credito;LTC=Tjta_Credito;CMO=Cons_Libre_Dispon;LBR=Cons_Libre_Dispon;LEM=LEM;CHP=Hipotecario;LPH=Hipotecario;LCR=LCR;CCA=Cons_Compra_Cart;
+
+CAMBIO_CODIGO_CND_GTIA;O=indistinta;S=sin garantia;U=unica;Y=conjunta;conjunta=Y;indistinta=O;unica=U;sin garantia=S;
+
+MENSAJE_ESTADO_EVAL;DSP_INVESTIGATE=true;DSP_APPROVE=false;DSP_DECLINE=false;MSG_INVESTIGATE=Remitir vía SUC a comité;APPROVE=;DECLINE=;ENVIADA_JOF=Solicitud enviada a JOF;
+
+#Plazo que se colocará a las líneas de crédito que se ingresen a SUC al ser otorgadas por el motor de decisiones. Si no se enceuntra en esta clase la LDC se asume plazo 1 año.
+PLAZO_LDC_MTR;CMO=5;LCR=5;LSP=1;TCP=1;LEM=1;CCA=5;
+
+#Códigos utilizados para las rentas del cliente.
+RENTAS_EVAL_MTR;ACTUALIZADA=A;UTILIZADA=U;
+
+#===============================================================
+# Evaluación Filtros de Riesgo para Motor de decisiones CDA.
+#===============================================================
+EVAL_FILTROS_RIESGO_MTR;COD_APP=MTR_EVAL_SOL;COD_CANAL=150;LISTA_FILTROS=1,3,4,5,6,8,15,16,18,20,21,22,33,34;
+
+#===============================================================
+# Tag anexos al xml de entrada al Motor de Decisión
+#===============================================================
+TAG_INICIO_XML;tag=<Application DeliveryOptionCode="Personas" ProcessingRequestType="DA"> <CreditRequest ProductCategory="Persona" ProductCode="Cruce_Basico"/> ;
+TAG_FIN_XML;tag=</Application> ;
+
+#===============================================================
+#Número de reinsistencias para la extracción de variables
+#===============================================================
+REINSISTENCIA;total=3;
+
+#===============================================
+# CONFIGURACION DE LAS OBSERVACIONES PARA LA SUC
+#===============================================
+OBSERVACIONES;LARGO_MAXIMO_PARAMETROS=250;CANT_PAR_REASIG=5;CANT_PAR_EST_SOL=5;CANT_PAR_ANALISIS=5;
+
+#====================================================================================
+#Configuración para las validaciones de la solicitud.
+#====================================================================================
+LDC_NO_PERMITE_DUPLICADAS;LISTA=CCA,LCR,LEM,LSB,LSE,LSP,LTC,MLE,MLI,MLT,TAB,TCP,LOP,CDP,LCX,LBP,FAP,COP,LTP,LLP,LKP,CPP,CXP,BPP,FPP,CRP,FTP,LPU,CHV,HFG,LEP,LSO,LRR;
+LDC_SUPERA_MONTO_CLF;ANT=false;BEM=false;CCA=false;CFO=false;CHP=false;CMO=false;DSP=false;FCT=false;FEM=false;L01=false;L09=false;L2A=false;LBE=false;LBG=false;LBR=false;LCP=false;LCR=false;LDD=false;LEA=false;LEM=false;LFU=false;LME=false;LPH=false;LSB=false;LSE=false;LSP=false;LTC=false;MLE=false;MLI=false;MLT=false;ODC=false;PYM=false;TAB=false;TCP=false;LEI=false;LOP=false;CDP=false;LCX=false;LBP=false;FAP=false;COP=false;LTP=false;LLP=false;LKP=false;CPP=false;CXP=false;BPP=false;FPP=false;CRP=false;FTP=false;LPU=false;CHV=false;HFG=false;LEP=false;LSO=false;LRR=false;
+LDC_SUPERA_VCMTO_CLF;ANT=true;BEM=true;CCA=true;CFO=true;CHP=true;CMO=true;DSP=true;FCT=true;FEM=true;L01=true;L09=true;L2A=true;LBE=true;LBG=true;LBR=true;LCP=true;LCR=true;LDD=true;LEA=true;LEM=false;LFU=true;LME=true;LPH=true;LSB=false;LSE=false;LSP=false;LTC=false;MLE=true;MLI=true;MLT=true;ODC=true;PYM=true;TAB=true;TCP=false;LEI=true;LOP=false;CDP=true;LCX=false;LBP=true;FAP=false;COP=true;LTP=false;LLP=true;LKP=true;CPP=true;CXP=true;BPP=true;FPP=true;CRP=true;FTP=true;LPU=true;CHV=true;HFG=true;LEP=false;LSO=false;LRR=true;
+
+
+PLAZO_MAXIMO_CLF;MESES=19;
+PLAZO_MAXIMO_LDC;ANT=84;BEM=18;CCA=84;CFO=84;CHP=360;CMO=96;DSP=84;FCT=18;FEM=84;L01=18;L09=144;L2A=18;LBE=60;LBG=60;LBR=18;LCP=18;LCR=96;LDD=18;LEA=60;LEM=18;LFU=120;LME=60;LPH=240;LSB=18;LSE=18;LSP=18;LTC=18;MLE=60;MLI=60;MLT=24;ODC=18;PYM=60;TAB=60;TCP=18;LEI=180;LOP=19;CDP=37;LCX=19;LBP=24;FAP=19;COP=61;LTP=19;LLP=36;LKP=19;CPP=145;CXP=19;BPP=48;FPP=19;CRP=61;FTP=19;LPU=181;CHV=370;HFG=250;LEP=19;LSO=19;LRR=84;
+
+#====================================================================================
+#Configuración JMS obtención de datos de los solictantes en una evaluación automática.
+#====================================================================================
+DATOS_SOLICITANTES_EAS_JMS;TIEMPO_DE_ESPERA=40000;
+
+
+#===============================================
+# CONFIGURACION MAPEO CODIGOS SUC - CDA 
+#===============================================
+CAMBIO_CODIGO_LDC_EST_CIVIL;SEP=DIVORCIADO;
+
+#==============================================================================================
+# Configuración JMS para el proceso de inyección en SUC de los xmls de solicitud y respuesta desde la evaluación automática de solicitudes (EAS).
+#==============================================================================================
+RESPUESTAEAS_CONNECTIONFACTORY_JMS;nombre=RespuestaEASConnectionFactory;
+RESPUESTAEAS_COLAENVIO;nombre=respuestaEvaluacionAutomaticaDeCreditoDistributedQueue;
+
+#===============================================
+# CONFIGURACION XMLS DE MAPEO PROCESO MASIVO 
+#===============================================
+RUTA_XML_MAPEO;solicitud=/solicitud/solicitud_persona_pm.xml;respuesta=/respuesta/respuesta_motor_evaluacion_aut_pm.xml;
+
+#========================================================================================
+# CONFIGURACION UTILIZADA PARA LA ACTUALIZACIÓN DEL SEGMENTO DEL TITULAR DE LA SOLICITUD.
+#========================================================================================
+ACT_SEGMENTO;REALIZA_ACT=true;ACCION_ACTUALIZAR=UPD;
+
+#========================================================================================
+# RESTRICCIONES DE INGRESO DE GARANTIA
+#========================================================================================
+RESTRICCION_GARANTIA;COD_UNICO=AVA,FIA,001,002,003,004,005,006,007,008,009,010,011,013,017,018,019,020,021,030,031,042,043,045,046,048,052,055,063,084,086,089,090,091,092,194,100,101,102,103,106,107,108,109;
+
+#========================================================================================
+# EJECUTIVO SOLICITUDES EEFF WEB
+#========================================================================================
+EJECUTIVO;CODEJEC=EJECEMP;NOMEJEC=Ejecutivo Empresa;
+
+#========================================================================================
+# CONFIGURACION UTILIZADA PARA LA AUDITORIA DE CONSULTAS A SOLICITUDES.
+#========================================================================================
+SUC_LOG_CONFIG;HABILITADO=true;CNS_MAX_LOG=5;
+
+#========================================================================================
+# CODIGO TIPO SOLICITUD ABREVIADA
+#========================================================================================
+TPO_SUC_DATA_AUX;CDA_SOLICITUD=1;
+
+#========================================================================================
+# LISTADO REINSISTENCIA
+#========================================================================================
+ESTADOS_REINSISTENCIA;LISTADO=APROBADA,RECHAZADA,DEVUELTA,INSISTIDA;CODIGOS=50,40,60,70;
+
+#========================================================================================
+# CONFIGURACION FILTRO SUCURSAL
+#========================================================================================
+FILTRO_SUCURSAL;CODIGO=OK;
+LISTA_SUCURSAL_SELECCIONADA;CODIGO=10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,100,101,102,103,104,105,106,107,108,110,116,117,118,120,121,122,123,124,125,126,127,128,129,130,131,132,134,136,137,138,139,141,142,143,144,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,219,220,221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250,251,252,253,254,256,257,258,259,260,261,262,263,264,265,266,267,268,269,270,271,272,274,275,276,277,278,279,280,287,288,289,291,292,293,295,296,297,298,299,311,312,313,314,315,316,318,319,320,321,322,323,324,325,326,327,328,329,330,331,332,333,334,335,337,339,341,342,344,345,346,347,348,349,350,351,352,353,354,355,357,358,359,360,361,362,363,364,365,366,367,368,369,370,371,372,373,374,375,376,377,378,379,380,381,382,383,384,385,386,387,388,389,390,391,392,393,394,396,397,398,400,401,402,403,404,405,406,407,408,410,411,415,416,417,424,426,451,454,455,490,491,501,510,511,512,513,514,515,520,521,522,526,527,533,551,552,554,555,559,576,585,586,587,600,606,609,610,616,617,618,619,626,627,629,630,632,634,635,637,639,640,641,642,644,645,647,652,657,661,662,665,667,669,670,676,677,680,681,702,707,742,817,910,927;
+VALIDACION_INGRESO_FLUJO_AUTOMATICO;VALIDA_DIAS_RECHAZO=true;DIAS_POSEE_RECHAZO=30;
+#========================================================================================
+# TIPO DE DATO LOG EVALUACION SOLICITUD ABREVIADA
+#========================================================================================
+TIPO_DATO;ESTADO_CIVIL=10;RUT_CONYUGE=20;RENTA_CONYUGE=30;LISTADO_DATOS=ESTADO_CIVIL,RUT_CONYUGE,RENTA_CONYUGE;
+
+#========================================================================================
+#LISTADO A IMPRIMIR EN BANCAS PYME
+#========================================================================================
+LISTA_BANCAS_PYME;CODIGO=PM,PME,PMN,PMR;
+#========================================================================================
+# MENSAJE ERROR CREACION SOLICITUD EMPRESARIO
+#========================================================================================
+MENSAJE_ERROR_EMPRESARIO;mensaje=;desc=Cliente no puede ser evaluado por esta vía, debe ser canalizado por Aprocred;
+MENSAJE_ERROR_EMPRESARIO_BANCA_RETAIL;mensaje=;desc=Cliente pertenece a banco Empresario, por lo que debe ingresar solicitud por Everest Empresario;
+#========================================================================================
+# COLOR SEMAFORO 
+#========================================================================================
+COLOR;rojo=R;verde=V;amarillo=A;
+
+#========================================================================================
+# VALOR SEMAFORO EBITDA
+#========================================================================================
+EBITDA;valor=0;
+
+#========================================================================================
+# VALOR SEMAFORO RESULTADO OPERACIONAL
+#========================================================================================
+RESULTADO_OPERACIONAL;valor=10;
+
+#========================================================================================
+# VALOR SEMAFORO TASA RIESGO
+#========================================================================================
+TASA_RIESGO;valor=2;
+
+#========================================================================================
+# VALOR SEMAFORO PATRIMONIO
+#========================================================================================
+PATRIMONIO;valor=0;
+
+#========================================================================================
+# PORCENTAJE LIMITE DE VARIACION PARA CALCULO INCONSISTENCIA VENTAS
+#========================================================================================
+INCONSISTENCIA_VENTAS;valor=10;
+
+#========================================================================================
+# ANTIGUEDAD CALIFICACION
+#========================================================================================
+ANT_CALIFICACION;valor_vencida=12;valor_recalificar=6;
+
+#========================================================================================
+# MENSAJE CALIFICACION
+#========================================================================================
+MSJ_CALIFICACION; mensaje_vencida=Calificación inexistente o vencida, por lo que debe calificar al cliente;mensaje_recalificar=Cliente con antigüedad de la calificación superior a la permitida, por lo que debe recalificar;
+
+#========================================================================================
+# ALERTAS VALIDACION EMPRESARIO (categorías: ERROR, ALERTA, INFO)
+#========================================================================================
+VALIDA_PATRIMONIO_GRUPO;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Grupo con Patrimonio negativo.;
+VALIDA_GASTO_FINANCIERO_RESULTADO_OPERACIONAL;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Gastos financieros exceden el 10% del Resultado Operacional.;
+VALIDA_EBITDA;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=EBITDA Negativo.;
+VALIDA_TASA_RIESGO_INTEGRAL;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Tasa de  riesgo mayor a Punto de corte.;
+VALIDA_CLIENTE_SIN_BALANCE;CATEGORIA=ALERTA;MODULO=Estado Financiero;GLOSA_MENSAJE=Cliente no tiene balance actualizado o sin balance.;
+VALIDA_INCONSISTENCIA_VENTAS;CATEGORIA=ALERTA;MODULO=Venta;GLOSA_MENSAJE=Inconsistencia en ventas. (Esta será cuando: la suma de los Ventas del último año completo ingresado, tiene una variación de un 10% con las ventas registradas en el balance de mismo año de comparación).;
+VALIDA_CLIENTE_SIN_VENTA;CATEGORIA=ALERTA;MODULO=Venta;GLOSA_MENSAJE=Cliente no tiene ventas ingresadas.;
+VALIDA_CALIFICACION_VIGENTE;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Cliente requiere calificación vigente.;
+VALIDA_DATOS_BASICOS_EMPRESARIO;CATEGORIA=ERROR;MODULO=Datos Básicos;GLOSA_MENSAJE=Debe completar datos básicos.;
+VALIDA_RIB;CATEGORIA=ALERTA;MODULO=Análisis;GLOSA_MENSAJE=RIB. (Del análisis, debe estar llenado cada uno de los cuadros con algún texto).;
+VALIDA_VIGENCIA_RELACION;CATEGORIA=ALERTA;MODULO=Grupo Económico y/o Aval;GLOSA_MENSAJE=Relación societaria inexistente o no actualizada por lo que previamente se debe reingresar (ART 85), esto es un requisito de la SBIF.;
+VALIDA_VIGENCIA_RELACION_CRITICA;CATEGORIA=ERROR;MODULO=Grupo Económico y/o Aval;GLOSA_MENSAJE=Relación societaria inexistente o no actualizada por lo que previamente se debe reingresar (ART 85), esto es un requisito de la SBIF.;
+VALIDA_CALIFICACION_VENCIDA_CRITICO;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Cliente presenta calificación desactualizada o inexistente, por lo que debe calificarlo.;
+VALIDA_CALIFICACION_VENCIDA_ADVERTENCIA;CATEGORIA=ALERTA;MODULO=Semáforo;GLOSA_MENSAJE=Cliente potencialmente a ser calificado dado nivel de endeudamiento cercano al tope.;
+VALIDA_ATRIBUCION_GARANTIA_CUENTACORRIENTE;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se puede resolver operaciones de clientes nuevos o con antiguedad de cuenta corriente menor a la permitida.;
+VALIDA_ATRIBUCION_GARANTIA_PI_CALIFICACION;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se puede resolver operaciones de clientes con probabilidad de incumplimiento mayor a la permitida o con el valor de calificación individual actual.;
+VALIDA_ATRIBUCION_GARANTIA_PERSPECTIVA;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se puede resolver operaciones de clientes con estrategias de riesgo no permitidas.;
+VALIDA_ATRIBUCION_GARANTIA_MARCASEGUIMIENTO;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se puede resolver operaciones de clientes con marca de seguimiento.;
+VALIDA_ATRIBUCION_GARANTIA_FILTRORIESGO;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se puede resolver operaciones de clientes con filtros de riesgo duro y/o blando.;
+VALIDA_ATRIBUCION_SIN_REGISTROBBDD_FILTRORIESGO;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No existe registro de filtros de riesgo, por tanto, solo podrá recomendar: (ODS 1).; 
+VALIDA_ATRIBUCION_SIN_REGISTRO_FILTRORIESGO;CATEGORIA=ERROR;MODULO=Semáforo;GLOSA_MENSAJE=No se logro obtener información de filtros de riesgo, por tanto, solo podrá recomendar: (ODS 2).;
+
+#========================================================================================
+# ALERTAS A OMITIR EMPRESARIO
+#========================================================================================
+ALERTAS_OMITIDAS;valor=VALIDA_TIENE_SECTOR_ECONOMICO#VALIDA_TIENE_FECHA_NACIMIENTO#VALIDA_TIENE_RENTA_CONYUGE#VALIDA_TIENE_RENTA_SOLICITANTE#VALIDA_TIENE_PERIODO_RENTA_FIJA#VALIDA_RENTA_FIJA_CADUCADA#VALIDA_TIENE_PERIODO_RENTA_VARIABLE#VALIDA_RENTA_VARIABLE_CADUCADA#VALIDA_TIENE_NOMBRE_UNIVERSIDAD#VALIDA_TIENE_ANYO_UNIVERSIDAD#VALIDA_TIENE_CARRERA_UNIVERSIDAD#VALIDA_TIENE_DATOS_EMPLEADOR#VALIDA_TIENE_FECHA_PRIMERA_CTA_CTE#VALIDA_TIENE_SEGMENTO#VALIDA_TIENE_PLAN#VALIDA_TIENE_FECHA_INICIO#VALIDA_TIENE_BANCA_EMPRESA#VALIDA_TIENE_CATEGORIA_EMPRESA#VALIDA_CADUCIDAD_ESTADO_SITUACION#VALIDA_CARGA_FINACIERA_CADUCADA#VALIDA_VENTA_RETRAZO#VALIDA_TIENE_SEMAFORO_FILTRO_RIESGO#VALIDA_TIENE_SEMAFORO_CARGA_FINACIERA#VALIDA_TIENE_SEMAFORO_PATRIMONIO#VALIDA_BALANCE_CADUCADO#VALIDA_ACTIVIDAD_NO_ESPECIFICADA_EMPRESA#VALIDA_ESTADO_FINANCIERO_ACTUAL_CADUCADA#VALIDA_ESTADO_FINANCIERO_ANTERIOR_CADUCADA#VALIDA_CLF_TIENE_MONTO#VALIDA_CLF_TIENE_MONEDA#VALIDA_LDC_GARANTIAS_REP;
+
+#========================================================================================
+# TOPE DEUDA CALIFICACION
+#========================================================================================
+DEUDA_CALIFICACION;valor=380;
+MONTO_MAXIMO_CRITICO;valor=500000;
+MONTO_MAXIMO_ADVERTENCIA;valor=480000;
+
+#========================================================================================
+# ANTIGUEDAD MAXIMA PARA RELACIONES CLIENTE
+#========================================================================================
+ANTIGUEDAD_MAXIMA_EN_MESES;valor=24;
+#========================================================================================
+# Mapeo codigos Datos Basicos BCI - Solicitud Abreviada
+#========================================================================================
+MAPEO_CODIGOS_DATOS_BASICOS;CHILENO=997;
+
+MSJ-LEY-QUIEBRA;Desc=Cliente acogido a Ley de Quiebras. LLamar anexo 39046. Carta Rechazo nº9;
+COD-LIN-APROX-DEC-MIL;valor=CMO,CCA;
+COD-LIN-APROX-DEC-MIL-ARRIBA;valor=TCP,LSP,LEM;
+#========================================================================================
+# Mapeo codigos Datos Basicos BCI - Solicitud Abreviada
+#========================================================================================
+DIVIDENDO_CALCULADO;TASA=0.03;
+
+#========================================================================================
+# Valores cuota minima vs carga real
+#========================================================================================
+CUOTA_MINIMA_COMERCIAL_MAYORUF;valor=0.007;
+CUOTA_MINIMA_COMERCIAL_MENORUF;valor=0.05;
+CUOTA_MINIMA_CONSUMO;valor=0.028;
+CUOTA_MINIMA_HIPO;valor=0.007;
+
+#=======================================================================================
+# Encabezado XML que será enviado a CDA
+#=======================================================================================
+
+ENCABEZADO;plantilla_defecto=<Application DeliveryOptionCode="_DELIVERY_" ProcessingRequestType="_PROCESING_"><CreditRequest ProductCategory="_CATEGORY_" ProductCode="_CODE_"/>;
+
+#=======================================================================================
+# Parámetros de los productos para aplicar el porcentaje en el cálculo de carga financiera
+#=======================================================================================
+
+TIPO_DEUDA_CALCULO;LSG=Linea Sobregiro;TDC=Tarjeta de Crédito;CEXT=Comercio Exterior;CLI=Capital de Trabajo;COMC=Comercial;CONS=Consumo;FCT=Factoring;HIP=Hipotecario;LBG=Boleta de Garantía;LEAS=Leasing;LEM=Lem;OCRCP=Otro Tipo de Crédito de Corto Plazo;OCRLP=Otro Tipo de Crédito de Largo Plazo;
+TIPO_DEUDA_CALCULO_PORCENTAJE;LSGP=LSGP;TDCP=TDCP;CEXP=CEXP;CLIP=CLIP;LBGP=LBGP;LEMP=LEMP;OCLPP=OCLPP;FCTP=FCTP;
+TIPO_DEUDA_CALCULO_CARGA;LSG=LSG;TDC=TDC;CEXT=CEXT;CLI=CLI;COMC=COMC;CONS=CONS;FCT=FCT;HIP=HIP;LBG=LBG;LEAS=LEAS;LEM=LEM;OCRCP=OCRCP;OCRLP=OCRLP;
+
+#=======================================================================================
+# Productos check CDA
+#=======================================================================================
+PRODUCTOS;CRU=Linea_Sobregiro,Tjta_Credito,Cons_Libre_Dispon,Cons_Compra_Cart,LEM;CRUPU=Linea_Sobregiro,Tjta_Credito,LEM;HIPO=Hipotecario;
+
+#=======================================================================================
+# Productos check CDA
+#=======================================================================================
+VAR_CONVENIO;DEFAULT=Sin Convenio;CON=Con Convenio;SIN=Sin Convenio;
+
+#=======================================================================================
+# Ejecutivos RIESGO COLABORADOR
+#=======================================================================================
+
+EJECUTIVOS_N;nombres=COMITE-BP COLABORADOR,COMITE-BP COLABORADOR,COMITE-BP COLABORADOR,COMITE-BP COLABORADOR,Alejandra Meza Pozo,Carolina Gonzalez Pardo,Paola Gonzalez Orellana,Sara Jimenez Vasconcellos,Carolina Cabezas Mosca,Karina Bello Arce,Cristian Salinas Carreño,Ximena Norambuena,Verónica Valenzuela Tobar,Ana Claudia Pizarro,Marta Ortega,Patricia Garcia,Cecilia Neira,Paula Miranda,Jose Saez,Sergio Bravo;
+EJECUTIVOS_C;codigos=MMONSAR,LRAMOS,CLARENA,LESPINJ,AMEZA,CGONZAP,PAGONZA,SJIMENE,CCABEZM,KBELLO,CSALINC,XNORAMB,VVALETO,APIZARR,MORTEGR,PGARCIR,CNEIRAV,PMIRAMA,JSAEZ,SBRAVO;
+
+
+#=======================================================================================
+# Validación EJECUTIVO CLIENTE COLABORADOR
+#=======================================================================================
+OPCION_COLABORADOR_ACTIVO;ingeso_como_colaborador=true;
+TIPO_ACTIVIDAD_COLABORADOR;KEY_99001=99001;KEY_99002=99002;
+TIPO_PLAN_COLABORADOR;KEY_Y=Y;KEY_W=W;
+TIPO_CLIENTE_COLABORADOR;KEY_EE=EE;KEY_FI=FI;
+TIPO_BANCA_COLABORADOR;KEY_PP=PP;KEY_PR=PRE;
+VIGENCIA_CAMPANIA;KEY_24=24;
+ACCIONES_COLABORADOR;COD=VST_SUC_COLB;
+ACCION_COLABORADOR;COD=ACC_SUC_COLB;
+CARGO_VALIDA_INGSOLI;CLAVE=EJECUTIVO|JOF;
+
+#===============================================
+# Opciones Paso 3 Suc automatica PYME
+#===============================================
+OPCIONES_SUC_AUTO_PYME;listado=Datos Básicos,Grupo Económico y/o Aval,Estado Finan. y Ventas,Estado Situación., Carga Financiera.;path=/datosBasicosCliente.do?accion=obtenerDatosBasicos;
+
+#========================================================================================
+# CANTIDAD DE MESES A CONSULTAR SOLICITUD RECHAZADAS
+#========================================================================================
+SOLICITUD_RECHAZADA;DIAS=0;TRES_MESES=90;
+SOLICITUD_EVALUADAS;DIAS=90;
+
+#========================================================================================
+# POSEE RUT MAYOR A 50 MILLONES
+#========================================================================================
+VALIDA_RUT_FLUJO;RUT_LIMITE=50000000;
+
+#===============================================================
+# Validacion segun flujo CODIGO SII.
+#===============================================================
+FLUJO_CODIGO_SII;ACT.RESTR=RECHAZAR;CAR2=AUTOMATICA;CAR=MANUAL;RECHAZAR=RECHAZAR;OBSERVACION=Se rechaza la solicitud por tener un código de actividad SII restringido.;CODIGO_INDICADOR_CAR=CAR2;
+
+#===============================================================
+# Validacion flag normaliza segun estado de la solicitud.
+#===============================================================
+CHECK_FLAG;HABILITAR=INGRESADA,REVISION JEFE CENTRO,REVISION JEFE PLATAFORMA;
+ACCION;GLOSA=ASIGNAR;
+
+#=======================================================================================
+# Alerta error vaciado de balances
+#=======================================================================================
+ALERTA_ERROR;origen=Web;ok=OK;nok=NOK;
+#===============================================================
+# Parametro servicio SUC para proceso CHIP
+#===============================================================
+TIPOS_LINEA_CHIP;valor=CHP,LPH;
+#===============================================================
+# Tipos de CRUCES
+#===============================================================
+TIPOS_CRUCES;valor=CRU,CRUPU,CRUPMC;
+
+#===============================================================
+#Flag Temporal para validar si el usuario se encuentra registrado en la tabla de nivel de atribuciones con o sin garantías
+#===============================================================
+VALIDAR_USUARIO;valor=S;
+
+#===============================================================
+#WORKFLOW SOLICITUDES
+#===============================================================
+ESTADOS_DEVOLVER_RECHAZAR_APROBAR;listado=60,40,50;
+AREA_COMERCIAL;LISTADO=INGRESADA,REVISION_EJECUTIVO,REVISION_JOF,REVISION_JEFE_CENTRO,REVISION_JEFE_PLATAFORMA,RECOMENDADA,RECHAZADA,APROBADA,DEVUELTA,INSISTIDA,RESUELTA,ENVIADA,ENVIADA_RIESGO,EN_EVALUACION,EVALUACION_AUTOMATICA,POR_EVALUAR_CDA,ENVIADA_COMITE_PYME;CODIGOS=10,11,20,21,22,30,40,50,60,70,90,100,110,120,130,150,160;
+CARGOS;EJECUTIVO_VENTAS=EJE_VENTAS;EJECUTIVO_LEASING=EJE_LEASING;SUPERVISOR_VENTAS=SUP_VENTAS;SUPERVISOR_LEASING=SUP_LEASING;
+#===============================================================
+#ERRORES FECHA VENCIMIENTO SUC
+#===============================================================
+SUC_ERROR_FECHA_LINEA;Desc=La fecha de vencimiento de la linea de crédito es mayor a la fecha de vencimiento del margen global.;
+SUC_ERROR_FECHA_CLONAR;Desc=No es posible realizar la operacion. La linea que intenta clonar presenta una fecha de vencimiento superior al plazo de la LCG.;
+#===============================================================
+#FECHA POR DEFECTO VALIDACION SUC
+#===============================================================
+FECHA_DEFECTO;Desc=01/01/1900;
+#===============================================================
+#PERFILES VERIFICACION DE ANTECEDENTES LINEA COMERCIAL
+#===============================================================
+ROLES_VERIFICADORES;LISTADO=JCE,JPE,SUP_VENTAS,SUP_LEASING,JZONAL_NOR,GTE_ZON_NOR;
+
+#===============================================================
+#CODIGO BANCO CREDITO E INVERSIONES
+#===============================================================
+COD_BCI;Desc=016;
+
+#===============================================================
+#Parámetros necesarios para el cálculo de carga financiera de corto y largo plazo para productos BCI.
+#===============================================================
+FACTORES_CALCULO_CARGA;CTA=CTA;BGT=BGT;CMX=CMX;LKT=LKT;CON=CON;
+TIPO_PRODUCTO_VARIOS_BCI;Desc=CCC|TDC|TCR|SGE|SGN|2AI;
+TIPO_PRODUCTO_COMEX;Desc=101140|102143|113134|150146|113136|119125|120772|120776|120777|601640|601643|139076|342|347;
+TIPO_PRODUCTO_CAPITAL_TRABAJO;Desc=AVC|COM|NEG;
+TIPO_PRODUCTO_BCI;SGN=SGN;B=B;CCP=CCP;
+TIPO_PRODUCTO_LARGO_PLAZO;Desc=ALR|CON|PAP|DDE|FWC|HIP|PLC;
+TIPO_LARGO_PLAZO_CUOTAS_PACTADAS;Desc=AVC|COM|NEG;
+TOPE_MAXIMO_DIAS;Desc=360;
+
+#===============================================================
+#grupos para obtener valores de 'Sujeto a evaluacion'
+#===============================================================
+GRUPO_SUJETO_A;Desc=SAE;
+COMBOBOX_SUJETO_A;Desc=CSA;
+
+#===============================================================
+#Cargos que pueden seleccionar campo 'Sujeto a evaluacion'
+#===============================================================
+CARGOS_EJEC_SUJETO_A;Desc=COMITE_GEREN|COMITE_PYME|GTE_REG_PYME|GTE_ZON_NOR|JZONAL_NOR|REGIONAL|SUP_LEASING|SUP_VENTAS|ZONAL_NOR|ZONAL_PYME|JCE|JPE;
+
+#===============================================================
+#MENSAJE DE ERROR PARA PROBLEMAS EN EL CONYUGE EN DATOS BASICOS
+#===============================================================
+ERROR_DATOS_CONYUGE;Desc=Se ha producido un error, revisar datos básicos de cliente: ;
+
+#===============================================================
+#Tiempo de espera actualización grupo económico
+#===============================================================
+ACTUALIZAR_GRUPO_ECONOMICO;TIEMPO_DE_ESPERA=40000;

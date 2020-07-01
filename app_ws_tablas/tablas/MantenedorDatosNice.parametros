@@ -1,0 +1,13 @@
+#JNDI_CONECTION_FACTORY, JNDI_QUEUE
+JNDI_CONECTION_FACTORY;Desc=jms.nice.connection;
+JNDI_ENTRADA_QUEUE;Desc=jms.nice.mensajes;
+
+#indica el numero de reintentos a realizar para grabar un rut en la BD nice
+numeroReintentos;desc=5;
+
+#indica cuanto se espera antes de retomar el proceso de guardado
+duerme;desc=120000;
+
+#indica si se va a encolar o no
+encole;desc=true;
+

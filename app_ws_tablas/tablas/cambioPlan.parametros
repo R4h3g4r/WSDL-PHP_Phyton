@@ -1,0 +1,215 @@
+# --------------------------------------------------------------------------------
+# Definición de planes.
+# --------------------------------------------------------------------------------
+
+planes;codigos=planPreferencial,planPremier,planAdvantage,planOpenSky,planClasico,planUniversitario,planIndependiente,planConvenio1,planConvenio2,planConvenio3,planConvenio4;
+planPreferencial;plan=Plan Preferencial;rentaMin=3000;comision=01;req=01;condicion=01;
+planPremier;plan=Plan Premier;rentaMin=1300;comision=02;req=02;condicion=02;
+planAdvantage;plan=Plan Bci AAdvantage;rentaMin=750;comision=03;req=03;condicion=03;
+planOpenSky;plan=Plan Open Sky;rentaMin=1050;comision=04;req=04;condicion=04;
+planClasico;plan=Plan Clásico;rentaMin=400;comision=05;req=05;condicion=05;
+planUniversitario;plan=Plan Universitario;comision=06;req=06;condicion=06;
+planIndependiente;plan=Plan Independiente;comision=07;req=07;condicion=07;
+planConvenio1;plan=Plan Convenio 1;comision=08;req=08;condicion=08;
+planConvenio2;plan=Plan Convenio 2;comision=09;req=09;condicion=09;
+planConvenio3;plan=Plan Convenio 3;comision=10;req=10;condicion=10;
+planConvenio4;plan=Plan Convenio 4;comision=11;req=11;condicion=11;
+
+#-------------------------------------
+#Comisión Mensual UF con IVA incluido 
+#-------------------------------------
+
+#Plan Preferencial  
+comision01;base=0.21;especial1=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Premier 
+comision02;base=0.40;especial1=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Bci AAdvantage
+comision03;base=0.55;especial1=0.30;especial2=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Open Sky
+comision04;base=0.55;especial1=0.30;especial2=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Clasico
+comision05;base=0.45;especial1=0.32;especial2=0.26;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Universitario 
+comision06;base=0.08;especial1=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Independiente
+comision07;base=0.40;especial1=0.27;especial2=0.19;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Convenio 1
+comision08;base=0.12;especial1=0.12;especial2=0.10;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Convenio 2
+comision09;base=0.10;especial1=0.10;pgraciaB=0;pgraciaE1=0;
+
+#Plan Convenio 3
+comision10;base=0.00;especial1=0.00;especial2=0.00;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#Plan Convenio 4
+comision11;base=0.40;especial1=0.12;especial2=0.10;pgraciaB=0;pgraciaE1=0;pgraciaE2=0;
+
+#----
+#Requesito 
+#---
+req01;requisito=Renta líquida mensual mayor o igual a $3.000.000;
+req02;requisito=Renta líquida mensual entre $1.300.000 y $3.000.000;
+req03;requisito=Renta líquida mensual mayor o igual a $750.000;
+req04;requisito=Renta líquida mensual mayor o igual a $1.050.000;
+req05;requisito=Renta líquida mensual entre $400.000 y $1.300.000;
+req06;requisito=Cursar carrera universitaria.<br>Sin renta. Edad igual o menor a 28 años;
+req07;requisito=Sólo clientes Independientes. No puede ser otorgado <br>a clientes con contrato de trabajo vigente.;
+req08;requisito=Pertenecer a Empresa en Convenio con Bci. Abono <br>Remuneraciones en cuenta Bci;
+req09;requisito=Pertenecer a Empresa en Convenio con Bci. Abono <br> Remuneraciones en cuenta Bci;
+req10;requisito=Pertenecer a Empresa en Convenio con Bci. Abono <br> Remuneraciones en cuenta Bci;
+req11;requisito=Pertenecer a Empresa en Convenio con Bci. Abono <br> Remuneraciones en cuenta Bci;
+
+#----
+#Condiciones por tipo de Comisión 
+#---
+condicion01;base=01;especial1=01;especial2=01;
+condicion02;base=01;especial1=02;especial2=02;
+condicion03;base=01;especial1=03;especial2=03;
+condicion04;base=01;especial1=04;especial2=04;
+condicion05;base=01;especial1=05;especial2=05;
+condicion06;base=01;especial1=06;especial2=06;
+condicion07;base=01;especial1=07;especial2=07;
+condicion08;base=01;especial1=08;especial2=08;
+condicion09;base=01;especial1=09;especial2=09;
+condicion10;base=01;especial1=10;especial2=10;
+condicion11;base=01;especial1=11;especial2=11;
+
+#Plan Preferencial
+base01;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial101;especial1=Tenencia de Plan más al menos una de las siguientes condiciones al último día hábil bancario del mes:<br><li><b>Abono Recurrente.</b> La suma de todos los abonos voluntarios depositados en la cuenta corriente asociada al <br>plan del cliente, menos las devoluciones de comisiones, es mayor o igual a $2.500.000.</li> <br><li><b>Abono de Remuneraciones</b></li> <br><li><b>Inversiones mayor o igual a $10.000.000</b></li>;
+
+#Plan Premier
+base02;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial102;especial1=Tenencia de Plan más al menos una de las siguientes condiciones al último día hábil bancario del mes: <br><li><b>Abono Recurrente.</b> La suma de todos los abonos voluntarios depositados en la cuenta corriente asociada <br> al plan del cliente, menos las devoluciones de comisiones, es mayor o igual a $1.000.000.</li> <li><b>Abono de Remuneraciones</b></li><li><b>Inversiones mayor o igual a $10.000.000</b></li>;
+
+#Plan Bci AAdvantage
+base03;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial103;especial1=Tenencia de Plan más <b>Abono Recurrente.</b> Se considerará que el cliente cumple con el abono recurrente cuando la<br> suma de todos los abonos voluntarios depositados en la cuenta corriente asociada al plan del cliente, menos las <br>devoluciones de comisiones, es mayor o igual a $750.000.;
+especial203;especial2=Cumplir Base y <b>Especial 1 más</b> al menos una de las siguientes condiciones al último día hábil bancario del mes: <br><li><b>Crédito de consumo</b> vigente (no renegociado) y sin morosidades.</li><br><li><b>Inversiones</b> mayor o igual a $10.000.000.</li><br><li>Total de <b>compras nacionales con Tarjeta de Crédito</b> mayor o igual a $1.000.000.</li>;
+
+#Plan Open Sky
+base04;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial104;especial1=Tenencia de Plan más <b> Abono de Remuneraciones</b>;
+especial204;especial2=Cumplir Base y <b>Especial 1 más Crédito de consumo</b> vigente (no renegociado) y sin morosidades.;
+
+#Plan Clasico
+base05;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial105;especial1=Tenencia de Plan más <b>Abono de Remuneraciones</b>;
+especial205;especial2=Cumplir Base y <b>Especial 1 más 2 PAC o PAT</b>. Los PAC (Pagos automáticos en Cuenta Corriente) y los PAT<br>(Pagos automáticos en Tarjeta de Crédito) deben sumar al menos 2 y encontrarse debidamente inscritos.<br> Adicionalmente deben corresponder sólo a productos y/o servicios no otorgados por Bci ni sus filiales.;
+
+#Plan Universitario 
+base06;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial106;especial1=Tenencia de Plan más <b>Abono Recurrente + 4 transacciones Tarjeta de Crédito y/o Tarjeta Débito.</b> Se<br> considerará que el cliente cumple con el abono recurrente cuando la suma de todos los abonos voluntarios <br>depositados en la cuenta corriente asociada al plan del cliente, menos las devoluciones de comisiones, es mayor o <br>igual a $50.000;
+
+#Plan Independiente
+base07;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial107;especial1=Tenencia de Plan más <b>Abono Recurrente.</b> Se considerará que el cliente cumple con el abono recurrente cuando<br> la suma de todos los abonos voluntarios depositados en la cuenta corriente asociada al plan del cliente, menos las<br> devoluciones de comisiones, es mayor o igual a $1.000.000.;
+especial207;especial2=Cumplir Base y <b>Especial 1 más 2 PAC o PAT.</b> Los PAC (Pagos automáticos en Cuenta Corriente) y los PAT<br>(Pagos automáticos en Tarjeta de Crédito) deben sumar al menos 2 y encontrarse debidamente inscritos.<br> Adicionalmente deben corresponder sólo a productos y/o servicios no otorgados por Bci ni sus filiales.;
+
+#Plan Convenio 1
+base08;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial108;especial1=Tenencia de Plan más <b>Abono de Remuneraciones.</b>;
+especial208;especial2=Cumplir Base y <b>Especial 1 más 2 PAC o PAT.</b> Los PAC (Pagos automáticos en Cuenta Corriente) y los PAT <br>(Pagos automáticos en Tarjeta de Crédito) deben sumar al menos 2 y encontrarse debidamente inscritos. <br>Adicionalmente deben corresponder sólo a productos y/o servicios no otorgados por Bci ni sus filiales.;
+
+#Plan Convenio 2
+base09;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial109;especial1=Tenencia de Plan más <b>Abono de Remuneraciones.</b>;
+
+#Plan Convenio 3
+
+#Plan Convenio 4
+base11;base=Tenencia de Plan: Cuenta Corriente, Línea de Sobregiro, Tarjeta/s de Crédito y Tarjeta de Débito conjuntamente.;
+especial111;especial1=Tenencia de Plan más <b>Abono de Remuneraciones</b>;
+especial211;especial2=Cumplir Base y <b>Especial 1 más 2 PAC o PAT.</b> Los PAC (Pagos automáticos en Cuenta Corriente) y los PAT <br>(Pagos automáticos en Tarjeta de Crédito) deben sumar al menos 2 y encontrarse debidamente inscritos. <br>Adicionalmente deben corresponder sólo a productos y/o servicios no otorgados por Bci ni sus filiales.;
+
+#Textos parametrizados documento PDF
+linea1;valor=ANEXO CAMBIO DE PLAN CLIENTE BCI;
+linea2;valor=CONDICIONES Y TARIFAS BANCA;
+linea3;valor=PERSONAS.;
+
+line1;valor=Entre el BANCO DE CRÉDITO E INVERSIONES, sociedad anónima bancaria, en;
+line2;valor=adelante el “Banco“ por una parte y, por la otra, el “Cliente”, individualizado al;
+line3;valor=final de este instrumento, en adelante el “Cliente” o “Titular“, se ha acordado;
+line4;valor=celebrar el presente anexo modificando las Condiciones Particulares del Contrato;
+line5;valor=de Planes Personas Servicios Bancarios, o el Anexo de Condiciones y Tarifas, según;
+line6;valor=corresponda, celebrado entre ambas con anterioridad.;
+
+line7;valor1=Por este acto el Cliente cambia su actual Plan \t;valor2=\t por el Plan \t;
+line8;valor1=de cuenta corriente, en adelante, el \t;valor2=\t al que a contar de esta \t;
+line9;valor=fecha se le aplicarán las tarifas indicadas en el presente instrumento, quedando sin;
+line10;valor=efecto cualquier otro tarifario que el Cliente y el Banco hayan acordado con;
+line11;valor=anterioridad.;
+
+subtitulo1;valor=1. SERVICIOS BANCARIOS CONTRATADOS:;
+line12;valor=Los servicios bancarios contratados por el Cliente  e incluidos en el Plan son que se;
+line13;valor=señalan a continuación con una X:;
+
+cell1;valor=CUENTA CORRIENTE.;
+cell3;valor=LINEA DE SOBREGIRO EN CUENTA CORRIENTE.;
+cell5;valor=LINEA DE CREDITO DE EMERGENCIA (LCE o LEM).;
+cell7;valor=TARJETA DE CREDITO.;
+cell9;valor=TARJETA DE DEBITO.;
+
+subtitulo2;valor=2. COMISIONES CONTRATO PLANES:;
+
+headerNombre;valor=Nombre del Plan;
+headerReq;valor=Requisitos para acceder y pertenecer al plan;
+headerComision;valor=Comisión Mensual UF con IVA incluido;
+headerPeriodo;valor=;
+strBase;valor=Base \t \t \t \t \t \t \t;
+strEspecial1;valor=Especial 1 \t \t \t;
+strEspecial2;valor=Especial 2 \t \t \t;
+strcondicionTipoComision;valor=Condición por tipo de Comisión;
+
+strhoja2linea1;valor=En caso de pérdida y/o no cumplimiento de las condiciones y/o requisitos para;
+strhoja2linea2;valor=acceder a una tarifa Especial, el Cliente deberá pagar la tarifa que corresponda sin el;
+strhoja2linea3;valor=descuento o beneficio que tenía asignado a partir del mes siguiente al de la pérdida;
+strhoja2linea4;valor=del requisito. En caso de pérdida de las condiciones para la Tarifa Base, deberá;
+strhoja2linea5;valor=pagar la tarifa pizarra para cada producto y/o servicio correspondientes al detalle;
+strhoja2linea6;valor=publicado en www.bci.cl a la época del cambio de tarifa. Estas tarifas se mantendrán;
+strhoja2linea7;valor=vigentes mientras el Cliente cumpla la totalidad de las condiciones exigidas para;
+strhoja2linea8;valor=cada tipo de tarifa.;
+
+subtitulo3;valor=3. INDIVIDUALIZACION DE LAS PARTES Y CONTRATO:;
+
+hoja3linea1;valor=El  presente anexo modifica las Condiciones Particulares del Contrato de Planes ;
+hoja3linea2;valor=Personas Servicios Bancarios, o el Anexo de Condiciones y Tarifas, según;
+hoja3linea3;valor=corresponda.;
+hoja3linea4;valor=En lo no modificado por el presente instrumento, regirán las Condiciones Generales;
+hoja3linea5;valor=y Particulares que cuyas Condiciones Generales se encuentran protocolizadas con;
+hoja3linea6;valor=fecha 9 de enero de 2019 en la 40ª Notaría de Santiago de don Alberto Mozó;
+hoja3linea7;valor=Aguilar, bajo el número 74 Repertorio N° 177/2019 y disponibles en  la página Web;
+hoja3linea8;valor=del Bci (www.bci.cl). ;
+
+strTitular1;valor=Titular 1;
+strTitular2;valor=Titular 2;
+strNombre;valor=Nombre: \t;
+strRut;valor=Rut: \t;
+strMail;valor=E-mail: \t;
+strDomicilio;valor=Domicilio: \t;
+strFirma;valor=Firma y Huella;
+
+strBanco;valor=Banco de Crédito e Inversiones.;
+strNumRut;valor=97.006.000-6;
+
+strCopiaBancoPag1;valor=Copia Banco                                                                                                           | Página 1 de 3;
+strCopiaBancoPag2;valor=Copia Banco                                                                                                           | Página 2 de 3;
+strCopiaBancoPag3;valor=Copia Banco                                                                                                           | Página 3 de 3;
+strFechaDoc;valor=Actualizado al 062020;
+
+strCopiaClientePag1;valor=Copia Cliente                                                                                                           | Página 1 de 3;
+strCopiaClientePag2;valor=Copia Cliente                                                                                                           | Página 2 de 3;
+strCopiaClientePag3;valor=Copia Cliente                                                                                                           | Página 3 de 3;
+
+imagen1;valor=/resources/images/lineaMargen.png;
+imagen2;valor=/resources/images/Firma.jpg;
+nombreArchivoCopiaBanco;valor=Copia Banco_Anexo Cambio de plan clientes BCI condiciones y tarifa banca persona;
+nombreArchivoCopiaCliente;valor=Copia Cliente_Anexo Cambio de plan clientes BCI condiciones y tarifa banca persona;

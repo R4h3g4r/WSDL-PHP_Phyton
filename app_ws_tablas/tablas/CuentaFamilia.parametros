@@ -1,0 +1,81 @@
+# Parametros de Servicio Cuenta Familia
+# ==============================================
+ESTADO_TTFF;Desc=TOK;
+EJB_JNDI_NAME_TTFF;Desc=wcorp.serv.cuentas.ServiciosCuentas;
+EJB_JNDI_NAME_CLIENTE;Desc=wcorp.serv.clientes.ServiciosCliente;
+DSOURCE_JNDI_NAME_CTAFAMILIA;Desc=wcorp.dsource.CTAFAMILIADataSource;
+fromNombreBCI;Desc=BCI;
+
+fromMailBCI;Desc=webmast@bci.cl;
+mailReply;Desc=contacto@bci.cl;
+mailCCenter;Desc=desvincf@bci.cl;
+
+destinatarioBackOffice;Desc=solicitud@bci.cl,gesweb@bci.cl;
+destinatarioCtaFamilia;Desc=solicitud@bci.cl,gesweb@bci.cl;
+canalVisacion;Desc=110;
+mayorDeEdad;Desc=18;
+
+## Estados de las solicitudes
+# ======================================
+ACT;Desc=Activa;
+EPO;Desc=En proceso;
+RCH;Desc=Rechazada;
+ELM;Desc=Eliminada;
+
+## Tipos de cuentas
+# ======================================
+CCT;Desc=Cta. Cte.;
+CPR;Desc=Cheq. Elect.;
+AHO;Desc=Ahorro;
+
+##Descuentos de vinculaciones
+#========================================
+DescCYG;Desc=100;
+DescASO;Desc=100;
+
+##Segmentos con beneficio cuenta familia
+#========================================
+SegmentosCtaFam;Desc=A,M;
+
+##Habilitado Segmentos SI o NO
+#========================================
+SegmentoHabilitado;Desc=NO;
+
+##Planes con beneficio cuenta familia
+#========================================
+PlanesCtaFam;Desc=5,Q,S,0,N,8,Z,9,6,2,E,1,7,R;
+
+##Habilitado Planes
+#========================================
+PlanesHabilitado;Desc=NO;
+
+##Convenio CF
+#========================================
+ConveniosCF;primaBCI=B551;primaNova=B910;cct=3293;
+
+##Accion a ejecutar por convenio
+#========================================
+AccionCct;I=no;C=no;E=no;Desc=Para Cuentas Corrientes se indica qué acción se utilizará para el manejo de convenios;
+AccionPrima;I=no;C=no;E=no;Desc=Para Cuentas Primas Nova se indica qué acción se utilizará para el manejo de convenios;
+
+##Parametros para convenios
+#========================================
+ActualizaConvenios;accion=I;tipoCliente=S;
+ObtenerConvenioPrima;valorAccion=C;idConvenio=;operacion=;
+ActualizaConveniosPrima;valorAccion=I;
+
+##Parametros Horario de despacho formulario
+#===========================================
+HORARIODESPACHO;2=Mañana(9:00-13:00);3=Tarde(15:00-19:00);
+
+##Parametros Estado civil
+#===========================================
+ESTADOCIVIL;CAS=Casado(a);SOL=Soltero(a);SEP=Separado(a) o Divorciado(a);VIU=Viudo(a);
+
+##Llaves perfil Unidad Débito y Delivery (Administrativo y Encargado)
+#====================================================================
+PerfilAbreCpr;BCJ|WCCTAFAM/ACC=si;BCJ|WCCTACYG/ING=no;BCJ|WCCTACYG/ASC=no;BCJ|WCCTACYG/GBR=no;BCJ|WCCTACYG/IMP=no;BCJ|WCCTAASC/ING=si;BCJ|WCCTAASC/ASO=si;BCJ|WCCTAASC/GBR=si;BCJ|WCCTAASC/IMP=si;BCJ|WCCFISAC/CON=no;BCJ|WCCFCSAC/CON=si;
+
+##Monto Mínimo mensual de traspaso
+#=======================================
+MontoMinimo;Desc=5000;

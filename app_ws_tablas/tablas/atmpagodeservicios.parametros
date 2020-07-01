@@ -1,0 +1,207 @@
+#
+# Parámetros utilizados por el producto ATM pago de Servicios
+# =============================================================
+
+# Los siguientes parámetros que identifican el rubro
+# =============================================================
+RUBRO_AGUAS;param=135;
+RUBRO_GAS;param=136;
+RUBRO_LUZ;param=137;
+RUBRO_AUTOPISTAS;param=138;
+RUBRO_TELEFONIA_FIJA;param=139;
+RUBRO_TELEFONIA_MOVIL;param=140;
+RUBRO_TV_CABLE;param=141;
+
+# Los parámetros identifican las transacciones
+# =============================================================
+TG1_CONSULTA_EMPRESAS;param=0178;
+TG2_CONSULTA_IDENTIFICADOR_EMPRESA;param=0178_145;
+TG3_CONSULTA_BOLETA_EMPRESA;param=0178_150;
+TG4_CARGO_POR_SERVICIO;param=0435_155;
+
+# Los parámetros identifican los tipos de respuesta
+# =============================================================
+TIPO_RESPUESTA_MENU;param=00;
+TIPO_RESPUESTA_INGRESO_DE_DATOS;param=01;
+TIPO_RESPUESTA_DATOS_BOLETA;param=02;
+TIPO_RESPUESTA_COMPROBANTE;param=03;
+
+#Parámetros para ATM Pagos de Servicios
+# =============================================================
+tipoRespuesta03;Desc=03;
+tipoRespuesta02;Desc=02;
+
+tipoDispositivo1;Desc=D;
+tipoDispositivo2;Desc=D;
+tipoDispositivo3;Desc=D;
+
+espacioPostContextoSi;Desc=21;
+espacioPostContextoNo;Desc=177;
+espacioAnteGlosaContextoMenuPago;Desc=16;
+tipoRespuesta03MenuPago;Desc=03;
+contextoSi;Desc=CONTEXTO-SI;
+contextoNo;Desc=CONTEXTO-NO;
+espacioAnteIdMenuPago;Desc=4;
+espacioAnteMontoMenuPago;Desc=4;
+espacioAnteFechaMenuPago;Desc=4;
+idMenuPago;Desc=ID: ;
+montoMenuPago;Desc=MONTO: $;
+fechaMenuPago;Desc=FECHA V.: ;
+espacioAnteConfirmacionPago;Desc=21;
+espacioPostConfirmacionPago;Desc=28;
+espacioAnteConfirmacionSi;Desc=26;
+espacioPostConfirmacionSi;Desc=4;
+espacioAnteConfirmacionNo;Desc=26;
+espacioPostConfirmacionNo;Desc=4;
+espacioFinalTramaMenuPago;Desc=14;
+confirmacionPago;Desc=CONFIRMA PAGO DE CUENTA?;
+confirmaSi;Desc=SI;
+confirmaNo;Desc=NO;
+indicadorActivaTeclaMenuPago_1;Desc=C;
+indicadorActivaTeclaMenuPago_2;Desc=D;
+constanteAnteGlosa2MenuDisplay;Desc=INGRESE;
+largoTotalMontoAsociado;Desc=8;
+cantidadTotalCerosContextoNo;Desc=8;
+cantidadEspaciosCodigoEmpresa;Desc=8;
+cantidadSobradaRespuestaTrama1;Desc=8;
+cantidadDigitoGlosa;Desc=2;
+cantidadDigitoTipoDispositivo;Desc=3;
+cantidadDigitoGlosaDato;Desc=2;
+cantidadEspaciosPostTipoRespuestaMenuPago;Desc=82;
+cantidadFilasPostFechaMenuPago;Desc=3;
+espaciosAnteGlosaContextoMenuPago;Desc=217;
+
+activa_pantallaGrafica_1_menuDisplay;Desc=0;
+activa_pantallaGrafica_2_menuDisplay;Desc=0;
+activa_pantallaGrafica_3_menuDisplay;Desc=0;
+activa_pantallaGrafica_4_menuDisplay;Desc=0;
+activa_pantallaGrafica_5_menuDisplay;Desc=0;
+
+largoGlosaContexto;Desc=32;
+largoAntesGlosaL1;Desc=11;
+largoGlosaL1;Desc=17;
+espacioAntesConstante;Desc=44;
+espacioPostConstante;Desc=29;
+titulo;Desc=PAGO DE CUENTAS SERVIPAG        POR FAVOR SELECCIONE LA         EMPRESA QUE DESEA PAGAR;
+
+trama1MenuComprobante;Desc=D  27   REALICE SUS CONSULTAS END  28    SERVIPAG AL 600 620 1010D  25    O EN WWW.SERVIPAG.COM;
+activa_pantallaGrafica_1_menuComprobante;Desc=0;
+activa_pantallaGrafica_2_menuComprobante;Desc=0;
+activa_pantallaGrafica_3_menuComprobante;Desc=0;
+activa_pantallaGrafica_4_menuComprobante;Desc=0;
+activa_pantallaGrafica_5_menuComprobante;Desc=0;
+tipoDispositivo_1_MenuComprobante_R;Desc=R;
+tipoDispositivo_2_MenuComprobante_R;Desc=R;
+tipoDispositivo_3_MenuComprobante_R;Desc=R;
+tipoDispositivo_4_MenuComprobante_R;Desc=R;
+tipoDispositivo_5_MenuComprobante_R;Desc=R;
+tipoDispositivo_6_MenuComprobante_R;Desc=R;
+tipoDispositivo_7_MenuComprobante_R;Desc=R;
+tipoDispositivo_8_MenuComprobante_R;Desc=R;
+tipoDispositivo_1_MenuComprobante_J;Desc=J;
+tipoDispositivo_2_MenuComprobante_J;Desc=J;
+tipoDispositivo_3_MenuComprobante_J;Desc=J;
+tipoDispositivo_4_MenuComprobante_J;Desc=J;
+tipoDispositivo_5_MenuComprobante_J;Desc=J;
+tipoDispositivo_6_MenuComprobante_J;Desc=J;
+tipoDispositivo_7_MenuComprobante_J;Desc=J;
+tipoDispositivo_8_MenuComprobante_J;Desc=J;
+
+titulo2MenuComprobante;Desc=24SERVIPAG AL 600 620 1010;
+
+cantidadTraceMenuComprobante;Desc=13;
+constanteAnteNomEmpresa;Desc=PAGO ;
+constanteCuentaMenuComprobante;Desc=CUENTA: ;
+constanteIdBoletaMenuComprobante;Desc=ID BOLETA: ;
+constanteTicketMenuComprobante;Desc=TKT: ;
+constanteIDSMenuComprobante;Desc=IDS: ;
+constanteCrcMenuComprobante;Desc=CRC: ;
+constanteMontoMenuComprobante;Desc=MONTO:$ ;
+
+#Parámetros para datasource y jndi. DSRecargaCelulares DSPagosATM
+# =============================================================
+CONFIGURACIONES_APLICACION;DATASOURCE=DSPagosATM;
+
+# Codigos de error para los ATM
+# =============================================================
+ERROR_ATM;ServicioNoDisponible=5269;TransaccionExitosa=0000;ReversaExitosa=0000;SaldoInsuficiente=8348;IdentificadorDePagoInvalido=5382;BoletaYaPagada=5383;ServipagRechazaElPago=5268;MontoExcedido=5376;
+
+# Servicios del dao generico
+# =============================================================
+DAO_ATMPS;atm_obtenerBoton=atm_obtenerBoton;atm_obtenerGlosaBoton=atm_obtenerGlosaBoton;atm_insertarTramaEmpresa=atm_insertarTramaEmpresa;atm_usuarioWebService=atm_usuarioWebService;atm_accionesDeSesion=atm_accionesDeSesion;atm_obtenerRubros=atm_obtenerRubros;atm_obtenerMenuRubro=atm_obtenerMenuRubro;atm_ingresarDatosTg1=atm_ingresarDatosTg1;atm_ingresarDatosTg2=atm_ingresarDatosTg2;atm_obtenerMenuDisplay=atm_obtenerMenuDisplay;atm_obtenerMenuPago=atm_obtenerMenuPago;atm_actualizarEmpresasDisponibles=atm_actualizarEmpresasDisponibles;atm_obtenerEmpresasDeSesionValida=atm_obtenerEmpresasDeSesionValida;atm_obtenerEmpresaActual=atm_obtenerEmpresaActual;atm_actualizarEmpresasMenu=atm_actualizarEmpresasMenu;atm_obtenerEmpresasActivasEnMenu=atm_obtenerEmpresasActivasEnMenu;atm_ingresarDatosTg3=atm_ingresarDatosTg3;atm_ingresarDatosTg4=atm_ingresarDatosTg4;atm_finalizarPagoDeServicios=atm_finalizarPagoDeServicios;atm_obtenerDatosReversa=atm_obtenerDatosReversa;atm_cambioEstadoReversa=atm_cambioEstadoReversa;atm_obtenerMensajes=atm_obtenerMensajes;atm_obtenerRendicionServipag=atm_obtenerRendicionServipag;atm_verificaCargodiario=atm_verificaCargodiario;atm_cambiarEstadoTrx=atm_cambiarEstadoTrx;atm_obtenerOnDemand=atm_obtenerOnDemand;atm_cantidadEmpresasActivasPorRubro=atm_cantidadEmpresasActivasPorRubro;
+
+
+# Configuracion de timeout de respuesta de webservice de servipag
+TIMEOUT;iniciar=60;consultar=10;confirmar=15;cancelar=10;reversar=15;finalizar=60;ping=3;
+
+# Transaccion de cargo y abono atm pago de servicios
+# ============================================================
+TRX_ATMPS;cargoAtmPs=B0677;reversaCargoAtmPs=V0678;abonoAtmPs=V0770;reversaAbonoAtmPs=V0778;
+
+# Cuenta BCI Recaudaciones ATM
+# ============================================================
+Cuentas;cuentaSaco=10585788;
+
+# Eventos para el Journal
+# ============================================================
+JOURNAL_EVENTO;CargoPorServicio=ATM_CARGO;AbonoPorServicio=ATM_ABONO;ReversaPorServicio=ATM_REVCA;
+
+# Identificador de nemónico de abono
+# ============================================================
+NEMONICO_ABONO;nemonicoCuentaSaco=1102;
+
+# Canal
+# ============================================================
+CANAL_ATMPS;IdCanal=900;IdProducto=ATMPS;
+
+# Directorio donde se alojan los archivos para Rendicion en Servipag y OnDemand
+# =============================================================================
+PATH_ARCHIVOS;path=./temp/;
+
+# Datos de la cuenta ftp para transferencia de archivos
+# =============================================================================
+FTP_SERVICE;user=sipe;pwd=sipe97;host=161.131.232.34;remoteDir=/sipe/bpagos/salida;TypeTransfer=ascii;
+
+# Monto maximo diario permitido para pagos por servicio por cuenta
+# ============================================================================
+VALIDACION_MONTOS;montoMaximoDiario=200000;
+# Errores Servipag
+# ============================================================================
+ERROR_SERVIPAG;BoletaPagada=906;ConsultaSinRegistro=905;BoletaPagadaPortal=Respuesta desde Portal Servipag : Documento ya registra un Pago;ConsultaSinRegistroPortal=Respuesta desde Portal Servipag : Documento no encontrado;BoletaPagadaConvenio=Documento no registra deuda / o con convenio PAT o PAC;SesionCerrada=111;IdentificadorDePagoInvalidoPortal=El Identificador de Cuenta Ingresado por Usted;ConsultaSinRegistroMsg=900|El Telefono Celular consultado no esta registrado en Movistar|Documento no encontrado|El Identificador de Cuenta Ingresado por Usted para  Telefonica CTC, no es valido|La consulta no devolvio registros|;BoletaPagadaMsg=Boleta Pagada|El numero ingresado no registra ningun saldo pendiente|Cliente NO Registra Deuda|Documento ya registra un pago|Pago en Proceso|La transaccion de pago ya fue realizada|no tiene saldo Pendiente|Sin deuda|;
+TOKEN_SEPARADOR_MENSAJES;errores=|;
+# Los siguientes parámetros identifican los códigos de las transacciones utilizados por Redbanc (SEnTRA)
+# =============================================================================================
+TransaccionesRedbanc;valores=0178+0135/0178+0136/0178+0137/0178+0138/0178+0139/0178+0140/0178+0141;
+#DEBUG
+#CrcMock=0 utiliza crc de servipag
+#CrcMock=1 utiliza crc dummy
+#=============================================================================================
+ATM_DEBUG;CrcMock=0;CrcValorMock=1234567;
+#Generacion de archivos
+ARCHIVO_GENERADO;nombreArchivoRendicion=ATMPSR;formatoFecha=MMdd;extension=.DAT;nombreArchivoCuadratura=ATMPS_OnDemand_;
+ARCHIVO_COLUMNAS;rendicion=Fecha y Hora,ID Servicio,ID Ticket,ID Papel,Monto,Estado;
+#0=eliminar,
+ARCHIVO;eliminar=1;
+#=============================================================================================
+# 0 -> Proceso Ok.
+# 1 -> Proceso Nok.
+# 2 -> Proceso erróneo avise al encargado.
+CODIGO_CONTROL_M;proceso_ok=0;proceso_no_ok=1;proceso_erroneo_aviso=2;
+
+ARCHIVO_RENDICION;fecha=14;idServicio=12;idTicket=12;idPapel=12;monto=12;
+
+ARCHIVO_ONDEMAND;filasPorPagina=10;NombreFila1=Numero Cuenta;NombreFila2=Serial;NombreFila3=Monto;NombreFila4=Fecha Cargo;NombreFila5=Cuenta;NombreFila6=Nemonico;cabecera=1BANCO DE CREDITO E INVERSIONES;sufijoCabecera=PAGINA:;sangriaIzquierda=1;espacioCabecera=23;tipoReporte=TIPO DE REPORTE:;sangriaTitulo2=7;sangriaDestino=1;titulo1=PAGO DE SERVICIOS ATM;formatoFecha=dd/MM/yyyy;titulo2=INFORME DE CUADRATURA;destino=CONTABILIDAD;saltoLineaTitulo1=-1;saltoLineaTitulo2=-1;separacionTituloFecha=7;
+
+#WSDL SERVIPAG
+#desarrollo: 192.168.132.34
+#certificacion:192.168.132.33
+#produccion: 192.168.132.14 
+#WSDL_SERVIPAG;wsdl_autorizada=http://192.168.132.14/Proteus/Canal/AtmBci/ATMBCIServiceAdapter.asmx?WSDL;
+
+FECHA_VENCIMIENTO;5=Fecha Vencimiento;776=Fecha Vencimiento;995=Fecha Vencimiento;1800=fecha_ven;9700=Fecha Vencimiento;9800=Fecha Vencimiento;61711=fecha_vencimiento;67460=fecha_vencimiento;6765=Fecha Vencimiento;67760=fecha_vencimiento;70010=Fecha Vencimiento;70301=Fecha Vencimiento;70860=Fecha;724001=Fecha Vencimiento;80971=Fecha Vencimiento;81401=Fecha Vencimiento;83350=fecha_vencimiento;85171=Fecha Vencimiento;85301=Fecha Vencimiento;86660=Fecha Vencimiento;88300=Fecha Vencimiento;93836=fecha_vencimiento;98271=Fecha Vencimiento;697001=Fecha Vencimiento;968001=Fecha Vencimiento;
+#Logica de negocio
+#reversa 0= aplicar reversa, 1= no aplicar reversa
+APLICACION;reversa=1;
+
+#formateo de fecha
+FECHA_SERVIPAG;localePais=cl;localeIdioma=ES;formatoFechaPago=dd/MMM/yyyy hh:mm;

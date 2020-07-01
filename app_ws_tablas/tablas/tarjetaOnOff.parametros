@@ -1,0 +1,76 @@
+jndiTarjetaOnOff;valor=wcorp.aplicaciones.productos.servicios.tarjetas.credito.onoff.TarjetaCredito;
+jndiMensajeriaOnOff;valor=wcorp.infraestructura.mensajeria.ServicioMensajeria;
+servicios;envioCorreo=ON;journalizar=ON;
+
+
+#DESARROLLO
+#urlSetEnable;valor=http://170.1.1.95:8181/cxf/ServiceNexus/nexusonoff/setEnabled;
+#urlEnrolar;valor=http://170.1.1.95:8181/cxf/ServiceNexus/nexusonoff/enrolarTarjeta;
+#urlGetEnable;valor=http://170.1.1.95:8181/cxf/ServiceNexus/nexusonoff/getEnabled;
+
+#INTEGRACION
+#urlSetEnable;valor=http://esbinte.bci.cl/cxf/ServiceNexus/nexusonoff/setEnabled;
+#urlEnrolar;valor=http://esbinte.bci.cl/cxf/ServiceNexus/nexusonoff/enrolarTarjeta;
+#urlGetEnable;valor=http://esbinte.bci.cl/cxf/ServiceNexus/nexusonoff/getEnabled;
+
+#CERTIFICACION
+urlSetEnable;valor=http://esbcert.bci.cl/cxf/ServiceNexus/nexusonoff/setEnabled;
+urlEnrolar;valor=http://esbcert.bci.cl/cxf/ServiceNexus/nexusonoff/enrolarTarjeta;
+urlGetEnable;valor=http://esbcert.bci.cl/cxf/ServiceNexus/nexusonoff/getEnabled;
+
+#PRODUCCION
+#urlSetEnable;valor=http://esb.bci.cl/cxf/ServiceNexus/nexusonoff/setEnabled;
+#urlEnrolar;valor=http://esb.bci.cl/cxf/ServiceNexus/nexusonoff/enrolarTarjeta;
+#urlGetEnable;valor=http://esb.bci.cl/cxf/ServiceNexus/nexusonoff/getEnabled;
+
+codJournal_ENROLAR;producto=TDC;evento=ENROLA;subeve=ONOFF;medio=SISTEMA;
+codJournal_ENCENDER;producto=TDC;evento=PRENDE;subeve=ONOFF;medio=CLIENTE;
+codJournal_APAGAR;producto=TDC;evento=APAGA;subeve=ONOFF;medio=CLIENTE;
+
+#INTEGRACION y CERTIFICACION
+wsNexus;token=3F#24nREpMRXgwtg;ios=3F#24nREpMRXgwtg;android=g2!k32C5gtxqNbzq;
+
+#PRODUCCION
+#wsNexus;token=RTh56MaX9dZRMwMp;ios=RTh56MaX9dZRMwMp;android=32zwHWj9EP8j7exF;
+
+UyP;sistema=tdconoff;
+
+#parametros de Correo
+
+canal;descripcion=WEB;
+loginEnterprise;descripcion=BCI;
+refContract;descripcion=WEBBCI_ONOFF_TDC;
+consumidorCorreo;usuario=BCI;clave=BCI_PWD;
+subject;descripcion=Comprobante Solicitud Tarjeta de Crédito;
+solicitudDeCorreo;encendido= [ENCENDIDO TEMPORAL] de su tarjeta;apagado= [APAGADO TEMPORAL] de su tarjeta;
+refTemplateWsLatinia;correoBci=tmpl_onoff_tdc_bci;correoNova=tmpl_onoff_tdc_nova;
+
+
+solicitud;on=Encendido de Tarjeta de credito;off=Apagado de Tarjeta de credito;
+
+servicioConsultaEstadoOK;status=SUCCESS;httpCode=200;statusCode=1;mensaje_1=Encendida;mensaje_0=Apagada;
+msgErrorEstado;desc=La tarjeta consultada no está registrada;
+
+servicioEncenderOK;status=SUCCESS;httpCode=201;statusCode=0;mensaje=Encendida;
+servicioApagarOK;status=SUCCESS;httpCode=201;statusCode=0;mensaje=Apagada;
+
+#habilitacion app
+servicioHabilitadoTDC;desc=1;
+servicioHabilitadoTDD;desc=1;
+
+obtenerConfigDespliegueApp;statusOK=200;statusNOK=500;
+obtenerConfigDespliegueAppTDC;mensajeOK=Se recupera el Flag TDC;mensajeNOK=Error al Recuperar el Flag TDC;
+obtenerConfigDespliegueAppTDD;mensajeOK=Se recupera el Flag TDD;mensajeNOK=Error al Recuperar el Flag TDD;
+
+jndiTCreditoOnline;valor=wcorp.bprocess.tcreditoonline.TCreditoOnline;
+jndiServiciosTarjetas;valor=wcorp.serv.tarjetas.ServiciosTarjetas;
+glosaTipoTDC;master=master;visa=visa;
+
+valorDefectoCanal;valor=web;
+valorDefectoMonto;valor=0;
+valorDefectoOrigen;valor=online;
+valorDefectoPais;valor=chile;
+valorDefectoToken;valor=ios;
+
+codigosBloqueo;valor=T,J,W,V,U,S,I,P,F,O;
+

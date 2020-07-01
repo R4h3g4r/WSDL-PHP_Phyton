@@ -1,0 +1,18 @@
+#url de pivote vista cliente
+pivoteVistaCliente;valor=/Bcinet/template/common/bcinet-pivote-vistaCliente.jsf;
+
+#url pivote workstation - ejecutivos
+pivoteWorkstation;valor=http://intranetinte/Bcinet/template/common/bcinet-pivote-workstation.jsf;
+
+#diccionario para urls sin parametros especificos. 
+#---productos sin contratar---
+sinCtaCte;valor=/workstationwls/portal/AccesosDirectos.do?accion=iniciarASL@vista=CLI;
+sinTDC;valor=/workstationwls/portal/AccesosDirectos.do?accion=iniciarASL@vista=CLI;
+sinTDeb;valor=/portalwls/tareas/ConfigurationServlet?MethodType=CONSULTACLIENTE@taskType=Task;
+sinConsum;valor=/workstationwls/creditosweb/IngresoSimulacionCredito.do?Marca=BCI;
+sinLem;valor=/workstationwls/lineaDeEmergencia/cargaLineaEmergencia.do;
+sinChip;valor=/cl/bci/aplicaciones/productos/colocaciones/simulacion/hipotecario/vista/vistaSimuladorHipotecario.jsf;
+sinSeguro;valor=/portalwls/productos/seguros/venta/inicioVentaSeguros.do;
+
+#otros
+abonoRem;valor=/workstationwls/transfer/transferCliente.do;

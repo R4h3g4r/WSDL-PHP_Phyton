@@ -1,0 +1,193 @@
+#Glosas
+DPI;Glosa=Renovable;
+DPF;Glosa=Fijo;
+PPF;Glosa=Pagare Fijo;
+0999;Glosa=Pesos;
+0998;Glosa=U.F.;
+1013;Glosa=US$;
+1142;Glosa=Euro;
+swDap;OK=OK;
+#Excepciones Estructuradas
+DAP;OPDINGIN....=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;OPDINGIS....=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;OPDINGVN....=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;OPDINGVS....=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;CCTE...01...=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;DDT....RCH..=Estimado Cliente, el saldo en su cuenta corriente es insuficiente para poder cursar esta captación.;OPD....ONP..=Estimado Cliente, este depósito no se puede liquidar puesto que tiene una orden de no pago. Por favor contactese con su ejectuvo para regularizar la situación.;FIJO=DPF;FPVC...AFER.=Estimado Cliente, utilizando el plazo escogido, este depósito quedaría con fecha de vencimiento en un día NO hábil, por favor escoja otro plazo y vuelva a intentarlo.;DURV....FRNG=Estimado Cliente, el plazo ingresado es mayor al plazo máximo para este depósito.;FPVC<.PERPOD=Estimado Cliente, el plazo ingresado es menor al plazo mínimo para este depósito.;RENOVABLE=DPI;CAPT....FRNG=Estimado Cliente, el monto a invertir ingresado es menor al mínimo permitido para este depósito.;
+#Excepciones
+mjeRenov_dapRenovable;Glosa=Estimado(a) cliente: El depósito a plazo seleccionado se renovará automáticamente al vencimiento.;
+mjeRenov_dapFijo_eventoRenovAlVcto;Glosa=Estimado(a) cliente: Usted ya ha solicitado Renovar su depósito a plazo al vencimiento.;
+mjeRenov_liqAnticipada;Glosa=Estimado(a) cliente: Usted no puede renovar este depósito. Usted ha solicitado previamente una liquidación antes del vencimiento de este mismo depósito. Para renovarlo, primero debe anular la solicitud de liquidación antes del vencimiento desde ;
+mjeRenov_dapFijo_liquidarAlVcto;Glosa=Estimado(a) cliente: Usted ha solicitado previamente el cambio de la cuenta de abono de su depósito a plazo. Para renovarlo, primero debe anular el evento desde ;
+mjeRenov_generico;Glosa=No se puede efectuar la renovación.;
+mjeExtLiquidar;Glosa=No se puede efectuar la Liquidación.;
+mjeExtRenovar;Glosa=No se puede efectuar la Renovación.;
+mjeExtNuevo;Glosa=No se puede efectuar el depósito a plazo.;
+mjeResumen;Glosa=No se puede mostrar resumen dap.;
+mjeConfirmarAnulacion;Glosa=No se puede confirmar la anulación.;
+mjeReversaEvento;Glosa=No se puede efectuar la anulación.;
+mjeCartola;Glosa=No se puede obtener cartola.;
+mjeLiq_liqAnticipada;Glosa=Estimado(a) cliente: Usted ya ha solicitado una liquidación antes del vencimiento de su depósito a plazo. Ingrese a la opción "depósito a plazo" del menú de la izquierda y revise los eventos desde ;
+mjeLiq_dapFijo_eventoRenovAlVcto;Glosa=Estimado(a) cliente: Este depósito a plazo no puede liquidarse. Usted ha solicitado previamente renovar su depósito al vencimiento. Para liquidarlo, primero debe anular la solicitud de renovación al vencimiento desde;
+mjeLiq_dapReno_liquidarAlVcto;Glosa=Estimado(a) cliente: Usted ha solicitado previamente la liquidación de su depósito a plazo al vencimiento. Revise los próximos eventos desde;
+subTitulo1;subTitulo=OK_1;
+subTitulo2;subTitulo=OK_2;
+subTitulo3;subTitulo=OK_3;
+subTituloCartola;subTitulo=Cartola Dap;
+subTituloDetalle;subTitulo=Detalle;
+subTituloConfirmarAnulacion;subTitulo=Confirmar;
+subTituloReversaEvento;subTitulo=Reversa;
+tituloLiquidacion;Titulo=Liquidar;
+tituloNuevo;Titulo=Tomar Nuevo;
+tituloRenovacion;Titulo=Renovar;
+tituloResumen;Titulo=Detalle;
+tituloCartola;Titulo=Cartola;
+tituloConfirmarAnulacion;Titulo=Confirmar Anulación;
+tituloReversaEvento;Titulo=Reversa evento programado;
+#Glosas 
+progLiqAnticipada;Glosa= Liquidación Anticipada;
+progLiqVencFijo;Glosa= Cambio Cuenta Abono Al Vencimiento;
+progRenovacion1;Glosa=Liquidar este depósito al Vencimiento;
+progRenovacionFijo;Glosa=Renovar este depósito al Vencimiento;
+progLiqVencReno;Glosa=progLiqVencReno;
+progRenovacion2;Glosa=progRenovacion2;
+#Códigos
+codProgLiqAnticipada;Cod=SLA;
+codProgLiqVencFijo;Cod=LQF;
+codProgRenovacion1;Cod=IN1;
+codProgRenovacionFijo;Cod=RDF;
+codProgLiqVencReno;Cod=XXX;
+codProgRenovacion2;Cod=XXXS;
+#Códigos
+codCondicionLiqVencFijo;Cod=LQF;
+codCondicionRenovacion1;Cod=IN1 ;
+
+#Destinos para excepciones
+tomarNuevoDapDelCliente;Destino=tomarNuevoDapDelCliente.do;
+comprobarNuevoDapDelCliente;Destino=comprobarNuevoDapDelCliente.jsp;
+consultaDapDelCliente;Destino=consultaDapDelCliente.do;
+confirmarRenovacionDapDelCliente;Destino=confirmarRenovacionDapDelCliente.do;
+confirmarNuevoDapDelCliente;Destino=confirmarNuevoDapDelCliente.do;
+confirmarLiquidacionDapDelCliente;Destino=confirmarLiquidacionDapDelCliente.jsp;
+confirmarAnulacionEventoProgramado;Destino=confirmarAnulacionEventoProgramado.jsp;
+comprobarRenovacionDapDelClienteAction;Destino=comprobarRenovacionDapDelClienteAction.do;
+liquidacionDapDelCliente;Destino=liquidacionDapDelCliente.jsp;
+renovacionDapDelCliente;Destino=renovacionDapDelCliente.jsp;
+resumenDapDelCliente;Destino=ResumenLiquidacionDapDelCliente.jsp;
+cartolaDapDelCliente;Destino=consultaDapDelCliente.do;
+comprobarLiquidacionDapDelCliente;Destino=comprobarLiquidacionDapDelCliente.jsp;
+modificarDireccionDapDelCliente;Destino=consultaDapDelCliente.do;
+
+
+#Servicios; id
+tomarDAPInv;Servicios=TomarDAPInv;
+generaPDFComprobanteTomarNuevo;Servicios=TomarDAPInv;
+generaPDFComprobanteLiquidacion;Servicios= TomarDAPInv;
+renovacionEventoProgramadoDap;Servicios=TomarDAPInv;
+generaPDFComprobanteRenovacion;Servicios=TomarDAPInv;
+generaPDFResumen;Servicios=TomarDAPInv;
+generaPDFConsulta;Servicios=TomarDAPInv;
+sessionBci;Id=sessionBci;
+liquidarDAPInv;Id=TomarDAPInv;
+
+#Curse mayor al saldo en cuenta
+noSaldo;Glosa=Estimado Cliente, el monto a invertir debe ser menor o igual al saldo disponible en su cuenta.;
+#Glosa Fin Session
+noSession;Glosa=Estimado Cliente, su sesión a expirado. Por Favor cierre esta ventana del navegador, luego abra una nueva ventana del navegador y vuelva a intentarlo.;
+
+#Glosa CuentaCorrentista
+cuentaCorrentista;Glosa=Estimado cliente, este servicio es sólo para titulares de cuenta corriente.;
+personaNatural;Glosa=Estimado cliente, este servicio es sólo para personas naturales, gracias.;
+
+#Glosa Recuperación de datos del cliente
+clienteError;Glosa=Error al Recuperar los Datos del Cliente.;
+
+#Glosa mandato
+claveIncorrecta;Glosa=Clave Incorrecta;
+
+#Para el numero de folio
+middleware;Id=Middleware;
+liquidacionAnticipada;Glosa=Liquidaci\363n Anticipada;
+tipoDap;Glosa=Tipo DAP;
+vence;Glosa=- Vence : ;
+monto;Glosa=- Monto : ;
+
+#Evento ingreso programado
+param5;Cod=RDF;
+
+#Glosas de sessión
+sesionExpirada;Glosa=Estimado cliente, su session a expirado. Vuelva a ingresar al sitio WEB y vuelva a intentarlo;
+
+
+#Id 
+cim_reqnum;Id=029;
+ceros;Id=0000;
+ccma;Id=CCMA;
+sla;Id=SLA;
+cim_reqnum58;Id=058;
+oficinaCaptacion;Id=*;
+especial;Id=ESPECIAL;
+ctbl;Id=CTBL;
+
+#Prefijos
+DAP_DPI;Prefijo=DAP_DPI;
+DAP_DPF;Prefijo=DAP_DPF;
+SESSION_PREFIX;Prefijo=DPM;
+
+#Formatos
+FORMAT_PESOS;Formato=PESOS;
+FORMAT_UFOM;Formato =U.FOM;
+FORMAT_DOLAR;Formato =DOLAR;
+FORMAT_EURO;Formato = EURO;
+
+#Canal para el MultiEnvironment cuando no hay una <code>SessionBci</code> activa
+CANAL;Cod=100;
+#Internationalization Resource Bundle
+BUNDLE;Cod=DefaultWebApp;
+#Clave para el Multienvironment en la sesion BCI
+SESSION_MULTIENVIRONMENT;Clave=multiEnvironment;
+#La clave para los objetos de tipo Exception desplegados por la pagina de error
+JSP_EXCEPTION;Clave=javax.servlet.jsp.jspException;
+#La clave para el mapping de la pagina comun de error
+COMMON_ERROR;Clave=common_error;
+#Banco
+BANCO;Banco=BCI;
+#Cartera
+CARTERA;Cartera=BEE;
+#Localizacion: Lenguaje
+LOCALE_LANGUAGE;Lenguaje=ES;
+#Localizacion: Pais
+LOCALE_COUNTRY;Pais=CL;
+#Marca
+MARCA;Marca=BCI;
+#Ejecutivo de captación
+EJECUTIVO_CAPTACION;ejc=DAPWEB;
+#Posiciones de cadena de excepciones
+parametro1;parametro=20;
+parametro2;parametro=24;
+parametro3;parametro=27;
+parametro4;parametro=30;
+parametro5;parametro=42;
+cncn;parametro=CNCN;
+#Codigos de monedas
+pesos;Moneda=0999;
+dolar;Moneda=1013;
+euro;Moneda=1142;
+uf;Moneda=0998;
+
+#DAP QUE PUEDO LIQUIDAR POR ESTE CANAL
+puedeLiquidar;0999=SI;0998=SI;
+puedeRenovar;0999=SI;0998=SI;
+
+#GLOSAS ERROR
+glosasError;renovarDapFijoVencido=Estimado Cliente, su depósito a plazo fijo se encuentra vencido, solo puede programar una renovación al vencimiento en depósitos fijos vigentes.;dapFijoVencido=Estimado Cliente, su depósito a plazo fijo se encuentra vencido, para retirar el monto final de su depósito contáctese con su ejecutivo. Gracias.;dapLiqConGarantia=Estimado Cliente, este depósito a plazo se encuentra con condición de garantía. Contáctese con su ejecutiva. Gracias.;dapLiqConONP=Estimado Cliente, este depósito a plazo se encuentra con orden de no pago. Contáctese con su ejecutiva. Gracias.;noPuedeRenovarPorMoneda=Estimado Cliente, por este canal sólo puede renovar depósitos a plazo en moneda pesos y UF, y además que se encuentren en custodia electrónica.;noPuedeLiquidarPorMoneda=Estimado Cliente, por este canal sólo puede liquidar depósitos a plazo en moneda pesos y UF, y además que se encuentren en custodia electrónica.;noLiquidarAnticipadaFijo=Estimado Cliente, por este canal no es posible realizar una liquidación anticipada de su depósito. Contáctese con su ejecutiva. Gracias.;
+
+#Habilita o deshabilita la liquidacion anticipada
+condicion;sinLiquidacionAnticipada=SI;
+
+#GLOSAS GENERAL PARA CLAVE DOS
+glosasErrorClaveDos;Desc=Servicio no disponible temporalmente, por favor contacte a su ejecutivo;
+
+#Operaciones Renovables con Plazo Variable.
+PRODUCTOSRENOVABLESFIJOS;codigos=E29,N29;
+
+#Glosa Sin Direcciones Despacho
+direccionesDespacho;Glosa=No se encontraron direcciones de despacho.;
+
+#Glosa Operacion no corresponde al cliente
+mjeOperacionCliente;Glosa=No se puede mostrar detalle del Depósito A Plazo. Numero de operación no corresponde al cliente.;

@@ -1,0 +1,72 @@
+# Parametros Servicio Apertura Cuenta Rut
+#========================================
+#fecha debe ir en duro, lo requiere TANDEM
+fecha;DESC=1999-11-26;
+#cantidad podria ser "1" ó " 1"
+cantidad;DESC=01;
+subTipoOp;DESC=CRT;
+tipoOperacion;DESC=CPR;
+reposicion;DESC=   ;
+
+codMatrizRet;DESC=2;
+codExcencion;DESC=00;
+plan;DESC= ;
+intereses;DESC=N;
+valorCambio;DESC=      ;
+parametro2;DESC=                                        ;
+parametro3;DESC=                                        ;
+talonarios;DESC= ;
+parametro4;DESC=   ;
+numTalonario;DESC=  ;
+tipoClienteApertura;DESC=001;
+codParametro;DESC=  ;
+tipoCompra;DESC=01;
+cuenta;DESC=            ;
+periodoPago;DESC=M;
+tipoUsuario;DESC=  ;
+indicadorTipoAcc;DESC= ;
+
+# Oficina Cuenta Rut
+#========================================
+oficina;DESC=189;
+
+# Provisionar Numeros
+#========================================
+subtipo;DESC=CRT;
+
+# ServiciosDireccionesBean
+#========================================
+horaTransac;DESC=120000;
+
+# ServiciosImpresionCuentaRut
+#========================================
+timeout;DESC=20;
+
+
+#Valores fijos para creacion/modificacion de clientes
+#========================================
+compInst;DESC=121;
+tipoConvenio;DESC=N;
+tipoBanca;DESC=PBM;
+tipoCliente;DESC=CP;
+
+#Valores fijos exclusivos para Tandem
+#========================================
+CLI_TIP;DESC=CP;
+CLI_IND_PER_EMP;DESC=P;
+
+
+#Valores parametricos para la impresion del contrato
+#==============================================
+comisionesATM;TIPO=STO;CODIGO=CRT;
+comisionesNOATM;TABLAMANTENCIONANUAL=TIC;MANTENCIONANUAL=50;TABLAOTRASCOMISIONES=VLR;CAJABCI=;CAJASERVIPAG=CGCPRCNSSVP;CAJABANCONOVA=CGCPRCNS;REPOSICIONROBO=CNSTRB;REPOSICIONHURTO=CNSTHT;REPOSICIONEXTRAVIO=CNSTEX;REPOSICIONDETERIORO=CNSTDP;SOLICITUDSALDOS=CPSCCPR;SOLICITUDCARTOLASMINICARTOLASMESON=CPSMCCPR;CARTOLAHISTORICAMESON=CPECHISCNS;
+comisionesEventos;EVENTOMANTENCION=Por Evento;EVENTOATM=Por Evento;EVENTOCAJABCI=Por Evento;EVENTOCAJASERVIPAG=Por Evento;EVENTOCAJABANCONOVA=Por Evento;EVENTOREPOSICIONROBO=Por Evento;EVENTOREPOSICIONHURTO=Por Evento;EVENTOREPOSICIONEXTRAVIO=Por Evento;EVENTOREPOSICIONDETERIORO=Por Evento;EVENTOSOLICITUDSALDOS=Por Evento;EVENTOSOLICITUDCARTOLASMINICARTOLAS=Por Evento;EVENTOSOLICITUDCARTOLAHISTORICA=Por Evento;
+datosBanco;DOMICILIO=El Golf N° 125, Las Condes, Santiago;REPRESENTANTE=Luis Felipe Hirane Sarkis;RUTREPRESENTANTE=97.006.000-6;RUTAIMAGENFIRMA=extras/cuentarut/firmacontrato.jpg;
+
+
+#Codigo de aceptacion para la direccion en la cartola
+direccionValida;VALOR=D;
+
+DATA_SOURCE;nombre=wcorp.dsource.TRANSANTIAGODataSource;
+
+DATOS_IMPRESION;URL_SOLICITUD_NEXUS=https://nxssrviis01/seguridad/tarjetas/icard/IC688_Debito_GrabaPlastico.asp;NO_VALIDAR_POST=0;

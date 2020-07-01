@@ -1,0 +1,266 @@
+#
+#Parametros para mail de fracaso (MF)
+#=====================================
+MFcantidad;Desc=1;
+MFencabezado;Desc=Rechazada BciVentaWeb;
+MFcuerpo;Desc=DATOS DE LA COMPRA;
+MFremitente;Desc= webmast;
+MFcorreo1;Desc=solicitud@bci.cl,expmunr@bci.cl,exasoto@bci.cl,dvasqub@bci.cl;
+MFcorreoenvio;Desc=webmast@bci.cl;
+
+#
+#
+#Parametros para mail de aceptado (MA)
+#=====================================
+MAcantidad;Desc=1;
+MAencabezado;Desc=BciVentaWeb;
+MAcuerpo;Desc=DATOS DE LA COMPRA;
+MAremitente;Desc= webmast;
+MAcorreo1;Desc=solicitud@bci.cl,exasoto@bci.cl,expmunr@bci.cl,dvasqub@bci.cl;
+MAcorreoenvio;Desc=webmast@bci.cl;
+
+#
+#
+#Parametros para mail de despacho (MD)
+#=====================================
+MDcantidad;Desc=1;
+MDencabezado;Desc=BciVentaWebDespacho;
+MDcuerpo1;Desc=DATOS DE LA COMPRA;
+MDcuerpo2;Desc=\n\nDATOS DEL DESPACHO\n;
+MDremitente;Desc= webmast;
+MDcorreo1;Desc=solicitud@bci.cl,exasoto@bci.cl,expmunr@bci.cl,dvasqub@bci.cl;
+MDcorreoenvio;Desc=webmast@bci.cl;
+
+#
+#
+#Parametros paginas de exito y rechazo
+#=====================================
+URLOK110;desc=https://www.bci.cl/bcinetwls/compras/enviarDireccionDeExitoAction.do;
+URLNOK110;desc=https://www.bci.cl/bcinetwls/compras/enviarDireccionDeFracasoAction.do;
+URLOK100;desc=https://www.tbanc.cl/tbancwls/compras/enviarDireccionDeExitoAction.do;
+URLNOK100;desc=https://www.tbanc.cl/tbancwls/compras/enviarDireccionDeFracasoAction.do;
+URLOK230;desc=https://www.bci.cl/belwls/compras/enviarDireccionDeExitoAction.do;
+URLNOK230;desc=https://www.bci.cl/belwls/compras/enviarDireccionDeFracasoAction.do;
+URLOK315;desc=https://www.bci.cl/bcitvwls/tvbanking/enviarDireccionDeExito.do;
+URLNOK315;desc=https://www.bci.cl/bcitvwls/tvbanking/enviarDireccionDeFracaso.do;
+#
+#
+#URL WebPay direccion de comunicacion con el servicio de TransBank
+#=================================================================
+URLWebPay;desc=http://200.68.28.153/cgi-bin/tbk_bp_pago.cgi;
+
+#
+#
+#Plazo de entraga de productos
+#=============================
+PlazoEntrega;desc=15;
+
+#
+#
+#Telefono de Coordinacion
+#=============================
+FonoCoordinacion;desc=800 200 052;
+
+#
+#
+#Tipos de Direccion
+#=============================
+CantDir;desc=2;
+TipDir1;desc=Particular;
+TipDir2;desc=Comercial;
+
+#
+#
+#Relacion con persona para autorizar entrega
+#El tipo de relacion "Otro" siempre debe quedar al final de la lista
+#===================================================================
+CantRel;desc=6;
+TipRel1;desc=Amigo(s);
+TipRel2;desc=Asesora(s) del Hogar;
+TipRel3;desc=Conserje(s);
+TipRel4;desc=Familiar(es);
+TipRel5;desc=Secretaria(s);
+TipRel6;desc=Otros;
+
+#
+#
+#URL de Web Activo
+#=================
+#Canal 110
+IMG_TAR110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/tarjeta_credit_choca.jpg;
+IMG_CALL110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/llamado.gif;
+TXT_PRD110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/texto_producto;
+CONDICIONES110;desc=http://www.bci.cl/medios/personas/pehuen/Terminos_Condiciones.pdf;
+IMG_PRD110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/imgproducto;
+IMG_SPRD110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/prod_agotado_generica.jpg;
+INFO_LEGAL110;desc=https://bciimg.bci.cl/medios/BCI2/art/comprairresistible/info_legal;
+#Canal 230
+IMG_TAR230;desc=http://www.bci.cl/medios/empresarios/pehuen/tarjeta_credit_choca.jpg;
+IMG_CALL230;desc=http://www.bci.cl/medios/empresarios/pehuen/llamado.gif;
+TXT_PRD230;desc=http://www.bci.cl/medios/empresarios/pehuen/texto_producto.gif;
+CONDICIONES230;desc=http://www.bci.cl/medios/empresarios/pehuen/Terminos_Condiciones.pdf;
+IMG_PRD230;desc=http://www.bci.cl/medios/empresarios/pehuen/imagen_top.jpg;
+IMG_SPRD230;desc=http://www.bci.cl/medios/empresarios/pehuen/prod_agotado.jpg;
+#Canal315
+TXT_PRD315;desc=img/cnt/cnt_producto_detalle_;
+IMG_PRD315;desc=img/cnt/cnt_producto_;
+#
+#Datos de prueba para la certificacion del kit de comercio.
+# esta es la estructura de la tabla para certificacion y desarrollo a la hora de probar Kit de comercio
+#
+#------------------------------------------------------------------------------------------------------
+#	cantidad;desc=2;
+#	tarjeta1;numero=4508000021111116;tipo=TDC;subtipo=VISA;
+#	tarjeta2;numero=5390212511111112;tipo=TDC;subtipo=MASTERCARD;
+#------------------------------------------------------------------------------------------------------
+#
+#Para produccion debe ser
+#------------------------------------------------------------------------------------------------------
+#	cantidad;desc=0;
+#------------------------------------------------------------------------------------------------------
+#
+#
+#
+#=====================================
+#cantidad;desc=0;
+#tarjeta1;numero=4508000021111116;tipo=TDC;subtipo=490;
+#tarjeta2;numero=5390212511111112;tipo=TDC;subtipo=500;
+
+#
+#Tarjetas Utilizadas
+#
+#=====================================
+454886;desc=Visa Classic -;id=VCLA;
+496617;desc=Visa Dorada -;id=VDOR;
+454812;desc=Visa Internacional -;id=VINT;
+448165;desc=Visa Platinum -;id=VPLA;
+448542;desc=Visa Purchasing -;id=VPUR;
+403351;desc=Visa Corporate -;id=VCOR;
+450600;desc=Visa Nacional -;id=VNAC;
+454851;desc=Visa Empresarial -;id=VEMP;
+450800;desc=VISA PRUEBA -;id=VPRU;
+539021;desc=MASTERCARD PRUEBA -;id=MPRU;
+517980;desc=Mastercard Dorada -;id=MAST;
+VCLA;desc=Visa Classic -;
+VDOR;desc=Visa Dorada -;
+VINT;desc=Visa Internacional -;
+VPLA;desc=Visa Platinum -;
+VPUR;desc=Visa Purchasing -;
+VCOR;desc=Visa Corporate -;
+VNAC;desc=Visa Nacional -;
+VEMP;desc=Visa Empresarial -;
+VPRU;desc=VISA PRUEBA -;
+MPRU;desc=MASTERCARD PRUEBA -;
+MAST;desc=Mastercard Dorada -;
+
+#
+#Cuerpo Mail Aceptado
+#
+#=====================================
+rutA;desc=\nRut Cliente          :;
+nombreA;desc=\nNombre Cliente    :;
+porductoA;desc=\nProducto   :;
+cantidadA;desc=\nCantidad   :;
+montoA;desc=\nMonto Pagado    :$;
+tarjetaA;desc=\nTarjeta de Credito  :;
+tipoPagoA;desc=\nTipo de Pago   :;
+cuotasA;desc=\nN de Cuotas    :;
+transA;desc=\nN de Transaccion  :;
+confA;desc=\nN de Confirmacion  :;
+fechaA;desc=\nFecha y Hora    :;
+mensajeFinalA;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#
+#Cuerpo Mail Despacho
+#
+#=====================================
+rutD;desc=\nRut Cliente   :;
+nombreD;desc=\nNombre Cliente   :;
+porductoD;desc=\nProducto   :;
+cantidadD;desc=\nCantidad   :;
+transD;desc=\nN de Transaccion  :;
+confD;desc=\nN de Confirmacion  :;
+fechaD;desc=\nFecha y Hora    :;
+nombreDespD;desc=\nNombre Despacho  :;
+dirD;desc=\nDireccion   :;
+entregaD;desc=\nAutoriza entrega\nA terceros    :;
+relD;desc=\nRelacion Terceros :;
+nreD;desc=\nNombre Terceros         :;
+regD;desc=\nRegion      :;
+comD;desc=\nComuna      :;
+tipDirD;desc=\nTipo Direccion   :;
+telD;desc=\nTelefono de Contacto  :;
+celD;desc=\nCelular     :;
+Email;desc=\nEmail      :;
+mensajeFinalD;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#
+#Cuerpo Mail Rechazo
+#
+#=====================================
+rutR;desc=\nRut Cliente   :;
+nombreR;desc=\nNombre Cliente   :;
+porductoR;desc=\nProducto   :;
+cantidadR;desc=\nCantidad   :;
+montoR;desc=\nMonto Pagado    :$;
+tarjetaR;desc=\nTarjeta de Credito  :;
+tipoPagoR;desc=\nTipo de Pago   :;
+cuotasR;desc=\nN de Cuotas    :;
+transR;desc=\nN de Transaccion  :;
+confR;desc=\nN de Confirmacion  :;
+fechaR;desc=\nFecha y Hora    :;
+mensajeFinalR;desc=\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#
+#Cuerpo mensaje cliente
+#===================================
+MCremitente;Desc= webmast;
+MCcorreoenvio;Desc=webmast@bci.cl;
+envioMail;desc=S;
+asuntoC;desc=Comprobante de Compra;
+cuerpoC;desc=Estimado(a) : ;
+cuerpo1C;desc=\nCon Fecha;
+cuerpo2C;desc= se ha comprado exitosamente en nuestro\nsitio de ventas. El detalle de esta operacion es el siguiente:\n;
+clienteC;desc=\nCliente                    :;
+tarjC;desc=\nTarjeta de Credito         :;
+prodC;desc=\nProducto Comprado          :;
+cantC;desc=\nCantidad de Productos      :;
+montC;desc=\nMonto del Pago             :$;
+tipC;desc= pesos\nTipo de Pago               :;
+cuotasC;desc=\nN de Cuotas                :;
+dirC;desc=\nDireccion de despacho      :;
+fechaC;desc=\nFecha de Compra            :;
+tipoC;desc=\nTipo de Transaccion        :;
+codigoC;desc=\nCodigo de Autorizacion     :;
+tipoTrx;desc=Venta;
+mensajeFinalC;desc=\n\nAtte,\nIncentivos y Promociones Ltda.;
+importanteC;desc=\n\nImportante:\nEste mail es generado de manera automatica, por favor no responda a este mensaje. Ante cualquier duda, contactese al 800 200 052.\n\nP.D.: Los tildes han sido omitidos en forma intencional.;
+
+#
+#Descipcion tipo de pago
+#====================================
+SI;desc=sin intereses;
+VN;desc=sin cuotas;
+VC;desc=cuotas;
+
+#Oferta especial seg�n canal
+#====================================
+#ofe110; activa=1; CodigoDeLaOferta=2006123; CodigoDelProducto=OFE; CodigoDelSubproducto=OF1; packOfertas=-2006121-2006122-;
+
+#
+#Redireccion TBanc
+#========================================
+URL_TBANC;desc=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/comprairresistible?_nfpb=true&_pageLabel=page_recepcion_despacho;
+
+
+#
+#Compra y Gana
+#========================================
+muestraMeta110;desc=no;
+mensajeMeta110;desc=Su meta mensual de compra para los meses de Septiembre, Octubre y Noviembre es:;
+validaCantidadCompras110;desc=no;
+cantidadCompras110;desc=1;
+mensajeComprasSuperadas110;desc=Estimado Cliente, usted ha superado la cantidad m�xima de compras para el periodo.;
+mensajeNoMetasRecuperadas110;desc=Por el momento no es posible mostrar su meta, para mayor informaci�n llame al telefono 800 20 00 52;
+piePaginaUnoMailComprobante110;desc=\n\nRecuerde que si cumple su meta de compras en los meses de Septiembre, Octubre y Noviembre, le ser� devuelto el valor de cuota del mes correspondiente.\n;
+piePaginaDosMailComprobante110;desc=La devoluci�n de la cuota correspondiente, se realizar� en el mes siguiente o subsiguiente del mes en que cumpla la meta, en el estado de cuenta de su Tarjeta de Cr�dito.\n;

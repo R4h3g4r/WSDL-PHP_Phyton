@@ -1,0 +1,12 @@
+mail;asunto=Fin día Sucursales;mensaje=Señor Jefe Servicio Cliente o Ejecutivo Servicio Cliente\nComunicamos que el Colaborador asignado por usted, cuyo User Id es #USUARIO#, para realizar la actividad de cuadratura del Fin Día Sucursales, ha finalizado su proceso para la sucursal N° #SUCURSAL#.\nPor tal motivo, solicitamos revisar que los sistemas se encuentren debidamente cerrados y que los Colaboradores que pudieran ingresar movimientos, no lo hagan, para asegurar este cierre Fin Día, como definitivo.;firma=Atte.\n\nGerencia de Sucursales;from=Fin_Dia_Sucursales_BCI@bci.cl;
+#PRODUCCION
+#servicioftp;sisUyP=gesftp;servidor=161.131.232.7;directorioInicial=/gescuadra/resp
+#CERTIFICACION
+servicioftp;sisUyP=gesftp;servidor=giotto2;directorioInicial=/gescuadra/resp
+#INTEGRACION
+#servicioftp;sisUyP=gesftp;servidor=giotto4;directorioInicial=/gescuadra/resp
+#DESARROLLO
+#servicioftp;sisUyP=gesftp;servidor=kanako;directorioInicial=/gescuadra/resp
+#paginacion;registrospagina=8
+#impresion;pathImagen=/portalwls/operacion/cuadraturasucursales/images/
+#respaldo;size_max=5242880;error_size=El archivo de respaldo no se puede subir porque es mayor de 5MB;error_ftp=No se ha podido almacenar el archivo de respaldo

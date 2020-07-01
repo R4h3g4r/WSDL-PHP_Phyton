@@ -1,0 +1,209 @@
+#Configuración para la precarga de los formularios de Solicitud abreviada
+ACTIVIDAD_ABREVIADA;DEPENDIENTE=Dependiente;
+NACIONALIDAD;CHILENO=997;DESCONOCIDO=000;
+NACIONALIDAD_ABREVIADA;CHILENO=Chileno;EXTRANJERO=Extranjero;
+PRODUCTOS_SOLICITADOS;MONTO_POR_DEFECTO=350;
+
+#Configuración Parámetros Identificación Biométrica.
+CAPTURA_BIOMETRICA;TIPOAPLICACION=15;RUTAARCHIVOCONFIG=C:\\Bio_DI\\config.xml;IDAPLICACION=BANCA-SEG;IDOPERACION=123456789;DMODEKEY=;DATA=;ID_OBJETO=0;ID_CLIENTE=0;COD_PLAZA=0;DEDO_VIVO=1;CALIDAD_IMG=75;SUCURSAL=0;
+VALIDACION_BIOMETRICA;EJECUCION_OK=10000;EST_VIGENTE=S;NO_FALLECIDO=N;
+
+#Evaluación de riesgo.
+EVALUACION_RIESGO;CANAL=150;APLICACION=SOL_INST;
+LISTA_FILT_RIESGO;FILT_NO_CLIENTE_DI=1,2,4,5,8,15,16,18,20,21,22,28,34;FILT_CLIENTE_DI=3,4,5,6,8,16,18,19;
+
+#Grupos Filtros No cliente DI.
+GRUPOS_NO_CLIENTE;1=G1;2=G4;4=G1;5=G2;8=G1;15=G1;16=G1;18=G2;20=G1;21=G1;22=G1;28=G4;34=G3;102=G2;103=G1;
+
+#Configuración necesaria los filtros utilizados durante consultas de solicitudes instantáneas a base de datos
+FILTROS_CNS_SOL_INST;DIA_CORTE_SOL=10;
+
+#Códigos necesarios para la creación de un cliente básico en SGC.
+CODIGOS_SGC_CLI;CLI_EXISTE_SGC=4010;INGRESO_CLI=ING;MODIFICA_CLI=MOD;ACT_NO_ESPECIFICADA=97001;TIPO_CLIENTE=PV;TIPO_BANCA=PP;OTRA_OFICINA=N;RELACION_CLIENTE=S;TIPO_CONVENIO=N;ESTADO=B;DIRECCION=SIN DOMICILIO INICIAL DI;TELEFONO=6927000;COMUNA=080;
+
+#Origen de obtencion de rentas
+ORIGEN_OBT_RENTA;CING=CALCULO DE INGRESO;
+
+#Claves asociadas al perfil de un cliente.
+PERFIL_CLIENTE_PER_NAT;ESTADO_PERFIL=A;MESES_VIGENCIA=4;IND_DEF=N;
+
+#######################################################
+#Parámetros para consulta a los webservices de SINACOFI
+#######################################################
+
+#Ambiente de DESARROLLO
+#WS_SINACOFI;URL=http://alsbdesa.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/CotizacionesPrevisionalesProxyService?WSDL;usuarioALSB=testalsbdesa;claveALSB=test26desa;usuarioWs=BCIDESA1;claveWs=prueba;
+
+#Ambiente de CERTIFICACION
+#WS_SINACOFI;URL=http://alsbcert.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/CotizacionesPrevisionalesProxyService?WSDL;usuarioALSB=testalsbcert;claveALSB=test30cert;usuarioWs=BCIBCI;claveWs=sinac1;
+
+#Ambiente de PRODUCCION
+WS_SINACOFI;URL=http://alsb.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/CotizacionesPrevisionalesProxyService?WSDL;usuarioALSB=testalsbprdi;claveALSB=test30prdi;usuarioWs=BCIBCI;claveWs=sinac1;
+
+#Código de Retorno  de la consulta
+CODIGO_RETORNO_WS_SINACOFI;10000=Consulta ejecutada con éxito;10001=Error en los parámetros de entrada;10002=Error interno del servicio;10003=Error en la autenticación del usuario o no tiene permiso para el servicio;10004=Cédula de identidad no vigente;10005=La comparación de huellas indica que no se parecen lo suficiente según el umbral definido;10006=Error en la comunicación con Previred para obtener las cotizaciones previsionales;10007=El RUN no presenta cotizaciones en los últimos 12 meses;10008=No existe información asociada en AFPs para el RUT consultado;10009=Por el momento no existe detalle asociado al cliente;
+
+
+######################################################
+#Parámetros para consulta a los webservices de EQUIFAX
+######################################################
+
+#Ambiente de DESARROLLO
+#WS_EQUIFAX;URL=http://alsbdesa.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/AntecedentesComercialesProxyService?WSDL;usuarioALSB=testalsbdesa;claveALSB=test26desa;usuarioWs=efx.bci.fin;claveWs=bcinov;iCom=S;serie=0;usoInternoDicom1=A;usoInternoDicom2=0;usoInternoDicom3=0;
+
+#Ambiente de CERTIFICACION
+WS_EQUIFAX;URL=http://alsbcert.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/AntecedentesComercialesProxyService?WSDL;usuarioALSB=testalsbcert;claveALSB=test30cert;usuarioWs=efx.bci.fin;claveWs=bcinov;iCom=S;serie=0;usoInternoDicom1=A;usoInternoDicom2=0;usoInternoDicom3=0;
+
+#Ambiente de PRODUCCION
+#WS_EQUIFAX;URL=http://alsb.bci.cl/servicios/clientes/informaciondecliente/antecedentesclientes/AntecedentesComercialesProxyService?WSDL;usuarioALSB=testalsbprdi;claveALSB=test30prdi;usuarioWs=efx.bci.fin;claveWs=bcinov;iCom=S;serie=0;usoInternoDicom1=A;usoInternoDicom2=0;usoInternoDicom3=0;
+
+######################################################
+#Códigos de deudas para asignación de los parámetros
+#en el perfil del cliente obtenido desde el webservice
+#de EQUIFAX.
+######################################################
+DEUDAS_PERFIL_EQUIFAX;LEASING=;HIPOTECARIO=;COMERCIAL=;MOROSA=MOROSA;INDCASTIGADA=CASTIGADA;INDVENCIDA=VENCIDA;
+
+######################################################
+#Mensajes Varios para despliegue por pantalla
+#MSG_[Código de módulo]_[Clave];Desc=[Mensaje]
+######################################################
+
+MSG_BIOMETRIA_NOVIG;Desc=La cédula de identidad no esta vigente.;
+MSG_BIOMETRIA_ERROR;Desc=No se logro validar la cédula de identidad.;
+MSG_BIOMETRIA_10004;Desc=La cédula de identidad no esta vigente.;
+MSG_BIOMETRIA_10005;Desc=La comparación de huellas indica que no se parecen lo suficiente según el umbral definido.;
+MSG_BIOMETRIA_FALLECIDO;Desc=El Rut del cliente figura como fallecido.;
+MSG_BIOMETRIA_RUTINVALIDO;Desc=El Rut capturado no corresponde al Rut del cliente en evaluación.;
+MSG_BIOMETRIA_HUELLAINV;Desc=La huella ingresada no corresponde a la cédula de identidad;
+MSG_FILTROS_RIESGO_G1;Desc=Solicitante con eventos negativos vigentes;
+MSG_FILTROS_RIESGO_G2;Desc=Solicitante ha registrados eventos negativos durante los últimos meses.;
+MSG_FILTROS_RIESGO_G3;Desc=Solicitante no es evaluable por dinero instantáneo, derivar a SUC;
+MSG_FILTROS_RIESGO_G4;Desc=Ex cliente con cierre de cuenta corriente por orden banco hace menos de 5 años.;
+MSG_FILTROS_RIESGO_00;Desc=Análisis Filtros de Riesgo;
+MSG_FILTROS_RIESGO_01;Desc=Cliente no cumple con al menos un filtro de riesgo;
+MSG_FILTROS_RIESGO_02;Desc=;
+MSG_VERIFICACIO_OFAC_00;Desc=He verificado que el solicitante NO se encuentra en OFAC;
+MSG_VERIFICACIO_OFAC_01;Desc=El solicitante se encuentra en OFAC, pero he recibido el V°B° de Gerencia de Cumplimiento;
+MSG_MARGEN_INST_01;Desc=No se ha podido determinar si la solicitud fue generada por BCI Instantáneo;
+MSG_RENTA_PREVIRED_00;Desc=Irregularidad en pago de cotizaciones. Previred no retorno cotizaciones para el cliente.;
+MSG_RENTA_PREVIRED_01;Desc=Irregularidad en pago de cotizaciones. Las rentas presentan lagunas.;
+MSG_RENTA_PREVIRED_02;Desc=Irregularidad en pago de cotizaciones. Se obtuvo una cantidad menor de cotizaciones que las requeridas.;
+MSG_RENTA_PREVIRED_03;Desc=Irregularidad en pago de cotizaciones. El cliente no posee renta en el último mes.;
+MSG_RENTA_PREVIRED_04;Desc=Irregularidad en pago de cotizaciones. Las fechas de pago de las cotizaciones no cumplen el mínimo de diferencias requeridas.;
+MSG_RENTA_PREVIRED_05;Desc=Irregularidad en pago de cotizaciones. Existen una serie de cotizaciones pagadas por una Isapre consecutivamente.;
+MSG_RENTA_PREVIRED_06;Desc=Irregularidad en pago de cotizaciones. Rut del empleador cambio en los últimos 6 meses;
+MSG_RENTA_PREVIRED_07;Desc=Irregularidad en pago de cotizaciones. El último periodo posee una licencia médica.;
+MSG_RENTA_01;Desc=No se logro capturar los montos de rentas, intente nuevamente;
+
+#######################################################
+#Parámetros necesarios para la validacion de rentas
+#######################################################
+VAL_PREVIRED;totalRentas=8;ultimaFechasPagoDistintas=11;numeroFechasPagoDistintas=8;ultimasRentasIsapre=6;cantidadMaximaMesesIsapre=3;cantidadPeriodoMedia=8;factorMediaRentas=0.8;cantidadPeriodosVariabilidad=6;comparadorVariabilidad=0.2;diaPagoVigenteCot=12;diaCorteValUltCot=15;cantMesesUltCot=2;cantMesesValEmpleador=6;cantMinimaPeriodosValEmpleador=6;
+COT_POR_LICENCIA_MED;COTIZACIÓNANTICIPADAPORSUBSIDIO=true;COTIZACIONANTICIPADAPORSUBSIDIO=true;COTIZACIÓNNORMALPORSUBSIDIO=true;COTIZACIONNORMALPORSUBSIDIO=true;
+COT_VAL_CALC_RENTA;COTIZACIÓN=true;COTIZACION=true;COTIZACIÓNANTICIPADA=true;COTIZACIONANTICIPADA=true;COTIZACIÓNATRASADA=true;COTIZACIONATRASADA=true;COTIZACIÓNNORMAL=true;COTIZACIONNORMAL=true;COTIZACIÓNNORMALREZAGADO=true;COTIZACIONNORMALREZAGADO=true;COTIZACIÓNOBLIGATORIA=true;COTIZACIONOBLIGATORIA=true;COTIZACIÓNOBLIGATORIADECAPITALIZACIÓN=true;COTIZACIONOBLIGATORIADECAPITALIZACION=true;COTIZACIÓNPAGADA=true;COTIZACIONPAGADA=true;COTIZACIÓNTRANSFERENCIADESDEANTIGUOSISTEMA=true;COTIZACIONTRANSFERENCIADESDEANTIGUOSISTEMA=true;PAGOCOTIZACIÓNDECLARADA=true;PAGOCOTIZACIONDECLARADA=true;RELIQUIDACIÓNTRASPASOINGRESOCOTIZACIÓN=true;RELIQUIDACIONTRASPASOINGRESOCOTIZACION=true;RELIQUIDACIÓNTRASPASOINGRESOREZAGOANTERIOR=true;RELIQUIDACIONTRASPASOINGRESOREZAGOANTERIOR=true;RELIQUIDACIÓNTRASPASOINGRESOREZAGODESCOORDINADO=true;RELIQUIDACIONTRASPASOINGRESOREZAGODESCOORDINADO=true;REZAGODESCTRASPDEOTRAAFP=true;TRANSFCOTIZDESDEREGANT=true;TRANSFERENCIADEREZCOTIZACIÓNOBLIGATORIA=true;TRANSFERENCIADEREZCOTIZACIONOBLIGATORIA=true;
+MONTO_MAX_CAL_PREVIRED;UF=66;
+
+#######################################################
+#Parámetros para la journalizacion
+#######################################################
+JOUR_GRAL;canal=Workstation;medio=EVEPER;
+JOUR_CREA_MARGEN;evento=CREMAR;sub_evento=BCINST;prod=CRED;obs=Creación de nuevo margen para cliente;
+JOUR_ATV_MARGEN;evento=ATVMAR;sub_evento=BCINST;prod=CRED;obs=Activación de margen;
+JOUR_ACT_MARGEN;evento=ACTMAR;sub_evento=BCINST;prod=CRED;obs=Actualiza margen existente;
+JOUR_VAL_BIO;evento=SNVBIO;sub_evento=BCINST;prod=SLRP;obs=Consulta de Validación Biométrica Sinacofi;
+JOUR_RENT_SIN;evento=SNRENT;sub_evento=BCINST;prod=SLRP;obs=Consulta de Rentas solicitadas a Sinacofi;
+JOUR_ANT_COM_EQ;evento=EQANCM;sub_evento=BCINST;prod=SLRP;obs=Consulta de antecedentes comerciales solicitadas a Equifax;
+
+#######################################################
+#Parámetros para los atributos y tag del XML del servicio de Previred
+#######################################################
+TAG_XML_PREVIRED;respuestaDetalle=respuestaccx_detalle;respuestaLegal=respuestaccx_legal;
+VALOR_XML_PREVIRED;rut=rut;folio=folio;firma=firma;mes=mes;afp=afp;tipomovimiento=tipomovimiento;fechapago=fechapago;rutempleador=rutempleador;remuneracionimponible=remuneracionimponible;monto=monto;
+FORMATO_PERIODO_COT;Desc=MMyyyy;
+
+#######################################################
+#Parámetros para los códigos de los servicios para bitacora.
+#######################################################
+APP_BITACORA;ofacProsesoOK=OFAC_PROCESO_OK;rentaPreviredObtencion=RENTA_PREV_OBT;rentasPrcesoOK=RENTAS_PROCESO_OK;FILTROS_DI_ERROR=FILTRO_RSG_EXCEP;
+BITACORA_INST;SIN_DESCRIPCION=Modulo no posee Descripción;VALIDA_FILTROS_RIESGO=Término del flujo debido a validación de filtros de riesgo para no cliente DI.;FILTROS_VISACION_CLIENTE=Término del flujo debido a validación de filtros de riesgo para cliente DI.;CLI_NO_PER=Término del flujo debido a que el cliente no es una persona natural sin giro.;VERIFICACION_OFAC=Usuario de la aplicación decide terminar flujo durante la revisión en OFAC del cliente.;OFAC_PRO_OK=Proceso de verificación en Solicitante en OFAC terminado satisfactoriamente;RENTA_PREV_OK=Rentas obtenidas satisfactoriamente desde previred;RENTA_PREV_NOK=Problema al obtener las rentas desde previred;RENTA_PREV_ERROR=Error al intentar obtener las rentas dede Previred;
+BITACORA_ID_SOL;ID_SOL=solicitante no es persona natural sin giro comercial;
+BITACORA_VISACION;SIN_VISACION= el solicitante no activa los filtros de la visación.;CON_VISACION=solicitante activa los filtros de la visación.;
+BITACORA_RIESGO;SIN_FILTRO=solicitante no ha activado los filtros.;USUSARIO_CONTINUA=Usuario continua la evaluación a pesar de que el usuario activa filtros de riesgo.;ERR_FILTROS_DI=Servicio Filtros de Riesgo [XX] con problemas. Flujo continúa;
+BITACORA_AUT_SOL;ING_INFO=ingresa huella e informacion de cedula de indentidad;BLOQ_RUT=la cedula de identidad esta bloqueada;NO_BLOQ_RUT=la cedula de indentidad no esta bloqueada;HUELLA_DIF=la huella no corresponde a la persona ingresada por el rut;
+BITACORA_INFO_GRAL_SOL;DATOS_EQUIFAX=Se obtienen los datos de manera exitosa. El tiempo de ejecucion fue de ;ERROR_EQUIFAX=Hubo un error al obtener los datos de EQUIFAX;
+BITACORA_EVAL_RIESGO;INICIO_EVAL=inicio de la evaluación de riesgo como parte del flujo de dinero instantáneo.;SOL_APROB=solicitud ha sido aprobada automáticamente como parte del flujo instantáneo.;SOL_INVEST=solicitud queda en estado INVESTIGAR;SOL_RECH=solicitud queda en estado RECHAZADA;
+BITACORA_RTACERO;DI_RTACERO=Ejecutivo autoriza continuar flujo al perfil con renta 0;
+
+## Christian Macaya -- 19-07-2012
+## Tabla - Entidad Pagadora Licencias Medicas.
+PAGALICENCIAMEDICA;total=16;
+PAGALICENCIAMEDICA_1;rut=61601000-k;des=SUBSECRETARIA DE SALUD PUBLICA;
+PAGALICENCIAMEDICA_2;rut=70015580-3;des=INSTITUTO DE SEGURIDAD DEL TRABAJO;
+PAGALICENCIAMEDICA_3;rut=70360100-6;des=ASOC CHILENA DE SEGURIDAD;
+PAGALICENCIAMEDICA_4;rut=70096350-0;des=CAJA DE COMPENSACION DE ASIGNACION FAMILIAR GABRIELA MISTRAL;
+PAGALICENCIAMEDICA_5;rut=70016160-9;des=LA ARAUCANA C C A F;
+PAGALICENCIAMEDICA_6;rut=70016330-K;des=CAJA DE COMPENSACION DE ASIGNACION FAMILIAR LOS HEROES;
+PAGALICENCIAMEDICA_7;rut=82606800-0;des=CAJA DE COMPENSACION ASIGNACION FAMILIAR 18 DE SEPTIEMBRE;
+PAGALICENCIAMEDICA_8;rut=81826800-9;des=CAJA DE COMPENSACION DE ASIGNACION FAMILIAR DE LOS ANDES;
+PAGALICENCIAMEDICA_9;rut=71235700-2;des=FUND DE SALUD TRABAJADORES BANCO DEL ESTADO DE CHILE;
+PAGALICENCIAMEDICA_10;rut=79566720-2;des=INSTITUCION DE SALUD PREVISIONAL CHUQUIC;
+PAGALICENCIAMEDICA_11;rut=94954000-6;des=COLMENA GOLDEN CROSS SA;
+PAGALICENCIAMEDICA_12;rut=96501450-0;des=ISAPRE CRUZ BLANCA S A;
+PAGALICENCIAMEDICA_13;rut=96504160-5;des=FERROSALUD S A;
+PAGALICENCIAMEDICA_14;rut=96522500-5;des=ISAPRE MASVIDA S A;
+PAGALICENCIAMEDICA_15;rut=96572800-7;des=ISAPRE BANMEDICA S A;
+PAGALICENCIAMEDICA_16;rut=96856780-2;des=ISAPRE CONSALUD S A;
+
+## Parametros - Regla Licencia Medica.
+LICENCIAMEDICA_RGL2;maxLicencias=5;ultimosMeses=6;
+LICENCIAMEDICA_RGL3;minCotizCanceladas=8;
+
+## Parametros - Antiguedad y Continuidad Laboral.
+CLIENTEVIGENTE_ANTLAB;antiguedad=3;continuidad=3;
+ISBANCARIZADO;minMesesBancarizado=6;
+BANCARIZADO;antiguedad=6;continuidad=8;
+NO_BANCARIZADO;antiguedad=6;continuidad=12;
+
+## Parametros - Regla Verificar Pagos en Ultimos Meses.
+VERIFICARPAGOSMESES;minMesesPagosCotizados=5;minUltimosMeses=8;
+
+## Parametros - Regla Verificar Cotizacion en Ultimo Mes.
+VERIFICARULTIMOMES;difDias=-45;
+
+## Parametros - Regla Calculo de Renta.
+CALCULARRENTA_CLINOVIG;cantCotiz=8;factorCalculoRenta=0.8;
+CALCULARRENTA_CLIVIG;cantCotiz=3;factorCalculoRenta=0.8;
+
+## Reglas Previred.
+REGLAS;param=1+1+true|2+2+true|3+3+true|4+4+true|5+5+true;
+
+## Mensajes de Error - Reglas Previred.
+REGLA_LICMED1;regla=El Solicitante no posee 8 o más meses de cotizaciones;
+REGLA_LICMED2;regla=El Solicitante posee más de 5 Licencias Medicas en los útimos 6 meses de cotización;
+REGLA_LICMED3;regla=El Solicitante posee Licencia Medica en el útimo período de cotización;
+REGLA_ANTLAB1;regla=El Solicitante no cumple con la Continuidad Laboral necesaria;
+REGLA_ANTLAB2;regla=El Solicitante no cumple con la Antigüedad Laboral necesaria;
+REGLA_CALCRENT1;regla=El Solicitante no cumple con la regla de Calculo de Renta (Minimo 8 Cotizaciones);
+REGLA_VERIFPAGO1;regla=El Solicitante no posee 8 o mas cotizaciones;
+REGLA_VERIFPAGO2;regla=El Solicitante posee las últimas 8 cotizaciones pagadas en menos de 5 meses;
+REGLA_PAGOULTMES1;regla=El Solicitante no posee cotizaciones hace 45 días;
+
+## Glosa Error Servicio Cuentas
+ERROR_SERVCUENTAS;glosa=RUT sin cuenta;
+
+##Datos fijos creacion cliente en TANDEM
+clienteTandem;banca=PER;
+
+#######################################################
+#Evaluación smarphone
+#######################################################
+ERRORES;EDAD=6;IMPABRIR=10;MORA=1;CASTIGADA=4;VENCIDA=5;PROTVIG=3;ICOM=0;VACIO=NoE;
+MENSAJES;APROB=999;SI=SI;NO=NO;
+LINKS;VIDEO=http://www.youtube.com/watch?v=-5ThYp_EIqQ;TyC=Estimado(a), Al aceptar las presentes condiciones, usted está autorizando al Banco de Crédito e Inversiones para consultar sus antecedentes personales y financieros para la debida acreditación y evaluación de los mismos. El otorgamiento del producto solicitado, estará sujeto a la verificación de tales antecedentes al momento del curse y aprobación final, de acuerdo a la política de riesgo vigente del Banco.;
+JOURNAL;EVENTO=EQANCM;SUBEVENTO=evento;
+CANAL;NUM=905;
+VALIDACION;EDADMINIMA=30;EDADMAXIMA=65;IMPABRIRCTA=false;MONTODEUDA=50000;CERO=0;
+GLOSAS;ESTIM=Estimado(a),;APRB1=Usted tiene una Cuenta Corriente TBanc Aprobada.;APRB2=Un Ejecutivo TBanc lo contactará dentro las próximas 24 horas para la verificación  de sus antecedentes y la aprobación final  del producto solicitado.;RECH1=Su solicitud de Cuenta Corriente TBanc no pudo ser atendida en estos momentos.;RECH2=Un Ejecutivo TBanc lo contactara dentro las próximas 24 horas,  respondiendo a su solicitud de apertura de Cuenta Corriente TBanc.;NOOP=Actualmente no se reciben solicitudes por este medio.;ERROR=Ocurrio un error durante la solicitud.;
+SWITCH;OPERATIVA=SI;
+PARAMUYP;LLAVEWS=eqfxplat;LLAVEALSB=wsinplat;

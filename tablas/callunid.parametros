@@ -1,0 +1,35 @@
+Ejecutivo Call Center Telecanal;Desc=CCE;
+Ejecutivo BackOffice Telecanal;Desc=BCK;
+Jefe de Oficina;Desc=JOF;                         
+Jefe de Operaciones;Desc=JOP;                     
+Otros Funcionarios Sucursal;Desc=OFS;             
+Telemarketing;Desc=TMK;                           
+Bci-Home;Desc=BCH;                                
+Unidad de Reclamos;Desc=UDR;                      
+BCI Directo;Desc=IVB;                             
+IVR Tbanc;Desc=IVT;
+Ejecutivo Empresa;Desc=EJE;                       
+Otros;Desc=OTR;                                   
+
+# Desarrollo
+#wsClickToCallback;protocolo=http;servidor=b2bdesa.bci.cl:9050;url=/esb/personas/cliente/atenciondecliente/solicitudes/llamadas/ServicioSolicitudDeLlamada?WSDL;tiempoEspera=30;sistemaOSB=wlsalsb;
+# Certificacion
+wsClickToCallback;protocolo=http;servidor=b2bcert.bci.cl:9050;url=/esb/personas/cliente/atenciondecliente/solicitudes/llamadas/ServicioSolicitudDeLlamada?WSDL;tiempoEspera=30;sistemaOSB=alsbcert;
+# Produccion
+#wsClickToCallback;protocolo=http;servidor=alsb.bci.cl;url=/esb/personas/cliente/atenciondecliente/solicitudes/llamadas/ServicioSolicitudDeLlamada?WSDL;tiempoEspera=10;sistemaOSB=wlsalsb;
+
+inputClickToCallback;toURI=sip:;applicationName=ClickToCallback;timeoutEjecucionLlamada=30;
+
+# Desarrollo
+#parametrosClickToCallback;valor=vdnCallCenter=39808,timeoutDiscadoEjecutivo=120,fonoCliente={0},timeoutDiscadoCliente=30,tiempoPreview=10,tiempoWrapup=10,Contexto={1};
+# Certificacion
+parametrosClickToCallback;valor=vdnCallCenter=39808,timeoutDiscadoEjecutivo=120,fonoCliente={0},timeoutDiscadoCliente=30,tiempoPreview=10,tiempoWrapup=10,Contexto={1};
+# Produccion
+#parametrosClickToCallback;valor=vdnCallCenter=16529,timeoutDiscadoEjecutivo=120,fonoCliente={0},timeoutDiscadoCliente=30,tiempoPreview=10,tiempoWrapup=10,Contexto={1};
+
+parametrosContexto;valor=Rut={0},XY=00,Banca={1},Otro={2},TelefonoCliente={3};
+BANCA;PP=PER CCA;PBM=PRI CCA;
+respuestaSolicitud;OK=SOLICITUD OK;NOK=SOLICITUD NOK;ERROR=SOLICITUD CON ERROR;
+
+#SECURITIZACION OSB
+srvSolicitudLlamada;sistemaUyP=wssollam;

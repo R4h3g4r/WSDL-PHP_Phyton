@@ -1,0 +1,31 @@
+# Firma y aceptación de contratos
+servicio;desc=100;
+imagen;BCI=log_0_bci.gif;NOVA=logo_nova.gif;TBANC=logoCHICO.gif;
+despacho;valor=comprobanteDiscleimer;
+prodJournal;valor=;
+subProdJournal;valor=;
+despachoContrato;valor=comprobanteContrato;
+prodExcluido;valor=ACTDC;
+
+
+segundasClaves;listadoNombres=Internet,Multipass,SafeSigner;
+
+WSParametros;sistema=cmfnp8;
+
+dominio;nombre=filenetdesa;
+service;nombre=FileNetP8WSI;
+objectStore;nombre=CorpBci;
+tipo;nombre=ContratoCuentaVista;
+
+segundaClave;CPRMA=FirmarContratoCuentaPrimaInternet;Multipass=FirmarContratoCuentaPrimaMultipass;
+clase;CPRMA=ContratoCuentaVista;
+claseMandatoCierre;CPRMA=MandatoCierreCuentasPrimas;
+CPRMA;cantDocumento=1;
+
+obtencionCantidadDocumentos;cantidadDocumento_CPRMA=4;
+
+etapaJournal;ACEP=SI;REC=NO;
+
+tipoDocumento;CPRMA=Contrato;glosa=Contrato Cuenta a la Vista;
+tipoProducto;glosa=Cuenta Prima;
+correo;mail=clientesincorreo@bci.cl;

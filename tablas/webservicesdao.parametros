@@ -1,0 +1,44 @@
+#=========================================================
+# CONFIGURACION DE WSDL QUE ENTREGARA EL ENDPOINT DE
+# LLAMADA AL SERVICIO WEB. ESTE WSDL PUEDE ESTAR EN UN
+# DIRECTORIO Y NO NECESARIAMENTE EN UN HTTP O HTTPS
+#=========================================================
+webservices.transaction.wsdl; valor=http://192.168.1.48:8080/wsnova/services/WSProcesaRequerimiento?wsdl;
+#webservices.transaction.wsdl; valor=http://161.131.133.102:8080/wsnova/services/WSProcesaRequerimiento?wsdl;
+
+#=========================================================
+# CONFIGURACION POR DEFECTO EN CASO DE PARAMETROS
+# INCOMPLETOS EN LLAMADA A TRANSACCION DE NEGOCIOS
+#=========================================================
+webservices.transaction.version; valor=SEC01;
+webservices.transaction.banco; valor=BCI;
+webservices.transaction.marca; valor=NOVA;
+webservices.transaction.cartera; valor=BEE;
+webservices.transaction.lenguage; valor=ES;
+webservices.transaction.pais; valor=CL;
+webservices.transaction.canal; valor=ARAUCANO;
+webservices.transaction.producto; valor=TARJETA;
+webservices.transaction.servicio; valor=InterfacewebTipo;
+
+#=========================================================
+# ACTIVACION DE TRAZADO DE XML DE ENVIO Y RESPUESTA EN
+# LAS TRANSACCIONES DE NEGOCIO VIA WEBSERVICES DAO SUPPORT.
+#=========================================================
+webservices.transaction.xml.trace.enable; valor=true;
+
+#=========================================================
+# ACTIVACION DE FILTROS EN LLAMADAS DE TRANSACCIONES
+# DE NEGOCIO VIA WEBSERVICES DAO SUPPORT.
+#=========================================================
+webservices.transaction.filter.enable; valor=false;
+
+#=========================================================
+# CONFIGURACION JNDI (JAVA NAMING DIRECTORY INTERFASE) EN
+# WEBLOGIC DESTINO EL CUAL PROVEERA EL RESPECTIVO EJB.
+#
+# NOTA : EN CASO DE CLUSTER ESPECIFICAR NODO Y CELDA DEL
+#        SERVICIO EJB REMOTO A LLAMAR PARA EL FRAMEWROK.
+#=========================================================
+ejb.riesgo.jndi.lookup; valor=wcorp.serv.riesgo.ServiciosRiesgo;
+ejb.riesgo.filtros.origen; valor=ARU;
+

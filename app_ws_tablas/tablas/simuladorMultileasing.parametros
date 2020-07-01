@@ -1,0 +1,40 @@
+claveOrigen;132=WSP;230=WSE;132C=WCP;230C=WCE;
+tiposLeasing;compraInteligente=2;
+tipoMonedaDesplegables;valor=1,2;
+tipoLeasing;valor_1=Renta Fija;valor_2=Compra Inteligente;valorCompraInteligente=Compra Inteligente;valorRentaFija=Renta Fija;
+tipoMoneda;valor_1=$;valor_2=UF;
+compraInteligentePie;pie=20;
+
+journalSimulacion;evento=SOLICIT;subEvento=AUTOMO;producto=CRED;observacion=Solicitud de crédito Multileasing;
+
+segmento;persona=;empresa=;
+
+#URL WSDL segun ambiente.
+#Produccion
+#wsSimuladorLeasing;urlWebService=http://b2b.bci.cl/esb/empresas/productos/servicios/leasing/SimuladorMultiLeasingPS?wsdl;qname=http://esb.bci.cl/productos/servicios/leasing/SimuladorMultiLeasing;serviceName=SimuladorMultiLeasing;
+#Certificación
+wsSimuladorLeasing;urlWebService=http://161.131.140.137:9050/NEGOCIO/Productos/Servicios/Leasing/SimuladorMultiLeasing/SimuladorMultiLeasingPS?wsdl;qname=http://esb.bci.cl/productos/servicios/leasing/SimuladorMultiLeasing;serviceName=SimuladorMultiLeasing;
+#Integración
+#wsSimuladorLeasing;urlWebService=http://161.131.184.123:9050/NEGOCIO/Productos/Servicios/Leasing/SimuladorMultiLeasing/SimuladorMultiLeasingPS?wsdl;qname=http://esb.bci.cl/productos/servicios/leasing/SimuladorMultiLeasing;serviceName=SimuladorMultiLeasing;
+#Desarrollo
+#wsSimuladorLeasing;urlWebService=http://127.0.0.1:8011/NEGOCIO/Productos/Servicios/Leasing/SimuladorMultiLeasing/SimuladorMultiLeasingPS?wsdl;qname=http://esb.bci.cl/productos/servicios/leasing/SimuladorMultiLeasing;serviceName=SimuladorMultiLeasing;
+
+ejbSimulador;valor=wcorp.aplicaciones.productos.leasing.simulacion.SimuladorMultileasing;
+
+emailsEjecutivoDe;desc=Webmast;
+asuntoCorreoSimulacion;desc=Solicitud de Leasing;
+emailsEjecutivoFrom;desc=contacto@bci.cl;
+moneda;peso=Peso;uf=UF;
+mailGrupo;desc=lkleasing@bci.cl;
+enviomailbackup;listaEstadosNoEnviables=1;
+resultadoFinalEnvio_1;Desc=Fallo al enviar correo Exception. Retorno de código de error (1)
+resultadoFinalEnvio_2;Desc=Fallo al enviar correo From Vacio. Número de error (2)
+resultadoFinalEnvio_3;Desc=Fallo al enviar correo From Ilegal. Número de error (3)
+resultadoFinalEnvio_4;Desc=Fallo al enviar correo To Vacio. Número de error (4)
+resultadoFinalEnvio_5;Desc=Fallo al enviar correo Subject Vacio. Número de error (5)
+resultadoFinalEnvio_6;Desc=Fallo al enviar correo Cuerpo Vacio. Número de error (6)
+resultadoFinalEnvioDesconocido;Desc=Fallo al enviar correo Desconocido. Número de error {numeroError}
+
+#SECURITIZACION OSB
+srvSimuladorMultiLeasing;sistemaUyP=wssmleas;
+

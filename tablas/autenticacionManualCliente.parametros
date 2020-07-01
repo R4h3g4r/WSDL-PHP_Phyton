@@ -1,0 +1,269 @@
+roles;EMPRESA=APO,OPE,CLI_SIN_CONVENIO;PYME=APO,OPE,CLI_SIN_CONVENIO;
+
+#llave <rol>_<banca>
+APO_EMPRESA;glosa=Apoderado;valor=APO;activo=1;
+OPE_EMPRESA;glosa=Operador Contralor;valor=OPE;activo=1;
+CLI_SIN_CONVENIO_EMPRESA;glosa=Apoderado Reseteo;valor=CLI;activo=1;
+
+APO_PYME;glosa=Apoderado;valor=APO;activo=1;
+OPE_PYME;glosa=Operador Contralor;valor=OPE;activo=1;
+CLI_SIN_CONVENIO_PYME;glosa=Cliente sin convenio;valor=CLI;activo=1;
+
+codigosInicialesDeBancas;EMPRESA=E,I,C,F;PYME=P;
+codigosBancasExcluidas;valor=P,PP;
+
+swtchMultipassActivo;EMPRESA=0;PYME=1;
+
+#Id’s preguntas por banca_rol_diaSemana
+EMPRESA_APO_2;idPreguntas=P1,P2,P3;id_pregunta_comodin=C1;
+EMPRESA_APO_3;idPreguntas=P4,P5,P6;id_pregunta_comodin=C2;
+EMPRESA_APO_4;idPreguntas=P7,P8,P9;id_pregunta_comodin=C3;
+EMPRESA_APO_5;idPreguntas=P10,P11,P12;id_pregunta_comodin=C4;
+EMPRESA_APO_6;idPreguntas=P13,P14,P15;id_pregunta_comodin=C5;
+
+EMPRESA_OPE_2;idPreguntas=P16,P17,P18;id_pregunta_comodin=C6;
+EMPRESA_OPE_3;idPreguntas=P19,P20,P21;id_pregunta_comodin=C7;
+EMPRESA_OPE_4;idPreguntas=P22,P23,P24;id_pregunta_comodin=C8;
+EMPRESA_OPE_5;idPreguntas=P25,P26,P27;id_pregunta_comodin=C9;
+EMPRESA_OPE_6;idPreguntas=P28,P29,P30;id_pregunta_comodin=C10;
+
+EMPRESA_CLI_2;idPreguntas=P51,P52,P53,P54,P55;id_pregunta_comodin=C11;
+EMPRESA_CLI_3;idPreguntas=P56,P57,P58,P59,P60;id_pregunta_comodin=C12;
+EMPRESA_CLI_4;idPreguntas=P61,P62,P63,P64,P65;id_pregunta_comodin=C13;
+EMPRESA_CLI_5;idPreguntas=P66,P67,P68,P69,P70;id_pregunta_comodin=C14;
+EMPRESA_CLI_6;idPreguntas=P71,P72,P73,P74,P75;id_pregunta_comodin=C15;
+
+PYME_APO_2;idPreguntas=PYME1,PYME2,PYME3;id_pregunta_comodin=PYMEC1;
+PYME_APO_3;idPreguntas=PYME4,PYME5,PYME6;id_pregunta_comodin=PYMEC2;
+PYME_APO_4;idPreguntas=PYME7,PYME8,PYME9;id_pregunta_comodin=PYMEC3;
+PYME_APO_5;idPreguntas=PYME10,PYME11,PYME12;id_pregunta_comodin=PYMEC4;
+PYME_APO_6;idPreguntas=PYME13,PYME14,PYME15;id_pregunta_comodin=PYMEC5;
+PYME_OPE_2;idPreguntas=PYME16,PYME17,PYME18;id_pregunta_comodin=PYMEC6;
+PYME_OPE_3;idPreguntas=PYME19,PYME20,PYME21;id_pregunta_comodin=PYMEC7;
+PYME_OPE_4;idPreguntas=PYME22,PYME23,PYME24;id_pregunta_comodin=PYMEC8;
+PYME_OPE_5;idPreguntas=PYME25,PYME26,PYME27;id_pregunta_comodin=PYMEC9;
+PYME_OPE_6;idPreguntas=PYME28,PYME29,PYME30;id_pregunta_comodin=PYMEC10;
+PYME_CLI_2;idPreguntas=PYME31,PYME32,PYME33;id_pregunta_comodin=PYMEC11;
+PYME_CLI_3;idPreguntas=PYME34,PYME35,PYME36;id_pregunta_comodin=PYMEC12;
+PYME_CLI_4;idPreguntas=PYME37,PYME38,PYME39;id_pregunta_comodin=PYMEC13;
+PYME_CLI_5;idPreguntas=PYME40,PYME41,PYME42;id_pregunta_comodin=PYMEC14;
+PYME_CLI_6;idPreguntas=PYME43,PYME44,PYME45;id_pregunta_comodin=PYMEC15;
+
+#Id’s preguntas con su glosa
+#lunes
+P1;glosa=¿Usted firma con otro apoderado?;sistema=S1;aplicacion=A24;
+P2;glosa=¿Con quién firma?, de lo contrario indicar si tiene restricción por monto;sistema=S1;aplicacion=A24;
+P3;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+C1;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella.;sistema=S4;aplicacion=A25;
+
+#martes
+P4;glosa=Número de una cuenta corriente;sistema=S2;aplicacion=A2;
+P5;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+P6;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella;sistema=S4;aplicacion=A25;
+C2;glosa=¿Usted firma con otro apoderado?¿Con quién?;sistema=S1;aplicacion=A24;
+
+#miercoles
+P7;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella;sistema=S4;aplicacion=A25;
+P8;glosa=Empresa posee cuentas vistas de BCI;sistema=S2;aplicacion=A28;
+P9;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+C3;glosa=¿Usted firma con otro apoderado?¿Con quién?;sistema=S1;aplicacion=A24;
+
+#jueves
+P10;glosa=Dirección Principal de la empresa;sistema=S4;aplicacion=A26;
+P11;glosa=¿Usted firma con otro apoderado?;sistema=S1;aplicacion=A24;
+P12;glosa=¿Con quién firma?, de lo contrario indicar si tiene restricción por monto;sistema=S1;aplicacion=A24;
+C4;glosa=Número de una cuenta corriente;sistema=S2;aplicacion=A2;
+
+#viernes
+P13;glosa=Nombre algún apoderado de su empresa.;sistema=S1;aplicacion=A24;
+P14;glosa=Número de una cuenta corriente;sistema=S4;aplicacion=A25;
+P15;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella.;sistema=S4;aplicacion=A25;
+C5;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+
+#lunes
+P16;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella.;sistema=S4;aplicacion=A25;
+P17;glosa=Que servicio PAC tiene contratado su empresa.;sistema=S4;aplicacion=A2;
+P18;glosa=Número de una cuenta corriente;sistema=S4;aplicacion=A2;
+C6;glosa=Sucursal de Cabecera;sistema=S2;aplicacion=A25;
+
+#martes
+P19;glosa=Número de cuenta corriente en moneda extranjera;sistema=S2;aplicacion=A2;
+P20;glosa=Empresa posee cuentas vistas de BCI;sistema=S2;aplicacion=A28;
+P21;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+C7;glosa=Nombre algún apoderado de su empresa;sistema=S2;aplicacion=A2;
+
+#miercoles
+P22;glosa=En que sucursal retira talonarios de cheques;sistema=S2;aplicacion=A29;
+P23;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella.;sistema=S4;aplicacion=A25;
+P24;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S4;aplicacion=A27;
+C8;glosa=Empresa posee cuentas vistas de BCI;sistema=S2;aplicacion=A29;
+
+#jueves
+P25;glosa=Que servicio PAC tiene contratado para su empresa.;sistema=S4;aplicacion=A25;
+P26;glosa=Número de una cuenta corriente;sistema=S4;aplicacion=A29;
+P27;glosa=Sucursal de Cabecera;sistema=S4;aplicacion=A27;
+C9;glosa=Nombre Ejecutivo Comercial o BTX;sistema=S2;aplicacion=A25;
+
+#viernes
+P28;glosa=Nombre algún apoderado de su empresa.;sistema=S4;aplicacion=A27;
+P29;glosa=¿Tiene TC? Indicar últimos 4 dígitos de ella.;sistema=S4;aplicacion=A25;
+P30;glosa=Que servicio PAC tiene contratado su empresa.;sistema=S4;aplicacion=A25;
+C10;glosa=Sucursal de Cabecera;sistema=S1;aplicacion=A27;
+
+P51;glosa=Indíqueme su % de participación en la empresa;sistema=S1;aplicacion=A20;
+P52;glosa=Indíqueme el número de serie de su multipass;sistema=S1;aplicacion=A22;
+P53;glosa=Indíqueme la forma en que actúan los apoderados de la empresa para girar cheques/transferir;sistema=S2;aplicacion=A14;
+P54;glosa=Indíqueme cuál es el correo electrónico de la empresa registrado en el banco;sistema=S1;aplicacion=A22;
+P55;glosa=¿Cuántos otros productos distintos a la cuenta corriente, mantiene vigente la empresa con el banco?;sistema=S2;aplicacion=A23;
+C11;glosa=¿Cuántas cuentas corrientes mantiene la empresa en el banco?;sistema=S2;aplicacion=A18;
+
+P56;glosa=Indíqueme el número de serie de su multipass;sistema=S1;aplicacion=A12;
+P57;glosa=Indíqueme cuál es el correo electrónico de la empresa registrado en el banco;sistema=S2;aplicacion=A18;
+P58;glosa=¿Cuántas cuentas corrientes mantiene la empresa en el banco?;sistema=S2;aplicacion=A17;
+P59;glosa=¿Cuántas cuentas corrientes en moneda extranjera mantiene la empresa en el banco?;sistema=S2;aplicacion=A16;
+P60;glosa=Indíqueme su % de participación en la empresa;sistema=S2;aplicacion=A14;
+C12;glosa=Indíqueme la forma en que actúan los apoderados de la empresa para girar cheques/transferir;sistema=S2;aplicacion=A13;
+
+P61;glosa=¿Cuántas cuentas corrientes en moneda extranjera mantiene la empresa en el banco?;sistema=S1;aplicacion=A22;
+P62;glosa=¿Cuál es el cupo de la línea de sobregiro de la cuenta corriente de la empresa?;sistema=S2;aplicacion=A23;
+P63;glosa=¿Cuántas cuentas corrientes mantiene la empresa en el banco?;sistema=S1;aplicacion=A22;
+P64;glosa=¿Cuántos otros productos distintos a la cuenta corriente, mantiene vigente la empresa con el banco?;sistema=S1;aplicacion=A3;
+P65;glosa=Indíqueme el número de serie de su multipass;sistema=S1;aplicacion=A21;
+C13;glosa=Indíqueme la forma en que actúan los apoderados de la empresa para girar cheques/transferir;sistema=S2;aplicacion=A23;
+
+P66;glosa=Indíqueme su % de participación en la empresa;sistema=S2;aplicacion=A15;
+P67;glosa=Indíqueme la forma en que actúan los apoderados de la empresa para girar cheques/transferir;sistema=S2;aplicacion=A18;
+P68;glosa=¿Cuántos otros productos distintos a la cuenta corriente, mantiene vigente la empresa con el banco?;sistema=S1;aplicacion=A12;
+P69;glosa=¿Cuál es el cupo de la línea de sobregiro de la cuenta corriente de la empresa?;sistema=S1;aplicacion=A22;
+P70;glosa=Indíqueme cuál es el correo electrónico de la empresa registrado en el banco;sistema=S2;aplicacion=A14;
+C14;glosa=¿Cuántas cuentas corrientes en moneda extranjera mantiene la empresa en el banco?;sistema=S2;aplicacion=A23;
+
+P71;glosa=¿Cuántas cuentas corrientes mantiene la empresa en el banco?;sistema=S1;aplicacion=A3;
+P72;glosa=¿Cuál es el cupo de la línea de sobregiro de la cuenta corriente de la empresa?;sistema=S1;aplicacion=A21;
+P73;glosa=Indíqueme el número de serie de su multipass;sistema=S1;aplicacion=A19;
+P74;glosa=Indíqueme la forma en que actúan los apoderados de la empresa para girar cheques/transferir;sistema=S2;aplicacion=A13;
+P75;glosa=¿Cuántos otros productos distintos a la cuenta corriente, mantiene vigente la empresa con el banco?;sistema=S2;aplicacion=A17;
+C15;glosa=Indíqueme su % de participación en la empresa;sistema=S1;aplicacion=A22;
+
+
+
+PYME1;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+PYME2;glosa=Indique si posee algún pago automático asociado a su cuenta corriente;sistema=S1;aplicacion=A9;
+PYME3;glosa=¿Cuántas cuentas corrientes tiene la Empresa ( Moneda Nacional )?;sistema=S1;aplicacion=A3;
+PYMEC1;glosa=¿En qué Sucursal retira talonarios?;sistema=S1;aplicacion=A5;
+
+PYME4;glosa=¿En qué Sucursal retira talonarios?;sistema=S1;aplicacion=A5;
+PYME5;glosa=Indique la dirección principal de la Empresa registrada en el Banco;sistema=S1;aplicacion=A8;
+PYME6;glosa=Indique el monto de alguno de sus créditos vigentes;sistema=S1;aplicacion=A7;
+PYMEC2;glosa=Indique si posee algún pago automático asociado a su cuenta corriente;sistema=S1;aplicacion=A9;
+
+PYME7;glosa=Indique si posee algún pago automático asociado a su cuenta corriente;sistema=S1;aplicacion=A9;
+PYME8;glosa=Indique la dirección asociada al envío de cartolas de la cuenta corriente;sistema=S1;aplicacion=A8;
+PYME9;glosa=Indique algún movimiento de su tarjeta de crédito (Si posee);sistema=S1;aplicacion=A10;
+PYMEC3;glosa=¿Posee cuenta corriente en moneda extranjera (Dólar o Euros)?;sistema=S2;aplicacion=A2;
+
+PYME10;glosa=Indicar últimos 4 dígitos de tarjeta de credito (Si posee);sistema=S1;aplicacion=A10;
+PYME11;glosa=Indique si la empresa tiene tarjetas de debitos;sistema=S1;aplicacion=A6;
+PYME12;glosa=Indicar algún movimiento en la cuenta corriente de la Empresa dentro de los últimos 5 días;sistema=S1;aplicacion=A4;
+PYMEC4;glosa=Indique el cupo autorizado de su línea de emergencia;sistema=S1;aplicacion=A3;
+
+PYME13;glosa=Indique el cupo autorizado de su línea de emergencia;sistema=S1;aplicacion=A3;
+PYME14;glosa=Indique cupo autorizado de su  línea de sobregiro;sistema=S1;aplicacion=A3;
+PYME15;glosa=¿Posee cuenta corriente en mondeda extranjera (Dólar o Euros)?;sistema=S2;aplicacion=A2;
+PYMEC5;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+
+PYME16;glosa=N° Cta.Cte.;sistema=S1;aplicacion=A3;
+PYME17;glosa=Nombre de Apoderado / Apoderado  Convenio;sistema=S3;aplicacion=A1;
+PYME18;glosa=Dirección envio cartolas;sistema=S1;aplicacion=A8;
+PYMEC6;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+
+PYME19;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+PYME20;glosa=¿Cuántas cuentas corrientes tiene la Empresa ( Moneda Nacional )?;sistema=S1;aplicacion=A3;
+PYME21;glosa=¿En qué Sucursal retira talonarios?;sistema=S1;aplicacion=A5;
+PYMEC7;glosa=Indique la dirección asociada al envío de cartolas de la cuenta corriente;sistema=S1;aplicacion=A8;
+
+PYME22;glosa=Indique la dirección asociada al envío de cartolas de la cuenta corriente;sistema=S1;aplicacion=A8;
+PYME23;glosa=Indicar algún movimiento en la cuenta corriente de la Empresa dentro de los últimos 5 días ;sistema=S1;aplicacion=A4;
+PYME24;glosa=Indique el cupo autorizado de su línea de emergencia;sistema=S1;aplicacion=A3;
+PYMEC8;glosa=Indique cupo autorizado de su  línea de sobregiro;sistema=S1;aplicacion=A3;
+
+PYME25;glosa=Indique cupo autorizado de su  línea de sobregiro;sistema=S1;aplicacion=A3;
+PYME26;glosa=¿Posee cuenta corriente en moneda extranjera (Dólar o Euros)?;sistema=S2;aplicacion=A2;
+PYME27;glosa=N° Cta.Cte.;sistema=S1;aplicacion=A3;
+PYMEC9;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+
+PYME28;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+PYME29;glosa=Indique la dirección asociada al envío de cartolas de la cuenta corriente;sistema=S1;aplicacion=A8;
+PYME30;glosa=Indique cupo autorizado de su  línea de sobregiro;sistema=S1;aplicacion=A3;
+PYMEC10;glosa=N° Cta.Cte.;sistema=S1;aplicacion=A3;
+
+PYME31;glosa=¿Cuántos Apoderados se requieren para firmar un cheque?;sistema=S1;aplicacion=A12;
+PYME32;glosa=¿La Empresa tiene crédito hipotecario vigente con el Banco?;sistema=S1;aplicacion=A11;
+PYME33;glosa=¿Cuántas cuentas corrientes tiene la Empresa ( Moneda Nacional )?;sistema=S1;aplicacion=A3;
+PYMEC11;glosa=¿En qué Sucursal retira talonarios?;sistema=S1;aplicacion=A5;
+
+PYME34;glosa=¿En qué Sucursal retira talonarios?;sistema=S1;aplicacion=A5;
+PYME35;glosa=Indique la dirección principal de la Empresa registrada en el Banco;sistema=S1;aplicacion=A8;
+PYME36;glosa=Indique el monto de alguno de sus créditos vigentes;sistema=S1;aplicacion=A7;
+PYMEC12;glosa=Indique si posee algún pago automático asociado a su cuenta corriente;sistema=S1;aplicacion=A9;
+
+PYME37;glosa=Indique si posee algún pago automático asociado a su cuenta corriente;sistema=S1;aplicacion=A9;
+PYME38;glosa=Indique la dirección asociada al envío de cartolas de la cuenta corriente;sistema=S1;aplicacion=A8;
+PYME39;glosa=Indique algún movimiento de su tarjeta de crédito (Si posee);sistema=S1;aplicacion=A10;
+PYMEC13;glosa=Indicar  últimos 4 dígitos de tarjeta de credito (Si posee);sistema=S1;aplicacion=A10;
+
+PYME40;glosa=Indicar  últimos 4 dígitos de tarjeta de crédito (Si posee);sistema=S1;aplicacion=A10;
+PYME41;glosa=Nombre de algún apoderado de la Empresa;sistema=S1;aplicacion=A12;
+PYME42;glosa=Indicar algún movimiento en la cuenta corriente de la Empresa dentro de los últimos 5 días;sistema=S1;aplicacion=A3;
+PYMEC14;glosa=Indique el cupo autorizado de su línea de emergencia;sistema=S1;aplicacion=A3;
+
+PYME43;glosa=Indique el cupo autorizado de su línea de emergencia;sistema=S1;aplicacion=A3;
+PYME44;glosa=Indique cupo autorizado de su  línea de sobregiro;sistema=S1;aplicacion=A3;
+PYME45;glosa=¿Posee cuenta corriente en moneda extranjera (Dólar o Euros)?;sistema=S2;aplicacion=A2;
+PYMEC15;glosa=¿Cuántos Apoderados se requieren para firmar un cheque?;sistema=S1;aplicacion=A12;
+
+S1;glosa=Portal;
+S2;glosa=BciCorp;
+S3;glosa=Webbel;
+S4;glosa=Portal/Everest;
+
+A1;glosa=Administración de convenios BEL / Empresas / Apoderados;
+A2;glosa=Negocios Vigentes;
+A3;glosa=Vista Cliente / Cliente;
+A4;glosa=Vista Cliente / Cliente / Cuenta Corriente;
+A5;glosa=Vista Cliente / Cliente / Cuenta Corriente / Talonarios;
+A6;glosa=Vista Cliente / Cliente / Cuenta Corriente / Tarjetas de débito asociadas;
+A7;glosa=Vista Cliente / Créditos;
+A8;glosa=Vista Cliente / Direcciones;
+A9;glosa=Vista Cliente / Link Pagos;
+A10;glosa=Vista Cliente / Productos / Tarjeta de Crédito;
+A11;glosa=Vista Cliente / SuperCartCCC;
+A12;glosa=Vista Colaborador / Firmas y Poderes;
+A13;glosa=Convenios de Empresa;
+A14;glosa=Everest;
+A15;glosa=Portal/Everest;
+A16;glosa=Portal/ExDir;
+A17;glosa=Portal/Super CatCC/Periocidad de Cartola;
+A18;glosa=Portal/SuperCartCC/Talonarios/Solicitud de traslado de talonario;
+A19;glosa=Super CartCC/Documentos Devueltos;
+A20;glosa=Vista cliente / Datos Basicos / Cliente;
+A21;glosa=Vista cliente / Productos;
+A22;glosa=Vista cliente / Productos / SuperCartCC;
+A23;glosa=Webbel;
+
+A24;glosa=Firmas y Poderes;
+A25;glosa=Productos Vigentes;
+A26;glosa=Direcciones;
+A27;glosa=Datos Basicos;
+A28;glosa=Convenios Cuentas Vistas;
+A29;glosa=Mesón;
+
+#Códigos de Journalización
+Journal_true;evento=AUTENTICA;subEvento=MANUAL;producto=SEGURI;
+Journal_false;evento=AUTENTICA;subEvento=MNLNOK;producto=SEGURI;
+
+mensajeErrorBanca;glosa=EL RUT DE CLIENTE NO PERTENECE A LA BANCA EMPRESA/EMPRESARIO;
+mensajeResultado;true=EL USUARIO HA SIDO AUTENTIFICADO;false=EL USUARIO NO HA SIDO AUTENTIFICADO;
+
+#Desplegar columnas Sistema y Aplicación
+despliegue;EMPRESA=true;PYME=false;

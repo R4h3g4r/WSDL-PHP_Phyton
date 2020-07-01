@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+ Detalle    : Archivo de configuracion XML del Framework de mensajeria SMS
+ Objetivo   : Administrar el 100% de las configuraciones parametrizables del Framework SMS
+ Version    : 2.0
+ Todos los derechos reservados por Banco de Crédito e Inversiones.
+ -->
+<configuracion>
+
+  <!-- ======================== -->
+  <!-- COMANDOS DE NEGOCIO      -->
+  <!-- ======================== -->
+  <!--
+       Esta seccion detalla todos los posibles comandos de
+       negocio SMS que se expongan a los clientes y no clientes
+       moviles del banco para realizar trasacciones online.
+
+       NOTA: En 'nombre' se pueden especificar mas de un
+       comando sms, lo cual es util para mas de alguna transaccion
+       antigua que no se desea eliminar.
+   -->
+  <comandos>
+      <!-- COMANDO SMS SIMULACION DE CREDITO -->
+    <comando nombre="SIM">
+      <descripcion>Simulacion de Credito</descripcion>
+      <java-class>wcorp.sms.modelo.comando.SimulacionCreditoTransacion</java-class>
+      <help-error>SIM [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"   obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut con verificador"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="parametros" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoSeguro.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <!-- COMANDO SMS SIMULACION DE CREDITO -->
+    <comando nombre="MM">
+      <descripcion>Simulacion de Credito</descripcion>
+      <java-class>wcorp.sms.modelo.comando.ComandoMM</java-class>
+      <help-error>MM [cantidad millones] [rut] [plazo] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="cantidad" obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Cantidad de millones"/>
+        <param nombre="rut"   obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut con verificador"/>
+        <param nombre="plazo" obligatorio="False" ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Plazo del credito"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoSimulacionCredito.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <!-- COMANDO SMS SIMULACION DE CREDITO -->
+    <comando nombre="M">
+      <descripcion>Simulacion de Credito Cientos de Miles</descripcion>
+      <java-class>wcorp.sms.modelo.comando.ComandoM</java-class>
+      <help-error>M [cantidad cientos de miles] [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="cantidad" obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="4" descripcion="Cantidad de Miles"/>
+        <param nombre="rut"   obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut con verificador"/>
+        <param nombre="plazo" obligatorio="False" ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Plazo del credito"/>
+        <!-- PARAMETROS CONFIGURACION -->
+        <param nombre="parametros" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoM.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <comando nombre="MILLON">
+      <descripcion>Simulacion de Credito para un millon de pesos</descripcion>
+      <java-class>wcorp.sms.modelo.comando.SimulacionCreditoMillonTrasaccion</java-class>
+      <help-error>MILLON [rut] [cuotas] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"    obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="8" descripcion="Rut sin verificador"/>
+        <param nombre="cuotas" obligatorio="False" ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Cuotas del credito"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoSimulacionMillon.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <comando nombre="MILLON2">
+      <descripcion>Simulacion de Credito para un millon de pesos</descripcion>
+      <java-class>wcorp.sms.modelo.comando.SimulacionCreditoMillonTrasaccion</java-class>
+      <help-error>MILLON [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"    obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="8" descripcion="Rut sin verificador"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoSimulacionMillon.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <comando nombre="COMBO1">
+      <descripcion>Venta de promociones y combos a traves de SMS</descripcion>
+      <java-class>wcorp.sms.modelo.comando.PromocionesComboTransaccion</java-class>
+      <help-error>COMBO1 [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"      obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut sin verificador"/>
+        <param nombre="producto" obligatorio="True" ingresomovil="False" tipo="java.lang.Long" valor="1" largomaximo="1" descripcion="Numero del combo producto que se ofrece"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoPromocionesCombo.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <comando nombre="COMBO2">
+      <descripcion>Venta de promociones y combos a traves de SMS</descripcion>
+      <java-class>wcorp.sms.modelo.comando.PromocionesComboTransaccion</java-class>
+      <help-error>COMBO1 [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"      obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut sin verificador"/>
+        <param nombre="producto" obligatorio="True" ingresomovil="False" tipo="java.lang.Long" valor="2" largomaximo="1" descripcion="Numero del combo producto que se ofrece"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoPromocionesCombo.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+    <comando nombre="COMBO3">
+      <descripcion>Venta de promociones y combos a traves de SMS</descripcion>
+      <java-class>wcorp.sms.modelo.comando.PromocionesComboTransaccion</java-class>
+      <help-error>COMBO1 [rut] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"      obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="9" descripcion="Rut sin verificador"/>
+        <param nombre="producto" obligatorio="True" ingresomovil="False" tipo="java.lang.Long" valor="3" largomaximo="1" descripcion="Numero del combo producto que se ofrece"/>
+        <!-- ARCHIVO DE CONFIGURACION COMANDO MOVIL -->
+        <param nombre="filesetting" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="SMSComandoPromocionesCombo.parametros" largomaximo="100" descripcion="Archivo de configuracion del comando"/>
+      </parametros>
+    </comando>
+
+      <!-- COMANDO SMS ARAUCANO -->
+    <comando nombre="VSM">
+      <descripcion>Comando de acceso directo WAP</descripcion>
+      <java-class>wcorp.sms.modelo.comando.RecuperaAccesoDirectoWAPTransaccion</java-class>
+      <help-error>VSM www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <param nombre="urlwap" obligatorio="True" ingresomovil="False" tipo="java.lang.String" valor="https://wap.bci.cl/wapwls_visacionmovil/Ingreso.do" largomaximo="200" descripcion="(Interno) URL de acceso directo para aplicaciones WAP"/>
+      </parametros>
+    </comando>
+
+      <!-- COMANDO SMS CONSULTA DE SALDO ALARMAS -->
+    <comando nombre="SALDO">
+      <descripcion>Comando de consulta de saldo para modulo de Alarmas</descripcion>
+      <java-class>wcorp.sms.modelo.comando.ConsultaSaldoCuentasAlarmasTransaccion</java-class>
+      <help-error>SALDO www.bci.cl Fono:6928000</help-error>
+      <parametros>
+      </parametros>
+    </comando>
+
+    <!-- COMANDO SMS SEGURO DE SALUD -->
+    <comando nombre="SEGURO">
+     <descripcion>Seguro de Salud</descripcion>
+     <java-class>wcorp.sms.modelo.comando.ComandoSeguro</java-class>
+     <help-error>SEGURO  www.bci.cl Fono:6928000</help-error>
+     <parametros>
+     </parametros>
+    </comando>
+
+
+      <!-- COMANDO SMS PARA CREDITOS PARA UNIVERSIDADES -->
+    <comando nombre="PLNUNI">
+      <descripcion>Comando de simulación y visación de credito para universidades</descripcion>
+      <java-class>wcorp.sms.modelo.comando.SolicitudPlanEstudiantesUniversidadTransaccion</java-class>
+      <help-error>PLNUNI [rut] [edad] [duracion] [ano-estadio-en-curso] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"         obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="8" descripcion="Rut sin verificador"/>
+        <param nombre="edad"        obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Edad"/>
+      <param nombre="duracion"    obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="1" descripcion="Duracion carrera"/>
+      <param nombre="anoestudio"  obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="1" descripcion="Año estudio en curso"/>
+      </parametros>
+    </comando>
+
+      <!-- COMANDO SMS PARA CREDITOS PARA INSTITUTOS -->
+    <comando nombre="PLNINS">
+      <descripcion>Comando de simulación y visación de credito para Institutos</descripcion>
+      <java-class>wcorp.sms.modelo.comando.SolicitudPlanEstudiantesInstitutoTransaccion</java-class>
+      <help-error>PLNINS [rut] [edad] [institucion] [duracion] [ano-estadio-en-curso] www.bci.cl Fono:6928000</help-error>
+      <parametros>
+        <!-- PARAMETROS MOVILES -->
+        <param nombre="rut"         obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="8" descripcion="Rut sin verificador"/>
+        <param nombre="edad"        obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="2" descripcion="Edad"/>
+        <param nombre="institucion" obligatorio="True"  ingresomovil="True" tipo="java.lang.String" largomaximo="10" descripcion="Institución"/>
+      <param nombre="duracion"    obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="1" descripcion="Duracion carrera"/>
+      <param nombre="anoestudio"  obligatorio="True"  ingresomovil="True" tipo="java.lang.Long" largomaximo="1" descripcion="Año estudio en curso"/>
+      </parametros>
+    </comando>
+    
+ <!-- COMANDO SMS PARA TARJETAS DE CREDITO y ULTIMOS MOVIMIENTOS -->
+ 
+  <comando nombre="RBIP">
+	    <descripcion>Comando encargado de realizar una recarga a una tarjeta Bip enviada por parametro</descripcion>              
+	    <java-class>wcorp.sms.modelo.comando.AdaptadorRecargaSMS</java-class>	    
+	    <help-error>RBIP\n www.bci.cl\n Fono:6928000</help-error>
+	    <parametros>
+		 <param nombre="alias" obligatorio="True" ingresomovil="True" tipo="java.lang.String" valor="" largomaximo="200" descripcion="Alias Asociado a una tarjeta Bip"/>
+	    </parametros>
+	  </comando>	
+	  <comando nombre="STCM">
+	    <descripcion>Comando encargado de Solicitar el Saldo para una tarjeta MAstercad Registrada por el Cliente</descripcion>              
+	    <java-class>wcorp.sms.modelo.comando.ComandoConsultarSaldoTarjetaMC</java-class>	    
+	    <help-error>STCM\n www.bci.cl\n Fono:6928000</help-error>
+	    <parametros>
+	    </parametros>
+	  </comando>  
+        <comando nombre="STCV">
+	    <descripcion>Comando encargado de Solicitar el Saldo para una tarjeta Visa Registrada por el Cliente</descripcion>              
+	    <java-class>wcorp.sms.modelo.comando.ComandoConsultaSaldoTarjetaVisa</java-class>	    
+	    <help-error>STCM\n www.bci.cl\n Fono:6928000</help-error>
+	    <parametros>
+	    </parametros>
+	  </comando>  
+	  <comando nombre="MOV5">
+	    <descripcion>Comando encargado de Solicitar los ultimos 5 movimientos desde la cuenta de cargo</descripcion>              
+	    <java-class>wcorp.sms.modelo.comando.ComandoUltimosMovimientos</java-class>	    
+	    <help-error>STCM\n www.bci.cl\n Fono:6928000</help-error>
+	    <parametros>
+	    </parametros>
+	  </comando>  
+     <comando nombre="CHEQ5">
+	    <descripcion>Comando encargado de Solicitar los ultimos cheques cobrados desde la cuenta de cargo</descripcion>              
+	    <java-class>wcorp.sms.modelo.comando.ComandoUltimosCheques</java-class>	    
+	    <help-error>STCM\n www.bci.cl\n Fono:6928000</help-error>
+	    <parametros>
+	    </parametros>
+	  </comando>  
+
+    <!-- EN CASO DE ERRORES EN LOS COMANDOS -->
+    <errores>
+       <fueradelinea>Estamos fuera de linea reintente mas tarde. www.bci.cl Fono:6928000</fueradelinea>
+       <noexiste>El comando enviado no existe! www.bci.cl Fono:6928000</noexiste>
+    </errores>
+  </comandos>
+
+  <!-- =========================== -->
+  <!-- CONFIGURACION DE COLAS JMS  -->
+  <!-- =========================== -->
+  <!--
+       Esta configuracion expone los nombres de JNDI
+       (Java Naming Directory Interfase) que poseen las
+       factorias y colas de JMS que han sido dispuestas
+       para la captura de mensajes y su posterior
+       procesamiento Asincrono.
+   -->
+  <colas>
+   <!-- CONFIGURACION DE COLA DE ENTRADA -->
+   <cola-entrada>
+     <jndi-factoria-mdb>jms.connection.sms.EntradaFactory</jndi-factoria-mdb>
+     <jndi-cola-mdb>jms.connection.sms.EntradaQueue</jndi-cola-mdb>
+     <error-no-implementacion>Atención, estan llegando mensajes a 'cola de entrada' que no poseen una implementacion para ser procesados, contactar a proveedor.</error-no-implementacion>
+     <error-mensaje-incorrecto>Atención, estan llegando mensajes a cola de entrada' que no son procesables, revise configuraciones.</error-mensaje-incorrecto>
+     <maximo-reintentos>3</maximo-reintentos>
+     <tiempo-reintentos>500</tiempo-reintentos>
+   </cola-entrada>
+
+   <!-- CONFIGURACION DE COLA DE SALIDA -->
+   <cola-salida>
+     <jndi-factoria-mdb>jms.connection.sms.SalidaFactory</jndi-factoria-mdb>
+     <jndi-cola-mdb>jms.connection.sms.SalidaQueue</jndi-cola-mdb>
+     <error-no-implementacion>Atención, estan llegando mensajes a 'cola de salida' que no poseen una implementacion para ser procesados, contactar a proveedor.</error-no-implementacion>
+     <error-mensaje-incorrecto>Atención, estan llegando mensajes a 'cola de salida' que no son procesables, revise configuraciones.</error-mensaje-incorrecto>
+     <maximo-reintentos>3</maximo-reintentos>
+     <tiempo-reintentos>500</tiempo-reintentos>
+   </cola-salida>
+
+   <!-- CONFIGURACION DE COLA DE COMANDOS DE NEGOCIO -->
+   <cola-comando>
+     <jndi-factoria-mdb>jms.connection.sms.ComandoFactory</jndi-factoria-mdb>
+     <jndi-cola-mdb>jms.connection.sms.ComandoQueue</jndi-cola-mdb>
+     <error-no-implementacion>Atención, estan llegando mensajes a 'cola de comandos' que no poseen una implementacion para ser procesados, contactar a proveedor.</error-no-implementacion>
+     <error-mensaje-incorrecto>Atención, estan llegando mensajes a 'cola de comandos' que no son procesables, revise configuraciones.</error-mensaje-incorrecto>
+     <maximo-reintentos>3</maximo-reintentos>
+     <tiempo-reintentos>500</tiempo-reintentos>
+   </cola-comando>
+  </colas>
+
+  <!-- ================================================================= -->
+  <!-- CONFIGURACION DE COMUNICACION HTTP ENTRE PROVEEDOR ISC Y EL BANCO -->
+  <!-- ================================================================= -->
+  <!--
+      En esta seccion se registran todas la URL de entrada, salida,
+      suscripcion, desuscripcion con las que cuenta el proveedor de
+      telecominicaciones para poder recibir y enviar mensajes SMS a
+      telefonos moviles.
+   -->
+  <web>
+
+  <!-- CONFIGURACION DEL HTTP CLIENT PARA PETICIONES POST DE URLs EXTERNAS -->
+    <cliente>
+       <maximo-reintentos>3</maximo-reintentos>
+       <proxy-uso>true</proxy-uso>
+       <proxy-host>199.186.28.80</proxy-host>
+       <proxy-port>8000</proxy-port>
+       <proxy-user>dps</proxy-user>
+       <proxy-password>declaracionbci</proxy-password>
+    </cliente>
+
+    <!-- CONFIGURACION DE SMS SALIENTE DEL BANCO A PROVEEDOR ISC -->
+    <saliente>
+      <url-http>http://sms.isc.cl/bcibee/sender.php</url-http>
+      <parametros>
+        <param id="prm1" nombrerequest="to_number" descripcion="Numero telefónico a enviar el SMS" />
+        <param id="prm2" nombrerequest="username" valor="bcibee" descripcion="Usuario valido para el envió del SMS asignado a BCI" />
+        <param id="prm3" nombrerequest="password" valor="bb2006!" descripcion="Clave de seguridad para el envió asignada a BCI" />
+        <param id="prm4" nombrerequest="text" descripcion="Contenido del mensaje" />
+        <param id="prm5" nombrerequest="id" descripcion="Identificador interno de BCI del mensaje" />
+        <param id="prm6" nombrerequest="nroserv" valor="8599" descripcion="Numero de servicio o Large Account de envio" />
+        <param id="prm7" nombrerequest="id_msgod" descripcion="Identificador ciclo conversacional ISC-BCI" />
+      </parametros>
+    </saliente>
+
+    <!-- CONFIGURACION DE SMS ENTRANTE DE PROVEEDOR ISC A BANCO -->
+  <entrante>
+    <url-http>http://locahost:7001/smswls/Receptor.do</url-http>
+      <parametros>
+        <param id="prm1" nombrerequest="tipo" descripcion="Tipo de transaccion sms : E=Error; N=Notificación; M=Comando SMS; S=Confirmación Suscripción" />
+        <param id="prm2" nombrerequest="glosa_resultado" descripcion="Detalle del error o resultado de la operación de envió del mensajes SMS desde el ISC a las TELCO" />
+        <param id="prm3" nombrerequest="numero" descripcion="Numero telefónico al cual se intento enviar el mensaje, en formato universal (Ej: +569XXXXXXXX)" />
+        <param id="prm4" nombrerequest="mensaje" descripcion="Mensaje original de envio o nuevo comando de SMS a procesar" />
+        <param id="prm5" nombrerequest="id_telco" descripcion="Id del operador (TELCO) que genero el mensaje" />
+        <param id="prm6" nombrerequest="id" descripcion="Identificador único enviado por BCI al ISC" />
+        <param id="prm7" nombrerequest="nroserv" descripcion="Numero de servicio o Large Account" />
+        <param id="prm8" nombrerequest="id_msgod" descripcion="Identificador ciclo conversacional ISC-BCI" />
+      </parametros>
+  </entrante>
+
+  <!-- SUSCRIPCION DE MOVILES -->
+  <suscripcion>
+    <url-http>http://sms.isc.cl/bcibee/preinscripcion.php</url-http>
+      <parametros>
+        <param id="prm1" nombrerequest="to_number" descripcion="Numero telefónico a suscribir, en formato universal (Ej: +569XXXXXXXX)" />
+        <param id="prm2" nombrerequest="username" valor="bcibee" descripcion="Usuario valido para el envió del SMS asignado a BCI" />
+        <param id="prm3" nombrerequest="password" valor="bb2006!" descripcion="Clave de seguridad para el envió asignada a BCI" />
+        <param id="prm4" nombrerequest="id" descripcion="Identificador único enviado por BCI al ISC" />
+        <param id="prm5" nombrerequest="tipo" valor="S" descripcion="Indicador de accion si corresponde a (S)uscripcion o (D)essucripcion" />
+        <param id="prm6" nombrerequest="nroserv" valor="8599" descripcion="Numero de servicio o Large Account" />
+      </parametros>
+  </suscripcion>
+
+  <!-- DE-SUSCRIPCION DE MOVILES -->
+  <desuscripcion>
+    <url-http>http://sms.isc.cl/bcibee/preinscripcion.php</url-http>
+      <parametros>
+        <param id="prm1" nombrerequest="to_number" descripcion="Numero telefónico a des-sucribir, en formato universal (Ej: +569XXXXXXXX)" />
+        <param id="prm2" nombrerequest="username" valor="bcibee" descripcion="Usuario valido para el envió del SMS asignado a BCI" />
+        <param id="prm3" nombrerequest="password" valor="bb2006!" descripcion="Clave de seguridad para el envió asignada a BCI" />
+        <param id="prm4" nombrerequest="id" descripcion="Identificador único enviado por BCI al ISC" />
+        <param id="prm5" nombrerequest="tipo" valor="D" descripcion="Indicador de accion si corresponde a (S)uscripcion o (D)essucripcion" />
+        <param id="prm6" nombrerequest="nroserv" valor="8599" descripcion="Numero de servicio o Large Account" />
+      </parametros>
+  </desuscripcion>
+  </web>
+
+  <!-- =================================== -->
+  <!-- CONFIGURACION DE LA ADMINISTRACION  -->
+  <!-- =================================== -->
+  <!--
+       Este corresponde a la direccion de correo
+       de todos aquellos entes que se encargaran
+       de monitorear el ambiente SMS cuando ocurran
+       problemas en runtime
+  -->
+  <administracion>
+    <email-from-nombre>Aplicacion SMS</email-from-nombre>
+    <email-from>sms@bee.cl</email-from>
+    <email-to>mmaldonado@bee.cl</email-to>
+    <email-cc>libarra@bee.cl</email-cc>
+    <email-subject>Notificacion de Problemas en Framework SMS corporativo</email-subject>
+  </administracion>
+
+  <!-- =========================================================== -->
+  <!-- CONFIGURACION DE LA APLICACIONES AUTORIZAS PARA ENVIAR SMS  -->
+  <!-- =========================================================== -->
+  <!-- NOTA : En el'id' debe existir en tabla 'AplicacionesSms'
+       el objetivo de tenerlas en esta area y adicionalmente en
+       la base de datos, es que aqui quedaran en cache (memoria)
+       por lo cual las validacion sera extremadamente rápida.
+  -->
+  <aplicaciones>
+    <app id="SMS" javaclassconfirmacionsuscripcion="wcorp.sms.modelo.suscripcion.ConfirmacionSuscripcionSMS" javaclassconfirmaciondesuscripcion="wcorp.sms.modelo.suscripcion.ConfirmacionSuscripcionSMS" descripcion="Enrutador SMS para envios internos o automaticos de mensajes a moviles"/>
+    <app id="ALR" javaclassconfirmacionsuscripcion="wcorp.sms.modelo.suscripcion.ConfirmacionAlarmas" javaclassconfirmaciondesuscripcion="wcorp.sms.modelo.suscripcion.ConfirmacionAlarmas" javaclassconfirmaciondenotificacion="wcorp.sms.modelo.suscripcion.ConfirmacionNotificacionSMS" descripcion="Aplicacion de Alarmas Banco"/>
+  </aplicaciones>
+
+</configuracion>

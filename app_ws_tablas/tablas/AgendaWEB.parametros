@@ -1,0 +1,18 @@
+# Proyecto de Agenda Web para Ejecutivos
+#--------------------------------------------------------------
+#  MaxDias: Número máximo de días hábiles para realizar un agendamiento
+#  MinDias: se suma a la fecha actual para obtener el día mínimo para realizar un agendamiento
+#
+Agendamiento;MaxDias=20;MaxAge=3;MinDias=1;
+
+
+# Envio de Email
+#--------------------------------------------------------------
+110-sendMailAgenda;from=consultas@bci.cl;subject=Su reunion con el ejecutivo ha sido agendada;textplain=Estimado Cliente. La reunion con el ejecutivo BCI <NOMBRE> ha sido agendada para el dia <DIA> a las <HORA> en la sucursal <SUCURSAL>. Si desea cambiarla o eliminar, por favor ingrese a www.bci.cl y haga click en el menu izquierdo en Modificar reunion agendada, o, si prefiere, ingrese la siguiente direccion <URL> en su navegador.Tambien puede llamar a nuestro Contact Center al 600 8 24 24 24 para cambiar o cancelar su reunion.;lineafirma1=Atentamente,;lineafirma2=BCI - Somos Diferentes;lineafirma3=Nota: los tildes de este email han sido omitidos intencionalmente;URL=http://www.bci.cl/seguridadwls/CheckSession?servicio=AGEWEBModificar&canal=110;
+100-sendMailAgenda;from=consultas@bci.cl;subject=Tu reunion con el ejecutivo ha sido agendada;textplain=Estimado Cliente. La reunion con el ejecutivo BCI <NOMBRE> ha sido agendada para el dia <DIA> a las <HORA> en la sucursal <SUCURSAL>. Si desea cambiarla o eliminar, por favor ingrese a www.tbanc.cl y haga click en el menu izquierdo en Modificar reunion agendada, o, si prefiere, ingrese la siguiente direccion <URL> en su navegador.Tambien puede llamar a nuestro Contact Center al 600 8 24 24 24 para cambiar o cancelar su reunion.;lineafirma1=Atentamente,;lineafirma2=BCI - Somos Diferentes;lineafirma3=Nota: los tildes de este email han sido omitidos intencionalmenteURL=http://www.tbanc.cl/seguridadwls/CheckSession?servicio=AGEWEBModificar&canal=100;
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+#mensajes de exito
+cliActivado;Desc=Estimado ejecutivo: El cliente ha sido activado como Prime con éxito.;
+cliDesactivado;Desc=Estimado ejecutivo: El cliente ha sido desactivado como Prime con éxito.;
+ingCliPrime;Desc=Estimado ejecutivo: El cliente ha sido ingresado con éxito.;
+actCliPrime;Desc=Estimado ejecutivo: El cliente ha sido actualizado con éxito.;
+ingAsisPrime;Desc=Estimado ejecutivo: El asistente ha sido ingresado con éxito.;
+asisActivado;Desc=Estimado ejecutivo: El Asistente ha sido activado con éxito.;
+asisDesactivado;Desc=Estimado ejecutivo: El Asistente ha sido desactivado con éxito.;
+asisAct;Desc=Estimado ejecutivo: El Asistente ha sido modificado con exito.;
+
+#XML consulta indicador prime.
+xml;respuesta=<?xml version="1.0" encoding="ISO-8859-1"?><ConsultaClientePrimeXml><indicador>EXPR1</indicador><ejecutivo>EXPR2</ejecutivo><mensajeError>EXPR3</mensajeError></ConsultaClientePrimeXml>; 

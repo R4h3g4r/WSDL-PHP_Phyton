@@ -1,0 +1,44 @@
+DESPLIEGUE_ACTIVO;valor=false;
+
+ESCALA-PRIORIDAD;valor=10;
+VALORES-PRIORIDAD;P1=1;P2=2;P3=3;P4=4;P5=5;P6=6;P7=7;P8=8;P9=9;P10=10;
+
+CANTIDAD_CANALES;valor=2;
+CODIGO_CANAL;C1=110;C2=230;
+DESCRIPCION_CANAL;D1=BCI.cl;D2=BCI.cl Empresa;
+
+TAGS_OBLIGATORIO;canal=[CANALBCI];
+TAGS_PAGINA_SEGURIDAD;link=[URLPAG];botonContinuar=javascript:continuar(),javascript:;
+TAGS_PAGINA_MANUAL;link=[FRASE];imagen=[URLPAG];botonContinuar=javascript:continuar(),javascript:;
+TAGS_PAGINA_PERSONALIZADA;frasePagina=[FRASE];imagen=[URLIMG];campoAccion=[URLPAG];urlClickCampoDeAccion=[CLICKURL];JS_clickCampoDeAccion=javascript:guardarClick();botonContinuar=javascript:continuar(),javascript:;
+TAGS_PAGINA_CONFIGURABLE;PPC=[PPC_DATOS];imagen=[URLIMG];campoAccion=[URLPAG];urlClickCampoDeAccion=[CLICKURL];JS_clickCampoDeAccion=javascript:guardarClick();botonContinuar=javascript:continuar(),javascript:;
+
+
+CAMPO-ACCION;CONSULTAR=CNS;INGRESAR=ING;MODIFICAR=MOD;CANTIDAD=CAN;ELIMINAR=ELI;BUSCAR=BUS;
+
+MSG-EXITO-ING-PP;desc=El ingreso de la Página Publicitaria fue realizado satifactoriamente.;
+
+MSG-ELI-CAMPO-ACCION;desc=No es posible eliminar el campo de accion, por que posee ofertas asociadas.;
+
+LARGO-TEXTO-VARIABLE;largo=1024;
+
+FORMATO-CARGA-ARCHIVO;formato=<cod oferta>,<rut>,<dv rut>,<nombre>,<apellido p>,<apellido m>,<ejecutivo Cabecera>,;
+
+#Desarrollo
+#FTP-CARGA-CLIENTES;HOST=161.131.184.81;SISTEMA_FTP=mktng;PATH=/home/Marketing121/filein;
+
+#Certificación
+#FTP-CARGA-CLIENTES;HOST=161.131.232.180;SISTEMA_FTP=mktftp;PATH=/HomeGTIII/Marketing121/filein;
+
+#Produción
+FTP-CARGA-CLIENTES;HOST=161.131.232.10;SISTEMA_FTP=mktftp;PATH=/Marketing121/filein;
+
+PAGINACION;Desc=5;
+
+HORARIO_ELIMINACION_OFERTA;INICIO=15:00;TERMINO=20:00;
+
+#Clase específica que implementa la interfaz PPC para CrediYa.
+NOMBRE_CLASE_CONCRETA;CrediYa=wcorp.aplicaciones.productos.colocaciones.consumo.helper.DatosPaginaConfigurableCreditoPreaprobado;
+
+URL_NO_SESION;110=/bcinetwls/common/finSesion.html;230=/bcinetwls/common/finSesion.html;
+

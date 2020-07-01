@@ -1,0 +1,1126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<!-- Configuraciones Aplicativas -->
+<application-settings>
+
+  <default-channel-codes>
+    <tbancwls>100</tbancwls>
+    <bcinetwls>110</bcinetwls>
+    <conosurwls>800</conosurwls> 
+    <portalwls>150</portalwls>
+    <workstationwls>151</workstationwls> 
+	<bcinetmovilwls>119</bcinetmovilwls>
+	<belwls>230</belwls>
+    <fuerzadeventas>153</fuerzadeventas> 
+    <movilwls>901</movilwls>
+	<pymewls>132</pymewls>
+  </default-channel-codes>
+
+  <common>
+    <error-security-url>/common/securityError.jsp</error-security-url>
+    <services-file>services-settings.xml</services-file>
+    <switchWebApp-prefix>switchWebApp</switchWebApp-prefix>
+      <format>
+      <date>dd/MM/yyyy</date>
+      <int>#,##0</int>
+      <float>#,##0.00</float>
+      <float4>#,0.0000###</float4>
+      </format>
+  </common>
+
+    <segurosasociados>
+     	<unix-host>161.131.232.10</unix-host>
+     	<ftp-dir>/sasa/ftp</ftp-dir>
+     	<ftp-usuario>sasa</ftp-usuario>
+     	<ftp-password>sasa06</ftp-password>
+     	<dao-type>4</dao-type>
+     	<datasource>wcorp.dsource.SegurosAsociadosDataSource</datasource>
+        <datetime-format>dd/MM/yyyy HH:mm:ss</datetime-format>
+    </segurosasociados>
+
+  <portal-webcorp>
+    <escritorio>
+      <max-vistas>10</max-vistas>
+      <nivel-acceso>
+        <privado>PRIV</privado>
+        <restringido>RES</restringido>
+        <publico>PUB</publico>
+      </nivel-acceso>
+      <tipo-carpeta>
+        <cliente>CLI01</cliente>
+        <colaborador>COL01</colaborador>
+        <normas>NOR01</normas>
+        <portal>POR01</portal>
+      </tipo-carpeta>
+               <sin-restriccion>00</sin-restriccion>
+			<periodo-cache>0</periodo-cache>
+    </escritorio>
+  </portal-webcorp>
+
+     <bciaccion>
+          <format>
+               <date>dd/MM/yyyy</date>
+               <float>#,##0.00</float>
+               <int>#,##0</int>
+          </format>
+     </bciaccion>
+
+  <comisiones>
+      <format>
+      <date>dd/MM/yyyy</date>
+      <float>#,##0.00</float>
+      <int>#,##0</int>
+      </format>
+    <dao-type>5</dao-type>
+    <cols-comparativo>3</cols-comparativo>
+    <nombre-gerencia>Gerencia de Inversiones</nombre-gerencia>
+          <productos>CBOL;FFMM;MDIN;CSEG</productos>
+  </comisiones>
+
+     <indleads>
+          <format>
+               <date>dd/MM/yyyy</date>
+               <float>#,##0.00</float>
+               <int>#,##0</int>
+          </format>
+          <dao-type>5</dao-type>
+          <tendencias> <!-- valores para calculo de tendencias -->
+      <ip>
+        <canal>PROSE</canal>
+        <tipo>1</tipo> <!-- de Aprobacion -->
+      </ip>
+      <winrate>
+        <ruta>TM-PS-UAV</ruta>
+        <tipo>0</tipo>
+        <mes>0</mes>
+      </winrate>
+      <tiempoVenta>
+        <ruta>TM-PS-UAV</ruta>
+        <mes>0</mes>
+      </tiempoVenta>
+    </tendencias>
+  </indleads>
+
+  <pptos>
+    <date-format>dd/MM/yyyy</date-format>
+    <float-format>#,##0.00</float-format>
+    <int-format>#,##0</int-format>
+    <dao-type>4</dao-type>
+    <cycles>3</cycles>
+    <datasource>wcorp.dsource.PptosDataSource</datasource>
+  </pptos>
+
+  <bsc>
+    <date-format>dd/MM/yyyy</date-format>
+    <float-format>#,##0.00</float-format>
+    <int-format>#,##0</int-format>
+    <dao-type>4</dao-type>
+    <tipos-com>Pregunta;OpiniC3n;DeclaraciC3n;Desacuerdo;Acuerdo;Otro</tipos-com>
+    <datasource>wcorp.dsource.BSCDataSource</datasource>
+    <solicitudes>
+      <mapa>M</mapa>
+      <plan>P</plan>
+      <planDetallado>PD</planDetallado>
+      <pedido>PU</pedido>
+    </solicitudes>
+  </bsc>
+
+  <informaciondemorosidad>
+    <show-welcome>on</show-welcome> <!-- usar on/off -->
+	<dao-type>4</dao-type>
+	 <timeout>10</timeout>
+	<datasource>wcorp.dsource.InformacionDeMorosidadDataSource</datasource>
+  </informaciondemorosidad>
+
+  <dirclientes>
+      <format>
+      <date>dd/MM/yyyy</date>
+      <float>#,##0.00</float>
+      <int>#,##0</int>
+      </format>
+    <dao-type>5</dao-type>
+          <estados-direccion>
+               <elements>M;B;C</elements>
+      <element-M>Mala</element-M>
+      <element-B>Buena</element-B>
+      <element-C>Creada</element-C>
+    </estados-direccion>
+          <tipos-direccion>
+               <elements>C;D;E;F;2;3;4;5;6;7;8;9;G;B;T;L</elements>
+      <element-C>Direccion de credito pregrado</element-C>
+      <element-D>Domicilio Principal</element-D>
+      <element-E>Direccion Comercial</element-E>
+      <element-F>Fax</element-F>
+      <element-2>Direccion de Contacto</element-2>
+      <element-3>Casilla de Correo</element-3>
+      <element-4>Casilla Interna</element-4>
+      <element-5>Por Mano</element-5>
+      <element-6>Telegestion</element-6>
+      <element-7>E-Mail</element-7>
+      <element-8>Celular</element-8>
+      <element-9>E-Mail Comercial</element-9>
+      <element-G>Direccion de Referencia</element-G>
+    <element-B>Facebook</element-B>
+      <element-T>Twitter</element-T>
+      <element-L>Linkedin</element-L>
+    </tipos-direccion>
+    <grupo-direcciones>
+      <lista>A;B;C</lista> <!-- D (Correo) NO VA PORQUE EN BCINET NO HAY DE ESTE TIPO!! -->
+      <nombres>
+        <A>Direcciones del Cliente</A>
+        <B>Correo Electronico</B>
+        <C>Telefono</C>
+        <D>Correo</D>
+      </nombres>
+      <tipos>
+        <A>D;E;2;3;G</A>
+        <B>7;9</B>
+        <C>8;F;6</C>
+        <D>4;3;5</D>
+      </tipos>
+    </grupo-direcciones>
+    <usar-oficina>4;5</usar-oficina>
+    <direcciones-habilitadas>
+      <portal>D;E;F;2;3;4;5;6;7;8</portal>
+      <bcinet>D;E;3;7;8;6;9</bcinet> <!-- D;E;7;8 -->
+    </direcciones-habilitadas>
+          <canales-direccion>
+      <element-D>C</element-D>
+      <element-E>C</element-E>
+      <element-F>F</element-F>
+      <element-2>C</element-2>
+      <element-3>C</element-3>
+      <element-4>O</element-4>
+      <element-5>O</element-5>
+      <element-6>O</element-6> <!-- se deja por completitud -->
+      <element-7>M</element-7>
+      <element-8>O</element-8> <!-- se deja por completitud -->
+      <element-9>O</element-9> <!-- se deja por completitud -->
+      <element-G>O</element-G> <!-- se deja por completitud -->
+    </canales-direccion>
+    <dir-principal>D</dir-principal>
+          <sistemas>
+			<sgc>CCT;CPR;COL;DAP;CARCCT;CARCPR</sgc>
+      <no-sgc>CED;CBZ;AHP;AHV</no-sgc>
+          </sistemas>
+    <max-dir> <!-- Maximo de direcciones -->
+      <persona>10</persona>
+      <empresa>99</empresa>
+    </max-dir>
+    <dir-correspondencia> <!-- tipos de direcciones de correspondencia por producto -->
+      <CCT>D;E;2;G;3;4;5</CCT>
+      <CPR>D;E;2;G;3;4;5</CPR>
+      <COL>D;E;2;G;3;4;5</COL>
+      <COL-T>D;E;2;3;G;7</COL-T> <!-- Caso especial Tarjetas de Credito -->
+      <COL-H>D;E;2</COL-H> <!-- Caso especial Hipotecarios -->
+      <DAP>D;E;2;G;3;4;5</DAP>
+      <CARCCT>D;E;2;G;3;4;5;7</CARCCT> <!-- Caso especial Cartola Cta Cte -->
+      <CARCPR>D;E;2;G;3;4;5;7</CARCPR> <!-- Caso especial Cartola Cta Prima -->
+      <CED>D;E;2;G;3;4;5</CED>
+      <CBZ>D;E;2;G;3;4;5</CBZ>
+      <AHP>D;E;2;G;3;4;5</AHP>
+      <AHV>D;E;2;G;3;4;5</AHV>
+    </dir-correspondencia>
+
+    <gestion-actualizacion>
+      <codigo-campana>DirEn07</codigo-campana>
+      <codigo-campana-firma>FirNov08</codigo-campana-firma>
+    </gestion-actualizacion>
+  </dirclientes>
+  
+  <mayuda>
+    <!-- Sybase:4, Tuxedo: 5 -->
+    <dao-factory>5</dao-factory>
+    <jdbc>
+      <dts-mayuda>MAyudaDataSource</dts-mayuda>
+      <selectBoletaByDpu>select first dat_idu 'Rut*', dat_dpu 'DPU*', dat_fec 'FechaApertura*', dat_est 'estado*', dat_des 'solicitud*', dat_usu 'usuarioNombre*', dat_dir 'direccion*', dat_tel 'telefono*' from data where dat_dpu=?</selectBoletaByDpu>
+      <selectBoletaByRut>select first dat_idu 'Rut*', dat_dpu 'DPU*', dat_fec 'FechaApertura*', dat_est 'estado*', dat_des 'solicitud*', dat_usu 'usuarioNombre*', dat_dir 'direccion*', dat_tel 'telefono*' from data where dat_idu=?</selectBoletaByRut>
+      <selectAccionesByDpu>select dat_dpu 'NroDpu*', dat_acc_fec 'FechaAccion*', dat_acc_est 'EstadoAccion*', dat_des 'DescripcionAccion*', dat_res 'ResolutorAccion*'from data where dat_dpu=?</selectAccionesByDpu>
+    </jdbc>
+    <tuxedo>
+      <jolt-pool>BciJoltPool</jolt-pool>
+      <date-format>yyyyMMddhhmmss</date-format>
+      <selectBoletaByDpu>MayGetBolDpu</selectBoletaByDpu>
+      <selectBoletaByRut>MayGetBolRut</selectBoletaByRut>
+      <selectAccionesByDpu>MayGetAccDpu</selectAccionesByDpu>
+    </tuxedo>
+  </mayuda>
+
+  <visacion>
+   	<dicom-url>http://www.dicom.cl</dicom-url>
+  </visacion>
+
+  <hipotecario>
+    <!-- Producto default para simular -->
+    <default-product>
+         <canal-800>16</canal-800>
+         <canal-150>1</canal-150>
+         <default>1</default>
+    </default-product>
+    <!-- Intervalo de refresco de las tablas (1 hora en ms) -->
+    <config-refresh>3600000</config-refresh>
+      <journal>
+      <simulacion>
+          <evento>HIP</evento>
+          <sub-evento>SIMULAC - SOLICITA</sub-evento>
+          <estado-evento>P</estado-evento>
+      </simulacion>
+      </journal>
+      <promocion>No</promocion>
+      <max-etapas>17</max-etapas>
+      <!-- Negociacion de Costo de Fondo -->
+      <costo-fondo>
+      <max-negociacion>0.3</max-negociacion>
+      </costo-fondo>
+   </hipotecario>
+
+  <caching>
+          <!-- Sybase:4, Tuxedo: 5 -->
+		<dao-factory>4</dao-factory>
+		<datasource>wcorp.dsource.CachingDataSource</datasource>
+		<repository>
+			<sinacofi>
+				<default>
+					<!-- Horas:1, DiaSemana: 2, DiaMes: 3 -->
+					<!-- Tipo DiaSemana: Lunes: 1, Martes: 2, ... -->
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</default>
+				<mc2-sncr>
+					<tipo>2</tipo>
+					<valor>2</valor>
+				</mc2-sncr>
+				<irut-5>
+					<tipo>3</tipo>
+					<valor>30</valor>
+				</irut-5>
+				<irut-7>
+					<tipo>3</tipo>
+					<valor>30</valor>
+				</irut-7>
+				<irut-12>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-12>
+				<irut-2>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-2>
+				<irut-3>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-3>
+				<irut-14>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-14>
+				<irut-16>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-16>
+				<irut-18>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-18>
+				<irut-29>
+					<tipo>1</tipo>
+					<valor>24</valor>
+				</irut-29>
+				<sncr-33>
+					<!-- 7 dias = 168 horas -->
+					<tipo>1</tipo>
+					<valor>168</valor>
+				</sncr-33>
+			</sinacofi>
+		</repository>
+   </caching>
+
+   <riesgo>
+		<fuente-deuda-super>Bci</fuente-deuda-super>
+		<cscoring-datasource>wcorp.dsource.CScoringDataSource</cscoring-datasource>
+		<sinacofi-datasource>wcorp.dsource.SinacofiDataSource</sinacofi-datasource>
+
+   </riesgo> 
+
+   <etiquetas>
+	<dao-type>4</dao-type>
+	<datasource>wcorp.dsource.EtiquetasDataSource</datasource>
+		<desfase-meses>0</desfase-meses>
+		<organizador>
+			  <giro>Giros de Cajeros Automaticos</giro>
+				<categoria>
+					<label>Gastos Fijos y PAC</label>
+					<ids>1F;1FA;1G;1GA;3L;3LA;4F;4FA;6O;6OA;7I;7IA;7U;7UA;8A;8AA;8T;8TA;90;90A;91;91A;92;92A;93;93A;94;94A;95;95A;96;96A;97;97A;98;98A;99;99A;9A;9AA;9B;9BA;9D;9DA;9E;9EA;9F;9FA;9H;9HA;9Z;9ZA</ids>
+					<tipo>E</tipo>
+				</categoria>
+					<categoria>
+					<label>Giros de Cajeros Automaticos</label>
+					<ids>6M;6MA;80;80A</ids>
+					<tipo>E</tipo>
+				</categoria>
+				<categoria>
+					<label>Redcompra</label>
+					<ids>68;68A</ids>
+					<tipo>E</tipo>
+				</categoria>
+		
+		</organizador>
+  </etiquetas>
+
+
+  <movimientoshistoricos>
+	<dao-type>4</dao-type>
+	<datasource>wcorp.dsource.MovimientosHistoricosDataSource</datasource>
+	<maxHistoria>6</maxHistoria> <!-- en meses -->
+  </movimientoshistoricos>	
+   
+  <!-- DataSource Perfilador -->
+  <inversiones>
+    <perfilador>
+     <!-- Sybase:4, Tuxedo: 5 -->
+     <dao-type>4</dao-type>
+     <datasource>wcorp.dsource.PerfiladorDataSource</datasource>
+    </perfilador>
+
+    <participes>
+	<!-- Sybase:4, Tuxedo: 5 -->
+	<dao-factory>4</dao-factory>
+        <datasource>wcorp.dsource.ParticipesDataSource</datasource>
+    </participes>
+    <resumen>
+	  	<timeout>15</timeout>
+	</resumen>
+    <fondos-inversion>
+	<!-- Sybase:4, Tuxedo: 5 -->
+	<dao-factory>4</dao-factory>
+	<datasource>wcorp.dsource.FondosInversionDataSource</datasource>
+    </fondos-inversion>
+  </inversiones>  
+   
+
+     <!-- JNDI de los EJBs -->
+  <ejbs>
+      <segurosasociados-services> <!--Seguros Asociados -->
+          <name>wcorp.serv.segurosasociados.SegurosAsociadosServicesSLBean.SegurosAsociadosServicesBean</name>
+          <jndi>wcorp.serv.segurosasociados.SegurosAsociadosServicesSLBean.SegurosAsociadosServices</jndi>
+      </segurosasociados-services>
+
+	<reconocimientovoz-services>
+		<name>wcorp.serv.reconocimientovoz.ServiciosReconocimientoVozBean</name>
+		<jndi>wcorp.serv.reconocimientovoz.ServiciosReconocimientoVoz</jndi>
+	</reconocimientovoz-services>
+
+    <mayuda-services>
+      <name>wcorp.serv.mayuda.MAyudaSLBean.MAyudaBean</name>
+      <jndi>wcorp.serv.mayuda.MAyudaSLBean.MAyuda</jndi>
+    </mayuda-services>
+    <riesgo-services>
+      <name>wcorp.serv.riesgo.ServiciosRiesgoBean</name>
+      <jndi>wcorp.serv.riesgo.ServiciosRiesgo</jndi>
+    </riesgo-services>
+                <caching-services>
+			<jndi>wcorp.serv.caching.CachingServicesSLBean.CachingServices</jndi>
+		</caching-services>
+		<colocaciones-services>
+			<jndi>wcorp.serv.colocaciones.ServiciosColocaciones</jndi>
+		</colocaciones-services>
+
+          <!-- Inicio EJBs del Portal -->
+		<carpeta-services>
+			<jndi>wcorp.serv.portal.EscritorioSLBean.ServiciosCarpeta</jndi>
+		</carpeta-services>
+		<portal-services>
+			<jndi>wcorp.serv.portal.EscritorioSLBean.ServiciosPortal</jndi>
+		</portal-services>
+		<escritorio-process>
+			<jndi>wcorp.bprocess.portal.EscritorioSFBean.Escritorio</jndi>
+		</escritorio-process>
+          <!-- Fin EJBs del Portal -->
+
+          <!-- Inicio EJBs de Presupuestos -->
+    <pptos-estructuramanager>
+      <name>wcorp.serv.presupuesto.EstructuraManagerSLBean.EstructuraManagerBean</name>
+      <jndi>wcorp.serv.presupuesto.EstructuraManagerSLBean.EstructuraManager</jndi>
+    </pptos-estructuramanager>
+    <pptos-processservices>
+      <name>wcorp.serv.presupuesto.ProcessServicesSLBean.ProcessServicesBean</name>
+      <jndi>wcorp.serv.presupuesto.ProcessServicesSLBean.ProcessServices</jndi>
+    </pptos-processservices>
+    <pptos-planillafacade>
+      <name>wcorp.bprocess.presupuesto.PlanillaFacadeSFBean.PlanillaFacadeBean</name>
+      <jndi>wcorp.bprocess.presupuesto.PlanillaFacadeSFBean.PlanillaFacade</jndi>
+    </pptos-planillafacade>
+          <!-- Fin EJBs de Presupuestos -->
+
+    <dirclientes-process>
+      <name>wcorp.bprocess.dirclientes.DireccionesProcessSLBean.DireccionesProcessBean</name>
+      <jndi>wcorp.bprocess.dirclientes.DireccionesProcessSLBean.DireccionesProcess</jndi>
+    </dirclientes-process>
+    <comisiones-services>
+      <name>wcorp.serv.comisiones.ComisionesServicesSLBean.ComisionesServicesBean</name>
+      <jndi>wcorp.serv.comisiones.ComisionesServicesSLBean.ComisionesServices</jndi>
+    </comisiones-services>
+    <clientes-services>
+      <name>wcorp.serv.clientes.ServiciosClienteBean</name>
+      <jndi>wcorp.serv.clientes.ServiciosCliente</jndi>
+    </clientes-services>
+    <direcciones-services>
+      <name>wcorp.serv.direcciones.ServiciosDireccionesBean</name>
+      <jndi>wcorp.serv.direcciones.ServiciosDirecciones</jndi>
+    </direcciones-services>
+    <miscelaneos-services>
+      <name>wcorp.serv.misc.ServiciosMiscelaneosBean</name>
+      <jndi>wcorp.serv.misc.ServiciosMiscelaneos</jndi>
+    </miscelaneos-services>
+    <economia-services>
+      <name>wcorp.serv.economia.ServiciosEconomiaBean</name>
+      <jndi>wcorp.serv.economia.ServiciosEconomia</jndi>
+    </economia-services>
+    <tarjetas-services>
+	 <jndi>wcorp.serv.tarjetas.ServiciosTarjetas</jndi>
+    </tarjetas-services>
+    <tcredito-process>
+      <jndi>wcorp.bprocess.tcredito.TCredito</jndi>
+    </tcredito-process>
+    <tcredito-services>
+	<jndi>wcorp.serv.tcredito.ServiciosTCredito</jndi>
+    </tcredito-services>
+    <hipotecario-services>
+      <name>wcorp.serv.hipotecario.ServiciosCreditoHipotecarioBean</name>
+      <jndi>wcorp.serv.hipotecario.ServiciosCreditoHipotecario</jndi>
+    </hipotecario-services>
+    <hipotecario-process>
+      <name>wcorp.bprocess.hipotecario.SimulacionSFBean.SimulacionProcessBean</name>
+      <jndi>wcorp.bprocess.hipotecario.SimulacionSFBean.SimulacionProcess</jndi>
+    </hipotecario-process>
+    <indleads-services>
+      <name>wcorp.serv.indleads.IndicadoresServicesSLBean.IndicadoresServicesBean</name>
+      <jndi>wcorp.serv.indleads.IndicadoresServicesSLBean.IndicadoresServices</jndi>
+    </indleads-services>
+    <gestion-services>
+      <name>wcorp.serv.gestionbanco.ServiciosGestionBancoBean</name>
+      <jndi>wcorp.serv.gestionbanco.ServiciosGestionBanco</jndi>
+    </gestion-services>
+    <gestion-process>
+      <name>wcorp.bprocess.gestionbanco.GestionBancoBean</name>
+      <jndi>wcorp.bprocess.gestionbanco.GestionBanco</jndi>
+    </gestion-process>
+    <bsc-services>
+      <name>wcorp.serv.bsc.BSCServicesSLBean.BSCServicesBean</name>
+      <jndi>wcorp.serv.bsc.BSCServicesSLBean.BSCServices</jndi>
+    </bsc-services>
+    <bsc-process>
+      <name>wcorp.bprocess.bsc.BSCProcessSLBean.BSCProcessBean</name>
+      <jndi>wcorp.bprocess.bsc.BSCProcessSLBean.BSCProcess</jndi>
+    </bsc-process>
+    <cuentas-services>
+      <name>wcorp.serv.cuentas.ServiciosCuentasBean</name>
+      <jndi>wcorp.serv.cuentas.ServiciosCuentas</jndi>
+    </cuentas-services>
+          <cartolas-services>
+               <name>wcorp.serv.cartolas.ServiciosCartolasBean</name>
+               <jndi>wcorp.serv.cartolas.ServiciosCartolas</jndi>
+    </cartolas-services>
+    <informaciondemorosidad-services> <!--Sistema de Informacion de Morosidad -->
+    		<name>wcorp.serv.informaciondemorosidad.InformacionDeMorosidadServicesSLBean.InformacionDeMorosidadServicesBean</name>
+    		<jndi>wcorp.serv.informaciondemorosidad.InformacionDeMorosidadServicesSLBean.InformacionDeMorosidadServices</jndi>
+    </informaciondemorosidad-services>
+    <informaciondemorosidad-process> <!--Sistema de Informacion de Morosidad -->
+    		<name>wcorp.bprocess.informaciondemorosidad.InformacionDeMorosidadProcessSLBean.InformacionDeMorosidadProcessBean</name>
+    		<jndi>wcorp.bprocess.informaciondemorosidad.InformacionDeMorosidadProcessSLBean.InformacionDeMorosidadProcess</jndi>
+    </informaciondemorosidad-process>
+    
+    <etiquetas-services> <!--Sistema de Organizacion de Gastos e Ingresos -->
+    		<name>wcorp.serv.etiquetas.EtiquetasServicesSLBean.EtiquetasServicesBean</name>
+    		<jndi>wcorp.serv.etiquetas.EtiquetasServicesSLBean.EtiquetasServices</jndi>
+    </etiquetas-services>
+    <etiquetas-process> <!--Sistema de Organizacion de Gastos e Ingresos -->
+    	<name>wcorp.bprocess.etiquetas.EtiquetasProcessSLBean.EtiquetasProcessBean</name>
+    	<jndi>wcorp.bprocess.etiquetas.EtiquetasProcessSLBean.EtiquetasProcess</jndi>
+    </etiquetas-process>
+    		
+    <movimientoshistoricos-services> <!--Movimientos historicos de CtaCte -->
+    	<name>wcorp.serv.movimientoshistoricos.MovimientosHistoricosServicesSLBean.MovimientosHistoricosServicesBean</name>
+    	<jndi>wcorp.serv.movimientoshistoricos.MovimientosHistoricosServicesSLBean.MovimientosHistoricosServices</jndi>
+    </movimientoshistoricos-services>
+    
+   	<perfilador-services>
+         <jndi>wcorp.serv.perfilador.PerfiladorServicesSLBean.PerfiladorServices</jndi>
+    </perfilador-services>
+    
+    <perfilador-process>
+         <jndi>wcorp.bprocess.inversiones.perfilador.PerfiladorProcessSLBean.PerfiladorProcess</jndi>
+    </perfilador-process>
+
+    <dap-process> <!-- Depositos a Plazo -->
+      <jndi>wcorp.bprocess.dap.ServiciosDap</jndi>
+    </dap-process>
+    
+    <participes-services>  <!--Participes, Fondos Mutuos -->
+	<jndi>wcorp.serv.fondosmutuos.participes.ParticipesServices</jndi>
+    </participes-services>
+    
+	<participes-process>  <!--Participes, Fondos Mutuos -->
+		    <jndi>wcorp.bprocess.fondosmutuos.participes.ParticipesProcess</jndi>
+	</participes-process>
+	
+	<ahorro-services>  <!--Servicios Ahorro -->
+			<jndi>wcorp.serv.ahorros.ServiciosAhorros</jndi>
+	</ahorro-services>
+	
+    <fondosmutuos-services> <!--Fondos Mutuos -->
+            <jndi>wcorp.serv.fmutuos.ServiciosFondosMutuos</jndi>
+	</fondosmutuos-services>
+	
+	<resumen-inversiones-process>  <!--Resumen de Inversiones -->
+			<jndi>wcorp.bprocess.inversiones.resumen.ResumenInversionesProcess</jndi>
+	</resumen-inversiones-process>
+		
+	<fondos-inversion-services>  <!-- Fondos de Inversion -->
+		<jndi>wcorp.serv.fondosdeinversion.FondosDeInversionServices</jndi>
+	</fondos-inversion-services>
+
+    <administracion-ofertas-services>  <!-- Marketing 121, Administracion de Ofertas -->
+      <jndi>wcorp.serv.mkt121admofertas.ServicioAdministracionOfertas</jndi>
+    </administracion-ofertas-services>
+
+    <despliegue-ofertas-services>  <!-- Marketing 121, Despliegue de Ofertas -->
+      <jndi>wcorp.serv.mkt121despofertas.ServicioDespliegueOfertas</jndi>
+    </despliegue-ofertas-services>
+
+  </ejbs>  
+  
+     <!-- JNDI de Objetos JMS -->
+  <jms>
+    <transfer-usersession>
+      <factory>wcorp.jms.transfer.transferConnectionFactory</factory>
+      <queue>wcorp.jms.transfer.userSessionQueue</queue>
+    </transfer-usersession>
+    
+    <resumen-inversiones>  <!--Resumen de Inversiones -->
+			<descripcion>Topic de publicacion de requerimientos del Resumen de Inversiones</descripcion>
+			<jndi-context>jms_context</jndi-context>
+            <request-topic-jndi>wcorp.asyncRequest.requestTopic</request-topic-jndi>
+            <response-topic-jndi>wcorp.asyncRequest.responseTopic</response-topic-jndi>
+	</resumen-inversiones>
+  </jms>
+
+  <consolidador>
+    <producto>
+      <plazo-umbral>19</plazo-umbral>
+      <monto-umbral>6000000</monto-umbral>
+      <cuotas-sobre>24</cuotas-sobre>
+      <cuotas-bajo>12</cuotas-bajo>
+      <codaux-sobre>650</codaux-sobre>
+      <codaux-bajo>540</codaux-bajo>
+      <tipope-bajo>ALR</tipope-bajo>
+      <renta-minima>319000</renta-minima>
+    </producto> 
+      <journal>
+          <simulacion>
+              <evento>DDACNSL</evento>
+                <sub-evento>SIMULAC</sub-evento>
+                <estado-evento>P</estado-evento>
+            </simulacion>
+          <solicitud>
+              <evento>DDACNSL</evento>
+                <sub-evento>SOLICITA</sub-evento>
+                <estado-evento>P</estado-evento>
+            </solicitud>
+      </journal>
+  </consolidador>
+
+  <informaciondemorosidad>
+  	<dao-type>4</dao-type>
+  	<datasource>wcorp.dsource.InformacionDeMorosidadDataSource</datasource>
+  </informaciondemorosidad>
+
+	<pagos>
+		<dao-type>1</dao-type>
+		<datasource>wcorp.dsource.PagosDataSource</datasource>
+	</pagos>
+
+	<ttff>
+		<dao-type>1</dao-type>
+		<datasource>wcorp.dsource.TTFFDataSource</datasource>
+	</ttff>
+
+     <gestorpagostransferencias>
+          <boletas>
+               <sinboleta>/common/images/boletas/id-cliente-no.jpg</sinboleta>
+               <path-pac>/common/images/boletas/pac</path-pac>
+               <path-pel>/common/images/boletas/pel</path-pel>
+               <pac>
+                    <id1001>1001.jpg</id1001>
+                    <id1002>1002.jpg</id1002>
+                    <id1007>1007.jpg</id1007>
+                    <id1008>1008.jpg</id1008>
+                    <id1009>1009.jpg</id1009>
+                    <id1010>1010.jpg</id1010>
+                    <id1015>1015.jpg</id1015>
+                    <id1022>1022.jpg</id1022>
+                    <id1026>1026.jpg</id1026>
+                    <id1027>1027.jpg</id1027>
+                    <id1029>1029.jpg</id1029>
+                    <id1038>1038.jpg</id1038>
+                    <id1043>1043.jpg</id1043>
+                    <id1047>1047.jpg</id1047>
+                    <id1048>1048.jpg</id1048>
+                    <id1051>1051.jpg</id1051>
+                    <id1052>1052.gif</id1052>
+                    <id1054>1054.jpg</id1054>
+                    <id110>110.jpg</id110>
+                    <id11426>11426.jpg</id11426>
+                    <id11462>11462.jpg</id11462>
+                    <id11481>11481.jpg</id11481>
+                    <id11765>11765.jpg</id11765>
+                    <id12072>12072.jpg</id12072>
+                    <id12431>12431.jpg</id12431>
+                    <id13435>13435.jpg</id13435>
+                    <id14774>14774.gif</id14774>
+                    <id2019>2019.jpg</id2019>
+                    <id2021>2021.jpg</id2021>
+                    <id2055>2055.jpg</id2055>
+                    <id2064>2064.jpg</id2064>
+                    <id2067>2067.jpg</id2067>
+                    <id2070>2070.jpg</id2070>
+                    <id2079>2079.jpg</id2079>
+                    <id2080>2080.jpg</id2080>
+                    <id2089>2089.jpg</id2089>
+                    <id2095>2095.jpg</id2095>
+                    <id2100>2100.jpg</id2100>
+               <id2102>2102.jpg</id2102>
+               </pac>
+               <pel>
+                    <id000001000014>000001000014.jpg</id000001000014>
+                    <id000003000002>000003000002.jpg</id000003000002>
+                    <id000003000003>000003000003.jpg</id000003000003>
+                    <id000003000012>000003000012.jpg</id000003000012>
+                    <id000005000002>000005000002.jpg</id000005000002>
+                    <id000005000003>000005000003.jpg</id000005000003>
+                    <id000008000020>000008000020.jpg</id000008000020>
+                    <id000010000015>000010000015.jpg</id000010000015>
+                    <id000011000002>000011000002.jpg</id000011000002>
+                    <id000011000003>000011000003.jpg</id000011000003>
+                    <id000012000003>000012000003.jpg</id000012000003>
+                    <id000012000007>000012000007.jpg</id000012000007>
+                    <id000013000006>000013000006.jpg</id000013000006>
+                    <id000013000011>000013000011.jpg</id000013000011>
+                    <id000014000008>000014000008.jpg</id000014000008>
+                    <id000017000003>000017000003.jpg</id000017000003>
+                    <id000018000007>000018000007.jpg</id000018000007>
+                    <id000019000007>000019000007.jpg</id000019000007>
+                    <id000020000004>000020000004.jpg</id000020000004>
+                    <id000021000003>000021000003.jpg</id000021000003>
+                    <id000023000004>000023000004.jpg</id000023000004>
+                    <id000024000004>000024000004.jpg</id000024000004>
+                    <id000025000004>000025000004.jpg</id000025000004>
+                    <id000026000004>000026000004.jpg</id000026000004>
+                    <id000741000003>000741000003.jpg</id000741000003>
+                    <id000741000007>000741000007.jpg</id000741000007>
+                    <id000741000012>000741000012.jpg</id000741000012>
+                    <id000776000005>000776000005.jpg</id000776000005>
+                    <id000801000007>000801000007.jpg</id000801000007>
+                    <id000802000010>000802000010.jpg</id000802000010>
+                    <id000814000002>000814000002.jpg</id000814000002>
+                    <id000834000001>000834000001.jpg</id000834000001>
+                    <id000835000001>000835000001.jpg</id000835000001>
+                    <id000836000001>000836000001.jpg</id000836000001>
+                    <id000837000001>000837000001.jpg</id000837000001>
+                    <id000838000001>000838000001.jpg</id000838000001>
+                    <id000847000008>000847000008.jpg</id000847000008>
+                    <id000858000006>000858000006.jpg</id000858000006>
+                    <id000866000003>000866000003.jpg</id000866000003>
+                    <id000866000005>000866000005.jpg</id000866000005>
+                    <id000866000007>000866000007.jpg</id000866000007>
+                    <id000866000014>000866000014.jpg</id000866000014>
+                    <id000868000009>000868000009.jpg</id000868000009>
+                    <id000889000010>000889000010.jpg</id000889000010>
+                    <id000889000011>000889000011.jpg</id000889000011>
+                    <id000981000005>000981000005.jpg</id000981000005>
+                    <id1015>1015.jpg</id1015>
+                    <id112>112.jpg</id112>
+                    <id114>114.jpg</id114>
+                    <id34614>34614.jpg</id34614>
+                    <id123>123.jpg</id123>
+                    <id127>127.jpg</id127>
+                    <id136>136.jpg</id136>
+                    <id148>148.jpg</id148>
+                    <id173>173.jpg</id173>
+                    <id187>187.jpg</id187>
+                    <id197>197.jpg</id197>
+                    <id204>204.jpg</id204>
+                    <id213>213.jpg</id213>
+                    <id234>234.jpg</id234>
+                    <id244>244.jpg</id244>
+                    <id254>254.jpg</id254>
+                    <id264>264.jpg</id264>
+                    <id312>312.jpg</id312>
+                    <id32>32.jpg</id32>
+                    <id41221>41221.jpg</id41221>
+                    <id52>52.jpg</id52>
+                    <id61711>61711.jpg</id61711>
+                    <id7003>7003.jpg</id7003>
+                    <id7007>7007.jpg</id7007>
+                    <id7017>7017.jpg</id7017>
+                    <id70620>70620.jpg</id70620>
+                    <id74112>74112.jpg</id74112>
+                    <id7417>7417.jpg</id7417>
+                    <id7468>7468.jpg</id7468>
+                    <id77629>77629.jpg</id77629>
+                    <id7765>7765.jpg</id7765>
+                    <id79220>79220.jpg</id79220>
+                    <id8017>8017.jpg</id8017>
+                    <id80210>80210.jpg</id80210>
+                    <id8091>8091.jpg</id8091>
+                    <id8142>8142.jpg</id8142>
+                    <id820>820.jpg</id820>
+                    <id82816>82816.jpg</id82816>
+                    <id82916>82916.jpg</id82916>
+                    <id8341>8341.jpg</id8341>
+                    <id8351>8351.jpg</id8351>
+                    <id8361>8361.jpg</id8361>
+                    <id8371>8371.jpg</id8371>
+                    <id8381>8381.jpg</id8381>
+                    <id8478>8478.jpg</id8478>
+                    <id8511>8511.jpg</id8511>
+                    <id8586>8586.jpg</id8586>
+                    <id8663>8663.jpg</id8663>
+                    <id8665>8665.jpg</id8665>
+                    <id8667>8667.jpg</id8667>
+                    <id8688>8688.jpg</id8688>
+                    <id88910>88910.jpg</id88910>
+                    <id9601>9601.jpg</id9601>
+                    <id97612>97612.jpg</id97612>
+                    <id9794>9794.jpg</id9794>
+                    <id9815>9815.jpg</id9815>
+                    <id9821>9821.jpg</id9821>
+                    <id98512>98512.jpg</id98512>
+					<id614>614.jpg</id614>
+					<id714>714.jpg</id714>
+					<id5529>5529.jpg</id5529>
+					<id6431>6431.jpg</id6431>
+					<id6487>6487.jpg</id6487>
+					<id6741>6741.jpg</id6741>
+					<id7083>7083.jpg</id7083>
+					<id7554>7554.jpg</id7554>
+					<id8533>8533.jpg</id8533>
+					<id8624>8624.jpg</id8624>
+					<id8663>8663.jpg</id8663>
+					<id86655>86655.jpg</id86655>
+					<id8667>8667.jpg</id8667>
+					<id8665>8665.jpg</id8665>
+					<id9307>9307.jpg</id9307>
+					<id9332>9332.jpg</id9332>
+					<id9383>9383.jpg</id9383>
+					<id9804>9804.jpg</id9804>
+					<id9877>9877.jpg</id9877>
+					<id9881>9881.jpg</id9881>
+					<id9901>9901.jpg</id9901>
+					<id61214>61214.jpg</id61214>
+					<id62814>62814.jpg</id62814>
+					<id62914>62914.jpg</id62914>
+					<id67614>67614.jpg</id67614>
+					<id67711>67711.jpg</id67711>
+					<id68112>68112.jpg</id68112>
+					<id70727>70727.jpg</id70727>
+					<id71812>71812.jpg</id71812>
+					<id73414>73414.jpg</id73414>
+					<id75714>75714.jpg</id75714>
+					<id77955>77955.jpg</id77955>
+					<id79714>79714.jpg</id79714>
+					<id83014>83014.jpg</id83014>
+					<id83212>83212.jpg</id83212>
+					<id83311>83311.jpg</id83311>
+					<id86154>86154.jpg</id86154>
+					<id87460>87460.jpg</id87460>
+					<id88611>88611.jpg</id88611>
+					<id89414>89414.jpg</id89414>
+					<id89714>89714.jpg</id89714>
+					<id99714>99714.jpg</id99714>
+					<id99812>99812.jpg</id99812>
+					<id66911>66911.jpg</id66911>
+                    <id32930>32930.jpg</id32930>
+					<id35920>35920.jpg</id35920>
+					<id4714>4714.jpg</id4714>
+					<id4814>4814.jpg</id4814>
+					<id4914>4914.jpg</id4914>
+					<id5114>5114.jpg</id5114>
+					<id5214>5214.jpg</id5214>
+					<id5614>5614.jpg</id5614>
+					<id3521>3521.jpg</id3521>
+					<id4011>4011.jpg</id4011>
+					<id4021>4021.jpg</id4021>
+					<id4031>4031.jpg</id4031>
+					<id4321>4321.jpg</id4321>
+					<id4891>4891.jpg</id4891>
+					<id73854>73854.jpg</id73854>
+					<id48210>48210.jpg</id48210>
+					<id60910>60910.jpg</id60910>
+					<id81310>81310.jpg</id81310>
+					<id87810>87810.jpg</id87810>
+					<id16316>16316.jpg</id16316>
+					<id23116>23116.jpg</id23116>
+					<id19255>19255.jpg</id19255>
+					<id1844>1844.jpg</id1844>
+					<id1854>1854.jpg</id1854>
+					<id2664>2664.jpg</id2664>
+					<id4574>4574.jpg</id4574>
+					<id8504>8504.jpg</id8504>
+					<id19955>19955.jpg</id19955>
+					<id1861>1861.jpg</id1861>
+					<id1911>1911.jpg</id1911>
+					<id6341>6341.jpg</id6341>
+					<id8201>8201.jpg</id8201>
+					<id581>581.jpg</id581>
+					<id12710>12710.jpg</id12710>
+					<id12810>12810.jpg</id12810>
+					<id10471>10471.jpg</id10471>
+					<id9871>9871.jpg</id9871>
+					<id18234>18234.jpg</id18234>
+					<id82134>82134.jpg</id82134>
+					<id14734>14734.jpg</id14734>
+					<id3537>3537.jpg</id3537>
+					<id90054>90054.jpg</id90054>
+					<id2482>2482.jpg</id2482>
+					<id25734>25734.jpg</id25734>
+					<id23834>23834.jpg</id23834>
+					<id23934>23934.jpg</id23934>
+					<id2408>2408.jpg</id2408>
+					<id24134>24134.jpg</id24134>
+					<id24234>24234.jpg</id24234>
+					<id24434>24434.jpg</id24434>
+					<id2161>2161.jpg</id2161>
+				    <id28016>28016.jpg</id28016>
+				    <id28116>28116.jpg</id28116>
+				    <id28216>28216.jpg</id28216>
+				    <id22320>22320.jpg</id22320>
+				    <id22420>22420.jpg</id22420>
+				    <id27420>27420.jpg</id27420>
+                    <id2697>2697.jpg</id2697>
+                    <id2988>2988.jpg</id2988>
+                    <id3433>3433.jpg</id3433>
+                    <id8020>8020.jpg</id8020>
+                    <id24316>24316.jpg</id24316>
+				    <id48330>48330.jpg</id48330>
+			        <id31954>31954.jpg</id31954>
+					<id39455>39455.jpg</id39455>
+					<id3951>3951.jpg</id3951>
+			<id3894>3894.jpg</id3894>
+			<id3884>3884.jpg</id3884>
+               </pel>
+          </boletas>
+     </gestorpagostransferencias>
+
+<catalogo>
+	       <codigo>EM1</codigo>
+	       <logo_tarjeta>4</logo_tarjeta>
+	       <tipos-usuario>Apoderado</tipos-usuario>
+               <perfil>Autorizado;No Autorizado</perfil>
+               <origen>webmast@bci.cl</origen>
+               <destinatario>exttirazzo@bci.cl</destinatario>
+               <asunto>Compra Productos Catalogo</asunto>
+</catalogo>	
+
+<sirbci>
+       	<indexa-conexion>
+		<clave>7BA70D1229174B3D9113739</clave>
+		<tipo-usuario>
+			 <Apoderado>22</Apoderado>
+			 <Operador>21</Operador>
+			 <Contralor>25</Contralor>
+		</tipo-usuario>
+		<protocolo>https</protocolo>
+		<autenticador>
+			 <largo-maximo>40</largo-maximo>
+		</autenticador>
+		<ambiente>produccion</ambiente>
+		<desarrollo>
+			 <autenticacion>certificacion2.indexa.cl/SIR_BCI/identificacion.asp</autenticacion>
+			 <identificacion>certificacion2.indexa.cl/SIR_BCI/intro.asp</identificacion>
+			 <redireccionamiento>certificacion2.indexa.cl/SIR_BCI/ingreso.asp</redireccionamiento>
+		</desarrollo>
+		<certificacion>
+			 <autenticacion>certificacion2.indexa.cl/SIR_BCI/identificacion.asp</autenticacion>
+			 <identificacion>certificacion2.indexa.cl/SIR_BCI/intro.asp</identificacion>
+			 <redireccionamiento>certificacion2.indexa.cl/SIR_BCI/ingreso.asp</redireccionamiento>
+		</certificacion>
+		<produccion>
+			 <autenticacion>ww4.indexa.cl/SIR_BCI/identificacion.asp</autenticacion>
+			 <identificacion>ww4.indexa.cl/SIR_BCI/intro.asp</identificacion>
+			 <redireccionamiento>ww4.indexa.cl/SIR_BCI/ingreso.asp</redireccionamiento>
+		</produccion>
+        </indexa-conexion>
+</sirbci>
+
+<MNU_SPC>
+	<indexa-conexion>
+	       	<clave>C0B034F62719463AA104217</clave>
+	       	<tipo-usuario>
+	                 <Operador>1</Operador>
+	                 <Apoderado>2</Apoderado>
+			 <Contralor>2</Contralor>
+	       	</tipo-usuario>
+	       	<protocolo>https</protocolo>
+	       	<autenticador>
+	                 <largo-maximo>40</largo-maximo>
+	       	</autenticador>
+	       	<ambiente>produccion</ambiente>
+	       	<desarrollo>
+			 <autenticacion>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/identificacion.asp</autenticacion> 
+			 <identificacion>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/intro.asp</identificacion>
+			 <redireccionamiento>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/menu.asp?ID_SesionDesEnc=</redireccionamiento>
+	       	</desarrollo>
+	       	<certificacion>
+	       		 <autenticacion>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/identificacion.asp</autenticacion>
+	                 <identificacion>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/intro.asp</identificacion>
+	                 <redireccionamiento>certificacion2.indexa.cl/MNU_Cotizaciones_BCI/menu.asp?ID_SesionDesEnc=</redireccionamiento>
+	       	</certificacion>
+	       	<produccion>
+	           	 <autenticacion>www.indexa.cl/mnu_cotizaciones_bci/identificacion.asp</autenticacion>
+	                 <identificacion>www.indexa.cl/mnu_cotizaciones_bci/intro.asp</identificacion>
+	                 <redireccionamiento>www.indexa.cl/mnu_cotizaciones_bci/menu.asp?ID_SesionDesEnc=</redireccionamiento>
+	       	</produccion>
+	</indexa-conexion>
+</MNU_SPC>
+
+<FAC_BCI>
+	<indexa-conexion>
+	       	<clave>7BA70D1229174B3D9113739</clave>
+	       	<tipo-usuario>
+	                 <Operador>1</Operador>
+	                 <Apoderado>
+				<real>2</real>
+				<virtual>9</virtual>
+			 </Apoderado>
+			 <Contralor>2</Contralor>
+	       	</tipo-usuario>
+	       	<protocolo>https</protocolo>
+	       	<autenticador>
+	                 <largo-maximo>40</largo-maximo>
+	       	</autenticador>
+	       	<ambiente>certificacion</ambiente>
+	       	<desarrollo>
+	       		 <autenticacion>certificacion2.indexa.cl/BCI_Factoring/identificacion.asp</autenticacion> 
+			 <identificacion>certificacion2.indexa.cl/BCI_Factoring/intro.asp</identificacion>
+			 <redireccionamiento>certificacion2.indexa.cl/BCI_Factoring/ingreso.asp?IDS=</redireccionamiento>
+	       	</desarrollo>
+	       	<certificacion>
+			<autenticacion>cert-fact-bcif.indexa.cl/identificacion.aspx</autenticacion>
+			<identificacion>cert-fact-bcif.indexa.cl/intro.aspx</identificacion>
+			<redireccionamiento>cert-fact-bcif.indexa.cl/ingreso.aspx?IDS=</redireccionamiento>		       	
+		</certificacion>
+	       	<produccion>
+		<!-- https-->
++	           	 <autenticacion>fact-bcif.indexa.cl/identificacion.aspx</autenticacion>
++	       		 <identificacion>fact-bcif.indexa.cl/intro.aspx</identificacion>
++	       		 <redireccionamiento>fact-bcif.indexa.cl/ingreso.aspx?IDS=</redireccionamiento>
+	       	</produccion>
+	</indexa-conexion>
+</FAC_BCI>
+	
+          <facelec>
+	    <artikos-conexion>
+	       <clave>7BA70D1229174B3D9113739</clave>
+	       <protocolo>http</protocolo>
+	       <tipos-usuario>Apoderado</tipos-usuario>
+               <perfil>Autorizado</perfil>
+               <autenticador>
+                      <largo-maximo>40</largo-maximo>
+               </autenticador>
+               <ambiente>produccion</ambiente>
+	       <desarrollo>
+		  <autenticacion>art-qa-ptk.artikos.cl/asp_dte/DTE_ValidaBCI.asp</autenticacion>
+		  <destino>art-qa-ptk.artikos.cl/asp_dte/DTE_AccesoBCI.asp</destino>
+	       </desarrollo>          		
+	       <certificacion>
+		  <autenticacion>art-qa-ptk.artikos.cl/asp_dte/DTE_ValidaBCI.asp</autenticacion>
+		  <destino>art-qa-ptk.artikos.cl/asp_dte/DTE_AccesoBCI.asp</destino>
+	       </certificacion>  			
+	       <produccion>		 
+		 <autenticacion>art-p-ptk.artikos.cl/asp_dte/DTE_ValidaBCI.asp</autenticacion>		 
+		 <destino>art-p-ptk.artikos.cl/asp_dte/DTE_AccesoBCI.asp</destino>		
+	      </produccion>			
+	   </artikos-conexion>
+	</facelec>	
+
+
+        <tracking>
+          <horas-asignado>3</horas-asignado>
+          <horas-cerrado>5</horas-cerrado>
+          <tabla-campana>CPW</tabla-campana>
+          <canal-110>
+            <codigo-banco>BCI</codigo-banco>
+            <campana-vigente>true</campana-vigente>
+            <tipo-requerimiento>VE3</tipo-requerimiento>
+            <periodo-consulta>2</periodo-consulta>
+            <periodo-cerrados>2</periodo-cerrados>
+            <periodo-duracion-evento>7</periodo-duracion-evento>
+         </canal-110>
+       </tracking>
+    <SIR_FAC_BCI>
+		   <indexa-conexion>
+				<clave>7BA70D1229174B3D9113739</clave>
+				<tipo-usuario>
+						 <Operador>21</Operador>
+						 <Apoderado>22</Apoderado>
+						 <Contralor>23</Contralor>
+				</tipo-usuario>
+				<protocolo>https</protocolo>
+				<autenticador>
+						 <largo-maximo>40</largo-maximo>
+				</autenticador>
+				<ambiente>produccion</ambiente>
+				<desarrollo>
+			 <autenticacion>cert-fcto-bcin.indexa.cl/MensajeriaBanco/identificacion.aspx</autenticacion>
+			 <identificacion>cert-fcto-bcin.indexa.cl/MensajeriaBanco/intro.aspx</identificacion>
+			 <redireccionamiento>cert-fcto-bcin.indexa.cl/principal.aspx?IDS=</redireccionamiento>
+		</desarrollo>
+		<certificacion>
+			 <autenticacion>cert-fcto-bcin.indexa.cl/MensajeriaBanco/identificacion.aspx</autenticacion>
+			 <identificacion>cert-fcto-bcin.indexa.cl/MensajeriaBanco/intro.aspx</identificacion>
+			 <redireccionamiento>cert-fcto-bcin.indexa.cl/principal.aspx?IDS=</redireccionamiento>
+		</certificacion>
+		<produccion>
+			 <autenticacion>fcto-bcin.indexa.cl/MensajeriaBanco/identificacion.aspx</autenticacion>
+			 <identificacion>fcto-bcin.indexa.cl/MensajeriaBanco/intro.aspx</identificacion>
+			 <redireccionamiento>fcto-bcin.indexa.cl/principal.aspx?IDS=</redireccionamiento>
+		</produccion>
+		   </indexa-conexion>
+    </SIR_FAC_BCI>
+
+    <CONEXION_INFOMAX>
+	    <banco>BCI</banco>
+		<urlCCC>www.bci.cl</urlCCC>
+		<urlSession>www.bci.cl</urlSession>
+		<urlTck>www.bci.cl</urlTck>
+ 	    <largo-maximo>40</largo-maximo>
+        <ambiente>produccion</ambiente>
+        <desarrollo>
+		   <protocolo>http</protocolo>
+		   <identificacion>168.231.201.13/XMLSvc/CXWSTicketServer.asp</identificacion>
+		   <redireccionamiento>pru.infomax.cl/defaultSSL.asp?ticket=</redireccionamiento>
+		</desarrollo>
+        <certificacion>
+		   <protocolo>http</protocolo>
+		   <identificacion>168.231.201.13/XMLSvc/CXWSTicketServer.asp</identificacion>
+		   <redireccionamiento>pru.infomax.cl/defaultSSL.asp?ticket=</redireccionamiento>
+		</certificacion>
+        <produccion>
+		   <protocolo>https</protocolo>
+		   <identificacion>informes.infomax.cl/XMLSvc/CXWSTicketServer.asp</identificacion>
+		   <redireccionamiento>www.infomax.cl/defaultSSL.asp?ticket=</redireccionamiento>
+		</produccion>
+    </CONEXION_INFOMAX>
+
+     <certificados-web>
+        <journal>
+                <evento>CER</evento>
+                <sub-evento>IMPRESION</sub-evento>
+                <estado-evento>P</estado-evento>
+                <ffmm>FFMM</ffmm>
+                <dap>DAP</dap>
+        </journal>
+     </certificados-web>
+
+</application-settings>

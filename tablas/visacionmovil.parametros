@@ -1,0 +1,285 @@
+# Cupos Minimo y Maximo (En pesos)
+CUPOS;MINIMO=250000;MAXIMO=4500000;
+
+# Cupos Minimos para Carga Financiera (En pesos)
+MINIMOS_PLAN;MINIMO_TCLC=100000;MINIMO_CC=350000;
+
+# Monto de aumento para Carga Financiera
+MONTO_AUMENTO_CF;MONTO=50000;MAXIMO=5000000;MAXIMO_CONSUMO=10000000;
+
+# Rango de Edades (En años)
+EDADES;MINIMO=18;MAXIMO=77;
+
+# Segmentacion Bci/Nova
+FLUJO_NOVA;ACTIVADO=SI;
+SEGMENTACION;MONTO_UF=21;
+
+#
+# Configuración Cliente LDAP
+#
+LDAP;HOST=mercury.bci.cl;PORT=389;USERNAME=uid=adminAraucano,cn=Usuarios Especiales Araucano,ou=Grupos,o=vsmbci.cl;PASSWORD=adminAraucano;USER_SEARCH_BASE=ou=Personas,o=vsmbci.cl;FILTER_PREFIX=uid=;FILTER_SUFFIX=,ou=Personas,o=vsmbci.cl;GROUP_SEARCHBASE=cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;GROUP_FILTER_PREFIX=(&(objectclass=groupofuniquenames)(uniquemember=;GROUP_FILTER_SUFFIX=));objectclasses=top,person,organizationalPerson,inetorgperson;
+GRUPOS_LDAP;excluir=cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+
+# Umbral diario de numero de visaciones
+CONTROL;UMBRAL=3;
+
+# Limite diario de visaciones
+LIMITE;PERMITIDO=30;
+
+# Códigos para tarjetas presentadas por cliente para scoring Nova
+CLIENTE_NUEVO_NOVA_03;codigo=03;glosa=Credito Comercial;
+CLIENTE_NUEVO_NOVA_02;codigo=02;glosa=Credito Bancaria Dorada o Platinum;
+CLIENTE_NUEVO_NOVA_01;codigo=01;glosa=Credito Bancaria Tradicional;
+
+# Códigos respuestas del sistema de evaluacion crediticia de Nova
+RESPUESTA_NOVA_Verde;glosa=Cliente califica para tarjeta visa;
+RESPUESTA_NOVA_Amarillo;glosa=Cliente requiere evaluacion;
+RESPUESTA_NOVA_Rojo;glosa=Cliente no califica segun sistema de evaluacion automatica. No se puede atender solicitud;
+
+# Códigos para definiciones sub estados
+DESISTIDO_PORTAL_03;codigo=15003;glosa=Inubicable;
+DESISTIDO_PORTAL_02;codigo=15002;glosa=Mala informacion;
+DESISTIDO_PORTAL_01;codigo=15001;glosa=Nunca lo quizo;
+
+RECHAZADO_PORTAL_13;codigo=16013;glosa=Actividad / Tipo Contrato;
+RECHAZADO_PORTAL_12;codigo=16012;glosa=Antiguedad;
+RECHAZADO_PORTAL_11;codigo=16011;glosa=Independiente;
+RECHAZADO_PORTAL_10;codigo=16010;glosa=Sobre Endeudamiento;
+RECHAZADO_PORTAL_09;codigo=16009;glosa=Margen;
+RECHAZADO_PORTAL_08;codigo=16008;glosa=Carga Financiera;
+RECHAZADO_PORTAL_07;codigo=16007;glosa=Extranjero;
+RECHAZADO_PORTAL_06;codigo=16006;glosa=Evento Negativo Conyuge;
+RECHAZADO_PORTAL_05;codigo=16005;glosa=Socio Empresa;
+RECHAZADO_PORTAL_04;codigo=16004;glosa=Evento Negativo;
+RECHAZADO_PORTAL_03;codigo=16003;glosa=Renta;
+RECHAZADO_PORTAL_02;codigo=16002;glosa=Fuera de cobertura;
+RECHAZADO_PORTAL_01;codigo=16001;glosa=Colaborador;
+
+RECHAZADO_WAP_03;codigo=17001;glosa=Cupo insuficiente;
+RECHAZADO_WAP_02;codigo=17002;glosa=No le interesa;
+RECHAZADO_WAP_01;codigo=17003;glosa=Prefiere su otro banco;
+
+# Rango horario para el despacho de productos
+HORA_DESPACHO_01;codigo=17;glosa=17:00 - 18:00;
+HORA_DESPACHO_02;codigo=16;glosa=16:00 - 17:00;
+HORA_DESPACHO_03;codigo=15;glosa=15:00 - 16:00;
+HORA_DESPACHO_04;codigo=14;glosa=14:00 - 15:00;
+HORA_DESPACHO_05;codigo=13;glosa=13:00 - 14:00;
+HORA_DESPACHO_06;codigo=12;glosa=12:00 - 13:00;
+HORA_DESPACHO_07;codigo=11;glosa=11:00 - 12:00;
+HORA_DESPACHO_08;codigo=10;glosa=10:00 - 11:00;
+HORA_DESPACHO_09;codigo=09;glosa=9:00 - 10:00;
+
+# Hora maxima para considerar una visacion ingresada en el dia
+HORARIO;HORA_MAX=17;
+
+#
+# Fuerza Venta
+#
+TIPO_VENDEDOR_01;codigo=01;glosa=VSM_BCI;
+TIPO_VENDEDOR_02;codigo=02;glosa=VSM_NOVA;
+
+FUERZA_VENTA_01;codigo=01;glosa=Tarjetas;
+FUERZA_VENTA_02;codigo=02;glosa=Convenios;
+FUERZA_VENTA_03;codigo=03;glosa=BancaPersonas;
+FUERZA_VENTA_04;codigo=04;glosa=BancaEmpresarios;
+FUERZA_VENTA_05;codigo=05;glosa=ComercialesBancaPersonas;
+FUERZA_VENTA_06;codigo=06;glosa=ComercialesEmpresarios;
+FUERZA_VENTA_07;codigo=07;glosa=Colaboradores;
+FUERZA_VENTA_08;codigo=08;glosa=FuerzaVentaBanca;
+FUERZA_VENTA_09;codigo=09;glosa=FuerzaVentaSeguros;
+FUERZA_VENTA_10;codigo=10;glosa=VSM_NOVA;
+
+# Carga Financiera: (Se activa con ACTIVADO=SI, en otro caso se asume ACTIVADO=NO)
+CARGA_FINANCIERA;ACTIVADO=SI;PORCENTAJE_RV=0.8;
+
+# Carga Endeudamiento Maximo, carga = porcentaje rlm
+# Carga Financiera Maxima, factor = num veces rlm
+TRAMO_01;carga=30;factor=4;min=21;max=29;
+TRAMO_02;carga=40;factor=4.5;min=29;max=49;
+TRAMO_03;carga=50;factor=6;min=49;max=100;
+TRAMO_04;carga=55;factor=7;min=100;max=200;
+TRAMO_05;carga=55;factor=8;min=200;max=300;
+TRAMO_06;carga=60;factor=9;min=300;max=99999;
+
+# Porcentaje considerado para calculos de carga financiera (carga mensual respecto al total de la deuda)
+PORCENTAJE_CARGA_01;LINEA_CREDITO=5.0;
+PORCENTAJE_CARGA_02;TARJETA_CREDITO=3.0;
+PORCENTAJE_CARGA_03;CREDITO_CONSUMO=4.7;
+PORCENTAJE_CARGA_04;CREDITO_HIPOTECARIO=0.9;
+PORCENTAJE_CARGA_05;CREDITO_CORTO_PLAZO=5.2;
+PORCENTAJE_CARGA_06;OTROS=5.2;
+
+# Porcentaje considerado para calculos de carga financiera (arriendo)
+PORCENTAJE_ARRIENDO;VALOR=20;
+
+# Definicion de atrib. para el envio de mail
+ENVIO_EMAIL_RegistroComentarioAplicacionConsulta;fromNombre=Venta Movil;from=cmovil@bci.cl;to=${bean.usuario}@bci.cl;subject=Observacion vendedor para lead ${bean.rut}-${bean.digito} ${bean.fechaInicio};body=Estimado Colaborador:\n\nEl vendedor del lead del asunto agrego el siguiente comentario:\n${bean.comentario}.\n\nAtte.\n\n;firma=Visacion Movil;
+ENVIO_EMAIL_RegistroComentarioSolicitudPlan;fromNombre=Venta Movil;from=cmovil@bci.cl;to=cfuenth@bci.cl;cc=ldiazv@bci.cl;subject=Solicitud Plan para rut ${bean.rut}-${bean.digito};body=Estimado Colaborador:\n\nSe envia el siguiente comentario de ${bean.usuario}: ${bean.comentario} rut ${bean.rut}-${bean.digito} y fecha de inicio ${bean.fechaInicio}.\n\nAtte.\n\n;firma=Visacion Movil;
+
+# Scoring estudiantes
+DURACION_CARRERA_01;codigo=6;glosa=6anosomas;
+DURACION_CARRERA_02;codigo=5;glosa=5anos;
+DURACION_CARRERA_03;codigo=4;glosa=4anos;
+
+# Curso en el que se encuentra actualmente el estudiante
+CARRERA_CURSO_01;codigo=8;glosa=recientitulado;
+CARRERA_CURSO_02;codigo=7;glosa=enprocesodetitulacion;
+CARRERA_CURSO_03;codigo=6;glosa=6toanoomas;
+CARRERA_CURSO_04;codigo=5;glosa=5toano;
+CARRERA_CURSO_05;codigo=4;glosa=4toano;
+CARRERA_CURSO_06;codigo=3;glosa=3erano;
+CARRERA_CURSO_07;codigo=2;glosa=2doano;
+
+# Montos aprobados (en pesos) segun centro estudios (Universidad, IntitutoProfesional),
+# duracion de la carrera (en anos) y curso actual de la carrera (en anos)
+CUPO_PLAN_ESTUDIANTE_01;duracionCarrera=4;curso=3;centroEstudios=Universidad;montoLDS=100000;montoTDC=150000;
+CUPO_PLAN_ESTUDIANTE_02;duracionCarrera=4;curso=4;centroEstudios=Universidad;montoLDS=100000;montoTDC=250000;
+CUPO_PLAN_ESTUDIANTE_03;duracionCarrera=5;curso=2;centroEstudios=Universidad;montoLDS=100000;montoTDC=150000;
+CUPO_PLAN_ESTUDIANTE_04;duracionCarrera=5;curso=3;centroEstudios=Universidad;montoLDS=100000;montoTDC=150000;
+CUPO_PLAN_ESTUDIANTE_05;duracionCarrera=5;curso=4;centroEstudios=Universidad;montoLDS=300000;montoTDC=300000;
+CUPO_PLAN_ESTUDIANTE_06;duracionCarrera=5;curso=5;centroEstudios=Universidad;montoLDS=300000;montoTDC=300000;
+CUPO_PLAN_ESTUDIANTE_07;duracionCarrera=6;curso=2;centroEstudios=Universidad;montoLDS=100000;montoTDC=250000;
+CUPO_PLAN_ESTUDIANTE_08;duracionCarrera=6;curso=3;centroEstudios=Universidad;montoLDS=100000;montoTDC=250000;
+CUPO_PLAN_ESTUDIANTE_09;duracionCarrera=6;curso=4;centroEstudios=Universidad;montoLDS=600000;montoTDC=600000;
+CUPO_PLAN_ESTUDIANTE_10;duracionCarrera=6;curso=5;centroEstudios=Universidad;montoLDS=600000;montoTDC=600000;
+CUPO_PLAN_ESTUDIANTE_11;duracionCarrera=6;curso=6;centroEstudios=Universidad;montoLDS=600000;montoTDC=600000;
+CUPO_PLAN_ESTUDIANTE_12;duracionCarrera=4;curso=4;centroEstudios=InstitutoProfesional;montoLDS=100000;montoTDC=250000;
+CUPO_PLAN_ESTUDIANTE_13;duracionCarrera=5;curso=4;centroEstudios=InstitutoProfesional;montoLDS=300000;montoTDC=300000;
+CUPO_PLAN_ESTUDIANTE_14;duracionCarrera=5;curso=5;centroEstudios=InstitutoProfesional;montoLDS=300000;montoTDC=300000;
+CUPO_PLAN_ESTUDIANTE_15;duracionCarrera=6;curso=4;centroEstudios=InstitutoProfesional;montoLDS=600000;montoTDC=600000;
+CUPO_PLAN_ESTUDIANTE_16;duracionCarrera=6;curso=5;centroEstudios=InstitutoProfesional;montoLDS=600000;montoTDC=600000;
+CUPO_PLAN_ESTUDIANTE_17;duracionCarrera=6;curso=6;centroEstudios=InstitutoProfesional;montoLDS=600000;montoTDC=600000;
+
+# Estado de institutos (APROBADO, RECHAZADO) para ofrecer plan estudiantes
+INSTITUTO_PROFESIONAL_04;codigo=APROBADO_01;glosa=Duoc UC;
+INSTITUTO_PROFESIONAL_03;codigo=APROBADO_02;glosa=Campus;
+INSTITUTO_PROFESIONAL_02;codigo=APROBADO_03;glosa=Inacap;
+INSTITUTO_PROFESIONAL_01;codigo=RECHAZADO_01;glosa=Otros;
+
+# Deuda maxima estudiantes segun duracion de la carrera (en pesos)
+DEUDA_MAX_ESTUDIANTES_01;duracionCarrera=4;deudaMax=4000000;
+DEUDA_MAX_ESTUDIANTES_02;duracionCarrera=5;deudaMax=6000000;
+DEUDA_MAX_ESTUDIANTES_03;duracionCarrera=6;deudaMax=10000000;
+
+# Deuda maxima permitida total: deudaMaxPermitida (en porcentaje)
+# y deuda maxima permitida de credito de consumo: deudaMaxCredCons (en pesos)
+DEUDA_MAX_ESTUDIANTES;deudaMaxPermitidaPorcentaje=10;deudaMaxCredConsumo=100000;
+
+# Edad maxima permitida para visar plan estudiantes
+EDAD_MAX_ESTUDIANTES;edadMax=28;edadMin=18;
+
+# Parametros de puerta selector:
+PUERTA_SELECTOR.VISACIONBCI;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=OficinasNova,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_SELECTOR.VISACIONNOVA;grupos=cn=VSM_NOVA,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_SELECTOR.VISACIONESTUDIANTES;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_INGRESO.RUT_EMP_CONVENIO;grupos=cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+
+# Puertas Ofertas productos Bci
+PUERTA_OFERTABCI.PLANES;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_OFERTABCI.TARJETAS;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_OFERTABCI.CONSUMO;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+PUERTA_OFERTABCI.CTACORRIENTE;grupos=cn=ComercialesBancaPersonas,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=ComercialesEmpresarios,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Colaboradores,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaBanca,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=FuerzaVentaSeguros,cn=Externos,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaPersonas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=BancaEmpresarios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Convenios,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=Tarjetas,cn=Proservice,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=OficinasNova,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl|cn=OficinasNova,cn=VSM_BCI,cn=VSM_Canal_Movil,ou=Grupos,o=vsmbci.cl;
+
+# Carga Financiera de Nova: carga maxima: %rlm; leverage: veces; min, max: (miles pesos);
+NOVA_TRAMO_01;carga=35;leverage=12;min=0;max=100;
+NOVA_TRAMO_02;carga=40;leverage=12;min=100;max=250;
+NOVA_TRAMO_03;carga=45;leverage=13;min=250;max=400;
+NOVA_TRAMO_04;carga=50;leverage=13;min=400;max=750;
+NOVA_TRAMO_05;carga=55;leverage=14;min=750;max=1000;
+NOVA_TRAMO_06;carga=55;leverage=14;min=1000;max=99999;
+
+# Porcentaje considerado para calculos de carga financiera (carga mensual respecto al total de la deuda)
+NOVA_PORCENTAJE_CARGA_01;CONSUMO=4.0;
+NOVA_PORCENTAJE_CARGA_02;COMERCIAL=4.0;
+
+# Porcentaje considerado para calculos de carga financiera (arriendo o deuda hipotecaria)
+NOVA_PORCENTAJE_ARRIENDO;VALOR=10;
+NOVA_PORCENTAJE_DEUDA_HIPOTECARIA;VALOR=25;
+
+# Codigos de protestos
+PROTESTOS_02;codigo=02;glosa=CUENTA CERRADA;
+PROTESTOS_03;codigo=03;glosa=FALTA DE FONDOS;
+PROTESTOS_20;codigo=20;glosa=BLOQUEO PREVENCION DE FRAUDES;
+PROTESTOS_33;codigo=33;glosa=FALTA DE FONDOS (CUENTA CERRADA);
+PROTESTOS_34;codigo=34;glosa=FALTA DE FONDOS (MAS DE UNA VEZ);
+
+# Reclutamiento de Vendedores
+RECLUTAMIENTO;mensaje_ok=Hemos recibido tu información , te contactaremos a la brevedad;mensaje_nok=Gracias por su interés. Lamentablemente no ha sido preseleccionado en esta oportunidad.;direccion_correo=canalmovil@bci.cl;subject=Suscripcion Vendedor ;from=no-reply@bci.cl;from_nombre=Proceso Suscripcion Automatica;firma=Proceso Suscripcion Automatica;mensaje_error=Error al tratar de registrarse;
+
+# Parametros para determinar el Monto de Credito de Consumo
+# para Mono Productos.
+# 
+# TipoRenta
+# 1 = PROFESIONAL_INDEPENDIENTE
+# 2 = RENTA_VARIABLE_O_INDEPENDIENTES
+#
+MONO_PRODUCTOS_CREDITO_CONSUMO_EDAD11;desde=1;hasta=28;TipoRenta=1;clave=28_1;
+MONO_PRODUCTOS_CREDITO_CONSUMO_EDAD12;desde=1;hasta=28;TipoRenta=2;clave=28_2;
+MONO_PRODUCTOS_CREDITO_CONSUMO_EDAD21;desde=29;hasta=999;TipoRenta=1;clave=999_1;
+MONO_PRODUCTOS_CREDITO_CONSUMO_EDAD22;desde=29;hasta=999;TipoRenta=2;clave=999_2;
+# indep menores de 28
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_11;renta_desde=21;renta_hasta=29;factor=2.5;clasificacion=Edad hasta 28 años - Profesional Independiente - TRAMO A; 
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_12;renta_desde=29;renta_hasta=49;factor=3.0;clasificacion=Edad hasta 28 años - Profesional Independiente - TRAMO B;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_13;renta_desde=49;renta_hasta=100;factor=3.5;clasificacion=Edad hasta 28 años - Profesional Independiente - TRAMO C;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_14;renta_desde=100;renta_hasta=10000;factor=4.5;clasificacion=Edad hasta 28 años - Profesional Independiente - TRAMO D;
+# dep menores de 28
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_21;renta_desde=21;renta_hasta=29;factor=2.0;clasificacion=Edad hasta 28 años - Renta Variable o Independientes - TRAMO A; 
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_22;renta_desde=29;renta_hasta=49;factor=2.5;clasificacion=Edad hasta 28 años - Renta Variable o Independientes - TRAMO B;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_23;renta_desde=49;renta_hasta=100;factor=3.0;clasificacion=Edad hasta 28 años - Renta Variable o Independientes - TRAMO C;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE28_24;renta_desde=100;renta_hasta=10000;factor=4.0;clasificacion=Edad hasta 28 años - Renta Variable o Independientes - TRAMO D;
+# indep mayores de 28
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_11;renta_desde=21;renta_hasta=29;factor=3.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO A; 
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_12;renta_desde=29;renta_hasta=49;factor=3.5;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO B;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_13;renta_desde=49;renta_hasta=100;factor=4.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO C;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_14;renta_desde=100;renta_hasta=10000;factor=5.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO D;
+# dep mayores de 28
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_21;renta_desde=21;renta_hasta=29;factor=2.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO A; 
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_22;renta_desde=29;renta_hasta=49;factor=3.0;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO B;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_23;renta_desde=49;renta_hasta=100;factor=3.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO C;
+MONO_PRODUCTOS_CREDITO_CONSUMO_CLAVE999_24;renta_desde=100;renta_hasta=10000;factor=4.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO D;
+
+
+# Parametros para determinar el monto de la Linea Global de Credito 
+# para Planes Express.
+# 
+# TipoRenta
+# 1 = PROFESIONAL_INDEPENDIENTE
+# 2 = RENTA_VARIABLE_O_INDEPENDIENTES
+#
+PLANES_EXPRESS_LGC_EDAD11;desde=1;hasta=28;TipoRenta=1;clave=28_1;
+PLANES_EXPRESS_LGC_EDAD12;desde=1;hasta=28;TipoRenta=2;clave=28_2;
+PLANES_EXPRESS_LGC_EDAD21;desde=29;hasta=999;TipoRenta=1;clave=999_1;
+PLANES_EXPRESS_LGC_EDAD22;desde=29;hasta=999;TipoRenta=2;clave=999_2;
+# indep menores de 28
+PLANES_EXPRESS_LGC_CLAVE28_11;renta_desde=21;renta_hasta=29;factor=2.5;clasificacion=Edad hasta 28 años, Profesional Independiente, TRAMO A; 
+PLANES_EXPRESS_LGC_CLAVE28_12;renta_desde=29;renta_hasta=49;factor=3.0;clasificacion=Edad hasta 28 años, Profesional Independiente, TRAMO B;
+PLANES_EXPRESS_LGC_CLAVE28_13;renta_desde=49;renta_hasta=100;factor=3.5;clasificacion=Edad hasta 28 años, Profesional Independiente, TRAMO C;
+PLANES_EXPRESS_LGC_CLAVE28_14;renta_desde=100;renta_hasta=10000;factor=4.5;clasificacion=Edad hasta 28 años, Profesional Independiente, TRAMO D;
+# dep menores de 28
+PLANES_EXPRESS_LGC_CLAVE28_21;renta_desde=21;renta_hasta=29;factor=2.0;clasificacion=Edad hasta 28 años, Renta Variable o Independientes, TRAMO A; 
+PLANES_EXPRESS_LGC_CLAVE28_22;renta_desde=29;renta_hasta=49;factor=2.5;clasificacion=Edad hasta 28 años, Renta Variable o Independientes, TRAMO B;
+PLANES_EXPRESS_LGC_CLAVE28_23;renta_desde=49;renta_hasta=100;factor=3.0;clasificacion=Edad hasta 28 años, Renta Variable o Independientes, TRAMO C;
+PLANES_EXPRESS_LGC_CLAVE28_24;renta_desde=100;renta_hasta=10000;factor=4.0;clasificacion=Edad hasta 28 años, Renta Variable o Independientes, TRAMO D;
+# indep mayores de 28
+PLANES_EXPRESS_LGC_CLAVE999_11;renta_desde=21;renta_hasta=29;factor=3.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO A; 
+PLANES_EXPRESS_LGC_CLAVE999_12;renta_desde=29;renta_hasta=49;factor=3.5;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO B;
+PLANES_EXPRESS_LGC_CLAVE999_13;renta_desde=49;renta_hasta=100;factor=4.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO C;
+PLANES_EXPRESS_LGC_CLAVE999_14;renta_desde=100;renta_hasta=10000;factor=5.0;clasificacion=Edad mas de 28 años, Profesional Independiente, TRAMO D;
+# dep mayores de 28
+PLANES_EXPRESS_LGC_CLAVE999_21;renta_desde=21;renta_hasta=29;factor=2.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO A; 
+PLANES_EXPRESS_LGC_CLAVE999_22;renta_desde=29;renta_hasta=49;factor=3.0;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO B;
+PLANES_EXPRESS_LGC_CLAVE999_23;renta_desde=49;renta_hasta=100;factor=3.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO C;
+PLANES_EXPRESS_LGC_CLAVE999_24;renta_desde=100;renta_hasta=10000;factor=4.5;clasificacion=Edad mas de 28 años, Renta Variable o Independientes, TRAMO D;
+
+
+
+
+## Configuracion acceso aplicacion VSM
+ROL_Administradores;miebros=cfuenth,alguerr,kquiroj,cpuebla;
+ACCESO_admin_usuarios_ldap;roles=Administradores;
+
+
+# Procesador Leads Asincrono
+MDB;factory=jms.connection.visacionmovil.Factory;queue=jms.connection.visacionmovil.LeadQueue;diasfiltro=7;producto=CC_MP;
+

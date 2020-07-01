@@ -1,0 +1,17 @@
+ip;serverses=161.131.210.223;urlcallmeback=161.131.112.235;
+telefonocall;param=14519;
+medios;param=webphone,llamenme,skype;
+ipServer;desc=200.68.28.182;
+username;desc=600;
+realm;desc=200.68.28.182;
+phonecaller;desc=600;
+red5url;desc=rtmp://199.186.28.132/sip;
+serverChat;desc=http://161.131.245.6/website/public/escalate_bci.jsp;
+motivoChat;desc=WEB_BCI;
+ipbeasip;desc=161.131.227.15:7001
+
+##ID de pestañas que permiten visualizar WebPhone
+idPestana;desc=inversiones|seguridad|emg_seguridad;
+
+##ID de servicios que permiten visualizar WebPhone
+idServiciosAutorizados;desc=acceso_solicitudes

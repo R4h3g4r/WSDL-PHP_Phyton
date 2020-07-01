@@ -1,0 +1,10 @@
+#COMPORTAMIENTO DE PAGOS - TABLA DE PARAMETROS
+
+ModalidadesCredito;VIGENTES=vigentes;HISTORICAS=historicas;
+
+MensajesExcepcion;CLIENTESINCREDITOSVIGENTES=[Cliente no posee créditos vigentes.];
+
+Multiambiente.Everest;codigoBanco=BCI;codigoCanal=151;codigoEjecutivo=EVEREST;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;idSistema=Everest;
+Multiambiente.Portal;codigoBanco=BCI;codigoCanal=150;codigoEjecutivo=PORTAL;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;impresionCartolaPago;plantillaTipo=PDF;plantillaRuta=C:/bea/user_projects/domains/desarrollo/tablas/impresion/xslt/;plantillaCartola=impresionComportamientoPago.xsl;
+ibmDesMonedas;desPesos=PESOS;desUF=U.FOMENTO;
+mensajes;errDetCredito=Error al obtener detalle del crédito (consulta).;

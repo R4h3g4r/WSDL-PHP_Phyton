@@ -1,0 +1,71 @@
+EST-CNV;V=Vigente;R=Revisión;E=Eliminado;
+CLI-ESP;S=Sí;N=No;
+REL-CLI;V=Vigente;E=Eliminado;R=Revisión;
+IND-CNV;N=No Tiene;S=Sí Tiene;
+TIP-CNV;E=Empresa en Convenio;I=Promoción Marketing;
+PLN-PER;M=Mensual;B=Bimestral;T=Trimestral;C=Cuatrimestral;S=Semestral;A=Anual;
+PLN-ANT;codigos=A,B,C,D,J,L,P,T,X,Y;
+PLN-CCSP;codigos=O;
+COD-MON;0999=Pesos;0998=UF;
+COD-ERR-CV07;I0271=CNV-004;
+COD-ERR-SG01;I0801=PLN-008;
+MODIFICAR;moneda=0998;modo=A;cobro=F;plan=PLN;
+PERIODICIDAD;01=M;02=B;03=T;04=C;06=S;12=A;
+PAR-TDM;codigoOrigen=0;trxIngresarCnv=C0222;trxEliminarCnv=C0224;codigoClaseOper=0001;codProceso=0;horario=0;informacion=0;formatoServicio=00;
+CNV-MSJ-EXT-ING-IBM;desc=La Relación Cliente - Convenio ha sido Ingresada solamente en IBM.;
+CNV-MSJ-EXT-ING-IBM-TDM;desc=La Relación Cliente - Convenio ha sido Ingresada en IBM y Tandem.;
+CNV-MSJ-EXT-ELI-IBM;desc=La Relación Cliente - Convenio ha sido Eliminada solamente en IBM.;
+CNV-MSJ-EXT-ELI-IBM-TDM;desc=La Relación Cliente - Convenio ha sido Eliminada en IBM y Tandem.;
+COD-PLN-CTA-CTE-SIN-PLN;desc=O;
+ACC-PLN;ingresarPlan=I;modificarPlan=P;modificarDatosCobro=M;
+PLN-MSJ-EXT-MOD-IBM;desc=Cliente Modificado sólo en IBM.;
+PLN-MSJ-EXT-MOD-IBM-TDM;desc=Cliente Modificado en IBM y en Tandem-Cuentas.;
+DIV;valor=100;
+CSP01;comision=1.63;
+CSP02;comision=1.23;
+CSP03;comision=0.83;
+CSP04;comision=0;
+CMCC;comision=0.044;
+CPLCASH;comision=0.33;
+CPLPLAN;comision=0.53;
+REG-PAGINA;cantidad=15;
+EMP-CNV;S=SI;N=NO;
+FILTRO-REL-CLI;Filtro=V;
+#####################
+#Rutas y parámetros para Impresiones de Convenios y Planes en PDF#
+#####################
+imagenLogo;RUTA=/resources/img/02-logo-bci.gif;
+
+impresionConvenio;valor=/cl/bci/aplicaciones/bcinet/conveniosyplanes/conveniosempresa.xsl;
+impresionPlanes;valor=/cl/bci/aplicaciones/bcinet/conveniosyplanes/planConvenio.xsl;
+impresionConvenioAntiguo;valor=/cl/bci/aplicaciones/bcinet/conveniosyplanes/planSinConvenio.xsl;
+
+
+#####################
+#Mensajes y valores para Periodo de Gracia
+#####################
+mensaje_cpcf_930;valor=Estimado Cliente le recordamos que a partir del xx/xx/xxxx haremos efectivo el cobro de la App Bci Empresas por el valor estipulado en anexo de contrato firmado con anterioridad.;
+mensaje_cpcf_931;valor=Estimado Cliente le recordamos que a partir del xx/xx/xxxx haremos efectivo el cobro de la App Bci Corporativa por el valor estipulado en anexo de contrato firmado con anterioridad.;
+mensaje_cpsf_930;valor=Estimado Cliente, le recordamos que la App Bci Empresas se mantendrá sin cobro hasta el  xx/xx/xxxx. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+mensaje_cpsf_931;valor=Estimado Cliente, le recordamos que la App Bci Corporativa se mantendrá sin cobro hasta el  xx/xx/xxxx. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+mensaje_finpg_930;valor=Estimado Cliente, le informamos que ha vencido el periodo de gratuidad de la App Bci Empresas. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+mensaje_finpg_931;valor=Estimado Cliente, le informamos que ha vencido el periodo de gratuidad de la App Bci Corporativa. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+mensaje_nuevo_930;valor=Bienvenido a la App Bci Empresas. Desde hoy podrá utilizar su App sin costo hasta el xx/xx/xxxx. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+mensaje_nuevo_931;valor=Bienvenido a la App Bci Corporativa. Desde hoy podrá utilizar su App sin costo hasta el xx/xx/xxxx. Para mantener hoy la continuidad del servicio es necesario que nos contacte a la brevedad para firmar el anexo de contrato, al 02-23839080 o escribiéndonos a daserra@bci.cl.;
+
+mesesDeGracia;valor=2;
+estadoResolucion;valor=1,Aprobado-255,Rechazado;
+estadoResolucion1;valor=14,Aprobado-19,Con Observaciones;
+estadoResolucion255;valor=15,Fuera del Alcance liquido-16,Licencia Medica-17,Excede porcentaje maximo descuento-18,Otros Motivos;
+journal;evento=RESOLVER;producto=CNVNOVA;variable=DXP;estado1=OK;estado255=NOK;
+correoDxP;glosaEstimado=Estimados;glosa1=Solictud Número;glosa2=ha sido;glosa3=por favor revisar en sistemas SEC.;glosa4=Atentamente;correo=conveniosbcinova@bci.cl;nombreRemitente=Resolucion de Convenio;asunto1=Solicitud de Credito Numero;asunto2=- Rut;
+glosaSituacion;rc=Retiro Cheque;va=Validación Archivo;vp=Verificación de Pago;pp=Pendiente de Pago;ve=Vencida;
+
+#Integracion
+#ftp;host=192.168.201.33;habilitado=true;archivopoc=poc.csv;sistemaUyP=convnova;nombrefilein=in;ruta=/Batch/cvo/Entrada/ArchivosPlanillas;
+
+#Certificacion
+ftp;host=192.168.199.50;habilitado=true;archivopoc=poc.csv;sistemaUyP=convnova;nombrefilein=in;ruta=/Batch/cvo/Entrada/ArchivosPlanillas;
+
+#Produccion
+#ftp;host=192.168.1.36;habilitado=true;archivopoc=poc.csv;sistemaUyP=convnova;nombrefilein=in;ruta=/Convenio/ArchivosPlanillas;

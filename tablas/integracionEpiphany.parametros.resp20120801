@@ -1,0 +1,218 @@
+# Parámetros para Servicio de LookUp
+tiempoExpiracion;valor=259200000;
+
+#Sistema AquaLogic
+SISTEMA_UYP_AQUALOGIC;sistemaUYP=wlsalsb;
+
+# Parámetros para LookUP Certificación
+WSLookUp;urlWS=http://alsbcert.bci.cl/servicios/atenciondecliente/EpnyLookupService;sistemaUYP=epiphany;sufijoWSDL=?wsdl;
+
+# Parámetros para LookUP Producción
+#WSLookUp;urlWS=http://alsb.bci.cl/servicios/atenciondecliente/EpnyLookupService;sistemaUYP=epiphany;sufijoWSDL=?wsdl;
+
+# Parámetros para Servicio de Integración Epiphany Certificación
+WSCRMEpiphany;urlWS=http://alsbcert.bci.cl/servicios/atenciondecliente/EpnyInteraccionService;sufijoWSDL=?wsdl;
+
+# Parámetros para Servicio de Integración Epiphany Producción
+#WSCRMEpiphany;urlWS=http://alsb.bci.cl/servicios/atenciondecliente/EpnyInteraccionService;sufijoWSDL=?wsdl;
+
+# Variable que define el TimeOut para invocacion de los WebServices de Epiphany
+# Nota 1: Variable compartida por WebService de oprtunidad, lead y lookup
+# Nota 2: El tiempo es en Segundos.
+TIME_OUT_WEBSERVICE;Desc=30;
+
+#Variables que definen las diferentes implementaciones de InfoAtributos que debe instanciarse en InfoAtributosFactory
+
+#Atributos solo obligatorios
+#--------------------------
+ATT_CrmInteraccion.agenteResponsable;TIPO=1;
+ATT_CrmInteraccion.notas.descripcion;TIPO=1;
+ATT_CrmInteraccion.descripcion;TIPO=1;
+ATT_CrmInteraccion.oportunidades.responsable;TIPO=1;
+ATT_CrmInteraccion.oportunidades.creador;TIPO=1;
+ATT_CrmInteraccion.fechaDeInicio;TIPO=1;
+
+ATT_CrmInteraccion.leads.cliente.rut.rut;TIPO=1;
+ATT_CrmInteraccion.leads.cliente.rut.digitoVerificador;TIPO=1;
+ATT_CrmInteraccion.leads.responsable;TIPO=1;
+
+ATT_CrmInteraccion.cliente.registradoEnSGC;TIPO=1;
+ATT_CrmInteraccion.oportunidades.cliente.registradoEnSGC;TIPO=1;
+
+ATT_CrmInteraccion.oportunidades.unidadDeNegocio.etapas.fechaTermino;TIPO=1;
+ATT_CrmInteraccion.oportunidades.unidadDeNegocio.etapas.fechaInicio;TIPO=1;
+
+#Atributo no obligatorio con valores predefinidos.
+#-------------------------------------------------
+ATT_CrmInteraccion.cliente.telefonos.tipoDeTelefono;TIPO=2;LLAVE_PREDEFINIDOS=obtenerTipoTelefono;
+ATT_CrmInteraccion.cliente.direcciones.comuna;TIPO=2;LLAVE_PREDEFINIDOS=obtenerComunas;
+ATT_CrmInteraccion.cliente.direcciones.ciudad;TIPO=2;LLAVE_PREDEFINIDOS=obtenerCiudades;
+ATT_CrmInteraccion.oportunidades.campania.codigo;TIPO=2;LLAVE_PREDEFINIDOS=obtenerCampanias;GLOSA=Campaña;
+ATT_CrmInteraccion.oportunidades.etapaActual;TIPO=2;LLAVE_PREDEFINIDOS=obtenerEtapasWorkflow;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.tipo;TIPO=2;LLAVE_PREDEFINIDOS=obtenerTiposCuentaCorrientes;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.segmentoFinal;TIPO=2;LLAVE_PREDEFINIDOS=obtenerSegmentosFinales;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.lugarEnvio;TIPO=2;LLAVE_PREDEFINIDOS=obtenerLugaresDeEnvio;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.tipoTalonario;TIPO=2;LLAVE_PREDEFINIDOS=obtenerTalonario;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.fechaDePago;TIPO=2;LLAVE_PREDEFINIDOS=obtenerFechaPago;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.formaDePago;TIPO=2;LLAVE_PREDEFINIDOS=obtenerFormaPago;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.cobroDeAdministracion;TIPO=2;LLAVE_PREDEFINIDOS=obtenerCobroAdministracion;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.envioDeTarjeta;TIPO=2;LLAVE_PREDEFINIDOS=obtenerDireccionesDelCliente;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.destinoCredito;TIPO=2;LLAVE_PREDEFINIDOS=obtenerDestinosCreditos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.horaContactoCliente;TIPO=2;LLAVE_PREDEFINIDOS=obtenerHorasContactoCliente;GLOSA=Hora Contacto;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.mesDeNoPago1;TIPO=2;LLAVE_PREDEFINIDOS=obtenerListadoMesesNoPago;GLOSA=Primer Mes de No pago;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.mesDeNoPago2;TIPO=2;LLAVE_PREDEFINIDOS=obtenerListadoMesesNoPago;GLOSA=Segundo Mes de No pago;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.tipoDePagare;TIPO=2;LLAVE_PREDEFINIDOS=obtenerTipoPagare;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.tipoDeAprobacion;TIPO=2;LLAVE_PREDEFINIDOS=obtenerTipoAprobacion;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.consumoExpress;TIPO=2;LLAVE_PREDEFINIDOS=obtenerSiNo;GLOSA=Consumo Express;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.apr;TIPO=2;LLAVE_PREDEFINIDOS=obtenerSiNo;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.mandatoCanales;TIPO=2;LLAVE_PREDEFINIDOS=obtenerSiNo;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.plan;TIPO=2;LLAVE_PREDEFINIDOS=obtenerPlanesSegunSegmento;
+
+ATT_CrmInteraccion.leads.unidadPatrocinador;TIPO=2;LLAVE_PREDEFINIDOS=obtenerUnidadPatrocinante;
+ATT_CrmInteraccion.leads.prioridad;TIPO=2;LLAVE_PREDEFINIDOS=obtenerPrioridades;
+
+#Atributo obligatorio y con valores predefinidos.
+#-----------------------------------------------
+ATT_CrmInteraccion.estado;TIPO=3;LLAVE_PREDEFINIDOS=obtenerEstadosInteraccion;
+ATT_CrmInteraccion.condicion;TIPO=3;LLAVE_PREDEFINIDOS=obtenerCondicionInteraccion;
+ATT_CrmInteraccion.origen;TIPO=3;LLAVE_PREDEFINIDOS=obtenerDireccionInteraccion;
+ATT_CrmInteraccion.tipo;TIPO=3;LLAVE_PREDEFINIDOS=obtenerTipoInteraccion;
+ATT_CrmInteraccion.motivo;TIPO=3;LLAVE_PREDEFINIDOS=obtenerRazonInteraccion;
+ATT_CrmInteraccion.prioridad;TIPO=3;LLAVE_PREDEFINIDOS=obtenerPrioridades;
+ATT_CrmInteraccion.oportunidades.unidadDeNegocio.codigo;TIPO=3;LLAVE_PREDEFINIDOS=obtenerUnidadesDeNegocio;
+ATT_CrmInteraccion.oportunidades.familiaDeProducto.codigo;TIPO=3;LLAVE_PREDEFINIDOS=obtenerFamiliaProductos;
+ATT_CrmInteraccion.oportunidades.estado;TIPO=3;LLAVE_PREDEFINIDOS=obtenerEstadosOportunidad;
+ATT_CrmInteraccion.oportunidades.prioridad;TIPO=3;LLAVE_PREDEFINIDOS=obtenerPrioridades;
+
+ATT_CrmInteraccion.leads.unidadDeNegocio;TIPO=3;LLAVE_PREDEFINIDOS=obtenerUnidadesDeNegocio;
+ATT_CrmInteraccion.leads.estado;TIPO=3;LLAVE_PREDEFINIDOS=obtenerEstadosLead;
+ATT_CrmInteraccion.leads.familiaDeProductos;TIPO=3;LLAVE_PREDEFINIDOS=obtenerFamiliaProductos;
+
+ATT_Oportunidad.estado;TIPO=3;LLAVE_PREDEFINIDOS=obtenerEstadosOportunidad;
+
+ATT_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.lineaCredito.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.creditoConsumo.consumo.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.lineaEmergencia.codigoProducto;TIPO=3;LLAVE_PREDEFINIDOS=obtenerListadoProductos;
+
+#Atributos con lógica de obligatoriedad variable (Se debe indicar la clase que los implementa)
+#---------------------------------------------------------------------------------------------
+ATT_CrmInteraccion.cliente.rut.rut;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoClienteRutDefaultImpl;GLOSA=RUT;
+ATT_CrmInteraccion.cliente.rut.digitoVerificador;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoClienteDigitoVerificadorDefaultImpl;GLOSA=RUT;
+ATT_CrmInteraccion.oportunidades.cliente.rut.rut;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoClienteRutDefaultImpl;GLOSA=RUT;
+ATT_CrmInteraccion.oportunidades.cliente.rutdigitoVerificador;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoClienteDigitoVerificadorDefaultImpl;
+ATT_CrmInteraccion.oportunidades.motivoDeCancelacion;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoOportunidadMotivoDeCancelacionDefaultImpl;LLAVE_PREDEFINIDOS=obtenerMotivosCancelacion;
+ATT_CrmInteraccion.oportunidades.detalleDeCancelacion;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoOportunidadDetalleDeCancelacionDefaultImpl;LLAVE_PREDEFINIDOS=obtenerDetallesCancelacion;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.envioDeEstadoDeCuenta;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoTarjetaDeCreditoEnvioEstadodeCuentaDefaultImpl;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.sucursalDeDestino;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoTarjetaDeCreditoSucursalDeDestinoDefaultImpl;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.envioProducto;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoTarjetaDeCreditoEnvioProductoDefaultImpl;LLAVE_PREDEFINIDOS=obtenerLugaresDeEnvio;
+ATT_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.numeroTarjeta;TIPO=4;CLASE=wcorp.aplicaciones.epiphany.integracion.validaciones.InfoAtributoTarjetaDeCreditoNumeroTarjetaDefaultImpl;
+
+
+#Métodos del lookup que reciben valores de otro atributo como parámetros
+#-----------------------------------------------------------------------
+MET_obtenerTipoTarjeta;NUM_ARGS_LOOKUP=1;
+MET_obtenerPlanesSegunSegmento;NUM_ARGS_LOOKUP=1;
+MET_obtenerDireccionesDelCliente;NUM_ARGS_LOOKUP=1;
+MET_obtenerTareasPorEtapa;NUM_ARGS_LOOKUP=1;
+MET_obtenerEmailsDelCliente;NUM_ARGS_LOOKUP=1;
+MET_obtenerTiposEvento3;NUM_ARGS_LOOKUP=1;
+MET_obtenerPlanificacionesDelCliente;NUM_ARGS_LOOKUP=1;
+MET_obtenerTareasDeUnWorkflow;NUM_ARGS_LOOKUP=1;
+MET_obtenerTiposEvento2;NUM_ARGS_LOOKUP=1;
+MET_obtenerProductosHijos;NUM_ARGS_LOOKUP=1;
+MET_obtenerTelefonosDelCliente;NUM_ARGS_LOOKUP=1;
+
+
+#Variables que definen las reglas de validacion de formato para los atributos
+#Tipo 1: Rut, Tipo 2: Alfanumerico con largo definido, Tipo 3: numérico con largo definido, Tipo 4: fecha con formato, Tipo 5: fecha/hora con formato, Tipo 6: Si(1) No(0)
+#Tipo 1
+#-----
+VAL_CrmInteraccion.cliente.rut.rut;TIPO=1;
+VAL_CrmInteraccion.oportunidades.cliente.rut.rut;TIPO=1;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.rutUsuario.rut;TIPO=1;
+VAL_CrmInteraccion.leads.cliente.rut.rut;TIPO=1;
+VAL_CrmInteraccion.leads.rutPatrocinador.rut;TIPO=1;
+
+#Tipo 2
+#-----
+VAL_CrmInteraccion.oportunidades.cliente.nombre;TIPO=2;LARGO=80;
+VAL_CrmInteraccion.oportunidades.cliente.apellidoPaterno;TIPO=2;LARGO=80;
+VAL_CrmInteraccion.oportunidades.cliente.apellidoMaterno;TIPO=2;LARGO=80;
+VAL_CrmInteraccion.oportunidades.cliente.direcciones.direccion;TIPO=2;LARGO=255;
+VAL_CrmInteraccion.oportunidades.cliente.telefonos.codigoDeArea;TIPO=2;LARGO=5;
+VAL_CrmInteraccion.oportunidades.cliente.telefonos.numeroDeTelefono;TIPO=2;LARGO=20;
+VAL_CrmInteraccion.oportunidades.campania.nombre;TIPO=2;LARGO=150;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.numero;TIPO=2;LARGO=20;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.nombrePersonalizado;TIPO=2;LARGO=50;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.apellidoPersonalizado;TIPO=2;LARGO=50;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.nombresUsuario;TIPO=2;LARGO=50;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.apellidoPaternoUsuario;TIPO=2;LARGO=50;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.apellidoMaternoUsuario;TIPO=2;LARGO=50;
+
+#Tipo 3
+#-----
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.numeroDeSerie;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.inicioSerie;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.cuentaCorriente.talonarioDeCheques.terminoSerie;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.lineaCredito.monto;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.lineaCredito.numeroOperacion;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.lineaEmergencia.monto;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.lineaEmergencia.cuentaAsociada;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.cupoNacional;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.cupoInternacional;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.numeroTarjetaTitular;TIPO=3;LARGO=20;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.cupoNacional;TIPO=3;LARGO=18;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.tarjetasAdicionales.cupoInternacional;TIPO=3;LARGO=18;
+
+#Tipo 4
+#-----
+VAL_CrmInteraccion.oportunidades.unidadDeNegocio.etapas.tareas.fechaDeTermino;TIPO=4;
+VAL_CrmInteraccion.oportunidades.unidadDeNegocio.etapas.fechaTermino;TIPO=4;
+VAL_CrmInteraccion.oportunidades.unidadDeNegocio.etapas.fechaInicio;TIPO=4;
+
+#Tipo 6
+#----
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.confirmaMonto;TIPO=6;
+VAL_CrmInteraccion.oportunidades.productoRelacionado.tarjetasDeCredito.preemitida;TIPO=6;
+
+
+
+#Valores posibles de atributos que se toman en cuenta en la validación
+LugarEnvio;DOMICILIO=91654F90B8F94522B4D097D58EFB9F9E;SUCURSAL=C2046723EFA84C15BC4C51240865021C;
+tipoTarjetaTitularBciVisa;CLASSIC=002;GOLD=001;PLATINUM=006;SIGNATURE=026;COLABORADOR=021;OPENSKY=36;
+tipoTarjetaTitularBciMaster;BLACK=506;GOLD=501;PLATINUM=516;
+segmentoFinal;ALTO=3E312D739D1C47C19925856C88A4ABAF;COLABORADORES=07FDE69FF22D4066A65ACEBDD2804D3E;MASIVO=E12C54EA30684E60A6BD5435CDA171EB;MASIVO_EMERGENTE=953CAB7B924B44DE9B216BE50429B1C2;TBANC=B029298D03B74ADF8C6942ABBA144D8C;UNIVERSITARIO=0A29DD98B5B549E785E90768492D93E4;JOVEN_PROFESIONAL=3854DA6474764D5BB45F7FA1FB35670F;MEDIO=B6243A0422804640BB36B3232B68E56C;ALTO_PREFERENCIAL=036BC360159C47FCB5B7D66E8262A04C;PERSONA_JURIDICA=F0F4186B2A66442CADBC18C12496B4E2;
+etapaActualOportunidadPlanes;OFERTA=F02BCB44FFFFFFA1013C8B910C17FEF4;
+etapaActualOportunidadTarjetas;OFERTA=1423A475FFFFFFA100C28D291DD119A3;ACTIVACION=1423A149FFFFFFA100C28D293C52B87B;
+etapaActualOportunidadConsumo;OFERTA=CC90A5EAFFFFFFA101D098B7CA6BE50E;
+tipoCuentaCorriente;BIPERSONAL=06D5C3435AA3442D8A6F622DFC6B6E33;
+formaPago;PAGO_MINIMO_CTACTE=3BA640125233485A97856306E21BF3C9;PAGO_TOTAL_CTACTE=FD779E1E7E9B4F409D3869DCCC1694F5;
+cobroAdministracion;EXENTO_PERMANENTE=32DB89963FC34C26B7129A717595299D;
+plan;BCI_PREMIER=CB12AEE3C1E84BD980C5E566D6C731BB;COLABORADOR_BCI=47B3A26A65DD48D88E621C2ACBDCFD60;BCI_CONFIANZA=31A3C8E785F0493A9AB33E8D4DE29018;BCI_CONTROL=F71D49867A2148D4B09107A0A7AD519A;BCI_INTEGRAL=531FF35155DA42BCAC4AFE547E8E40CB;BCI_UNIVERSITARIO=31D1C3C3DA1E47AEA5DF4D7EAB65FD7F;BCI_PREFERENCIAL=CEC339643E604AF994CD7E89031946EF;BCI_TOTAL=00048774414041F6AA49E59931F5148F;SIN_PLAN=0AE9DA246E774DBF81B9A289CD2FC90F;
+formaAbonoCreditoConsumo;CTA_CTE_CTA_PRIMA=383922042A5948E9B6C8DE2F95484D7F;
+tareasEtapaActivacion;CREADA_EN_NEXUS=1423A204FFFFFFA100C28D295EE8CD68;
+
+#Valores para Certificación
+nombreFamilia;PLANES=5E67448B6C9A7745A1CFE5323CDC3BF7;TARJETAS=39AE3D1C1792F34EBF77FD9BF00A239C;CONSUMOS=6FBD824CD93BD843A60BF0F7C537B2DC;
+tipoConsumo;AVANCE_MULTICREDITO=944D823AF4B13D4885569754532D7D6F;BCI_MULTIUSO=F8462D1308EE2F4E8507E738F3E74773;
+#Valores para Producción
+#nombreFamilia;PLANES=4185653BDE0DDA45BD84CAF93308714D;TARJETAS=F11DB152E87E564C91EB54A8EA405C83;CONSUMOS=3322CF03ED7D2A418825D81DF81C7A30;
+#tipoConsumo;AVANCE_MULTICREDITO=1B2EBB27F1C8C643BF5F4A0989233C97;BCI_MULTIUSO=90F10746CFAC054BBAA622A4E6E255BD;
+
+
+
+
+
+#Formatos de fecha
+FORMATO_DE_FECHAS;FORMATO_COMPLEJO=dd/MM/yyyy hh:mm;FORMATO_SIMPLE=dd/MM/yyyy;
+
+# Traducciones de bases.
+TRD_CrmOportunidad;ATT=CrmInteraccion.oportunidades;
+TRD_CrmLead;ATT=CrmInteraccion.leads;
+TRD_CrmEvento;ATT=CrmInteraccion.eventos;
+TRD_CrmCliente;ATT=CrmInteraccion.cliente;
+
+

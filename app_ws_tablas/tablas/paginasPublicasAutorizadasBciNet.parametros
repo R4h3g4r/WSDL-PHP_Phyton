@@ -1,0 +1,27 @@
+#Lista de paginas JSF para acceder desde sitio publico, sin sesion 
+paginaInicial_1;path=/template/common/index.jsf;
+paginaInicial_2;path=/template/layoutJofComercial/index.jsf;
+paginaInicial_3;path=/template/common/bcinet-pivote-workstation.jsf;
+paginaInicial_4;path=/error/bcinet-opps.jsf;
+paginaInicial_5;path=/template/common/bcinet-pivote-vistaCliente.jsf;
+paginaInicial_6;path=/error/bcinet-opps-session.jsf;
+paginaInicial_7;path=/error/bcinet-seguridad-tokenCSRF.jsf;
+paginaInicial_8;path=/error/bcinet-sesion-expirada.jsf;
+paginaInicial_9;path=/error/bcinet-sesion-null-pivote.jsf;
+
+#Pagina de expiracion de sesion
+#INTEGRACION
+#sesionNula;paginaAvisoFinSesionBciNET=http://intranetinte/Bcinet/error/bcinet-opps-session.jsf;
+#sesionExpirada;paginaAvisoFinSesionBciNET=http://intranetinte/Bcinet/error/bcinet-sesion-expirada.jsf;
+#sesionNulaTokenCSRF;paginaAvisoFinSesionBciNET=http://intranetinte/Bcinet/error/bcinet-seguridad-tokenCSRF.jsf;
+#sesionNulaPivote;paginaAvisoFinSesionBciNET=http://intranetinte/Bcinet/error/bcinet-sesion-null-pivote.jsf;
+#CERTIFICACION
+sesionNula;paginaAvisoFinSesionBciNET=http://intranetcert/Bcinet/error/bcinet-opps-session.jsf;
+sesionExpirada;paginaAvisoFinSesionBciNET=http://intranetcert/Bcinet/error/bcinet-sesion-expirada.jsf;
+sesionNulaTokenCSRF;paginaAvisoFinSesionBciNET=http://intranetcert/Bcinet/error/bcinet-seguridad-tokenCSRF.jsf;
+sesionNulaPivote;paginaAvisoFinSesionBciNET=http://intranetcert/Bcinet/error/bcinet-sesion-null-pivote.jsf;
+#PROD
+#sesionNula;paginaAvisoFinSesionBciNET=http://bcinet.bci.cl/Bcinet/error/bcinet-opps-session.jsf;
+#sesionExpirada;paginaAvisoFinSesionBciNET=http://bcinet.bci.cl/Bcinet/error/bcinet-sesion-expirada.jsf;
+#sesionNulaTokenCSRF;paginaAvisoFinSesionBciNET=http://bcinet.bci.cl/Bcinet/error/bcinet-seguridad-tokenCSRF.jsf;
+#sesionNulaPivote;paginaAvisoFinSesionBciNET=http://bcinet.bci.cl/Bcinet/error/bcinet-sesion-null-pivote.jsf;

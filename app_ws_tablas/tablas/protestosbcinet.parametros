@@ -1,0 +1,7 @@
+tiposDocumento;protestos=PROTESTOS;retenciones=RETENCIONES;devoluciones=DEVOLUCIONES;onp=ONP;tabProtestos=TAB_PROTESTOS;
+protestos;claseGeneradora=cl.bci.aplicaciones.ejecutivos.captaciones.cuentas.impresion.GenerarXMLDocumentosProtestados;plantilla=cuentacorriente/documentosprotestomonedanacional;
+retenciones;claseGeneradora=cl.bci.aplicaciones.ejecutivos.captaciones.cuentas.impresion.GenerarXMLDocumentosRetenidos;plantilla=cuentacorriente/documentosretenidomonedanacional;
+devoluciones;claseGeneradora=cl.bci.aplicaciones.ejecutivos.captaciones.cuentas.impresion.GenerarXMLDocumentosDevueltos;plantilla=cuentacorriente/documentosdevueltomonedanacional;
+onp;claseGeneradora=cl.bci.aplicaciones.ejecutivos.captaciones.cuentas.impresion.GenerarXMLDocumentosOnp;plantilla=cuentacorriente/documentosonpmonedanacional;
+tabProtestos;claseGeneradora=cl.bci.aplicaciones.ejecutivos.captaciones.cuentas.impresion.GenerarXMLDocumentos;plantilla=cuentacorriente/documentosmonedanacional;
+filtroProtestosOrigen;diaHabilAnterior=1,4;

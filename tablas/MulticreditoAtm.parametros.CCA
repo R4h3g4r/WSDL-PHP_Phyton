@@ -1,0 +1,53 @@
+#JNDI_CONECTION_FACTORY, JNDI_QUEUE
+
+JNDI_CONECTION_FACTORY;Desc=jms.connection.atmmulticredito;
+JNDI_ENTRADA_QUEUE;Desc=atm.multicredito.jms.coladistribuida;
+JNDI_TOPIC;Desc=atm.multicredito.respuesta.visacion;
+JNDI_ENTRADA_QUEUE_VISACION;Desc=jms.coladistribuida.visacion;
+
+
+#Canal para MulticreditoAtm
+Canal;Desc=235;
+
+#Plazos predefinidos (en meses) para otorgamiento de multicredito. 
+Plazo1;Desc=36;
+Plazo2;Desc=24;
+Plazo3;Desc=18;
+Plazo4;Desc=12;
+
+
+#Porcentajes predefinidos para calculo de opciones de avance de multicredito. 
+Porce1;Desc=99;
+Porce2;Desc=80;
+Porce3;Desc=60;
+Porce4;Desc=40;
+Porce5;Desc=20;
+Porce6;Desc=0;
+
+#Monto minimo para realizar un avance multicredito
+Minimo;Desc=100000;
+
+#Monto maximo para realizar un avance multicredito
+Maximo;Desc=19000000;
+
+#Factor de calculo de montos disponibles para realizar un avance multicredito
+factor;Desc=10000;
+
+#Cantidad de dias para primer vencimiento
+DiasPrimerVenc;Desc=30;
+
+#parametros para simulacion y curse del credito
+txabono;Desc=V0770;modoNormal=V0780;modoTarde=Y0780;
+nmabono;Desc=1066;
+tipoabono;Desc=CCWB;
+horaModoDia;inicio=02;fin=20;
+
+#Monto minimo de cuota
+cuotaMinima;Desc=5000;
+
+#Duracion de ventana de tiempo (en minutos) para determinar la vigencia de los datos en la tabla dcl 
+duracionventanatiempo;Desc=7;
+tiempoEscucha;valor=60000;
+
+filtradoActivo;valor=false;
+cajeros;ids=05844,03531,05927;

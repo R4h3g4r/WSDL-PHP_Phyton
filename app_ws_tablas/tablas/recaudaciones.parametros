@@ -1,0 +1,20 @@
+ejbRecaudaciones;jndi=wcorp.aplicaciones.operacion.cuadraturaycontabilidad.cuadratura.informaciondepago.sessionfacade.RecaudacionDeServicios;
+ejbBCIExpress;jndi=wcorp.serv.bciexpress.BCIExpress;
+idGlosa;debito=Débito Multibanco;caja=Recaudación por caja;cobranza=Cobranza;paguedirecto=Pague Directo;
+mensajeError;glosa=No se pueden obtener en estos momentos recaudaciones;glosaVacio=No se encontraron recaudaciones disponibles;glosaDescarga=No es posible descargar el detalle de producto en estos momentos.;
+rutas;caja=/banele/dashboardRecaudaciones/in;cobranza=/banele/dashboardRecaudaciones/in;paguedirecto=/sipe/bpagos/salida/;debito=/Envio_BE/debito/rendicion/;
+datosArchivos;filenamecaja=CAJAS.REC.REFUN.;extensioncaja=.txt;filenamecobranza=CBZCED;extensioncobranza=.txt;filenamedebito=RCPC;extensiondebito=;filenamepaguedirecto=PE-;extensionpaguedirecto=;
+codProductos;codPagueDirecto=expn;codDebito=codpac;codCobranza=coba;codCaja=reca;glosaInicialFuncion=top.parent.frames['content'].Tes_;
+erroresFTP;glosaLog=Debe utilizar el metodo asignaPropiedadesAccesoFtp para setear las variables de login en el servidor ftp;glosaBusqueda=Se ha producido un problema al intentar leer o escribir en el archivo;glosaComunicacion=No se ha podido establacer la comunicacion con el servidor ftp;
+#DESARROLLO
+#cargaFtpBanele;servidor=161.131.184.81;sistemaUyP=ftpsip;directorioBase=/home;contentType=application/txt;
+#rutasBkp;caja=/sipe/Back_Sipe/BKP_DIARIOS;cobranza=/sipe/Back_Sipe/BKP_DIARIOS;paguedirecto=/sipe/Back_Sipe/BKP_DIARIOS/;debito=/sipe/respues/backup/;
+#INTEGRACION
+#cargaFtpBanele;servidor=161.131.141.239;sistemaUyP=ftpsip;directorioBase=/HomeGTIII;contentType=application/txt;
+#rutasBkp;caja=/sipe/Back_Sipe/BKP_DIARIOS;cobranza=/sipe/Back_Sipe/BKP_DIARIOS;paguedirecto=/sipe/Back_Sipe/BKP_DIARIOS/;debito=/sipe/respues/backup/;
+#CERTIFICACION
+cargaFtpBanele;servidor=161.131.232.180;sistemaUyP=ftpsip;directorioBase=/;contentType=application/txt;
+rutasBkp;caja=/Back_Sipe/BKP_DIARIOS;cobranza=/Back_Sipe/BKP_DIARIOS;paguedirecto=/sipe/Back_Sipe/BKP_DIARIOS/;debito=/sipe/respues/backup/;
+#PRODUCCION
+#cargaFtpBanele;servidor=161.131.232.35;sistemaUyP=ftpsip;directorioBase=/;contentType=application/txt;
+#rutasBkp;caja=/Back_Sipe/BKP_DIARIOS;cobranza=/Back_Sipe/BKP_DIARIOS;paguedirecto=/sipe/Back_Sipe/BKP_DIARIOS/;debito=/sipe/respues/backup/;

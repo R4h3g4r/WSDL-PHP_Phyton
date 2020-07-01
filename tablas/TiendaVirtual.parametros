@@ -1,0 +1,11 @@
+despacho; errorGenerico=error;errorGenericoServlet=/creditos/tiendaVirtual/common/paginas/error.jsp;simulacion=iniciosimulacion;avance=registrasolicitudes_bcinetwls;confirmacion=registrasolicitudes_bcinetwls;respuesta=resultadoSimulacion;
+mensajeDetallado; 001=Multicrédito no activado.; 002=Multicredito no vigente.; 003=No posee el cupo suficiente para realizar la operación seleccionada.; 004=Renta Desactualizada; 005=Cliente con Visación Negativa;006=Monto solicitado mayor al cupo disponible.; 007=La opción seleccionada no se encuentra disponible por el momento, favor inténtelo más tarde.; 009=Monto solicitado menor al crédito mínimo requerido;010=No aceptación de condiciones legales.;011=La opción seleccionada no se encuentra disponible por el momento, favor inténtelo más tarde.;
+mensajeSecundario; 01=No es posible utilizar este medio de pago.;
+mensajePrincipal; 01=Ha ocurrido un problema al intentar realizar la operación.;
+ctaAbonoMulticredito; numero=000010582843; glosa=Cuentas Varias de Incentivos y Promociones;
+#conexionTienda;protocolo=http;servidor=ecommercemagentobci.desarrollo.netred.cl;url=/service/service.php?wsdl;tiempoEspera=1;
+conexionTienda;protocolo=http;servidor=interno.bci.netred.cl;url=/service/service.php?wsdl;tiempoEspera=1;
+retornoTienda;url=http://interno.bci.netred.cl/checkout/onepage/success/;
+tipoOperacion;Desc=ALR;
+tipoOperacionAuxiliar;Desc=600;
+codigoPromocion;Desc=G00;

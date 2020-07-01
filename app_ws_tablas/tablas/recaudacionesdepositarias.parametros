@@ -1,0 +1,33 @@
+### Integracion Continua e Integración ###
+#oauth;protocol=http;address=b2bdesa.bci.cl:9050;oauthPath=/esb/intranet/productos/colocaciones/tarjetadecencosud/ServicioTarjetaCencosudPS;oauthTimeOut=30000;
+
+### Certificacion ###
+oauth;protocol=http;address=b2bcert.bci.cl:9050;oauthPath=/esb/intranet/productos/colocaciones/tarjetadecencosud/ServicioTarjetaCencosudPS;oauthTimeOut=30000;
+
+### Produccion ###
+#oauth;protocol=http;address=alsb.bci.cl;oauthPath=/esb/intranet/productos/colocaciones/tarjetadecencosud/ServicioTarjetaCencosudPS;oauthTimeOut=30000;
+
+##SECURITIZACION OSB
+servicioOSBCuentasIFX;sistemaUyP=sysdepo;
+
+# Filtros para el reporte de transacciones anual/mensual
+# anioMin = Año minimo para el combobox de años
+# anioMax = Año máximo para el combobox de años
+# itemsPorPagina = Cantidad de items que se mostrarán por página al paginar
+# itemsPorIteracion = Cantidad de items consultados por iteración al exportar el reporte
+# paginaInicial = Página en la que comenzará la paginación
+
+reporteTrxAnualMensual;anioMin=2000;anioMax=2025;paginaInicial=0;itemsPorPagina=10;itemsPorIteracion=30000;
+
+
+# Filtros para el reporte de transacciones por filtro
+# itemsPorPagina = Cantidad de items que se mostrarán por página al paginar
+# itemsPorIteracion = Cantidad de items consultados por iteración al exportar el reporte
+# paginaInicial = Página en la que comenzará la paginación
+
+reporteTrxFiltro;paginaInicial=0;itemsPorPagina=10;itemsPorIteracion=30000;
+
+# Permisos requeridos para las distintas pantallas/funcionalidades
+
+vistaAcceso;valor=MDEPOSIT;
+vistaAccion;consultar=CONSULTAR;agregar=AGREGAR;editar=EDITAR;eliminar=ELIMINAR;

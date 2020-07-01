@@ -1,0 +1,39 @@
+chequera;cant=34;
+
+#agendamiento de talonarios
+DIASAGENDAMIENTO;desc=5;
+COD-NO-AGENDAR;Desc=04/10/14/15/16/20;
+COD-DIAS-PROX-SOL;Desc=3;
+ROL-EJECUTIVO-PERMITIDO;Cod=A83/A84/C13;Glosa=ASC/C. Tesorero/JSC;
+ESTADO-TAL-PERMITIDO;Cod=ACT/STK;Glosa=Entregado/Pendiente;
+
+cambioEstadoONP;Desc=1;
+
+#Estados de ONP
+RAT;Desc=Ratificada;
+NO_RAT;Desc=No Ratificada;
+
+formatoFecCambEst;Desc=ddMMyyyy;
+
+#Rango de horarios del talonario
+HORARIO; horaI1=10;horaF1=13;horaI2=13;horaF2=16;horaI3=16;horaF3=19;cantidad=3;
+
+canalWeb;valor=2;
+estado;valor=STK;
+newEstado;valor=SCD;
+prg;valor=PRG;
+tipoServicio;valor=01;
+
+limiteDias;valor180=180;valor90=90;valor30=30;
+plazoDias;3=3 dias (72 Horas);4=4 dias (96 Horas);5=5 dias (130 Horas);
+plazoHoras;plazo1=10:00 - 13:00;plazo2=13:00 - 16:00;plazo3=16:00 - 19:00;
+tipoOtroContacto;titular=Titular;otro=Otro;
+jndiTalonarios;desc=wcorp.bprocess.talonarios.Talonarios;
+jndiTcorp;desc=wcorp.serv.tcorp.ServiciosTCorp;
+
+jdniSrvTalonario;valor=wcorp.serv.talonarios.ServiciosTalonarios;
+jdniBprocessDeudores;valor=wcorp.bprocess.deu.Deudores;
+jdniSrvMisc;valor=wcorp.serv.misc.ServiciosMiscelaneos;
+urlSupercartola;valor=https://bciimg.bci.cl/medios/banners/supercartola/banner_creditos_consumo.jpg;
+
+

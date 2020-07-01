@@ -1,0 +1,45 @@
+EMPRESA;desc=BCI;
+FROM_NAME;CORREO-132=contacto@bci.cl;
+ASUNTO;BIENVENIDA=Información Importante, www.bci.cl/empresarios te da la Bienvenida.;BLOQUEO_PYME=Recupere su clave internet;RESETEO=Su clave de Internet ha sido cambiada.;ORIGINACION=Información Importante, www.bci.cl/empresarios;
+CONTRATO;BIENVENIDA_PYME=WEBPYME_MAIL_BIENVENIDA_PYME;ENVIO_CLAVE_INTERNET_PYME=WEBPYME_ENVIO_CLAVE_INTERNET;BLOQUEO_PYME=WEBPYME_MAIL_DESBLOQUEO_CLAVE;
+TEMPLATE;BIENVENIDA_PYME=BCI_template_mailBienvenidaPyme;ENVIO_CLAVE=BCI_template_envioClaveInternetPyme;BLOQUEO_PYME=BCI_template_mailDesbloqueoClavePyme;
+
+#################################################################
+# Inicio - Codigos de error que devuelve el web service        #
+#################################################################
+# ERRORES FIRMA DE DOCUMENTOS
+ERR02;cod=2;glosa=Error al validar los datos del cliente;
+ERR03;cod=3;glosa=La clave no esta bloqueada;
+ERR04;cod=4;glosa=Error en la generacion de la clave;
+ERR05;cod=5;glosa=Error en la validacion del numero de la tarjeta;
+ERR06;cod=6;glosa=Cliente no tiene tarjetas;
+ERR07;cod=7;glosa=Clave multipass es incorrecta;
+ERR08;cod=8;glosa=Error en el reseteo de las claves internet y telefonica;
+ERR09;cod=9;glosa=Error en el desbloqueo de la clave de internet;
+ERR10;cod=10;glosa=Error cambiando pin;
+ERR11;cod=11;glosa=Error en la generacion de archivo PDF;
+ERR12;cod=12;glosa=Error en el envio de correo;
+ERR13;cod=13;glosa=Cliente no posee correo electronico;
+ERR437;cod=437;glosa=Cliente ya posee clave para este canal;
+ERR438;cod=438;glosa=Autenticacion Invalida;
+#################################################################
+# Fin   -   Codigos de error que devuelve el web service        #
+#################################################################
+
+#################################################################
+# Inicio - Codigos de journalizacion en el web service          #
+#################################################################
+JOURNAL_ORIGINACION;medio=SHPYME;evento=ORIGINACION;subevento=INICIO;producto=INT;subeventoError=ERROR;Desc=C\u00f3digo de journalizaci\u00f3n asociado a la acci\u00f3n de generaci\u00f3n de clave internet;
+JOURNAL_RESETEO;medio=WEB;evento=RESETEO;subevento=OK;producto=INT;subeventoError=ERROR;Desc=C\u00f3digo de journalizaci\u00f3n asociado a la acci\u00f3n de reseteo de clave internet;
+JOURNAL_DESBLOQUEO;medio=WEB;evento=DESBLOQUEA;subevento=OK;producto=INT;subeventoError=ERROR;Desc=C\u00f3digo de journalizaci\u00f3n asociado a la acci\u00f3n de desbloqueo de clave internet;
+CANAL_JOURNAL-132;Desc=WEBPYME;
+
+#################################################################
+# Fin - Codigos de journalizacion en el web service             #
+#################################################################
+
+#################################################################
+#Parametro Fecha de caducidad clave                             #
+#################################################################
+FECHA_CADUCIDAD;cantidadDias=5;
+

@@ -1,0 +1,79 @@
+ubicacion;ruta=/export/weblogic/oracle10.3/wlsplatform/tablas/;
+cuidadcontrato;ciudad=SANTIAGO;
+operaciones;ImpSeguros=SI;
+imagenes;host=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;logoSDBci=00-sd-logo.gif;logoTopBci=00-top-logo.gif;logoBciCorredoresSeguros=bci_corredores_seguros.bmp;logoBciSeguros=bci_seguros.bmp;logoBciSomosDiferentes=bci_somos_diferentes.bmp;LogoBci2=bci2.gif;logoFirmaCorredor=firma_corredor.bmp;imagenCheckOn=check-on.gif;imagenVineta=imagenVineta.bmp;caeBci=logoBci.jpg;caeTbanc=logoTbanc.bmp;firma_caeBci=Firma_Abraham_Romero.jpg;firma_caeTbanc=Firma_Sandro_Araya.jpg;
+glosaFormaDePago;1VTF=1 Vencimiento;1VTV=1 Vencimiento;AFTF=Amort.fija/Tasa fija;AFTV=Amort.fija/Tasa Variable;AITV=Amort. Informada;CFTF=Cuota fija/Tasa fija;CFTR=Cuota fija/Tasa fija Rep.;CFTV=Cuota fija/Tasa Variable
+tipoCredito;canalesIndirectos=BENCIN;
+tipoMoneda;pesos=0999;ufs=0998;simbolo_peso=$;simbolo_uf =UF;despesos=Pesos;desufs=UF;
+
+#Impresion de documentos
+listaProductosSeguros;desc=CON,PAP,PAF,ALR;
+listaSeguroCesantia;desc=SDC;
+listaSeguroColectivo;desc=SDG,SDP,SEC,SHO,APD,API;
+listaProductosOtrosDoc;desc=ALR540,ALR650;
+listaProductosMultiCreditos;desc=ALR500,ALR600,ALR700;
+listaProductosMultiplesAbonos;desc=CON670;
+listaAdicionalMandatoDoc;desc=CON494;
+listaAdicionalCobranza;desc=CON500;
+listaProductosHojaResumen;desc=CON,PAP,PAF,ALR;
+listaProductosContratoConsumo;desc=CON,PAP,PAF,ALR;
+tituloDoc;generico=Simulación de Crédito;CON=Simulación Crédito de Consumo;COM=Simulación de Crédito Comercial
+
+#Impresion Cotizacion Credito Consumo Cae
+impresionPdfCae;plazoVigenciaCotizacion=7 días;condicionesCargoPrepagoUF=un mes y medio de intereses;condicionesCargoPrepagoPesos=un mes de intereses;atrazoInteresMoratorio=--;atrazoGastosCobranza=reverso;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaCae=impresionCotizacionCreditoConsumoCae.xsl;plantillaCaev=impresionCreditoConsumoCaev.xsl;contratoConsumoXsl=impresionContratoCreditoConsumo.xsl;avalistaXsl=aval.xsl;pagareXsl=pagare.xsl;
+impresionPdfCaev;plazoAvisoPrepago=3 días# refinanciamiento 10 días;atrazoInteresMoratorio=Tasas Máxima Convencional;descListaAvales=AVAL;
+conversionUf;formatoFecha=ddMMyyyy;tipoCambio=UFP;comando=/;
+impresionPdfSimula;plazoVigenciaCotizacion=7 días;plazoVigenciaDias=7;condicionesCargoPrepagoUF=un mes y medio de intereses;condicionesCargoPrepagoPesos=un mes de intereses;atrazoInteresMoratorio=--;atrazoGastosCobranza=reverso;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/;plantillaTipo=PDF;plantillaCae=impresionSimulacionCotizacionCredito.xsl;
+mandatoPacPrevio;CENMandato=CVN;plantillaRuta=tablas/impresion/xslt/;plantillaTipo=PDF;plantillaMandatoPacPrevio=mandatoPacPrevio.xsl;
+
+#MultiEnvironment
+environmentEverest;banco=BCI;marca=BCI;cartera=BEE;usuario=EVECON;canal=110;
+
+#Seguros Del Credito
+segurosDelCredito;codConceptoSeguro=SGS;codSeguroVigencia=S;segurosCCCFiltro=SDG,SDC,SDP,SEC,APD,SHO,API,DGA;codSeguroCesantia=SDC;segurosAval=API,DGA;
+
+segurosCCCSDG;nombre=Desgravamen / Invalidez 2/3;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 09 128/ CAD 2 09 130);
+segurosCCCSDC;nombre=Cesantía Involuntaria;cobertura=Cubre un máximo de 4 cuotas con un tope de UF 62,50 por cuota durante  la vigencia del crédito;corredora=Bci Corredora de Seguros;compania=Bci Seguros Generales S.A;descripcion=Cesantía Involuntaria (POL 1 09 116);
+segurosCCCSDP;nombre=Doble Capital;cobertura=Se indemniza al beneficiario el saldo insoluto del crédito al cierre del mes anterior al del fallecimiento o de la resolución de Invalidez para el asegurado;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Doble Capital (POL 2 09 109 / CAD 2 09 115);
+segurosCCCSEC;nombre=Enfermedades Graves;cobertura=Cubre un máximo de 6 cuotas con un tope de UF 50 por cuota durante  la vigencia del crédito en caso de verificarse la sobrevida del asegurado a al menos 90 dias al diagnostico de las enfermedades establecidas;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Enfermedades Graves (CAD 3 09 148);
+segurosCCCAPD;nombre=Accidentes Personales;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 09 118 Letra A POL 3 09 118 Letra B) b.1 y b.2 y Letra C);
+segurosCCCSHO;nombre=Renta Hospitalización;cobertura=Cubre un máximo de 6 cuotas con un tope de UF 50 por cuota durante  la vigencia del crédito por hospitalizacion debido a accidente o enfermedad;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Renta por Hospitalización (CAD 2 09 129);
+segurosCCCDGA;nombre=Desgravamen Invalidez 2/3 - Aval;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 09 128/ CAD 2 09 130);
+segurosCCCAPI;nombre=Accidentes Personales - Aval;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 09 118 Letra A POL 3 09 118 Letra B) b.1 y b.2 y Letra C);
+
+#valor cobranza caev
+cobranzaCaev;valor=$5.500;
+
+#oficina Tbanc
+oficina;tbanc=247;
+
+#Gastos de cobranza
+gastoCobranza;primero=9%;segundo=6%;tercero=3%;
+
+#codigos CSC
+codigosCsc;tipoCancelacion=RCM;
+
+monedaContratoConsumo;gc0999=$ ;gc0998=UF ;gl0999= de  pesos m/l ;gl0998=Unidades de Fomento ;
+apoderadoContratoConsumo;caeBci=Abraham Romero;caeTbanc=Sandro Araya;
+
+anualizacionCae;activarCalculo=false;excluidos=CON500,CON499;activarCalculoJava=true;
+mensajeCuoton;desc=(*) El valor de los intereses de la última cuota y por añadiduría, el valor final del saldo capital, estarán disponibles una vez se conozca la tasa de interés del período de la operación.
+formatoNumerosImpresos;lsDecimalSeparator=,;lsGroupingSeparator=.;
+periodoBaseTasaInteres;A=Anual;D=Diaria;M=Mensual;
+
+fileSystem;server=161.131.232.180;remotePath=/fsdoccli/fsimpdoc;sistemaUyP=fsdoccli;
+
+documentosActivos;desc=PAG,ARA,HRC,DCC;
+listaDocumentosActivos;total=4;1=PAG;2=ARA;3=HRC;4=DCC;
+PAG;des=Pagaré;archPrefijo=Pagare;archSeparador=_;
+ARA;des=Anexo Responsabilidad del Avalista;archPrefijo=Carta_Aval;archSeparador=_;
+HRC;des=Hoja Resumen Crédito de Consumo;archPrefijo=Hoja_de_Resumen;archSeparador=_;
+DCC;des=Contrato;archPrefijo=Contrato;archSeparador=_;
+COT;des=Cotización;archPrefijo=Cotizacion;archSeparador=_;
+SIM;des=Simulación;archPrefijo=Simulacion;archSeparador=_;
+SEG;des=Póliza Colectiva;archPrefijo=Solicitud_Seguros;archSeparador=_;archPrefijoAval=Solicitud_Seguros_Aval;
+
+diasImpresion;dias=365;
+
+
+

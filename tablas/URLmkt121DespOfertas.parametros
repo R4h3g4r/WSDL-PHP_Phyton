@@ -1,0 +1,23 @@
+#
+# Mapping de url de Mkt121despofertas 
+# =======================================
+#
+/cuentaswls/SuperCartola;															definitionLabel=page_tbanc_bel_cc_SuperCartola;
+/solicitudeswls/Simulador?canal=100;														definitionLabel=page_tbanc_bel_cred_Simuladores;
+/tbancwls/common/enespera.jsp?path=/creditoswls&servlet=MultiCredito&paso=2;									definitionLabel=page_tbanc_bel_cred_Avance;
+/clienteswls/Direcciones;															definitionLabel=page_tbanc_bel_svc_UpdDirec;
+/ventaseguroswls/VentadeSeguros;														definitionLabel=page_tbanc_bel_seguros_VentaMultiProteccion;
+/inversioneswls/acciones/Compra;														definitionLabel=page_tbanc_inv_acciones_Comprar;
+/inversioneswls/acciones/Venta;															definitionLabel=page_tbanc_inv_acciones_Vender;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_pyt_recarga_celular&ActiveMenu=portlet_tbanc_pyt_menu_recarga_celular;	definitionLabel=page_tbanc_pyt_recarga_celular;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_tc_SolicitudTarjetaCredito&ActiveMenu=portlet_tdc_solicitudes;		definitionLabel=page_tbanc_bel_tc_SolicitudTarjetaCredito;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_seguros_CompraSOAP;							definitionLabel=page_tbanc_bel_seguros_CompraSOAP;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_windowLabel=portlet_tbanc_bel_cc_menu_2&_pageLabel=page_clientes_bel;				definitionLabel=page_clientes_bel;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cc_Linea_Emergencia;							definitionLabel=page_tbanc_bel_cc_Linea_Emergencia;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Consumo;								definitionLabel=page_tbanc_bel_cred_Consumo;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_remates;								definitionLabel=page_tbanc_bel_cred_remates;
+/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Consumo1;								definitionLabel=page_tbanc_bel_cred_Consumo1;
+https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_windowLabel=T16200290121244498594993&_pageLabel=page_clientes_bel;		definitionLabel=page_clientes_bel;
+https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_svc_UpdDirec; 					definitionLabel=page_tbanc_bel_svc_UpdDirec;
+https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_seg_declaracionpersonaldesalud;			definitionLabel=page_tbanc_bel_seg_declaracionpersonaldesalud;
+https://www.tbanc.cl/TBanc/appmanager/tbancwlp/clientes?_nfpb=true&_pageLabel=page_tbanc_bel_cred_Consumo_online;				definitionLabel=page_tbanc_bel_cred_Consumo_online;

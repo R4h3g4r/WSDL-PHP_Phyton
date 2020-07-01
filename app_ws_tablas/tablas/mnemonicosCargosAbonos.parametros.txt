@@ -1,0 +1,54 @@
+Documentación de la tabla mnemonicosCargosAbonos.parametros
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+La tabla +mnemonicosCargosAbonos.parametros+ corresponde a una 
+lista de mnemónicos que se utilizan en el módulo de Cargos y 
+Abonos en desarrollos paralelos.
+
+Cada fila de la tabla representa un mnemónico y la estructura de 
+cada fila es la siguiente (es la misma estructura para todas las 
+filas):
+
+------------------------------------------------------------------
+- La llave de la fila es el código del mnemónico (obligatorio).
+- Debe seguir un campo +DESC+ con la descripción del mnemónico 
+(obligatorio).
+- Debe seguir un campo +OPERACION+ con el String "Cargo" o con 
+el String "Abono", según corresponda al mnemónico (obligatorio).
+- Debe seguir un campo +TIPOCUENTA+ con el String "Ahorro" o 
+con el String "Corriente", según corresponda al mnemónico 
+(obligatorio).
+- Puede seguir un campo +PUERTAS+ con una lista separada por comas 
+de alias de puertas. La idea es relacionar mnemónicos con perfiles 
+de usuarios. Es decir, si el mnemónico tiene asociada una puerta y 
+el usuario logueado también tiene la puerta, entonces el usuario 
+sólo verá ese mnemónico. *EJEMPLO:* +PUERTAS=CARG_AHO,ABON_AHO;+ 
+------------------------------------------------------------------
+
+[REGISTRODEVERSIONES]
+======================================================
+
+. 29/08/2007 Sergio Quiroga (Adexus): versión inicial.
+. 10/04/2008 Sergio Quiroga (Adexus): Se elimina mnemónico
+ABONOS EN AHORRO POR AJUSTE de la aplicación Meson. 
+. 14/04/2008 Sergio Quiroga (Adexus): Se eliminan los mnemónicos
+CARGOS EN AHORRO POR AJUSTE, CARGO POR ERROR EN DEPOSITO y
+ABONO ERROR EN DEPOSITO de la aplicación Meson.
+. 14/07/2008 Sergio Quiroga (Global Works): Se modifican los
+mnemónicos 717 y 510. Ahora hay dos versiones de cada uno,
+relacionadas con distintas transacciones según las puertas
+que posea el usuario conectado.
+. 24/11/2010 Laura Salazar (CVA): Se agregan 4 nuevos 
+mnemónicos para cargos que van del 1203 al 1206.
+. 03/06/2013 Rodrigo Alvarez(Sermaluc): Se agrega mnemónico
+REVERSA RECAUDACION CHEQUE DEVUELTO (1207) a la aplicación Meson.
+. 21/10/2013 Roberto Rodríguez Pino (Imagemaker IT): se agrega 
+mnemónico DEVOLUCION POR GIRO CAJ AUT NO ENTREGADO (1256).
+. 31/10/2018 Pablo Lincoqueo (Everis) - Rodrigo Ortiz (Ing. Bci):
+se agrega mnemónico para cargos CARGO POR RECLAMO TARJETA REDCOMPRA (1329),
+CARGO COMPENSACION PROCESO REDCOMPRA (1331 y abonos
+ABONO POR RECLAMO TARJETA REDCOMPRA (1328)
+ABONO SALDO A FAVOR EN TARJETA DE CREDITO (1332)
+ABONO COMPENSACION PROCESO REDCOMPRA (1330)
+. 09/03/2020 Pablo Lincoqueo (everis) - Maria Alejandra Ormazabal (Ing. Bci):
+se agrega mnemónico abono DEVOLUCION IMPUESTO POR PROTESTO (1345).
+======================================================

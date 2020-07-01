@@ -1,0 +1,43 @@
+#
+# Url para Enviar Error a Artikos
+# ==============================================================================
+#
+url_error;desc=https://art-p-ptk.artikos.cl/SDP_Listen/ListenSrv.asp;
+
+#
+# Url para Enviar Respuesta a Artikos
+# ==============================================================================
+#
+url_respuesta;desc=https://art-p-ptk.artikos.cl/SDP_Listen/ListenSrv.asp;
+
+#
+# Url de Resultado para Transbank
+# ==============================================================================
+#
+url_resultado;desc=http://199.186.28.53/servlet/webPayResultado;
+
+#
+# Url de fracaso para Transbank
+# ==============================================================================
+#
+url_fracaso;desc=http://199.186.28.53/servlet/webPayResultado;
+
+#
+# url WebPay
+# ==============================================================================
+#
+url_webpayrevision;desc=http://199.186.28.53/servlet/webPayRevision;
+url_webpaytransaccion;desc=http://199.186.28.53/servlet/webPayTransaccion;
+
+#
+# cgi WebPay
+# ==============================================================================
+#
+bp_pago;desc=http://199.186.28.53/cgi-bin/tbk_bp_pago.cgi;
+
+#
+# url_conciliaciones
+# ==============================================================================
+#
+url_error_conciliacion;desc=https://art-p-ptk.artikos.cl/SDP_Listen/ListenSrv.asp;
+url_respuesta_conciliacion;desc=https://art-p-ptk.artikos.cl/SDP_Listen/ListenSrv.asp;

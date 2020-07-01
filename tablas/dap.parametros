@@ -1,0 +1,37 @@
+TRX_CARGO_CTACTE_NORMAL;Desc=B0686;
+TRX_CARGO_CTACTE_ESPECI;Desc=V0676;
+TRX_REVCARGO_CTACTE_NORMAL;Desc=B0687;
+TRX_REVCARGO_CTACTE_ESPECI;Desc=V0677;
+NME_MOVCAR_CTACTE;Desc=711;
+umbralTrx;Desc=1600;
+TRX_ABONO_CTACTE_NORMAL;Desc=V0770;
+TRX_ABONO_CTACTE_ESPECI;Desc=V0770;
+NME_MOVABO_CTACTE;Desc=5E;
+umbralTrxLiq;Desc=1600;
+TRX_ABONO_CTACTE_TARDE;Desc=B0774;
+
+documentDap;xslFilePath=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/dap/;110xslFileDap=DapPersonas.xsl;800xslFileDap=DapNova.xsl;110PBPxslFileDap=DapPreferencial.xsl;110PRExslFileDap=DapPremier.xsl;plantillaTipo=PDF;pathImagenes=/export/weblogic/bea/wlsplatform/extras/workstationpdf/imagenes/;urlImagenLogo=02-logo-bci.gif;urlImagenLineaColor=linea-color.gif;urlImagenLogoNova=logo-nova.gif;urlImagenLogoPreferencial=logo-preferencial.gif;urlImagenLogoPremier=logo-premier.gif;
+datosDap;reqNumOft=350;canalDap=DAPWEB;codigoCuentaCte=CCT;codigoCuentaPrima=CPR;indicadorVigencia=VIG;indicadorUF=UF;codPesos=0999;codUf=0998;dirTipoMail=7;idCanalBci=110;idCanalNova=800;indicadorConsultaPlantilla=E;flagPrimeraLlamada=1;flagSegundaLlamada=2;marcaPlazoSolicitado=X;flagVolver=V;bcaPreferencial=PBP;bcaPremier=PRE;tituloDap=Depósito a Plazo;
+datosCurse;indicadorCurse=E;expresionPlazo=D;tipoAbono=CCMA;cuantaCargoAbonoIni=0000;devolucionDinero=S;condicionGarantia=S;custodia=E;posicionFlagCurse=2;
+journalDap;idProducto=DAP;codEventoSimula=SIMULA;codEventoToma=TOMA;subCodEventoIngreso=INGRE;subCodEventoVolver=VOLVER;descPesos=PESOS;descUf=UF;tipoFijo=FIJO;tipoRenovable=RENOV;opcionOriginal=OPCION ORIGINAL;opcion=OPCION;
+homologacionCanales;canalPrincipal=110;canalesHomologar=800,910,901,102;
+
+JNDI_SERV_MENSAJERIA;valor=wcorp.infraestructura.mensajeria.ServicioMensajeria;
+JNDI_SERV_DAP;valor=wcorp.bprocess.dap.ServiciosDap;
+JNDI_SERV_DIRECCIONES;valor=wcorp.serv.direcciones.ServiciosDirecciones;
+JNDI_SERV_ECONOMIA;valor=wcorp.serv.economia.ServiciosEconomia;
+JNDI_SERV_CUENTAS;valor=wcorp.serv.cuentas.ServiciosCuentas;
+JNDI_SERV_AUTENTICACION;valor=wcorp.aplicaciones.atenciondecliente.ayuda.autenticacionmanual.ejb.ServicioAutenticacionManual;
+# --------------------------------------------------------------------------------
+# Datos para el envío de correo con plantilla por latinia por canal.
+# --------------------------------------------------------------------------------
+
+envioCorreoContratoDap800;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=NOVA_DAP_CANALES_DIGITALES;idPlantilla=tmpl_NOVA_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=NOVA;
+envioCorreoContratoDap110;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PERSONAS_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PERSONAS_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PERSONAS;
+envioCorreoContratoDap110PBP;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PREFERENCIAL_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PREFERENCIAL_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PREFERENCIAL;
+envioCorreoContratoDap110PRE;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PREMIER_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PREMIER_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PREMIER;
+envioCorreoContratoDap910;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PERSONAS_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PERSONAS_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PERSONAS;
+envioCorreoContratoDap910PBP;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PREFERENCIAL_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PREFERENCIAL_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PREFERENCIAL;
+envioCorreoContratoDap910PRE;loginEmpresa=bci;usuarioConsumidor=BCI;claveConsumidor=BCI_PWD;asunto=Comprobante Solicitud de Toma Depósito a plazo;idContrato=PREMIER_DAP_CANALES_DIGITALES;idPlantilla=tmpl_PREMIER_DAP_CANALES_DIGITALES;correoRemitente=contacto@bci.cl;nombreRemitente=PREMIER;
+
+script;ruta=/Bcinet/resources/assets/js/jquery-2.0.3.min.js;rutaDesplegable=/Bcinet/resources/assets/js/pages/widgetDerecho.js;

@@ -1,0 +1,23 @@
+#
+# Nombres servicos con los que es expuesto EJB
+# ==============================================================================
+Actualizacion;Desc=VVBelImpresion;
+VVEfectivo;Desc=VVBelPagoEfec;
+VVCargoCta;Desc=VVBelPagoCta;
+
+#
+# Datos Trx Tandem
+# ==============================================================================
+
+TrxCargoCta;Directa=G2815;Reversa=G2817;
+TrxEfec;Directa=G2820;Reversa=G2828;
+
+#
+# Datos Servicios Tuxedos
+# ==============================================================================
+
+ServTuxedo;VVCargoCta=stpagodoccta;VVEfectivo=stpagodoc3p;
+#
+# Mensaje Convenio Cuarta Copia
+# ==============================================================================
+ConvenioCuartaCopia;mensaje=Este vale vista requiere entrega de la cuarta Copia, por lo que debe ser retirado en meson-caja de esta sucursal previa entrega de las facturas que se estan cancelando con este documento;

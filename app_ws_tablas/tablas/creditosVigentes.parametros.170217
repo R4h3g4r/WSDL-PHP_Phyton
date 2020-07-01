@@ -1,0 +1,172 @@
+formatoUF;valor=UF ##,##;
+formatoPeso;valor=$ ###,###,###;
+CAEV;des=Certificado Detalle Durante;archPrefijo=Detalle;archSeparador=_;
+mensajeSeguros;sinSeguros=Sin Seguros;
+
+#Desde liquidacionPrepagos.parametros
+EJEmailSDP;refhtml1=tablas/latinia/correo/alertaEmail/151_alertaEmail_html_01.mail;ref1=tablas/latinia/correo/alertaEmail/151_alertaEmail_01.mail;
+EJremitente;Desc= Aviso_Mensaje;formatoFecha=ddMMyyyy;
+EJencabezado;Desc=Alerta Consulta Prepago;
+EJEmailFormatoHtml;tipo=MIME;encabezado=|T&H|;meta1=<meta http-equiv="Content-Type" content="text/html;meta2=charset=iso-8859-1" />;nbsp=&nbsp;
+EJcorreoenvio;Desc=webmast@bci.cl;
+leyenda;valor=En créditos tasa variable o en UF valores referenciales.;
+totaltextolegalarriba;desc=En la presente simulación de cancelación de la operación crediticia señalada, consecuentemente, se considera la cancelación de los siguientes seguros asociados al crédito;
+totaltextolegalabajo;desc=La cancelación de los seguros mencionados, como lo señala el artículo 537 de la ley 20.667, implica la devolución de la prima de los mismos, pagada y no devengada, la cual asciende al monto señalado en la columna “Abono por seguro” mencionada en este documento. Cabe señalar que, sin perjuicio de lo anterior, seguirán vigentes los seguros -independientes de la operación crediticia pre pagada- que el cliente haya decidido expresamente mantener.;
+tipoDePrepagoParcial;desc=PARCIAL;tipoPrepago=SLP;
+tipoDePrepagoTotal;desc=TOTAL;tipoPrepago=SLT;
+simulacion;tipoAbono=AUT;canal=110;horario=20;cero=0;moneda=0999;tasames=M;tasaAnual=A;mesesAnio=12;
+estVen;valorSi=S;
+multiambiente;banco=BCI;cartera=BEE;idioma=ES;pais=CL;marca=BCI;
+parcialtextolegalarriba;desc=En la presente simulación de prepago parcial de la operación crediticia señalada, consecuentemente, se considera la devolución proporcional por disminución de riesgo de los siguientes seguros asociados al crédito.;
+parcialtextolegalabajo;desc=La devolución asociada a los seguros mencionados, implica la devolución de la prima de los mismos, pagada y no devengada, la cual asciende al monto señalado en la columna “Abono por seguro” mencionada en este documento.;
+minPrepago;porce=0.25;
+codigoCOM*;reinterpretacion=CREDITOS COMERCIALES;
+TitulosAE;titulo1=Estimado(a) Ejecutivo(a):;titulo2=Cliente perteneciente a su cartera:;titulo3=Ha realizado consulta de Prepago Parcial/Total. Detalles de opreacion a continuacion:;titulo4=Favor gestionar;tituloNombre=Nombre;tituloRut=Rut;tituloFecha=Fecha de consulta;tituloNumero=N° Operacion;tituloSaldoInsoluto=Saldo Insoluto;tituloCuota=Cuota Actual/Total;tituloMonto=Monto Ingresado Prepago;
+
+#Desde bel/resumenCredito.parametros
+multiEnvironmentBel;banco=BCI;marca=BCI;cartera=BEE;language=ES;country=CL;usuario=RESCRD;
+
+#Desde impresionDocumentos.parametros
+impresionPdfCae;plazoVigenciaCotizacion=7 días;condicionesCargoPrepagoUF=un mes y medio de intereses;condicionesCargoPrepagoPesos=un mes de intereses;atrazoInteresMoratorio=--;atrazoGastosCobranza=reverso;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/creditosVigentes/xslt/;plantillaTipo=PDF;plantillaCae=impresionCotizacionCreditoConsumoCae.xsl;plantillaCaev=impresionCreditoConsumoCaev.xsl;contratoConsumoXsl=impresionContratoCreditoConsumo.xsl;avalistaXsl=aval.xsl;pagareXsl=pagare.xsl;plantillaCertificadoTotal=Certificado_Prepago.xsl;plantillaCertificadoParcial=Certificado_PrepagoParcial.xsl;
+oficina;tbanc=247;
+imagenes;host=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/;logoSDBci=00-sd-logo.gif;logoTopBci=00-top-logo.gif;logoBciCorredoresSeguros=bci_corredores_seguros.bmp;logoBciSeguros=bci_seguros.bmp;logoBciSomosDiferentes=bci_somos_diferentes.bmp;LogoBci2=bci2.gif;logoFirmaCorredor=firma_corredor.bmp;imagenCheckOn=check-on.gif;imagenVineta=imagenVineta.bmp;caeBci=logoBci.jpg;caeTbanc=logoTbanc.bmp;firma_caeBci=Firma_Luis_Poblete.jpg;firma_caeTbanc=Firma_Luis_Poblete.jpg;
+impresionPdfCaev;plazoAvisoPrepago=3 días# refinanciamiento 10 días;atrazoInteresMoratorio=Tasas Máxima Convencional;descListaAvales=AVAL;
+gastoCobranza;primero=9%;segundo=6%;tercero=3%;
+anualizacionCae;activarCalculo=false;excluidos=CON500,CON499;activarCalculoJava=true;
+segurosDelCredito;codConceptoSeguro=SGS;codSeguroVigencia=S;segurosCCCFiltro=SDG,SDC,SDP,SEC,APD,SHO,API,DGA;codSeguroCesantia=SDC;segurosAval=API,DGA;
+
+segurosCCCSDG;nombre=Desgravamen / Invalidez 2/3;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 2013 0331 / CAD 2 2013 1138);
+segurosCCCSDC;nombre=Cesantía Involuntaria;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 4 cuotas con un tope de UF 62,5 por pago durante la vigencia del seguro.;corredora=Bci Corredora de Seguros;compania=Bci Seguros Generales S.A.;descripcion=Cesantía Involuntaria (POL 1 2013 0122, Riesgos A y B);
+segurosCCCSDP;nombre=Doble Capital;cobertura=Se indemniza al beneficiario el saldo insoluto del crédito al cierre del mes anterior al del fallecimiento o de la resolución de Invalidez para el asegurado;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Doble Capital (POL 2 2013 0055 / CAD 3 2013 0060);
+segurosCCCSEC;nombre=Enfermedades Graves;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 6 cuotas con un tope de UF 50 por pago durante la vigencia del seguro.;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Enfermedades Graves (POL 3 2013 0507);
+segurosCCCAPD;nombre=Accidentes Personales;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 2013 0409, Letras A, B y C);
+segurosCCCSHO;nombre=Renta Hospitalización;cobertura=El monto asegurado equivale al valor de la cuota pactada originalmente en el crédito que se utilizó como medio de pago y cubrirá un máximo de 6 cuotas con un tope de UF 50 durante la vigencia del seguro;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Renta por Hospitalización (POL 3 2013 0502);
+segurosCCCDGA;nombre=Desgravamen Invalidez 2/3 - Aval;cobertura=Cubre saldo insoluto de la deuda  a la fecha del deceso del asegurado e invalidez a la fecha de resolución;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Desgravamen / Invalidez 2/3 (POL 2 2013 0331 / CAD 2 2013 1138);
+segurosCCCAPI;nombre=Accidentes Personales - Aval;cobertura=Proteccion  a beneficiarios entregando indemnización de UF200  por muerte accidental o desmembramiento y renta mensual por accidente de conyuge de UF5 por 6 primeros meses;corredora=Bci Corredora de Seguros;compania=Bci Seguros Vida S.A;descripcion=Accidentes Personales (POL 3 2013 0409, Letras A, B y C);
+segurosCCC;codEvento=CUR;concepto=SEG*;
+
+estadosSeguro;codEstadoA=Vigente;codEstadoD=Desistido;codEstadoG=Anulado;codEstadoI=Ingresado;codEstadoL=Devuelto Parcial;codEstadoP=Pendiente;codEstadoR=Rechazado;codEstadoS=Siniestrado;codEstadoT=Devuelto;
+codigosCsc;tipoCancelacion=RCM;
+
+#Desde cuotaflexible.parametros
+tipodecargo;codigo=COB;diasHabilesValidos=3;vigente=S;
+mensajeCOB;desc=Transacción Fuera de Plazo-br-Estimado Cliente:-br-Para poder postergar la cuota de su crédito flexible Bci con PAC desde otro Banco, debe realizar la postergación con un mínimo de 72 horas hábiles antes del vencimiento de su cuota.-br-Para mayor información, llámenos al 6928000.;
+
+#Desde ComportamientoDePagos.parametros
+msgDetalleCred;msgCincoMilUFVigente=S;msgCincoMilUF=No se puede generar certificado, crédito superior a 5000UF;msgJudicial=No se puede generar certificado, crédito en Cobranza Judicial;msgCastigada=No se puede generar certificado, crédito en castigo;msgVencida=No se puede generar certificado, crédito en cartera vencida;msgNoExisCuotaFut=No se puede generar certificado, crédito no tiene cuotas con vencimiento futuro;msgVendida=No se puede generar certificado, crédito con Cartera Vendida;
+monedaOpc;comando=/;tipoCambio=UFP;desPeso=PESOS;formatoFecha=ddMMyyyy;
+sitCartera;vencida=VCD;catigada=CAS;vendida=VDD;tipoCAE=CAE;
+sitCobranza;judicial=JUDIC;
+montosMaximoCertifica;montoUF=5000;
+#problemas con credito para ver certificados de prepago
+campoDeudaCastigada      ;vigente=S;condicion=CAS                                            ;campoVariable=Cliente posee Crédito proveniente de Deuda Castigada;
+campoDeudaVencida        ;vigente=S;condicion=VCD                                            ;campoVariable=Cliente posee Crédito proveniente de Deuda Vencida;
+campoCobranzaJudicial    ;vigente=S;condicion=JUDIC                                          ;campoVariable=Cliente posee Crédito en estado Cobranza Judicial;
+campoOperacionRenegociada;vigente=S;condicion=REN;condicion2=;condicion3=MUL;campoVariable=Cliente posee Crédito proveniente de operación Renegociada;
+campoCarteraVendida      ;vigente=S;condicion=VDD                                            ;campoVariable=Cliente posee Crédito proveniente de Cartera Vendida;
+campoNoEstructutado      ;vigente=S;condicion=N                                              ;campoVariable=Cliente posee Crédito No Estructutado;
+
+#Desde SimulaCursaCredito.parametros
+productosSinCAE;codigos=BGT,BEX;
+seguros;codigos=CDG,CIN,CEC,CHO,CDE;id=1,2,3,4,5;
+
+#Rutas webservices
+
+#Produccion
+#WSDLMULTICANAL;CreditosMulticanal=http://alsb.bci.cl/esb/intranet/productos/colocaciones/creditosGlobalesMulticanal/CreditosGlobalesMulticanalPS?WSDL;
+#Certificacion
+WSDLMULTICANAL;CreditosMulticanal=http://161.131.140.137:9050/esb/intranet/productos/colocaciones/creditosGlobalesMulticanal/CreditosGlobalesMulticanalPS?WSDL;
+#Desarrollo
+#WSDLMULTICANAL;CreditosMulticanal=http://161.131.184.123:9101/esb/intranet/productos/colocaciones/creditosGlobalesMulticanal/CreditosGlobalesMulticanalPS?WSDL;
+
+
+#Produccion
+#WSDLCOORPORATIVO;ParametrosGenerales=http://alsb.bci.cl/esb/intranet/infraestructura/tablasyParametros/tablas/parametrosGeneralesCorporativo/ParametrosGeneralesCorporativoPS?WSDL;
+#Certificacion
+WSDLCOORPORATIVO;ParametrosGenerales=http://161.131.140.137:9050/esb/intranet/infraestructura/tablasyParametros/tablas/parametrosGeneralesCorporativo/ParametrosGeneralesCorporativoPS?WSDL;
+#Desarrollo
+#WSDLCOORPORATIVO;ParametrosGenerales=http://161.131.184.123:9101/esb/intranet/infraestructura/tablasyParametros/tablas/parametrosGeneralesCorporativo/ParametrosGeneralesCorporativoPS?WSDL;
+
+
+#Produccion
+#WSDLPRECIOS;ServicioPrecios=http://alsb.bci.cl/esb/intranet/infraestructuradenegocio/precio/ServicioPreciosPS?WSDL;
+#Certificacion
+WSDLPRECIOS;ServicioPrecios=http://161.131.140.137:9050/esb/intranet/infraestructuradenegocio/precio/ServicioPreciosPS?WSDL;
+#Desarrollo
+#WSDLPRECIOS;ServicioPrecios=http://161.131.184.123:9101/esb/intranet/infraestructuradenegocio/precio/ServicioPreciosPS?WSDL;
+
+codOrigen;cod=ORIGEN;
+
+## Descripciones de Tipo de Cobro de Seguros BCI
+tipoCobroFLT;FLT=Pago Total;
+tipoCobroFVC;FVC=Cuotas Anticipado;
+tipoCobroVCD;VCD=Total Cuota;
+tipoCobroINF;INF=Total Informado;
+
+## Descripciones de Descuentos de Intereses
+interesesDSCCANAL;   DSCCANAL     =especial internet;
+interesesDSCTARJETA; DSCTARJETA   =pago con tarjeta;
+interesesDSCECUPON;  DSCECUPON    =e-cupón;
+interesesDSCCLTETOP; DSCCLTETOP   =cliente especial;
+interesesDSCWEBALR;   DSCWEBALR   =especial internet;
+interesesDSCCTACTE-A; DSCCTACTE-A =cliente nuevo;
+interesesDSCCTACTE-B; DSCCTACTE-B =cliente nuevo;
+interesesDSCCTACTE-M; DSCCTACTE-M =cliente nuevo;
+interesesDSCINFIELES; DSCINFIELES =con descuento exclusivo;
+interesesDSCW-INFIEL; DSCW-INFIEL =con descuento exclusivo;
+interesesDSCCONVENIO; DSCCONVENIO =con descuento convenio;
+interesesINFORMADO; INFORMADO =Tasa Informada;
+
+## Descripciones de seguros BCI
+##segurosSDG;SDG=Desgravamen Deudor Directo
+segurosSDC;SDC=Cesantía o Incapacidad Temporal;
+segurosSDG;SDG=Desgravamen;
+segurosSDP;SDP=Doble Capital;
+segurosSEC;SEC=Enfermedades Graves;
+segurosSHO;SHO=Hospitalización;
+segurosDGA;DGA=Desgravamen Aval;
+segurosHGC;HGC=Hogar Contenido;
+segurosAPD;APD=Accidentes Personales;
+segurosAPI;API=Accidentes Personales Aval;
+segurosSCV;SCV=Crédito vida;
+segurosCVA;CVA=Crédito vida aval;
+segurosACD;ACD=Automotriz Complementario de Daños;
+segurosAFC;AFC=Automotriz Full Cobertura;
+segurosAGI;AGI=Automotriz Invalidez;
+segurosAPT;APT=Automotriz Pérdida Total;
+segurosCAT;CAT=Asistencia Total;
+segurosCCS;CCS=Crédito Salud;
+segurosCIP;CIP=Información Protegida;
+segurosCR1;CR1=Responsabilidad Civil 100 UF;
+segurosCR2;CR2=Responsabilidad Civil 500 UF;
+segurosCR3;CR3=Responsabilidad Civil 1000 UF;
+segurosCSA;CSA=Crédito Salud Aval;
+
+## Descripciones de seguros BCS (Banco Cono Sur -> NOVA)
+segurosCDE;CDE=Desempleo;
+segurosCDG;CDG=Desgravamen;
+segurosCEC;CEC=Enfermedades Catastroficas;
+segurosCHO;CHO=Hospitalizacion;
+segurosCIN;CIN=Invalidez;
+segurosCRF;CRF=Renta Familia;
+segurosCVC;CVC=Vida Codesur;
+segurosCVD;CVD=Doble Sur;
+
+script;ruta=/Bcinet/resources/assets/js/jquery-2.0.3.min.js;rutaDesplegable=/Bcinet/resources/assets/js/pages/widgetDerecho.js;
+rutaError;link=../../../../../../error/bcinet-opps.jsf;
+
+impresionCartolaPago;plantillaTipo=PDF;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/creditosVigentes/xslt/;plantillaCartola=impresionComportamientoPago.xsl;plantillaCalendario=impresionCalendarioPago.xsl;
+
+Multiambiente.Everest;codigoBanco=BCI;codigoCanal=151;codigoEjecutivo=EVEREST;codigoCartera=BEE;codigoMarca=BCI;codigoOficina=;localidadLenguaje=ES;localidadPais=CL;idSistema=Everest;
+
+ibmDesMonedas;desPesos=0999;desUF=0998;
+
+clavesSeguros;producto=CRE;evento=CUR;tipoConsulta=SGS;
+
+#cancelaciones
+tiposCancelacion;desc=0|Seleccione,CTT|Cancelacion Total Credito,CTE|Cancelacion un Vencimiento;tipoCTT=Cancelacion Total Credito;tipoCTE=Cancelacion un Vencimiento;
+tiposCargoCancelacion;desc=0|Seleccione,CCMA|Cuenta Corriente,CTBL|Cuenta Contable,CAJA|Caja;tipoCCMA=Cuenta Corriente;tipoCTBL=Cuenta Contable;tipoCAJA=Caja;
+parametrosCancelacion;origen=ORIGEN;codSistema=CRE;nunmReqSimula=256;numReqIngreso=038;numReqSeteoSeguroDevolver=137;cuentaDefault=0000;tipoContable=CTBL;tipoCuentaCorriente=CCMA;cancelacionTotal=CTT;cancelacionCuota=CTE;abonoCuota=CIE;conNegociacion=Si;sinNegociacion=No;tipoCsc=RCM;
+impresionCancelacion;plantillaTipo=PDF;plantillaRuta=/export/weblogic/oracle10.3/wlsplatform/tablas/creditosVigentes/xslt/;plantillaCancelacion=impresionCancelaciones.xsl;
+rutaLogoCancelacion;valor=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/logo-bci-can.jpg;
+rutaTimbreCancelacion;valor=/export/weblogic/oracle10.3/wlsplatform/extras/workstationpdf/imagenes/timbre_certificado.jpg;

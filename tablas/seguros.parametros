@@ -1,0 +1,231 @@
+#Seguros Accidentes Personales
+despachoVtaSeguros;valor=vtaSeguroAPE;
+
+#Combos
+sexo;valor=F|M;descripcion=Femenino|Masculino;
+ciudad;valor=Santiago|Rancagua|Valparaiso|Concepcion;descripcion=Santiago|Rancagua|Valparaiso|Concepcion;
+comuna;valor=San Bernardo|La Florida|Santiago;descripcion=San Bernardo|La Florida|Santiago;
+parentesco;valor=esposo|esposa|hijo|hija|mama|papa;descripcion=Esposo|Esposa|Hijo|Hija|Mamá|Papá;
+cuenta;valor=2928383473;descripcion=2928383473;
+tarjetas;valor=8883|5554;descripcion=Bci visa gold 8883|Bci mastercard 5554;
+cuotas;valor=3|6|12;descripcion=3 cuotas|6 cuotas|12 cuotas;
+diaPago;valor=1|2|5|10|15|20|25;descripcion=1|2|5|10|15|20|25;
+domicilioCliente;valor=Comercial|Particular;descripcion=Dirección Comercial|Dirección Particular;
+planAP;valor=BCIAPEN;desc=Accidentes Personales;
+facturacion;valor=SI;
+envioEmailPoliza;valor=SI;
+noEnvioEmailPoliza;valor=NO;
+sucursalBci;valor=WEBBCI;
+sucursalTBanc;valor=WEBTBANC;
+condicionPoliza;valor=SI;
+errorGenerarPoliza;valor=NO;
+codigoDocumentoP;valor=P;
+codigoDocumentoC;valor=C;
+rutaLogo;valor=/portalwls/configseguros;
+codCotizacion;valor=QTN;
+codPropuesta;valor=PRG;
+nombrePlan;valor=Web Anual;valorSinDcto=BCI.cl;
+AccPerFPPagos;vigente=SI;
+AutoFPPagos;vigente=SI;
+VitalFPagos;vigente=SI;
+
+#Parámetros de envío de mail
+#==============================================
+from;valor=bci@bci.cl;
+asunto;valor=Seguros Accidentes Personales;
+nombreArchivo;valor=Poliza Accidentes Personales.pdf;
+tipoMime;valor=application/pdf;
+msgSeguro;valor=Estimado Cliente,\nSe adjunta seguro de accidentes personales.\nAtte.,\nBci Somos Diferentes.;
+fromSeguroAuto;desc=bci@bci.cl;
+subjectSeguroAuto;desc=Seguro Automotriz;
+msgSeguroAuto;desc=Estimado Cliente,\nSe adjunta seguro automotriz.\nAtte.,\nBci Somos Diferentes.;
+nombreArchivoSeguroAuto;desc=Propuesta Seguro Automotriz.pdf;
+subjectPoliza;desc=Poliza de seguro contratado;
+nombreArchivoSeguroAutoServicio;comienzo=propuesta_;fin=.pdf;
+
+#Parametros de JNDI
+#==============================================
+JNDI_AUTO;serviciosSolicitudes=wcorp.serv.solicitudes.ServiciosSolicitudes;seguroAutomotriz=wcorp.aplicaciones.productos.seguros.venta.auto.SeguroAutomotriz;ventaSeguros=wcorp.aplicaciones.productos.seguros.venta.ventaseguros.VentaSeguros;serviciosCobros=wcorp.serv.cobros.ServiciosCobros;configuradorSeguros=wcorp.aplicaciones.productos.seguros.venta.configurador.ConfiguradorSeguros;serviciosCuentas=wcorp.serv.cuentas.ServiciosCuentas;serviciosSeguros=wcorp.serv.seguros.ServiciosSeguros;
+
+
+#Parametros tipos de seguro
+#==============================================
+normal;codigo=N;descripcion=normal;
+preferencial;codigo=P;descripcion=preferencial;
+
+#integracion
+#OSB_MC_SERVICE;URL=http://161.131.184.123:9050/esb/personas/productos/seguros/automotriz/ServicioPlanesSeguroAutoPS?wsdl;
+
+#CERTIFICACION
+OSB_MC_SERVICE;URL=http://161.131.140.137:9050/esb/personas/productos/seguros/automotriz/ServicioPlanesSeguroAutoPS?wsdl;
+
+#PRODUCCION
+#OSB_MC_SERVICE;URL=http://alsb.bci.cl/esb/personas/productos/seguros/automotriz/ServicioPlanesSeguroAutoPS?wsdl;
+
+mesesCardif;valor=12;
+
+CARDIF;nombre=Cardif;codigo=79;
+pathXsl;cardifNormal=tablas/aplicaciones/productos/seguros/venta/impresion/auto/impresion_estandar_cardif.xsl;cardifPremium=tablas/aplicaciones/productos/seguros/venta/impresion/auto/impresion_premium_cardif.xsl;bci=tablas/aplicaciones/productos/seguros/venta/impresion/auto/impresion_auto_prop-bci-rest.xsl;
+
+#Parametros inspeccion seg auto
+inspeccionSeg;mailTo=factuseguros_web@bci.cl;asuntoStart=Factura Auto Multicompañias;body=Se adjunta Factura Vehículo Nuevo, según N° de Propuesta ;mailFrom=bci@bci.cl;nombre=factura;
+
+#Parametros de coberturas y envío de factura seg auto
+#BCI
+companiaSeg13;mailTo=inspecciones@bciseguros.cl;cobPreferencial=COB_AUT_PREM_DD0;cobNormal=COB_PRO_SEG_AUT_DD0;codigoProducto=BCIACAMN;primerPago=SI;
+#Cardif
+companiaSeg79;mailTo=vehiculos@cardif.cl;cobPreferencial=COB_SEG_AUT_CARDIF_P;cobNormal=COB_SEG_AUT_CARDIF;codigoProducto=AUMULCIA;primerPago=NO;
+
+#Parámetros obtención de nro. póliza automotriz
+#==============================================
+nroPoliza;cia=13;tipoCorr=F;codCorr=11;
+
+#Rutas de xsl
+#==============================================
+XSL_BCIAPE;P_110=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_prop-bci.xsl;P_100=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_prop-tbanc.xsl;P_800=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_prop-nova.xsl;C_100=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_cot-bci.xsl;C_110=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_cot-tbanc.xsl;C_800=tablas/aplicaciones/productos/seguros/venta/impresion/accidentespersonales/impresion_acper_cot-nova.xsl;
+XSL_BCITMP;P_110=tablas/aplicaciones/productos/seguros/venta/impresion/vital/impresion_acper_prop-bci.xsl;P_100=tablas/aplicaciones/productos/seguros/venta/impresion/vital/impresion_acper_prop-tbanc.xsl;P_800=tablas/aplicaciones/productos/seguros/venta/impresion/vital/impresion_acper_prop-nova.xsl;
+
+planAPColaborador;codigoProducto=BCIAPEC;desc=Accidentes Personales Colaborador;
+planMUL;codigoProducto=BCIMULP3;desc=Multiprotección;
+planMULColaborador;codigoProducto=BCIMULP4;desc=Multiprotección Colaborador;
+planAR;codigoProducto=BCIMULP6;desc=Anti Robo;
+planAUT;codigoProducto=BCIACAMN;desc=Automotriz;
+planAUTColaborador;codigoProducto=BCIACOL;desc=Automotriz Colaborador;
+planVID;codigoProducto=BCITMP;desc=Seguro Vital;
+planVIDColaborador;codigoProducto=BCITMC;desc=Seguro Vital Colaborador;
+planANT;codigoProducto=BCIMULP5;desc=seguro anti-robo;
+idServicio;valor=001;
+idServicioVital;valor=001;
+idServicioAP;valor=001;
+idServicioAuto;valor=001;
+mensajeOferta;valor=Estimado Cliente, tenemos una oportunidad de protección exclusiva para usted, contrate su seguro {0} con un descuento especial de {1}%.;msgduracionOferta=Promoción válida sólo por las siguientes {0} hrs.;
+
+#Parametros Desistimiento Seguros
+#==============================================
+filtrosDesistimiento;cantidad=3;filtros0=1,Nº Operación;filtros1=2,Tipo Producto;filtros2=3,Estado Seguro;
+productosDesistimiento;cantidad=4;productos0=CON,Consumo;productos1=COM,Comercial;productos2=LEM,Línea de Emergencia;productos3=LSG,Línea de Sobregiro;
+estadosDesistimiento;cantidad=9;estados0=I,Ingresado;estados1=P,Pendiente;estados2=R,Rechazado;estados3=A,Activo;estados4=D,Desistido;estados5=T,Devuelto;estados6=L,Devuelto Parcial;estados7=S,Siniestro;estados8=G,Anulado;
+abonosDesistimiento;cantidad=3;abonos0=1,Abono en Cuenta corriente;abonos1=2,Abono en Cuenta Prima;abonos2=3,Vale Vista;
+motivosDesistimiento;cantidad=4;motivos0=1,Económico;motivos1=2,Error de curse;motivos2=3,Insatisfecho con producto;motivos3=4,Otro;
+
+#Correspondencia con los datos que envia la compania para desistimiento, si algun valor se actualiza debe estar reflejado aqui.
+glosaProductos;COLOCACIONES=Colocaciones;CHIP=Credito Hipotecario;LSG=Línea de Sobregiro;LEM=Línea de Emergencia;
+consultaProductos;LineaSobregiro=LSG;LineaEmergencia=LEM;
+consultaSeguros;DesgravamenLSG=SDGL;CesantiaLSG=SDCL;DesgravamenLEM=SDGE;
+
+#Configuracion de seguros
+configuracionDesistimiento;errorCurse=2;estadoErrorCurse=G;estadoGenerico=D;fecha=01-12-2013;maximoReversa=30;cantidad=2;habilitado0=LSG;habilitado1=LEM;
+desistirDesistimiento;cantidad=4;desistir0=I;desistir1=P;desistir2=A;desistir3=L;
+monedasDesistimiento;DOLAR=USD;PESOS=$;UF=UF;
+estadoDesistimiento;I=Ingresado;P=Pendiente;R=Rechazado;A=Activo;D=Desistido;T=Devuelto;L=Devuelto Parcial;S=Siniestro;G=Anulado;
+etiquetaDesistimiento;COM=Número de Operación: ;CON=Número de Operación: ;LSG=Número de Operación: ;LEM=Número de Operación: ;
+journalDesistimiento;codEventoNegocio=ABONO;subCodEventoNegocioOK=OK;subCodEventoNegocioNOK=NOK;estadoEventoNegocioOK=P;estadoEventoNegocioNOK=R;
+
+#Mensajes de error para desistimiento
+mensajesError;seguroInactivo=No es posible desistir del seguro seleccionado;errorGeneral=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;errorCuentas=Error al obtener las cuentas del tipo de devolución seleccionada.;
+
+desistimientoSeguroXSL;ruta=/cl/bci/aplicaciones/productos/seguros/desistimiento/vista/certificadoDesistimiento.xsl;logoCorredora=/resources/desistimiento/images/logoBciSeguros.gif;
+
+urlHomeSeguro;110=/cl/bci/aplicaciones/menu/vistas/seguros/homeSeguros.jsf;100=/cl/bci/aplicaciones/menu/tbanc/vistas/seguros/homeSeguros.jsf;800=/cl/bci/aplicaciones/bciNova/menu/vistas/seguros/homeSeguros.jsf;
+
+#DESARROLLO
+#subirArchivo;sistema=desist;servidor=kanako;ruta=desistimiento/in/;
+
+#INTEGRACION
+#subirArchivo;sistema=desist;servidor=161.131.141.238;ruta=desistimiento/in/;
+
+#CERTIFICACION
+subirArchivo;sistema=desist;servidor=161.131.232.185;ruta=desistimiento/in/;
+
+#PRODUCCION
+#subirArchivo;sistema=desist;servidor=161.131.232.89;ruta=desistimiento/in/;
+
+#URL para CSS de los portales
+urlCssCanal;0=css;110=css;100=css;800=Webbci/bcinova/css;
+
+#valoreJournalSeguroAutomotrizEjecutivo
+journalSimularEjecutivo;producto=SEGAUT;evento=SIMULA;
+journalSeleccionarEjecutivo;producto=SEGAUT;evento=CONTRATA;subevento=INICIO;
+journalCursarEjecutivo;producto=SEGAUT;evento=CONTRATA;
+ejecutivoBCINET;desc=BCINET;
+
+#segurosPyme
+seguroVehiculoComercial;desc=Seguro Vehículo Comercial Pyme;
+seguroEquiposMoviles;desc=Seguro Equipo Moviles Pyme;
+seguroPolizaGarantia;desc=Seguro Poliza Garantía Pyme;
+seguroVidaColectivo;desc=Seguro Vida Colectivo Pyme;
+seguroMultiproteccionEmpresa;desc=Seguro Multiprotección Empresa Pyme;
+seguroIncendioComercial;desc=Seguro Incendio Comercial Pyme;
+
+#mensajeEmailSeguroPyme
+mensajeEmailSeguroPyme;desc=Estimado(a), \n\n Se adjunta datos para Solicitud de información de Seguros Sitio Empresario.\n Apoderado: {0} \n Razón Social: {1} \n Rut Empresa: {2} \n Seguro Empresario: {3} \n Fecha {4}. \n Email: {5} . \n Teléfono: {6}. \n Email Sesión: {7} \n Teléfono Sesión: {8} \n Región: {9} \n Comuna: {10} Código Oficina: {11} \n Favor comunicar a la brevedad.
+contactoPyme;desc=Contacto Pyme.;
+fromSeguroPyme;desc=no-reply@bci.cl;
+toSeguroPyme;desc=exanmoy@bcicert.cl;
+asuntoSeguroPyme;desc=Solicitud Seguro Sitio Empresario;
+
+#SECURITIZACION OSB 
+srvPlanSegAuto;sistemaUyP=wsplseau;
+
+# Sistema UYP para WS OSB Tarifas Vehiculo BCI Seguros
+#-------------------------------------------------------------------------------------------------------------
+#PREPRODUCCION
+SISTEMA_UYP_WS_TAR_BCI;SISTEMA_UYP=wsvencom;
+
+#PRODUCCION
+#SISTEMA_UYP_WS_TAR_BCI;SISTEMA_UYP=wscontar;
+
+# Endpoint para WS OSB Tarifas Vehiculo BCI Seguros
+#-------------------------------------------------------------------------------------------------------------
+#integracion
+#OSB_WS_TARIFA_AUTO_BCI;URL=http://b2bdesa.bci.cl:9050/esb/intranet/productos/seguros/automotriz/BCISeguros/ServicioTarificacionPS?WSDL;
+                            
+#CERTIFICACION
+OSB_WS_TARIFA_AUTO_BCI;URL=http://b2bcert.bci.cl:9050/esb/intranet/productos/seguros/automotriz/BCISeguros/ServicioTarificacionPS?WSDL;
+
+#PRODUCCION
+#OSB_WS_TARIFA_AUTO_BCI;URL=http://alsb.bci.cl/esb/intranet/productos/seguros/automotriz/BCISeguros/ServicioTarificacionPS?WSDL;
+
+# Credencial WS seguro BCI Tarifas Automovil
+#-------------------------------------------------------------------------------------------------------------
+#Preproduccion
+WS_TAR_BCI_USER;BCI_USER=USRBCITARIFA;
+WS_TAR_BCI_PASS;BCI_PASS=PASSBCITARIFA;
+
+#Produccion
+#WS_TAR_BCI_USER;BCI_USER=USRBCITARIFA;
+#WS_TAR_BCI_PASS;BCI_PASS=PASSBCITARIFA;
+
+# Constantes WS seguro BCI Tarifas Automovil
+#-------------------------------------------------------------------------------------------------------------
+CONS_IDENTIFICADOR_CORREDOR;IDENTIFICADOR_CORREDOR=484
+CONS_RUT_CORREDOR;RUT_CORREDOR=78951950-1
+CONS_NOMBRE_COMPANIA_BCI;NOMBRE_COMPANIA_BCI=BCI SEGUROS GENERALES
+CONS_SIGLA_COMPANIA_BCI;SIGLA_COMPANIA_BCI=BCI
+CONS_RUT_EJECUTIVO_CORREDORA;RUT_EJECUTIVO_CORREDORA=78951950
+CONS_CODIGO_COMPANIA_BCI;CODIGO_COMPANIA_BCI=13
+
+### Código de planes de seguro vital ###
+##CERTIFICACION##
+cod_plan;valor1=V1WB;valor2=V2WB;valor3=V3WB;valor4=V4WB;
+##PRODUCCION##
+
+## Descrición de planes ###
+##CERTIFICACION##
+valor_cod;V1WB=UF 500;V2WB=UF 1000;V3WB=UF 1500;V4WB= UF 2000;
+##PRODUCCION##
+
+#mensajeEmailSeguroPymeLeasingInteresado
+mensajeEmailSeguroPymeLeasing;desc=Estimado(a), \n\n Se adjunta datos para Solicitud de información de Leasing Sitio Empresario CLIENTE INTERESADO.\n Apoderado: {0} \n Razón Social: {1} \n Rut Empresa: {2}  \n Fecha {3}. \n Email: {4} . \n Teléfono: {5}.  \n Número Poliza: {6} \n Marca: {7}\n Modelo: {8} \n Año Vehículo: {9} \n Patente: {10} \n Deducible: {11} \n Monto: {12} \n Opcion de Compra: {13} \n Favor comunicar a la brevedad.
+contactoPymeLeasing;desc=Contacto Pyme Leasing.;
+fromSeguroPymeLeasing;desc=no-reply@bci.cl;
+toSeguroPymeLeasing;desc=exanmoy@bcicert.cl;
+asuntoSeguroPymeLeasing;desc=Solicitud Leasing Sitio Empresario Cliente Interesado;
+
+#mensajeEmailSeguroPymeLeasingInteresadoSin Correo
+switchSinCorreoLeasing;desc=NO;
+mensajeEmailSeguroPymeLeasingNoCorreo;desc=Estimado(a),\n\n Ejecutivo sin correo electronico asignado en base de datos. \n\n Se adjunta datos con información de Leasing Sitio Empresario clientes INTERESADOS.\n Apoderado: {0} \n Razón Social: {1} \n Rut Empresa: {2}  \n Fecha {3}. \n Email: {4} \n Teléfono: {5} \n Número Poliza: {6} \n Marca: {7}\n Modelo: {8} \n Año Vehículo: {9} \n Patente: {10} \n Deducible: {11} \n Monto: {12} \n Opcion de Compra: {13} .
+contactoPymeLeasingNo;desc=Contacto Pyme Leasing.;
+fromSeguroPymeLeasingNo;desc=no-reply@bci.cl;
+toSeguroPymeLeasingNo;desc=exanmoy@bcicert.cl;
+asuntoSeguroPymeLeasingNo;desc=Respuesta Leasing Sitio Empresario interesado;

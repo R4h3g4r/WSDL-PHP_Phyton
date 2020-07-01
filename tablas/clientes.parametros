@@ -1,0 +1,26 @@
+# define un factor que multiplicara a un numero dado
+factorOrigen;valor=1000000;
+
+# define programa traductor servicios en SgcBean
+SgcCacEli;header=SGCPPTPG;
+SgcCacAnl;header=SGCPPTPG;
+SgcCacCon;header=SGCPPTPG;
+SgcCacMod;header=SGCPPTPG;
+SgcCacIng;header=SGCPPTPG;
+SgcCcaCon;header=SGCPPTPG;
+SgcActDir;header=SGCPPTPG;
+SgcDirCon;header=SGCPPTPG;
+SgcDirEli;header=SGCPPTPG;
+SgcDirMod;header=SGCPPTPG;
+SgcDirIng;header=SGCPPTPG;
+
+
+# Define parametros de condicion funcional cliente
+condicionFuncional;concepto=CONFUNCIONAL;listacondiciones=motora,auditiva,visual,mental,habla;listacondicionesseparador=,;listaComandos=CON;seperadorListaComandos=,;largofecha=8;formatofecha=ddMMyyyy;
+
+# Define parametros para informacion de tabla TAB ACT
+poscodigoSII;inicio=31;largo=6;sistema=TAB;tabla=ACT;clavevigente=S;
+
+## jndi
+servSgc;jndi=wcorp.serv.clientes.ServiciosCliente_servicio;
+servCliente;jndi=wcorp.serv.clientes.ServiciosCliente;

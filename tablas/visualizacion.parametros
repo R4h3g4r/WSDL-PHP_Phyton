@@ -1,0 +1,121 @@
+#
+# Parámetros utilizados por el producto Visualizacion
+# =============================================================
+
+# Los siguientes parámetros que identifican los canales
+# =============================================================
+canalNewExp;Desc=230;
+
+#Parámetros para Visualizacion
+# =============================================================
+#timeOutWS;Desc=10;
+#Certificacion
+timeOutWS;Desc=60;
+codigoCanal;Desc=230;
+tipoOperacion;Desc=0001;
+#cheque mismo banco misma cuenta
+tipoDoc_Cheque;Desc=01;
+#depósito con documento cuenta corriente otros bancos
+tipoDoc_DepositoOtroBanco;Desc=51;
+#depósito con documento cuenta corriente mismo banco
+tipoDoc_DepositoMismoBanco;Desc=23;
+#depósito en efectivo
+tipoDoc_DepositoEfectivo;Desc=50;
+
+codTipoDoc;51=DEPOSITO CON DOCUMENTO CUENTA CORRIENTE OTROS BANCOS;23=DEPOSITO CON DOCUMENTO CUENTA CORRIENTE MISMO BANCO;50=DEPOSITO EN EFECTIVO;00=CHEQUE MISMO BANCO MISMA CUENTA;01=CHEQUE;03=VALE VISTA;
+
+#URL servicio WEB Produccion
+#wsdl;Desc=http://192.168.246.150/bancobci/wsconsultadocumentoscanje/consultadocumentoscanje.asmx?WSDL;
+
+
+
+
+
+#URL servicio WEB Desarrollo
+#wsdl;Desc=http://192.168.252.168/BancoBCIparalelo/Web_Services_Cheques_cliente/ConsultaDocumentosCanje.asmx?WSDL;
+
+CodProducto;Desc=Prod01;
+CodServicio;Desc=VDOC001;
+GlosaLog;Desc=Estado_Cheques;
+
+#rango de fecha utilizados para consulta de depositos
+rangoFecha;Desc=3;
+
+#cantidad maxima permitida de depositos
+topeCantidadDepositos;Desc=600;
+
+#Canal Banco Vs Canal Web Services
+230;Desc=IB;
+150;Desc=IB;
+151;Desc=IB;	
+110;Desc=IB;
+132;Desc=IB;
+
+#Canal Banco Vs Canal Web Services Desarrollo
+#230;Desc=QA;
+#150;Desc=QA;
+#151;Desc=QA;
+#110;Desc=QA;
+#132;Desc=QA;
+
+#Codigo del Banco  (valor del Servicio WEB TCS)
+CODIGO_BANCO;Desc=;
+
+#codigo de Centro de Costo valido para Servicio WEb TCS
+CODIGO_CC;Desc=090;
+
+#Parámetros para Visualización de Vales Vista
+# =============================================================
+tipoDoc_DepositoValeVista;Desc=03;
+glosa_DepositoValeVista;Desc=Cargo BCI Transfer Vale Vista;
+
+#tipo operación para visualización de documentos monex
+tipoOperacionMonedaExt;Desc=0001;
+
+#Parametros URL del WS en ALSB
+#produccion
+#alsb;urlWS=http://alsb.bci.cl/servicios/operacion/documentacion/visualizaciondedocumentos/DocumentosCanjeService?WSDL;
+#certificacion
+alsb;urlWS=http://alsbcert.bci.cl/servicios/operacion/documentacion/visualizaciondedocumentos/DocumentosCanjeService?WSDL;
+#desarrollo
+#alsb;urlWS=http://alsbdesa.bci.cl/servicios/operacion/documentacion/visualizaciondedocumentos/DocumentosCanjeService?WSDL;
+#Produccion
+#alsbTata;activo=no;urlWS=http://192.168.246.150/bancobci/wsconsultadocumentoscanje/consultadocumentoscanje.asmx?WSDL;
+#alsbServipag;activo=si;urlWS=http://verimagen.bci.cl/ConsultaCheques/services/ConsultaDocumentosCanjeSoap?WSDL;
+
+#url Servicio Servipag virtualizado
+#alsbServipag;activo=si;urlWS=http://161.131.140.76:9080/Cheque?wsdl
+
+#Certificacion
+alsbTata;activo=no;urlWS=http://192.168.246.150/bancobci/wsconsultadocumentoscanje/consultadocumentoscanje.asmx?WSDL;
+#alsbServipag;activo=si;urlWS=http://192.168.157.26:8080/ConsultaCheques/services/ConsultaDocumentosCanjeSoap?WSDL;
+alsbServipag;activo=si;urlWS=http://192.168.157.60:82/ConsultaCheques/services/ConsultaDocumentosCanjeSoap?WSDL;
+
+
+#Mensaje en caso de que el Web Service no retorne las imágenes del documento consultado.
+SinImagen;Desc=Estimado cliente, la imagen del documento no se encuentra disponible. Para su tranquilidad, le informamos que el valor de esta consulta no será cargado en su cuenta corriente. Para mayor información, favor contactar a la Mesa de Ayuda.;
+
+#Tope de los documntos a mostrar
+TOPE_DEPOSITOS;Desc=500;
+#rangoDeFechaConsultaCheques
+rango;cantidadDiasDesde=5;cantidadDiasHasta=25;
+
+#Datos default
+sinSucursal;cod=0000;fecha=01011970;monto=0;
+codigoSucursal;Desc=000;
+traerImagen;Desc=T;
+
+#valores para visualización de depósitos.
+correoDeposito;Titulo=Imagen deposito N°: ;Mensaje=MIMEImagen del deposito consultado|T&H|<h2>Imagen del deposito consultado</h2>;Firma=Nota :<br/> - Este correo es generado de manera automatica, por favor no lo conteste<br/> - Los tildes han sido omitidos intencionalmente. <br/>;
+ 
+#Paginación
+cantidad_depositos_paginacion;valor=3;
+depositos_mostrar_0;desc=Mostrar 15 Depósitos;valor=15;
+depositos_mostrar_1;desc=Mostrar 20 Depósitos;valor=20;
+depositos_mostrar_2;desc=Mostrar 25 Depósitos;valor=25;
+
+#Errores visualización
+error_no_encontrado;desc=La imagen del documento no se encuentra disponible. Para su tranquilidad, le informamos que el valor de esta consulta no será cargado en su cuenta corriente.<br/>Para mayor información, favor contactar a la Mesa de Ayuda;
+error_img_no_disp;desc=Imagen no disponible;
+error_sist_no_disp;desc=El sistema no se encuentra disponible en este momento. Por favor, inténtelo más tarde;
+error_sin_saldo;desc=Ud. no posee saldo suficiente en su cuenta para realizar esta operación;

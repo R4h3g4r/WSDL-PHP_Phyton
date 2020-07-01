@@ -1,0 +1,10 @@
+# Tabla de parametros para el Validador Cinfor.
+
+# Parammetros para envio de archivo via FTP
+USUARIO;desc=opeftp;
+PASSWORD;desc=opeftp;
+DIRECTORIO;desc=/cinfodat1/mes/valida;
+HOST;desc=161.131.174.137;
+
+# Parametros para definir data source.
+DATASOURCE;desc=bci_prod;

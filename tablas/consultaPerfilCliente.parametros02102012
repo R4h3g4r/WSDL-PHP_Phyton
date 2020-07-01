@@ -1,0 +1,32 @@
+# Tabla de parametros
+
+FormatoFechas;fecha=dd/MM/yyyy;fechaHora=dd/MM/yyyy - HH:mm;
+
+Paginacion; cantidadPermitida=5;
+
+Imagen; ruta=/consultaperfilcliente/images;
+
+Direccion; oficial=D; email=7; celular=8; paginaweb=W;
+
+Relacion; empleado=FU; socio=CD; sociode=DC; conyugue=CY; representanteLegal=RP; principalesAccionistas=PA; empleador=EM; yomismo=015;
+
+TipoPersona; natural=P; juridica=J;
+
+LargoDatos; cargo=20;
+
+Meses; 1=ENE ; 2=FEB; 3=MAR; 4=ABR; 5=MAY; 6=JUN; 7=JUL; 8=AGO; 9=SEP; 10=OCT; 11=NOV; 12=DIC;
+
+SituacionLaboral; dependiente=DE; independiente=IN; otros=IT;
+
+VolumenesEsperados; depositosEfectivo =Depositos en efectivo en Ctas. Ctes. y/o Ctas. Primas; depositosDocumentos=Depositos con documentos en Ctas. Ctes. y/o Ctas. Primas; chequesGirados=Cheques girados en Cuentas Corrientes; traspasoFondosCargos=Traspasos de Fondos Cargos;  transferenciasFondosDesdeExterior=Transferencias de fondos desde el exterior; transferenciasFondosHaciaExterior=Transferencias de fondos hacia el exterior; depositosCuentas=Depositos en Cuentas de Ahorro; depositosPlazo=Depositos a Plazo; fondosMutuos=Fondos Mutuos; traspasoFondosAbonos=Traspasos de Fondos Abonos; compraDivisas=Compra de divisas; ventaDivisas=Venta de divisas; otrasOperaciones=Otras operaciones;
+
+ActividadesRiesgosas; casinos=Casinos o Club de Juegos; casaCambios=Casa de Cambios; inversionesTuristicas=Inversiones turisticas; agenciaViajes=Agencias de Viajes; giroConstruccion=Giro Construccion; compraEmpresas=Compra de empresas quebradas o en cesasion de pagos; compraVentaAutos=Compra - Venta de autos o camionetas usados; compraVentaArte=Compra - Venta de obras de arte; iglesias=Iglesias - Movimientos religiosos; fundacionesSinLucro=Fundaciones sin fines de lucro; joyerias=Joyerias y dealers de metales y/o piedras preciosas; corporacionesExtranjerasEnParaisos=Corporaciones extranjeras ubicadas en "paraisos tributarios"; negociosInternet=Negocios por Internet; corredoresNoInscritos=Corredores/Intermediarios no inscritos en la SBIF o SVS; inversionistas=Inversionistas cuya actividad principal sea invertir en valores o bienes; negociosEfectivo=Negocios que involucren gran movimiento de efectivo (estacionamientos, restaurantes, etc.); moteles=Moteles, apart hotel o similares; discotecas=Discotecas; otros=Otros;
+
+ProductosDac; ctacte=Cuentas Corrientes; ctavista=Cuenta BCI Chequera Electronica; creditos=Creditos BCI; transfer=BCI Tranfer; inver=Inversiones; leasing=Leasing; oper=Operaciones Monex; cajas=Caja Seguridad; otros=Otros;
+
+Perfil;desactualizado=365;tipoPersona;valor=P;fechaDefault=01/01/1900;codParentezcoPAE=015;
+
+# Valores Impresion
+PATHSFO;XSLFOPATH=./tablas/impresion/xslfo/;IMAGEN=./extras/workstationpdf/imagenes/;IMAGEN-TBANC=./extras/tbancpdf/imagenes/;
+PATHS;XSLTPATH=./tablas/impresion/xslt/;IMG_URL=./portalwls/img;XSLTPATH_100=./tablas/impresion/xslt/;XSLTPATH_110=./tablas/impresion/xslt/;
+Impresion;xsl=perfilClientePersonaNaturalIngreso;

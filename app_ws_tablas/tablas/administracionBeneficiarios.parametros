@@ -1,0 +1,31 @@
+tipoCuenta_NAC;inscrito=TER;pendienteFirma=TPI;pendienteFirmaNomina=TIN;
+tipoCuenta_EXT;inscrito=;pendienteFirma=;
+codigoVerificacion;largo=8;
+BancoBCI;codigo=016;
+EstadoBeneficiario_NAC;codEstado=INS;
+MontoMaximo_NAC;monto=0;
+cabeceraEnvioCorreo;fromDireccion=transferencias@bci.cl;asunto=Asunto Correo;
+codigosJournal;subEvento=BENEFI;idProducto=PNOL;estadoEventoOk=P;estadoEventoNOk=A;eventoIngresar=INGRESA;eventoFirmarIng=ACTIVA;eventoEliminar=ELIMINA;eventoModificar=MODIFICA;eventoFirmarMod=ACTIVA;eventoFirmar=ACTIVA;glosaEstadoEventoOk=beneficiario finalizó correctamente: ;glosaEstadoEventoNOk=beneficiario finalizó con problemas: ;
+correoRemitente;Desc=bci@bci.cl;
+nombreRemitente;Desc=BCI;
+subject;Desc=Comprobante Activacion beneficiarios;
+loginEnterprise;Desc=bci;
+refContract;Desc=WEBBEL_PNOL_ACTIVA_BENEFI;
+rutaComprobanteActivacion;xsl=pagos/linea/comprobanteFirmaBeneficiario.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+
+errorValidarDatos;Desc=Estimado Cliente, Ha ocurrido un error al validar los datos, por favor revise sus datos e intente nuevamente.;
+msjePuedeAutorizar;Desc=Nuevo destinatario aún no disponible para transferencias.;
+msjeNoPuedeAutorizar;Desc=Destinatario pendiente de confirmación de un Apoderado Autorizado.;
+msjeEliminacionExitosa;Desc=El destinatario ha sido eliminado exitosamente.;
+msjeNoEsPendienteFirma;Desc=Estimado Cliente, destinatario debe estar pendiente de firma para ser autorizado, por favor, verifique los datos e intente nuevamente.;
+msjeExitoAutorizacion;Desc=El destinatario fue agregado exitosamente.;
+mensajesError;errorEliCodVer=Estimado cliente: No fue posible eliminar el código de verificacion. Intente nuevamente mas tarde o comúniquese con la mesa de ayuda.;
+
+utilizarOpcionMasiva;Desc=true;
+noSeHaPodidoFirmar;Desc=Estimado Cliente: No se ha podido firmar los destinatarios seleccionados.;
+seleccioneUnDestinatario;Desc=Seleccione a lo menos un destinatario para autorizar.;
+iterarCuentasDetalle;Desc=true;
+loggearCuentasDetalle;Desc=true;
+ejecutarJournalizacionDetalle;Desc=false;
+
+

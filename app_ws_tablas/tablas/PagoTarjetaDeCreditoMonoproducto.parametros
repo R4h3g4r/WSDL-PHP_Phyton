@@ -1,0 +1,32 @@
+
+#Información correo de exito de pago tarjeta monoproducto
+emailExito;nomOriginario=BancoBCI;asunto=Comprobante Pago de Tarjeta de Credito Monoproducto;mensaje=Estimado (a), %NOMBRE% %SALTO_LINEA%;firma=BCI - Banco de Crédito e Inversiones;direcOriginario=pagotarjetas@bci.cl;
+cantidadMensajeExito;valor=13;
+mensajeExito_1;desc=Le informamos que con fecha %FECHA_PAGO% se ha realizado un;
+mensajeExito_2;desc=Pago de Tarjetas de Credito Monoproducto.%SALTO_LINEA%;
+mensajeExito_3;desc=El detalle de la operacion es el siguiente:%SALTO_LINEA%;
+mensajeExito_4;desc=Monto Pagado          :$%MONTO%;
+mensajeExito_5;desc=Tarjeta de Credito    :%LOGO_TARJETA% - %ULTIMOS_DIGITOS_TARJETA%;
+mensajeExito_6;desc=Cuenta de Cargo       :%NUMERO_CUENTA%;
+mensajeExito_7;desc=Numero de Comprobante :%NUMERO_COMPROBANTE% %SALTO_LINEA%;
+mensajeExito_8;desc=Atte,;
+mensajeExito_9;desc=BCI - Banco de Crédito e Inversiones.%SALTO_LINEA%;
+mensajeExito_10;desc=Importante:;
+mensajeExito_11;desc=Este mail es generado de manera automatica, por favor no responda a;
+mensajeExito_12;desc=este mensaje.%SALTO_LINEA%;
+mensajeExito_13;desc=Nota: Los tildes han sido omitidos intencionalmente.;
+
+#Información correo de fracaso de pago tarjeta de credito monoproducto
+emailFracaso;nomOriginario=BancoBCI;asunto=Aviso Pago de Tarjeta de Credito MonoProducto;mensaje=Estimado Cliente(a) %SALTO_LINEA%;firma=Banco de Crédito e Inversiones;direcOriginario=pagotarjetas@bci.cl;
+cantidadMensajeFracaso;valor=11;
+emailFracaso_1;desc=Le informamos que con fecha %FECHA_PAGO% no se ha podido realizar el;
+emailFracaso_2;desc=Pago de Tarjetas de Credito Monoproducto.%SALTO_LINEA%;
+emailFracaso_3;desc=El detalle de la operacion es el siguiente:%SALTO_LINEA%;
+emailFracaso_4;desc=Monto a Pagar         :$%MONTO%;
+emailFracaso_5;desc=Tarjeta de Credito    :%IDENTIFICADOR_PAGO%%SALTO_LINEA%;
+emailFracaso_6;desc=Atte,;
+emailFracaso_7;desc=BCI - Banco de Crédito e Inversiones.%SALTO_LINEA%;
+emailFracaso_8;desc=Importante:;
+emailFracaso_9;desc=Este mail es generado de manera automatica, por favor no responda a;
+emailFracaso_10;desc=este mensaje.%SALTO_LINEA%;
+emailFracaso_11;desc=Nota: Los tildes han sido omitidos intencionalmente.;

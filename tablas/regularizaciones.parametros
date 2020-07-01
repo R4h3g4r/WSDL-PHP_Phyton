@@ -1,0 +1,110 @@
+cantProductosRegularizar;Desc=4;
+prodRegularizar_1;codigo=PAGDIR;nombre=Pague Directo;
+prodRegularizar_2;codigo=ABOCOB;nombre=Abono Cuentas Otros Bancos;
+prodRegularizar_3;codigo=TRFLIN;nombre=Transferencia en linea;
+prodRegularizar_4;codigo=CTPREV;nombre=Contingencia Previred;
+
+JNDIEjbCuadraturaSucursal;Desc=wcorp.aplicaciones.operacion.cuadraturaycontabilidad.cuadratura.sucursal.CuadraturaSucursal;
+JNDIEjbServiciosCuentas;Desc=wcorp.serv.cuentas.ServiciosCuentas;
+JNDIEjbCargaMasivaExpress;Desc=wcorp.bprocess.bancaempresas.transferenciaslbtr.cargamasiva.CargaMasivaExpress;
+
+semillaRegularizacion;cod=REG;
+
+cuentaContrapartida;sinInfo=Sin Información;
+
+#Mensajes de excepciones de ingreso.
+msgNoDisponible;Desc=Sistema No Disponible.;
+msgsSinPermisos;Desc=Acción no permitida.;
+msgLimite;Desc=Estimado Colaborador, el archivo ha superado el límite de registros permitidos (cantidad máxima permitida 500).;
+msgMinimo;Desc=Estimado Colaborador, el archivo contiene una cantidad menor del minimo de registros permitidos (cantidad minima permitida 1).;
+msgVacio;Desc=Estimado Colaborador, el archivo no contiene registros.;
+msgTamano;Desc=Estimado Colaborador, el archivo ingresado supera el tamaño permitido (1 Mb).;
+msgFormato;Desc=Estimado Colaborador, la extensión del archivo no concuerda con el tipo de archivo permitido.;
+
+
+eventoIngreso;codigo=ING;glosa=Se ingresa regularización;
+eventoAutorizacion;codigo=AUT;glosa=Se autoriza regularización;
+
+estadosNominaRegularizaciones;PendienteAutorizacion=PEN;Autorizada=AUT;Ingresada=ING;Error=ERR;Incompleta=INC;
+glosasEstados;ING=Ingresada;ERR=Error Validación;PEN=Pendiente;AUT=Autorizada;ENP=En Proceso;PRO=Procesada;REC=Rechazada;CAD=Caducada;ABN=Abono Incompleto;CRG=Cargo Incompleto;INC=Incompleta;
+
+comprobanteAutorizacion;rutaXSL=operacion/contabilizacion/regularizaciones/comprobanteAutorizacionRegularizaciones.xsl;
+comprobanteIngreso;rutaXSL=operacion/contabilizacion/regularizaciones/comprobanteIngresoRegularizacion.xsl;
+rutaImagenes;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;
+
+horarioIngreso;horaInicio=0800;horaFin=2200;mensaje=Estimado Colaborado, recuerde que el horario establecido para el ingreso de regularizaciones, es desde las 08 hasta las 22 hrs.;
+horarioAutorizacion;horaInicio=0800;horaFin=2200;mensaje=Estimado Colaborado, recuerde que el horario establecido para la autorización de regularizaciones, es desde las 08 hasta las 22 hrs.;
+
+#Codigos Journal
+codigosJurnal;producto=CCT;
+cargaMasivaJournal;evento=CARGAR;subEvento=REGMAS;glosa=Carga archivo de regularización masiva;
+cargaManualJournal;evento=CARGAR;subEvento=REGIND;glosa=Carga manual de regularización;
+autorizacionJournal;evento=AUTORIZA;subEvento=REGUL;glosa=Autoriza Regularización;
+consultaJournal;evento=CONSULTA;subEvento=REGUL;glosa=Consulta Regularización;
+
+#Masivo
+DatosArchivo;Nombre=REG;cantidadLineasMin=1;cantidadLineasMax=500;tamanoMaximoCargaArchivo=1048576;
+datosFTP;sistemaFTP=ftpsip;
+cargaArchivo;archTemp=./temp/;
+
+#Desarrollo 
+#servidorRegularizaciones;ip=161.131.184.81;puerto=21;
+#directorioRegularizaciones;path=/Recepcion_BE/regulariza;
+
+#Integracion 
+#servidorRegularizaciones;ip=161.131.141.239;puerto=21;
+#directorioRegularizaciones;path=/Recepcion_BE/regulariza;
+
+#Certificacion 
+servidorRegularizaciones;ip=161.131.232.180;puerto=21; 
+directorioRegularizaciones;path=/Recepcion_BE/regulariza;
+
+#Produccion 
+#servidorRegularizaciones;ip=161.131.232.35;puerto=21;
+#directorioRegularizaciones;path=/Recepcion_BE/regulariza;
+
+
+#Mensajes Error Validacion Carga Masiva.
+mensajeGenericoRechazo;Desc=Error al Procesar;
+
+9210;Desc=Cuenta no existe;
+9211;Desc=Cuenta vacía;
+9212;Desc=Cuenta con caracteres no numéricos;
+9255;Desc=Monto supera el límite máximo de regularización;
+9254;Desc=Monto menor a cero;
+9253;Desc=Monto no numérico;
+9252;Desc=Monto vacío;
+9250;Desc=Motivo vacío;
+9251;Desc=Motivo con caracteres no válidos;
+NOOK;Desc=No se encontró archivo para validación;
+
+#Mensajes Error Rechazo Proceso Ejecucion.
+0000;Desc=Operación realizada con éxito.;
+0001;Desc=Sistema no abierto.;
+0002;Desc=Sistema no disponible.;
+0003;Desc=Transacción no disponible.;
+0004;Desc=Número secreto inválido.;
+0007;Desc=Cuenta no existe.;
+0008;Desc=Cuenta cerrada.;
+0009;Desc=Cuenta congelada judicialmente.;
+0011;Desc=Cuenta con orden de cierre.;
+0015;Desc=Cuenta destino no existe.;
+0016;Desc=Cuenta destino cerrada.;
+0017;Desc=Cuenta destino congelada judicialmente.;
+0018;Desc=Cuenta destino de cliente difunto.;
+0019;Desc=Cuenta destino con orden de cierre.;
+0020;Desc=Cuenta con saldo insuficiente.;
+0021;Desc=Cuenta VISA no existe.;
+0022;Desc=Cuenta bloqueada.;
+0023;Desc=Transferencia sobre misma cuenta.;
+0028;Desc=Monto a transferir nulo.;
+0029;Desc=Monto abonado no corresponde.;
+0036;Desc=Cuenta corriente no puede ser cargada.;
+0056;Desc=Monto no válido.;
+0065;Desc=Transacción no existe.;
+W200;Desc=Time Out.;
+
+
+
+
+

@@ -1,0 +1,100 @@
+#PARAMETROS GENERALES
+
+#FTP DESARROLLO:
+#FTP_DATA;SERVIDOR=161.131.184.80;PUERTO=21;UYP=wfftpuyp;BASE=/wfgifi/memo;
+
+#FTP CERTIFICACION:
+FTP_DATA;SERVIDOR=161.131.232.185;PUERTO=21;UYP=wfftpuyp;BASE=/wfgifi/memo;
+
+#FTP PRODUCCION:
+#FTP_DATA;SERVIDOR=161.131.232.33;PUERTO=21;UYP=wfftpuyp;BASE=/wfgifi/memo;
+
+CODIGO_SISTEMA;Desc=WFG;
+ACCION_PUERTA;Desc=WFL_GIFI;Error=Acción no definida en la sesión del usuario;DCX=DPTOCOMEX;ZMG=GTEZONALGIFI;RSK=RIESGO;DMG=GTEDIVGIFI;IFC=COMBCOINVFIN;EXC=COMEJEC;ACA=ACA;ECX=EJECCOMEX;GST=CONSULTAS;ADM=ADMINISTRACION;REC=RECUPERACION;
+IND_SEPARADOR_MENU;Desc=3;
+IND_SIN_RESULTADOS;Desc=2;
+VALOR_AUXILIAR;v1=2;v2=4;
+POSICION_ARREGLO;BeginIndex=58;EndIndex=59;BeginIndex2=19;EndIndex2=21;
+TYCS_ASOCIADAS;Desc=2;
+BOTONES_ACCION;caption=0;action=1;mode=2;comentario=3;beanerror=No existe bean en el contexto con nombre ;nulldata=Atributos property y name son obligatorios;error=Error desconocido\n;
+SEGMENTOS_MEMO;clasRiesgo=A01;cartColocaciones=A02;portSectorial=A03;estrSocietaria=A04;observaciones=A05;fichaRiesgo=RSK;balance=BNK;
+SEGMENTOS_TITULOS;fichaRiesgo=Ficha de Riesgo;balance=Balance Banco Emisor;
+CONTENTTYPE_XLS;Desc=application/vnd.ms-excel - application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;
+#CONTENTTYPE_IMG;Desc=image/jpeg - image/gif - image/png - image/pjpeg;
+CONTENTTYPE_IMG;Desc=image/jpeg - image/gof - image/ppg - image/pjpeg;
+CONTENTTYPE_PDF;Desc=application/pdf;
+POSITION_CONTENTTYPE;jpg=0;gif=13;png=25;pjpg=37;
+CODIGO_AUXILIAR;Desc=S99;
+CODIGO_EJECUCION;update=UPD;read=RR;delete=DEL;value=VAL;riesgo=RSK;balance=BNK;put=PUT;noaplicable=NIL;recovery=RPS;enlace=LNK;desvincular=DNK;recepcionar=RCP;
+MSG_INGRESOMANUALEXITO;Desc=Actualización de solicitud exitosa.;
+MSG_COTELIMINACIONEXITO;Desc=Cotización eliminada con éxito.;
+MSG_COTACTUALIZACIONEXITO;Desc=Cotización actualizada con éxito.;
+MSG_COTASOCEXITO;Desc=Cotizacion asociada con éxito.;
+MSG_COTDESASOCEXITO;Desc=Cotizacion desasociada con éxito.;
+MSG_ATRIBACTEXITO;Desc= Atribuciones actualizadas con éxito.;
+
+MSG_MEMOACTUALIZACIONEXITO;Desc=Encabezado Grabado con Éxito;
+MSG_SEGACTUALIZACIONEXITO;Desc=Segmento grabado con éxito;
+MSG_USUACTUALIZACIONEXITO;Desc=Usuario actualizado con éxito.;
+MSG_USUELIMINACIONEXITO;Desc=Usuario eliminado con éxito.;
+MSG_ZONAACTUALIZACIONEXITO;Desc=Zona actualizada con éxito.;
+MSG_ZONAELIMINACIONEXITO;Desc=Zona eliminada con éxito.;
+MSG_CAMBIOESTADOEXITO;Desc=Cambio de estado exitoso.;
+MSG_SEGOMITIDO;Desc=[**Segmento omitido**];
+
+MSG_ERRORCONTENTTYPE;Desc=Error en el tipo de archivo seleccionado. Seleccione un archivo del tipo correcto y vuelva a intentarlo.;
+MSG_ACCESODENEGADO;Desc=Usted no posee los privilegios para acceder a esta opción.;
+MSG_NOSESSION;Desc=Estimado usuario: Su sesión ha expirado. Por su seguridad, el tiempo máximo de conexión sin actividad es de 15 minutos. Por favor, vuelva a ingresar al sistema.;
+#PARAMETROS GENERACION MEMO
+MEMO_TITULOS;Desc=MEMORANDUM;CLAS=Clasificación de Riesgo;CART=Cartera de Colocaciones;PORT=Portafolio Sectorial;ESTR=Estructura Societaria;OBSE=Observaciones;
+
+MEMO_URL_IMG;Desc=/workstationwls/comex/workflow/documentos.do?accion=descargarImagen&imagenClasRiesgo=;
+MEMO_TEMPLATE_MEMO;Desc=/workstationwls/comex/workflow/templates/memoTemplate.xsl;
+
+IND_MSG_TYC;Desc=tyc;value=comentariosTyc;
+
+#PARAMETROS DE MENUS
+DCXS01;Menu=Departamento Comex;Desc=Ingreso Manual de Solicitudes de Aprobación;acc=DPTOCOMEX;
+DCXS02;Menu=Departamento Comex;Desc=Gestión Sobre Solicitudes de Aprobación Comex;acc=DPTOCOMEX;
+DCXS03;Menu=Departamento Comex;Desc=Confirmar Curse de Operaciones en Comercio Exterior;acc=DPTOCOMEX;
+DCXS99;Menu=Departamento Comex;Desc=Operaciones en Departamento Comex;acc=DPTOCOMEX;
+ZMGS01;Menu=Gerente Zonal GIFI;Desc=Ingresar Términos y Condiciones Anticipadas;acc=GTEZONALGIFI;
+ZMGS02;Menu=Gerente Zonal GIFI;Desc=Recibir, Revisar y Aprobar Datos Iniciales de SAC;acc=GTEZONALGIFI;
+ZMGS03;Menu=Gerente Zonal GIFI;Desc=Operaciones de Bancos Sin Línea;acc=GTEZONALGIFI;
+ZMGS04;Menu=Gerente Zonal GIFI;Desc=Aprobar Línea de Crédito para Banco Emisor;acc=GTEZONALGIFI;
+ZMGS05;Menu=Gerente Zonal GIFI;Desc=Cotizar Términos y Condiciones;acc=GTEZONALGIFI;
+ZMGS06;Menu=Gerente Zonal GIFI;Desc=Consultar Solicitudes Rechazadas Hoy;acc=GTEZONALGIFI;
+ZMGS07;Menu=Gerente Zonal GIFI;Desc=Consultar Operaciones Cursadas Hoy en COMEX;acc=GTEZONALGIFI;
+ZMGS08;Menu=Gerente Zonal GIFI;Desc=Solicitudes en Recotizacion;acc=GTEZONALGIFI;
+ZMGS99;Menu=Gerente Zonal GIFI;Desc=Operaciones en Gerente Zonal GIFI;acc=GTEZONALGIFI;
+
+RSKS01;Menu=Riesgo;Desc=Adjuntar y Confirmar Ficha de Riesgo;acc=RIESGO;
+RSKS99;Menu=Riesgo;Desc=Operaciones en Riesgo;acc=RIESGO;
+
+DMGS01;Menu=Gerente División GIFI;Desc=Aprobar Línea de Crédito para Banco Emisor;acc=GTEDIVGIFI;
+DMGS99;Menu=Gerente División GIFI;Desc=Operaciones en Gerente División GIFI;acc=GTEDIVGIFI;
+
+IFCS01;Menu=Comité Banco Inversión y Finanzas;Desc=Aprobar Línea de Crédito para Banco Emisor;acc=COMBCOINVFIN;
+IFCS02;Menu=Comité Banco Inversión y Finanzas;Desc=Aprobar Solicitudes sin Cupo y/o Plazo;acc=COMBCOINVFIN;
+IFCS99;Menu=Comité Banco Inversión y Finanzas;Desc=Operaciones en Comité Banco inversión y Finanzas;acc=COMBCOINVFIN;
+
+EXCS01;Menu=Comité Ejecutivo;Desc=Aprobar Línea de Crédito para Banco Emisor;acc=COMEJEC;
+EXCS99;Menu=Comité Ejecutivo;Desc=Operaciones en Comité Ejecutivo;acc=COMEJEC;
+
+ACAS01;Menu=ACA;Desc=Activar Solicitudes de Créditos Aprobados;acc=ACA;
+ACAS99;Menu=ACA;Desc=Operaciones en ACA;acc=ACA;
+
+ECXS01;Menu=Ejecutivo Comex;Desc=Gestionar Aprobación de Operación con Cliente;acc=EJECCOMEX;
+ECXS99;Menu=Ejecutivo Comex;Desc=Operaciones en Ejecutivo Comex;acc=EJECCOMEX;
+
+GSTS01;Menu=Consultas;Desc=Solicitudes en Proceso;acc=CONSULTAS;
+GSTS02;Menu=Consultas;Desc=Operaciones Cursadas en COMEX;acc=CONSULTAS;
+GSTS03;Menu=Consultas;Desc=Solicitudes Pendientes de Aprobación;acc=CONSULTAS;
+GSTS04;Menu=Consultas;Desc=Solicitudes Rechazadas;acc=CONSULTAS;
+GSTS05;Menu=Consultas;Desc=Consultar Cotizaciones;acc=CONSULTAS;
+
+ADMS01;Menu=Administracion;Desc=Mantención GIFI;acc=ADMINISTRACION;
+ADMS02;Menu=Administracion;Desc=Mantención de Atribuciones;acc=ADMINISTRACION;
+ADMS03;Menu=Administracion;Desc=Mantención switch;acc=ADMINISTRACION;
+
+RECS01;Menu=Recuperacion;Desc=Recuperar Solicitudes;acc=RECUPERACION;

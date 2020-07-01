@@ -1,0 +1,77 @@
+#####################################################
+#	Utiles para servicioDeConversiones de XML 		#
+#####################################################
+mappingXml;path=/actualizaEstadoSipe/mappingEstadoPago.xml;
+
+#########################################
+#	Tablas utilizadas segun producto.	#
+#########################################
+MASIVOS;tabla=pagos/masivos/actualizacionEstado.parametros;tablaCondiciones=tablas/pagos/masivos/condicionesActualizacion.xml;
+Debitos;tabla=pagos/pac/actualizacionEstado.parametros;
+Creditos;tabla=pagos/recibidos/actualizacionEstado.parametros;
+
+#####################################################
+#	Jndi para publicar en colas JMS internas BCI.	#
+#####################################################
+
+actualizacionDirecta;jndi_cf=jms.cf.actualizaEstado;jndi_dst=jms.dst.queue.actualizar;
+actualizacionConDependenciaDeEstado;jndi_cf=jms.cf.revActualizaEstado;jndi_dst=jms.dst.queue.revActualizar;
+notificacion;jndi_cf=jms.cf.notificacion;jndi_dst=jms.dst.queue.notificacion;
+registroRecibidas;jndi_cf=jms.cf.registroRecibidasBeanSipe;jndi_dst=jms.dst.queue.registroRecibidasBeanSipe;
+
+#####################################################
+#	 destino alertas.								#
+#####################################################
+
+destinoAlertas;cantidad=1;prefijo=PMB;
+destinoAlertas_0;canalDestino=270;canalHTTP=/BCINETCORP/servicios/pagos/pagosmasivos/alertas;
+destinoAlertas_1;canalDestino=;
+destinoAlertas_2;canalDestino=;
+
+#####################################################
+#	 Codigo error validacion estado.				#
+#####################################################
+
+codigoError;codigo=PMB2001;desc=Estado no valido para actualizacion.;
+codigoErrorGenerico;codigo=PMB2011;desc=Error sistema no catalogado.;
+
+#####################################################
+#			 Errores Notificaciones.				#
+#####################################################
+errorNoti-1701;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1702;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1703;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1704;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1705;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1706;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1729;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1730;desc=No se pudo cargar una nómina de Pagos en motor, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1707;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1708;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1710;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1711;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1713;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1714;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1718;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1719;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1720;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1721;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1722;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1723;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1724;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1725;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1726;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1727;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-1728;desc=Problemas de validación en una nómina de Pagos, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2001;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2002;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2003;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2004;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2005;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2006;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2007;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2008;desc=No se pudo actualizar estado de un pago, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2009;desc=Problema en pago reversado, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2010;desc=Problema en pago reversado, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2011;desc=Problema en pago reversado, por favor revisar detalle y contactar a Soporte Técnico;
+errorNoti-PMB2012;desc=No se ha recibido informe compensación CCA, contactar a soporte CCA;

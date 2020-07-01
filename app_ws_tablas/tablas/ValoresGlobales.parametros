@@ -1,0 +1,15 @@
+BCI;RUT=97006000-6;nombre=Banco de Crédito e Inversiones;nombreCorto=BCI;
+TBanc;RUT=9700600-6;nombre=TBanc;
+Conosur;RUT=97918000-4;nombre=Banco Conosur;
+
+IVA;porcentaje=19;
+
+correo;servidor=nautilus.bci.cl;timeout=8000;connectionTimeout=2000;intentosReenvio=1;
+proxy;servidorHTTP=navegador.bci.cl;puertoHTTP=8000;servidorHTTPS=navegador.bci.cl;puertoHTTPS=8000;
+
+site_id;100=1507;110=1509;Desc=Site Id para los tags de certifica;
+
+fax;servidor=161.131.147.34;dominio=faxbci;
+
+menuGeneral;desc=;
+menuEspecifico;desc=;

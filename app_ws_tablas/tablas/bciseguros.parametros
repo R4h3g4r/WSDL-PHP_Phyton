@@ -1,0 +1,16 @@
+clave;valor=7BA70D1229174B3D9113739;desc=clave que solicita Indexa para generar identificador;
+usuarioConexion;valor=970060006;desc=usuario de conexion generico.;
+perfil;valor=EJECUTIVO BANCO BCI;desc=perfil de conexion;
+app;valor=DPS;desc=aplicacion por defecto;
+simulacion;valor=false;Desc=Indicador que puede tener el valor "true" o "false". En el caso de ser "true", asume que se trabaja con informacion "en duro";
+resultadosimulacion;valor=true;Desc=Indica el resultado a simular. Puede tener el valor "true" o "false". En el caso de ser "true", asume la "conexion" fue exitosa.;
+protocolo;valor=http;desc=protocolo de comunicacion con bciseguros.;
+ambiente;valor=produccion;desc=contexto desde el cual se está realizando la conexion (desarrollo, certificacion, produccion);
+desarrolloAutenticacion;valor=200.29.22.113:7778/cliente/validaXML.do;desc=URL de desarrollo a donde se conecta desde BCI a la Cia. de Seguros para autenticar al usuario de webcorp;
+certificacionAutenticacion;valor=200.29.22.113:7778/cliente/validaXML.do;desc=URL de certificacion a donde se conecta desde BCI a la Cia. de Seguros para autenticar al usuario de webcorp;
+produccionAutenticacion;valor=200.29.22.113:7778/cliente/validaXML.do;desc=URL de produccion a donde se conecta desde BCI a la Cia. de Seguros para autenticar al usuario de webcorp;
+desarrolloDestino;valor=200.29.22.113:7778/SER/dps/index.jsp;desc=URL de desarrollo a donde se conecta desde BCI a la Cia. de Seguros luego de autenticar exitosamente.;
+certificacionDestino;valor=200.29.22.113:7778/SER/dps/index.jsp;desc=URL de certificacion a donde se conecta desde BCI a la Cia. de Seguros luego de autenticar exitosamente.;
+produccionDestino;valor=salado.bciseguros.cl/SER/dps/index.jsp;desc=URL de produccion a donde se conecta desde BCI a la Cia. de Seguros luego de autenticar exitosamente.;
+true;valor=<?xml version="1.0" encoding="ISO-8859-1"?> <CIA_SEG > <AUTENTICADOR ID="04BD0051-88A2-4CEB-A663-715BDE29DAB6" ERROR=""/> </CIA_SEG>;
+false;valor=<?xml version="1.0" encoding="ISO-8859-1"?> <CIA_SEG> <AUTENTICADOR ID="" ERROR="Clave de solicitud no valida"/> </CIA_SEG>;

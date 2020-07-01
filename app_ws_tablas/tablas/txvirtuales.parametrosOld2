@@ -1,0 +1,13 @@
+# Parametros Tarjetas Virtuales en Nexus
+config;bancoUser=TT503B7Z;bancoPasswd=503B7Z;bancoIp=161.131.154.162;file=/export/weblogic/oracle10.3/wlsplatform/tablas/txvirtuales.xml;DEBUG=0;
+503;user=BCOBCI03;passwd=BCISEG03;
+653;user=BCOBCI53;passwd=BCISEG53;
+solicita;codServicio=10;maxCompras=1;horasVigencia=48;factorMontoMaximo=1.0;filler=" filler  ";
+anula;codServicio=11;filler=" filler  ";
+consulta;codServicio=20;filler=" filler  ";
+lista;codServicio=30;filler=" filler  ";
+estados;A=Tarjeta Vigente;I=Tarjeta No Vigente;U=Tarjeta Utilizada;X=Tarjeta Anulada;
+
+# Valores de tope para generar Tarjeta Virtual por canal y tipo Clave
+110;topeCCT=3000000;topeCCTI=6000;topeCPR=200000;topeCPRI=1000;topeTCR=500000;topeTCRI=1000;topeCCTPASS=3000000;topeCCTPASSI=6000;topeCPRPASS=200000;topeCPRPASSI=1000;topeTCRPASS=500000;topeTCRPASSI=1000;topeCCTTOKEN=3000000;topeCCTTOKENI=6000;topeCPRTOKEN=200000;topeCPRTOKENI=1000;topeTCRTOKEN=500000;topeTCRTOKENI=1000;
+800;topeCCT=3000000;topeCCTI=6000;topeCPR=200000;topeCPRI=1000;topeTCR=500000;topeTCRI=1000;topeCCTPASS=3000000;topeCCTPASSI=6000;topeCPRPASS=200000;topeCPRPASSI=1000;topeTCRPASS=500000;topeTCRPASSI=1000;topeCCTTOKEN=3000000;topeCCTTOKENI=6000;topeCPRTOKEN=200000;topeCPRTOKENI=1000;topeTCRTOKEN=500000;topeTCRTOKENI=1000;

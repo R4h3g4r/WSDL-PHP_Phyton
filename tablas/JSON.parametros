@@ -1,0 +1,9 @@
+#Parametros para configuracion de JsonUtil
+#De deben declarar todas las clases que se envian dentro de objetos tipo Collection, List, Set o Map, y que no tienen constructor default
+#Agregar una linea por cada nueva clase, utilizando la nomenclatura:
+#classes[i];class=<full class name>;fields=<nombres de campos del contructor separados por coma>
+#Los numeros i deben ser correlativos. Si no lo son, la tabla se lee hasta el ultimo correlativo.
+
+#classes[0];class=wcorp.test.dto.CellTO;factory=wcorp.test.dto.CellTOFactory
+#classes[1];class=wcorp.test.dto.DetailTO;factory=wcorp.test.dto.DetailTOFactory
+#classes[2];class=wcorp.test.dto.LineDetailTO;factory=wcorp.test.dto.LineDetailTOFactory

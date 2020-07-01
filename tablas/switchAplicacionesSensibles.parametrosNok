@@ -1,0 +1,93 @@
+#   
+# Switch de aplicaciones sensibles
+#   
+# Se configura cada servicio con una llave llamada 'estado' la cual puede tomar los siguientes 
+# valores:
+#   
+# OK : Significa que el servicio se encuentra operativo funcionando normalmente.
+# MNT: Significa que el servicio se encuentra abajo debido a que se esta realizando un cambio o 
+#      mantención.
+# NOK: Significa que el servicio se encuentra abajo debido a problemas de ambiente o de 
+#      proveedor
+
+CanalesDisponibles;lista=100-110-800-901-905;
+
+#
+# Transferencia de Fondos
+#
+TransFondos;estado=OK;
+TransFondos-110;estado=OK;
+TransFondos-100;estado=OK;
+TransFondos-800;estado=OK;
+TransFondos-901;estado=OK;
+TransFondos-905;estado=OK;
+
+#
+# Pago en Linea
+#
+PagoEnLinea;estado=OK;
+PagoEnLinea-110;estado=OK;
+PagoEnLinea-100;estado=OK;
+PagoEnLinea-800;estado=OK;
+PagoEnLinea-901;estado=OK;
+PagoEnLinea-905;estado=OK;
+#
+# Recarga de Celular
+#
+RecargaCelular;estado=OK;
+RecargaCelular-110;estado=OK;
+RecargaCelular-100;estado=OK;
+RecargaCelular-800;estado=OK;
+RecargaCelular-901;estado=OK;
+RecargaCelular-905;estado=OK;
+
+#
+# Recarga BIP
+#
+RecargaBIP;estado=OK;
+RecargaBIP-110;estado=OK;
+RecargaBIP-100;estado=OK;
+RecargaBIP-800;estado=OK;
+RecargaBIP-901;estado=OK;
+RecargaBIP-905;estado=OK;
+
+#
+# Simulacion Credito Hipotecario
+#
+SimulacionCreditoHipotecario;estado=OK;
+SimulacionCreditoHipotecario-110;estado=OK;
+SimulacionCreditoHipotecario-100;estado=OK;
+SimulacionCreditoHipotecario-800;estado=OK;
+SimulacionCreditoHipotecario-901;estado=OK;
+SimulacionCreditoHipotecario-905;estado=OK;
+
+#
+# Pago de Dividendos
+#
+PagoDividendos;estado=OK;
+PagoDividendos-110;estado=OK;
+PagoDividendos-100;estado=OK;
+PagoDividendos-800;estado=OK;
+PagoDividendos-901;estado=OK;
+PagoDividendos-905;estado=OK;
+
+#
+# Evaluación de Riesgo de Fraude en TTFF
+#
+EvaluacionRiesgoTTFF;estado=OK;
+EvaluacionRiesgoTTFF-110;estado=OK;
+EvaluacionRiesgoTTFF-100;estado=OK;
+EvaluacionRiesgoTTFF-800;estado=OK;
+EvaluacionRiesgoTTFF-901;estado=OK;
+EvaluacionRiesgoTTFF-905;estado=OK;
+
+#
+# Evaluación de Respuesta Actimize Fraude en TTFF
+#
+EvaluacionActimizeTTFF;estado=OK;
+EvaluacionActimizeTTFF-110;estado=OK;
+EvaluacionActimizeTTFF-100;estado=OK;
+EvaluacionActimizeTTFF-800;estado=OK;
+EvaluacionActimizeTTFF-901;estado=OK;
+EvaluacionActimizeTTFF-905;estado=OK;
+

@@ -1,0 +1,12 @@
+<Config>
+     <Log>
+          <Enable>False</Enable>
+          <FileName>SocketClienteST247.log</FileName>
+          <Debug_Tcpip></Debug_Tcpip>
+     </Log>
+     <Server>
+          <Host>200.10.8.50</Host>
+          <Port>9090</Port>
+          <TimeOut>30</TimeOut>
+     </Server>
+</Config>

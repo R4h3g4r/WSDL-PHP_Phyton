@@ -1,0 +1,23 @@
+#
+# Tabla de Parámetros para Servicio Solicitudes
+# =============================================
+#
+#
+# cuenta corriente corredora de seguros
+CuentaDestino;Desc=10534989;
+TipoCuentaDestino;Desc=CCT;
+BancoDestino;Desc=BCI;
+RutDestinatario;Desc=87826800;
+DvDestinatario;Desc=8;
+NombreDestinatario;Desc=BCI Seguros Generales;
+ComentarioTransferencia;Desc=CARGO POR SEGURO AUTOMOTRIZ OBLIGATORIO;
+EmailDestino;Desc=jgarces@bciseguros.cl,freyes@bciseguros.cl,leadbv@bci.cl;
+#
+# Mails
+# =====
+mailFrom;Desc=webmast@bci.cl;
+mailTo;Desc=jgarces@bciseguros.cl,freyes@bciseguros.cl,leadbv@bci.cl;
+mailSubject;Desc=SEGUROSOAP;
+#
+#
+

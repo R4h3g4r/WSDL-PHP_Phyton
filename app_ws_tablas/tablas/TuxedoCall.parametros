@@ -1,0 +1,9 @@
+#
+# Tabla de Parámetros para TuxedoCall
+# =================================================
+#
+# WTC Context. Contexto JNDI para llamar a la connection Factory.
+WtcContext;Desc=wtcmeson_context;
+
+#TuxedoConneectionFactory. Factory a llamar con JNDI.
+TuxedoConnectionFactory;Desc=tuxedo.services.TuxedoConnection;

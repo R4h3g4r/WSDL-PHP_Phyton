@@ -1,0 +1,78 @@
+BCI_PUBLICO;valor=122;
+
+productoSimulacionPublico;SSP=CON465;CU=CON499;porDefecto=ALR500;
+productoSimulacionSeguro;CON=CON300;CON_COL=PAP328;CU=CON499;CD=CON467;CD_COL=PAP400;SSP=CON465;SSP_COL=PAP330;porDefecto=ALR500;
+
+
+## Descripciones de seguros BCI
+segurosSDCFLT;SDCFLT=Cesantía o Incapacidad Temporal;
+segurosSDGFLT;SDGFLT=Desgravamen;
+segurosSDPFLT;SDPFLT=Doble Capital;
+segurosSECFLT;SECFLT=Enfermedades Graves;
+segurosSHOFLT;SHOFLT=Hospitalización;
+segurosDGAFLT;DGAFLT=Desgravamen Aval;
+segurosHGCFLT;HGCFLT=Hogar Contenido;
+segurosAPDFLT;APDFLT=Accidentes Personales;
+segurosAPIFLT;APIFLT=Accidentes Personales Aval;
+segurosSCVFLT;SCVFLT=Crédito vida;
+segurosCVAFLT;CVAFLT=Crédito vida aval;
+
+##PAQUETES DE SEGUROS
+##opciones disponibles op1 y op2;
+opcionPaqueteActiva;desc=op1;
+
+##definicion de paquetes opcion 1
+tiposPAQop1;desc=FUL|PLU|BAS;
+
+##seguros asociados a cada paquete opcion 1
+paqueteBAS;seguros=SDGFLT;desc=Protección Básica;
+paquetePLU;seguros=SDGFLT|SDCFLT;desc=Protección Plus;
+paqueteFUL;seguros=SDGFLT|SDCFLT|SDPFLT|SECFLT|SHOFLT;desc=Protección Full;
+
+##definicion de paquetes opcion 2
+tiposPAQop2;desc=DES|PVID|PSAL;
+
+##seguros asociados a cada paquete opcion 2
+paqueteDES;seguros=SDGFLT;desc=Protección Básica;
+paquetePVID;seguros=SDPFLT;desc=Protección Vida;
+paquetePSAL;seguros=SDCFLT|SECFLT|SHOFLT;desc=Protección Salud;
+
+##opciones de mail de solicitud
+CON300;to=solicitud@bci.cl,leadbv@bci.cl;asunto=Solicitud - BCIMULTICREDITO;from=webmast@bci.cl;fromNombre=BCI;
+CON465;to=solicitud@bci.cl,leadbv@bci.cl;asunto=Solicitud - BCIMULTICREDITO;from=webmast@bci.cl;fromNombre=BCI;
+CON499;to=solicitud@bci.cl,leadbv@bci.cl;asunto=Solicitud - BciUniversal;from=webmast@bci.cl;fromNombre=BCI;
+PAP330;to=solicitud@bci.cl,leadbv@bci.cl;asunto=Solicitud - BCIMULTICREDITO;from=webmast@bci.cl;fromNombre=BCI;
+
+
+##Dia de vencimiento para cuotas de colaboradores
+diaVencimientoColaborador;valor=10;
+
+#Consolidador
+idProductoCredito;valor=CDC;
+idSubProductoCredito;valor=MDC;
+
+#codigo de journalización
+122-SOL-CON-PUB;codEvento=SOLIC;codSubEvento=CONSUM;codProducto=CRED;
+122-SIM-CON-PUB;codEvento=SIMULAC;codSubEvento=CONSUM;codProducto=CRED;
+122-SOL-CU-PUB;codEvento=SOLIC;codSubEvento=UNIVER;codProducto=CRED;
+122-SIM-CU-PUB;codEvento=SIMULAC;codSubEvento=UNIVER;codProducto=CRED;
+
+110-SOL-CON-SEG;codEvento=SOLIC;codSubEvento=CONSUM;codProducto=CRED;
+110-SIM-CON-SEG;codEvento=SIMULAC;codSubEvento=CONSUM;codProducto=CRED;
+110-CUR-CON-SEG;codEvento=CURSE;codSubEvento=CONSUM;codProducto=CRED;
+110-SOL-CD-SEG;codEvento=SOLIC;codSubEvento=COMCAR;codProducto=CRED;
+110-SIM-CD-SEG;codEvento=SIMULAC;codSubEvento=COMCAR;codProducto=CRED;
+110-SOL-CU-SEG;codEvento=SOLIC;codSubEvento=UNIVER;codProducto=CRED;
+110-SIM-CU-SEG;codEvento=SIMULAC;codSubEvento=UNIVER;codProducto=CRED;
+110-SOL-SSP-SEG;codEvento=SOLIC;codSubEvento=CONSMN;codProducto=CRED;
+110-SIM-SSP-SEG;codEvento=SIMULAC;codSubEvento=CONSMN;codProducto=CRED;
+
+firmaDigital;valor=/resources/images/html/firma_digital_sandro_araya.jpg;
+logo;valor=/resources/images/html/logo_bci_print.jpg;
+xslhojaresumenconsumo;valor=/cl/bci/aplicaciones/productos/colocaciones/hojaresumenconsumo.xsl;
+xslcontratoconsumo;valor=/cl/bci/aplicaciones/productos/colocaciones/contratoconsumo.xsl;
+nombreapoderadoBanco;valor=Sandro Araya;
+fechaContrato;valor=21/12/2012;
+
+errorChip;mensaje=(APR):%E04%EXIST033;
+errorPap;mensaje=(APR):%E04%EXIST033;

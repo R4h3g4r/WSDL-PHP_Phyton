@@ -1,0 +1,38 @@
+porcentajeCartolaHistorica;desc=0.01488;
+mensajeCobro;desc=Las transferencias de fondos a otros bancos y a terceros de BCI/TBANC/Nova se encuentran afectas a una comisión de UF 0,0125 + IVA;
+mensajeNoCobro;desc=Las transferencias de fondos a otros bancos y terceros mismo banco se encuentran afectas a una comisión de UF 0,0125 + IVA;
+mensajeCobroLinea;desc=Las transferencias de fondos en línea a otros bancos se encuentran afectas a una comisión de UF 0,0125 + IVA;
+mensajeNoCobroLinea;desc=;
+codigoCartolaHistorica;desc=B0675;
+nemonicoCartolaHistorica;desc=803;
+codigoTransferencias;desc=L0671;
+nemonicoTransferencias;desc=1099;
+menPdf;desc=Las transferencias de fondos a otros bancos se encuentran afectas a una comisión de UF 0,0125 + IVA. Las transferencias de fondos a Bci o TBanc no están afectas a dicha comisión.;
+menPdfLinea;desc=Las transferencias de fondos en línea se encuentran afectas a una comisión de UF 0,0125 + IVA. Las transferencias de fondos a Bci o TBanc no están afectas a dicha comisión.;
+
+TRANSFTERC;		codigo=L0671;	nemonico=1099;
+TRANSLINEA;		codigo=L0671;	nemonico=1104;
+ENVCPESC;		codigo=L0671;	nemonico=1099;
+ENVANCTA;		codigo=L0671;	nemonico=1099;
+ENVDIVPG;		codigo=L0671;	nemonico=1099;
+ENVIMGCH;		codigo=L0671;	nemonico=1099;
+ENVINTPG;		codigo=L0671;	nemonico=1099;
+ENVCAMED;		codigo=L0671;	nemonico=1099;
+ENVDEUHP;		codigo=L0671;	nemonico=1099;
+ENVCAMNX;		codigo=L0671;	nemonico=1099;
+ENVCARHS;		codigo=L0671;	nemonico=1099;
+ENVCALSG;		codigo=L0671;	nemonico=1099;
+ENVIMGBL;		codigo=L0671;	nemonico=1099;
+
+#
+#Datos Cobro solicitud multipass
+#
+
+DESPMULT;codigo=L0671;nemonico=1109;
+DEVOLMULT;codigo=L0671;nemonico=1119;
+REPOSMULT;codigo=L0671;nemonico=1120;
+
+#
+# Parámetros de validación de antiguedad del multipass
+#
+antiguedadToken;validar=Si;tiempo=365;

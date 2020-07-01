@@ -1,0 +1,4 @@
+ERROR_VALIDACION;ID_SISTEMA_LARGO=El identificador del sistema no puede ser mayor a 10 caracteres.;VALOR_TIPO=El tipo debe tener los valores 'perfil' o 'usuario'.;NO_HAY_SISTEMAS=No se han encontrado sistemas para el usuario/perfil solicitado.;
+ERROR_USUARIO;NO_AUTORIZADO=El ejecutivo no se encuentra autentificado.;NO_SIST_AUTORIZADOS=El usuario no tiene sistemas autorizados.;EJECUTIVO_NO_VALIDO=El ejecutivo no corresponde al que ha iniciado sesión.;
+ERROR_NEGOCIO;DUPLICADO=El sistema ya se encuentra activo para el usuario.;NO_ENCONTRADO=El sistema no existe o no es válido para el usuario.;
+

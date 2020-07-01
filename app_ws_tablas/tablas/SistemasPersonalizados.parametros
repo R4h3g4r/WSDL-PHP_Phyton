@@ -1,0 +1,17 @@
+#Producción
+#servicioSistemasPersonalizados;protocolo=http;servidor=alsb.bci.cl;url=/esb/intranet/ejecutivos/personalizacion/ServicioPersonalizacionService/ServicioPersonalizacionContract?wsdl;tiempoEspera=10;
+#Certificación
+servicioSistemasPersonalizados;protocolo=http;servidor=161.131.140.137:9050;url=/esb/ejecutivos/personalizacion/ServicioPersonalizacionService/ServicioPersonalizacionContract?wsdl;tiempoEspera=10;
+#Integración
+#servicioSistemasPersonalizados;protocolo=http;servidor=161.131.184.123:9101;url=/esb/ejecutivos/personalizacion/ServicioPersonalizacionService/ServicioPersonalizacionContract?wsdl;tiempoEspera=10;
+#local
+#servicioSistemasPersonalizados;protocolo=http;servidor=localhost:8011;url=/esb/ejecutivos/personalizacion/ServicioPersonalizacionService/ServicioPersonalizacionContract?wsdl;tiempoEspera=10;
+
+#Perfiles por sistema personalizado
+perfilesPorSistema;perfil1=UserProfileComercial;perfil2=UserProfileRegional;sistema1=040
+
+#Habilitar autorizador
+autorizador;habilitar=HABILITADO;
+
+#Securitizacion OSB
+srvPersonalizacionPS;sistemaUyP=wsperson;

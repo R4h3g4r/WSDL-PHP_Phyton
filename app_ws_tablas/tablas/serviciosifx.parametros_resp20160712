@@ -1,0 +1,55 @@
+codigo;desc=B0275;
+
+
+
+# Configuracion WTC
+#=========================
+#
+
+transaccionDEPCCT;Desc=G0700;
+transaccionVVCCT;Desc=G0746;
+transaccionDEPLSG;Desc=G4800;
+transaccionDEPLDE;Desc=G1760;
+depositoCCT;Desc=DEPCCT;
+valeVistaCCT;Desc=VVCCT;
+depositoLineaSobregiro;Desc=DEPLSG;
+depositoAhorro;Desc=DEPLDE;
+codigoTrxDeposito;Desc=stdeposito2p;
+codigoTrxDepositoAhorro;Desc=stdeposito3p;
+transaccionVVPYA;Desc=G2815;
+transaccionVVPYA_R;Desc=G2817;
+
+# Deposito con restricciones
+transaccionDEPCCT_R;Desc=G0702;
+reversaDEPCCT_R;Desc=G0703;
+depositoCCT_R;Desc=DEPCCT_R;
+codTrxDeposito_R; Desc=stdeposito3pr;
+
+# Consulta restricciones de deposito
+transaccionCONSCCT_R;Desc=G0100;
+consultaCCT_R;Desc=CONCCT_R;
+codTrxConsulta_R;Desc=stconsulta3pr;
+
+#
+depositoCCT_D;Desc=DEPCCT_D;
+transaccionDEPCCT_D;Desc=G0770;
+serialDEP_D;Desc=1248;
+servicioTuxedo_depo;Desc=stvarios3p;
+
+
+
+# REVERSAR
+
+reversaDEPCCT;Desc=G0708;
+reversaVVCCT;Desc=G0705;
+reversaDEPLSG;Desc=G4808;
+reversaDEPLDE;Desc=G1768;
+
+
+cajero;Desc=cajabci1;
+
+
+
+
+llaveSupervisor;Desc=0;
+

@@ -1,0 +1,32 @@
+#  Generales Nexus
+#Emulacion de Servicio
+EMULACION-SERVICIO;Desc=false;
+#Excepciones de Negocio
+EXCEPCION-GLOSA;Desc=false;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDVCONGLO;
+EXCEPCION-TARJETA-POR-RUT;Desc=true;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDVTARRUT;
+EXCEPCION-TARJETA-POR-CUENTA;Desc=true;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDVTARCTA;
+EXCEPCION-CONSULTA-SALDO;Desc=true;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDMCONSAL;
+EXCEPCION-CUENTAS-POR-RUT;Desc=false;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDVCTARUT;
+EXCEPCION-MOVIMIENTOS-NO-FACTURADOS;Desc=false;MensajeExcepcion=;CodigoExcepcion=;NombreServicio=STDMTNOFAC;
+
+CUENTAS;Desc=Cta1;
+
+Cta1;numero=5179800000098456;codBloqueo1= ;codBloqueo2= ;codTipo=C;codRelacion=P;codStatus=1;descLogo=Mastercard Gold;flag1=1;codStatusRelacion=1;nombreTitular=NOMBRES ZAMBRANO Z;
+ 
+#############
+
+PUNTAJES;rut=3719287;nombre=RIVERO CRISTIAN MAURICIO;
+
+#Programas
+PROGRAMAS;Desc=PESOSONRISAS,PROGRAMA_VERDE;
+
+PESOSONRISAS;codigo=1;descripción=PESO$ONRISAS                  ;tipo=PESOSONRISAS   ;
+PROGRAMA_VERDE;codigo=9;descripción= Desc. PROGRAMA VERDE             ;tipo=PROGRAMA_VERDE   ;
+
+#Productos
+PRODUCTOS;Desc=Prod1;
+
+Prod1;codigoProducto=9;nombreProducto=PUNTOS BCI CREDITO Verde;numeroTarjeta=5179800003009666;puntosAcumulados=25000;puntosCanjeados=0;puntosDescontados=0;puntosVencidos=145;fechaPuntosAcumulados=2010-12-02;fechaPuntosCanjeados=2010-12-02;fechaPuntosDescontados=2010-12-02;
+Prod2;codigoProducto=2;nombreProducto=PUNTOS BCI DEBITO;numeroTarjeta=3456789012345678;puntosAcumulados=11000;puntosCanjeados=0;puntosDescontados=0;puntosVencidos=7;fechaPuntosAcumulados=2010-12-02;fechaPuntosCanjeados=2010-12-02;fechaPuntosDescontados=2010-12-02;
+
+

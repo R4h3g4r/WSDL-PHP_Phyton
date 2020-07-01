@@ -1,0 +1,31 @@
+#
+# Tabla de Parámetros para el repositorio de transacciones.
+# =============================================
+
+#
+valoresDefectoInsercionTransaccion;valorCeroPorDefecto=0;estadoPorDefecto=PEN;tipoMonedaPorDefecto=CLP;fechaPorDefecto=19000101;
+repositorio;baseDeDatos=banele;
+
+
+TIPO_TRANSACCION;9000000004=PAGO_PREVIRED;
+
+transacciones_pague_directo;PAGO_PREVIRED=PAGO_PREVIRED;
+transacciones_pague_directo_despliegue;PAGO_PREVIRED=PREVIRED;
+
+largoIdFirma;valor=8;
+
+NOMBRE_NEGOCIO;valorPorDefecto=PAGO_PAGUEDIRECTO;
+
+PRODUCTO_PAGUEDIRECTO;valorPorDefecto=Prod01;
+
+
+
+SERVICIO_PAGUEDIRECTO;valorPorDefecto=XPDIR03;
+
+
+CONVENIOS_PAGUEDIRECTO;convenios=9000000004;
+TIPO_CONVENIO;tipo=IMF;
+PAGO_PREVIRED;clase=wcorp.aplicaciones.infraestructuradenegocios.transaccion.pago.monex.to.PagueDirectoMultimonedaPendienteFirmaTO;
+AumentoCupo;clase=wcorp.serv.cuentas.to.AumentoCupoLSGTO;
+MTO_MAX_PYME;clase=wcorp.aplicaciones.pyme.administracion.supervisor.transaccion.SolicitudMontoMaximoTtffCecTO;
+AUMCUPTDC;clase=wcorp.aplicaciones.productos.colocaciones.tarjetas.aumentocupo.to.AumentoCupoTDCPymeTO;

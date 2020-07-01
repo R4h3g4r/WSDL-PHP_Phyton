@@ -1,0 +1,179 @@
+#Desarrollo
+#servidor;   ip=161.131.184.81;puerto=21;
+#acceso;     usuario=sipe;password=sipe01;
+#directorio; path=/banele/CargaMasivatrf/lbtr;
+#datosEmpresa;rutEmpresa=9666516;dvEmpresa=4;numeroConvenio=944;
+#desplegarListadoArchivo;rutEmpresa=9666516;numeroConvenio=944;
+
+#Certificacion 
+servidor;   ip=161.131.232.180;puerto=21; 
+acceso;     usuario=sipe;password=sipe666; 
+directorio; path=/banele/CargaMasivatrf/lbtr; 
+datosEmpresa;rutEmpresa=9666516;dvEmpresa=4;numeroConvenio=944;
+desplegarListadoArchivo;rutEmpresa=9666516;numeroConvenio=944;
+
+#Produccion
+#servidor;   ip=161.131.232.30;puerto=21;
+#acceso;     usuario=sipe;password=sipe97;
+#directorio; path=/banele/CargaMasivatrf/lbtr;
+#datosEmpresa;rutEmpresa=90249000;dvEmpresa=0;numeroConvenio=18259;
+#desplegarListadoArchivo;rutEmpresa=90249000;numeroConvenio=18259;
+
+1; codigo=5000; desc=Archivo Cargado;
+2; codigo=5001; desc=Archivo Procesado;
+3; codigo=5002; desc=Revisado y Copiado a Tablas Transferencias;
+
+#Desarrollo 
+#servidorTTFF;ip=161.131.232.180;puerto=21; 
+#accesoTTFF;usuario=sipe;password=sipe666; 
+#directorioTTFF;path=/banele/CargaMasivatrf/ttff/; 
+
+#Certificacion 
+servidorTTFF;ip=161.131.232.180;puerto=21; 
+accesoTTFF;usuario=sipe;password=sipe666; 
+directorioTTFF;path=/banele/CargaMasivatrf/ttff/; 
+
+#Produccion 
+#servidorTTFF;ip=161.131.232.30;puerto=21;
+#accesoTTFF;usuario=sipe;password=sipe97;
+#directorioTTFF;path=/banele/CargaMasivatrf/ttff/;
+
+estadoInicial;Desc=4000;
+tamanoPromedioRegistro;Desc=160;
+tamanoMaximoArchivoCarga;Desc=1024;
+tiempoPromedioProcesoDetalle;Desc=1;
+
+#Carga de archivos Excel
+errorExcel;maxLineas=El archivo Excel no puede tener más de 500 registros;maxPeso=El archivo excede el peso permitido [125 Kb];errAplanar=Error al aplanar el archivo;noValido=El tipo de archivo no es válido o la ruta no fue especificada;
+cargaExcel;archTemp=./temp/;
+camposPlantilla;Campo1=Nº Cuenta de Cargo;Campo2=Nº Cuenta de Destino;Campo3=Banco Destino;Campo4=Rut Beneficiario;Campo5=Dig. Verif. Beneficiario;Campo6=Nombre Beneficiario;Campo7=Monto Transferencia;Campo8=Nro.Factura Boleta (1);Campo9=Nº Orden de Compra(1);Campo10=Tipo de Pago(2);Campo11=Mensaje Destinatario (3);Campo12=Email Destinatario(3);Campo13=Cuenta Destino inscrita como(4);
+largoCamposPlantilla;Campo1=12;Campo2=18;Campo3=3;Campo4=12;Campo5=1;Campo6=45;Campo7=16;Campo8=20;Campo9=20;Campo10=3;Campo11=30;Campo12=45;Campo13=25;
+codigosBancos;Desc=001,009,012,014,016,027,028,031,037,039,049,051,053,054,055,057,504,507;
+moduloIngreso;cargaNominaPorArchivo=cargaNominaPorArchivo;reutilizarPago=reutilizarPago;cargaNominaManual=cargaNominaManual;
+columnas;cantidad=13;
+codigoProducto;Desc=NTR;
+tipoTransferencia;Desc=NTL;enLinea=NTL;codigoNominaObservada=5001;codigoNominaPorValidar=5002;indicadorNominaSinCorregir=-1;codigoPagosObservadosModificar=0000;codigoPagosObservadosEliminar=9299;
+cargaNomina;sistemaFTP=ftpsip;
+estadoInicialPagoLinea;Desc=5000;
+numeroTransferencia;Desc=  ;
+estadoConsulta;Desc=9280;
+numeroTransferenciaCargaManual;Desc=0;
+estadoCargaManual;Desc=ING;
+tipoTransferenciaPorDefecto;Desc=   ;
+nomArchivoManual;Desc=CM;
+nomArchivoReutilizar;Desc=CR;
+230glosaCanal;Desc=WEB;
+132glosaCanal;Desc=WEB;
+tamañoMaximoCargaArchivo;Desc=1048576;
+cargaArchivoJournal;codServicio=PAG01;glosaLog=Cargar nómina desde archivo.;
+cargaManualJournal;codServicio=PAG02;glosaLog=Cargar nómina manual.;
+reutilizacionJournal;codServicio=PAG10;glosaLog=Reutilización de nómina.;
+journalIngresaNomina;evento=INGRESA;subEvento=NOMINA;producto=PNOL;
+tipoCuentaBenef;Desc=AMB;
+estadosConsultarNominas;sinFondos=SFD;procesados=PRO;
+
+#Activacion nomina beneficiarios
+estadoNomina;PorActivar=5003;PorValidar=5002;EnviaORG=5010;Bloqueo=0004;
+estadoPago;realizado=0000;PorActivar=9215;
+codigosJournal;codEventoNegocio=ACTIVAR;subEvento=BENEFI;idProducto=PNOL;estadoEventoOk=P;estadoEventoNOk=A;evento=ACTIVA;codServicio=PAG11;glosaLogBanOk=Activacion Beneficiarios nomina OK;glosaLogBanNOk=Error Activacion Beneficiarios nomina;
+tiposPagosMasivos;codigos=REM,DIV,PEN,OTR,PRV;
+HoracargaNominaManual;Desc=23:59;
+HoracargaNominaPorArchivo;Desc=23:59;
+HorareutilizarPago;Desc=23:59;
+indicadorModulo;Desc=10;
+
+rutaComprobanteActivacion;xsl=pagos/linea/comprobanteActivacionBeneficiario.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+
+
+#Configuración envio de correo Activacion
+loginEnterprise;Desc=bci;
+refContract;Desc=WEBBEL_PNOL_ACTIVA_BENEFI;
+subject;Desc=Comprobante Activacion beneficiarios;
+correoRemitente;Desc=bci@bci.cl;
+nombreRemitente;Desc=BCI;
+linkDescargaArchivo;Desc =https://bciimg.bci.cl/medios/capacitacion_penol/archivos/Excel_tipo.xls;
+linkSaldoMaximo;Desc =https://bciimg.bci.cl/medios/capacitacion_penol/archivos/anexo_mod_express_e-pyme.doc;
+cantidadLineasMax;Desc=500;
+codigosNoVisibles;codigo=9215|9299;
+codigosVisiblesComprobante;codigo=0000;
+
+
+rutaCargas;xsl=pagos/linea/comprobanteCargaNomina.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+
+
+rutasGenericas;rutaBaseXsl=/cl/bci/aplicaciones/productos/servicios/pagos/masivos/;
+
+reutilizaNomina;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteFirmaMasiva.xsl;
+cargaArchivo;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteAutorizacionyPrueba.xsl;
+cargaManual;rutaXSLCompTodosLosTiposPagos=xsl/comprobanteAutorizacionyPrueba.xsl;
+
+#Bitacora
+
+bitacora;cargaNominaPorArchivo=CARG;cargaNominaManual=CARG;cargaNominaReutilizada=CARG;autorizacion=AUTS;creacion=CREA;detencion=DETE;eliminacionDetallePago=MODI;eliminacion=ELIM;firma=FIRM;modificacion=MODI;nominaConObservacionesCorregida=MODI;nominaConObservacionesEnviada=MODI;pagosNoRealizados=PANR;pagosRealizados=PARE;reactivacion=REAC;eliminarDocumento=MODI;pagoNominaDiferida=EMPJ;
+cargaNominaPorArchivo;glosaLogOk=Carga con Archivo de Nóminas;
+cargaNominaManual;glosaLogOk=Carga de Nómina Manual;
+reutilizacionNomina;glosaLogOk=Carga Reutilización Nóminas;
+pagoNominaDiferida;glosaLogOk=Pago de nomina diferida;
+eliminacionPago;glosaLogOk=Se elimina detalle de pago;
+eliminacionNomina;glosaLogOk=Se elimina nómina: ;
+
+#Rendiciones
+
+tipoArchivoRendiciones;codigo=ENV;
+prefNomArchivoRendiciones;Desc=RPNOL;
+codigosJournalRendicion;evento=RENDICION;subEvento=NOMINA;producto=PNOL;
+rendicion;glosaLog=Rendicion de Nómina;codServicio=PAG12;
+
+#Certificado Pago
+rutaComprobanteCertificadoPago;xsl=pagos/linea/certificadoPago.xsl;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;
+codigosJournalCertificado;evento=CERTIF;subEvento=TTFF;idProducto=CCT;tipoLog=C;
+
+#Nomina Con Observaciones
+
+rutaComprobanteNominaObservada;xsl=pagos/linea/comprobanteNominaObservadaCorregida.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+rutaComprobanteNominaObservadaSinCorregir;xsl=pagos/linea/comprobanteNominaObservadaSinCorregir.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;
+codigosEstadosNominas;enValidacion=5000;observada=5001;porActivar=5003;porFirmar=PEN;procesadas=PRO;enProcesoPago=ENP;diferidas=LPP;sinFondos=SFD;
+nominasPreoriginacion;estados=enValidacion,observada,porActivar;rangoDias=0;
+nominasOriginacion;estados=porFirmar;rangoDias=0;
+consultaNominas;rangoDias=0;
+canalesConsulta;web=WEB;bcipay=PAY;
+journalNominaObservada;evento=MODIFICA;subEvento=NOMINA;producto=PNOL;
+envioNomina;glosaLogOk=Envio de Nomina;glosaLogNOk=Error envio de Nomina;
+
+#Firma de Nominas
+accionFirma;Desc=Firmar;
+estadosFirmaNomina;cantidad=1;
+estadosFirmaNomina_1;estado=PEN;estadoProceso=PEN;
+flujoEstados_NTL_Firmar;cantidad=1;
+flujoEstados_NTL_Firmar_1;estadoOrg=PEN;estadoPrcOrg=PEN;estadoFin=FIR;estadoPrcFin=FIR;
+
+
+#Nómina diferida
+estadoListoParaPago;Desc=LPP;
+estadoBloqueo;Desc=BLO;
+estadoSinFondos;Desc=SFD;
+estadoPendiente;Desc=PEN;
+codigoTransaccionCargo;Desc=B0690;
+codigoMovimientoCargo;Desc=1272;
+publicacionAlerta;CanalDestino=270;DominioDestino=INTRANET;CanalHttpPublicacion=/BCINETCORP/servicios/pagos/pagosmasivos/alertas;
+publicacionAlertaMensajes;bloNomina=Problemas en pago en linea de nomina diferida;cuadNomina=Problemas en pago en linea de nomina diferida;identificadorNegocioBlo=ONL1500;identificadorNegocioCuad=ONL1400;car
+flujoEstados_NTL_Empujar;cantidad=1;
+flujoEstados_NTL_Empujar_1;estadoOrg=LPP;estadoPrcOrg=LPP;estadoFin=FIR;estadoPrcFin=FIR;
+estadosPagarDiferidas;cantidad=1;
+estadosPagarDiferidas_1;estado=LPP;estadoProceso=LPP;
+accionEmpujar;Desc=Empujar;
+prefijoGlosaError;Desc=Estimado Cliente: ;
+rutaPdfNominasDiferidas;xsl=pagos/linea/comprobanteNominaDiferida.xsl;rutaSelloAgua=/resources/Webbci/common/images/comprobante_pdf_nominas.jpg;rutaCabecera=/resources/Webbci/common/images/logo_bci_print.jpg;logoPagado=/belwls/bciexpress/img/sello_pagado.gif;nombreArchivoGenerado=ComprobantePagoNominaDiferida;
+codigosJournalPagoNominaDiferida;subEvento=NOMINA;idProducto=PNOL;estadoEventoOk=P;estadoEventoNOk=A;eventoPagar=PAGODIFERIDO;glosaEstadoEventoOk=Pago diferido finalizó correctamente: ;glosaEstadoEventoNOk=Pago diferido finalizó con problemas: ;
+#Fin nómina diferida
+
+canalPnol;Desc=OPF;
+productosPagos;pnol=PNOL;
+confirmacionOperacion;accionEliminar=ELI;accionEliminarPago=ELIPAG;accionPagar=PAG;accionFirmar=FIR;
+ELI;servicioSegundaClave=EliminaPNOL;
+ELIPAG;servicioSegundaClave=EliminaPNOL;
+
+journalEliminacion;codigoEvento=ELIMINA;subCodigoEvento=NOMINA;
+journalEliminacionPago;codigoEvento=MODIFICA;subCodigoEvento=NOMINA;
+codProductoPNOL;Desc=Prod21;
+codigoTransaccionReversa;Desc=B8690;

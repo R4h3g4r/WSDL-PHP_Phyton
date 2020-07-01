@@ -1,0 +1,137 @@
+
+TIPO_ACCION_JMS;tipoInformacion=AccionHistorialCliente;tipoAccion=TipoAccionHistorialCliente;tipoNoJournalizable=MensajeNoJournalizable;
+REGISTRO_CAMPANAS;tiposProducto=CON,TAR,HIP,SEG,INV;productoOfrecido=Producto Ofrecido;monto=Monto Pre Aprobado;respuestaGestion=Respuesta del Cliente;codTipoAccion=1;codCanal=2;codSubcanal=3;
+TIPO_LLAMADA_CAMPANA;001=Llamada Entrante;002=Llamada Saliente;
+ESTADOS_CAMPANA;AGN=Agendado;ACP=Agendado;RCH=Rechazo Cliente;NCA=Rechazo Banco;CNU=Cliente no Ubicable;INH=Inhibido;CNG=Cliente no Gestionado;
+CODIGO_MONTOS_CON;902=MTO;912=MTO;919=MTO;936=MTO;936=MTO;937=MTO;938=MTO;939=MTO;
+CODIGO_MONTOS_TAR;114=R01;911=MTO;913=MTO;921=MTO;928=MTO;929=MTO;930=MTO;931=MTO;941=MTO;960=MTO;
+CODIGO_MONTOS_HIP;
+CODIGO_MONTOS_SEG;
+CODIGO_MONTOS_INV;
+
+canal_0;opciones=0,1,2,3,4,5,6,7,8,9,10,11;opcion=Todos;
+canal_1;opciones=0,3,4,5,6,7,8,9,10,11;opcion=Web;
+canal_2;opciones=0,1,2,3,4,5,6,7,8,9,10,11;opcion=Sucursal;
+canal_3;opciones=0,1,2,3,4;opcion=TeleCanal;
+canal_4;opciones=0,3,4;opcion=SPV;
+
+accion_canal_1;opciones=3,4,5,6,7,8,9,10,11;
+accion_canal_2;opciones=1,2,3,4,5,6,7,8,9,10,11;
+accion_canal_3;opciones=1,2,3,4;
+accion_canal_4;opciones=3,4;
+
+canal_accion_1;opciones=2,3;
+canal_accion_2;opciones=2,3;
+canal_accion_3;opciones=1,2,3,4;
+canal_accion_4;opciones=1,2,3,4;
+canal_accion_5;opciones=1,2;
+canal_accion_6;opciones=1;
+canal_accion_7;opciones=1;
+canal_accion_8;opciones=1,2;
+canal_accion_9;opciones=2;
+canal_accion_10;opciones=1,2;
+canal_accion_11;opciones=2;
+
+subcanal_1;opcion=Sitio Público;
+subcanal_2;opcion=Sitio Privado;
+subcanal_3;opcion=Presencial;
+subcanal_4;opcion=Inb - Ejecutivo;
+subcanal_5;opcion=ERPI;
+subcanal_6;opcion=Discador;
+subcanal_7;opcion=Inb - Ivr;
+subcanal_8;opcion=Inb - Ejecutivo;
+subcanal_9;opcion=ERPI;
+subcanal_10;opcion=IVR(Menú Principal(M-1));
+subcanal_11;opcion=EVENTO;
+subcanal_12;opcion=Ejecutivo Onboarding;
+subcanal_13;opcion=Supervisor Doble Ejecutivo;
+subcanal_14;opcion=RAC (inbound / outbound) Transformacion;
+subcanal_15;opcion=Ejecutivo Cordillera;
+
+listadoCanales;nombreCanal=Todos,Web,Sucursal,TeleCanal,SPV;valorCanal=0,1,2,3,4;
+listadoAcciones;nombreAccion=Todos,Campaña,Llamada,Eventos-Reclamo,Eventos-Pedido,Simulación,Ingreso a WEB,Transferir,Curse,Tomar DAP,Avance,Pagar Producto;valorAccion=0,1,2,3,4,5,6,7,8,9,10,11;
+codigosEventos;codigos=3,4;
+codigosLlamadas;codigos=2;
+
+accion_0;opcion=Todos;alias=Todos;
+accion_1;opcion=Campaña;alias=Campaña;
+accion_2;opcion=Llamada;alias=Llamada;
+accion_3;opcion=Reclamo;alias=Eventos-Reclamo;
+accion_4;opcion=Pedidos;alias=Eventos-Pedido;
+accion_5;opcion=Simulación;alias=Simulación;
+accion_6;opcion=Ingreso a WEB;alias=Ingreso a WEB;
+accion_7;opcion=Transferir;alias=Transferir;
+accion_8;opcion=Curse;alias=Curse;
+accion_9;opcion=Tomar DAP;alias=Tomar DAP;
+accion_10;opcion=Avance;alias=Avance;
+accion_11;opcion=Pagar Producto;alias=Pagar Producto;
+
+TeleCanal_Campaña;AreasOrigen=;RolOrigen=;RolDestino=;Nivel2=;
+TeleCanal_Llamada;AreasOrigen=;RolOrigen=;RolDestino=;Nivel2=;
+TeleCanal_Reclamo;AreasOrigen=TCC-TDE;RolOrigen=C68-C70-D44-D95;RolDestino=D34;Nivel2=335;
+TeleCanal_Pedidos;AreasOrigen=TCC-TDE;RolOrigen=C68-C70-D44-D95;RolDestino=D34;Nivel2=329;
+TeleCanal_Todos;AreasOrigen=TCC-TDE;RolOrigen=C68-C70-D44-D95;RolDestino=D34;Nivel2=329-335;
+WEB_Reclamo;AreasOrigen=WBC;RolOrigen=D37-D38;RolDestino=D34;Nivel2=279;
+WEB_Pedidos;AreasOrigen=WBC;RolOrigen=D37-D38;RolDestino=D34;Nivel2=280;
+WEB_Todos;AreasOrigen=WBC;RolOrigen=D37-D38;RolDestino=D34;Nivel2=279-280;
+Sucursal_Campaña;AreasOrigen=SOP-SUC;RolOrigen=A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=;
+Sucursal_Llamada;AreasOrigen=SOP-SUC;RolOrigen=A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=;
+Sucursal_Reclamo;AreasOrigen=SOP-SUC;RolOrigen=A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=335;
+Sucursal_Pedidos;AreasOrigen=SOP-SUC;RolOrigen=A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=329;
+Sucursal_Todos;AreasOrigen=SOP-SUC;RolOrigen=A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=329-335;
+SPV_Reclamo;AreasOrigen=;RolOrigen=;RolDestino=;Nivel2=;
+SPV_Pedidos;AreasOrigen=;RolOrigen=;RolDestino=;Nivel2=;
+Todos_Todos;AreasOrigen=TCC-TDE-WBC-SOP-SUC;RolOrigen=C68-C70-D44-D95-D37-D38-A16-A82-A83-A84-C11-C13-C15-C26-C52-D33-D93;RolDestino=D34;Nivel2=335-329-279-280;
+
+ACCION_LLAMADA;DETALLE=Opción marcada por cliente;DETALLE_EJECUTIVO=Ejecutivo;DETALLE_LLAMADA=Tiempo de Llamada;DETALLE_TELEFONO=Numero de Teléfono;
+MENU_ACCION_LLAMADA;UNI=Menu Clientes BCI Cuenta Corriente;CPR=Menu Clientes BCI Cuenta Prima;CON=Menu Clientes BCI Nova;TDC=Menu Clientes Monoproducto Tarjetas de Credito;AGF=Menu Clientes Monoproductos Inversiones;SIN_MENU=SIN MENU DISPONIBLE;
+DEFAULTS;SIN_VALOR=--;ID_DEFECTO=-1;TOTAL_ACCIONES=11;
+
+PEDIDO_ACCION;OPCION=329,280;ASOCIACION=4;
+RECLAMO_ACCION;OPCION=335,279;ASOCIACION=3;
+EVENTO_ACCION;TOTAL_DETALLE=3;GLOSA_EVENTO=Glosa del evento;ID_EVENTO=ID evento;ESTADO_EVENTO=Estado del Evento;
+
+FORMATO_DETALLE;fmt_texto=TEXTO;fmt_segundos=SEGUNDOS;fmt_moneda=PESOS;fmt_pesos=PESOS;fmt_dolar=DOLAR;fmt_uf=UF;fmt_euro=EURO;fmt_porcentaje=PORCENTAJE;fmt_tasa=TASA;fmt_decimal_cuatro=DECIMAL_CUATRO;fmt_numero=NUMERO;fmt_numero_sin_separador=NUMERO_SIN_SEPARADOR;
+FORMATO_POR_CODIGO_MONEDA;0999=PESOS;1013=DOLAR;1142=EURO;0998=UF;
+
+JOURNALIZACION;evento=CNS;subevento=;producto=HISTCLI;desc=Consulta Historial de Interacciones del Cliente;
+
+#Fase II
+REGISTRO_INGRESO_WEB;codTipoAccion=6;codCanal=1;codSubcanal=2;descripcion=Ingreso a sitio Seguro;
+REGISTRO_SIMULACION_CONSUMO_122;codTipoAccion=5;codCanal=1;codSubCanal=1;tipoProducto=Consumo;producto=Producto;cuotas=Cuotas;tasaInteres=Tasa de interés;montoBruto=Monto Final;montoLiquido=Monto Seleccionado;descripcion=--;journalizable=SI;
+REGISTRO_SIMULACION_CONSUMO_110;codTipoAccion=5;codCanal=1;codSubCanal=2;tipoProducto=Consumo;producto=Producto;cuotas=Cuotas;tasaInteres=Tasa de interés;montoBruto=Monto Final;montoLiquido=Monto Seleccionado;descripcion=--;journalizable=SI;
+
+REGISTRO_CURSE_CONSUMO_110;codTipoAccion=8;codCanal=1;codSubCanal=2;tipoProducto=Consumo;producto=Producto;cuotas=Cuotas;tasaInteres=Tasa de interés;montoBruto=Monto Final;descripcion=--;numeroOperacion=Nº de operación;journalizable=SI;
+
+
+REGISTRO_TRANSFERENCIA_110;codTipoAccion=7;codCanal=1;codSubcanal=2;descripcion=--;monto=Monto;cuentaOrigen=Cuenta Orígen;montoDisponible=Monto Disponible;cuentaDestino=Cuenta Destino;journalizable=SI;
+
+REGISTRO_CONSUMO_SUCURSAL;SIMULAC_CONSUM_CRED=REGISTRO_SIMULACION_CONSUMO;CURSE_CONSUM_CRED=REGISTRO_CURSE_CONSUMO;
+REGISTRO_SIMULACION_CONSUMO_151;codTipoAccion=5;codCanal=2;codSubCanal=3;tipoProducto=Consumo;producto=Producto;cuotas=Cuotas;tasaInteres=Tasa de interés;monto=Monto Final;montoLiquido=Monto Liquido;journalizable=SI;
+REGISTRO_CURSE_CONSUMO_151;codTipoAccion=8;codCanal=2;codSubCanal=3;tipoProducto=Consumo;producto=Producto;cuotas=Cuotas;tasaInteres=Tasa de interés;monto=Monto Final;numOperacion=N° de operacion;journalizable=SI;
+
+REGISTRO_AVANCE_SIN_CUOTA_110;codTipoAccion=10;codCanal=1;codSubCanal=2;tipoProducto=Sin Cuota;producto=Avance;cuotas=Cuotas;numeroCuotas=1;tdcOrigen=TDC Origen;monto=Monto Avance;montoDisponible=Monto Disponible;ctaCteDestino=CTA. CTE. Destino;journalizable=SI;
+REGISTRO_AVANCE_CON_CUOTA_110;codTipoAccion=10;codCanal=1;codSubCanal=2;tipoProducto=Con Cuota;producto=Avance;cuotas=Cuotas;tdcOrigen=TDC Origen;monto=Monto Avance;montoDisponible=Monto Disponible;ctaCteDestino=CTA. CTE. Destino;journalizable=SI;
+
+REGISTRO_PAGO_TRANSACCION;TRFCCTLDC=REGISTRO_PAGO_LSG;TRFCCTTDC=REGISTRO_PAGO_TDC;
+REGISTRO_PAGO_TDC_151;codTipoAccion=11;codCanal=2;codSubCanal=3;glosaProdDominio=Producto;prodDominio=Producto BCI;glosaProdCancelar=Producto;prodCancelar=Tarjeta de Crédito;monto=Monto de pago;journalizable=SI;
+REGISTRO_PAGO_LSG_151;codTipoAccion=11;codCanal=2;codSubCanal=3;glosaProdDominio=Producto;prodDominio=Producto BCI;glosaProdCancelar=Producto;prodCancelar=Línea de Sobregiro;monto=Monto de pago;journalizable=SI;
+
+REGISTRO_SIMULACION_HIPOTECARIO_151;codTipoAccion=5;codCanal=2;codSubCanal=3;tipoProducto=Hipotecario;producto=Tipo de producto;cuotas=Nº de cuotas;tasaInteres=Tasa de interés;montoBruto=Monto;montoLiquido=Monto Líquido;descripcion=--;
+REGISTRO_SIMULACION_HIPOTECARIO_110;codTipoAccion=5;codCanal=1;codSubCanal=2;tipoProducto=Hipotecario;producto=Tipo de producto;cuotas=Nº de cuotas;tasaInteres=Tasa de interés;montoBruto=Monto;montoLiquido=Monto Líquido;descripcion=--;
+
+REGISTRO_TOMAR_DAP_SUCURSAL_PRESENCIAL;codTipoAccion=9;codCanal=2;codSubcanal=3;descripcion=--;tipoDeposito=Tipo de Depósito;monto=Monto;moneda=Moneda;fechaVencimiento=Fecha de Vencimiento;journalizable=NO;DPF=Fijo;DPI=Renovable;PPF=Pagare Fijo;
+
+#Codigo journal que maneja el simulador de consumo web que ademas de journalizar, requiere almacenar registrar en el historial  
+CODIGOS_JOURNAL_CONSUMO_WEB;SIM-SSP-PUB=REGISTRO_SIMULACION_CONSUMO;SIM-SSP-SEG=REGISTRO_SIMULACION_CONSUMO;SIM-CON-PUB=REGISTRO_SIMULACION_CONSUMO;SIM-CU-PUB=REGISTRO_SIMULACION_CONSUMO;SIM-CON-SEG=REGISTRO_SIMULACION_CONSUMO;SIM-CU-SEG=REGISTRO_SIMULACION_CONSUMO;CUR-CON-SEG=REGISTRO_CURSE_CONSUMO;CUR-CU-SEG=REGISTRO_CURSE_CONSUMO;
+
+CODIGOS_JOURNAL_PAGO_TDC_NAC;PAGOTC=REGISTRO_PAGO_TDC_NAC;
+
+REGISTRO_PAGO_CHIP_WEB_PRIVADO;codTipoAccion=11;codCanal=1;codSubcanal=2;tipoProducto=Crédito Hipotecario;producto=Producto;dominio=Producto BCI;cuenta=Cuenta de origen de pago;monto=Monto a pagar;descripcion=--;journalizable=SI;
+REGISTRO_PAGO_LSG_WEB_PRIVADO;codTipoAccion=11;codCanal=1;codSubcanal=2;tipoProducto=Línea Sobregiro;glosaProdDominio=Producto;prodDominio=Producto BCI;glosaProdCancelar=Producto;prodCancelar=Línea de Sobregiro;cuentaPago=Cuenta de origen de pago;monto=Monto a pagar;descripcion=--;journalizable=SI;
+REGISTRO_TOMAR_DAP_110;codTipoAccion=9;codCanal=1;codSubcanal=2;descripcion=--;tipoDeposito=Tipo de Depósito;monto=Monto;moneda=Moneda;fechaVencimiento=Fecha de Vencimiento;journalizable=SI;DPF=Fijo;DPI=Renovable;
+REGISTRO_PAGO_TDC_NAC_110;codTipoAccion=11;codCanal=1;codSubcanal=2;tipoProducto=TCR Nacional;glosaProdDominio=Producto;prodDominio=Producto BCI;glosaProdCancelar=Producto;prodCancelar=TCR Nacional;cuentaPago=Cuenta de origen de pago;montoPago=Monto a pagar;descripcion=--;journalizable=SI;
+
+CENSURA_TARJETA;digitosLibre=4;largoTarjeta=16;largoCuenta=12;
+REGISTRO_PAGO_CUENTA_WEB_PRIVADO;codTipoAccion=11;codCanal=1;codSubcanal=2;tipoProducto=Pago de Cuentas;producto=Producto;cuenta=Cuenta de origen de pago;monto=Monto a pagar;empresa=Empresa;descripcion=--;journalizable=NO;
+REGISTRO_PAGO_TDC_INTER_WEB_PRIVADO;codTipoAccion=11;codCanal=1;codSubcanal=2;tipoProducto=TCR Internacional;producto=Producto;dominio=Producto BCI;cuenta=Cuenta de origen de pago;monto=Monto;descripcion=--;journalizable=SI;

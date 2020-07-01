@@ -1,0 +1,65 @@
+mandato;codigoRechazo= ;motivo= ;ejecutivo=CLIENTE;oficina=BCINET;
+nuevoMandato;diaPago=0;FecExpiracion=          ;EstadoMandato=015;CodBanco=016;FlagMandato=1;OficinaAutoriz=BCINET;EjecutivoAutoriz=CLIENTE;
+estadosMandato;autorizadoEnBanco=015;autorizadoEnCliente=003;movimientoAceptado=027;
+mensaje;activar=Informacion del mandato a activar;desactivar=Informacion del mandato a desactivar;eliminar=Informacion del mandato a eliminar;
+
+descripcionEstadoMandato;habilitado=Activo;detenido=Inactivo;eliminar=Eliminado;
+
+#
+# Mejoras en PAC personas Interdomain
+#
+VALIDA_SIN_ESPACIOS;desc=01;
+VALIDA_RUT;desc=02;
+VALIDA_CTA_CTE;desc=03;
+VALIDA_MAYOR_QUE_X;desc=04;
+VALIDA_MENOR_QUE_Y;desc=05;
+VALIDA_ENTRE_X_E_Y;desc=06;
+ID_NUMERICO;desc=#;
+FIN_LARGO_IDENTIFICADOR;desc=5;
+INICIO_LARGO_IDENTIFICADOR;desc=3;
+INICIO_MASCARA;desc=0;
+POS_TIPO_IDENTIFICADOR;desc=1;
+LARGO_CTA_CTE;desc=13;
+
+#Se agregan glosas de errores al validar el identificador de cliente
+ERROR_SIN_CONVENIO;desc=No existen datos para el convenio;
+ERROR_LARGO_PERMITIDO;desc=El largo del número de cliente no debe ser mayor a;
+ERROR_ID_NUMERICO;desc=El número de cliente debe ser de tipo numérico;
+ERROR_ESPACIOS_BLANCOS;desc=El número de cliente no debe poseer espacios en blanco;
+ERROR_ID_RUT;desc=El número de cliente debe ser un Rut válido;
+ERROR_ID_CTA_CTE;desc=El número de cliente debe ser una cuenta corriente válida;
+ERROR_NUMERO_CLIENTE;desc=El número de cliente ingresado es inválido;
+NUMERO_CLIENTE_OK;desc=ok;
+
+#Plazo máximo para anular pago en horas. defecto 48 horas
+PLAZO_MAX_CANCELA_COBRO;desc=48;
+
+#Estado a setear pago anulado
+ID_EST_PAGO_ANULA;value=6400;
+
+# Codigo a setear en pago anulado
+ID_COD_PAGO_ANULA;value=3;
+
+##  Mensajes html que se cargan en la respuesta de anular el pago del PAC.
+##  NOTA: Se deben escribir con letras con tilde y no con su entidad html, el controlador reemplazará estas letras. ##
+##  Para insertar valores se debe escribir el key que se va a reemplazar rodeado de ampersand. EJ: &razonSocial&    ##
+MSJE_DETREA_PAC;desc=Estimado cliente:<br/>El PAC a la Empresa &razonSocial&, con el nombre &identif& ha sido &cmd& exitosamente, con fecha &ahoraString&.
+MSJE_SUSPENDE_PAC_PAGO_FUERA_PLAZO;desc=Estimado cliente:<br/>Su PAC a la Empresa &razonSocial& ha sido suspendido exitosamente.<br/>Para poder anular el cargo de un PAC, éste debe ser suspendido con 48 horas de anticipación a la fecha de pago, por lo que en esta ocasión, el cobro se realizará igualmente.
+MSJE_ELIMINA_PAC;desc=Estimado cliente:<br/>El PAC a la Empresa &razonSocial&, con el nombre &identif& ha sido eliminado exitosamente, con fecha &ahoraString&.
+MSJE_ELIMINA_PAC_PAGO_FUERA_PLAZO;desc=Estimado cliente:<br/>La eliminación de un PAC debe ser solicitada con al menos 48 horas de anticipación a la fecha de pago.<br/>Actualmente el PAC a la Empresa &razonSocial& se encuentra fuera de este plazo, por lo que el próximo pago se realizará en la fecha programada, y la eliminación se realizará a contar del pago subsiguiente.
+MSJE_SUSPENDE_PAC;desc=Estimado Ejecutivo, con fecha &ahoraString& se acaba de realizar con éxito la suspensión del pac  &identif&.;
+MSJE_SUSPENDER_PAC_PROCESO;desc=El pago está en proceso, por lo que no se puede detener.;
+MSJE_ACTIVAR_PAC_PROCESO;desc=El pago está en proceso, por lo que no se puede activar.;
+MSJE_EXITO_SUSPENDER;desc=El mandato y su pago han sido detenido exitosamente.;
+MSJE_EXITO_ACTIVAR;desc=El mandato y su pago han sido activados exitosamente.;
+MSJE_ERROR;desc=Ha ocurrido un error, por favor intente más tarde, o llame a nuestro call-center.;
+MSJE_NO_DETENCION;desc=No se puede detener este pago.;
+MSJE_EXITO;desc=Cambio de estado del mandato con éxito.;
+MSJE_NO_CAMBO_ESTADO;dec=No se puede cambiar el estado del mandato;
+MSJE_DETREA_PAC_EJE;desc=Estimado Ejecutivo:<br/>El PAC a la Empresa &razonSocial&, con el nombre &identif& ha sido &cmd& exitosamente, con fecha &ahoraString&;
+MSJE_MODIFICA_PAC;desc=El PAC aún no ha sido modificado. Por favor confirme que los datos corresponden al PAC que desea modificar.<br/>En caso que este pago se encuentre dentro de las 48 horas hábiles previas al vencimiento, el cambio solo se hará efectivo a partir de su próxima facturación.
+MSJE_MONTO_SUPERADO_PAC;desc=Se superó el monto pactado de UF.;
+MSJE_MONTO_SUPERADO_ACTION;desc=Estimado cliente:<br/>El PAC a la Empresa &razonSocial&, con el nombre &identif& no ha sido activado porque superó el monto pactado de UF, con fecha &ahoraString&.;
+
+# JNDI
+jndi;servicioPac=wcorp.serv.pac.ServiciosPac;bprocessPac=wcorp.bprocess.pac.Pac;

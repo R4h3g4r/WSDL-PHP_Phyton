@@ -1,0 +1,91 @@
+#
+# Tabla de parametros para el producto Token
+#
+# <NOMBRE> es modificado por el nombre del cliente
+# <DIRECCION> es modificado por el tipo de direccion a donde se realiza el despacho del token
+
+CantidadRegistros;Desc=5;
+110-from;Desc=webmast@bci.cl;
+110-subject;Desc=Aviso Reposición Multipass;
+110-message;Desc=Estimado Sr(a). <NOMBRE>, nos dirigimos a usted para comunicarle que su producto Bci Multipass sera cambiado por reposicion, el cual sera enviado a su dirección <DIRECCION>.\n\nEjecutivos banco Bci\nCall Center\nwww.bci.cl;
+
+100-from;Desc=webmast@bci.cl;
+100-subject;Desc=Aviso Reposición Multipass;
+100-message;Desc=Estimado Sr(a). <NOMBRE>, nos dirigimos a usted para comunicarle que su producto Tbanc Multipass sera cambiado por reposicion, el cual sera enviado a su dirección <DIRECCION>.\n\nEjecutivos banco Tbanc\nCall Center\nwww.tbanc.cl;
+smtp;Desc=smtp.bci.cl;
+
+#Para exencion de comision
+tipocms;Desc=KOPE002;
+
+#
+# Obtiene el periodo de gracia para ciertos rut
+#
+# mg: determina los meses de gracia por canal
+#       ej: mg;100-Desc=12;110-Desc=12;
+#
+# ruts: lista de rut a los cuales se les aplicara los meses de gracia, estos debe ser separador por ,
+# ruts:[rut sin dv],..;
+# para selecciona todos los rut para un canal:
+# [canal]-ruts;Desc=Todos;
+#       ej:100-ruts;Desc=123456748,123456789;
+#
+# segmento: lista de segmento por los cuales se puede hacer filtro
+# segmento:[codigo del segmento],..;
+#       ej:segmento;Desc=ERBNU;
+
+mg;100-Desc=6;110-Desc=8;
+#100-ruts;Desc=1000469;
+100-segmento;Desc=ERBNU;
+#110-segmento;Desc=ERBNU;
+
+# Dias de expiracion por default para la reposicion programada
+DiasExpiracion;Desc=30;
+
+
+# NUEVOS ESTADOS DE PASSCODE
+# ==============================================
+FE-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+01-01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - INTENTOS FALLIDOS;
+01-00-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - PRIMER INGRESO WEB;
+01-02-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD USUARIO;
+01-03-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD BANCO;
+01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA;
+02-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+03-PASSCODESTATUS;Desc=CLAVE ELIMINADA;
+NN-PASSCODESTATUS;Desc=CLAVE INACTIVA - INGRESO SOLICITUD;
+00-04-PASSCODESTATUS;Desc=ACTIVA - PRIMER USO;
+02-04-PASSCODESTATUS;Desc=CLAVE EXPIRADA - PRIMER USO;
+00-PASSCODESTATUS;Desc=ACTIVA;
+
+FE-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+01-01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por intentos fallidos de ingrego de Pin;
+01-00-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por ingrego por primera vez al sitio.;
+01-02-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud del cliente;
+01-03-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud Banco;
+01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada;
+02-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+03-PASSCODESTATUS_EXT;Desc=Clave Eliminadad;
+NN-PASSCODESTATUS_EXT;Desc=Clave Inactiva por ingreso de solicitud de Clave Dos;
+00-04-PASSCODESTATUS_EXT;Desc=Clave Activa por primer uso;
+02-04-PASSCODESTATUS_EXT;Desc=Clave Expirada por primer uso;
+00-PASSCODESTATUS_EXT;Desc=Clave Activa;
+
+110-TOKENFRASE02;Desc=Su Multipass fue activado exitosamente, pero por motivos de seguridad su sesión ha terminado y deberá<strong><font color="#cc0000"> ESPERAR UN MINUTO </font></strong>para volver a ingresar al banco en línea.;
+100-TOKENFRASE02;Desc=Tu Multipass fue activado exitosamente, pero por motivos de seguridad tu sesión ha terminado y deberás<strong><font color="#cc0000"> ESPERAR UN MINUTO </font></strong>para volver a ingresar al banco en línea.;
+800-TOKENFRASE02;Desc=Su Multipass fue activado exitosamente, pero por motivos de seguridad tu sesión ha terminado y deberás<strong><font color="#cc0000"> ESPERAR UN MINUTO </font></strong>para volver a ingresar al banco en línea.;
+TOKENFRASE03;Desc=Su Multipass fue sincronizado exitosamente, pero por motivos de seguridad su sesión ha terminado.<p><strong>Por favor, <font color="#cc0000">esperar que su Multipass renueve la clave del visor para volver a ingresar al sitio,</font> de este modo evitará problemas por uso de clave Multipass repetida.</strong></p>;
+TOKENFRASE04;Desc=Su Multipass fue sincronizado exitosamente, pero por motivos de seguridad su sesión ha terminado.<p><strong>Por favor, <font color="#cc0000">esperar que su Multipass renueve la clave del visor para volver a ingresar al sitio,</font> de este modo evitará problemas por uso de clave Multipass repetida.</strong></p>;
+100TOKENFRASE03;Desc=Tu Multipass fue sincronizado exitosamente, pero por motivos de seguridad tu sesión ha terminado.<p><strong>Por favor, <font color="#cc0000">espera que tu Multipass renueve la clave del visor para volver a ingresar al sitio,</font> de este modo evitarás problemas por uso de clave Multipass repetida.</strong></p>;
+100TOKENFRASE04;Desc=Tu Multipass fue sincronizado exitosamente, pero por motivos de seguridad tu sesión ha terminado.<p><strong>Por favor, <font color="#cc0000">espera que tu Multipass renueve la clave del visor para volver a ingresar al sitio,</font> de este modo evitarás problemas por uso de clave Multipass repetida.</strong></p>;
+
+
+# Proyecto de mejoras de seguridad - fase 1
+# Enviar mail de aviso al cliente al momento de autorizar token
+#--------------------------------------------------------------
+100-sendMailTokenAutorizado;smtp=smtp.bci.cl;from=consulta@bci.cl;subject=Aviso de autorización de producto Tbanc Multipass;textplain=Estimado Sr.  :, nos dirigimos a usted para comunicarle que su producto Tbanc Multipass ya ha sido autorizado. Para su activación visite el portal www.tbanc.cl;lineafirma1=Ejecutivos Tbanc;lineafirma2=Call Center;lineafirma3=www.tbanc.cl;
+110-sendMailTokenAutorizado;smtp=smtp.bci.cl;from=consulta@bci.cl;subject=Aviso de autorización de producto Bci Multipass;textplain=Estimado Sr.  :, nos dirigimos a usted para comunicarle que su producto Bci Multipass ya ha sido autorizado. Para su activación visite el portal www.tbanc.cl;lineafirma1=Ejecutivos Tbanc;lineafirma2=Call Center;lineafirma3=www.bci.cl;
+
+#perfil que permite eliminar dispositivos multipas
+#--------------------------------------------------------------
+perfilEliminar;JOF=BCY|WCBPADMM/ELI;FET=BCE|WCBOADMM/ELI;
+

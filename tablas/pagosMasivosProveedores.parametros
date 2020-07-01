@@ -1,0 +1,32 @@
+etiqueta;valor=carga_WS;
+estadoPago;codigoInicial=5090;codigoIntermedio=5079;
+origen;valor=WS;
+plantilla;valor=999999999;
+formaPago;conFecha=C;sinFecha=I;
+journal;producto=PAGOS;canal=WS;eventoCargar=ENVIO;subEventoCargar=NOMINA;eventoRendir=RENDIR;subEventoRendir=NOMINA;eventoConsultar=CONSULTA;subEventoConsultar=NOMINA;
+servicio;valor=ENV;
+pathArchivos;valor=/Envio_BE;
+#################################################################
+# Tipos de pagos: Si hay mas de uno se debe separar por comas   #
+#################################################################
+tiposPagos;codigos=PPR;
+
+#################################################################################
+# Tipos de archivos de rendición: Si hay mas de uno se debe separar por comas   #
+#################################################################################
+tiposArchivos;codigos=CPR,RNPPR;
+
+#################################################################
+# Codigos de CCA: Si hay mas de uno se debe separar por comas   #
+#################################################################
+codigoCca;codigos=1350040000;
+
+#################################################################
+# Modo de servicio: Si hay mas de uno se debe separar por comas #
+#################################################################
+modoServicio;codigos=P,G,F;
+
+####################################################################
+# Contenido de nomina: Si hay mas de uno se debe separar por comas #
+####################################################################
+contenidoNomina;codigos=3;

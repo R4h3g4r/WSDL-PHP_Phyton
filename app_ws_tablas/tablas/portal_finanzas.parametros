@@ -1,0 +1,28 @@
+#XSL-FO utilizado para transformar el xml representante del los certificados vigentes a pdf
+XSLT_CERTIFICADOS;DESC=portalfin/certificados_mtm;
+
+#referencia a la ruta donde se encuentra el logo de bci
+LOGO_BCI;DESC=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/portalfin/logo.jpg;
+
+#referencia a la ruta donde se encuentra la firma de bci, para agregar a los pdf
+FIRMA_BCI;DESC=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/portalfin/firma.jpg;
+
+#Mensaje para mostrar en caso que no se encuentren certificados para mostrar.
+NO_EXISTEN_CERTIFICADOS; DESC=ESTIMADO CLIENTE, NO SE ENCONTRARON CERTIFICADOS PARA MOSTRAR;
+
+#Mensaje para mostrar en caso que no se encuentren contratos para mostrar.
+NO_EXISTEN_CONTRATOS; DESC=ESTIMADO CLIENTE, NO SE ENCONTRARON CONTRATOS PARA MOSTRAR;
+
+#Facultad para el portal finanzas (06 = Reconocer saldos)
+FACULTAD;DESC=06;
+
+#Utilizado para desplegar mensajes de error en la validación del formulario de contratos.
+FECHA_DESDE;DESC=La fecha desde es inválida, debe tener la forma dd/mm/aaaa;
+FECHA_DESDE_LIM;DESC=La fecha desde es inválida, debe ser igual o superior a;
+FECHA_HASTA;DESC=La fecha hasta es inválida, debe tener la forma dd/mm/aaaa;
+FECHA_HASTA_LIM;DESC=La fecha hasta es inválida, debe ser igual o superior a;
+NUMERO_OPERACION;DESC=El número de operación es inválido, debe ser numérico;
+DESDE_MAYOR_HASTA;DESC=El rango de fechas es inválida, la fecha desde debe ser mayor que la fecha hasta;
+
+#Es el límite inferior para el rango de fechas de busqueda de contratos.
+LIMITE_INFERIOR;DESC=01/01/2000;

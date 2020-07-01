@@ -1,0 +1,81 @@
+clave;valor=7BA70D1229174B3D9113739;desc=clave que solicita Indexa para generar identificador;
+ambiente;valor=produccion;desc=contexto desde el cual se está realizando la conexion;
+URL;produccion=http://64.76.170.96;certificacion=http://certificacion2.indexa.cl;desc=URL donde se conecta desde BCI a Indexa.;
+perfil;valor=3;desc=perfil del usuario del portal;
+
+cuentaFactoring;convenio=28695;rutEmpresa=93834000;digitoVerificadorEmpresa=5;actualizacion=2;cantidaDeGruposAInsertar=20;cantidaDeSubGruposAInsertar=15;cantidadDeReferencias=15;facultad=2;autorizado=0;registrosPorPagina=20;oficinaVV=247;registrosParaExcel=1000;
+glosaTipoDocumento;FC=Factura de Compra;DE=Descuento;
+glosaEstadoDeSolicitud;PD=Pendiente;EJ=Ejecutada;
+
+# Parametros para envio de archivo via FTP.
+CORFIN;USUARIO=corfin;PASSWORD=Corftp.;DIRECTORIO=/corfin/csvin;HOST=161.131.232.10;
+
+producto;desc=FACTRG;
+eveNegLogin;desc=LOGIN;
+subEveNegLogin;desc=OK;
+eveNegSimulacion;desc=SIMULAC;
+subEveNegSimulacion;desc=FINANC;
+eveNegRealizarAnticipo;desc=OTORGAR;
+subEveNegRealizarAnticipo;desc=FINANC;
+
+0001;Mensaje=Estimado cliente, en este horario el portal financiamiento no se encuentra en operación.;
+0002;Mensaje=Estimado cliente, el sistema no se encuentra disponible, favor intente más tarde.;
+0003;Mensaje=Estimado cliente, no se ha podido realizar la transacción solicitada debido a un problema de sistema, favor intente más tarde.;
+0004;Mensaje=Estimado cliente, se le solicita realizar cambio de clave en Bci Empresas.;
+0056;Mensaje=Estimado cliente, se ha producido un error al verificar monto de las facturas debido a un problema de sistema. Favor intente más tarde.;
+0144;Mensaje=Estimado cliente, se ha producido un error al consultar la fecha de pago, debido a un problema de sistema. Favor intente más tarde.;
+0203;Mensaje=Estimado cliente, no existe información del convenio que ha ingresado.;
+0025;Mensaje=Estimado cliente, no se ha podido consultar sus datos, favor intente más tarde.;
+0204;Mensaje=Estimado cliente, Ud. no posee convenio con Cencosud.;
+0438;Mensaje=Estimado cliente, Ud. no posee clave para operar por este canal. Debe ir al registro de proveedores http://www.bci.cl/empresas/enrola/index.html o bien contactarse al  692 7000.;
+110E051;Mensaje=Estimado cliente, según la información registrada en nuestros sistemas no es posible cursar su solicitud en línea. Por favor comuníquese con su ejecutivo.;
+USERLOGIN;Mensaje=Estimado cliente, la autentificación es inválida, por favor intente nuevamente.;
+AUTORIZA;Mensaje=Estimado cliente, el servicio no se encuentra autorizado. Por favor contáctese al  692 7000 para mayor información.;
+CTAFA-025;Mensaje=Estimado cliente, usted ya registra un financiamiento, no puede volver a financiar los mismos documentos.;
+FACAD-005;Mensaje=La diferencia entre fechas no debe superar los 30 días.;
+ERROR-GENERICO;Mensaje=Estimado cliente, el sistema no se encuentra disponible, favor intente más tarde;
+FAC-001;Mensaje=Estimado cliente, no posee forma de pago. Por favor contáctese al 692 7000 para mayor información;
+GlosaCCT;Desc=Para operaciones realizadas hasta las 10:15 hrs. los pagos estarán disponibles hoy a partir de las 13:30 hrs.<br/><br/>Para operaciones realizadas entre las 10:15 hrs. y 16:45 hrs., los pagos estarán disponibles el siguiente día hábil a partir de las 09:00 hrs.<br/><br/> Para operaciones realizadas posterior a las 16:45 hrs., los pagos estarán disponibles el siguiente día hábil a partir de las 13:30 hrs.;
+GlosaCCFTRUE;Desc=Su pago se encontrará disponible hoy <b> [FECHA] </b> en las siguientes 2 horas en las oficinas de BCI Factoring, Miguel Cruchaga 920, Piso 6, Santiago;
+GlosaCCFFALSE;Desc=Su pago se encontrará disponible el <b> [FECHA] </b> a partir de las 09:00 hrs. en las oficinas de BCI Factoring, Miguel Cruchaga 920, Piso 6, Santiago;
+GlosaOTC;Desc=Su pago estará disponible el <b> [FECHA] </b> a partir de las 09:00 hrs.;
+GlosaVVC;Desc=Para operaciones realizadas hasta las 10:15 hrs. los pagos estarán disponibles hoy a partir de las 13:30 hrs. en cualquier sucursal BCI.<br/><br/>Para operaciones realizadas entre las 10:15 hrs. y 16:45 hrs., los pagos estarán disponibles el siguiente día hábil a partir de las 09:00 hrs. en cualquier sucursal BCI.<br/><br/>Para operaciones realizadas posterior a las 16:45 hrs., los pagos estarán disponibles el siguiente día hábil a partir de las 13:30 hrs. en cualquier sucursal BCI.;
+
+codigoOtorgamiento;valor=6;
+liquidaciondeCesion;encabezado=1;detalle=2;titulo= LIQUIDACIÓN DE CESIÓN DE FACTURAS (E-FACTORING);mensajepie=Esta liquidación se entenderá aprobada,si no es objetada dentro de los próximos 30 días hábiles.- En caso de disconformidad rogamos formular sus observaciones a bcifactoring@bci.cl.;mensajeError=No se pudo generar el PDF;
+
+tiposError;Desc=1:Proveedor Bloqueado,2:Factura Previamente Pagada, 3: Factura Alfanumérica, 4: Monto excede línea pagador;
+bitacoraErrorFactoring;errorRutProveedor=El rut del proveedor no es válido.;errorRutHolding=El rut del holding no es válido.;inicioVacio=Fecha de inicio no es válida.;finVacio=Fecha de término no es válida.;diferenciaNoValida=No puede haber más de un mes de diferencia entre la fecha de inicio y término.;tipoError=Debe indicar el tipo de error.;resultadoVacio=No se han encontrado registros asociados al filtro ingresado.;
+Desbloquear;servicio=serv;valor=servicio3;valorDesbloqueoTraerDetalle=servicio3;
+#Ambiente Integraccion URL del endpoint del proxy ServicioEmpresaFactoring
+#resumenPagadores;wsdl=http://b2bdesa.bci.cl:9050/esb/orq/productos/servicios/factoring/ServicioEmpresaFactoring?WSDL;portService=ResumenPagadorService;targetNamespace=http://esb.bci.cl/productos/servicios/factoring/ServicioEmpresaFactoring;
+#Ambiente QA URL del endpoint del proxy ServicioEmpresaFactoring
+#resumenPagadores;wsdl=http://b2bcert.bci.cl:9050/esb/orq/productos/servicios/factoring/ServicioEmpresaFactoring?WSDL;portService=ResumenPagadorService;targetNamespace=http://esb.bci.cl/productos/servicios/factoring/ServicioEmpresaFactoring;
+#Ambiente Produccion URL del endpoint del proxy ServicioEmpresaFactoring
+resumenPagadores;wsdl=http://b2b.bci.cl/esb/empresas/orq/productos/servicios/factoring/ServicioEmpresaFactoring?WSDL;portService=ResumenPagadorService;targetNamespace=http://esb.bci.cl/productos/servicios/factoring/ServicioEmpresaFactoring;
+codigoErrorFac-004;codigo=1;
+codigoErrorFac-006;codigo=2;
+
+#Efactoring JSF operacion1=Operaciones Tesoreria operacion2=Operaciones con Cuarta Copia operacion3=Operaciones Abonadas
+operacionesEfactoring;operacion1=1;operacion2=2;operacion3=3;estadoNoEmitida=N;filtroCliente=2;filtroDocumento=1;
+validacionEfactoring;OK=0;NOK=1;marcada=X;flag=N;validar=No pudo ser revisado, debe ser validado manualmente.;encontrado=Encontrado en Sistema Central, debe ser analizado.;
+nominaSinCopia;origen=1;flag=N;marca=S;mensaje=Se generaron X operaciones de un total de Y seleccionadas;nombreArchivo=Nom-M;extension=txt;mensajeInconsistencia=Operación se encuentra con problemas de consistencia. No puede ser pagada;
+nominaConCopia;origen=2;flag=N;marca=S;mensaje=Se generaron X operaciones de un total de Y seleccionadas;nombreArchivo=Nom-D;extension=txt;mensajeInconsistencia=Operación se encuentra con problemas de consistencia. No puede ser pagada;
+abonoManualEfactoring;origen=3;flag=N;marca=P;opcion=1;nemonico=0000000000717;serial=0000000000512;codCajero=9061;usuario=PBRAVOV;marcaIncompleta=N;reintentos=3;origenOk=3;flagOk=S;marcaOk=S;error=En estos momentos no es posible atender su solicitud, por favor intente mas tarde.;exito=Abono realizado correctamente.;
+codigosNomina;marcaOperacionEmitida=S;
+codigosParametros;maximoDias=43;cuentasContablesExcepcion=58;cuentasContablesIntegracion=57;formasPago=52;tiposAbono=50;codigoBancoBci=16;
+codigosCuentasExcepcion;ortorgamiento=1;iva=2;comision=3;bancoDestino=4;bancos=10;
+codigosCuentasIntegracion;debe=1;haber=2;
+estadosAbonosEfactoring;cantidad=3;estadosAbonos0=0,Ambos;estadosAbonos1=1,Ya Abonados;estadosAbonos2=2, Por Abonar;
+informeFinanciamiento;nombreArchivo=FinanciamientosCursados;extension=csv;
+integracionContable;abonos=ae1;excepciones=ie1;extension=txt;
+titulosInformeFinanciamiento;rutProveedor=Rut Proveedor;razonSocialProveedor=Razón Social Proveedor;rutPagador=Rut Pagador;razonSocialPagador=Razón Social Pagador;numOperacion=Número Operación;fechaAbono=Fecha Abono;horaAbono=Hora Abono;tipoAbono=Tipo Abono;formaPago=Forma Pago;montoAbono=Monto Abono;usuario=Usuario;
+
+efactoringXSL;ruta=/cl/bci/aplicaciones/productos/factoring/gestion/liquidacionEfactoring.xsl;
+datosImpresionImagenes;logoFactoring=/resources/efactoring/images/logoBciFactoring.jpg;
+
+
+errores;configuracion=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;ejecucion=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;servicioDeDatos=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;excepcion=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;creacion=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;remote=En estos momentos no es posible atender su solicitud, por favor intente mas tarde;
+journalAbonoManual;codEventoNegocio=ABONO;subCodEventoNegocioOK=OK;subCodEventoNegocioNOK=NOK;subCodEventoNegocioERROR=ERROR;estadoEventoNegocioOK=P;estadoEventoNegocioNOK=R;idProducto=FT;
+
+detalleOperacion;tipoDocumento=FAC;

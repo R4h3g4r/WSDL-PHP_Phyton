@@ -1,0 +1,11 @@
+#
+#Formatos de xsl (contratos) segun tipo contrato
+#
+
+#RUN-FONDO; P-NATURAL; P-JURIDICA
+
+1;PNAT=sistemaDeAportantes/rentaActivaNatural;PJUD=sistemaDeAportantes/rentaActivaJuridico;
+2;PNAT=sistemaDeAportantes/bciTerrenoNatural;PJUD=sistemaDeAportantes/bciTerrenoJuridico;
+3;PNAT=sistemaDeAportantes/desarrolloInmobiliarioNatural;PJUD=sistemaDeAportantes/desarrolloInmobiliarioJuridico;
+4;PNAT=sistemaDeAportantes/contratoSuscripcionPersonaNatural;PJUD=sistemaDeAportantes/contratoSuscripcionPersonaJuridica;
+

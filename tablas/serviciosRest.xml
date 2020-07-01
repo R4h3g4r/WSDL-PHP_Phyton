@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<bciws>
+    <serviciosrest>
+        <servicio><clase>cl.bci.aplicaciones.seguridad.autenticacion.ws.LoginEjecutivoWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.alertas.ws.AlertasIntranetWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.colaborador.ws.ColaboradorWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.seguridad.autorizaciones.ws.AutorizacionesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.menu.ws.MenuIntranetWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.clientes.carteracliente.ws.CarteraClienteWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.productos.clientes.ws.ServiciosClientesPersonaWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.clientes.carteracliente.ws.DatosBasicoClienteWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.clientes.carteracliente.ws.IndicadoresClienteWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.financiero.indicadores.ws.IndicadoresFinancierosWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.ejecutivos.recordatorios.ws.RecordatorioWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.ejecutivos.sistemas.ws.SistemasWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.ejecutivos.acciones.ws.AccionesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.ejecutivos.favoritos.ws.FavoritosWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.colocaciones.margenes.ws.ControlMargenesConsolidadosWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.colocaciones.simulacion.bcinet.ServiciosSimulacionRest</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.clientes.ws.ClientesWS</clase></servicio>
+		<servicio><clase>cl.bci.aplicaciones.servicios.intranet.clientes.carteracliente.inversiones.ws.CarteraClienteInversionesWS</clase></servicio>
+		<servicio><clase>cl.bci.aplicaciones.productos.servicios.pagos.automaticos.ws.AdministracionMandatosPACWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.ejecutivos.clientes.tarjetadebito.ws.TarjetaDebitoWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.fraudes.investigacion.ws.InvestigacionFraudesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.cartola.cuenta.ws.SupercartolaWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.servicios.intranet.clientes.abonoremuneraciones.ws.AbonoRemuneracionesWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.servicios.intranet.ejecutivos.aadvantage.ws.ReporteAAdvantageWS</clase></servicio>  
+<servicio><clase>cl.bci.aplicaciones.productos.seguros.venta.auto.ws.ServiciosSegurosAutomotrizEjecutivoWS</clase></servicio>
+	<servicio><clase>cl.bci.aplicaciones.productos.seguros.venta.auto.ws.ServiciosSegurosAutomotrizWS</clase></servicio>
+	<servicio><clase>cl.bci.aplicaciones.utilitarios.bancos.ws.BancosWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.atenciondecliente.venta.oportunidad.hipotecario.ws.SolicitudCreditoHipotecarioWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.productos.remoto.ws.ServiciosConvenioRemotoWS</clase></servicio>
+	<servicio><clase>cl.bci.aplicaciones.servicios.intranet.ecm.ws.ServicioECMWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.inversiones.resumen.ws.ResumenInversionesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.servicios.intranet.clientes.productos.ws.ProductosWS</clase></servicio>
+	<servicio><clase>cl.bci.aplicaciones.productos.clientes.ws.ServiciosClientesWS</clase></servicio>
+<servicio><clase>cl.bci.aplicaciones.productos.derivados.ws.DerivadosConexosWS</clase></servicio>
+	<servicio><clase>cl.bci.aplicaciones.productos.margenes.ws.ServiciosMargenesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.productos.colocaciones.creditosvigentes.ws.ServiciosCreditosVigentesWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.atenciondecliente.venta.oportunidad.documentacion.ws.ServicioCargaArchivoViajeWS</clase></servicio>
+	    <servicio><clase>cl.bci.aplicaciones.seguimientorentabilidad.ws.RentaEvolutivaWS</clase></servicio>
+		<servicio><clase>cl.bci.aplicaciones.productos.dps.ws.ServiciosDpsWS</clase></servicio>
+		<servicio><clase>cl.bci.aplicaciones.productos.servicios.bpms.ws.ServiciosInstanciaBpmsWS</clase></servicio>
+		<servicio><clase>cl.bci.aplicaciones.productos.servicios.multilinea.ws.SimulacionCreditosWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.productos.mesadedinero.cajaintradia.ws.CajaIntradiaWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.infraestructuradenegocio.convenios.ws.ConveniosEmpresaWS</clase></servicio>
+        <servicio><clase>cl.bci.aplicaciones.infraestructuradenegocio.convenios.ws.MenuEmpresaWS</clase></servicio>
+    </serviciosrest>
+</bciws>

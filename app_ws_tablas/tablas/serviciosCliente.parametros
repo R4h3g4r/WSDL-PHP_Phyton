@@ -1,0 +1,16 @@
+#
+# Tabla de parametros para la Servicios Cliente.
+#
+jndiEjbServicioCliente;Desc=wcorp.serv.clientes.ServiciosCliente;
+
+##Integracion
+#CAcert;keyStore=/lib/security/cacerts;passKeyStore=changeit;aliasKey=te-f48db1a5-dbfa-49c7-a82c-ad2adf19292c;passKey=bci2017;algoritmoToken=RS256;
+#variableEntorno;weblogic=WL_HOME;java=java.home;
+
+##Certificacion
+CAcert;keyStore=/lib/security/cacerts;passKeyStore=changeit;aliasKey=te-f48db1a5-dbfa-49c7-a82c-ad2adf19292c;passKey=bci2017;algoritmoToken=RS256;
+variableEntorno;weblogic=WL_HOME;java=java.home;
+
+##Produccion
+#CAcert;keyStore=/lib/security/cacerts;passKeyStore=changeit;aliasKey=oauthtoken;passKey=bci2017;algoritmoToken=RS256;
+#variableEntorno;weblogic=WL_HOME;java=java.home;

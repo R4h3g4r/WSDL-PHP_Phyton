@@ -1,0 +1,84 @@
+
+#DESARROLLO
+#FILESYSTEM;servidor=161.131.184.80;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=2;
+#IDPRODUCTOSELECIONADO;ID=2;
+#ID_SISTEMA_COMEX;valor=3;
+#ID_SISTEMA;idSistemaComex=3;idSistemaCash=2;idSistemaCredMonedaNacional=9;
+#servicioTarifario;wsdl=http://161.131.184.123:9101/esb/intranet/infraestructuradenegocio/precio/ServicioTarifarioPS?wsdl;
+
+#INTEGRACION
+#FILESYSTEM;servidor=161.131.141.238;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=3;
+#IDPRODUCTOSELECIONADO;ID=3;
+#ID_SISTEMA_COMEX;valor=4;
+#ID_SISTEMA;idSistemaComex=4;idSistemaCash=3;idSistemaCredMonedaNacional=9;
+#servicioTarifario;wsdl=http://161.131.184.123:9101/esb/intranet/infraestructuradenegocio/precio/ServicioTarifarioPS?wsdl;
+
+#CERTIFICACION
+#FILESYSTEM;servidor=161.131.232.185;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+#idSistemaCashManagement;valor=14;
+#IDPRODUCTOSELECIONADO;ID=14;
+#ID_SISTEMA_COMEX;valor=15;
+#ID_SISTEMA;idSistemaComex=15;idSistemaCash=14;idSistemaCredMonedaNacional=9;
+#servicioTarifario;wsdl=http://161.131.140.137:9050/esb/intranet/infraestructuradenegocio/precio/ServicioTarifarioPS?wsdl;
+
+#PRODUCCION
+FILESYSTEM;servidor=161.131.232.11;usuarioUyP=preciocb;directorioFTP=/PreciosCIB/ARCHIVOS/;
+idSistemaCashManagement;valor=2;
+IDPRODUCTOSELECIONADO;ID=2;
+ID_SISTEMA_COMEX;valor=3;
+ID_SISTEMA;idSistemaComex=3;idSistemaCash=2;idSistemaCredMonedaNacional=9;
+servicioTarifario;wsdl=http://alsb.bci.cl/esb/intranet/infraestructuradenegocio/precio/ServicioTarifarioPS?wsdl;
+
+#CODIFICACION EN SERVIDOR
+CODIFICACION_SERVIDOR;formatoVista=iso-8859-1;formatoServidor=UTF-8;
+
+Prod01-2-1;servicios=BGE004,CSH000,PAG09,TR03OPE,TRF07,VDOC001,X69OPE,X70OPE,X71OPE,X72OPE,X75OPE,x05ope;
+Prod09-2-2;servicios=TFULL001,TFULL002;
+Prod02-2-3;servicios=TAHO0001,TCCT0001,TEFE0001,TOTA0001,TOTC0001,TVVD0001,TVVO0001,TVVV0001;
+prod06-2-6;servicios=P20OPE,P21OPE,P22OPE,P23OPE;
+Prod08-2-7;servicios=CERPD1,CERPM4,CERPQ3,CERPS2,X30OPE,X31OPE,X32OPE,X33OPE;
+Prod27-2-8;servicios=PDI-T1;
+Prod12-2-9;servicios=Â P4CP0001,PCCT0001,PDOC0001,POTC0001,PVVD0001,PVVO0001,PVVV0001;
+Prod01-2-17;servicios=SUSPAC,X27OPE,X65OPE,X66OPE,X67OPE,X68OPE,X69OPE,X70OPE,X71OPE,X72OPE;
+
+
+productosBaneleDesplegables;valor=Prod01,Prod09,prod06,Prod08,Prod27,Prod12;
+garantiasAConsiderar;garantiaHipotecaria=SI;garantiaPrendas=SI;garantiaWarrents=SI;garantiaLetrasYPagares=SI;
+
+#===============================================================
+# Validacion Panel de Precios
+#===============================================================
+
+BANQUERO;ID=4;
+EJECUTIVOCASH;ID=5;
+FECHA;ID=2;
+GERENTEBANQUERO;ID=3;
+GRUPOECONOMICO;ID=6;
+PRODUCTO;ID=7;
+RAZONNEGOCIOPERDIDO;ID=1;
+idSistemaCash;valor=Cash Management;
+idSistemaCredMonedaNacional;valor=Créditos Moneda Nacional;
+
+consultaTarifasEspecificas;secuencia=X;clase=148;grupo=TBPRGRPOCOM;canal=010;canalSolicitud=091;moneda=0999;monto=1000000;plazo=1;plazoVencimiento=A;rut3=;rut4=;
+actualizacionTarifasCliente;secuencia=X;clase=147;grupo=TBPRGRPOCOM;canal=010;canalSolicitud=091;moneda=0999;horaInicio=000000;horaFin=120000;sistema=CRE;tasaBanco=S;tasaBase=V;tasaPeriodo=A;tasaSpread=S;descripcion=INT;evento=CUR;
+codOrigen;cod=ORIGEN;
+
+# ID Productos - TioAux Operacion
+productos;productoId0=58;productoTioAux0=0999COM001;productoId1=59;productoTioAux1=0998COM001;productoId2=60;productoTioAux2=0998COM008;productoId3=61;productoTioAux3=0998COM021;productoId4=62;productoTioAux4=0999COM049;productoId5=63;productoTioAux5=0998COM049;productoId6=64;productoTioAux6=0999COM050;productoId7=65;productoTioAux7=0998COM050;productoId8=66;productoTioAux8=0998COM118;productoId9=67;productoTioAux9=0998COM121;productoId10=68;productoTioAux10=0999COM132;productoId11=69;productoTioAux11=0999COM151;productoId12=70;productoTioAux12=0999COM152;productoId13=71;productoTioAux13=0999COM153;productoId14=72;productoTioAux14=0999COM154;productoId15=73;productoTioAux15=0998COM207;productoId16=74;productoTioAux16=0999COM209;productoId17=75;productoTioAux17=0999COM245;productoId18=76;productoTioAux18=0999COM246;productoId19=77;productoTioAux19=0999COM247;productoId20=78;productoTioAux20=0999COM248;productoId21=79;productoTioAux21=0999COM249;productoId22=80;productoTioAux22=0999COM250;productoId23=81;productoTioAux23=0999COM251;productoId24=82;productoTioAux24=0999COM252;productoId25=83;productoTioAux25=0999COM253;productoId26=84;productoTioAux26=0999COM254;productoId27=85;productoTioAux27=0999COM289;productoId28=86;productoTioAux28=0998COM299;productoId29=87;productoTioAux29=0999COM311;productoId30=88;productoTioAux30=0999COM327;productoId31=89;productoTioAux31=0999COM328;productoId32=90;productoTioAux32=0999COM350;productoId33=91;productoTioAux33=0998COM400;productoId34=92;productoTioAux34=0999COM400;productoId35=93;productoTioAux35=0998COM501;productoId36=94;productoTioAux36=0998COM502;productoId37=95;productoTioAux37=0998COM503;productoId38=96;productoTioAux38=0998COM504;productoId39=97;productoTioAux39=0998COM505;productoId40=98;productoTioAux40=0998COM522;productoId41=99;productoTioAux41=0998COM604;productoId42=100;productoTioAux42=0999COM733;productoId43=101;productoTioAux43=0998COM733;productoId44=102;productoTioAux44=0998COM734;
+
+# Rut ficticio por banca para obtener la tasa pizarra de la entidad QMT de IBM.
+rutFicticioxBanca;banca_C1=98888881-8-1-;banca_C1A=98888882-6-1-;banca_C1B=98888883-4-1-;banca_C1C=98888884-2-1-;banca_C1D=98888885-0-1-;banca_C2=98888886-9-1-;banca_C3=98888887-7-1-;banca_C4=98888888-5-1-;banca_EG=98888889-3-1-;banca_EGQ=98888890-7-1-;banca_EM=98888891-5-1-;banca_EMQ=98888892-3-1-;banca_EQ=98888893-1-1-;banca_EX=98888894-K-1-;banca_I1=98888895-8-1-;banca_I2=98888896-6-1-;banca_I3=98888897-4-1-;banca_I4=98888898-2-1-;banca_I5=98888899-0-1-;banca_I6=98888900-8-1-;
+
+# JNDI
+jndi;webTableManagerImpl=wcorp.util.tables.core.impl.WebTableManagerImpl;propuestaPrecios=wcorp.infraestructuradenegocios.condicionesdeventa.propuestas.precios.PropuestaPrecios;
+
+#======================================
+# Servicios de Clientes y Margenes
+#======================================
+
+JNDI_REC;servicio=wcorp.aplicaciones.clientes.relacionentreclientes.administracion.implementation.RelacionEntreClientes;
+JNDI_DBC;servicio=wcorp.serv.clientes.ServiciosCliente;
+JNDI_MULTI;servicio=wcorp.bprocess.multilinea.Multilinea;
+

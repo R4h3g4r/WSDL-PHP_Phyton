@@ -1,0 +1,11 @@
+#ALSB Desarrollo
+#conexionALSB;endpoint=http://b2bdesa.bci.cl:9050/esb/productos/beneficios/ServicioAAdvantage?WSDL;
+
+#ALSB Certificacion
+conexionALSB;endpoint=http://b2bcert.bci.cl:9050/esb/productos/beneficios/ServicioAAdvantage?WSDL;
+
+#ALSB Produccion
+#conexionALSB;endpoint=http://alsb.bci.cl/esb/intranet/productos/beneficios/ServicioAAdvantage?WSDL;
+
+#SECURITIZACION OSB
+servicioOSBAdvantage;sistemaUyP=wsaadvan;

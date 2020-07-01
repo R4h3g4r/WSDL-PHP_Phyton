@@ -1,0 +1,24 @@
+#Datos ws ambiente desarrollo
+#webserviceOrden;url=http://170.1.1.109:8011/servicios/directemar/ordenes?wsdl;timeout=8;
+#webservicePrepago;url=http://170.1.1.109:8011/servicios/pagos/directemar/prepago?wsdl;timeout=8;
+
+#Datos ws ambiente certificacion
+webserviceOrden;url=http://alsbcert.bci.cl/servicios/directemar/ordenes?wsdl;timeout=8;
+webservicePrepago;url=http://alsbcert.bci.cl/servicios/pagos/directemar/prepago?wsdl;timeout=8;
+
+Datos ws ambiente producción
+#webserviceOrden;url=http://alsb.bci.cl/servicios/directemar/ordenes?wsdl;timeout=8;
+#webservicePrepago;url=http://alsb.bci.cl/servicios/pagos/directemar/prepago?wsdl;timeout=8;
+
+osb;usuario=wlsalsb;
+
+usuarioDirectemar;usuario=;
+
+#url desarrollo
+#urlPago;BCI=http://localhost:7001/bcinetwls/paguedirecto/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;TBanc=https://localhost:7001/tbancwls/paguedirecto/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;
+
+#url certificacion
+urlPago;BCI=https://199.180.28.139/bcinetwls/paguedirecto/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;TBanc=https://199.180.28.139/tbancwls/paguedirecto/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;
+
+#url produccion
+#urlPago;BCI=https://bel.bci.cl/bcinetwls/paguedirecto/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;TBanc=https://bel.bci.cl/bcinetwls/tbancwls/monex/PagoDirecto.do?metodo=inicio&RET=http://ws2.directemar.cl/axis2/default.htm&RUT=61102014&ID=<TRANS>;

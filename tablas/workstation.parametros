@@ -1,0 +1,37 @@
+#Estados del los mandatos pac que NO son considerados cuando en la vista se selecciona el estado 'Otros'
+PAC_ESTADO_OTROS;Estados=016,025,009,015,002;
+#
+PAC_ESTADO_MANDATOS;Estados=015,Autorizado en Banco|002,Pendiente Validación Banco|016,Anulado en Banco|025,Rechazado en Banco|009,Baja Cambio Identificador|otros,Otros Estados|todos,Todos;
+#
+WS_EPIPHANY_CONTACTOS;nombreSistema=epiphany;url=http://161.131.133.36/WSCliente/wsClienteSvc?wsdl;habilitado=false;timeout=4;
+#
+WS_DATOS_CLIENTE_EMPRESA;mensajeClientesListaObservacion=CLIENTE EN LISTA DE OBSERVACION;
+#
+DATA_SOURCE_BANCA_PRIVADA;JNDI=wcorp.datasource.bancaprivada.BancaPrivadaDS;
+
+TIPO_PROD;prima-151=CPR;linea-151=CCT_CCC;tjbci-151=CCT;cta-151=CCT;pac-151=CCT;aumentolinea-151=CCT_CCC;modificarcupo-151=CCT_CCC;
+
+MENSAJE_LEALTAD_CLIENTE;I=Cliente con Alta Rentabilidad y Vinculación;II=Cliente con Alta Rentabilidad y Baja Vinculación;III=Cliente con Baja Rentabilidad y Alta Vinculación;IV=Cliente con Baja Rentabilidad y Vinculación;
+IMAGEN_LEALTAD_CLIENTE;I=/workstationwls/images/ico_rentabilidad_exelente.gif;II=/workstationwls/images/ico_rentabilidad_buena.gif;III=/workstationwls/images/ico_rentabilidad_media.gif;IV=/workstationwls/images/ico_rentabilidad_mala.gif;
+MENSAJE_COLABORADOR;mensaje=Lo sentimos, Usted no posee el perfil necesario para visualizar la información de un funcionario de la corporación;
+#Delimitadores para las diferentes secciones del resultado entregado por el servicio de visacion
+DELIMITADORES_RESULTADO_VISACION;DATA_START=211;GEN_CODE=GEN;ESTADO_OK=0000;DBT_CODE=DBT;DSF_CODE=DSF;
+VALIDA_COLABORADOR;mensaje=Lo sentimos, usted no posee permisos para cursar seguros a un funcionario de la corporación. Favor derivar cliente a Plataforma Colaboradores;
+SWITCH_HOGARCOLAB;mensaje=SI;
+SWITCH_ACPERCOLAB;mensaje=SI;
+SWITCH_SALUDCOLAB;mensaje=SI;
+SWITCH_GMACOLAB;mensaje=SI;
+SWITCH_INCOMCOLAB;mensaje=SI;
+SWITCH_MULTICOLAB;mensaje=SI;
+SWITCH_AUTOCOLAB;mensaje=SI;
+SWITCH_RCICOLAB;mensaje=SI;
+ES_PROP_DET;mensaje=-1;
+
+#INTEGRACION
+#colaboradores;valor=aosses|bmunozr|cromans|excridr|dhuertm|fjarach|ichavezp|khuencg|ljonesp|masotos|mvillem|mbaezca|rmunoro|rsandgon|tmartih|exvhogr|ypoblet|lplazad|MISANCH;
+
+#CERTIFICACION
+colaboradores;valor=aosses|bmunozr|cromans|excridr|dhuertm|fjarach|ichavezp|khuencg|ljonesp|masotos|mvillem|mbaezca|rmunoro|rsandgon|tmartih|exvhogr|ypoblet|lplazad|MISANCH;
+
+#PRODUCCION
+#colaboradores;valor=aosses|bmunozr|cromans|excridr|dhuertm|fjarach|ichavezp|khuencg|ljonesp|masotos|mvillem|mbaezca|rmunoro|rsandgon|tmartih|exvhogr|ypoblet|lplazad;

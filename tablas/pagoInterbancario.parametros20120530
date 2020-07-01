@@ -1,0 +1,134 @@
+#PAGO INTERBANCARIO - TABLA DE PARAMETROS
+cantidadProductos;valor=2;
+producto0;valor=TDC|Tarjeta de Crédito;
+producto1;valor=CHIP|Crédito Hipotecario;
+
+#monto maximo
+montoMaximo;valor=5000000;
+
+#ALSB BCIAcreedor
+#BCIAcreedor;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#BCIAcreedor;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+BCIAcreedor;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/acreedor/BCIAcreedorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#ALSB BCIPagador
+#BCIPagador;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#BCIPagador;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+BCIPagador;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/pagador/BCIPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#ALSB CCAAcreedor
+#CCAAcreedor;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+#CCAAcreedor;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+CCAAcreedor;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/acreedor/CCAAcreedorProxyService?WSDL;timeoutSeconds=30;sistema=wlsalsb;
+
+#ALSB CCAAutenticacion
+#CCAAutenticacion;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+#CCAAutenticacion;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+CCAAutenticacion;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/autenticacion/CCAAutenticacionProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;sistemaCca=ccaalsb;
+
+#ALSB CCAPagador
+#CCAPagador;url=http://alsbdesa.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+#CCAPagador;url=http://alsbcert.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+CCAPagador;url=http://alsb.bci.cl/servicios/productos/servicios/pagos/cca/pagador/CCAPagadorProxyService?WSDL;timeoutSeconds=20;sistema=wlsalsb;
+
+#Campos casi estáticos
+codigoBancoAcreedor;valor=16;
+codigoServicio;valor=001;
+tipoMoneda;valor=CLP;
+uRLBancoAcreedor;valor=https://www.tbanc.cl/TBanc/appmanager/tbancwlp/comprairresistible?_nfpb=true&_pageLabel=page_recepcion_despacho;
+uRLBancoPagador;valor=https://www.bci.cl/cl/bci/aplicaciones/productos/servicios/pagos/interbancarios/vistaPagoInterbancario.jsf;
+
+#TABLA CODIGOS DE RESPUESTA
+COD-0;valor=0;desc=OK;
+COD-1;valor=1;desc=Código de Banco Acreedor Inválido;
+COD-3;valor=3;desc=Rut inválido;
+COD-4;valor=4;desc=IP Cliente inválida;
+COD-10;valor=10;desc=Servicio No disponible;
+COD-20;valor=20;desc=Token Inválido;
+COD-30;valor=30;desc=Monto Excede Máximo permitido Por Transacción;
+COD-40;valor=40;desc=Monto Excede Máximo Permitido por Rut;
+COD-50;valor=50;desc=Rut no es cliente del banco pagador;
+COD-60;valor=60;desc=Ticket Inválido;
+COD-70;valor=70;desc=Time-Out;
+COD-80;valor=80;desc=Autenticación Fallida;
+COD-90;valor=90;desc=Transacción ya iniciada en proceso;
+COD-100;valor=100;desc=No existe TRX;
+
+#TABLA DE ESTADOS:
+APR;desc=10;
+RCH;desc=20;
+PEN;desc=30;
+
+#CANAL
+canalInter;desc=125;
+
+#Productos
+PRD;01=CHIP;02=TDC;
+
+#Servicio tuxedo abono cca
+SRV-ABONO-ACR;desc=CtaCteAboTrf;
+SRV-CARGO-PAG;desc=CtaCteTransfGen;
+
+#MNEMONICO
+ACMnemonicoAbonoTDC;desc=1223;
+ACMnemonicoAbonoCHIP;desc=1224;
+PGMnemonicoReversaCargo;desc=1227;
+
+#CUENTA ABONO CERTIFICACION
+ACDCtaSacoTDC;desc=40001113;
+ACDCtaSacoCHIP;desc=40001113;
+
+#CUENTA ABONO PRODUCCION
+#ACDCtaSacoTDC;desc=10636803;
+#ACDCtaSacoCHIP;desc=10636811;
+
+#RUT BANCO BCI CERTIFICACION
+ACDRutCtaSacoTDC;desc=97006000;
+ACDRutCtaSacoCHIP;desc=97006000;
+
+#RUT BANCO BCI PRODUCCION
+#ACDRutCtaSacoTDC;desc=99090199;
+#ACDRutCtaSacoCHIP;desc=99090199;
+
+#Servicio tuxedo reversa
+SRV-REVERSA-ACR;desc=CtaCteRevAboTrf;
+SRV-REVERSA-PAG;desc=CtaCteRevTrnCar;
+
+#Trx reversa para StoreAndForward
+trxReversaAbono;valor=B8781;
+trxReversaCargo;valor=B8690;
+
+#Codigos BCI
+codigoAprobadoBCI;valor=110;
+codigoRechazadoBCI;valor=120;
+codigoPendienteBCI;valor=130;
+codigoExisteBCI;valor=-1;
+codigoErrorBCI;valor=1;
+codigoAprobadoCCA;valor=0;
+
+#Datos para StoreAndForward
+intentos;valor=3;
+producto;valor=PIB;
+
+#Códigos para pago de dividendo
+codTabla;desc=PRM;
+codSistema;desc=PAGDIV;
+codMnemonico;desc=716;
+cargo;S=G0688;N=G0672;
+reversa;S=G0689;N=G0673;
+ACDCtaSacoChip;desc=40001113;
+ACMnemonicoAbonoChip;desc=1117;
+codOficina;id=090;
+operadorSN;desc=WEBHIPOTECAR;
+formaPago;tipo=4;
+codError;0=proceso realizado (OK);1=Dividendo ya fue enviado a PAC;2=Credito Hipotecario no existe;3=Dividendo seleccionado invalido;4=Dividendo se encuentra cancelado;5=Valor de dividendo no corresponde;6=Dividendo anterior impago;7=Cuenta contable intercentro no existe;exitoPago=0;errorCargo=8;errorSistema=9;
+
+#Paramétros Backing
+respuetaDespachoLogin;valor=cargaDespacho;
+respuetaDespachoError;valor=/common/Error.html;
+respuetaDespachoBci;valor=http://www.bci.cl;
+despachoLogin;valor=vistaPagoInterbancario;
+despachoSegundaClave;valor=confirmarPagoInterbancario;
+despachoComprobante;valor=comprobantePagoInterbancario;
+prodJournal;valor=;
+subProdJournal;valor=;

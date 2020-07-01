@@ -1,0 +1,7 @@
+#InyectaFueraLinea;Clase=wcorp.bprocess.dap.InyectaFueraLinea;Inicio=09:30:00;Frecuencia=H;Fin=19:00:00;Periodo=1;Feriados=Si;
+#InyeccionRescInvFFMM;Clase=wcorp.bprocess.fmutuos.InyeccionPendientes;Frecuencia=H;Fin=17:00:00;Periodo=1;Inicio=09:05:00;Feriados=Si;
+#InyeccionServipag;Clase=wcorp.bprocess.pagos.AbonoServipag;Frecuencia=D;Periodo=1;Inicio=14:30:00;Feriados=Si;
+#InyeccionMediosPagos;Clase=wcorp.bprocess.pagos.AbonoMediosPagos;Frecuencia=D;Periodo=1;Inicio=17:30:00;Feriados=Si;
+#AgenteGenerico;Clase=wcorp.bprocess.serviciossms.AgenteGenerico;Inicio=24:00:00;Frecuencia=m;Fin=23:59:00;Periodo=5;Feriados=Si;
+#AgenteEspecifico;Clase=wcorp.bprocess.serviciossms.AgenteEspecifico;Inicio=24:00:00;Frecuencia=D;Fin=1:00:00;Periodo=1;Feriados=Si;
+#AgenteProcesaAlertas;Clase=wcorp.bprocess.serviciossms.AgenteProcesaAlertas;Inicio=09:00:00;Frecuencia=D;Fin=10:00:00;Periodo=1;Feriados=Si;

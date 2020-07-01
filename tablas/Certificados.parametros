@@ -1,0 +1,154 @@
+#
+# Titulos de Certificados
+# ==============================================================================
+#
+#PT;  Desc=Protestos y Aclaraciones;
+#PG; Desc=Aclaraciones de Pagar&eacutes;
+#AC;  Desc=Antig&uumledad de Cuentas;
+#CC; Desc=Aclaraciones de Cr&eacuteditos de Consumo;
+#DV;  Desc=Deudas Vigentes;
+
+#
+# Parametros para Certificado de Protestos Aclarados
+# ==============================================================================
+#
+CertProtAcl;nombre=Cuentas Corrientes;Pta=WCCACTAS/EMI;CodigoCert=001;DocPorPagina=15;MsgNoPrt=No existen protestos para esta cuenta;MsgNoAcl=No existen protestos aclarados para esta cuenta;Desc=Certificado de Protestos Aclarados;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertPrtAcl_pdf.xsl;
+PT;Codigo=001;nombre=Cuentas Corrientes;MsgNoPrt=No existen protestos para esta cuenta;MsgNoAcl=No existen protestos aclarados para esta cuenta;Desc=Certificado de Protestos Aclarados;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertPrtAcl_pdf.xsl;
+#
+# Parametros para Certificado de Antiguedad
+# ==============================================================================
+#
+CertAntiguedad;nombre=Cuentas Corrientes;Pta=WCCDEVIG/EMI;CodigoAntig=002;Desc=Certificado de Antiguedad;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertAnt_pdf.xsl;
+AC;CodigoDeuda=002;nombre=Cuentas Corrientes;Desc=Certificado de Antigüedad;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertAnt_pdf.xsl;
+CertAntiguedadImg;logo=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/logo-bci.gif;firma=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/timbre-firma.gif;
+CertAntiguedadTxt;nombreFirma=Luis Poblete Muñoz;textoFirma1=Gerente Comercial Banca Personas;textoFirma2=p. Banco de Crédito e Inversiones;
+
+# Parametros para Certificado de Deudas Vigentes
+# ==============================================================================
+#
+CertDeuda;CodigoDeuda=003;nombre=Créditos;Desc=Certificado de Deudas Vigentes;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertDeuda_pdf.xsl;
+DV;CodigoDeuda=003;nombre=Créditos;Desc=Certificado de Deudas Vigentes;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertPrtDeudaVigBCI_pdf.xsl;
+#
+# Parametros para Aclaracion de Pagares
+# ==============================================================================
+#
+PG;Codigo=005;trx=L0671;nombre=Cuentas Corrientes;Desc=Aclaraciones de Pagares;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionAclaraciones_pdf.xsl;
+PGImg;logo=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/logo-bci.gif;firma=/export/weblogic/bea/wlsplatform/tablas/impresion/imagenes/timbre-firma.gif;
+PGTxt;parrafo1=el (los) pagaré(s) de créditos detallado(s) a continuación;parrafo2=se encuentra(n) cancelado(s) en esta institución a la fecha.;nombreFirma=Luis Poblete Muñoz;textoFirma1=Gerente Comercial Banca Personas;textoFirma2=p. Banco de Crédito e Inversiones;
+
+#
+# Parametros para Creditos de Consumo
+# ==============================================================================
+#
+CC;Codigo=004;nombre=Créditos;Desc=Aclaraciones de Creditos de Consumo;MsgNoPrt=No existen protestos para esta cuenta;MsgNoAcl=No existen protestos aclarados para esta cuenta;trx=L0671;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/ImpresionCertPrtAclBCI_pdf.xsl;
+#
+#
+# Parametros para Deuda Hipotecaria
+# ==============================================================================
+#
+DH;Codigo=006;trx=L0671;
+#
+# prueba
+# ==============================================================================
+LC;trx=L0671;
+#
+# Directorio temporal para el archivo de nros Confirmatorios
+# ==============================================================================
+#PATHFILE;Desc=/home/weblogic7/bea/wlsplatform/config/desarrollo/temp/;
+PATHFILE;Desc=/export/weblogic/bea/wlsplatform/temp/;
+#
+# Cargo y Reverso Cuenta
+# ==============================================================================
+CargoCuenta;codTabla=B0688;trx=V0670;subCodEve=EMICRG;codEvento=EMICERTIF;
+ReversaCuenta;codTabla=B0689;trx=V0678;subCodEve=EMIREV;codEvento=EMICERTIF;
+#
+# Varios
+# ==============================================================================
+ImprCert;codEvento=IMPCERTIF;subCodEve=EMICER;
+
+CodGrales;codTipoTabla=PDP;codMnemonico=610;sinadico=82;
+
+DEFAULT;Desc="Sin Información";Glosa="";
+
+ParaFirma; CodOficina=247; CodCanal=160;
+
+#
+# Envio Emails
+# ==============================================================================
+certificadoFrom;        Desc=certificadosWeb@bci.cl;
+certificadoTo;          Desc=cacuna@bci.cl,amontoy@bci.cl;
+certificadoAsunto;      Desc=NUMEROS CONFIRMATORIOS;
+certificadoCuerpo;      nros=Quedan menos de 100 Nros. Confirmatorios\\n; SinNros=Sin Nros. confirmatorios\\n; dias=Quedan menos de 15 dias para la expiracion de los Nros. Confirmatorios\\n;
+
+# PATH para almacenar temporalmente la firma en formato gif.
+#==========================================================
+path_img;Desc=/export/weblogic/bea/wlsplatform/temp/vischeques;
+
+#medio por el cual se envian los mensajes
+#=========================================================
+tipoMedioRespaldo;medio=todos;
+
+# Datos de envio de certificados a ftp
+#==========================================================
+servicioftp;servidor=161.131.232.180;nombreUsuario=resinver;password=rinver14;directorioInicial=in;
+
+# Datos de envio de certificados por correo
+#==========================================================
+envioCorreo;de=webmast@bci.cl;asunto=Bci - Certificado emitido por la web;mensaje=Estimado(a) cliente:\n\nAdjunto a este email se encuentra una copia del certificado xxtipocertificadoxx solicitado a través de la web.\n\nAtentamente,\nBci - Somos diferentes\nConsultas al 600 824 24 24\nNotas:\n- Los tildes han sido omitidos intencionalmente.\n- Para abrir el archivo, debe tener instalado el programa Acrobat Reader:\nsi no lo tiene, descargue una version gratuita desde el sitio de la empresa\nAcrobat.;
+
+# Certificados Historicos
+#==========================================================
+MensajeErrorNoData;Desc=No tiene certificados emitidos para la consulta realizada;
+
+# Plantilla para Certificado de tipo hipotecario
+#==========================================================
+hipotecarioDfl2;nombre=Hipotecarios;Desc=Crédito Hipotecario DFL2;xslPDF=/export/weblogic/bea/wlsplatform/tablas/impresion/xslt/certificados/certificadoDFL2.xsl;
+hipotecarioIntereses;nombre=Hipotecarios;Desc=Crédito Hipotecario Intereses;xslPDF=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/certificadoIntereses.xsl;
+
+# Certificados de Vigencia Empresa/Empresario
+#============================================
+certificadoVigencia;codigoTipo=VIG;codigoServicio=x00ope;
+VIG;Desc=Certificado De Vigencia;costoUF=0.21;codEvento=IMPRIME;subEvento=CERTIF;producto=INFCLI;medio=EMPRESAR;canal=WEBBCI;
+######### Desarrollo ######### 
+#logoBciCertVig;Desc=C:/bci/GitLab/workspace/wcorpWebApp/belwls/bciexpress/certificado/img/02-logo-bci.gif;
+#firmaImagen;Desc==C:/bci/GitLab/workspace/wcorpWebApp/belwls/bciexpress/certificado/img/Firma_Jefe_Zonal.gif;
+#xslFile;certificado=C:/bci/workspace/Librerias/tablas/impresion/xslt/certificados/certificadoVigencia.xsl;comprobante=C:/bci/workspace/Librerias/tablas/impresion/xslt/certificados/comprobanteCertificado.xsl;
+######### Integracion ######### 
+#logoBciCertVig;Desc=/export/weblogic/oracle10.3/wlsplatform/config/integracion/applications/wcorpWebApp/belwls/bciexpress/certificado/img/02-logo-bci.gif;
+#firmaImagen;Desc=/export/weblogic/oracle10.3/wlsplatform/config/integracion/applications/wcorpWebApp/belwls/bciexpress/certificado/img/Firma_Jefe_Zonal.gif;
+#xslFile;certificado=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/certificadoVigencia.xsl;comprobante=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/comprobanteCertificado.xsl;
+######### Certificacion ######### 
+logoBciCertVig;Desc=/export/weblogic/oracle10.3/wlsplatform/config/certificacion/applications/wcorpWebApp/belwls/bciexpress/certificado/img/02-logo-bci.gif;
+firmaImagen;Desc=/export/weblogic/oracle10.3/wlsplatform/config/certificacion/applications/wcorpWebApp/belwls/bciexpress/certificado/img/Firma_Jefe_Zonal.gif;
+xslFile;certificado=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/certificadoVigencia.xsl;comprobante=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/comprobanteCertificado.xsl;
+######### Produccion ######### 
+#logoBciCertVig;Desc=/export/weblogic/oracle10.3/wlsplatform/config/empresas/applications/wcorpWebApp/belwls/bciexpress/certificado/img/02-logo-bci.gif;
+#firmaImagen;Desc=/export/weblogic/oracle10.3/wlsplatform/config/empresas/applications/wcorpWebApp/belwls/bciexpress/certificado/img/Firma_Jefe_Zonal.gif;
+#xslFile;certificado=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/certificadoVigencia.xsl;comprobante=/export/weblogic/oracle10.3/wlsplatform/tablas/impresion/xslt/certificados/comprobanteCertificado.xsl;
+
+selloBci;Desc=/belwls/bciexpress/certificado/img/sello_bci.gif;
+FirmaCertificado;OficinaEmpresa=090;CanalEmpresa=230;
+
+#
+# Certificados Ecologicos
+# ==============================================================================
+Mensaje1CertEcol;	Desc=Certificado Fundación Mi Parque: Un Árbol Plantado;
+Mensaje2CertEcol;	Desc=Certificado Fundación Chile: Plan Ecológico Carbono Neutral;
+logoFundacion;	Desc=fundacionChile.jpg;
+logoBanco;		Desc=logo_bci.jpg;
+codigoCert;		Desc=HOLA123;
+codPlanEcologico;		Desc=U;
+tipoEvento;Pre=1;Post=2;
+nombreFundacionArbol;Desc=Mi Parque;
+logoMiParque;Desc=/imagenes/logoMiParque.jpg;
+logoBci;Desc=/imagenes/logoBCI.jpg;
+imagenFirma;Desc=/imagenes/signature.jpg;
+
+#
+# Parametros para Certificados Web
+# ==============================================================================
+#
+CertWeb;CertNoCobro=0;CertCobro=0.25;CertIva=1.19;
+Facultad;SIN_FACULTAD=No tiene Facultad;SIN_FACULTAD_DE_GIRAR_CHEQUES=No tiene Facultad de Girar Cheques;OK_FACULTAD=OKFAC;
+EPYME_MONOUSUARIO;Desc=04;
+CertWeb;CertNoCobro=0;CertCobro=0.38;CertIva=1.19;

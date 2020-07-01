@@ -1,0 +1,26 @@
+# glosa de tipo de cancelacion.
+tipocancelacionATT;desc=Anulacion de Credito;vigente=N;
+tipocancelacionCIE;desc=Canc Parcial INT 1RO DE 1 Vcto Esp;vigente=N;
+tipocancelacionCPE;desc=Canc Parcial Proporcional 1 Vcto Esp;vigente=N;
+tipocancelacionCTE;desc=Canc Total 1 Vcto Especifico;vigente=N;
+tipocancelacionCTT;desc=Canc Total Todos los Vctos;vigente=N;
+tipocancelacionCVE;desc=Cancelacion Parcial Cargo Automatico;vigente=N;
+tipocancelacionCXE;desc=Canc Credito Sin Mora;vigente=S;
+tipocancelacionKTT;desc=Prepagos PARCIALES CRED CUOTAS;vigente=N;
+tipocancelacionNTT;desc=Novacion Total Todos los Vctos;vigente=N;
+tipocancelacionPTT;desc=Prorroga Total Todos los VCTOS;vigente=N;
+tipocancelacionRTE;desc=Renovacion Total 1 Vencimiento Especific;vigente=N;
+tipocancelacionRTT;desc=Renovacion Total Todos los Vctos;vigente=N;
+
+# mensaje de operacion exitosa.
+mensajeexito;desc=SU TRANSACCIÓN HA SIDO REALIZADA EXITOSAMENTE.;
+
+#validacion para creditos con forma de pago con codigo COB
+tipodecargo;codigo=COB;diasHabilesValidos=3;vigente=S;
+
+#mensaje de validacion de no pago para forma de pago con codigo COB
+mensajeCOB;desc=Transacción Fuera de Plazo-br-Estimado Cliente:-br-Para poder postergar la cuota de su crédito flexible Bci con PAC desde otro Banco, debe realizar la postergación con un mínimo de 72 horas hábiles antes del vencimiento de su cuota.-br-Para mayor información, llámenos al 6928000.
+
+#mensaje para Cancelado por : CODIGO NO VIGENTE 038
+canceladoPor038;desc=Cliente no cumple con las condiciones para cursar cuota flexible, debe revisar la normativa.;codigo=Cancelado por     : CODIGO NO VIGENTE                                       038;
+

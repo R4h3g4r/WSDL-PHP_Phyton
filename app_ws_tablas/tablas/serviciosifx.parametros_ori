@@ -1,0 +1,35 @@
+codigo;desc=B0275;
+
+
+
+# Configuracion WTC
+#=========================
+#
+
+transaccionDEPCCT;Desc=G0700;
+transaccionVVCCT;Desc=G0746;
+transaccionDEPLSG;Desc=G4800;
+transaccionDEPLDE;Desc=G1760;
+depositoCCT;Desc=DEPCCT;
+valeVistaCCT;Desc=VVCCT;
+depositoLineaSobregiro;Desc=DEPLSG;
+depositoAhorro;Desc=DEPLDE;
+codigoTrxDeposito;Desc=stdeposito2p;
+codigoTrxDepositoAhorro;Desc=stdeposito3p;
+
+
+
+# REVERSAR
+
+reversaDEPCCT;Desc=G0708;
+reversaVVCCT;Desc=G0705;
+reversaDEPLSG;Desc=G4808;
+reversaDEPLDE;Desc=G1768;
+
+
+cajero;Desc=cajabci1;
+
+
+
+
+llaveSupervisor;Desc=0;

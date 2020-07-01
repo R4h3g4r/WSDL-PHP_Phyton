@@ -1,0 +1,161 @@
+IngresoAltosMontosLBTR;             Desc=TR01OPE;      DescLong=Codigo de Servicio del Ingreso de Transferencias Altos Montos LBTR;
+IngresoCuentasPropias;              Desc=x17ope;       DescLong=Codigo de Servicio del Ingreso de Transferencias entre cuentas propias;
+IngresoTercerosNoInscritos;         Desc=X88OPE;       DescLong=Codigo de Servicio del Ingreso de Transferencias a teceros no inscritos;
+IngresoTerceros;                    Desc=X48OPE;       DescLong=Codigo de Servicio del Ingreso de Transferencias a teceros inscritos;
+FirmaTercerosNoInscritos;           Desc=X90OPE;       DescLong=Codigo de Servicio de la Firma a Terceros No Inscritos;
+FirmaCuentasPropias;                Desc=x19ope;       DescLong=Codifo de Servicio de la Firma de Transferencias a Cuentas Propias;
+FirmaTerceros;                      Desc=X52OPE;       DescLong=Codigo de Servicio de la Firma a Terceros Inscritos;
+FirmaTercerosNoInscritosBCIPagos;   Desc=X63OPE;       DescLong=Codigo de Servicio de la Firma a Terceros No Inscritos BCIPagos;
+FirmaTercerosBCIPagos;              Desc=X61OPE;       DescLong=Codigo de Servicio de la Firma a Terceros Inscritos BCIPagos;
+FirmaAltosMontosLBTR;               Desc=TR03OPE;      DescLong=Codigo de Servicio de la Firma a Altos Montos LBTR;
+ConsultaCuentasPropias;             Desc=X22OPE;       DescLong=Codigo de Servicio de Consulta de Transferencias Entre Cuentas Propias;
+ConsultaTeceros;                    Desc=X53OPE;       DescLong=Codigo de Servicio de Consulta de Transferencias a Terceros Inscritos;
+ConsultaTecerosNoInscritos;         Desc=X89OPE;       DescLong=Codigo de Servicio de Consulta de Transferencias a Terceros No Inscritos;
+ConsultaTecerosBCIPagos;            Desc=X97OPE;       DescLong=Codigo de Servicio de Consulta de Transferencias a Terceros Inscritos BCIPagos;
+ConsultaTecerosNoInscritosBCIPagos; Desc=X98OPE;       DescLong=Codigo de Servicio de Consulta de Transferencias a Terceros No Inscritos BCIPagos;
+ConsultaAltosMontos;                Desc=TR02OPE;      DescLong=Codigo de Servicio de Consulta de Transferencias Altos Montos LBTR;
+montoMax;                           Desc=2000000;      DescLong=Valor utilizado para llamar al servicio que obtiene el monto maximo de transferencias;
+McodCajero;                         Desc=0521;         DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario M;
+MidfCajero;                         Desc=A;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario M;
+Msupervisor;                        Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario M;
+MmodEntren;                         Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario M;
+MmodEntrada;                        Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario M;
+MtransaccionTandem;                 Desc=B0677;        DescLong=Codigo para Transaccion Tandem horario M;
+MrollbackTandem;                    Desc=B0679;        DescLong=Codigo para RollBack Tandem horario M;
+TcodCajero;                         Desc=0521;         DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario T;
+TidfCajero;                         Desc=A;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario T;
+Tsupervisor;                        Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario T;
+TmodEntren;                         Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario T;
+TmodEntrada;                        Desc=0;            DescLong=Codigo utilizado en transaccion Cargo Cuenta Corriente modo horario T;
+TtransaccionTandem;                 Desc=B0676;        DescLong=Codigo para Transaccion Tandem horario T;
+TrollbackTandem;                    Desc=B0678;        DescLong=Codigo para RollBack Tandem horario T;
+TraTerInsCodMov;                    Desc=805;          DescLong=Codigo Movimiento Firmar Transferencia Terceros Inscritos;
+TraTerInsCodMovLBTR;                Desc=117;          DescLong=Codigo Movimiento Firmar Transferencia LBTR;
+TrFnVrcodCajero;                    Desc=0030;         DescLong=Codigo utilizado en transacciones Cargo Cuenta Corriente destino banco 016;
+TrFnVridfCajero;                    Desc=A;            DescLong=Codigo utilizado en transacciones Cargo Cuenta Corriente destino banco 016;
+TrFnVrsupervisor;                   Desc=0;            DescLong=Codigo utilizado en transacciones Cargo Cuenta Corriente destino banco 016;
+TrFnVrmodEntren;                    Desc=0;            DescLong=Codigo utilizado en transacciones Cargo Cuenta Corriente destino banco 016;
+TrFnVrmodEntrada;                   Desc=0;            DescLong=Codigo utilizado en transacciones Cargo Cuenta Corriente destino banco 016;
+W200;                               Desc=Error Abono;  DescLong=Error W200 cuando se genera transferencia;
+0000;                               Desc=;             DescLong=Transferencia exitosa;
+EPYTRFINS;                          Desc=0,017;        DescLong=Epyme Transferencias Terceros Inscritos;
+EPYTRFNIN;                          Desc=0,017;        DescLong=Epyme Transferencias Terceros No Inscritos;
+EPYBCPINS;                          Desc=0,017;        DescLong=Epyme BCIPagos Terceros Inscritos;
+EPYBCPNIN;                          Desc=0,017;        DescLong=Epyme BCIPagos Terceros No Inscritos;
+EXPTRFINS;                          Desc=0,019;        DescLong=BCIExpress Transferencias Terceros Inscritos;
+EXPTRFNIN;                          Desc=0,035;        DescLong=BCIExpress Transferencias Terceros No Inscritos;
+EXPTRFLBTR;                         Desc=0,98;         DescLong=BCIExpress Transferencias Altos Montos LBTR;
+HoraTrfLBTR;                        Desc=16;           DescLong=Hora maxima permitida para realizar las Transferencias LBTR;
+CodigoTipPagLBTR;                   Desc=BXP;          DescLong=Codigo que define una Transferencia de tipo LBTR tipo pago OTR;
+CodigoTipPagDVP;                    Desc=BXD;          DescLong=Codigo que define una Transferencia de tipo DVP tipo pago DVP;
+CuentaCargoLBTR;                    Desc=1234;         DescLong=Cuenta Cargo LBTR;
+CuentaCargoDVP;                     Desc=1234;         DescLong=Cuenta cargo DVP;
+TipoOperacionLBTR;                  Desc=PPJJ;         DescLong=Tipo de Operacion;
+TipoOperacionDVP;                   Desc=PPJJ;         DescLong=Tipo de Operacion;
+IndicadorAccionLBTR;                Desc=P;            DescLong=Indicador de Accion LBTR;
+IndicadorAccionDVP;                 Desc=P;            DescLong=Indicador de Accion DVP;
+CodigoMonedaLBTR;                   Desc=CLP;          DescLong=Indicador de Accion LBTR;
+CodigoMonedaDVP;                    Desc=CLP;          DescLong=Indicador de Accion DVP;
+SucursalOrdLBTR;                    Desc=0;            DescLong=Sucursal del Ordenante para LBTR;
+SucursalBenfLBTR;                   Desc=0;            DescLong=Sucursal del Benficiario para LBTR;
+SucursalOrdDVP;                     Desc=0;            DescLong=Sucursal del Ordenante para DVP;
+SucursalBenfDVP;                    Desc=0;            DescLong=Sucursal del Benficiario para DVP;
+GlosaDetalleGastosLBTR;             Desc=OUR;          DescLong=Detalle de Gastos OUR,SHA,BEN para LBTR;
+GlosaDetalleGastosDVP;              Desc=OUR;          DescLong=Detalle de Gastos OUR,SHA,BEN para DVP;
+FormaDePagoDVP;                     Desc=DVH;          DescLong=Forma de Pago DVP;
+CantidadClaves;                     Desc=10;           DescLong=Cantidad de Claves;
+MenuProd21;                         Desc=EPY;          DescLong=Menu producto epyme;
+MenuProd01;                         Desc=EXP;          DescLong=Menu producto express;
+habilitaTSM;                        Desc=SI;           DescLong=Habilitacion del servicio X90OPE de firma de TRF no Inscritos;
+PosTipoApoderado;                   Desc=33;           DescLong=Posicion campo cpe_ara_dat que marca tipo de Apoderado Trabaja la Empresa;
+AutoFyPContrato;                    Desc=8;            DescLong=Facultad de Otorgar Créditos para consultar Firmas y Poderes;
+PosFirmaDigital;                    Desc=62;           DescLong=Posicion campo cpe_ara_dat que marca si posee Firma Digital;
+RevisarCargasMasivas;               Desc=TR09OPE;      DescLong=Codigo de Servicio Revision y Firma para Transferencias con Carga Masiva LBTR;
+AutoTransac;                        Desc=2;            DescLong=Numero estatico para consultar Firmas y Poderes;
+FechaExpiracion;                    Desc=01/01/1900;   DescLong=Fecha cero en Base de Datos;
+hora;x19ope=16;X52OPE=16;X90OPE=16;TRF02=16;TR03OPE=17;Desc=Cambio Modo Horario Transferencias Cuentas Bci;
+montoMaximoDia;                     num=2000000;       DescLong=Valor utilizado para llamar al servicio que obtiene el monto maximo diario de transferencias;
+maximoDetalles;                     num=200;           DescLong=Valor utilizado para la cantidad maxima de transferencias que se pueden realizar;
+PosMenuPiloto;                      Desc=74;           DescLong=Posicion campo cpe_ara_dat que marca si el cliente es considerado piloto;
+MsgEmp1;         Desc=<div style="text-align:justify">Tenemos el agrado de informarle que con el objeto de <b>facilitar su gestión</b> en la administración de sus cuentas corrientes a partir de esta fecha podrá acceder gratuitamente al servicio de "Aviso de Cheque Devuelto", el que consiste en <b>recibir en su correo electrónico un reporte de los cheques devueltos</b> en sus cuentas corrientes en moneda nacional. <br><br>Para confirmar su acceso a dicho servicio le solicitamos <b>contactar a su ejecutivo</b> de manera que podamos validar que se encuentre correctamente cargada la información de su e-mail en nuestros sistemas.</div>; DescLong=Mensaje para un usuario de tipo Empresa;
+MsgEmp2;         Desc=<div style="text-align:justify">Le recordamos además que desde el menú "Cuentas Corrientes" de su sitio web, usted <b>puede visualizar</b> sus cheques y <b>dar o consultar Ordenes de No Pago</b>.</div>; DescLong=Mensaje para un usuario de tipo Empresa;
+MsgEmpr1;        Desc=Tenemos el agrado de informarle que con el objeto de <b>facilitar su gestión</b> en la administración de sus cuentas corrientes a partir de esta fecha podrá acceder gratuitamente al servicio de "Aviso de Cheque Devuelto", el que consiste en <b>recibir en su correo electrónico un reporte de los cheques devueltos</b> en sus cuentas corrientes en moneda nacional. <br><br>Para confirmar su acceso a dicho servicio le solicitamos <b>contactar a su ejecutivo</b> de manera que podamos validar que se encuentre correctamente cargada la información de su e-mail en nuestros sistemas.;DescLong=Mensaje para un usuario de tipo Empresario;
+MsgEmpr2;        Desc=Le recordamos además que desde el menú "Cuentas Corrientes" de su sitio web, usted <b>puede visualizar</b> sus cheques y <b>dar o consultar Ordenes de No Pago</b>.;DescLong=Mensaje para un usuario de tipo Empresario;
+MsgCnv1;         Desc=Bienvenido a la nueva versión Bci Cash Express internet.;DescLong=Mensaje de bienvenida por defecto;
+MsgCnv2;         Desc=Las operaciones tales como inversiones, tarjeta de crédito y consulta de pagos, entre otros, se encuentran bajo la opción Banco en línea.;DescLong=Mensaje de bienvenida por defecto;
+
+#Mensajes Para Problemas Presentados al accesar a un Servicio
+MsgERR1;  Desc=Su empresa aún no ha contratado este servicio;
+MsgERR2;  Desc=El administrador de este convenio en su empresa, no se lo ha asignado;
+MsgERR3;  Desc=Este servicio es sólo para apoderados registrados en el banco;
+MsgERR4;  Desc=En estos momentos no es posible obtener la información. Por favor intente más tarde;
+MsgEjecutivo;  Desc=El siguiente cliente ha solicitado contratar este servicio, se le indicó al cliente que sería contactado en un plazo máximo de 24 horas\n;
+MsgContacto1;  Desc=Para consultas y asistencia, contacte a la <strong>Mesa de Ayuda al 800 692 8555 o por celular al (02) 692 8555</strong>;
+MsgEOK;   Desc=Enviado correctamente;
+MsgENOK;  Desc=Presentó problemas;
+RecargaCelular;Desc=RECEL01;  DescLong=Codigo de Servicio de Recarga de Celular Empresa y Empresario;
+PosTipoMonoUsuarioEpyme;            Desc=55;           DescLong=Posicion campo cpe_ara_dat que marca tipo usuario Epyme;
+AutomatizacionCobro;Desc=CMWEB01;DescLong=Código de Servicio de Automatización de cobro de servicios PV;
+
+MsjInfo; ServAnterior=<p>Ud. está visualizando la nueva versión del sitio web. Para volver a la versión anterior, <a href="/belwls/obtieneCtasCtes?MENU=MENU_ITEMS_CUENTAS_CORRIENTES_EN_PESOS_1&TICU=CCT" target="_top">presione aquí</a>.</p><br>;
+
+MsjInfoPyme; ServAnterior=<p>Ud. está visualizando la nueva versión del sitio web. Para volver a la versión anterior, <a href="/belwls/obtieneCtasCtes?MENU=MENU_ITEMS_CUENTAS_CORRIENTES_0&TICU=CCT" target="_top">presione aquí</a>.</p><br>;
+
+#Transferencias LBTR a CCLV
+CCLV;nombre=CCLV Contraparte Central;codigo=300;
+tiposDeSaldo;tiposDeSaldo=SD:Saldo Deudor,OT:Posición Neta;
+camara;camara=RV-Renta Variable-12:00,PM-Pagadero Mañana-11:00,HS-Pagadero Hoy-14:00;
+horaTrfLBTRCamara;horaTrfLBTRCamara=RV-12,PM-11,HS-14;
+
+#Transferencias LBTR, carga automatica desde DCV
+1202;Desc=Cliente sin servicio asignado;
+1203;Desc=Fecha liquidación no válida;
+1204;Desc=Tipo moneda no válida;
+1206;Desc=Cta Cte sin convenio;
+1207;Desc=Bco pagador inválido;
+1208;Desc=Operación ya existe;
+1210;Desc=Operación fuera de horario;
+cargaDCV;glosa=CARGA AUTOMATICA DESDE DCV;usuario=Automáticamente por DCV;
+
+#Interruptores formato Cartola Historica y Período Anterior
+interruptorDespliegueCartolaSinJavascript;valor=true;
+interruptorCSSSinHTTPS;valor=true;
+
+CodServicioTTFF; Linea=TRF01; Diferida=TRF02;
+CanalTRF;        Desc=230;
+
+#define el listado de bancas a las que se le permite acceder al nuevo portal del empresario.
+ListadoBancasEmpresario;	codigoListadoBancasEmpresario=PMN,PMR,PME,PM,EM,EMQ;
+#define la cantidad minima de cuentas que debe tener una empresa para mostrar el consolidado de cuentas en pesos.
+minimo_cuentas_consolidado; desc=7;
+
+# Descripcion de los Clientes que se les permite visualizar el servicio del Saldo Consolidado para las CCT.
+clientesLineaConsolidada;cantidad=3;
+clientesLineaConsolidada_1;rut=98001000;dv=7;nombre=AFP CUPRUM;
+clientesLineaConsolidada_2;rut=9666516;dv=4;nombre=FRANCO CRISTIAN;
+clientesLineaConsolidada_3;rut=14620969;dv=6;nombre=JOSE MAURICIO BALLIVIAN ARAUZ;
+
+UsuarioEpyme; rutTope=50000000; apoMonoUsuario=M; autoApo=1.0;
+
+codServicioSaldo; Nacional=x01ope; Monex=x14ope;
+
+
+switchMultimedia; valor=1;
+#VALORES UTILIZADOS EN TTFF EN WEBCORP
+puertas;vista=INSTR_TRANSF;asistente=VALIDA_ASI;supervisor=VALIDA_SUP;
+codigosJournal;producto=TRANSF;subEvento=INSTR;eventoConsulta=CNS;eventoRechazo=RECHAZA;eventoEjecuta=EJECUTA;eventoDeriva=SOLICVB;
+codigoRechazoTTFFWebCorp;Desc=6060;
+CTA;Desc=19:30;
+LBTR;Desc=16:00;
+TSM_TER;Desc=14:00;
+TranferenciasLBTR;posicionModalidad=78;
+
+Estados;PEN=Pendiente;PRO=Pagada;REC=Rechazada;ENP=En Proceso;PRP=Transferencia Incompleta;
+AdministracionBeneficiarios;Desc=TR01OPE;
+
+ErrorInstTransf;E1=Instrucción de pago fuera horario;E2=No se puede obtener la fecha del movimiento;E3=Error en Cargo a Cuenta Corriente;E4=No se puede generar el folio;E5=Problemas insertar Abono cuenta destino BCI;E6=Error General al momento de Ejecutar la TTFF LBTR;E7=Error al Insertar en LBTR;E8=Error al Insertar en LBTR para DVP;E9=Error al Insertar TTFF;E10=Error en insercion de usuario autorizado;
+InstTransf;codTX=B0679;
+
+MensajeInformativoEmpresaTercerosInscritos;Desc=Estimado Cliente, recuerde que:<ul><li>Las transferencias A Terceros Inscritos <b>no realizan envío de correo electrónico.</b></li><li>Sólo las transferencias en línea hacia otros Bancos o Bci se ejecutan en tiempo real, el resto de transferencias para Clientes inscritos y no inscritos que se efectúen a otros bancos serán abonadas con 24 o 48 hrs dependiendo del horario en que éstas se originen.</li></ul>;
+MensajeInformativoEmpresaTercerosNoInscritos;Desc=Estimado Cliente, recuerde que:<div align=\"left\"><ul><li>Las transferencias A Terceros No Inscritos <b>no realizan envío de correo electrónico.</b></li><li>Sólo las transferencias en línea hacia otros Bancos o Bci se ejecutan en tiempo real, el resto de transferencias para clientes inscritos y no inscritos que se efectúen a otros bancos serán abonadas con 24 o 48 hrs dependiendo del horario en que éstas se originen.</li></ul></div>;
+MensajeInformativoPyme;Desc=Estimado cliente, recuerde que:<div align=\"left\"><ul><li>Este tipo de transferencia <b>no realiza envío de correo electrónico.</b></li><li>La transferencia  será abonada a otros bancos dentro de 24 ó 48 horas dependiendo del horario en que éstas se originen.  Para transferencias de nóminas en línea se sugiere utilizar el nuevo servicio \"Pago de nóminas en línea\".</li></ul></div>;

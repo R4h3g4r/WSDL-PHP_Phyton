@@ -1,0 +1,36 @@
+###########################
+# Parámetros para Journal #
+###########################
+#Desarrollo
+#WSMarcas;WSDL=http://b2bcert.bci.cl:9050/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+#WSModelos;WSDL=http://b2bcert.bci.cl:9050/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+
+#Certificacion
+WSMarcas;WSDL=http://b2bcert.bci.cl:9050/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+WSModelos;WSDL=http://b2bcert.bci.cl:9050/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+
+#Produccion
+#WSMarcas;WSDL=http://alsb.bci.cl/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+#WSModelos;WSDL=http://alsb.bci.cl/servicios/infraestructura/seguridad/autenticacion/InformaciondeMovilesService?WSDL;
+
+
+#CANAL DEEPNET
+#Certificacion
+DEEPNET;CANAL=900;MENSAJE_SMS=Estimado (a) Cliente: Para descargar la aplicación multipass debe ingresar a http://gadget.bci.cl/softtoken/dl.jsp?sn=;
+
+
+###########################
+#      Datos e-mail       #
+###########################
+E_MAIL;FROM=contacto@tbanc.cl;
+
+###########################
+#      URL DEEPNET        #
+###########################
+SERVER;URL=http://161.131.238.10/DeepnetWS/DeepnetWSPort?wsdl;timeout=2;
+
+###########################
+#      DEEPNET            #
+###########################
+servicioDeepNet;disponible=si;mensajeNoDisponible=Estimado (a) Cliente: el Piloto de Multipass Virtual actualmente no se encuentra disponible, favor utilice su Multipass físico.;
+

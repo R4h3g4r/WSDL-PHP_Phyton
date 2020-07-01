@@ -1,0 +1,21 @@
+#DOMINIOS_PERMITIDOS validacion PRODUCCION
+#DOMINIOS_PERMITIDOS_www.bci.cl;url=https://www.bci.cl;
+#DOMINIOS_PERMITIDOS_www.bcinova.cl;url=https://www.bcinova.cl;
+#DOMINIOS_PERMITIDOS_www.tbanc.cl;url=https://www.tbanc.cl;
+#DOMINIOS_PERMITIDOS_bciimg.bci.cl;url=https://bciimg.bci.cl;
+#DOMINIOS_PERMITIDOS_portal;url=https://portal;
+#DOMINIOS_PERMITIDOS_portal.bci.cl;url=https://portal.bci.cl;
+#DOMINIOS_PERMITIDOS_everest.bci.cl;url=https://everest.bci.cl;
+#DOMINIOS_PERMITIDOS_everest;url=https://everest;
+#DOMINIOS_PERMITIDOS_sso-intra.bci.cl;url=http://sso-intra.bci.cl;
+#DOMINIOS_PERMITIDOS_sso-intra;url=http://sso-intra;
+
+#DOMINIOS_PERMITIDOS validacion INTEGRACION, CERTIFICACION, LOCAL
+DOMINIOS_PERMITIDOS_integracionbci;url=http://integracionbci;
+DOMINIOS_PERMITIDOS_bcicert;url=http://bcicert;
+DOMINIOS_PERMITIDOS_empresasinte;url=http://empresasinte;
+DOMINIOS_PERMITIDOS_empresascert;url=http://empresascert;
+DOMINIOS_PERMITIDOS_intranetinte;url=http://intranetinte;
+DOMINIOS_PERMITIDOS_intranetcert;url=http://intranetcert;
+DOMINIOS_PERMITIDOS_sso-intracert.bci.cl;url=http://sso-intracert.bci.cl;
+DOMINIOS_PERMITIDOS_localhost;url=http://localhost;

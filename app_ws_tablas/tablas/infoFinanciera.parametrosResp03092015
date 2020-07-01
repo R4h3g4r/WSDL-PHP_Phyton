@@ -1,0 +1,43 @@
+IP_FTP;DESC=161.131.242.160;
+USER_FTP;DESC=ftpkesp;
+PASS_FTP;DESC=kespftp;
+#PATH_FTP;DESC=files;
+MENSAJE-ERROR-MOTIVO;Desc=Su pedido no puede ser atendido por el siguiente motivo:;
+MENSAJE-ERROR-NO-DISPONIBLE;Desc=El servicio No esta disponible en este instante.;
+MES_PERIODO;DESC=12;
+ANIO_PERIODO;DESC=2;
+SET_PASIVO;DESC=TRUE;
+PREFIJO_ARCHIVO;DESC=#BCI#;
+TIEMPO_VIGENCIA_EN_MINUTOS;DESC=4;
+#IP_FTP;DESC=161.131.184.81;
+#USER_FTP;DESC=clasi;
+#PASS_FTP;DESC=clasi06;
+PATH_FTP;DESC=files_proc;
+#Desarrollo
+#OSB_SERVICE;URL=http://192.168.1.127:7001/esb/cliente/antecedentes/estadosfinancieros/carpetatributariaelectronica/serviciocarpetatributariaelectronicaps?wsdl;TIMEOUT=35;
+#ALSB_SERVICE_URL;URL=http://192.168.1.127:7001/servicios/clientes.informaciondecliente.antecedentesclientes/SolicitarInformacionFinancieraService?wsdl;USER=testalsbdesa;PASS=test26desa;TIMEOUT=10;
+
+#Certificacion
+OSB_SERVICE;URL=http://161.131.140.137:9050/esb/cliente/antecedentes/estadosfinancieros/carpetatributariaelectronica/serviciocarpetatributariaelectronicaps?wsdl;TIMEOUT=35;
+ALSB_SERVICE_URL;URL=http://161.131.140.137:9050/servicios/clientes.informaciondecliente.antecedentesclientes/SolicitarInformacionFinancieraService?wsdl;USER=testalsbdesa;PASS=test26desa;TIMEOUT=10;
+
+#Integracion
+#OSB_SERVICE;URL=http://161.131.184.123:9101/esb/cliente/antecedentes/estadosfinancieros/carpetatributariaelectronica/serviciocarpetatributariaelectronicaps?wsdl;TIMEOUT=35;
+#ALSB_SERVICE_URL;URL=http://161.131.184.123:9101/servicios/clientes.informaciondecliente.antecedentesclientes/SolicitarInformacionFinancieraService?wsdl;USER=testalsbdesa;PASS=test26desa;TIMEOUT=10;
+
+#Produccion
+#OSB_SERVICE;URL=http://alsb.bci.cl/esb/intranet/cliente/antecedentes/estadosfinancieros/carpetatributariaelectronica/serviciocarpetatributariaelectronicaps?wsdl;TIMEOUT=35;
+#ALSB_SERVICE_URL;URL=http://161.131.133.9/servicios/clientes.informaciondecliente.antecedentesclientes/SolicitarInformacionFinancieraService?wsdl;USER=testalsbdesa;PASS=test26desa;TIMEOUT=10;
+
+#Mensajes de validacion solicitudes
+MAXIMO_PERMITIDO;DESC=No se pueden realizar más de 4 solicitudes anuales para el mismo cliente y misma información financiera.;
+CARPETA_SOLICITADA;DESC=Carpeta Tributaria solicitada.;
+BALANCE_SOLICITADO;DESC=Balance solicitado.;
+VENTA_SOLICITADA;DESC=Venta solicitada.;
+YA_EXISTE_CARPETA_RUT;DESC=Ya existe una Carpeta Tributaria para el rut solicitado.;
+YA_EXISTE_CARPETA_COD;DESC=Ya existe un Carpeta Tributaria para el código solicitado.;
+YA_EXISTE_BALANCE;DESC=Ya existe un balance para el periodo solicitado.;
+YA_EXISTE_VENTA;DESC=Ya existe una venta para el periodo solicitado.;
+
+CARACTER_SEPARADOR_BALANCES;valor=§
+emulacion;valor=true;

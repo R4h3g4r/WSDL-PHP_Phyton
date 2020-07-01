@@ -1,0 +1,9 @@
+PAGINACION;NumeroRegistros=16;
+REPORTEVALEVISTA;EstadoInicial=emitidos;
+REPORTE_NOMNAS_VV;listaGrupoVV=0,1;listaGrupoVVLabel=valeVista30dias,valeVistaMayor30dias;
+REPORTE_VALEVISTA;listadoEstados=4_5110,4_5115,4_5120,4_5125,4_5135,4_5145;
+REPORTE_VALE_VISTA;listaEstadosLabel=emitidos,entregados,pagados,caducados,devueltosRF,devueltos;
+REPORTE_VALE_VISTAT;4_5110=Emitidos;4_5115=Entregados;4_5120=Pagados;4_5125=Caducados;4_5135=Devueltos (rendicion fisica);4_5145=Devueltos;
+REPORTE_VALE_VISTAP;listaEstadoPendiente=4_5110;
+REPORTE_NOMINAS;PorDefecto=valeVista30dias;
+REPORTE_NOMINAS_30;titulo=Vale Vista 30 Dias,Vale Vista Mayor a 30 Dias;

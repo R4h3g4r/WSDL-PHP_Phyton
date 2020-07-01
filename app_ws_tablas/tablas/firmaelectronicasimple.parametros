@@ -1,0 +1,9 @@
+#contiene listas de certificados.
+listas;listaDeCertificados=Certificado firma electrónica|US$25 (valor anual)#Certificado firma avanzada (requiere token)|US$25 (valor anual)#Token USB|US$60 (por una sola vez)#;certificadosDisponibles=Certificado firma para Sii (US$ 25)#Certificado firma avanzada (US$ 25 + US$60 Token USB)#;
+codigosDispositivos;0=Certificado firma para Sii|US$ 25;1=Certificado firma avanzada|US$ 25 + US$60 Token USB;
+#Generacion de correo
+configuracionCorreo;destinatarios=banco|certinet;bancoDestinatario=solcerRA@bci.cl;certinetDestinatario=solcer@bci.cl;bancoCabeceraCorreo=Solicitud de certificado digital;certinetCabeceraCorreo=Solicitud de certificado digital;bancoEmisorCorreo=certificadodigital@bci.cl;certinetEmisorCorreo=certificadodigital@bci.cl;
+plantillaCorreo;nombreEmpresa=%K;rutEmpresa=%G;rutEmpresaDV=%H;nombreUsuario=%N;rutUsuario=%I;rutUsuarioDV=%J;correoElectronico=%D;telefono=%E;direccion=%F;certificadoSeleccionado=%B;valorDispositivo=%P;valorCertificado=%O;cuentaCargo=%Q;claveCertificado=%A;solicitudCertinet=%I-%J,%N,%D,%A;
+formatoCorreo;bancoFormatoMail=\nSOLICITUD DESDE BCIEXPRESS\n\n Nombre empresa         : %K\n RUT empresa            : %G-%H\n Nombre cliente         : %N\n RUT cliente            : %I-%J\n EMail cliente          : %D\n Telefono cliente       : %E\n Direccion de Contacto  : %F\n Solicita Certificado   : %B\n Valor del Certificado  : %O\n Cuenta Corriente cargo : %Q\n Clave de la solicitud  : %A\n\nSolicitud CertiNet      : \n%I-%J,%N,%D,%A;certinetFormatoMail=\nSOLICITUD DESDE BCIEXPRESS\n\n Nombre empresa         : %K\n RUT empresa            : %G-%H\n Nombre cliente         : %N\n RUT cliente            : %I-%J\n EMail cliente          : %D\n Telefono cliente       : %E\n Direccion de Contacto  : %F\n Solicita Certificado   : %B\n Valor del Certificado  : %O\n Cuenta Corriente cargo : %Q;
+#separador de token
+mensajes;token_linea=#;token_columna=|;

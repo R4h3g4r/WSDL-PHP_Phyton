@@ -1,0 +1,463 @@
+# Recarga Celular
+110-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=SafeSigner,Token;
+100-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular Tbanc;Jerarquias=SafeSigner,Token;
+800-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular Nova;Jerarquias=SafeSigner,Token;
+119-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=Token;
+901-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=SafeSigner,Token;
+905-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular Tbanc;Jerarquias=SafeSigner,Token;
+117-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=Token;
+154-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=SafeSigner,Token;
+102-RecargaCelular;activo=Si;condicion=paso;valor=3;titulo=Recarga Celular;Jerarquias=SafeSigner,Token;
+# Pagos y Tarjeta Virtual
+110-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Bci;Jerarquias=Token;
+100-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Tbanc;Jerarquias=Token;
+117-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Bci;Jerarquias=Token;
+800-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Nova;Jerarquias=Token;
+154-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Bci;Jerarquias=Token;
+102-TarjetaVirtual;activo=Si;condicion=paso;valor=3;titulo=Tarjeta Virtual Bci;Jerarquias=Token;
+110-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+100-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Tbanc;Jerarquias=Token,ClaveInternet;
+119-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+901-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+905-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,ClaveInternet;
+117-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+154-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+102-PortalPagos;activo=Si;condicion=paso;valor=2;titulo=Pagos Enlinea Bci;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,ClaveInternet;
+800-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Passcode,ClaveInternet;
+119-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+901-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+905-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,ClaveInternet;
+117-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-TransferenciaTerceros;activo=Si;condicion=paso;valor=3;titulo=Transferencia a Terceros;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,ClaveInternet;
+800-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Passcode,ClaveInternet;
+119-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+901-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+905-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,ClaveInternet;
+117-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+154-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+102-TransferenciasOtrosBancos;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Otros Bancos;Jerarquias=Token,Passcode,ClaveInternet;
+110-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+100-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;pasos=1;Jerarquias=Token,ClaveInternet;
+800-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Passcode,ClaveInternet;
+119-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+901-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+905-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,ClaveInternet;
+117-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+154-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+102-TransferenciaTercerosBCI;activo=Si;condicion=paso;valor=realiza;titulo=Transferencia Terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+540-PagueDirecto;activo=Si;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=SafeSigner,Token,Passcode,ClaveInternet;
+540bci-PagueDirecto;activo=Si;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=SafeSigner,Token;JerarquiasEmp=ClaveInternet;
+540tbc-PagueDirecto;activo=Si;condicion=paso;valor=1;titulo=Pague Directo;pasos=1;Jerarquias=SafeSigner,Token;
+MesesExpiracion;valor=6;
+periodoTransicion;fecha=2012-12-12;
+100;  evaluar=true;
+110;  evaluar=true;
+132;  evaluar=true;
+540;  evaluar=true;
+540bci;  evaluar=true;
+540tbc;  evaluar=false;
+230; evaluar=true;
+800; evaluar=true;
+905;  evaluar=true;
+901;  evaluar=true;
+117;  evaluar=true;
+907;  evaluar=true;
+910;  evaluar=true;
+911;  evaluar=true;
+912;  evaluar=true;
+914;  evaluar=true;
+915;  evaluar=true;
+154;  evaluar=true;
+102;  evaluar=true;
+
+# Mantención Segundas claves, identifica para que canal esta activo el passcode
+passcodeActivo;100=false;110=true;540=true;540bci=true;540tbc=true;140=true;230=true;905=false;901=true;117=true;154=true;102=true;
+
+tokenActivo;100=true;110=true;540=true;540bci=true;540tbc=true;140=true;230=true;800=true;130=true;119=true;901=true;905=true;315=true;117=true;132=true;907=true;910=true;911=true;420=false;912=true;914=true;915=true;154=true;102=true;
+safeSignerActivo;110=true;154=true;102=true;
+pinTokenGenerico;valor=1234;
+pinToken;100=1234;110=1234;150=1234;160=1234;120=1234;530=1234;532=1234;540=1234;540bci=1234;540tbc=1234;230=1234;800=1234;130=1234;119=1234;901=1234;905=1234;315=1234;117=1234;132=1234;911=1234;910=1234;907=1234;650=1234;420=1234;930=1234;931=1234;912=1234;914=1234;915=1234;154=1234;102=1234;
+CorreoPasscode;mailServer=smtp.bci.cl;mailFrom=contacto@bci.cl;
+110-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosTerceros;activo=Si;condicion=paso;valor=cuentaTerceros;titulo=Programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+110-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosTercerosBCI;activo=Si;condicion=paso;valor=cuentaTercerosBCI;titulo=Programacion de transferencias a terceros BCI;Jerarquias=Token,Passcode,ClaveInternet;
+110-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosModificarCtaTerceros;activo=Si;condicion=paso;valor=modificar;titulo=Modificar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+110-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosDetenerCtaTerceros;activo=Si;condicion=paso;valor=detener;titulo=Detener programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+110-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosActivarCtaTerceros;activo=Si;condicion=paso;valor=activar;titulo=Activar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+110-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+100-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,ClaveInternet;
+117-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+154-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+102-ProgramacionFondosEliminarCtaTerceros;activo=Si;condicion=paso;valor=eliminar;titulo=Eliminar programacion de transferencias a terceros;Jerarquias=Token,Passcode,ClaveInternet;
+230-CtaConTraEnc;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros;Jerarquias=Passcode,ClaveInternet;
+230-CtaConTraEncBP;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros BCIPagos;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFir;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias Entre Cuentas;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFirTerceros;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros Inscritos;Jerarquias=Passcode,ClaveInternet;
+230-CtaConApoFirBP;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros BCIPagos;Jerarquias=Passcode,ClaveInternet;
+230-TransferenciaTercerosLinea;activo=Si;condicion=tipoFirma;valor=1;titulo=Transferencias a Terceros en Linea;Jerarquias=Token;
+230-CtaConCtaOriDes;activo=Si;condicion=tipoFirma;valor=2;titulo=Transferencias a Terceros en Linea Diferido;Jerarquias=ClaveInternet;
+
+CodigoProdToken;Codigo=Prod17;ComDev=KOPE003;ComRep=KOPE001;ComUso=KOPE002;NumConvenio=29105;ComMen=KOPE004;
+TOKENST00;Desc=Estado desconocido;DescParaMultipass=Estado desconocido;Estado=ALERTA;
+TOKENST01;Desc=NO TIENE;DescParaMultipass=No Posee Multipass;Estado=ALERTA;
+TOKENST02;Desc=SOLICITUD INGRESADA;DescParaMultipass=Solicitud Ingresada;Estado=ALERTA;
+TOKENST03;Desc=CLAVE REGISTRADA;DescParaMultipass=Asignado;Estado=ALERTA;
+TOKENST04;Desc=CLAVE AUTORIZADA;DescParaMultipass=Listo para Operar;Estado=ALERTA;
+TOKENST05;Desc=ACTIVA;DescParaMultipass=Activo;Estado=ACTIVO;
+TOKENST06;Desc=DESBLOQUEADA;DescParaMultipass=Desbloqueado;Estado=ALERTA;
+TOKENST07;Desc=BLOQUEADA;DescParaMultipass=Bloqueado;Estado=BLOQUEADO;
+TOKENST08;Desc=SIN DISPOSITIVO;DescParaMultipass=Sin dispositivo;Estado=ALERTA;
+TOKENST09;Desc=CON DISPOSITIVO;DescParaMultipass=Con dispositivo;Estado=ALERTA;
+TOKENST10;Desc=CON OTRO DISPOSITIVO;DescParaMultipass=Con otro dispositivo;Estado=ALERTA;
+
+Bienvenida_FOR;Desc=Bienvenido.<br>Esta es la primera vez que usted llama. Estamos muy contentos de su ingreso a TBanc, esperamos atenderle y cumplir con sus expectativas de servicio y eficiencia. Para verificar su identidad, le comunicaré con nuestro supervisor de seguridad, quien le hará algunas preguntas personales No le diga su nombre ni RUT para que sus claves sean totalmente confidenciales.;
+Bienvenida_INF;Desc=Bienvenido.<br>Esta es la primera vez que llamas. Estamos muy contentos de tu ingreso a TBanc, esperamos atenderte y cumplir con tus expectativas de servicio y eficiencia. Para verificar tu identidad, te comunicaré con nuestro supervisor de seguridad, quien te hará algunas preguntas personales No le digas tu nombre ni RUT para que tus claves sean totalmente confidenciales.;
+
+IntentosPanCT;Desc=5;
+
+# Valida los si un canal tiene permiso para activacion web
+#  ej: [canal]=[SI/NO];
+permisosActivacionWeb;100=SI;110=SI;540=NO;800=SI;540bci=NO;117=SI;132=SI;
+
+#Valores de los canales que se verificará la fecha de expiración de la clave internet
+verificaFecha110;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha130;valor=true;desc=Definicion para validar la fecha de expiración de la clave en BciCashExpress;
+verificaFecha800;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha100;valor=true;desc=Definicion para modificar la fecha de expiración de la clave en TBanc;
+verificaFecha101;valor=true;desc=Definicion para modificar la fecha de expiración de la clave IVR en TBanc;
+verificaFecha117;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha230;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci Empresas;
+verificaFecha132;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci Empresarios;
+verificaFecha910;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha911;valor=true;desc=Definicion para validar la fecha de expiración de la clave en TBanc;
+verificaFecha912;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha915;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha154;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+verificaFecha102;valor=true;desc=Definicion para validar la fecha de expiración de la clave en Bci;
+
+# NUEVOS ESTADOS DE PASSCODE
+# ==============================================
+FE-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+00-00-PASSCODESTATUS;Desc=ACTIVA - PRIMER INGRESO WEB;
+01-01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - INTENTOS FALLIDOS;
+01-00-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - PRIMER INGRESO WEB;
+01-02-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD USUARIO;
+01-03-PASSCODESTATUS;Desc=CLAVE BLOQUEADA - SOLICITUD BANCO;
+01-PASSCODESTATUS;Desc=CLAVE BLOQUEADA;
+02-PASSCODESTATUS;Desc=CLAVE EXPIRADA;
+03-PASSCODESTATUS;Desc=CLAVE ELIMINADA;
+NN-PASSCODESTATUS;Desc=CLAVE INACTIVA - INGRESO SOLICITUD;
+00-04-PASSCODESTATUS;Desc=ACTIVA - PRIMER USO;
+02-04-PASSCODESTATUS;Desc=CLAVE EXPIRADA - PRIMER USO;
+00-PASSCODESTATUS;Desc=ACTIVA;
+
+FE-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+01-01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por intentos fallidos de ingrego de Pin;
+01-00-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por ingrego por primera vez al sitio.;
+01-02-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud del cliente;
+01-03-PASSCODESTATUS_EXT;Desc=Clave Bloqueada por solicitud Banco;
+01-PASSCODESTATUS_EXT;Desc=Clave Bloqueada;
+02-PASSCODESTATUS_EXT;Desc=Clave Expirada;
+03-PASSCODESTATUS_EXT;Desc=Clave Eliminadad;
+NN-PASSCODESTATUS_EXT;Desc=Clave Inactiva por ingreso de solicitud de Clave Dos;
+00-04-PASSCODESTATUS_EXT;Desc=Clave Activa por primer uso;
+02-04-PASSCODESTATUS_EXT;Desc=Clave Expirada por primer uso;
+00-PASSCODESTATUS_EXT;Desc=Clave Activa;
+
+# **********************************************
+# Tarjeta Credito Full OnLine TDC
+# **********************************************
+SaldoCtaCred;checkServicioObjeto=NO;
+EstadoNacional;checkServicioObjeto=NO;
+EstadoInternacional;checkServicioObjeto=NO;
+ComprasNoFacturadasNac;checkServicioObjeto=NO;
+ComprasNoFacturadasInt;checkServicioObjeto=NO;
+PagoCtaCred;checkServicioObjeto=NO;
+AvanceCtaCred;checkServicioObjeto=NO;
+PagoDeudaDolares;checkServicioObjeto=NO;
+ConsultaBloqueoTarjeta;checkServicioObjeto=NO;
+BloqueoTarjeta;checkServicioObjeto=NO;
+SolAumentoCupoVisa;checkServicioObjeto=NO;
+SolTarjetaAdicional;checkServicioObjeto=NO;
+SolReposicion;checkServicioObjeto=NO;
+SolTarjeta;checkServicioObjeto=NO;
+CatalogoSonrisas;checkServicioObjeto=NO;
+PesosSonrisas;checkServicioObjeto=NO;
+TarjetaVirtual;checkServicioObjeto=NO;
+tarjetasonline;checkServicioObjeto=NO;
+CtaConTraGen;checkServicioObjeto=NO;
+
+# **********************************************
+# Portal Pagos
+# **********************************************
+#110-PortalPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+#110-Transferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+100-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+110-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+132-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+800-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+119-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token,Passcode,ClaveInternet;
+901-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+905-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+117-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+154-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+102-GestorPagos;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+100-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+110-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+132-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token;
+800-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+119-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token;
+117-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=Token;
+154-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+102-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+100-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=SafeSigner,Token;
+110-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=SafeSigner,Token;
+154-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=SafeSigner,Token;
+132-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=Token;
+800-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=SafeSigner,Token;
+102-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=SafeSigner,Token;
+901-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+905-GestorTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Transferencia en Línea;Jerarquias=SafeSigner,Token;
+117-GestorAliasTransferencias;activo=Si;condicion=paso;valor=procede;titulo=Confirmación de Nuevo Destinatario;Jerarquias=Token;
+110-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+100-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+154-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+102-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+100-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+110-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+154-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+102-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+110-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+154-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+100-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+102-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+100-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+110-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+154-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+102-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+110-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+100-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+154-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+102-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+110-TransferenciasGrabaProgramacion;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+154-TransferenciasGrabaProgramacion;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+100-TransferenciasGrabaProgramacion;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+102-TransferenciasGrabaProgramacion;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+119-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+119-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+119-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+119-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+119-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+117-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+117-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+117-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+117-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+117-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+132-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+132-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+132-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+132-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=Token;
+132-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=Token;
+
+
+110-CartolaEmail;activo=Si;condicion=token;valor=1;titulo=BciMail;Jerarquias=Token;
+154-CartolaEmail;activo=Si;condicion=token;valor=1;titulo=BciMail;Jerarquias=Token;
+117-CartolaEmail;activo=Si;condicion=token;valor=1;titulo=BciMail;Jerarquias=Token;
+
+901-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+901-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+901-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+901-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+901-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+905-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+905-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+905-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+905-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+905-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+
+800-TransferenciasProgramadasActivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+800-TransferenciasProgramadasEliminar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+800-GestorPagosNuevoPel;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+800-GestorPagosPelRegistrado;activo=Si;condicion=paso;valor=procede;titulo=Pago de Cuenta en Línea;Jerarquias=SafeSigner,Token;
+800-TransferenciasProgramadasDesactivar;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+800-TransferenciasGrabaProgramacion;activo=Si;condicion=paso;valor=procede;titulo=Transferencia Programada en Línea;Jerarquias=SafeSigner,Token;
+
+# **********************************************
+# Fondos Mutuos
+110-InversionesFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Inversion FFFMM;Jerarquias=Token,ClaveInternet;
+154-InversionesFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Inversion FFFMM;Jerarquias=Token,ClaveInternet;
+110-RescateFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Rescate FFFMM;Jerarquias=Token,ClaveInternet;
+154-RescateFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Rescate FFFMM;Jerarquias=Token,ClaveInternet;
+117-InversionesFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Inversion FFFMM;Jerarquias=Token,ClaveInternet;
+117-RescateFFMMInv;activo=Si;condicion=validaClaves;valor=true;titulo=Rescate FFFMM;Jerarquias=Token,ClaveInternet;
+# **********************************************
+# Carga Tarjeta Bip. 
+110-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=SafeSigner,Token;
+154-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=Token;
+100-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=SafeSigner,Token;
+800-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=SafeSigner,Token;
+117-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=Token;
+102-CargaTarjetaBip;activo=Si;condicion=validaSegundaClave;valor=true;titulo=Carga Tarjeta Bip;Jerarquias=SafeSigner,Token;
+
+
+# *********************************************************
+# BCI Cash Express II - Transferencias y Portal Proveedores
+# *********************************************************
+230-RemAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-RemFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-MultiAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-MultiFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvAutorizarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvFirmarEpymeAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-RemAutorizarPagoAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-RemFirmarPagoAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvAutorizarPagoAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+230-ProvFirmarPagoAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para Transfer;Jerarquias=Passcode,ClaveInternet;
+
+# *********************************************************
+# BGE
+# *********************************************************
+230-DetalleBoletaPorFirmarDownAction;activo=Si;condicion=tipoFirma;valor=2;titulo=Firma Epyme para BGE;Jerarquias=Passcode,ClaveInternet;
+
+# cotizacisnHogar
+110-cotizaSPCH;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=Token,Passcode;
+154-cotizaSPCH;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=Token,Passcode;
+110-cotizaSPCH2;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=ClaveInternet;
+154-cotizaSPCH2;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=ClaveInternet;
+117-cotizaSPCH;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=Token,Passcode;
+117-cotizaSPCH2;activo=Si;condicion=segundaClave;valor=1;titulo=Cotización Hogar;Jerarquias=ClaveInternet;
+
+#**********************************************************
+#Multipass - activa o desactiva opcionalidad multipass segun canal
+#**********************************************************
+110-MultipassOpcional;consultaPreferenciaCliente=si;
+100-MultipassOpcional;consultaPreferenciaCliente=si;
+800-MultipassOpcional;consultaPreferenciaCliente=si;
+119-MultipassOpcional;consultaPreferenciaCliente=si;
+540bci-MultipassOpcional;consultaPreferenciaCliente=no;
+540tbc-MultipassOpcional;consultaPreferenciaCliente=no;
+901-MultipassOpcional;consultaPreferenciaCliente=si;
+905-MultipassOpcional;consultaPreferenciaCliente=si;
+117-MultipassOpcional;consultaPreferenciaCliente=si;
+132-MultipassOpcional;consultaPreferenciaCliente=si;
+907-MultipassOpcional;consultaPreferenciaCliente=si;
+910-MultipassOpcional;consultaPreferenciaCliente=si;
+911-MultipassOpcional;consultaPreferenciaCliente=si;
+912-MultipassOpcional;consultaPreferenciaCliente=si;
+914-MultipassOpcional;consultaPreferenciaCliente=si;
+915-MultipassOpcional;consultaPreferenciaCliente=si;
+154-MultipassOpcional;consultaPreferenciaCliente=si;
+102-MultipassOpcional;consultaPreferenciaCliente=si;
+
+# **********************************************
+# Firma Cliente
+# **********************************************
+110-VisualizacionFirmaCliente;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Firma Cliente;Jerarquias=Token;
+117-VisualizacionFirmaCliente;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Firma Cliente;Jerarquias=Token;
+154-VisualizacionFirmaCliente;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Firma Cliente;Jerarquias=Token;
+
+
+# RedCompra en WebPay Plus
+110-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=SafeSigner,Token;
+100-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=SafeSigner,Token;
+800-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=SafeSigner,Token;
+230-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=Token;
+117-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=Token;
+154-WebPayPlus;activo=Si;condicion=paso;titulo=WebPay Plus;Jerarquias=Token;
+
+# **********************************************
+# Renta Cliente
+# **********************************************
+110-ActualizacionRentaPrevired;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Renta Cliente;Jerarquias=Token;
+117-ActualizacionRentaPrevired;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Renta Cliente;Jerarquias=Token;
+154-ActualizacionRentaPrevired;activo=Si;condicion=paso;valor=procede;titulo=Visualizar Renta Cliente;Jerarquias=Token;
+
+# **********************************************
+# SMS
+# **********************************************
+110-IngresarSolicitudSMS;activo=Si;condicion=paso;valor=procede;titulo=Alertas SMS;Jerarquias=Token;
+154-IngresarSolicitudSMS;activo=Si;condicion=paso;valor=procede;titulo=Alertas SMS;Jerarquias=Token;
+
+
+# **********************************************
+# Habilitacion de ingreso de clientes BciNova en otro canal.
+# **********************************************
+110-ingresoClientesBciNova;realizarVerificacion=SI;permitir=NO;
+800-habilitaIngresoOtrasBancas;activo=SI;
+915-habilitaIngresoOtrasBancas;activo=SI;
+154-ingresoClientesBciNova;realizarVerificacion=SI;permitir=NO;
+urlBloqueaIngresoBancaMasiva;despacho=http://www.bci.cl/personas/acceso_nova.html;
+urlAvisoIngresoBancaMasiva;despacho=/cl/bci/aplicaciones/seguridad/autenticacion/infoIngresoBciNova.jsf;
+
+EMAIL-DESBLOQ-CLAVE-INT-DATOS;LOGIN=BCI;CONTRACT=WEBBCI_DESBLQ_CLAVE_INT;FROM-NAME-110=BCI;FROM-NAME-800=Nova;FROM-NAME-100=TBanc;FROM-NAME-130=BCI;ASUNTO=Recupere su Clave de Internet;CONTRACT-130=WEBPYME_MAIL_DESBLOQUEO_CLAVE;
+EMAIL-DESBLOQ-CLAVE-INT-TEMPL;TEMPLATE-110=mailDesbloqueoClaveBci;TEMPLATE-800=mailDesbloqueoClaveNova;TEMPLATE-100=mailDesbloqueoClaveTBanc;TEMPLATE-130=BCI_template_mailDesbloqueoClavePyme132;
+
+# **********************************************
+# TIENE LLAVES PREVIAS
+# **********************************************
+SafeSigner;tieneLlave=Si;wsdl=http://localhost:8088/mockSafeSignerPortBinding?WSDL;
+Token;tieneLlave=No;wsdl=;
+Passcode;tieneLlave=No;wsdl=;
+ClaveInternet;tieneLlave=No;wsdl=;
+
+#**********************************************************
+#Bloqueo de segunda clave
+#**********************************************************
+bloqueoSegundaClave;codigos=SAFESIGNER03,TK07;
+
+# **********************************************
+# Creacion o Cambio Pinpass
+# **********************************************
+110-CreacionClavePinpass;activo=Si;condicion=paso;titulo=Generacion o Cambio Pinpass;Jerarquias=SafeSigner,Token;
+100-CreacionClavePinpass;activo=Si;condicion=paso;titulo=Generacion o Cambio Pinpass;Jerarquias=SafeSigner,Token;
+800-CreacionClavePinpass;activo=Si;condicion=paso;titulo=Generacion o Cambio Pinpass;Jerarquias=SafeSigner,Token;
+154-CreacionClavePinpass;activo=Si;condicion=paso;titulo=Generacion o Cambio Pinpass;Jerarquias=Token;
+102-CreacionClavePinpass;activo=Si;condicion=paso;titulo=Generacion o Cambio Pinpass;Jerarquias=SafeSigner,Token;
+#**********************************************************
+#Url cambio de clave internet
+#**********************************************************
+urlCambioClaveNova; urlnova=/cl/bci/aplicaciones/bciNova/menu/cargaOpciones.jsf?idOpcionAcceso=emg_cambiar_clave_internet&idPestana=emg_seguridad;canal=800;
+urlCambioClaveBci; urlbci=/cl/bci/aplicaciones/menu/cargaOpciones.jsf?idOpcionAcceso=emg_cambiar_clave_internet&idPestana=emg_seguridad;canal=110;
+urlCambioClaveTbanc; urltbanc=/cl/bci/aplicaciones/menu/vistas/emergencia/cambiarClaveInternet.jsf;canal=100;
+#*********************************************************
+# Pagina Bienvenida PYME
+#*********************************************************
+urlBienvenida;despacho=/cl/bci/aplicaciones/seguridad/autenticacion/vista/bienvenidaSitioPyme.jsf;
+
+#**********************************************************
+# Información Clave Safe Signer
+#**********************************************************
+urlInformacionSafeSigner;Desc=http://www.bci.cl/;
+
+# ****************************************************
+# Codificación de tipo segunda clave para opcionalidad
+# ****************************************************
+Op_Multipass;codigo=TOK;
+Op_SafeSigner;codigo=MPM;
+
+# Configuración de canales permitidos para usar los servicios REST de autentificación
+LOGIN_REST_INTRANET;917=true;

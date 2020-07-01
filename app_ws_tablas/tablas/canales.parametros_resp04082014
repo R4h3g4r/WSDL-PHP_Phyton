@@ -1,0 +1,107 @@
+1;Desc=BCINET Canal Browser;pathMenuXML=tablas/bcinet/MenuBCI_personasShowcase.xml;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bcinet/;pathJSP=/bcinetwls;pinID=110;pathTablas=bcinet/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/cl/minibci/aplicaciones/menu/index.jsf;timeOutUso=60;timeOutTotal=60;nombre=WEBBCI;sufijoForward=_bcinetwls;estiloCss=Canal101;
+030;Desc=Portal Proservice Canal Browser;pathLog=webcorp/;pathJSP=/fuerzadeventaswls;pinID=120;pathTablas=fuerzadeventas/;dispositivo=browser;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=FuerzaDeVenta;sufijoForward=_fuerzadeventaswls;
+100;Desc=TBANC Canal Browser;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml;pathSessionMOPA=/ftpwls/tbancwls/sessions;pathLog=tbanc/;pathJSP=/bcinetwls;pinID=100;pathTablas=tbanc/;dispositivo=browser;headerMenu=Banco en Linea;creaMenu=Si;redirectWebServer=/cl/tbanc/aplicaciones/menu/index.jsf;timeOutUso=15;timeOutTotal=30;nombre=WEBTBANC;eventos=eve001;grupoCanal=02;usaStruts=SI;estiloCss=tbanc/;idioma=;trato=;paginaError=/cl/tbanc/aplicaciones/seguridad/autenticacion/error.jsf;loginMB=loginTBancBackingMB;cssMatch=resources/css:resources/tbanc/menu/css,ln=css:ln=tbanc/menu/css;tema=blizter;medio=ICONO;
+105;Desc=TBANC Canal WAP;pathLog=tbanc/;pathJSP=/tbancwls-wap;pinID=111;pathTablas=tbanc/;dispositivo=wap;headerMenu=Banco en Linea;creaMenu=Si;timeOutUso=15;timeOutTotal=0;nombre=tbanc-wap;grupoCanal=09;
+106;Desc=TBANC Canal Browser Rediseño Migrado;pathSessionMOPA=/ftpwls/tbancwls/sessions;pathLog=tbanc/;pathJSP=/tbancwls-rdm;pinID=100;pathTablas=tbanc-rdm/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/tbancwls-rdm/bancoLinea/frame_portada.jsp;timeOutUso=10;timeOutTotal=20;nombre=WEBTBANC;grupoCanal=03;
+110;Desc=BCINET Canal Browser;pathMenuXML=tablas/bcinet/MenuBCI_personas.xml;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bcinet/;pathJSP=/bcinetwls;pinID=110;pathTablas=bcinet/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/cl/bci/aplicaciones/menu/index.jsf;timeOutUso=15;timeOutTotal=30;nombre=WEBBCI;grupoCanal=03;sufijoForward=_bcinetwls;estiloCss=Bci/;tema=aristo;loginMB=loginBciControllerMB;medio=ICONO;
+115;Desc=BCINET Canal Browser Redise±o;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bcinet/;pathJSP=/bcinetwls-rd;pinID=110;pathTablas=bcinet-rd/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/bcinetwls-rd/bancoLinea/frame_portada.jsp;timeOutUso=15;timeOutTotal=10;nombre=WEBBCI;grupoCanal=03;
+117;Desc=Banca Privada;pathMenuXML=tablas/bancaprivada/MenuBCI_bancaPrivada.xml;pinID=117;pathTablas=bancaprivada/;pathJSP=/bcinetwls;dispositivo=browser;headerMenu=Banca Privada;creaMenu=Si;redirectWebServer=/cl/bci/aplicaciones/menu/bancaPrivada/vista/index.jsf;timeOutUso=30;timeOutTotal=30;nombre=WEBBPR;grupoCanal=03;usaStruts=NO;estiloCss=privada/;tema=blacktie;loginMB=loginBancaPrivadaControllerMB;
+120;Desc=WebCorp Canal Browser;pathLog=webcorp/;pathJSP=/webcorpwls;pinID=120;pathTablas=webcorp/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=No;redirectWebServer=https://www.bci.cl/bcinetwls/bancoLinea/frame_portada.jsp;timeOutUso=60;timeOutTotal=60;nombre=webcorp;
+122;Desc=BCINET Canal Publico;pathMenuXML=;pathSessionMOPA=;pathLog=;pathJSP=;pinID=122;pathTablas=;dispositivo=;headerMenu=;creaMenu=;redirectWebServer=;timeOutUso=0;timeOutTotal=0;nombre=BCIPUBLICO;grupoCanal=;medio=BCI;
+
+130;Desc=BCIExpress;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=bciexpress;grupoCanal=05;
+131;Desc=WEBBEL;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=webbel;grupoCanal=05;
+132;Desc=PYME Canal Browser;pathMenuXML=tablas/pyme/MenuBCI_Pyme.xml;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bel/;pathJSP=/pymewls;pinID=130;pathTablas=pyme/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/cl/bci/aplicaciones/pyme/indexPyme.jsf;timeOutUso=15;timeOutTotal=30;nombre=WEBPYME;grupoCanal=05;paginaError=/cl/bci/aplicaciones/seguridad/autenticacion/error.jsf;loginMB=loginPymeControllerMB;estiloCss=pyme/;tema=aristo;
+140;Desc=Autoservicio Web Browser;pathSessionMOPA=/ftpwls/autoserviciowls/sessions;redirectWebServer=/autoserviciowls/bancoLinea/frame_portada.jsp;pathLog=autoservicio/;pathJSP=/autoserviciowls;pinID=110;pathTablas=autoservicio/;dispositivo=autoservicio;headerMenu=autoservicio;creaMenu=Si;timeOutUso=15;timeOutTotal=0;nombre=autoservicio;
+150;Desc=Portal WebCorp Canal Browser;pathLog=webcorp/;pathJSP=/portalwls;pinID=120;pathTablas=webcorp/portal/;dispositivo=browser;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=PortalWebCorp;sufijoForward=_portalwls;pathMenuXML=tablas/webcorp/MenuBCI_intranet.xml;idioma=;trato=;estiloCss=Intranet/;tema=aristo;
+151;Desc=Portal Workstation Canal Browser;pathLog=webcorp/;pathJSP=/workstationwls;pinID=120;pathTablas=workstation/portal/;dispositivo=browser;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=Workstation;sufijoForward=_workstationwls;pathMenuXML=tablas/workstation/MenuBCI_intranet.xml;idioma=;trato=;estiloCss=Intranet/;tema=aristo;
+152;Desc=Aprocred;pathLog=webcorp/;pathJSP=/aprocredwls;pinID=120;pathTablas=aprocred/;dispositivo=browser;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=Aprocred;
+153;Desc=FuerzaDeVenta;pathLog=webcorp/;pathJSP=/fuerzadeventaswls;pinID=120;pathTablas=fuerzadeventas/;dispositivo=browser;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=FuerzaDeVenta;sufijoForward=_fuerzadeventaswls;
+160;Desc=CallCenter;pathLog=webcorp/;pathJSP=/portalwls;pinID=160;pathTablas=webcorp/;dispositivo=browser;creaMenu=No;timeOutUso=0;timeOutTotal=0;nombre=CallCenter;
+
+195;Desc=Backoffice;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bcinet/;pathJSP=/bcinetwls;pinID=195;pathTablas=bcinet/;dispositivo=browser;headerMenu=Banco en L?nea;creaMenu=Si;redirectWebServer=/bcinetwls/bancoLinea/frame_portada.jsp;timeOutUso=5;timeOutTotal=15;nombre=BACKOFFICE;grupoCanal=03;
+210;Desc=Bci Pagos via CallCenter;pathSessionMOPA=SI;pathLog=callcenter/;pathJSP=/bcinetwls;pinID=160;pathTablas=callcenter/;dispositivo=vb3;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=CALLBCI;
+215;Desc=TBanc Pagos via CallCenter;pathLog=callcenter/;pathJSP=/tbancwls;pinID=160;pathTablas=callcenter/;dispositivo=vb3;creaMenu=no;timeOutUso=0;timeOutTotal=0;nombre=CALLTBNC;
+230;Desc=BCIExpress;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=30;nombre=bciexpress;redirectWebServer=/cl/bci/infraestructura/portal/web/principal/menu/indexPortal.jsf;estiloCss=empresa/;tema=aristo;loginMB=loginEmpresasControllerMB;grupoCanal=05;pathMenuXML=tablas/IWM/menu/MenuBCI_bel.xml;pathSessionMOPA=/ftpwls/bcinetwls/sessions;headerMenu=Banco en Linea;paginaError=/cl/bci/aplicaciones/seguridad/autenticacion/error.jsf;infraestructuraMulticanal=SI;usaStruts=NO;
+231;Desc=WEBBEL;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=webbel;
+232;Desc=Banco en Linea;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=bancoenlinea;
+
+245;Desc=WAP Araucano;pathLog=wap/;pathJSP=/wapwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=visacionmovil;
+
+270;Desc=BCI Intranet;pathMenuXML=tablas/IWM/menu/MenuBCI_Intranet.xml;pathLog=intranet/;pathJSP=/intranetwls;pinID=120;pathTablas=intranet/;dispositivo=browser;headerMenu=BCI Intranet;creaMenu=Si;redirectWebServer=/cl/bci/infraestructura/portal/web/principal/menu/indexPortal.jsf;timeOutUso=480;timeOutTotal=480;nombre=Intranet;grupoCanal=03;paginaError=/cl/bci/aplicaciones/seguridad/autenticacion/error.jsf;loginMB=loginIntranetControllerMB;estiloCss=intranet/;tema=cupertino;pathSessionMOPA=/ftpwls/bcinetwls/sessions;sufijoForward=_intranetwls;infraestructuraMulticanal=SI;
+
+300;Desc=Portal Inversiones TBanc Canal Browser;pathLog=portalinv/;pathJSP=/portalinvwls-m;pinID=100;pathTablas=portalinv/;dispositivo=browser;headerMenu=Portal Inversiones;creaMenu=Si;timeOutUso=15;timeOutTotal=10;nombre=PORTALINVBCINET;redirectWebServer=https://www.bci.cl/portalinvwls/portal.html;
+310;Desc=Portal Inversiones BCINET Canal Browser;pathLog=portalinv/;pathJSP=/portalinvwls-m;pinID=110;pathTablas=portalinv/;dispositivo=browser;headerMenu=Portal Inversiones;creaMenu=Si;timeOutUso=15;timeOutTotal=10;nombre=PORTALINVTBANC;
+
+315;Desc=BCI Tv Banking;pathLog=bcitv/;pathJSP=/bcitvwls;pinID=110;pathTablas=bcitv/;dispositivo=browsertv;creaMenu=NO;redirectWebServer=/bcitvwls/tvbanking/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=WEBTV;grupoCanal=03;
+
+400;Desc=Banca Electronica;pathSessionMOPA=/ftpwls/tbancwls/sessions;pathLog=bel/;pathJSP=/belwls;pinID=400;pathTablas=bel/;dispositivo=browser;headerMenu=No lo se;creaMenu=No;timeOutUso=15;timeOutTotal=10;nombre=WebBEL;
+
+500;Desc=Backoffice BCI;pathLog=callcenter/;pathJSP=/bcinetwls;pinID=160;pathTablas=callcenter/;dispositivo=vb3;creaMenu=No;timeOutUso=15;timeOutTotal=10;nombre=BCKOFF;
+510;Desc=Backoffice TBANC;pathLog=callcenter/;pathJSP=/bcinetwls;pinID=160;pathTablas=callcenter/;dispositivo=vb3;creaMenu=No;timeOutUso=15;timeOutTotal=10;nombre=BCKOFF;
+520;Desc=COS;pathLog=callcenter/;pathJSP=/bcinetwls;pinID=160;pathTablas=callcenter/;dispositivo=vb3;creaMenu=No;timeOutUso=15;timeOutTotal=10;nombre=BCKOFF;eventos=eve002;
+
+530;Desc=Autoservicio por BCI;pathLog=autoservicio/;redirectWebServer=/autoserviciowls/bancoLinea/frame_portada.jsp;pathJSP=/autoserviciowls;pinID=110;pathTablas=autoservicio/;dispositivo=autoservicio;headerMenu=Autoservicio;creaMenu=Si;timeOutUso=5;timeOutTotal=15;nombre=AUTBCI;grupoCanal=03;
+531;Desc=Autoservicio por TBanc;pathLog=autoservicio/;redirectWebServer=/autoserviciowls/bancoLinea/frame_portada.jsp;pathJSP=/autoserviciowls;pinID=100;pathTablas=autoservicio-Tbanc/;dispositivo=autoservicio;headerMenu=Autoservicio;creaMenu=Si;timeOutUso=5;timeOutTotal=15;nombre=AUTTBC;grupoCanal=02;
+532;Desc=WEBBCI;pathLog=autoatencion/;redirectWebServer=/autoatencionwls/bancoLinea/frame_portada.jsp;pathJSP=/autoatencionwls;pinID=110;pathTablas=autoatencion/;dispositivo=autoatencion;headerMenu=Autoatencion;creaMenu=Si;timeOutUso=5;timeOutTotal=15;nombre=AUTSER;grupoCanal=02;
+
+
+540;Desc=PagueDirecto;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=15;nombre=paguedirecto;
+540bci;Desc=PagueDirectoBCI;pathLog=bcinet/;pathJSP=/bcinetwls;pinID=110;pathTablas=bcinet/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=paguedirectobci;
+540tbc;Desc=PagueDirectoTBanc;pathLog=tbanc/;pathJSP=/tbancwls;pinID=100;pathTablas=tbanc/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=paguedirectotbanc;
+
+550;Desc=CanalIVR;pathLog=ivr/;pathJSP=/ivrwls;pinID=100;pathTablas=ivr/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=IVR;operador=2999;
+551;Desc=CanalIVRTBANC;pathLog=ivr/;pathJSP=/ivrwls;pinID=100;pathTablas=ivr/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=IVRTBANC;operador=2297;
+552;Desc=CanalASISTBCI;pathLog=ivr/;pathJSP=/ivrwls;pinID=100;pathTablas=ivr/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=ASISTBCI;operador=3000;
+555;Desc=Canalvoicetban;pathLog=ivr/;pathJSP=/ivrwls;pinID=100;pathTablas=ivr/;dispositivo=browser;creaMenu=No;timeOutUso=10;timeOutTotal=15;nombre=TBCREVOZ;operador=2297;
+
+600;Desc=Micromaticos BCI;pathLog=micromaticos/;pathJSP=/micromaticoswls;pinID=200;pathTablas=micromaticos/;dispositivo=micromatico;creaMenu=No;redirectWebServer=/micromaticoswls/inicio.jsp;timeOutUso=2;timeOutTotal=2;nombre=MCTBCI;grupoCanal=03;
+601;Desc=MicromaticosTouchScreen BCI;pathLog=micromaticostouchscreenwls/;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathJSP=/micromaticostouchscreenwls;pinID=220;pathTablas=micromaticostouchscreen/;dispositivo=micromatico;creaMenu=No;redirectWebServer=/micromaticostouchscreenwls/inicio.jsp;timeOutUso=2;timeOutTotal=2;nombre=MCTBCI;grupoCanal=03;medio=MIC;
+602;Desc=Micromaticos Nova;pathLog=micromaticosnovawls/;pathJSP=/micromaticosnovawls;pinID=220;pathTablas=micromaticosnova/;dispositivo=micromatico;creaMenu=No;timeOutUso=2;timeOutTotal=2;nombre=MCTBCI;grupoCanal=03;medio=MIC;
+
+615;Desc=Micromaticos Done;pathLog=autoatenciondonewls/;pathJSP=/autoatenciondonewls;pinID=220;pathTablas=autoatenciondone/;dispositivo=micromatico;creaMenu=No;timeOutUso=2;timeOutTotal=2;nombre=DONE;grupoCanal=03;medio=DONE;
+665;Desc=Portal WebCorp PDA;pathLog=webcorppda/;pathJSP=/webcorppdawls;pinID=120;pathTablas=webcorppda/;dispositivo=pda;creaMenu=No;timeOutUso=60;timeOutTotal=60;nombre=PortalWebCorpPDA;sufijoForward=_webcorppdawls;
+650;Desc=CANAL MOVIL PYME;pathLog=bel/;pathJSP=/belwls;pinID=130;pathTablas=bel/;dispositivo=browser;creaMenu=No;timeOutUso=15;timeOutTotal=0;nombre=PYMEMOVIL;redirectWebServer=/autoservicio/index.html;pathMenuXML=tablas/pyme/MenuBCI_Pyme.xml;loginMB=loginPymeMovilControllerMB;
+700;Desc=POS Cajas Asistidas;pathLog=webcorp/;pathJSP=/poswls;pinID=120;pathTablas=webcorp/;dispositivo=pos;headerMenu=POS;creaMenu=Si;timeOutUso=0;timeOutTotal=0;nombre=pos;
+
+800;Desc=CONOSUR Canal Browser;pathSessionMOPA=/ftpwls/conosurwls/sessions;pathLog=conosur/;pathJSP=/conosurwls;pinID=800;pathTablas=conosur/;dispositivo=browser;headerMenu=Banco en Linea;creaMenu=Si;redirectWebServer=/cl/bci/aplicaciones/bciNova/menu/indexBciNova.jsf;timeOutUso=15;timeOutTotal=30;nombre=WEBCONOSUR;grupoCanal=03;canalParaServiciosDap=110;paginaError=/cl/bci/aplicaciones/seguridad/autenticacion/error.jsf;loginMB=loginBciNovaControllerMB;pathMenuXML=tablas/conosur/MenuBCI_Nova.xml;estiloCss=bcinova/;tema=cupertino;cssMatch=resources/css:resources/bcinova/css,ln=css:ln=bcinova/css;medio=ICONO;
+
+119;Desc=BCINET Canal Movil;pathLog=bcinetmovil/;pathJSP=/bcinetmovilwls;pinID=110;pathTablas=bcinetmovil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/bcinetmovilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=WEBBCIMOVIL;grupoCanal=03;
+109;Desc=TBANC Canal Movil;pathLog=tbancmovil/;pathJSP=/tbancmovilwls;pinID=100;pathTablas=tbancmovil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/tbancmovilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=WEBTBANCMOVIL;grupoCanal=02;
+118;Desc=Gadget BCI;pathLog=gadget/;pathJSP=/gadgetwls;pinID=110;pathTablas=gadget/;dispositivo=worklight;creaMenu=NO;timeOutUso=1;timeOutTotal=1;nombre=BCIMINI;grupoCanal=02;
+
+901;Desc=BCINET Canal Movil;pathLog=movil/;pathJSP=/movilwls;pinID=110;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVIBCI;grupoCanal=03;canalParaServiciosDap=110;loginMB=loginMovilWebControllerMB;pathMenuXML=tablas/bcinet/MenuBCI_personas.xml;
+904;Desc=WEB MOVIL SMS NOVA;pathLog=movil/;pathJSP=/movilwls;pinID=904;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVISMSNOVA;grupoCanal=15;canalParaServiciosDap=904;
+905;Desc=TBANC Canal Movil;pathLog=movil/;pathJSP=/movilwls;pinID=100;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVITBANC;grupoCanal=02;canalParaServiciosDap=110;loginMB=loginMovilWebControllerMB;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml
+906;Desc=BCIExpres Canal Movil;pathLog=bciexmovil/;pathJSP=/bciexmovilwls;pinID=130;pathTablas=bciexmovil/;dispositivo=browsermovil;creaMenu=NO;redirectWebServer=/bciexmovilwls/homeBciExpress.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVIBCIFAC;grupoCanal=05;loginMB=loginEmpresaMovilControllerMB;pathMenuXML=tablas/bel/MenuBCI_Pyme.xml;
+907;Desc=Web Movil Nova;pathLog=movil/;pathJSP=/movilwls;pinID=800;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/cl/bci/aplicaciones/bciNova/menu/indexBciNova.jsf;timeOutUso=5;timeOutTotal=15;nombre=MOVNOVAWEB;grupoCanal=03;loginMB=loginPersonasMB;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml;estiloCss=bcinova/;
+116;Desc=ConveniosCorporativos;pathLog=convenioswls/;pathJSP=/convenioswls;pinID=120;pathTablas=convenioswls/;dispositivo=browser;creaMenu=no;redirectWebServer=/convenioswls/canalesindirectos/desplieguePrincipal.do;timeOutUso=5;timeOutTotal=15;nombre=ConveniosCorporativos;
+910;Desc=BCINET Canal Nativo Movil;pathLog=movil/;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml;pathJSP=;pinID=110;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVIBCINAT;grupoCanal=03;
+911;Desc=TBANC Canal Nativo Movil;pathLog=movil/;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml;pathJSP=;pinID=100;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVITBANCNAT;grupoCanal=02;
+930;Desc=Empresas Canal Movil;pathLog=bcimovil/;pathJSP=/bciexmovilwls;pinID=130;pathTablas=bciexmovil/;dispositivo=browsermovil;creaMenu=NO;redirectWebServer=/bciexmovilwls/homeBciExpress.jsp;timeOutUso=5;timeOutTotal=15;nombre=MOVIBCIEMP;grupoCanal=05;loginMB=LoginEmpresasControllerMB;pathMenuXML=tablas/bel/MenuBCI_Pyme.xml;
+912;Desc=Banca Privada Movil;pathMenuXML=tablas/bancaprivada/MenuBCI_bancaPrivada.xml;pinID=117;pathTablas=bancaprivada/;pathJSP=/bcinetwls;dispositivo=browser;headerMenu=Banca Privada;creaMenu=Si;redirectWebServer=/cl/bci/aplicaciones/menu/bancaPrivada/vista/index.jsf;timeOutUso=30;timeOutTotal=30;nombre=MOVBCIPRI;grupoCanal=03;loginMB=loginBancaPrivadaControllerMB;usaStruts=NO;estiloCss=privada/;tema=blacktie;
+914;Desc=BCINET Pago Movil;pathLog=movil/;pathMenuXML=tablas/tbanc/MenuTBANC_Personas.xml;pathJSP=;pinID=110;pathTablas=movil/;dispositivo=browser;creaMenu=NO;redirectWebServer=/movilwls/home.jsp;timeOutUso=5;timeOutTotal=15;nombre=PMOVIL;grupoCanal=03;
+
+serverCanal;canalPorDefecto=122;www.bci.cl=122;www.tbanc.cl=123;www.nova.cl=124;
+conversionCanalPublicoPrivado;canalPorDefecto=110;122=110;123=100;124=800;
+420;Desc=PROVEEDORES Canal Browser;pathMenuXML=tablas/proveedores/MenuBCI_Proveedores.xml;pathSessionMOPA=/ftpwls/bcinetwls/sessions;pathLog=bel/;pathJSP=/belwls/proveedores;pinID=420;pathTablas=proveedores/;dispositivo=browser;headerMenu=Portal Proveedores;creaMenu=No;redirectWebServer=/belwls/proveedores/muroAction.do?method=portalProveedores;timeOutUso=15;timeOutTotal=30;nombre=WEBPROVEEDORES;grupoCanal=17;paginaError=/cl/bci/aplicaciones/seguridad/autenticacion/error.jsf;loginMB=loginProveedoresControllerMB;estiloCss=proveedores/;tema=aristo;
+
+# 100           WEB TBANC     WTBAN         WEB TBANC
+# 110           BCINET        BCINT         BCINET
+# 130           BCIEXPINT     EXINT         BCIEXPRESS INTERNET
+# 150           BCIDE         BCIDE         BCIDEMP
+# 160           CEMP          CEMP          CALLEMP
+# 170           CAJA          CAJA          CAJA
+# 180           MESON         MESON         MESON
+# 190           CANJE         CANJE         CANJE
+# 200           AUTOSERVICIO  AUTOS         AUTOSERVICIOS
+# 210           CALL PERSONA  CALLP         CALL CENTER PERSONAS
+# 220           BCIDIRECTO P  BCIDP         BCIDIRECTO PERSONAS
+# 230           ATM           ATM           CAJERO AUTOMATICO
+# 235           ATM O/B       ATMOB         CAJERO AUTOMATICO  O/B
+# 240           SERV.A DOMIC  SADOM         SERVICIOS A DOMICILIO
+# 250           SERVIPAG      SERVI         SERVIPAG
+# 700           POS           POS           CAJAS ASISTIDAS POS
+# 800           _             _             CONOSUR
+
+105;Desc=BCINET;pathMenuXML=tablas/bcinetTemporal/MenuBCI_bcinet.xml;pathSessionMOPA=;pathLog=;pathJSP=;pinID=120;pathTablas=bcinetTemporal/;dispositivo=browser;headerMenu=;creaMenu=;redirectWebServer=/cl/bci/aplicaciones/menu/index.jsf;timeOutUso=480;timeOutTotal=480;nombre=BCINET;grupoCanal=;sufijoForward=;estiloCss=/;tema=;loginMB=loginBcinetControllerMB;infraestructuraMulticanal=SI;

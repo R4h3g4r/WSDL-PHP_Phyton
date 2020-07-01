@@ -1,0 +1,376 @@
+## Parametros para seteo de MultiEnvironment
+
+multiEnvironment;banco=BCI;marca=BCI;cartera=BEE;localeIdioma=ES;localePais=CL;usuario=USRWEB;canal=110;
+
+## Parametros para validaciones.
+valorCuotaMinimaPermitida;desc=10000;
+## Parametros para validaciones Everest.
+valorCuotaMinimaPermitida0999;desc=10000;
+valorCuotaMinimaPermitida0998;desc=1;
+
+## Descripciones de seguros BCI
+##segurosSDG;SDG=Desgravamen Deudor Directo
+segurosSDC;SDC=Cesantía o Incapacidad Temporal;
+segurosSDG;SDG=Desgravamen;
+segurosSDP;SDP=Doble Capital;
+segurosSEC;SEC=Enfermedades Graves;
+segurosSHO;SHO=Hospitalización;
+segurosDGA;DGA=Desgravamen Aval;
+segurosHGC;HGC=Hogar Contenido;
+segurosAPD;APD=Accidentes Personales;
+segurosAPI;API=Accidentes Personales Aval;
+segurosSCV;SCV=Crédito vida;
+segurosCVA;CVA=Crédito vida aval;
+
+## Descripciones de seguros BCS (Banco Cono Sur -> NOVA)
+segurosCDE;CDE=Desempleo;
+segurosCDG;CDG=Desgravamen;
+segurosCEC;CEC=Enfermedades Catastroficas;
+segurosCHO;CHO=Hospitalizacion;
+segurosCIN;CIN=Invalidez;
+segurosCRF;CRF=Renta Familia;
+segurosCVC;CVC=Vida Codesur;
+
+## Descripciones de Tipo de Cobro de Seguros BCI
+tipoCobroFLT;FLT=Pago Total;
+tipoCobroFVC;FVC=Cuotas Anticipado;
+tipoCobroVCD;VCD=Total Cuota;
+tipoCobroINF;INF=Total Informado;
+
+## Descripciones de Descuentos de Intereses
+interesesDSCCANAL;   DSCCANAL     =especial internet;
+interesesDSCTARJETA; DSCTARJETA   =pago con tarjeta;
+interesesDSCECUPON;  DSCECUPON    =e-cupón;
+interesesDSCCLTETOP; DSCCLTETOP   =cliente especial;
+interesesDSCWEBALR;   DSCWEBALR   =especial internet;
+interesesDSCCTACTE-A; DSCCTACTE-A =cliente nuevo;
+interesesDSCCTACTE-B; DSCCTACTE-B =cliente nuevo;
+interesesDSCCTACTE-M; DSCCTACTE-M =cliente nuevo;
+interesesDSCINFIELES; DSCINFIELES =con descuento exclusivo;
+interesesDSCW-INFIEL; DSCW-INFIEL =con descuento exclusivo;
+interesesDSCCONVENIO; DSCCONVENIO =con descuento convenio;
+interesesINFORMADO; INFORMADO =Tasa Informada;
+
+## Cuenta abono para promocion + parametros de promocion ofrecidas
+## T42;desc=000010444912;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Promoción TV 42";promoimg=/bcinetwls/common/images/tv42.jpeg;promofinancie=una TV de Plasma de 42";promoprecio=TV Plasma;promodespacho=la TV;promoventa=de la TV;promosimule=TV Plasma;promoleyenda=TV 42";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho.gif;promomasinfo=/bcinetwls/common/images/info_promocion.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca IRT;promoref=;promopreref=;promotor=Incentivos y Promociones Limitada;promotorut=RUT. N° 77.247.680-9;
+## P01;desc=000032320141;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Notebook HP;promoimg=/bcinetwls/common/images/notebookhp.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=el Notebook;promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion dv2120LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho_notebook.gif;promomasinfo=/bcinetwls/common/images/info_promocion_notebook.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion dv2120LA;promomarca=marca HEWLETT PACKARD;promoref=de referencia HP;promopreref=699.990;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+P02;desc=000010582843;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Moto Scooter 125cc;promoimg=/bcinetwls/common/images/MotoScooter125cc.jpg;promofinancie=Moto Scooter 125cc;promoprecio=financiamiento Bci;promodespacho=(Promoción válida hasta agotar stock de 72 unidades);promoventa=de la Moto Scooter;promosimule=Moto Scooter 125cc;promoleyenda=Moto Scooter 125cc;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho_g.gif;promomasinfo=/bcinetwls/common/images/info_promocion_g.gif;promoenvio=de la Moto Scooter 125cc;promoprod=Moto Scooter 125cc;promomarca=;promoref=;promopreref=;promotor=Incentivos y Promociones Limitada;promotorut=RUT. N° 77.247.680-9;
+## P03;desc=000010582843;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Moto 4 Ruedas 110cc;promoimg=/bcinetwls/common/images/Moto4r110cc.jpg;promofinancie=Moto 4 Ruedas 110cc;promoprecio=financiamiento Bci;promodespacho=la Moto 4 Ruedas;promoventa=de la Moto 4 Ruedas;promosimule=Moto 4 Ruedas 110cc;promoleyenda=Moto 4 Ruedas 110cc;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho_g.gif;promomasinfo=/bcinetwls/common/images/info_promocion_g.gif;promoenvio=de la Moto 4 Ruedas 110cc;promoprod=Moto 4 Ruedas 110cc;promomarca=;promoref=de referencia;promopreref=900.000;promotor=Incentivos y Promociones Limitada;promotorut=RUT. N° 77.247.680-9;
+## P04;desc=000010582843;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Bote Motor 5HP;promoimg=/bcinetwls/common/images/BoteMotor05hp.jpg;promofinancie=Bote Motor 5HP;promoprecio=financiamiento Bci;promodespacho=el Bote Motor 5HP;promoventa=del Bote Motor 5HP;promosimule=Bote Motor 5HP;promoleyenda=Bote Motor 5HP;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho_g.gif;promomasinfo=/bcinetwls/common/images/info_promocion_g.gif;promoenvio=del Bote Motor 5HP;promoprod=Bote Motor 5HP;promomarca=;promoref=de referencia;promopreref=2.850.000;promotor=Incentivos y Promociones Limitada;promotorut=RUT. N° 77.247.680-9;
+## P05;desc=000010582843;TRXABOPRO=V0783;TRXNEMPRO=506;promogls=Bote Motor 15HP;promoimg=/bcinetwls/common/images/BoteMotor15hp.jpg;promofinancie=Bote Motor 15HP;promoprecio=financiamiento Bci;promodespacho=el Bote Motor 15HP;promoventa=del Bote Motor 15HP;promosimule=Bote Motor 15HP;promoleyenda=Bote Motor 15HP;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_despacho_g.gif;promomasinfo=/bcinetwls/common/images/info_promocion_g.gif;promoenvio=del Bote Motor 15HP;promoprod=Bote Motor 15HP;promomarca=;promoref=de referencia;promopreref=4.150.000;promotor=Incentivos y Promociones Limitada;promotorut=RUT. N° 77.247.680-9;
+## A00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 26";promoimg=/bcinetwls/common/images/tvlcda00.jpg;promofinancie=una TV LCD de 26";promoprecio=TV LCD;promodespacho=la TV (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV;promosimule=TV LCD;promoleyenda=TV LCD 26";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## A10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 26 + Home Theater;promoimg=/bcinetwls/common/images/tvlcda10.jpg;promofinancie=una TV LCD de 26" + Home Theater;promoprecio=TV LCD + Home Theater;promodespacho=la TV + Home Theater (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV + Home Theater;promosimule=TV LCD + Home Theater;promoleyenda=TV LCD 26 + Home Theater;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor + Home Theater;promoprod=Televisor + Home Theater;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## B00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 32";promoimg=/bcinetwls/common/images/tvlcdb00.jpg;promofinancie=una TV LCD de 32";promoprecio=TV LCD;promodespacho=la TV (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV;promosimule=TV LCD;promoleyenda=TV LCD 32";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## B10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 32 + Home Theater;promoimg=/bcinetwls/common/images/tvlcdb10.jpg;promofinancie=una TV LCD de 32" + Home Theater;promoprecio=TV LCD + Home Theater;promodespacho=la TV + Home Theater (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV + Home Theater;promosimule=TV LCD + Home Theater;promoleyenda=TV LCD 32 + Home Theater;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor + Home Theater;promoprod=Televisor + Home Theater;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## C00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 40";promoimg=/bcinetwls/common/images/tvlcdc00.jpg;promofinancie=una TV LCD de 40";promoprecio=TV LCD;promodespacho=la TV (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV;promosimule=TV LCD;promoleyenda=TV LCD 40";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## C10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 40 + Home Theater;promoimg=/bcinetwls/common/images/tvlcdc10.jpg;promofinancie=una TV LCD de 40" + Home Theater;promoprecio=TV LCD + Home Theater;promodespacho=la TV + Home Theater (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV + Home Theater;promosimule=TV LCD + Home Theater;promoleyenda=TV LCD 40 + Home Theater;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor + Home Theater;promoprod=Televisor + Home Theater;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+## D00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV2422LA;promoimg=/bcinetwls/common/images/notebookd00.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=el Notebook (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion dv2422LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion dv2422LA;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+## D10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV2422LA + Multifuncional;promoimg=/bcinetwls/common/images/notebookd10.jpg;promofinancie=Notebook HP Pavilion + Multifuncional;promoprecio=financiamiento Bci;promodespacho=el Notebook + Multifuncional (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook HP + Multifuncional;promoleyenda=Notebook HP Pavilion dv2422LA + Multifuncional Deskjet F380;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion + Multifuncional;promoprod=HP Pavilion dv2422LA + Multifuncional;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+## E00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV6420LA;promoimg=/bcinetwls/common/images/notebooke00.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=el Notebook (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion dv6420LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion dv6420LA;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+## E10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV6420LA + Multifuncional;promoimg=/bcinetwls/common/images/notebooke10.jpg;promofinancie=Notebook HP Pavilion + Multifuncional;promoprecio=financiamiento Bci;promodespacho=el Notebook + Multifuncional (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook HP + Multifuncional;promoleyenda=Notebook HP Pavilion dv6420LA + Multifuncional Deskjet F380;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion + Multifuncional;promoprod=HP Pavilion dv6420LA + Multifuncional;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+## F00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV2425LA;promoimg=/bcinetwls/common/images/notebookf00.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=el Notebook (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion dv2425LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion dv2425LA;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+## F10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP DV2425LA + Multifuncional;promoimg=/bcinetwls/common/images/notebookf10.jpg;promofinancie=Notebook HP Pavilion + Multifuncional;promoprecio=financiamiento Bci;promodespacho=el Notebook + Multifuncional (Promoción válida hasta el 30 de Septiembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook HP + Multifuncional;promoleyenda=Notebook HP Pavilion dv2425LA + Multifuncional Deskjet F380;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion + Multifuncional;promoprod=HP Pavilion dv2425LA + Multifuncional;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+G00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 32";promoimg=/bcinetwls/common/images/tvlcdg00.jpg;promofinancie=una TV LCD de 32";promoprecio=TV LCD;promodespacho=y dirección a la que se debe despachar la TV (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV;promosimule=TV LCD;promoleyenda=TV LCD 32";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+G10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 32 + Home Theater;promoimg=/bcinetwls/common/images/tvlcdg10.jpg;promofinancie=una TV LCD de 32 + Home Theater;promoprecio=TV LCD + Home Theater;promodespacho=y dirección a la que se debe despachar la TV + Home Theater (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV + Home Theater;promosimule=TV LCD + Home Theater;promoleyenda=TV LCD 32 + Home Theater;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor + Home Theater;promoprod=Televisor + Home Theater;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+H00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 40";promoimg=/bcinetwls/common/images/tvlcdh00.jpg;promofinancie=una TV LCD de 40";promoprecio=TV LCD;promodespacho=y dirección a la que se debe despachar la TV (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV;promosimule=TV LCD;promoleyenda=TV LCD 40";promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor;promoprod=Televisor;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+H10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Promoción Samsung TV LCD 40 + Home Theater;promoimg=/bcinetwls/common/images/tvlcdh10.jpg;promofinancie=una TV LCD de 40 + Home Theater;promoprecio=TV LCD + Home Theater;promodespacho=y dirección a la que se debe despachar la TV + Home Theater (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 200 unidades por modelo);promoventa=de la TV + Home Theater;promosimule=TV LCD + Home Theater;promoleyenda=TV LCD 40 + Home Theater;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_tvdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Televisor + Home Theater;promoprod=Televisor + Home Theater;promomarca=marca Samsung;promoref=;promopreref=;promotor=Soc. Dist. Radio Center Ltda;promotorut=RUT. N° 80.909.400-6;
+I00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook Compaq Presario F706LA;promoimg=/bcinetwls/common/images/notebooki00.jpg;promofinancie=Notebook Compaq Presario;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook Compaq Presario;promoleyenda=Notebook Compaq Presario F706LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook Compaq Presario;promoprod=Compaq Presario F706LA;promomarca=marca Compaq;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+I10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook Compaq Presario F706LA + Multifuncional;promoimg=/bcinetwls/common/images/notebooki10.jpg;promofinancie=Notebook Compaq Presario + Multifuncional;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook + Multifuncional (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook Compaq + Multifuncional;promoleyenda=Notebook Compaq Presario F706LA + Multifuncional HP C4280;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook Compaq Presario + Multifuncional;promoprod=Compaq Presario F706LA + Multifuncional;promomarca=;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+J00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP 2624LA;promoimg=/bcinetwls/common/images/notebookj00.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion 2624LA;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion 2624LA;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+J10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP 2624LA + Multifuncional;promoimg=/bcinetwls/common/images/notebookj10.jpg;promofinancie=Notebook HP Pavilion + Multifuncional;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook + Multifuncional (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook HP + Multifuncional;promoleyenda=Notebook HP Pavilion 2624LA + Multifuncional HP C4280;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion + Multifuncional;promoprod=HP Pavilion 2624LA + Multifuncional;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+K00;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP 1330C;promoimg=/bcinetwls/common/images/notebookk00.jpg;promofinancie=Notebook HP Pavilion;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook;promosimule=Notebook HP;promoleyenda=Notebook HP Pavilion 1330C;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion;promoprod=HP Pavilion 1330C;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+K10;desc=000010582843;TRXABOPRO=V0776;TRXNEMPRO=506;promogls=Notebook HP 1330C + Multifuncional;promoimg=/bcinetwls/common/images/notebookk10.jpg;promofinancie=Notebook HP Pavilion + Multifuncional;promoprecio=financiamiento Bci;promodespacho=y dirección a la que se debe despachar el Notebook + Multifuncional (Promoción válida hasta el 31 de Diciembre de 2007 o hasta agotar stock de 150 unidades por modelo);promoventa=del Notebook + Multifuncional;promosimule=Notebook HP + Multifuncional;promoleyenda=Notebook HP Pavilion 1330C + Multifuncional HP C4280;promolinkdetalle=/bcinetwls/solicitudes/detallePromocionMulticredito.jsp;promoinfodespacho=/bcinetwls/common/images/info_notebookdespacho.gif;promomasinfo=/bcinetwls/common/images/info_masinfo.gif;promoenvio=del Notebook HP Pavilion + Multifuncional;promoprod=HP Pavilion 1330C + Multifuncional;promomarca=marca HEWLETT PACKARD;promoref=;promopreref=;promotor=Hewlett Packard de Chile Comercial Ltda.;promotorut=RUT. N° 96.678.680-9;
+
+
+## lista de promociones validas a mostrar en pantalla de promociones bcinet
+codigosPromocionMostrar;desc=P02,G00,G10,H00,H10,I00,I10,J00,J10,K00,K10;
+
+## Promociones Transaccion, nemonico normal y excepcional (con horario)
+transaccionNormalPromocion;TRXABO=V0776;TRXNEM=506;
+transaccionExcepcPromocion;TRXABO=V0783;TRXNEM=506;HORATOPEINI=1330;HORATOPEFIN=2000;
+
+## Bandera para promociones desde vineta bci.cl S=SI (aparece pagina con promociones)       N=NO (aparece pagina informativa)
+promocionesBandera;desc=N;
+promocionesPrimeraFecha;desc=31 de Diciembre de 2007;
+unidadesDisponiblesUno;desc=150;
+promocionesSegundaFecha;desc=31 de Diciembre de 2007;
+unidadesDisponiblesDos;desc=200;
+promocionesTerceraFecha;desc=hasta agotar stock;
+unidadesDisponiblesTre;desc=72;
+
+## Transaccion, nemonico normal y excepcional (con horario)
+transaccionNormal;TRXABO=V0776;TRXABOMALL=V0782;TRXNEM=506;
+transaccionExcepc;TRXABO=V0783;TRXABOMALL=V0784;TRXNEM=506;HORATOPEINI=1330;HORATOPEFIN=2000;
+
+## Ajuste al monto disponible en % (porcentaje)
+ajustemontodisponible;desc=10;
+
+## flag de simulacion liviana
+simulacion;tipo=L;tipo110=R;tipo116=R;tipoOperacion=CCN;codigoAuxiliar=441;codigoMoneda=0999;segurosOpcionales=CDG,CIN,CEC,CHO,CDE;segurosObligatorios=;
+ERRORPOC001;desc=ERRORPOC001;
+ERRORCUPO001;desc=ERRORCUPO001;
+
+## Facultamiento ####
+perfilP02;DESC=Jefe de oficina;
+perfilP03;DESC=Gerente Regional;
+perfilP05;DESC=Gerente Comercial;
+estadoA;DESC=AUTORIZADO;
+estadoR;DESC=RECHAZADO;
+estadoP;DESC=PENDIENTE;
+
+## seguros asociados a multicredito
+segurosopcionalesmulticredito;desc=SDG,SDP,SEC;
+segurosobligatoriosmulticredito;desc=;
+seguroslistamulticredito;desc=SDG,SDP,SEC,SDC,SHO;
+horalimitemulticredito;desc=20;
+
+## Registro de Ingreso Simulador ##
+registroDeAvance;activo=true;ingreso=ING;tipo=Avance;simulacion=SIM;resimulacion=RSM;solicitud=SOL;resultado=RES;cursado=CUR;rechazado=REC;
+
+## Valores monto minimo Pry Consumo Online ##
+
+montoMinimoSimulacion;PREAPROBADO=350000;CONSUMO=350000;OFR=350000;
+montoMaximoSimulacion;PREAPROBADO=25000000;CONSUMO=40000000;OFR=25000000;
+plantillaPOC;Multicredito=ALR500;CreditoConsumo=CON300;CrediYa=CON460;colaborador=PAP328;
+ERRORGENERAL001;desc=ERRORGENERAL001;
+
+#montoMinimoSimulacion;CONSUMO=350000;OFR=350000;
+#montoMaximoSimulacion;CONSUMO=25000000;OFR=25000000;
+descuento;activo=no;mensaje=5% de descuento en la tasa al cargar la cuota a la tarjeta de crédito.;
+cantidadMulticreditoExcedida;mensaje=CANT.MAX. DE MULTICREDITOS EXCEDIDA;
+cantidadConsumoExcedida;mensaje=Estimado Cliente, a superado el máximo de curses de créditos de consumos permitidos por la web;exception=CANTIDADOPERAC.EXCEDEMAXIMOPERMITIDO;
+cargaFinancieraExcedida;mensaje=Estimado(a) cliente: Su nivel de endeudamiento no le permite tomar un crédito por Internet. Favor diríjase a la oficina más cercana para poder revisar su solictud de crédito, Gracias;
+errorVisacion;mensaje=Estimado(a) Cliente: Lamentamos informarle que no hemos podido aprobar su solicitud en forma automática. Le invitamos a acercarse a cualquier sucursal Bci y un ejecutivo podrá analizar su solicitud y sus antecedentes.;
+plazoEnPocExcedida;mensaje=Estimado(a) Cliente:[br] La fecha de pago de su primera cuota no debe ser mayor a [FEC1ERVENC]. Si desea mantener la fecha que solicito antes, debe disminuir el número de cuotas seleccionado.[br] ¿Desea utilizar la fecha de pago de la primera cuota indicada?;
+sinDatosDeRenta;mensaje=Estimado Cliente, no contamos con los datos de su renta actualizados, por favor comuníquese con su ejecutivo.;excepcionRenta=CLIENTESINDATOSDERENTA;
+validarCarga;activo=false;
+validarMandato;activo=true;
+
+## tasa de impuesto del crédito para wcorp.util.bee.UtilitarioCalculoCuota      ##
+## los valores de tasaMesImpto por año estan dados por LEY baja progresiva 	##
+## annoInicio : Variable que contiene el año de comienzo de la comparación de   ##
+## 		fechas para obtener el impuesto. Se buscara el año menor a esta ##
+##      fecha.                              ##
+## default    : impuesto por defecto. Por si no se encuentra la fecha solicitada##
+## 200X	      : valor impuesto para ese año.					##
+##                                      ##
+tasaImpuesto;annoInicio=2007;default=0.0006;2007=0.00125;2008=0.0010;2009=0.00;2010=0.0005;2011=0.0005;2012=0.0005;
+datosMulticredito;tio=ALR;aux=500;codigoProducto=ALR500;tipoPlazo=M;
+
+montoMinimoSuperCartola;cmo=350000;mul=100000;ofr=350000;
+
+#Descripción de "CONDICIÓN GARANTÍA".
+condGarantia1;Desc=Prenda;
+condGarantia2;Desc=Aval;
+condGarantia3;Desc=Hipoteca;
+condGarantia4;Desc=Sin Garantía;
+condGarantia5;Desc=Fianza Solidaria;
+condGarantia6;Desc=Letras de Terceros;
+condGarantia7;Desc=Bonos Médicos;
+condGarantia8;Desc=Otras Garantías;
+condGarantia9;Desc=Fundes (Fondos de Desarrollo);
+condGarantia10;Desc=Fogape;
+condGarantia11;Desc=Crédito Universitario Aval Estado;
+condGarantia12;Desc=Fogape e Hipoteca;
+condGarantia13;Desc=Fogape y aval;
+condGarantia14;Desc=Fogape y Prenda;
+condGarantia15;Desc=Fogape y Letra;
+
+#Descripción de "INDICADOR SITUACIÓN CONTABLE".
+situacionContableCAS;Desc=Castigada;
+situacionContableMOR;Desc=Morosa;
+situacionContableMUL;Desc=Múltiples estados;
+situacionContableVCD;Desc=Vencido;
+situacionContableVDD;Desc=Vendida;
+situacionContable;default=Vigente;
+
+#Tipos de Creditos
+comercialesCOM;cod=COM;
+comercialesAVC;cod=AVC;
+comercialesNEG;cod=NEG;
+consumo;cod=consumo;
+
+## Productos a no mostrar en Créditos de consumo everest
+productosDeshabilitar;codigos=CON360,CON361,CON670,CON575;
+
+## Canales de venta posibles
+codigosCanalVenta;codigos=Canal Telecanal,4;
+
+##Mensajes para validar al cursar operacion en consumo online
+errorChip;mensaje=(APR):%E04%EXIST033;
+errorPap;mensaje=(APR):%E04%EXIST033;
+## seguros con dependencias de vinculacion
+segurosConDependencia;seguros=SDGFLT,CDGFLT;
+seguroSDGFLT;dependencia=SECFLT,SHOFLT,SDPFLT;
+seguroCDGFLT;dependencia=CECFLT,CHOFLT;
+
+##indicador Declaracion Personal de Salud DPS
+indicadorDPS;desc=DPS;
+
+
+##Mensaje al deseleccionar los seguros en crediya
+mensajeSegurosCrediya;mensaje=Al variar las condiciones de su crédito, los terminos de la oferta aceptada no pueden mantenerse.;
+
+##Mensajes para colaboradores
+mensajeSeguroColaborador;mensaje=Estimado(a) cliente, para cursar un crédito de consumo por Bci.cl es necesario que incluya<br> el seguro de desgravamen. Si usted no desea contar con seguro de desgravamen, le invitamos<br> a contactarse con su ejecutivo en nuestra plataforma de colaboradores.;
+errorSeguroColaborador;mensaje=Estimado(a) cliente, en este momento no hemos podido validar su Declaración Personal de Salud, favor intente nuevamente. Si el problema persiste lo invitamos a intentar más tarde o acercarse a nuestra plataforma de colaboradores para continuar con el curse de su crédito.;
+rechazoSeguroColaborador;mensaje=Estimado(a) cliente, no hemos podido validar su Declaración Personal de Salud mediante este canal. Lo invitamos a acercarse a nuestra plataforma de colaboradores para continuar con el curse de su crédito.;
+sinSeguroDesgravamenColaborador;mensaje=Estimado(a) cliente, dado que usted solicitó no contratar el seguro de desgravamen, no es posible realizar el curse por este canal. Lo invitamos a acercarse a nuestra plataforma de colaboradores para continuar con el curse de su crédito.;
+
+##Codigo actividad colaboradores
+clienteColaborador;valor=99001;
+
+##Dia de vencimiento para cuotas de colaboradores
+diaVencimientoColaborador;valor=10;
+
+#Consolidador
+idProductoCredito;valor=CDC;
+idSubProductoCredito;valor=MDC;
+urlSimuCredConsumo;Desc=/bcinetwls/autenticacioninterdomain/autenticacionInterdomain.do?page=page_bci_bel_sol_consolida;
+urlSimuManual;Desc=/seguridadwls/CheckSession?servicio=SolicitarMultiCredito&canal=110;
+
+##Rut genérico para no clientes
+rutNoCliente;rut=1578;dv=4;
+
+## Multicredito
+codigoCreditoMulticredito;codigo=ALR500;moneda=0999;segurosSeleccionados=SIN_SEGUROS;cantSegurosSeleccionados=1;
+
+## FactorCAE
+factorCae;decimales=2;base=30;iteracionesMaximas=20;deltaMaximo=0.000000001;esPorcentaje=1;
+
+## Codigo Credito Universal
+codigoCreditoUniversal;segurosFactorCAE=ACD,AFC,AGI,APD,API,APT,CAT,CCS,CDE,CDG,CEC,CHO,CIN,CIP,CRF,CR1,CR2,CR3,CSA,CVA,CVC,CVD,DCI,DCM,DGA,DGC,DGI,DGM,HGC,SCV,SDC,SDG,SDP,SEC,SHO;delimitadorSegurosFactorCAE=,;codigo=CON500;moneda=0999;descripcion=CREUNI;rangoMontoMenor=600000;rangoMontoMayor=22000000;consideraRangoMonto=S;rangoCuotaMenor=24;rangoCuotaMayor=36;consideraRangoCuota=N;vigente=S;segurosSeleccionados=SIN_SEGUROS;cantSegurosSeleccionados=1;rutNoCliente=1.578-4;ajusteLineaPorc=10;
+
+##Orden a desplegar para seguros del simulador del consumo online
+orden;cliente=SDG|SDP|SDC|SHO|SEC;colaborador=SDG|SDP|SDC|SHO|SEC;
+
+## productos a los que se aplica FactorCAE
+productosfactorCAE;listaProductos=CON500,ALR500;delimitadorlistaProductos=,;productosfactorCAEVigente=S;
+
+##Productos para los cuales no debe mostrar CAE
+productosSinCAE;codigos=BGT,BEX;
+
+
+## Datos para Validación de Curse Crédito Online
+creditoOnline;HoraLimite=15;MinutoLimite=15;codigoCredito=441;minimoMonto=100000;maximoCuotas=60;mesesGracia=3;gastoNotarial=1000;estadoDeposito=N;estadoDepositoNoCursar=R;diasVencimiento=01,03,05,08,10,15,20,25;limiteCelda=60;
+
+## Correo Comprobante
+correo;fromNombre=Banco BciNova;fromCorreo=creditos@bcinova.cl;firmaCorreo=Atentamente\nBanco de Créditos e Inversiones Nova;subjectCorreo=Comprobante Consumo Online; cuerpoCorreo=\nEstimado "{nombre}": \n\tComprobante Nº {numeroOperacion}, {fechaMovimiento}\n\n\n\t\tCliente: {nombre}\n\t\tRUT: {RUT}\n\t\tMonto Total del Crédito: ${montoLiquido}\n\t\tNº de Cuotas: {numeroCuotas}\n\t\tValor Mensual: ${valorCuota}\n\t\tTasa de Interés: {tasaInteres}%\n\t\tSeguros incluídos: {seguros}\n\t\tCuenta en la que se depositará: Cuenta Prima {cuentaPrimaDeposito}\n\t\tCuenta en la cual se cargará: Cuenta Prima {cuentaPrimaCargo}\n\t\tPago de la primera Cuota: {fechaPrimerVencimiento}\n\n\tCalendario de Pago:\n\t\tPrimera Cuota\tFecha de Vencimiento\n\t\t   ${primeraCuota}\t\t{fechaPrimerVencimiento}\n\t\tNmero de Cuota\t\tMonto\tFecha de Vencimiento{detalleCalendario};
+
+## PDF
+calendarioPagoPDF;rutaXsl=/conosurwls/creditoOnline/pdf/calendarioPago.xsl;rutaTimbre=conosurwls/creditoOnline/images/timbre_bcinova.jpg;
+normativaSegurosPDF;rutaXsl=/conosurwls/creditoOnline/pdf/normativaSeguros.xsl;
+contratoPDF;rutaXsl=/conosurwls/creditoOnline/pdf/contrato.xsl;rutaVineta=conosurwls/creditoOnline/images/vineta.jpg;rutaLogo=conosurwls/creditoOnline/images/bcinova.jpg
+apoderado;nombre=Luis Felipe Hirane Sarkis;rutaFirma=/conosurwls/creditoOnline/images/firmaLFH.JPG;
+CCN441;tipoProducto=CRD Consumo Tasa Fija;
+telefonoBCI;Desc=;
+
+##Abona a la cuenta
+abono;horaLimite=14;
+
+##Canal BCI Nova
+canal;value=800;
+
+#Seguros
+edadSeguro;edad=45;
+seguroDesc;1=Desgravamen;2=Invalidez 2/3;3=Enfermedades Graves;4=Hospitalización;5=Cesantía;
+seguroCod;CDGFLT=1;CINFLT=2;CECFLT=3;CHOFLT=4;CDEFLT=5;
+seguros;codigos=CDG,CIN,CEC,CHO,CDE;id=1,2,3,4,5;
+segurosFLT;codigos=CDGFLT,CINFLT,CECFLT,CHOFLT,CDEFLT;id=1,2,3,4,5;
+sinSeguros;cod=\u0020\u0020\u0020;
+
+#Abona Crédito
+cajero;codigo=0400;idCajero=A;
+supervisor;codigo=0;
+codigos;codMov=1220;Tx=V0783;
+
+#Recuperación Mail Gerente
+eMailGerente;codigoSucursal=98;
+
+################################
+# Parámetros de Multiambiente  #
+################################
+usuario;value=WEBBCS;
+banco;value=BCI;
+marca;value=BCS;
+cartera;value=BEE;
+
+##Datos Journalizacion
+journal;codigoEvento=SIMULAC; subCodigoEvento=CURSE; producto=CONSUM;
+
+##Período entre Vencimiento 
+periodoEntreVctoExpresaEn;desc=M;
+
+##PAQUETES DE SEGUROS
+##opciones disponibles op1 y op2;
+opcionPaqueteActiva;desc=op1;
+
+##definicion de paquetes opcion 1
+tiposPAQop1;desc=FUL|PLU|BAS;defCliNormal=FUL;defCliCol=FUL;
+
+##seguros asociados a cada paquete opcion 1
+paqueteBAS;seguros=SDG;desc=Protecci&oacute?n B&aacute?sica;
+paquetePLU;seguros=SDG|SDC;desc=Protecci&oacute?n Plus (Cesant&iacute?a);
+paqueteFUL;seguros=SDG|SDC|SDP|SEC|SHO;desc=Protecci&oacute?n Full;
+
+##definicion de paquetes opcion 2
+tiposPAQop2;desc=DES|PVID|PSAL;defCliNormal=PSAL;defCliCol=PSAL;
+
+##seguros asociados a cada paquete opcion 1
+paqueteDES;seguros=SDG;desc=Protecci&oacute?n B&aacute?sica;
+paquetePVID;seguros=SDP;desc=Protecci&oacute?n Vida;
+paquetePSAL;seguros=SDC|SEC|SHO;desc=Protecci&oacute?n Salud;
+
+##Productos para calculo de CAE con calendario
+productosCalculoConCalendario;codigos=CON360,CON423,CON319;
+
+##Productos con tasa especial
+productosTasaEspecial;codigos=CON360;
+
+##Productos con cuoton
+productoConCuoton;codigos=CON360;
+
+##xsl para Hoja de resumen
+xslPDFhojaResumen;valor=pdf/consumoOnline/hojaresumenconsumo.xsl;
+xslPDFContrato;valor=pdf/consumoOnline/contratoconsumo.xsl;
+##Productos con combo-box tipo de auto.
+productosTipoAuto;codigos=CON319,CON423,CON902,CON919;
+##Opciones combo-box tipo auto.
+consultasTipoAuto;total=2;c1=001;c2=002;
+001;des=Auto Nuevo;
+002;des=Auto Usado;
+
+##Opciones combo-box tipo auto.
+consultasGarantias;total=9;c1=4;c2=1;c3=2;c4=3;c5=5;c6=6;c7=7;c8=8;c9=16
+4;des=Sin Garantías;
+1;des=Prendaria;
+2;des=Aval;
+3;des=Hipotecaria;
+5;des=Fianza Solidaria;
+6;des=Letras de Terceros;
+7;des=Bonos Médicos;
+8;des=Otras Garantías;
+16;des=Prendaria Automotriz;
+
+## Christian Macaya -- 08-05-2012
+## GastosAdicionalesFactorCAE
+gastosAdicionalesFactorCAE;activacion=S;tasacion=2;garantia=48660;alzamiento=76000;codigoEvento=CCA;codAlzamiento=GTOALZ;codGarantia=GTOCON;codTasacion=GTOTAS;
+
+sitioWeb;110=www.bci.cl;100=www.tbanc.cl;
+
+journalSimulaWeb;110-COD-EVT=SIMULAC;110-COD-SUBEVT=CONSUM;110-ID-PROD=CRED;100-COD-EVT=SIMULAC;100-COD-SUBEVT=CONSUM;100-ID-PROD=CRED;
+
+#clave para generar el objeto MultiEnviroment
+claveMultiEnviroment;desc=Multiambiente100;
+
+#fechaContrato
+fechaContrato;fecha=30/04/2093;
+
+#Nombre del apoderado Banco
+nombreapoderadoBanco;desc100=Sandro Araya;desc110=Abraham Romero;
+
+SDG-POLyCAD;valor=(POL 2 09 128/ CAD 2 09 130);
+SDC-POLyCAD;valor=(POL 1 09 116);
+SDP-POLyCAD;valor=(POL 2 09 109/ CAD 2 09 115);
+SEC-POLyCAD;valor=(CAD 3 09 148);
+SHO-POLyCAD;valor=(CAD 2 09 129);

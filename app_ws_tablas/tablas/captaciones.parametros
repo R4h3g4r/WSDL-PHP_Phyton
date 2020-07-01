@@ -1,0 +1,9 @@
+#####Saldos Corporativos#####
+
+cantidadConsultaMasiva;valor=20;
+tipoCuentaSaldosCorporativos;Desc=CPX;
+cantDetalleSaldosCorporativos;valor=300;
+codigosMoneda;Dolar=USD;Euro=EUR;PesoNacional=CLP;Otro=OTR;
+journalSaldosCorporativos;producto=CCT;estadoEventoOk=P;evento=CNS;subEvento=SaldosCorporativos;servicio=CORP01;glosaLog=Saldos Corporativos;
+exportSaldosCorporativos;rutaXsl=captaciones/cuentas/consultaSaldosCorporativos.xsl;
+

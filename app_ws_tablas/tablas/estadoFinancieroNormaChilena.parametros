@@ -1,0 +1,34 @@
+#
+# Tabla de Parámetros para Estados Financieros Norma Chilena
+# ==========================================================
+# Redirecciones flujo aplicacion
+#
+ingresoEstadoFinanciero;url=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/vista/ingresarEstadoFinancieroNC.jsf;
+ingresoLookingForward;url=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/vista/lookingForward.jsf;
+modificacionEstadoFinanciero;url=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/vista/ingresarActivosNC.jsf;
+VisualizacionEstadoFinanciero;url=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/vista/detalleEstadoFinancieroNC.jsf;
+seleccionEstadoFinanciero;url=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/vista/verComparacionActivosNC.jsf;
+
+linkObtencionPI;url=/portalwls/ObtieneBalanceParaProbalidadDeIncumplimiento?;parametros=ingDeudor= &glsDeudor= &fecBalance=#&numBalance=#&tipBalance=#&codEjc=#&numMeses=#&tipoBalance=#&estadoBal=P;
+
+#Numeros de meses
+tiposMeses;cantidad=12;mes0=1;mes1=2;mes2=3;mes3=4;mes4=5;mes5=6;mes6=7;mes7=8;mes8=9;mes9=10;mes10=11;mes11=12;
+
+#Origen de la validacion de balances
+origenActivos;valor=ingresoActivos;
+origenPasivos;valor=ingresoPasivos;
+origenPatrimonio;valor=ingresoPatrimonio;
+origenEstadoResultado;valor=ingresoEstadoResultado;
+origenCorreccionAbono;valor=ingresoCorreccionAbono;
+origenCorreccionDebito;valor=ingresoCorreccionDebito;
+origenAdicionales;valor=ingresoAdicionales;
+
+tiposBalances;auditado=A;estadoSituacion=E;
+bienes;maximo=10;
+
+#plantillas xsl impresion
+estafinTotal;ruta=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/xsl/informeIngresoCompleto.xsl;
+estafinComentarios;ruta=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/xsl/informeComentarios.xsl;
+estafinResumen;ruta=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/xsl/informeResumenBalance.xsl;
+estafinComparacionTotal;ruta=/cl/bci/aplicaciones/cliente/antecedentes/estadosfinancieros/normachilena/xsl/informeBalanceCompleto.xsl;
+imagenLogo;ruta=/resources/estadosfinancieros/images/lg_bci_azul_1.gif;

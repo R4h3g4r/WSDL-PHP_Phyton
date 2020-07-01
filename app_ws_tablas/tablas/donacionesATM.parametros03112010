@@ -1,0 +1,52 @@
+# Pantallas para Donaciones Vía ATM
+# ====================================================================================
+
+maximoVeces;valor=4;
+canalID;valor=230;
+
+campanaActiva;valor=C0002;
+largoMaximoNombreEntidad;valor=22;
+ENTIDAD-C0002;nombre=FUNDACION LAS ROSAS;
+
+0178+1016;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+0178+1016-menu4;opcion=D;campo=00000000;dato=SI;
+0178+1016-menu5;opcion=F;campo=00000000;dato=NO;
+
+0178+1016-linea2;contenido=** CAMPANA  DE  DONACION **;columnaInicio=3;
+0178+1016-linea7;contenido=ESTA INVITANDO A PARTICIPAR;columnaInicio=3;
+0178+1016-linea8;contenido=EN UNA CAMPANA DE DONACION;columnaInicio=3;
+0178+1016-linea14;contenido=> DESEA  APORTAR? <;columnaInicio=7;
+0178+1016-linea16;contenido=NO                         SI;columnaInicio=2;
+
+
+0178+0301;tipoPantalla=03;opcionesMenu=8;lineasPantalla=16;columnasPantalla=32;
+0178+0301-menu1;opcion=A;campo=00003000;dato=3000;
+0178+0301-menu2;opcion=B;campo=00010000;dato=10000;
+0178+0301-menu3;opcion=C;campo=00020000;dato=20000;
+0178+0301-menu4;opcion=D;campo=00000000;dato=SALIR;
+0178+0301-menu6;opcion=G;campo=00015000;dato=15000;
+0178+0301-menu7;opcion=H;campo=00005000;dato=5000;
+0178+0301-menu8;opcion=I;campo=00001000;dato=1000;
+
+0178+0301-linea2;contenido=** CAMPANA  DE  DONACION **;columnaInicio=3;
+0178+0301-linea4;contenido=> SELECCIONE  EL  MONTO <;columnaInicio=4;
+0178+0301-linea7;contenido=$ 1.000              $ 3.000;columnaInicio=3;
+0178+0301-linea10;contenido=$ 5.000              $10.000;columnaInicio=3;
+0178+0301-linea13;contenido=$15.000              $20.000;columnaInicio=3;
+0178+0301-linea16;contenido=SALIR;columnaInicio=26;
+
+
+0435+0302-linea;tipoMenu=02;numeroDeFlags=5;cantidadItems=13;cantidadEspacios=2;medidaLargoLinea=19;
+0435+0302-linea1;contenido=** CAMPANA  DE  DONACION **;espaciosIzquierda=2;tamanoCampo=32;tipoSalida=D;
+0435+0302-linea2;contenido=AGRADECEMOS SU APORTE;espaciosIzquierda=5;tamanoCampo=32;tipoSalida=D;
+0435+0302-linea3;contenido=CONTINUAR;espaciosIzquierda=22;tamanoCampo=32;tipoSalida=D;
+0435+0302-linea4;contenido=DONACIONES;espaciosIzquierda=1;tamanoCampo=16;tipoSalida=R;
+0435+0302-linea5;contenido=;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea6;contenido=INSTITUCION:;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea7;contenido=;espaciosIzquierda=13;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea8;contenido=MONTO      : $;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea9;contenido=BCI, BCI NOVA, TBANC Y;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea10;contenido=AGRADECEN;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea11;contenido=PROFUNDAMENTE SU GENEROSIDAD;espaciosIzquierda=0;tamanoCampo=32;tipoSalida=R;
+0435+0302-linea12;contenido=DONACIONES;espaciosIzquierda=0;tamanoCampo=16;tipoSalida=J;
+0435+0302-linea13;contenido=MONTO:$;espaciosIzquierda=0;tamanoCampo=13;tipoSalida=J;

@@ -1,0 +1,35 @@
+116convenio;tipoConvenio=BEN;subtipoConvenio=CIN;
+116ajusteMonto;factor=0.1;
+
+#Tipos de Producto por canal de simulacion
+116Productos;tipoProducto=CON;tipoProductoAux=300;monedaProducto=0999;tipoProductoCompleto=CON300;
+canalDefaultProductos;tipoProducto=CON;tipoProductoAux=300;monedaProducto=0999;tipoProductoCompleto=CON300;
+
+#Journal por canal de simulacion
+116Journal;tipoProductoJournal=CRED;
+canalDefaultJournal;tipoProductoJournal=CRED;
+
+#Constantes para envio de correo
+116Correo;subject=LeadCanalesIndirectos;to=solicitud@bci.cl;from=canalesindirectos@bci.cl;
+canalDefaultCorreo;subject=LeadCanalesIndirectos;to=solicitud@bci.cl;from=canalesindirectos@bci.cl;
+
+#Multienvironment
+116Multi;marca=BCI;banco=BCI;cartera=BEE;usuario=WEBALR;canal=116;
+canalDefaultMulti;marca=BCI;banco=BCI;cartera=BEE;usuario=WEBALR;canal=110;
+
+#Errores
+errorBCI116;destino=common_error;
+errorBCI110;destino=appl_error_bcinetwls;
+errorBCI100;destino=appl_error_tbancwls;
+error;destino=common_error;
+
+#canales
+canalTbanc;desc=100;
+canalBcinet;desc=110;
+canalIndirectos;desc=116;
+
+#imagenes para generacion de pdf
+urlTimbre;desc=/convenioswls/common/images/timbre.jpg;
+
+consulta;estado=NOK;
+XML;informeFactoring=<?xml version="1.0" encoding="ISO-8859-1"?><Servicio><nombre>[NOMBRE]</nombre><tipo>[TIPO]</tipo><parametros><param nombre="@RutClinete" value="[RUT]"/><param nombre="@CantDias" value="[DIAS]"/></parametros></Servicio>;

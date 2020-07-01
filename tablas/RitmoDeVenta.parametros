@@ -1,0 +1,24 @@
+cantidad_producto;var=6;
+TOT;codigo=TOT;nombre=Ritmo de Venta;num=0;
+
+CLI2;codigo=CLI2;nombre=Cuentas Corrientes Bruto;num=8;disp=NO;
+CLI;codigo=CLI;nombre=Cuentas Corrientes;num=2;disp=SI;puertas=1;nombreAccion1=CuentasCorrientesNeta;
+
+TCR2;codigo=TCR2;nombre=TDC Tic+Adic Bruto;num=10;disp=NO;
+TCR;codigo=TCR;nombre=TDC Tic+Adic;num=3;disp=SI;puertas=1;nombreAccion1=TDCTic+Adic;
+
+CONCOM2;codigo=CONCOM2;nombre=ConCom Bruto M$;num=7;disp=NO;
+CONCOM;codigo=CONCOM;nombre=ConCom;num=6;disp=SI;puertas=2;nombreAccion1=ConComBruto;nombreAccion2=ConComNeto;
+
+HIP2;codigo=HIP2;nombre=CHIP Bruto;num=12;disp=NO;
+HIP;codigo=HIP;nombre=CHIP;num=4;disp=SI;puertas=2;nombreAccion1=CHIPBruto;nombreAccion2=CHIPNeto;
+
+CONC2;codigo=CONC2;nombre=Crédito Consumo Bruto;num=9;disp=NO;
+CONC;codigo=CONC;nombre=Crédito Consumo;num=1;disp=SI;puertas=0;
+
+COM2;codigo=COM2;nombre=Créditos Comerciales Bruto;num=11;disp=NO;
+COM;codigo=COM;nombre=Créditos Comerciales;num=5;disp=SI;puertas=0;
+
+fecha;codigo=FECHA;num=7;
+
+vista;nombre=indicadoresKPIRitmoDeVenta;

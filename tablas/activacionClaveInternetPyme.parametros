@@ -1,0 +1,51 @@
+claveActiva;Desc=Estimado cliente, <br>su clave ya se encuentra activada.
+claveBloqueada;Desc=Estimado cliente, <br>su clave se encuentra bloqueada. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+errorEstadoPin;Desc=Estimado cliente, <br>no hemos podido validar el estado de su clave. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+maxIntentosFallidos;Desc=Estimado Cliente, ha superado la cantidad de intentos por su seguridad se ha procedido a bloquear su clave. Puede desbloquear mediante la opción correspondiente en la web.
+
+#Reseteo/Desbloqueo
+errorReseteo;Desc=Estimado cliente, <br>no hemos podido atender sus solicitud de reseteo de clave en este momento. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+errorDesbloqueo;Desc=Estimado cliente, <br>no hemos podido atender sus solicitud de desbloqueo de clave en este momento. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+usuarioSinRegistrar;Desc=Estimado cliente, <br>El servicio está disponible sólo para usuarios registrados.
+usuarioSinClave;Desc=Estimado cliente, <br>Usted no posee Clave Internet.
+errorConsultarEstadoClave;Desc=Estimado <br>cliente, Problemas al consultar el estado de su Clave Internet, por favor intente más tarde.
+claveNoBloqueada;Desc=Estimado cliente, <br>Su Clave Internet no se encuentra bloqueada.
+
+
+mensajeRespuestaError2;Desc=Estimado cliente, <br>No es posible continuar con la operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError3;Desc=Estimado cliente, <br>No tiene los productos necesarios para realizar esta operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError4;Desc=Estimado cliente, <br>No es posible continuar con la operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError5;Desc=Estimado Cliente, <br>El PinPas ingresado es invalido. Por favor ingrese el PinPas nuevamente.
+mensajeRespuestaError6;Desc=Estimado Cliente, <br>No tiene los productos necesarios para realizar esta operación.
+mensajeRespuestaError7;Desc=Estimado Cliente, <br>La clave Multipass ingresada es invalida. Por favor ingrese la clave nuevamente.
+mensajeRespuestaError8;Desc=Estimado Cliente, <br>No hemos podido atender sus solicitud de reseteo de clave en este momento. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+mensajeRespuestaError9;Desc=Estimado Cliente, <br>No hemos podido atender sus solicitud de desbloquear de clave en este momento. Por favor comuníquese con nuestro Servicio de Atención Telefónica al 600 824 24 24.
+mensajeRespuestaError10;Desc=Estimado Cliente, <br>No es posible continuar con la operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError11;Desc=Estimado Cliente, <br>No es posible continuar con la operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError12;Desc=Estimado Cliente, <br>No es posible continuar con la operación. Por favor comuníquese con nuestro Contact Center y una ejecutiva lo atenderá.
+mensajeRespuestaError13;Desc=Estimado Cliente, <br>La tarjeta es invalida. Por favor ingrese la información nuevamente.
+
+errorBloqueMultipassTarjeta;Desc=Error al intentar validar su tarjeta;
+errorBloqueMultipassPinPass;Desc=Error al validar su clave PinPass;
+
+urlImagenBienvenidaClavePyme=/resources/Webbci/pyme/images/bienvenidaWebActivo.png
+QNAME_CLAVES_PYME;QNAME_URL_CLAVES_PYME=http://esb.bci.cl/infraestructura/seguridad/autenticacion/ServicioActivacionClave;QNAME_NOMBRE_CLAVES_PYME=ServicioActivacionClavePS;
+
+#--------------------------------------------------------------#
+#                         WSDL Integracion                     #
+#--------------------------------------------------------------#
+#WS_CLAVES_PYME;URL_WSDL_CLAVES_PYME=http://161.131.184.123:9050/esb/Infraestructura/seguridad/autenticacion/ServicioActivacionClave?wsdl;
+
+#--------------------------------------------------------------#
+#                        WSDL Certificacion                    #
+#--------------------------------------------------------------#
+WS_CLAVES_PYME;URL_WSDL_CLAVES_PYME=http://161.131.140.137:9050/esb/Infraestructura/seguridad/autenticacion/ServicioActivacionClave?wsdl;
+
+#--------------------------------------------------------------#
+#                          WSDL Produccion                     #
+#--------------------------------------------------------------#
+#WS_CLAVES_PYME;URL_WSDL_CLAVES_PYME=http://alsb.bci.cl/esb/empresas/Infraestructura/seguridad/autenticacion/ServicioActivacionClave?wsdl;
+
+#SECURITIZACION OSB
+srvActivacionClave;uyp=wsactcla;
+

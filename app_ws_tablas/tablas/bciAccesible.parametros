@@ -1,0 +1,14 @@
+canalAccesible;desc=154;
+servicioInicial;desc=SuperCartola;
+nombreCanal;desc=Transacción BCI Directo;
+servicioAccesible;desc=BCIAccesible;
+#Certificacion
+url;desc=http://bcicert/LoginJSFGenerico;
+#Produccion
+#url;desc=https://www.bci.cl/LoginJSFGenerico;
+
+urlError;desc=/cl/bci/aplicaciones/seguridad/autenticacion/intranet/bciaccesible/errorBciAccesible.jsf;
+urlSegundaClave;desc=/cl/bci/aplicaciones/seguridad/autenticacion/intranet/bciaccesible/segundaClaveBciAccesible.jsf;
+
+#Journalización login
+loginAccesible;codEventoNegocio=LOGIN;subCodEventoNegocio=OK;idProducto=ACCESIBLE;idComentario=Transaccion Asistida;

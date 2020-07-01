@@ -1,0 +1,48 @@
+#Glosa Criterios de evaluacion Pago de la consulta 
+#=================================================
+
+crit_S;       Desc=Sdo.Disponible;
+crit_1;       Desc=Lista Blanca;
+crit_2;       Desc=Lista Negra;
+crit_3;       Desc=Prot s/Aclarar;
+crit_4;       Desc=Días Sobreg.NP;
+crit_5;       Desc=Protestos Acum;
+crit_6;       Desc=Deuda Morosa;
+crit_7;       Desc=Sobreg NP Auto;
+crit_8;       Desc=Ret.Mas 3 días;
+crit_9;       Desc=Mnto Buen Comp;
+
+#Glosa Criterios de evaluacion Pago de la consulta simulacion
+#=================================================
+
+S;            Desc=Saldo Disponible;
+1;            Desc=Protestos sin aclarar;
+2;            Desc=Saldo Sobregiro No Pactado;
+3;            Desc=Protestos acumulados;
+4;            Desc=Deuda Morosa;
+5;            Desc=Sobregiro no pactado autorizado;
+6;            Desc=Máximo a pagar por buen comportamiento;
+CE;           Desc=Consulta el ejecutivo;
+
+#valores para los parametros
+#=================================================
+
+MAX_PRT_SIN_AC;    Desc=Maximo de protestos sin aclarar;                 valor=3;
+MAX_DIA_SOB_NPC;   Desc=Maximo de dias con sobregiro no pactado;         valor=15;
+MAX_PRT_2MESES;    Desc=Maximo de portestos en los ultimos 2 meses;      valor=10;
+MAX_MON_SOB_NPC;   Desc=Maximo monto para sobregiro no pactado(Crit05);  valor=400000;
+MAX_DOC_CONSUL;    Desc=Maximo para documento en consulta(Crit06);       valor=50000;
+
+#valor para autorizar sobregiro no pactado Ejecutivo Dos
+#=======================================================
+
+MAX_MON_SOB_NPC_EJE_DOS;   Desc=Maximo monto para sobregiro no pactado Ejecutivo Dos;  valor=100000;
+
+CIERRE;hora=20:00:00;
+
+DIAS_RETENCION;valor=60;
+DIAS_SEPARACION;valor=3;
+
+oficinaPorDefecto;Desc=090;
+oficinasExcepcion;Desc=010|110;
+

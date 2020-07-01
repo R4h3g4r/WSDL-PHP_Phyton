@@ -1,0 +1,35 @@
+Esta tabla contiene los valores a usarse por *Webpay garantizado*
+
+LLAVES ENCRIPTACION
+~~~~~~~~~~~~~~~~~~~
+Las lineas +clavea+ y +claveb+ contienen los valores de las llaves usuadas para
+la encriptacion.  LAS CLAVES DEBEN TENER UN LARGO FIJO DE 8.
+
+CANALES
+~~~~~~~
+Los titulos de canales (110, 230, etc) determinan el template o xsl a utilizar
+
+WSDL
+~~~~
+El titulo +wsdl+ determina la url donde se encuentran los servicios de webpay
+
+WEBPAYACTIVO
+~~~~
+Permite controlar si webpay se encuentra activo.  Un valor "NO" arrojara 
+mensaje "Servicio no disponible".   Cualquier otro valor es "activo". 
+
+
+[NOTA]
+==========================================
+la line proxy se encuentra comentada 
+pues si se requiere pasar a traves de un
+proxy entonces se descomentA y se asignan
+los valores correspondientes
+==========================================
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 19/04/2007 Juan Pablo Araneda (ImageMaker IT): versión inicial.
+
+==========================================

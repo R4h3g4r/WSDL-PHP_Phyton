@@ -1,0 +1,16 @@
+#
+# Cadena de Roles
+#
+
+PEjecutivo;rolSiguiente=JofBP
+PJofBP;rolSiguiente=GteRegBP
+PGteRegBP;rolSiguiente=GteComBP
+
+#
+# Conversion Codigos Roles
+#
+
+P001;rolEquivalente=Ejecutivo
+P002;rolEquivalente=JofBP
+P003;rolEquivalente=GteRegBP
+P005;rolEquivalente=GteComBP

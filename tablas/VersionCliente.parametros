@@ -1,0 +1,56 @@
+#
+# version para el cliente
+#
+android;version=2;
+iphone;version=1;
+
+app_estado_predeterminado;valor=VIGENTE;
+
+app_efactoring_android;version_5=CADUCADA;version_6=CADUCADA;version_7=VIGENTE;version_8=VIGENTE;
+app_efactoring_iphone;version_5=CADUCADA;version_6=CADUCADA;version_7=VIGENTE;version_8=VIGENTE;
+app_pymemovil_android;version_5=CADUCADA;version_6=VIGENTE;version_7=VIGENTE;
+app_pymemovil_iphone;version_5=CADUCADA;version_6=VIGENTE;version_7=VIGENTE;
+app_DedoFacilMovil_android;version_1=VIGENTE;
+#
+# version para personas en produccion
+#
+#app_personas_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_tbanc_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_preferencial_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_privada_PERSONA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=ACTUALIZAR;version_22=VIGENTE;version_23=VIGENTE;
+#app_bcinova_PERSONA;version_1=CADUCADA;version_2=CADUCADA;version_3=CADUCADA;version_4=ACTUALIZAR;
+#
+# version para empresas en produccion
+#
+#app_empresas_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+#app_corporativa_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+#app_pymemovil_EMPRESARIO;version_1=ACTUALIZAR;version_2=VIGENTE;version_3=VIGENTE;version_4=VIGENTE;
+#
+# version para certificación e integración
+#
+#app_cert.personas_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_cert.tbanc_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_cert.preferencial_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+#app_cert.privada_PERSONA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=ACTUALIZAR;version_22=VIGENTE;version_23=VIGENTE;
+#app_cert.corporativa_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+#app_cert.empresas_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+#app_cert.pymemovil_EMPRESARIO;version_1=ACTUALIZAR;version_2=VIGENTE;version_3=VIGENTE;version_4=VIGENTE;
+#app_cert.bcinova_PERSONA;version_1=ACTUALIZAR;version_2=VIGENTE;version_3=VIGENTE;version_4=VIGENTE;
+
+app_inte.personas_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+app_inte.tbanc_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+app_inte.preferencial_PERSONA;version_10=CADUCADA;version_11=CADUCADA;version_12=CADUCADA;version_13=CADUCADA;version_14=CADUCADA;version_15=CADUCADA;version_16=CADUCADA;version_17=CADUCADA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=CADUCADA;version_22=ACTUALIZAR;version_23=VIGENTE;version_24=VIGENTE;version_25=VIGENTE;
+app_inte.privada_PERSONA;version_18=CADUCADA;version_19=CADUCADA;version_20=CADUCADA;version_21=ACTUALIZAR;version_22=VIGENTE;version_23=VIGENTE;
+app_inte.empresas_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+app_inte.corporativa_EMPRESA;version_1=VIGENTE;version_2=VIGENTE;version_3=VIGENTE;
+app_inte.pymemovil_EMPRESARIO;version_1=ACTUALIZAR;version_2=VIGENTE;version_3=VIGENTE;version_4=VIGENTE;
+app_inte.bcinova_PERSONA;version_1=ACTUALIZAR;version_2=VIGENTE;version_3=VIGENTE;version_4=VIGENTE;
+
+app_caducada;valor=cl.bci.bancamovil.personas,cl.bci.bancamovil.preferencial,cl.bci.bancamovil.privada;
+#
+# Mensajes
+#
+mensajeObligatorio;valor=Estimado Cliente, Para vivir una mejor experiencia lo invitamos a actualizar la version de su App.;
+#mensajeActualizar;valor=Estimado Cliente, Para vivir una mejor experiencia lo invitamos a actualizar la version de su App.;
+mensajeActualizar;valor=Estimado Cliente, APP Bci Nova no se encuentra disponible. Descargue APP Bci e ingrese con su misma clave de siempre.;
+mensajeAppCaducada;valor=Esta App dejó de funcionar. Para que comiences a vivir una mejor experiencia, descarga ahora tu nueva App Bci desde App Store o Google Play.;

@@ -1,0 +1,178 @@
+#Valores predeterminados para Ejecutivo Factoring.
+nombreEjecutivo;desc=Unidad de Apoyo a la Venta;
+correoElectronico;desc=bcifactoring@bci.cl;
+telefonoEjecutivo;desc=600 600 47 47;
+direccionSucursal;desc=Casa Matriz;
+
+#Valores utilizados para crear el formato con el cual se envía el correo al ejecutivo factoring.
+mensaje1;Desc=Estimado(a).;
+mensaje2;Desc=Sr(a).;
+mensaje3;Desc=Le informo que:;
+mensaje4;Desc=Atentamente.;
+
+#Valores utilizados para identificar los asuntos con el cual se enviará el correo.
+asuntosParaCorreo;desc=0/Seleccione-1/Información del Producto-2/Solicitud de Simulación de Negocio-3/Solicitud de Aumento Línea Factoring-4/Solicitud de Línea Factoring-5/Solicitud de Devolución de Excedentes;
+
+#Nombre para los iconos de Panorama Factoring
+solicitarLineaIcono;desc=Solicitar Línea;
+aumentoLineaIcono;desc=Solicitar Aumento;
+
+#valores utilizados para las opciones de busqueda de cartera vigente
+
+opcionesBusquedaCarteraVigente;opciones=0/Seleccione-5/N° Documento-3/R.U.T deudor-4/Razón social-2/Fecha vencimiento;
+opcionesBusquedaCarteraMoroso;opciones=0/Seleccione-5/N° Documento-3/R.U.T deudor-4/Razón social-2/Fecha vencimiento;
+opcionesBusquedaCarteraPagado;opciones=0/Seleccione-5/N° Documento-3/R.U.T deudor-4/Razón social-2/Fecha vencimiento;
+opcionesBusquedaCarteraTodo;opciones=0/Seleccione-5/N° Documento-3/R.U.T deudor-4/Razón social-2/Fecha vencimiento;
+
+#valores por defecto cartera.
+cartera;textoBusqueda=Buscar;rango=2;numeroPagina=1;codigoOrdenamiento=7;codigoBusqueda=0;parametroBusqueda=Buscar;ordenamiento=1;
+carteraTitulo;vigente=Cartera Vigente;moroso=Cartera Morosa;pagada=Cartera Pagada;todo=Cartera Todas;
+carteraExcel;carteraVigente=6;carteraMoroso=6;carteraPagada=7;carteraTodo=6;
+detalle;glosaPagadoExcedente=Pagado con Excedente;glosaCliente=Cliente;glosaDeudor=Deudor;
+codigoMensaje;codigoTabla=335;codigoParametro=0;largo=2;
+
+# errores
+errores;configuracion=ERR-001;ejecucion=ERR-001;servicioDeDatos=ERR-001;excepcion=ERR-001;creacion=ERR-001;remote=ERR-001;
+
+# VALORES DEFAULT GRILLA RESUMEN EXCEDENTES
+resumenExcedentes;codigoBusqueda=6;parametroBusqueda= ;columna=4;ordenamiento=2;pagina=1;
+
+# VALORES DEFAULT GRILLA RESUMEN OPERACIONES RECIENTES
+resumenOperciones;codigoBusqueda=7;parametroBusqueda= ;columna=4;ordenamiento=2;pagina=1;
+
+# VALORES DEFAULT GRILLA RESUMEN PAGOS REALIZADOS
+resumenPagos;codigoBusqueda=9;parametroBusqueda= ;columna=6;ordenamiento=2;pagina=1;
+
+# VALORES DEFAULT GRILLA ULTIMOS PAGOS REALIZADOS
+pagosRealizados;codigoBusqueda=9;parametroBusqueda= ;columna=6;ordenamiento=2;pagina=1;excel=100;numeroPagina=1;
+
+# VALORES DEFAULT GRILLA EXCEDENTES DISPONIBLES
+excedentesDisponibles;codigoBusqueda=0;parametroBusqueda= ;columna=4;ordenamiento=2;pagina=1;rango=2;excel=100;
+
+# VALORES DEFAULT GRILLA OPERACIONES RECIENTES
+operacionReciente;codigoBusqueda=0;parametroBusqueda= ;columna=4;ordenamiento=2;pagina=1;rango=2;excel=100;tipo=Factoring ;
+
+# VALOR PARA LA BÚSQUEDA DE CAMPAÑAS DISPONIBLES PARA EL CLIENTE.
+codCampana;desc=1;
+
+#valores utilizados para las opciones de busqueda de Operaciones Recientes
+opcionesBusquedaOperacionesRecientes;desc=1/N° operacion-4/Fecha de curse-5/Estado-6/Tipo;
+
+EstadosBusquedaOperacionesRecientes;desc=Cursada/Cursada-En Proceso/En Proceso-Pagada/Pagada;
+TiposBusquedaOperacionesRecientes;desc=Internacional/Internacional-Con Garantía/Con Garantía-Sin Garantía/Sin Garantía;
+
+#Valor del campo a excluir del link (Operaciones Recientes)
+valorAExcluir;desc=En Proceso;
+
+#valores utilizados para las opciones de busqueda de Excedentes Disponibles
+opcionesBusquedaExcedentesDisponibles;desc=1/N° Doc-4/Fecha de Liberacion-5/Estado;
+
+EstadosBusquedaExcedentesDisponibles;desc=Abonado/Abonado-Disponible/Disponible-Pendiente de Liberación/Pendiente de Liberación;
+
+# VALORES DEFAULT MENU PAGOS REALIZADOS
+informePagosRealizados;codigoBusqueda=0;parametroBusqueda= ;columna=6;ordenamiento=2;pagina=1;rango=2;
+
+#valores utilizados para las opciones de busqueda de Pagos Realizados
+opcionesBusquedaPagosRealizados;desc=1/N° Doc-2/Rut Deudor-3/Razón Social Deudor;
+
+
+
+detalleOperacion;codigoBusqueda=0;parametroBusqueda= ;columna=4;ordenamiento=2;pagina=1;rango=2;excel=100;valorAExcluir=En Proceso;codigoBusquedaDetalle=1;
+
+#Valores para filtros de búsqueda en prórroga en línea.
+opcionesBusquedaDocumentosVigente;opciones=0/Seleccione-5/N° Doc-3/Rut deudor-4/Razón social-2/Fecha vencimiento;
+opcionesBusquedaDocumentosMorosos;opciones=0/Seleccione-5/N° Doc-3/Rut deudor-4/Razón social-2/Fecha vencimiento;
+
+#Valores para el cuerpo del correo de solicitud de prórroga
+valoresCorreo;cuerpo=Estimados, \nSe ha generado una solicitud de prórroga en la web, por lo cual se solicita se contacte al \ncliente e informe que su prorroga ha sido recepcionada exitosamente y está siendo procesada. \nLa solicitud se ha generado con los siguientes datos de contacto:;
+valoresPieEmail;pieEmail=Se adjunta carta de prórroga, \nAtentamente, \nEquipo Web.;
+valoresCuerpoEmail;nombre=Nombre:;emailCLient=Correo Electrónico:;phoneContact=Teléfono de contacto:;
+
+#Mail destinatario Solicitud Prorroga Factoring.
+correoFactoring;valor=bcifactoring@bci.cl,rencmar@bci.cl,cwastav@bci.cl,mgalazg@bci.cl;
+
+#Valores para Segunda Clave
+idServicio;valor=SolicitudProrrogaFactoring;
+
+#Valor del campo a excluir del link (Operaciones Recientes)
+LINK_DOCUMENTOS;Carta_Guia=http://www.bci.cl/medios/common/factoring2/documentos/carta_guia.xls;Carta_Prologa=http://www.bci.cl/medios/common/factoring2/documentos/carta_prorroga.xls;EstadoSituacion=http://www.bci.cl/medios/common/factoring2/documentos/estado_situacion.pdf;Contrato=http://www.bci.cl/medios/common/factoring2/documentos/contrato_03102005.pdf;
+
+
+#Preficos para el Detalle de Documentos
+resumenFinanciamiento;ResumenVigente=Resumen Cartera Vigente;ResumenMorosa=Resumen Cartera Morosa;ResumenPagosRealizados=Resumen Últimos Pagos Realizados;
+menuCartera;Vigente=Cartera Vigente;Moroso=Cartera Morosa;Pagada=Cartera Pagada;Todas=Cartera Todas;
+menuOperaciones;detalle=Operaciones Recientes;
+menuExcedentes;excedente=Excedentes Disponibles;
+menuInformes;informes=Informe de Pagos Realizados;
+menuProrroga;prorroga=Solicitud de Prórroga;
+
+#Repositorio Facturas Comision
+facturasComision;raizDirectorioFS=///DOCUFACT/doc/;maxDias=35;
+
+#linea deudores
+giro;llave=alf;numero=0;codigo=000006;
+tipo;llave=parametro;numero=44;codigo= ;
+sucursal;llave=sucursal;numero=0;codigo= ;
+sii;llave=parametro;numero=139;codigo= ;
+sbif;llave=parametro;numero=64;codigo= ;
+ejecutivofactoring;llave=ejecutivo;numero=15;codigo= ;
+estado;llave=parametro;numero=63;codigo= ;
+cobrador;llave=ejecutivo;numero=29;codigo= ;
+riesgo;llave=parametro;numero=58;codigo= ;
+region;llave=parametro;numero=1;codigo= ;
+formaPago;llave=parametro;numero=312;codigo= ;
+lugarRetiro;llave=parametro;numero=308;codigo= ;
+
+diasDeudor;tot=5;lun=Lunes;mar=Martes;mie=Miercoles;jue=Jueves;vie=Viernes;
+
+#Evaluacion Deudor
+TipoContacto;Evaluacion=C;
+documentosDeudor;Documento=documentos;
+documentos;numero=310;llave=parametro;
+procedimientoDeudor;Procedimentos=procedimentos;
+procedimentos;numero=313;llave=parametro;
+
+#Linea Credito Deudor
+NombreComboBox;valor=cobradorAsignado;
+cobradorAsignado;llave=ejecutivo;numero=29;codigo=;
+estadoLinea;numero=29;llave=parametro;codigo=;
+
+##Informes linea deudores
+CO;todos=False;periodo=True;rango=False;
+CA;todos=True;periodo=False;rango=True;dias=730;
+HP;todos=False;periodo=False;rango=True;dias=730;
+CC;todos=False;periodo=False;rango=True;dias=730;
+ED;todos=False;periodo=True;rango=False;
+RS;todos=False;periodo=True;rango=False;
+DD;todos=True;periodo=False;rango=False;
+AM;todos=False;periodo=False;rango=False;
+
+##DESARROLLO
+##sistemaDeudores;sistema=desfacto;IP=161.131.184.81;deudoresPathDestino=/home2/desfacto/in/;deudoresPathEntrada=/home2/desfacto/out/;
+
+##INTEGRACION
+##sistemaDeudores;sistema=desfacto;IP=161.131.141.239;deudoresPathDestino=/desfacto/in/;deudoresPathEntrada=/desfacto/out/;
+
+##CERTIFICACION
+sistemaDeudores;sistema=desfacto;IP=161.131.232.180;deudoresPathDestino=/desfacto/in/;deudoresPathEntrada=/desfacto/out/;
+
+##PRODUCCION
+#sistemaDeudores;sistema=desfacto;IP=161.131.232.30;deudoresPathDestino=/desfacto/in/;deudoresPathEntrada=/desfacto/out/;
+
+informeDeudor;CO=ConsolidadoDeudores;CA=CalificaciónDeudor;HP=HistorialPagado;CC=CantidaddeClientesxDeudor;ED=Estadodeudor;RS=ResultadoScoring;DD=DetalleDeudor;AM=Actualizaciónmasivadeestadodeudores;P=Pendiente;G=Generado;ES=Informe_Diario_Estados;CS=Informe_Diario_Consolidado;
+
+#Conf.Scoring
+Codigos;valor=CD|PO|HP|CC|CB|PP;
+informacionRut;juridico=2;natural=1;
+
+#Mensaje Respuesta
+contactabilidad;nuevo=El contacto ha sido creado correctamente;modificar=El contacto ha sido modificado correctamente;eliminar=El contacto ha sido eliminado correctamente;
+informacionBasica;nuevo=El deudor ha sido creado correctamente;modificar=El deudor ha sido modificado correctamente;
+informe;guardar=La solicitud fue realizada exitosamente;
+
+#Tipo rol cliente
+tipoCliente;deudor=D;
+
+#Identificador Área.
+identificadorArea;cobranza=C;notificacion=N;verificacion=V;
+obtenerRoles;llave=roles;numero=375;codigo= ;

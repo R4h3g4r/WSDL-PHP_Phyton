@@ -1,0 +1,12 @@
+#
+# Tabla de Parámetros para Control de Rentabilidad.
+# =============================================
+
+#Parámetros para configuración de la aplicación.
+DESPLIEGUE;INICIO=S;MEDIO=S;SUPERIOR=S;FINAL=S;
+
+#Parámetros para los títulos
+#TITULOS; SPREAD=Ultimo Spread cursado Comercial CP % anual; CALIFACTUAL=Rentabilidad Integral Acum. Actual; CALIFANT=Calificacion de Riesgo Anterior; MARGBRTINTEG=Margen Bruto Integral actual Acum M$; COLOCINTEG=Colocaciones Integrales actual Acum M$; INDRENTAB=Rentabilidad Integral Acum. anualizada; PERIODO=Información Actualizada a ; MRGBRTINTEGANUAL=Margen Bruto Integral actual Acum M$ anualizado; INDRENTABANUAL=Indicador Rentabilidad (Anualizado); CAMPOINICIO=Vol. Pago Rem Prom 3 meses M$; CAMPOMEDIO=Vol. Pago Prov Prom 3 meses M$; CAMPOSUPERIOR=Vol. Pago IVA Prom 3 meses M$; CAMPOFINAL=Saldo Vista Neto Acum M$; TITULO=Control Rentabilidad; SUBTITULO=Antecedentes del Cliente;
+
+#Parámetros para los títulos
+TITULOS; SPREAD=Recupero Colocaciones Acum; CALIFACTUAL=Saldo Acum Factoring; CALIFANT=Comisiones Acum Ganadas Total; MARGBRTINTEG=Utilidad Mesa Acum; COLOCINTEG=Saldo Acum Colocaciones; INDRENTAB=Margen Financ Acum Colocaciones ; PERIODO=Información Acumulada; MRGBRTINTEGANUAL=Saldo Acum Leasing; INDRENTABANUAL=Indicador Rentabilidad (Anualizado); CAMPOINICIO=Margen Financ Acum Vistas; CAMPOMEDIO=Margen Financ Acum Factoring; CAMPOSUPERIOR=Margen Financ Acum Leasing; CAMPOFINAL=COLOCACIONES INTEGRALES AÑO ANTERIOR; TITULO=Control Rentabilidad; SUBTITULO=Antecedentes del Cliente; COLOCINTE=COLOCACIONES INTEGRALES; MRGINTEDIC=MARGEN BRUTO INTEGRAL AÑO ANTERIOR; MRGINTE=MARGEN BRUTO INTEGRAL; 

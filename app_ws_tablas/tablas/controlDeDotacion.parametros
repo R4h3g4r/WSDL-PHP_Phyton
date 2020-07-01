@@ -1,0 +1,41 @@
+################################################################################
+# Parametros para Control de Dotacion
+################################################################################
+
+
+TipoDotacion;Titular=TITU;Reemplazo=REEM;
+MotivoIngreso;Reemplazo=2;
+TipoMov;Ingreso=1;Salida=2;Ausencia=3;Modifica=4;EliAusencia=5;
+EstadoCod;Activo=1;Ausencia=2;Inactivo=3;
+NroDiasAusencia;Nro=90;
+#Esto es para Weblogic
+EJB_JNDI_NAME;Valor=wcorp.aplicaciones.ejecutivo.dotacion.ControlDeDotacion;
+#Esto es para JBoss
+#EJB_JNDI_NAME;Valor=java:jboss/exported/srvControlDeDotacion-ear/srvControlDeDotacion-ejb-1.0/ControlDeDotacionBean!wcorp.serv.controldedotacion.ControlDeDotacionHome;
+
+#Definicion para JOLT
+JOLT;Enable=false;Endpoint=//161.131.156.152:9095;UserName=weblogic;UserPassword=weblogic;UserRole=;ApplicationPassword=weblogic;DefaultResponse=;Size=1;SendTimeout=20;RecvTimeout=120;
+#JOLT;Endpoint=//161.131.184.90:9090;UserName=;UserPassword=;UserRole=;ApplicationPassword=tuxdesa;DefaultResponse=;Size=1;SendTimeout=20;RecvTimeout=120;
+
+#TamanoOficina;Muy Grande=1;Grande=2;Mediana=3;Pequena=4;
+TamanoOficina;Codigos=1,2,3,4;Descripcion=Muy Grande,Grande,Mediana,Pequeña;
+#Zona;RE=RE;RM=RM;
+Zona;Codigos=RE,RM;Descripcion=RE,RM;
+Nivel_Cargo;GCOMERCIAL=1;GREGIONAL=2;JOF=3;EJECUTIVO=4;JPLATAFORMA=5;
+Movilidad;RutaReporteDiario=C:/tmp;
+#NombreColReporteFullDiaBanca1;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;gre_codigo=Codigo Gerencia Regional;gcm_nombre=Nombre Gerencia Comercial;gcm_nombre_completo_gerente=Nombre Gerente Comercial;
+NombreColReporteFullDiaBanca1;gcm_nombre=Gerencia Comercial;gcm_nombre_completo_gerente=Gerente Comercial;ofi_codigo=Cod;ofi_nombre=Oficina;gre_codigo=Cod. Regional;gre_nombre=Gerencia Regional;gre_nombre_completo_gerente=Gerente Regional;psn_id_user=User;crg_descripcion=Cargo;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;psn_rut=Rut;psn_dv=DV;pfi_anexo=Anexo;pfi_telefono=Telefono;est_nombre=Estado;dej_fecha_ingreso=FECHA DE INGRESO;dej_fecha_inicio_ausencia=Fecha de Inicio;dej_fecha_fin_ausencia=Fecha de Fin;dej_user_backup= User Backup;psn_nombre_backup= Nombre Backup;
+NombreColReporteFullDiaBanca2;gcm_nombre=Gerencia Comercial;gcm_nombre_completo_gerente=Gerente Comercial;ofi_codigo=Cod;ofi_nombre=Oficina;gre_codigo=Cod. Regional;gre_nombre=Gerencia Regional;gre_nombre_completo_gerente=Gerente Regional;psn_id_user=User;crg_descripcion=Cargo;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;psn_rut=Rut;psn_dv=DV;pfi_anexo=Anexo;pfi_telefono=Telefono;pfi_celular=Celular;est_nombre=Estado;dej_fecha_ingreso=FECHA DE INGRESO;dej_fecha_inicio_ausencia=Fecha de Inicio;dej_fecha_fin_ausencia=Fecha de Fin;dej_user_backup= User Backup;psn_nombre_backup= Nombre Backup;
+NombreColReporteFullDiaBanca3;gcm_nombre=Gerencia Comercial;gcm_nombre_completo_gerente=Gerente Comercial;ofi_codigo=Cod;ofi_nombre=Oficina;gre_codigo=Cod. Regional;gre_nombre=Gerencia Regional;gre_nombre_completo_gerente=Gerente Regional;psn_id_user=User;crg_descripcion=Cargo;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;psn_rut=Rut;psn_dv=DV;pfi_anexo=Anexo;pfi_telefono=Telefono;pfi_celular=Celular;est_nombre=Estado;dej_fecha_ingreso=FECHA DE INGRESO;dej_fecha_inicio_ausencia=Fecha de Inicio;dej_fecha_fin_ausencia=Fecha de Fin;dej_user_backup= User Backup;psn_nombre_backup= Nombre Backup;
+NombreColReporteFullDiaBanca4;gcm_nombre=Gerencia Comercial;gcm_nombre_completo_gerente=Gerente Comercial;ofi_codigo=Cod;ofi_nombre=Oficina;gre_codigo=Cod. Regional;gre_nombre=Gerencia Regional;gre_nombre_completo_gerente=Gerente Regional;psn_id_user=User;crg_descripcion=Cargo;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;psn_rut=Rut;psn_dv=DV;pfi_anexo=Anexo;pfi_telefono=Telefono;pfi_celular=Celular;est_nombre=Estado;dej_fecha_ingreso=FECHA DE INGRESO;dej_fecha_inicio_ausencia=Fecha de Inicio;dej_fecha_fin_ausencia=Fecha de Fin;dej_user_backup= User Backup;psn_nombre_backup= Nombre Backup;
+#NombreColReporteFullDiaBanca2;psn_nombres=Nombre;psn_apellido_paterno=Apellido Paterno;gre_codigo=Codigo Gerencia Regional;gcm_nombre=Nombre Gerencia Comercial;gcm_nombre_completo_gerente=Nombre Gerente Comercial;
+SOL;enable=false;host=sol.bci.cl;port=80;protocol=http;domain=;user=mmdiazr;password=Infor2018;path1=/;path2=/_vti_bin/ListData.svc/Colaboradores;
+Bancas;Id=1,2,3,4,5;
+PuertaAdministrador;Banca_1=BCK|BNACDSCE/VAR;Banca_2=BCK|BNACDSCE/VAE;Banca_3=BCK|BNACDSCE/VAC;Banca_4=BCK|BNACDSCE/VAP;Banca_5=BCK|BNACDSCE/PAC;
+PuertaJefeBanca;Banca_1=BCK|BNACDSCE/VJR;Banca_2=BCK|BNACDSCE/VJE;Banca_3=BCK|BNACDSCE/VJC;Banca_4=BCK|BNACDSCE/VJP;Banca_5=BCK|BNACDSCE/PJC;
+NombreColInformeMovilidad1;tmv_descripcion=Tipo Evento; psn_rut=Rut; psn_dv=Dv; psn_id_user=User; psn_nombre=Nombre Ejecutivo; crg_origen=Cargo Origen; ncg_origen= Nivel Cargo Origen; ofi_origen=Oficina Origen;gcm_origen=G. Comercial; emv_fecha_evento=Fecha; crg_actual=Cargo Actual;ncg_actual= Nivel Cargo Actual; ofi_actual=Oficina Actual; fecha=Fecha; emv_fecha_inicio_ausencia=Fecha inicio Ausencia; emv_fecha_evento_fin_ausencia=Fecha fin Ausencia
+NombreColInformeMovilidad2;tmv_descripcion=Tipo Evento; psn_rut=Rut; psn_dv=Dv; psn_id_user=User; psn_nombre=Nombre Ejecutivo; crg_origen=Cargo Origen; ncg_origen= Nivel Cargo Origen; ofi_origen=Oficina Origen;gcm_origen=G. Comercial; emv_fecha_evento=Fecha; crg_actual=Cargo Actual;ncg_actual= Nivel Cargo Actual; ofi_actual=Oficina Actual; fecha=Fecha; emv_fecha_inicio_ausencia=Fecha inicio Ausencia; emv_fecha_evento_fin_ausencia=Fecha fin Ausencia
+NombreColInformeMovilidad3;tmv_descripcion=Tipo Evento; psn_rut=Rut; psn_dv=Dv; psn_id_user=User; psn_nombre=Nombre Ejecutivo; crg_origen=Cargo Origen; ncg_origen= Nivel Cargo Origen; ofi_origen=Oficina Origen;gcm_origen=G. Comercial; emv_fecha_evento=Fecha; crg_actual=Cargo Actual;ncg_actual= Nivel Cargo Actual; ofi_actual=Oficina Actual; fecha=Fecha; emv_fecha_inicio_ausencia=Fecha inicio Ausencia; emv_fecha_evento_fin_ausencia=Fecha fin Ausencia
+NombreColInformeMovilidad4;tmv_descripcion=Tipo Evento; psn_rut=Rut; psn_dv=Dv; psn_id_user=User; psn_nombre=Nombre Ejecutivo; crg_origen=Cargo Origen; ncg_origen= Nivel Cargo Origen; ofi_origen=Oficina Origen;gcm_origen=G. Comercial; emv_fecha_evento=Fecha; crg_actual=Cargo Actual;ncg_actual= Nivel Cargo Actual; ofi_actual=Oficina Actual; fecha=Fecha; emv_fecha_inicio_ausencia=Fecha inicio Ausencia; emv_fecha_evento_fin_ausencia=Fecha fin Ausencia
+PuertasAdmin;Valor=false;
+PuertasBancas;Sistema=BCK;Valor=BNACDSCE/IPF, BNACDSCE/MPF, BNACDSCE/EPF, BNACDSCE/AMR, BNACDSCE/ARE, BNACDSCE/GRR, BNACDSCE/AMM, BNACDSCE/AIM, BNACDSCE/ACM, BNACDSCE/AEM, BNACDSCE/RIC, BNACDSCE/AIE, BNACDSCE/AME, BNACDSCE/ADE, BNACDSCE/AIJ, BNACDSCE/ADJ, BNACDSCE/AGE, BNACDSCE/ARI, BNACDSCE/ARV, BNACDSCE/ARM, BNACDSCE/AER, BNACDSCE/AOI, BNACDSCE/AOV, BNACDSCE/AOM, BNACDSCE/AOE, BNACDSCE/IGC, BNACDSCE/VGC, BNACDSCE/MGC, BNACDSCE/DGC, BNACDSCE/IGR, BNACDSCE/VGR, BNACDSCE/MGR, BNACDSCE/DGR, BNACDSCE/CDA, BNACDSCE/IAU, BNACDSCE/MAU, BNACDSCE/EAU, BNACDSCE/IRA, BNACDSCE/CDE, BNACDSCE/AIE, BNACDSCE/AME, BNACDSCE/ADE;

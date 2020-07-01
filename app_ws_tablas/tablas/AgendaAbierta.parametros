@@ -1,0 +1,82 @@
+#Códigos para agendamiento
+#-------------------------
+AGE;desc=Hora Agendada;
+BLQ;desc=Hora Bloaueada;
+DSP;desc=Hora Disponible;
+
+
+#Cantidad de días para mostrar la agenda del cliente y del ejecutivo
+#-------------------------------------------------------------------
+#dias maximos a mostrar en la agenda del cliente (número)
+diasPeriodoAgendaCliente;desc=30;
+
+#dias historicos a mostrar en la agenda del cliente (número)
+diasHistoricasAgendaCliente;desc=60;
+
+#dias maximos a mostrar en la agenda del ejecutivo (número)
+diasPeriodoAgendaEjecutivo;desc=30;
+
+#dias a mostrar por cada pagina en la vista cliente (número)
+diasPorPaginaCalendarioCliente;desc=7;
+
+#dias a mostrar por cada pagina en la vista ejecutivo (número)
+diasPorPaginaCalendarioEjecutivo;desc=7;
+
+#cantidad de dias que se debe esperar entre una cita y otra (número) 
+diasMinimosEntreCitas;desc=30;
+
+#luego de esta cantidad de dias el cliente no puede agendar una cita (demaciado lejana) (número)
+diasMaximosProximaCitaCliente;desc=30;
+
+#luego de esta cantidad de dias el ejecutivo no puede agendar una cita (demaciado lejana) (número)
+diasMaximosProximaCitaEjecutivo;desc=30;
+
+#cantidad minima de dias que debo esperar para poder agendar (número)
+#si su valor es "0" se puede agendar desde hoy
+#si su valor es "1" se podra agendar solo desde mañana, asi con "n" dias hacia adelante
+diasMinimosProximaCita;desc=1;
+
+
+#Datos para el envio de Mail
+#--------------------------------------------------------------------
+#remitente del correo electronico enviado para el aviso de agendamiento
+remitente;desc=contacto@bci.cl;
+
+
+# Identificadores de mensajes para envio de SMS
+# ====================================================================================
+idSMSMensaje;Desc=0;
+idSMSOnDemand;Desc=1;
+mensajeSMS;Desc=Usted ha agendado una reunion con un ejecutivo;
+
+
+#Descripcion De Errores De Negocio De La Aplicación
+#--------------------------------------------------
+ErrorHoraYaAgendada;desc=La cita ya se encuentra agendada;
+ErrorHoraYaBloqueada;desc=La hora se encuentra bloqueada;
+ErrorTiempoCortoEntreCitas;desc=El tiempo entre agendamientos es demasiado corto;
+ErrorRangoDeTiempoInvalido;desc=La cita que desea agendar se encuentra fuera del rango de tiempo valido;
+ErrorBloqueo;desc=No es posible bloquear las horas, ya que tiene horas agendadas en el periodo seleccionado;
+
+
+#Cuerpos de Correos para el envio de Mail
+#--------------------------------------------------------------------
+cuerpoEmailAgendamientoEjecutivo;desc=Tenemos el agrado de confirmar la reunion con su ejecutivo premier, segun detalle adjunto:;
+cuerpoEmailAgendamientoCliente;desc=Tenemos el agrado de confirmar la reunion con su ejecutivo premier, segun detalle adjunto:;
+cuerpoEmailAgendamientoJOF;desc=Tenemos el agrado de confirmar la reunion con su ejecutivo premier, segun detalle adjunto:;
+cuerpoEmailAnulacionEjecutivo;desc=Le informamos que la reunion agendada con su ejecutivo premier se ha anulado, los detalles se listan acontinuacion:;
+cuerpoEmailAnulacionCliente;desc=Le informamos que la reunion agendada con su ejecutivo premier se ha anulado, los detalles se listan acontinuacion:;
+cuerpoEmailAnulacionJOF;desc=Le informamos que la reunion agendada con su ejecutivo premier se ha anulado, los detalles se listan acontinuacion:;
+pieEmailAgendamientoEjecutivo;desc=Nos sera muy grato atenderlo;
+pieEmailAgendamientoCliente;desc=Nos sera muy grato atenderlo;
+pieEmailAgendamientoJOF;desc=Nos sera muy grato atenderlo;
+pieEmailAnulacionEjecutivo;desc=Nos sera muy grato atenderlo;
+pieEmailAnulacionCliente;desc=Nos sera muy grato atenderlo;
+pieEmailAnulacionJOF;desc=Nos sera muy grato atenderlo;
+
+
+#asunto para el envio de Mail
+#--------------------------------------------------------------------
+asuntoEmailAgendamiento;desc=confirmacion de reunion;
+asuntoEmailAnulacion;desc=anulacion de reunion;
+asuntoEmailBloqueo;desc=bloqueo de hora;

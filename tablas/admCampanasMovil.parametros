@@ -1,0 +1,10 @@
+####################################
+#Tabla Administrar Campañas Moviles#
+####################################
+
+#Datos Servidor para Upload
+servidor;ip=161.131.232.30;usuario=cmpmov;path=/campanas_movil/input;
+
+mensaje;true=El archivo ha sido guardado con éxito.;false=No fue posible realizar la operación.;archivoInvalido=Archivo contiene Campañas Repetidas;resumenEstadoCarga=El detalle del ingreso de las nuevas campañas es:;nombreConEspacios=El nombre del archivo no debe tener espacios.;largoNombre=El nombre del archivo no debe exceder los 26 caracteres.;
+journal;evento=ACCEDEAPLI;subeventoinicio=ADMIN;subeventocarga=CARGA;producto=CAMP;
+canales;desc=901|BCI Movil&904|WEB MOVIL SMS NOVA&905|TBANC Movil;

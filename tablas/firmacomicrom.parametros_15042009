@@ -1,0 +1,11 @@
+urlComicrom.ConsultaServicioFirmas;Desc=http://192.168.252.168/WsActualizaFirma/ServicioActualizacionFirmas.asmx?WSDL;
+
+diferenciaAgnosFirma;Desc=1;
+canalFirma;Desc=IBCFP;
+### desarrollo
+#conexionFirmaCliente;protocolo=http;servidor=alsbdesa.bci.cl;url=/servicios/cliente/informaciondecliente/FirmasdeClientesService?wsdl;tiempoEspera=3;
+### certificacion
+conexionFirmaCliente;protocolo=http;servidor=alsbcert.bci.cl;url=/servicios/cliente/informaciondecliente/FirmasdeClientesService?wsdl;tiempoEspera=3;
+### produccion
+#conexionFirmaCliente;protocolo=http;servidor=alsb.bci.cl;url=/servicios/cliente/informaciondecliente/FirmasdeClientesService?wsdl;tiempoEspera=3;
+activaCampanaFirma;Desc=1;

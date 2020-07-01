@@ -1,0 +1,25 @@
+mensaje;textNok=Ha ocurrido un error al guardar los cambios;textOk=Se ha guardado exitosamente;textIdDuplicado=No se puede agregar castigo con numero de operacion duplicado;txtErrorLectura=El reporte de cuadratura supera el largo para visualizarlo en esta ventana, por favor descárguelo.;
+mesText;01=Enero;02=Febrero;03=Marzo;04=Abril;05=Mayo;06=Junio;07=Julio;08=Agosto;09=Septiembre;10=Octubre;11=Noviembre;12=Diciembre;
+
+ejbServicioCuadraturaCierreMes;jndi=wcorp.serv.cuadratura.ServicioCuadraturaCierreMes;
+#lienas a leer en la descarga
+archvioCantidadlineas;cuadratura=10000;
+
+diaCorte;valor=2;
+
+#DESARROLLO
+#FTP_RE;servidor=161.131.140.155;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_RE.txt;
+#FTP_VB;servidor=161.131.140.155;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_VB.txt;
+#FTP_CUAD;servidor=161.131.140.155;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;prefijoArchivo=Lea_Cuadratura_;extensionArchivo=.csv;contentType=application/txt;
+#INTEGRACION
+#FTP_RE;servidor=161.131.141.239;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_RE.txt;
+#FTP_VB;servidor=161.131.141.239;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_VB.txt;
+#FTP_CUAD;servidor=161.131.141.239;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;prefijoArchivo=Lea_Cuadratura_;extensionArchivo=.csv;contentType=application/txt;
+#CERTIFICACION
+FTP_RE;servidor=161.131.232.180;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_RE.txt;
+FTP_VB;servidor=161.131.232.180;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_VB.txt;
+FTP_CUAD;servidor=161.131.232.180;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;prefijoArchivo=Lea_Cuadratura_;extensionArchivo=.csv;contentType=application/txt;
+#PRODUCCION
+#FTP_RE;servidor=clapplgv;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_RE.txt;
+#FTP_VB;servidor=clapplgv;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;sufijoArchivo=_CuadLea_VB.txt;
+#FTP_CUAD;servidor=clapplgv;directorioBase=/CuadLeasing/out;sistemaUyP=cleasfs;prefijoArchivo=Lea_Cuadratura_;extensionArchivo=.csv;contentType=application/txt;

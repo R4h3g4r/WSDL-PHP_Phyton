@@ -1,0 +1,19 @@
+multiEnvironment;banco=BCI;marca=BCI;cartera=BEE;idioma=ES;pais=CL;usuario=EVECON;
+operaciones;tipoOperacion=OPC;
+producto;largoConvenio=10;idProducto=Prod01;
+estadosCredito;estado0=VIG;estado1=CAN;
+
+# Estilos Excel
+styleTitulo;HF_fontName=Arial;HF_fontHeightInPoints=18;HF_color=62;HF_boldweight=700;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;
+styleSubTitulo;HF_fontName=Arial;HF_fontHeightInPoints=11;HF_color=1;HF_boldweight=700;HCS_fillBackgroundColor=62;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;
+styleDescripcion;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=24;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;
+styleEncabezadoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=700;HCS_fillBackgroundColor=31;HCS_alignment=1;HCS_borderBottom=0;HCS_borderLeft=0;HCS_borderRight=0;HCS_borderTop=0;filasHorizontal=3;
+styleDatosTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+styleFechaTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=2;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;formatoFecha=dd/MM/yyyy;
+styleMontoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=3;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;formatoMonto=#,###;
+styleTextoTabla;HF_fontName=Arial;HF_fontHeightInPoints=9;HF_color=8;HF_boldweight=400;HCS_fillBackgroundColor=9;HCS_alignment=1;HCS_borderBottom=1;HCS_borderLeft=1;HCS_borderRight=1;HCS_borderTop=1;
+
+# nombreArchivoExcel ; nombreObjeto ; nombreatributo
+costoFondo;codigoSeguros=SGS;
+paginaDeVentas;posicionUrl=18;
+descripcionLinea;largoDescripcion=20;

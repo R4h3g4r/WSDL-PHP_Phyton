@@ -1,0 +1,12 @@
+##################################
+# Ruta plantilla Recarga Celular #
+##################################
+
+#Ruta del xsl que genera la parte text/html del comprobante de recarga celular del cliente.
+generaCelular;110=/recargacelulares/xsl/bci_generador.xsl;800=/recargacelulares/xsl/nova_generador.xsl;100=/resources/xsl/comprobanteRecargaCelular/tbanc_generador.xsl;901=/recargacelulares/xsl/bci_generador.xsl;905=/resources/xsl/comprobanteRecargaCelular/tbanc_generador.xsl;102=/recargacelulares/xsl/bci_generador.xsl;
+
+#Banner Promocion Tarjetas, ruta con la promocion asosiada al mail del cliente.
+bannerCelular;110=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_tarjetas.jpg;100=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_tbanc_tarjetas.jpg;800=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_nova_tarjetas.jpg;901=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_tarjetas.jpg;905=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_tbanc_tarjetas.jpg;102=http://www.bci.cl/medios/BCI2/art/serviciosweb/promo_bci_tarjetas.jpg;
+
+#Logo Banco, ruta con la imagen del logo del banco según el canal.
+logoCelular;110=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_bci.jpg;100=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_tbanc.jpg;800=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_nova.jpg;901=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_bci.jpg;905=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_tbanc.jpg;102=http://www.bci.cl/medios/BCI2/art/serviciosweb/logo_bci.jpg;

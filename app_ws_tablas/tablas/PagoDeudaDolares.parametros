@@ -1,0 +1,46 @@
+#
+# Valores para objeto de negocios PagoDeudaInternacional
+# ======================================================
+#
+mensaje;Desc=Sr. Cliente:<br>Este servicio por el tipo de cambio de moneda que debe administrar, está disponible de 9 a 14 horas. gracias.;
+#mensaje;Desc=Sr. Cliente:<br>Este servicio se encuentra temporalmente deshabilitado. Gracias.;
+horaInicioServicio;Desc=00:00:00;
+horaFinServicio;Desc=13:50:00;
+horaInicioCortina;Desc=13:50:00;
+horaFinCortina;Desc=09:00:00;
+cuentaCorredoraPesos;Desc=10464379;
+validaVentana;Desc=false;
+#Cortina entre horarios 
+inicioCortina;Desc=13:45:00;
+finCortina;Desc=14:15:00;
+validaCortina;Desc=true;
+mensajeCortina;Desc=Sr. Cliente:<br>Esta transacción se encuentra inactiva entre las 13:45 y las 14:15 de los días hábiles.Por favor, reintente con posterioridad a dicho horario.<br>Lamentamos las molestias que esto pudiera ocasionar.;
+mensajeCortina_910;Desc=Sr. Cliente: Esta transacción se encuentra inactiva entre las 13:45 y las 14:15 de los días hábiles.Por favor, reintente con posterioridad a dicho horario.Lamentamos las molestias que esto pudiera ocasionar.;
+mensajeCortina_911;Desc=Sr. Cliente: Esta transacción se encuentra inactiva entre las 13:45 y las 14:15 de los días hábiles.Por favor, reintente con posterioridad a dicho horario.Lamentamos las molestias que esto pudiera ocasionar.;
+mensajeCortina_912;Desc=Sr. Cliente: Esta transacción se encuentra inactiva entre las 13:45 y las 14:15 de los días hábiles.Por favor, reintente con posterioridad a dicho horario.Lamentamos las molestias que esto pudiera ocasionar.;
+mensajeCortina_915;Desc=Sr. Cliente: Esta transacción se encuentra inactiva entre las 13:45 y las 14:15 de los días hábiles.Por favor, reintente con posterioridad a dicho horario.Lamentamos las molestias que esto pudiera ocasionar.;
+mensajeDehabilitado;finDeAnyo=Le informamos que el día 31 de diciembre el servicio de Pago de Deuda Internacional no estará disponible. Agradecemos su comprensión y rogamos disculpar cualquier molestia que esto pudiere ocasionarle. Atentamente Banco de Crédito e Inversiones.;
+# Producción:
+# -----------
+cuentaCorredoraDolares;Desc=11081341;
+#Pruebas:
+# -------
+#cuentaCorredoraDolares;Desc=11100753;
+mensajeErrorNexus;desc=Estimado Cliente, El pago de su tarjeta de crédito internacional fue realizado exitosamente, y se verá reflejado al día hábil siguiente en los últimos movimientos internacionales de su tarjeta.;
+mensajeErrorDefecto;desc=En este momento no es posible efectuar esta operación. Por favor inténtelo mas tarde.;
+mensajeClienteSinDeudas;desc=Estimado Cliente:<br><br>Actualmente usted no posee deuda en dólares.;
+problemasConLaTarjeta;desc=No es posible pagar esta Tarjeta. Comuníquese con su ejecutivo.;
+mensajeTransaccionDuplicada;desc=La transacción a realizar ya fue realizada o bien no es válida.;
+
+# Parametros para el pago deuda internacionl empresas
+belHoraInicioCortina;valor=13:45:00;
+belHoraFinCortina;valor=14:15:00;
+belCuentaCorredoraDolares;valor=11081341;
+belCuentaCorredoraPesos;valor=10464379;
+
+mensajePiePagina;texto=Su deuda facturada en dólares podrá pagarse en dólares hasta la fecha de pago informada en el Estado de Cuenta, hasta  las 14:00 horas en cajas Bci y las 13:45 en la web con cargo automático a su cuenta corriente. Si no efectúa oportunamente el pago total, el monto adeudado será traspasado al cupo en pesos, transformándose en deuda rotativa, la que podrá cancelarse en pesos a partir del día siguiente de la fecha de pago.;
+mensajePiePaginaBci;texto=Su deuda facturada en dólares podrá pagarse en dólares hasta la fecha de pago informada en el Estado de Cuenta, hasta  las 14:00 horas en cajas Bci y las 13:45 en la web con cargo automático a su cuenta corriente. Si no efectúa oportunamente el pago total, el monto adeudado será traspasado al cupo en pesos, transformándose en deuda rotativa, la que podrá cancelarse en pesos a partir del día siguiente de la fecha de pago.;
+msgConfirmacionPagoInter;texto=Tu deuda facturada en dólares de tu tarjeta DESC_LOGO-NUM_TDC podrá pagarse en dólares en tu sitio web hasta las 13:45 horas del FEC_VENC.<br><br>Al no efectuar el pago total antes de la fecha y hora indicada, el monto adeudado será traspasado automáticamente al cupo en pesos, transformándose en deuda rotativa. Esta deuda en pesos, podrás cancelarla a partir del día siguiente de la fecha de pago.;
+flagOcurrenciaMsgPagoInter;value=2;
+valorDolarElasticidad;valor=750;
+porcentajeElasticidadDolar;valor=10;

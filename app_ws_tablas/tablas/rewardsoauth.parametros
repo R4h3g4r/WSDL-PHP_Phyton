@@ -1,0 +1,20 @@
+#
+# Tabla de Parámetros para Oauth rewards.
+# =============================================
+
+### Integracion
+#clientId;valor=718010.staging.mispuntos.bci.cl;
+#redirectUri;valor=http://bci.modyo.be/auth/bci/callback;
+
+### Certificacion
+clientId;valor=945186.certification.mispuntos.bci.cl;
+redirectUri;valor=https://staging.vivirconbeneficios.cl/auth/bci/callback;
+
+### Produccion
+#clientId;valor=763449.production.mispuntos.bci.cl;
+#redirectUri;valor=https://www.vivirconbeneficios.cl/auth/bci/callback;
+#redirectUri;valor=https://www.vivirconbeneficios.cl/puntos;
+
+JWTGenerator;sessionTime=180;
+
+EJB_JNDI_NAME;valor=wcorp.infraestructura.seguridad.oauth.ServicioAutorizacionOauth;

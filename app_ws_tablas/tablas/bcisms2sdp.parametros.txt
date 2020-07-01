@@ -1,0 +1,24 @@
+Tabla que contiene los parámetros generales relacionados a los datos de conexión a colas JMS para 
+envíos de alertas por SMS via SDP de Latinia
+
+LIMSP_JMS_CONNFACTORY
+~~~
+Esta llave indica el nombre JNDI del connection factory para la comunicación JMS con la cola de LimspSDP.
+
+
+LIMSP_JMS_QUEUESEND
+~~~~~~~
+Esta llave contiene el valor del nombre JNDI de la cola con prioridad normal del SDP de Latinia
+
+
+LIMSP_JMS_QUEUESEND_PRIORITY
+~~~~~~~~~~~~~~~~~~~~~
+Esta llave contiene el valor del nombre JNDI de la cola con prioridad alta del SDP de Latinia
+
+
+[REGISTRODEVERSIONES]
+==========================================
+
+. 03/01/2012 Rodrigo Parra (BCI): Versión Inicial.
+
+==========================================

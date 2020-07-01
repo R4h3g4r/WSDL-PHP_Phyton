@@ -1,0 +1,5 @@
+TraductorDeExcepciones;ClassName=wcorp.util.excepciones.implementacion.TraductorDeExcepciones;
+CatalogoDeExcepciones;ClassName=wcorp.util.excepciones.implementacion.CatalogoDeExcepciones;
+LoggerDeExcepciones;ClassName=wcorp.util.excepciones.implementacion.LoggerDeExcepciones;
+PublicadorJMSDeExcepciones;ClassName=wcorp.util.excepciones.implementacion.PublicadorJMSDeExcepciones;QueueName=_queue;URI=t3://127.0.0.1:7001;TimeOut=30000;InitialContextFactory=weblogic.jndi.WLInitialContextFactory;
+

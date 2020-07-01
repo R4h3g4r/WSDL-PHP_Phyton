@@ -1,0 +1,42 @@
+# Tabla de parametros
+
+FormatoFechas;fecha=dd/MM/yyyy;fechaHora=dd/MM/yyyy - HH:mm;
+
+EstadoDeclaracion; estadoVigente=A; estadoIngresado=I;
+
+Paginacion; cantidadPermitida=5;
+
+Impresion; ruta=/impresion/DocGenerator.pdf?_dataservice=wcorp.util.bee.impresion.pgDataObjectRetrieval&form=form_declaracionOF&match=declaracionOF&_template=declaracionOFPN&ext=.pdf;
+
+Imagen; ruta=/workstationwls/declaraciondeorigendefondos/images;
+
+#Documentos de respaldo
+FotocopiaCI; nombre=Fotocopia cedula de identidad; 
+VerificaDomicilio; nombre=Verificación de domicilio (Dicom o Boleta de Servicio); 
+EvidenciaRenta; nombre=Evidencia de Renta (Liquidaciones de sueldos, certificado de antiguedad, otros); 
+DocumentoOrigen; nombre=Para transacciones especificas en que exista origen de fondos claramente estipulado, documentación que respalde el origen (venta de propiedad, automovil, herencia, pago de bono, venta de acciones, etc.);
+CopiaEscritura; nombre=Copia de escritura de constitución;
+CopiaExtracto; nombre=Copia de extracto de inscripción actualizado, para verificar posibles modificaciones;
+CopiaPoderes; nombre=Copia de escritura de poderes;
+FotocopiaCIRP; nombre=Fotocopia cedula identidad Representante Legal;
+DeclaracionImpuestos; nombre=Declaración de impuestos que justifique las ventas declaradas;
+
+Direccion; oficial=D; email=7; celular=8; paginaweb=W;
+
+Relacion; empleado=FU; socio=SO; conyugue=CY; representanteLegal=RP; principalesAccionistas=SO;
+
+TipoPersona; natural=P; juridica=J;
+
+LargoDatos; cargo=20;
+
+SituacionLaboral; dependiente=DE; independiente=IN; otros=IT;
+
+Accionista; porcentajeMinimo=25;
+
+Representante; cantidad=3;
+
+CodigoTipoEntidadLegal; sociedadAnonima=03,07,17; sociedadRespLim=04; entidadSinFines=12; asociacion=14,15,18,20;
+
+TipoEntidadLegal; sociedadAnonima=Sociedad Anónima; sociedadRespLim=Sociedad de Responsabilidad Limitada; entidadSinFines=Entidad sin fines de Lucro; asociacion=Asociación; otro=Otro;
+
+

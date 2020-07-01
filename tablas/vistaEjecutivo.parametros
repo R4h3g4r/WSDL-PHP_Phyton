@@ -1,0 +1,86 @@
+CABECERA;ar=PEREJE,EVVIG,EVCERR,BCIACC,BCIACCFID,BCIACCRENT,BCIACCRET,BCIACCCAR,BCIACCCN,LTDDEM,EVMICARVTA,EVMICARVTAIR,EVMICARVTACR,EVMICARVTAIE,EVMICARVTAGE,CAMVIGPCC,CAMVIGPCCCA,CAMVIGPCCCG,BCIFACILITA,BCIMULTI,BCIAPRENDE,BCISERHUM,TARPRENAC,TARPRENACDET,TARPREINT,MESAYUDA,NORMAT,MANUPRODEMPR,VISCLIDIA,ASL,CAMP,WKFHIP,WKFGAR,TAS,SEGPOR,BRIO8,RVDA,RVDAC,RVDACV,PRESUP,PCSG,PCSGPCT,PCSGCPA,PCSGCPGA,CLSG,WKFCOB,PRXVEN,CLIBOL,CLIBOLCCP,BCIACC2;
+
+### MIS CLIENTES
+
+PEREJE;padre=MISCLIENTES;glosa=Mi Cartera;url=/workstationwls/portal/consultaCarteraClientes.do?accion=iniciarConsultaPersonas;ventana=pereje;parametros=scrollbars=yes,resizable=yes,width=870,height=570;nivel=1;nombreVista=ETE_PEREJE;listaAcciones=ABRIR_EJECUTIVO,ABRIR_JEFE;
+EVVIG;padre=MISCLIENTES;glosa=Eventos Vigentes;url=;ventana=;parametros=;nivel=1;nombreVista=TAR_COLABORA;listaAcciones=ABRIR;
+EVCERR;padre=MISCLIENTES;glosa=Eventos Cerrados;url=;ventana=;parametros=;nivel=1;nombreVista=TAR_COLABORA;listaAcciones=ABRIR;
+BCIACC;padre=MISCLIENTES;glosa=BCI en acción;url=;ventana=;parametros=;nivel=1;
+BCIACCFID;padre=MISCLIENTES;glosa=Clientes por Fidelizar;url=;ventana=;parametros=;nivel=2;
+BCIACCRENT;padre=MISCLIENTES;glosa=Clientes por Rentabilizar;url=;ventana=;parametros=;nivel=2;
+BCIACCRET;padre=MISCLIENTES;glosa=Clientes por Retener;url=;ventana=;parametros=;nivel=2;
+BCIACCCAR;padre=MISCLIENTES;glosa=Clientes en Alerta de Riesgo;url=;ventana=;parametros=;nivel=2;
+BCIACCCN;padre=MISCLIENTES;glosa=Clientes Nuevos;url=;ventana=;parametros=;nivel=2;
+LTDDEM;padre=MISCLIENTES;glosa=Listado On Demand;url=http://listados;ventana=new;parametros=scrollbars=yes,width=800,height=600;nivel=1;
+
+### GESTIONANDO MI CARTERA
+
+EVMICARVTA;padre=GESTMICAR;glosa=Eventos de mi Cartera : Vista;url=/portalwls/tareas/ConfigurationServlet?MethodType=CONSULTAAGENTE&taskType=Task;ventana=new;parametros=scrollbars=yes,width=780,height=566;nivel=1;nombreVista=TAR_COLABORA;listaAcciones=ABRIR;
+EVMICARVTAIR;padre=GESTMICAR;glosa=Ingresar Reemplazo;url=;ventana=;parametros=;nivel=2;
+EVMICARVTACR;padre=GESTMICAR;glosa=Consultar Reemplazo;url=;ventana=;parametros=;nivel=2;
+EVMICARVTAIE;padre=GESTMICAR;glosa=Ingresar Evento;url=;ventana=;parametros=;nivel=2;
+EVMICARVTAGE;padre=GESTMICAR;glosa=Gestión Eventos;url=;ventana=;parametros=;nivel=2;
+CAMVIGPCC;padre=GESTMICAR;glosa=Campañas Vigentes : Priorización Clientes en Campaña;url=/portalwls/campanas/filtrarProdPriorizados.do;ventana=new;parametros=scrollbars=yes,width=738,height=450;nivel=1;nombreVista=PCE_PRIORIZAR;listaAcciones=ABRIRJOF,ABRIREJE,ABRIR;
+CAMVIGPCCCA;padre=GESTMICAR;glosa=Clientes Agendados;url=;ventana=;parametros=;nivel=2;nombreVista=PCE_PRIORIZAR;listaAcciones=VER_CMPAGN;
+CAMVIGPCCCG;padre=GESTMICAR;glosa=Clientes Gestionados;url=;ventana=;parametros=;nivel=2;nombreVista=PCE_PRIORIZAR;listaAcciones=VER_CMPGST;
+
+### CAPACITACION Y AYUDA VENTA
+
+BCIFACILITA;padre=CAPAV;glosa=Bci Facilita;url=http://portal/ManualesdeProducto/index_actIf-1.html;ventana=new;parametros=scrollbars=yes,width=800,height=600;nivel=1;
+BCIMULTI;padre=CAPAV;glosa=Bci Multiplica;url=;ventana=;parametros=;nivel=1;
+BCIAPRENDE;padre=CAPAV;glosa=Bci Aprende;url=https://bciaprende.bci.cl/;ventana=new;parametros=scrollbars=yes,width=800,height=600;nivel=1;
+BCISERHUM;padre=CAPAV;glosa=Bci Ser Humano;url=http://serhumano:8160;ventana=new;parametros=scrollbars=no,width=1000,height=1200;nivel=1;
+TARPRENAC;padre=CAPAV;glosa=Tarifado de Precios Nacional;url=/workstationwls/portal/tarifadoNacInt.jsp?tipoTarifa=N;ventana=new;parametros=scrollbars=yes,width=800,height=600;nivel=1;
+TARPRENACDET;padre=CAPAV;glosa=Detalle Tarifado de Precios Nacional;url=;ventana=;parametros=;nivel=2;
+TARPREINT;padre=CAPAV;glosa=Tarifado de Precios Internacional;url=;ventana=;parametros=;nivel=1;
+MESAYUDA;padre=CAPAV;glosa=Mesa de Ayuda;url=/workstationwls/portal/pop80-mesa-de-ayuda.jsp;ventana=new;parametros=scrollbars=no,width=400,height=283;nivel=1;
+NORMAT;padre=CAPAV;glosa=Normativa;url=;ventana=;parametros=;nivel=1;
+MANUBUEPRAC;padre=CAPAV;glosa=Manual de Buenas Prácticas;url=http://portal/medios/Archivos/ManualBciBuenasPracticas2.pdf;ventana=new;parametros=scrollbars=yes,width=800,height=600;nivel=1;
+MANUPRODEMPR;padre=CAPAV;glosa=Manual de Productos de Empresas;url=/workstationwls/empresa/manualProductosEmpresas.jsp;ventana=new;parametros=scrollbars=yes,width=400,height=283;nivel=1;
+
+### CLIENTES DEL DIA
+
+VISCLIDIA;padre=CLIENTESDIA;glosa=Vista Clientes del día;url=/workstationwls/cliente/clienteDelDia.do;ventana=opener;parametros=;nivel=1;
+
+### VENTA
+
+ASL;padre=VENTA;glosa=ASL;url=;ventana=;parametros=;nivel=1;
+CAMP;padre=VENTA;glosa=Campañas;url=/portalwls/campanas/filtrarProdPriorizados.do;ventana=new;parametros=scrollbars=yes,width=738,height=450;nivel=1;nombreVista=PCE_PRIORIZAR;listaAcciones=ABRIRJOF,ABRIREJE,ABRIR;
+WKFHIP;padre=VENTA;glosa=Workflow Hipotecario;url=/portalwls/integrador/IntegradorPortal?servicio=asicom;ventana=new;parametros=width=700,height=550;nivel=1;
+WKFGAR;padre=VENTA;glosa=Workflow Garantias;url=;ventana=;parametros=;nivel=1;
+TAS;padre=VENTA;glosa=Tasaciones;url=;ventana=;parametros=;nivel=1;
+SEGPOR;padre=VENTA;glosa=Seguros de Portal;url=/portalwls/ventasseguros/ventasseguros;ventana=new;parametros=scrollbars=yes,width=738,height=450;nivel=1;
+
+### GESTION
+
+BRIO8;padre=GESTION;glosa=Panel de Gestion;url=/portalwls/integrador/IntegradorPortal?servicio=odmbrio2;ventana=new;parametros=scrollbars=yes,width=600,height=650;
+RVDA;padre=GESTION;glosa=Uso de Campañas ;url=/portalwls/campanas/consultarReporteDeGestion.do;ventana=new;parametros=scrollbars=yes,width=740,height=650;nivel=1;
+RVDAC;padre=GESTION;glosa=Contactos;url=;ventana=;parametros=;nivel=1;
+RVDACV;padre=GESTION;glosa=Compromisos de Venta;url=;ventana=;parametros=;nivel=1;
+PRESUP;padre=GESTION;glosa=Presupuesto;url=;ventana=;parametros=;nivel=1;
+
+### RIESGOS
+
+PCSG;padre=RIESGOS;glosa=Pago Consulta Sobregiro;url=;ventana=;parametros=;nivel=1;
+PCSGPCT;padre=RIESGOS;glosa=Pago de la Consulta a Terceros;url=;ventana=;parametros=;nivel=2;
+PCSGCPA;padre=RIESGOS;glosa=Cheques Protestados Automáticamente;url=;ventana=;parametros=;nivel=2;
+PCSGCPGA;padre=RIESGOS;glosa=Cheques Pagados Automáticamente;url=;ventana=;parametros=;nivel=2;
+CLSG;padre=RIESGOS;glosa=Cliente Sobregirado;url=;ventana=;parametros=;nivel=1;
+WKFCOB;padre=RIESGOS;glosa=WorkFlow Cobranza;url=;ventana=;parametros=;nivel=1;
+PRXVEN;padre=RIESGOS;glosa=Proximos Vencimientos;url=;ventana=;parametros=;nivel=1;
+CLIBOL;padre=RIESGOS;glosa=Clientes a Boletín : Consulta Documentos Impagos;url=/workstationwls/boletincomercial/cargaBoletinImpagos.do;ventana=new;parametros=scrollbars=no,status=yes,width=860,height=490;nivel=1;
+CLIBOLCCP;padre=RIESGOS;glosa=Consulta Cheques protestados;url=;ventana=;parametros=;nivel=2;
+
+### RETENCION
+
+BCIACC2;padre=RETENCION;glosa=BCI en Accion : Vista;url=;ventana=;parametros=;nivel=1;
+
+### ACCESOSDIRECTOS
+
+TSCN;padre=ACCESOSDIRECTOS;glosa=Tasaciones;url=https://webtasac.bci.cl/;ventana=new;parametros=status=yes,scrollbars=yes,width=780,height=400;nivel=1;vistaValida=;
+WFLGRT;padre=ACCESOSDIRECTOS;glosa=Workflow Garantías;url=/workstationwls/wkfgarantias/enlaceWKFGarantias.jsp;ventana=new;parametros=scrollbars=no,width=780,height=390;vistaValida=;nivel=1;
+WFLHIP;padre=ACCESOSDIRECTOS;glosa=Workflow Hipotecario;url=/portalwls/integrador/IntegradorPortal?servicio=asicom;ventana=new;parametros=width=700,height=550;vistaValida=;nivel=1;
+SII;padre=ACCESOSDIRECTOS;glosa=SII;url=http://www.sii.cl;nombrePopUp=popSII;ventana=new;parametros=status=yes,scrollbars=yes,width=780,height=400;vistaValida=;nivel=1;
+TSR;padre=ACCESOSDIRECTOS;glosa=Tesorería;url=http://www.tesoreria.cl/web/;ventana=new;parametros=status=yes,scrollbars=yes,width=780,height=400;vistaValida=;nivel=1;
+STRBX;padre=ACCESOSDIRECTOS;glosa=Storbox;url=http://www.storbox.cl;ventana=new;parametros=status=yes,scrollbars=yes,width=780,height=400;vistaValida=;nivel=1;
+CROMI;padre=ACCESOSDIRECTOS;glosa=Cromicron;url=http://www.comicrom.cl/;ventana=new;parametros=status=yes,scrollbars=yes,width=780,height=400;vistaValida=;nivel=1;

@@ -1,0 +1,22 @@
+#Cantidad de meses para hacer la consulta
+cantidadMeses;Desc=12;
+
+#Cantidad de registros para consulta en bloque
+cantidadRegistros;Desc=10;
+
+#Puertas a validar
+puerta1;Desc=ES_RESTRINGIDA;
+puerta2;Desc=ACC_CLI_COL;
+
+#Largo parámetros entrada.
+largoPagos;Desc=8;
+largoPAC;Desc=8;
+largoCelular;Desc=8;
+largoTransferenciasEnviadas;Desc=8;
+largoTransferenciasRecibidas;Desc=9;
+largoCuentaOrigen;Desc=8;
+largoCuentaDestino;Desc=12;
+largoTransferenciasRecibidasBCI;Desc=8
+largoCuentaBCI;Desc=8;
+largoCuentaTransfEnviadasSIPE;Desc=12;
+largoCuentaTransfEnviadasBANELE;Desc=12;

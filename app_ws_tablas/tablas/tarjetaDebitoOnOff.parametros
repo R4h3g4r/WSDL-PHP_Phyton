@@ -1,0 +1,76 @@
+jndiTarjetaDebitoOnOff;valor=wcorp.aplicaciones.productos.servicios.tarjetas.debito.onoff.ServicioTarjetaDebito;
+jndiServicioMensajeria;valor=wcorp.infraestructura.mensajeria.ServicioMensajeria;
+
+WSrecurso;valor=/ws/bci/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDD/wscliente/wsdl/ServicioAdministradorTDD.WSDL;
+WSqname;valor=http://esb.bci.cl/esb/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDD;
+WSTimeout;request=20000;connect=1000;
+
+#Desarrollo
+#WSUrl;valor=http://170.1.1.135:9011/esb/intranet/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDDPS?WSDL;
+
+#integracion
+#WSUrl;valor=http://b2bdesa.bci.cl:9050/esb/intranet/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDDPS?WSDL;
+
+#Certificación
+WSUrl;valor=http://b2bcert.bci.cl:9050/esb/intranet/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDDPS?WSDL;
+
+#Produccion
+#WSUrl;valor=http://alsb.bci.cl/esb/intranet/productos/colocaciones/tarjetadedebito/ServicioAdministradorTDDPS?WSDL;
+
+WSValores;Fi=0003;abaBranch=01600;AccountType=AC;
+
+
+
+loginEnterprise;descripcion=BCI;
+refContract;descripcion=WEBBCI_BLOQUEO_TDD;
+consumidorCorreo;usuario=BCI;clave=BCI_PWD;
+subject;descripcion=Comprobante Solicitud Tarjeta de Crédito;
+solicitudDeCorreo;encendido= [ENCENDIDO TEMPORAL] de su tarjeta;apagado= [APAGADO TEMPORAL] de su tarjeta;
+refTemplateWsLatinia;correoBci=tmpl_onoff_tdd_bci;correoNova=tmpl_onoff_tdd_nova;
+journal;codigoEventoEncender=PRENDE;codigoSubEventoEncender=ONOFF;codigoProducto=TDD;codigoEventoApagar=APAGA;codigoSubEventoApagar=ONOFF;
+servicios;sinCorreo=APP;sinJournal=APP;envioCorreo=ON;journalizar=ON;
+producto;AC=Tarjeta de Debito;
+canalOrigen;batch=BATCH;batchCredito=BATCH;
+sistemaOperativo;defecto=IOS;
+mensajeVariable;BCI=Este es el mensaje variable de BCI;NOVA=este es el mensaje variable de Nova;
+paisPorDefecto;pais=CHILE;
+usuario;defectoDebito=AUTOMATICO;defectoCredito=AUTOMATICO;
+UyP;sistema=wlsalsb;
+ValoresRestPorDefecto;tipoTarjeta=debito;
+
+# Informacion de URL de servicio FUSE
+#LOCAL
+#urlObtenerEstadofuseRedbanc;valor=http://localhost:8181/cxf/ServiceRedbanc/obtenerEstadoTarjetaDebito/;
+#urlBloqueoDefinitivoFuseRedbanc;valor=http://localhost:8181/cxf/ServiceRedbanc/bloqueoDefinitivoTarjetaDebito;
+#urlapagadoTarjetaDebitoFuseRedbanc;valor=http://localhost:8181/cxf/ServiceRedbanc/apagadoTarjetaDebito;
+#urlencendidoTarjetaDebitoFuseRedbanc;valor=http://localhost:8181/cxf/ServiceRedbanc/encendidoTarjetaDebito;
+
+#INTEGRACION
+#urlObtenerEstadofuseRedbanc;valor=http://esbinte.bci.cl/cxf/ServiceRedbanc/obtenerEstadoTarjetaDebito/;
+#urlBloqueoDefinitivoFuseRedbanc;valor=http://esbinte.bci.cl/cxf/ServiceRedbanc/bloqueoDefinitivoTarjetaDebito;
+#urlapagadoTarjetaDebitoFuseRedbanc;valor=http://esbinte.bci.cl/cxf/ServiceRedbanc/apagadoTarjetaDebito;
+#urlencendidoTarjetaDebitoFuseRedbanc;valor=http://esbinte.bci.cl/cxf/ServiceRedbanc/encendidoTarjetaDebito;
+
+#CERTIFICACION
+urlObtenerEstadofuseRedbanc;valor=http://esbcert.bci.cl/cxf/ServiceRedbanc/obtenerEstadoTarjetaDebito/;
+urlBloqueoDefinitivoFuseRedbanc;valor=http://esbcert.bci.cl/cxf/ServiceRedbanc/bloqueoDefinitivoTarjetaDebito;
+urlapagadoTarjetaDebitoFuseRedbanc;valor=http://esbcert.bci.cl/cxf/ServiceRedbanc/apagadoTarjetaDebito;
+urlencendidoTarjetaDebitoFuseRedbanc;valor=http://esbcert.bci.cl/cxf/ServiceRedbanc/encendidoTarjetaDebito;
+
+#PRODUCCION
+#urlObtenerEstadofuseRedbanc;valor=http://esb.bci.cl/cxf/ServiceRedbanc/obtenerEstadoTarjetaDebito/;
+#urlBloqueoDefinitivoFuseRedbanc;valor=http://esb.bci.cl/cxf/ServiceRedbanc/bloqueoDefinitivoTarjetaDebito;
+#urlapagadoTarjetaDebitoFuseRedbanc;valor=http://esb.bci.cl/cxf/ServiceRedbanc/apagadoTarjetaDebito;
+#urlencendidoTarjetaDebitoFuseRedbanc;valor=http://esb.bci.cl/cxf/ServiceRedbanc/encendidoTarjetaDebito;
+
+
+servicioConsultaEstadoOK;statusCode=SUCCESS;httpCode=200;mensaje=Estado de tarjeta: ;
+msgErrorEstado;Desc=La tarjeta consultada no está registrada;
+
+servicioEncenderOK;statusCode=SUCCESS;httpCode=200;mensaje=Encendido de tarjeta: ;
+
+servicioApagarOK;statusCode=SUCCESS;httpCode=200;mensaje=Apagado de tarjeta: ;
+
+codigosBloqueo;valor=T,J,W,V,U,S,I,P,F,O;
+
+

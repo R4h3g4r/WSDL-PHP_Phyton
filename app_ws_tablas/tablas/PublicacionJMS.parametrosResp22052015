@@ -1,0 +1,7 @@
+versionEnUso;version=3;
+cantidadDestinos;cantidad=4;
+0;destino=jms.v1.journal.JournalQueue;factory=jms.v1.journal.JournalConnectionFactory;ubicacion=interno;
+1;destino=jms.v2.journal.JournalBCIExpressQueue;factory=jms.v2.journal.JournalBCIExpressConnectionFactory;ubicacion=interno;
+2;destino=jms.v2.journal.JournalSMSQueue;factory=jms.v2.journal.JournalSMSConnectionFactory;ubicacion=interno;
+3;destino=jms.alertassmslatinia.distribuida;factory=jms.conection.alertassms;ubicacion=externo;
+

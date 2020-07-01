@@ -1,0 +1,4 @@
+SarcServer;Clase=wcorp.util.com.SarcServer;Port=9500;Delay=130;
+#Servipag;Clase=wcorp.bprocess.pagos.Servipag;Port=8888;Delay=60;
+Transbank;Clase=wcorp.bprocess.tcompra.Transbank;Port=9015;Delay=130;
+BciCorpGwy;Clase=wcorp.util.com.gateway.BciCorpMsg;Port=9000;Delay=130;

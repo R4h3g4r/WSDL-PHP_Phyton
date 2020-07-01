@@ -1,0 +1,10 @@
+#tipos de crédito existentes
+cantidadCreditos;desc=3;
+credito0;desc=CORFO;
+credito1;desc=MULTICREDITO;
+credito2;desc=AUTOMOTRIZ;
+
+#códigos de crédito IBM
+CORFO;CON313=PreGrado Corfo cuota UF;CON368=PreGrado Corfo interes mensual cuota tasa fija UF;CON369=PreGrado Corfo interes trimestral cuota tasa fija UF;CON370=PreGrado Corfo interes semestral cuota tasa fija UF;CON371=PostGrado Corfo interes mensual cuota tasa fija UF;CON372=PostGrado Corfo interes trimestral cuota tasa fija UF;CON373=PostGrado Corfo interes semestral cuota tasa fija UF;CON374=PostGrado Corfo s/pago int.per.gracia cuota tasa fija;CON402=PostGrado Corfo 1 vcto UF;CON405=PreGrado Corfo 1 vcto. UF;CON510=PostGrado Corfo cuota;COM681=Ptmo. Comercial Corfo Spread 1 vcto. $ tasa fija interes semestral hasta 1 año plazo;COM682=Ptmo. Comercial Corfo Spread 1 vcto. $ tasa fija interes semestral a más1 año plazo;COM683=Ptmo comercial corfo energía cftf - 1 año;COM684=Ptmo comercial corfo energía cftf +1 año;
+MULTICREDITO;ALR540=Avances en cuotas a menos de 1 año;ALR650=Avances en cuotas a más de 1 año;ALR500=Multicredito Web;ALR600=Promocion Web;ALR700=Credicheque;
+AUTOMOTRIZ;CON423=Automotriz Cuota Fija Tasa Fija -1 año;CON319=Crédito Automotriz Cuota Fija Tasa Fija +1 año;

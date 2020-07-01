@@ -1,0 +1,28 @@
+TIPO-CONTRATO;0=Sin Opcion;1=Con Opcion;
+FACT-ANTICIP;S=Contra Factura;N=Contra Pago;
+TIPO-PAGO;1=Anticipado;2=Vencido;
+SEG-INC;S=Si Incluye;N=No Incluye;
+GTIA-COMP;1=Si;0=No;
+ESTADO-PAGO;S=Pagada;N=No Pagada;
+ESTADO-FACTURACION;S=Facturada;N= ;
+ACC-EJE-LEA;vista=ETE_LEASING;acciones=CONS_EJE_LSG;
+IND-SEG;S=Si;N=No;
+TIP-PROV;PROVSEGURO=2;PROVRCIVIL=4;PROVMONBIENES=10;
+EST-PAG;S=Pagada;N=No Pagada;
+NUM-CNV;numero=288;
+SUCURSAL;codigo=154;
+RANGOS;cantidad-mes=24;cantidad-mes-rangos=24;
+DOCUMENTOS;factura-afecta=33;factura-exenta=34;credito=61;debito=01;
+MENSAJE_INFORMATIVO;mensaje=<strong>Mensaje Informativo</strong><br />Estimado Cliente: Los pagos que realizados por caja en sucursales BCI o ServiPag, se ven reflejados 48 horas hábiles después.;
+SERV-NO-DISP;desc=Estimado Colaborador: En estos momentos no es posible realizar la acción solicitada,\n favor intente nuevamente, en caso contrario contactar a Mesa de Ayuda.;
+#  ---------------------
+
+nuevoSistemaLeasing;desc=SI;
+rutAutorizados;96665164=NOK; 99549010=NOK; 92458000=NOK; 
+
+#Ambiente Certificación
+WSDL; ServicioWebBCI=http://161.131.140.137:9050/esb/productos/servicios/leasing/ServicioLeasingPS?WSDL; CODE=EVEUSR; USERID=EVEREST_USER; NOMSERV=SrvServicioLeasing;
+
+
+#Ambiente Producción
+#WSDL; ServicioWebBCI=http://alsb.bci.cl/esb/productos/servicios/leasing/ServicioLeasingPS?WSDL; CODE=EVEUSR; USERID=EVEREST_USER; NOMSERV=SrvServicioLeasing; 

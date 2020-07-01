@@ -1,0 +1,26 @@
+### Integracion ###
+#WS_RESUMEN;URL_WSDL_RESUMEN=http://b2bdesa.bci.cl:9050/productos/inversiones/resumen/ServicioResumenInversionesPS?wsdl;
+### Certificacion ###
+WS_RESUMEN;URL_WSDL_RESUMEN=http://b2bcert.bci.cl:9050/productos/inversiones/resumen/ServicioResumenInversionesPS?wsdl;
+### Produccion ###
+#WS_RESUMEN;URL_WSDL_RESUMEN=http://b2b.bci.cl/esb/personas/productos/inversiones/resumen/ServicioResumenInversionesPS?wsdl;
+##DESARROLLO
+#WS_RESUMEN;URL_WSDL_RESUMEN=http://127.0.0.1:8011/productos/inversiones/resumen/ServicioResumenInversionesPS?wsdl;
+
+##SECURITIZACION OSB
+servicioOSBResumenInversiones;sistemaUyP=wsresinv;
+servicioOSBSolCredHipotecario;sistemaUyP=wsresinv;
+servicioOSBVinculacionesModel;sistemaUyP=wsresinv;
+
+## codigos de Journalizacion ##
+
+PRODUCTO_JOURNAL;Desc=RES;
+EVENTO_JOURNAL;Desc=CNS;
+SUB_EVTS_JOURNAL;Desc=CNS;
+
+CARTERA;ffmm=Fondos Mutuos;dap=Depositos a plazo;acciones=Acciones;pacto=Pactos;simultanea=Simultaneas;cfi=Cuotas Fondo Inversion;monetario=Monetarios;pdbc=Pagares Descontables;ec=Efectos de Comercio;apv=Ahorro Pevisional Voluntario;cta_ahorro=Cuenta de Ahorro;fip=Fondos de Inversion Privados;libre=Carteras Libres;fp=Carteras Dinamicas;asesorada=Carteras Asesoradas;gaf=Gestion Activos Financieros;adc=Adminitracion de Cartera;
+URL_HOME;Desc=/cl/bci/aplicaciones/menu/vistas/inversiones/homeInversiones.jsf;
+URL_HOME_SIN;Desc=/svcRest/infraestructura/seguridad/servlet/TokenAutorizacion?url=http://front-crt01.bci.cl/nuevaWeb/fe-inversionesfondosmutuoswebpersonas-re-v3-8/home/;
+MENSAJE_PROCESA;Desc=La información presentada corresponde al cierre del día: ;dos=a la fecha de procesamiento.;
+
+expresionEncodingFFMM;valor=^[\w\s(ÁÉÍÓÚÑáéíóúñ)((\.)(\>)(\-))]+$;decode=UTF-8;encode=ISO-8859-1;

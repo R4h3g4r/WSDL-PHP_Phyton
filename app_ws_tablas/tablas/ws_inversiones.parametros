@@ -1,0 +1,16 @@
+# Tabla de parametros para el Reportes de Inversión contra webservices de Iplanet
+
+
+#wsdl del webservices 
+SERVIDOR;NOMBRE=161.131.188.159;
+SERVIDORPORT;PROTOCOLO=HTTP;
+SERVICIO;URL_WSDL=/ws_informes/srv_informes.asmx?wsdl;
+rutaImgInversiones;img=/bancaPrivadawls/common/images/html/logo_bci.gif;
+
+#mensajes de error 
+MENSAJE_ERROR_GENERICO;DESC=Estimado cliente, usted no posee información vigente para esta consulta;
+BALANCE_INVERSIONES_ERROR;DESC=Estimado cliente, usted no posee información vigente para esta consulta;
+DETALLE_INVERSIONES_ERROR;DESC=Estimado cliente, usted no posee información vigente para esta consulta;
+DETALLE_MOVIMIENTOS_ERROR;DESC=Estimado cliente, usted no posee información vigente para esta consulta;
+MOVIMIENTO_CAJA_ERROR;DESC=Estimado cliente, usted no posee información vigente para esta consulta;
+PATHURL;RUTA=;

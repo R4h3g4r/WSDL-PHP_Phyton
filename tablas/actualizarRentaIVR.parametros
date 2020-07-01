@@ -1,0 +1,9 @@
+errorGeneral;cod=ERROR;Desc=Error general al actualizar la renta.;
+
+jndiCalculoRenta;valor=wcorp.bprocess.renta.CalculoRenta;
+jndiServiciosCliente;valor=wcorp.serv.clientes.ServiciosCliente;
+jndiServiciosRentaPrevired;valor=wcorp.aplicaciones.cliente.renta.ServiciosRentaPrevired;
+
+codigoRentaVigentiada;codigo={usuario=BDDPGRE3    };
+
+codigoEstadoRenta;actualizada=ACT;desactualizada=DES;vigentiada=VIG;error=ERR;

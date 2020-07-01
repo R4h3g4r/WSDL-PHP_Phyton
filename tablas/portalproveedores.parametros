@@ -1,0 +1,129 @@
+#ALSB Desarrollo
+#conexionALSB;endpoint=http://b2bdesa.bci.cl:9050/servicios/ws/proveedores/pagoproveedores?WSDL;sistemaUYP=wlsalsb;tiempoEspera=3
+
+#ALSB Certificacion
+conexionALSB;endpoint=http://b2bcert.bci.cl:9050/servicios/ws/proveedores/pagoproveedores?WSDL;sistemaUYP=wlsalsb;tiempoEspera=3
+
+#ALSB Produccion
+#conexionALSB;endpoint=http://b2b.bci.cl/servicios/ws/proveedores/pagoproveedores?WSDL;sistemaUYP=wlsalsb;tiempoEspera=3
+
+mail;mensaje=Estimado Proveedor, Se ha respondido un mensaje en su muro, por favor ingrese al Portal Proveedores;firma=Atentamente\nBci - Somos Diferentes\n\n\nImportante:\n- Este mail es generado de manera automatica, por favor no lo responda.\n- Ante cualquier duda, contactese al 600 824 24 24.\n\nP.D: los tildes han sido omitidos en forma intencional.;
+
+pagina;mostrar_notificaciones=5;mostrar_notas=10;
+
+numeroRegistros;eventos=5;noticias=5;
+facturasPagadas;dias=60;anioInicio=2011
+glosaDocumentos;OC=Orden de compra / Contrato;HS=HES;HM=HEM;FA=Factura;
+
+#CARGA DE CALIFICACIONES DEL PROVEEDOR
+#DESARROLLO
+#servidorCalificacion;   ip=161.131.184.80;puerto=21;
+#accesoCalificacion;     usuario=pproveed;password=proveed1;
+#directorioCalificacion; path=/pprov/in;
+
+#CERTIFICACION
+servidorCalificacion;   ip=161.131.232.185;puerto=21;
+accesoCalificacion;     usuario=pproveed;password=pprovee1;
+directorioCalificacion; path=/portalprov/in;
+
+#PRODUCCION
+#servidorCalificacion;   ip=161.131.232.7;puerto=21;
+#accesoCalificacion;     usuario=pproveed;password=Pproveed12;
+#directorioCalificacion; path=/portalprov/in;
+
+tipoCalificacion;servicio=S;compra=C;
+tituloCalificacion;servicio=Carga Encuesta Calidad de Servicio;compra=Carga Encuesta Calidad de Servicio Gerencia de Compras;
+estado;sinProcesar=S;
+nombreCalificacion;datos=Calificacion_DAT;control=Calificacion_CTRL;
+msgErrorCarga;sinArchivo=Debe ingresar Archivo a subir;archivoNoValido=Debe ingresar Archivo con Extensión .TXT;sinControl=Debe ingresar Archivo Control a subir;controlNoValido=Debe ingresar Archivo Control con Extensión .TXT;
+msgExitoCarga;gls=La Calificación se cargó Correctamente;
+msgAdvertencia;gls=¿Está seguro que desea Cargar las Calificaciones de Proveedor?;
+
+#REPAROS
+#DESARROLLO
+#servidorReparo;   ip=161.131.184.80;puerto=21;
+#accesoReparo;     usuario=pproveed;password=proveed1;
+#directorioReparo; path=/pprov/pdfs;
+
+#CERTIFICACION
+servidorReparo;   ip=161.131.232.185;puerto=21;
+accesoReparo;     usuario=pproveed;password=pprovee1;
+directorioReparo; path=/portalprov/pdfs;
+
+#PRODUCCION
+#servidorReparo;   ip=161.131.232.35;puerto=21;
+#accesoReparo;     usuario=pproveed;password=Pproveed12;
+#directorioReparo; path=/portalprov/pdfs;
+
+tipoComunicacion;REP=reparo;REC=reconocimiento;reparo=REP;reconocimiento=REC;
+idCorrelativoPdf;id=PPR;.
+glsCorrelativoPdf;id=Adjunto_Comunicacion;
+comentario;motivo=1;correo=;departamento=1;
+glsComentario;gls=Se ha Ingresado un nuevo Comunicado del Tipo;
+
+msgErrorProveedor;rutNoValido=El rut ingresado no es Válido;rutNoExiste=RUT ingresado no pertenece a los proveedores del Banco;general=Error al obtener el nombre del Proveedor;
+msgErrorIngreso;sinProveedor=Debe ingresar un Proveedor válido;sinResponsable=Debe ingresar un Responsable del Comunicado;sinFecha=Debe ingresar una Fecha para el Comunicado;sinArchivo=Debe ingresar Archivo a subir;archivoNoValido=Debe ingresar Archivo con Extensión .PDF;gls=Se presentó un Error al Ingresar la Comunicación;
+msgErrorComunicacion;sinComunicaciones=No posee Comunicaciones Ingresadas;
+msgErrorEliminar;gls=Se presentó un Error al Eliminar la Comunicación;
+msgExitoIngreso;gls=La Comunicación fue Ingresada Correctamente;
+msgExitoEliminar;gls=La Comunicación fue Eliminada Correctamente;
+
+#PAGINACION
+paginacion;pagReparo=20;pagContratos=20;
+
+#ARCHIVOS EXCEL
+nombreArchivoExcel;servicio=calificaciones_servicio_proveedor.xls;compra=calificaciones_gerencia_compra_proveedor.xls;contratos=contratos_proveedor.xls;detalleContrato=detalle_contrato_proveedor.xls;
+
+#AVISO
+glsImagen;id=Imagen_Aviso_Desplegar.png;
+limiteImagen;size=200000;
+
+msgErrorAviso;sinNombre=Debe ingresar el Nombre del Pop-Up;sinNumero=Debe ingresar Número de Repeticiones;numeroNoCero=Debe ingresar Número de Repeticiones Mayor a 0;sinAdjunto=Debe ingresar Archivo a subir;archivoNoValido=Debe ingresar Archivo con Extensión .JPG;
+msgErrorRegistroAviso;general=Se presentó un Error al Ingresar el Aviso;limite=La Imagen Excede el Límite del Tamaño Permitido;
+msgExitoAviso;gls=El Aviso fue Ingresado Correctamente;
+
+#DESARROLLO
+#servidorAviso;   ip=161.131.184.80;puerto=21;
+#accesoAviso;     usuario=pproveed;password=proveed1;
+#directorioAviso; path=/pprov/pdfs;
+
+#CERTIFICACION
+servidorAviso;   ip=161.131.232.185;puerto=21;
+accesoAviso;     usuario=pproveed;password=pprovee1;
+directorioAviso; path=/portalprov/pdfs;
+
+#PRODUCCION
+#servidorAviso;   ip=161.131.232.35;puerto=21;
+#accesoAviso;     usuario=pproveed;password=Pproveed12;
+#directorioAviso; path=/portalprov/pdfs;
+
+#CONTRATOS
+#WSDL Desarrollo "contratos proveedores".
+#WSDL;CODE=EVEUSR; USERID=EVEREST_USER; NOMSERV=SrvServicioConsultaContra;
+
+#WSDL Certificacion "contratos proveedores".
+WSDL;CODE=EVEUSR; USERID=EVEREST_USER; NOMSERV=SrvServicioConsultaContra;
+
+#WSDL Produccion "contratos proveedores".
+#WSDL;CODE=EVEUSR; USERID=EVEREST_USER; NOMSERV=SrvServicioConsultaContra;
+
+msgErrorContratos;sinContrato=Proveedor sin contratos vigentes.;
+
+#ADMINISTRACION DE USUARIOS
+creaUsuario;codFilial=001;tipoUsu=APO;codVigencia=VIG;codPerfil=M;codEstado=D;grupoCanal=17;
+creacionDePin;fechaFin=01/01/2050;codigoDespliegue=0
+msgEstadoClave;bloqueado=BLOQ;desbloqueado=DESB;
+msgTipo;tipo=COL;tipoADM=SUP;
+retornoWS;codOK=000;codNOK=005;codNEX=006;
+claveTemporal;clave=123456;
+
+#MAIL
+mail;nombre=Portal de Proveedores;asunto=Bienvenido a Nuestro Portal;mailOrigen=bcimaster@bci.cl;cuerpo=Estimado(a) <USUARIO>:\n\nSe ha generado una clave de acceso para poder ingresar al portal de proveedores en representación de <PROVEEDOR>.\n\nSu clave Temporal es: <CLAVE>\n\n\n\n;firma=Bci - Somos diferentes.;
+
+#ENROLAMIENTO
+validarHesHem;desc=True;
+mensajeError1;desc=El Rut ingresado no corresponde a un Proveedor.
+mensajeError2;desc=No es posible realizar el Enrolamiento.
+mensajeError3;desc=No es posible realizar el Enrolamiento. Las HES/HEM no son válidas.
+mensajeError4;desc=No es posible realizar el Enrolamiento. No es posible crear la clave.
+mensajeErrorGeneral;desc=Se produjo un error general.

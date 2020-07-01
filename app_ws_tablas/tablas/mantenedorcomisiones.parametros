@@ -1,0 +1,29 @@
+##Nombre de los atributos adicionales en sistema de precios
+#==========================================================
+etiqueta01;Desc=FECHAPROCESO;
+etiqueta02;Desc=TIPOCONSULTA;
+etiqueta03;Desc=ID.OPERACION;
+etiqueta04;Desc=IDC CLIENTE;
+etiqueta05;Desc=TIPOCANAL;
+etiqueta06;Desc=CANAL;
+etiqueta07;Desc=MONEDA;
+etiqueta08;Desc=TIPOPRODUCTO;
+etiqueta09;Desc=SUBTIPOPRODUCTO;
+etiqueta10;Desc=PLAZO;
+etiqueta11;Desc=FECHAINICIAL;
+etiqueta12;Desc=MONTOPRINCIPAL;
+etiqueta13;Desc=MONTODOS;
+etiqueta14;Desc=MONTOTRES;
+etiqueta15;Desc=MONTOCUATRO;
+etiqueta16;Desc=MONTOCINCO;
+etiqueta17;Desc=CLASIFICACION;
+etiqueta18;Desc=FACTORRIESGO;
+etiqueta19;Desc=INDICADOR;
+
+##Numero de atributos adicionales
+#================================
+numeroAtributosAdicionales;Desc=19;
+
+##Largo máximo descripción de una comisión.
+#==========================================
+largoMaxDescCms;Desc=100;

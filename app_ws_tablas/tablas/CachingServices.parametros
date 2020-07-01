@@ -1,0 +1,12 @@
+# Valores para objeto de negocios CachingServices
+# ======================================================
+
+#Consultas disponibles en sistema de caché
+SinacofiWSBIO.VBIO2201;tipoQuery=WSOperation;cache=no;vigenciaDias=0;
+SinacofiWSBIO.VBIO2301;tipoQuery=WSOperation;cache=si;vigenciaDias=30;
+PlatinumFIN.getInformeFIN;tipoQuery=WSOperation;cache=si;vigenciaDias=7;
+SinacofiWSBIO.VBIO3201;tipoQuery=WSOperation;cache=si;vigenciaDias=30;
+SCORING_EQUIFAX;tipoQuery=WSOperation;cache=si;vigenciaDias=15;
+
+# Base de Datos
+BaseDeDatos;Desc=antcomerprev;

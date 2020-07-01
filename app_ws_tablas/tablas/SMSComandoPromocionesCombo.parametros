@@ -1,0 +1,35 @@
+#=========================================================
+# CONFIGURACION DE COMANDO SMS PARA LA VENTA DE COMBOS
+# Y PROMOCIONES DE BCI, SOLO SE VISAN LOS RUTS
+#========================================================= 
+sms.combo.promocion.simulacion.producto.1; valor=Notebook;
+sms.combo.promocion.simulacion.producto.2; valor=Palm;
+sms.combo.promocion.simulacion.producto.3; valor=BlackBerry;
+
+#========================================================= 
+# RESPUESTAS EXISTOSAS POR PRODUCTO
+#========================================================= 
+sms.combo.promocion.messageok.producto.1; valor=Notebook\n3 cuotas 233.000\n6 cuotas 110.000\n12 cuotas 60.000. www.bci.cl Fono:6928000;
+sms.combo.promocion.messageok.producto.2; valor=Palm\n3 cuotas 60.000\n6 cuotas 30.000\n12 cuotas 16.000. www.bci.cl Fono:6928000;
+sms.combo.promocion.messageok.producto.3; valor=BlackBerry\n3 cuotas 100.000\n6 cuotas 50.000\n12 cuotas 25.000. www.bci.cl Fono:6928000;
+
+#========================================================= 
+# RESPUESTAS NO EXISTOSAS A LA VISACION DEL RUT
+#========================================================= 
+sms.combo.promocion.messagenocalifica.producto.1; valor=Estimado Cliente, en este momento no podemos resolver su requerimiento, lo contactaremos. + info en www.bci.cl;
+sms.combo.promocion.messagenocalifica.producto.2; valor=Estimado Cliente, en este momento no podemos resolver su requerimiento, lo contactaremos. + info en www.bci.cl;
+sms.combo.promocion.messagenocalifica.producto.3; valor=Estimado Cliente, en este momento no podemos resolver su requerimiento, lo contactaremos. + info en www.bci.cl;
+
+#=========================================================
+# ACTIVACION DE EVALUADOR DE RIESGO PARA EL CLIENTE
+#=========================================================
+sms.combo.promocion.riesgo.activo; valor=True;
+
+
+#=========================================================
+# MENSAJES DE ERRORES, EXCEPCIONES Y MENSAJES
+#=========================================================
+sms.combo.promocion.error.msg.errorinterno; valor=Estimado Cliente, en este momento no podemos resolver su requerimiento. + info en www.bci.cl 6928000;
+sms.combo.error.msg.rutinvalido; valor=El rut ingresado no es correcto. + info en www.bci.cl;
+sms.combo.error.msg.rutsobre20; valor=El rut ingresado es superior a 20 millones. + info en www.bci.cl;
+

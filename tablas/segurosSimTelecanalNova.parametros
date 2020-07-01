@@ -1,0 +1,25 @@
+# Seguro Desgravamen Cliente
+degC1;Imes=0;Jmes=12;Porc=2.06570;
+degC2;Imes=13;Jmes=24;Porc=2.8455;
+degC3;Imes=25;Jmes=48;Porc=3.1423;
+degC4;Imes=49;Jmes=60;Porc=3.8167;
+degC5;Imes=61;Jmes=84;Porc=4.4723;
+degC6;Imes=85;Jmes=9999;Porc=4.4723;
+
+# Renta Hospitalaria
+hospi;Porc=0.5474;
+
+# Enfermedades Graves
+enfer;Porc=0.4284;
+
+# Cesantía Involuntaria
+cesan;Porc=2.7322;
+
+# Cuota Segura por Cesantía o Incapacidad Temporal
+cOIT1;Imes=0;Jmes=12;Porc=1.6504;
+cOIT2;Imes=13;Jmes=24;Porc=2.7946;
+cOIT3;Imes=25;Jmes=48;Porc=2.8558;
+cOIT4;Imes=49;Jmes=60;Porc=3.2439;
+cOIT5;Imes=61;Jmes=84;Porc=3.7194;
+cOIT7;Imes=85;Jmes=9999;Porc=3.7194;
+
