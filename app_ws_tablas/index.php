@@ -63,7 +63,11 @@ function get_url_from_file($word_search)
             );
       }
       // solo si se encuentra el caracter en el archivo se hace la busqueda
-      $file_path = $constants['user']['HOST'] . $constants['user']['CAMBIAR_LOGICA'] . $word_search['file'];
+      // $file_path = $constants['user']['HOST'] . $constants['user']['CAMBIAR_LOGICA'] . $word_search['file'];
+
+      $file_path = recorrer_arbol('../wsdl_tablas/', $word_search['file']);
+      // var_dump($file_path);
+      exit();
       try {
             $file_content = file_get_contents($file_path);
             // TODO: aqui se debe implementar la logica de busqueda del archivo
@@ -115,6 +119,27 @@ function search_url($texto_completo, $data)
       return array(
             "parametro" => $url
       );
+}
+
+function recorrer_arbol($directorio_base, $archivo_buscado)
+{
+      $path = "";
+      if (is_dir($directorio_base)) { // validando que sea directorio
+            if ($lectura_directorio = opendir($directorio_base)) {
+                  while (($archivo = readdir($lectura_directorio)) !== false) {
+                        // echo "nombre archivo: $archivo - tipo archivo: " . filetype($directorio_base . $archivo) . "\n";
+                        if (is_dir($directorio_base . $archivo) && $archivo!="." && $archivo!=".."){
+                              recorrer_arbol($directorio_base . $archivo . "/", $archivo_buscado);
+                        } else {
+                              if ($archivo == $archivo_buscado) {                                    
+                                    var_dump('archivo:'. $archivo,'buscado:'. $archivo_buscado, "tipo archivo: " . filetype($directorio_base . $archivo), $archivo == $archivo_buscado, $directorio_base.$archivo);
+                              }
+                        }
+                  }
+                  closedir($lectura_directorio);
+            }
+      }
+      // return $result;
 }
 
 @$server->service(file_get_contents('php://input'));
