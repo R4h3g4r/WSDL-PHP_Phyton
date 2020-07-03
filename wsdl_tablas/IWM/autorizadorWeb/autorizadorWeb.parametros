@@ -1,9 +1,0 @@
-#Define la ruta del archivo xml en donde estan definidas las reglas del autorizador.
-xmlReglas;path=tablas/IWM/autorizadorWeb/DiccionarioReglasAutorizador.xml;pathBackup=tablas/IWM/backup/autorizadorWeb/DiccionarioReglasAutorizador.xml;
-
-xmlVistaAccion;path=tablas/IWM/autorizadorWeb/[DOMINIO]/VistasAccionAutorizador.xml;pathBackup=tablas/IWM/backup/autorizadorWeb/[DOMINIO]/VistasAccionAutorizador.xml;
-xmlAliasReglas;path=tablas/IWM/autorizadorWeb/[DOMINIO]/AliasNegocio.xml;pathBackup=tablas/IWM/backup/autorizadorWeb/[DOMINIO]/AliasNegocio.xml;
-
-dataXML;tiempoRefresco=300000;
-
-mappingXml;path=/autorizadorWeb/mappingAutorizadorWeb.xml;

@@ -1,4 +1,0 @@
-OrdenPago;  Desc=OrdenPago;  Servicio=/belwls/ordenPago?modo=convenios;
-PagueDirecto;          Desc=Pague Directo;             Servicio=/pagoswls/PagueDirecto?paso=0;
-comprasWLS;                       Desc=Compras BCI              Grupos=TarjetaCredito;    Servicio=/belwls/compras/ingresarDatosCompraAction.do?;         Mostrar=Si;   Destino=top;
-CambioPINTarjetaCredito;       Desc=Cambio de PIN de Tarjetas de Credito       Servicio=/belwls/tarjetasonline/actualizaPINAction.do?method=inicializaCambioPIN;

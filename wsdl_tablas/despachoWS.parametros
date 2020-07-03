@@ -1,9 +1,0 @@
-#Configuración de las url entregadas login.
-TRADUCCION_DESPACHO;/seguridadwls/RealizaCambioClave=CAMBIO_CLAVE;/bcinetwls/seguridad/PrimeraVez.html=ACCESO_PRIMERA_VEZ;/movilwls/seguridad/PrimeraVez.html=ACCESO_PRIMERA_VEZ;/seguridad/PrimeraVez.html=ACCESO_PRIMERA_VEZ;/common/Error.html=ERROR_SISTEMA;http://www.bci.cl=ERROR_SISTEMA;/seguridadwls/ConfigurarToken=CONFIGURACION_SEGUNDA_CLAVE;/cl/bci/aplicaciones/menu/index.jsf=AUTENTIFICACION_OK;/movilwls/home.jsp=AUTENTIFICACION_OK;/cl/bci/aplicaciones/seguridad/autenticacion/autenticacionSegundaClave.jsf=SOLICITUD_SEGUNDA_CLAVE;/seguridadwls/RealizaCambioClave?paso?0=CAMBIO_CLAVE;/template/common/index.jsf=AUTENTIFICACION_OK;/convenioDxP/common/index.html=AUTENTIFICACION_OK;
-
-CAMBIO_CLAVE;claveError=cambioClave;
-ACCESO_PRIMERA_VEZ;claveError=primeraVez;910=ERROR_SISTEMA;911=ERROR_SISTEMA;
-CONFIGURACION_SEGUNDA_CLAVE;claveError=cambioClave;910=ERROR_SISTEMA;911=ERROR_SISTEMA;102=ERROR_SISTEMA;
-ERROR_SISTEMA;claveError=errorSistema;
-
-PATRON_URL_DESPACHO;917=https:\/\/mundo\.bci\.cl\/welcome\/auth\?token\u003d\w+&redirect_to\u003dhttps%3A%2F%2Fmundo.bci.cl%2F\w+;

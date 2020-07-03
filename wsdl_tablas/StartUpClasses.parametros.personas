@@ -1,6 +1,0 @@
-WCorpScheduler;clase=wcorp.util.start.WCorpRunTask;
-WCorpSocketListeners;clase=wcorp.util.start.StartListeners;
-JournalReceive;clase=wcorp.util.start.JournalReceive;param1=connectionFactory,jms.connection.serverM11Factory;param2=topic,wcorp.jms.journal.serverM11;param3=clientID,JournalTopicM11;
-JournalBCIExpressReceive;clase=wcorp.util.start.JournalReceiveBCIExpress;param1=connectionFactory,jms.connection.serverM11Factory;param2=topic,wcorp.jms.journal.serverM11;param3=clientID,JournalTopicM11;
-PagosLinea;clase=wcorp.util.start.PagoEnLinea;param1=connectionFactory,jms.connection.serverM11Factory;param2=topic,wcorp.jms.pagos.serverM11;param3=clientID,PagosLineaM11;
-AdministradorDeEventosParaSMS1;clase=wcorp.util.start.sms.AdministradorDeEventosParaSMS;param1=connectionFactory,jms.v1.journal.JournalConnectionFactory;param2=topic,jms.v1.journal.JournalTopic;param3=clientID,JournalV1Topic;

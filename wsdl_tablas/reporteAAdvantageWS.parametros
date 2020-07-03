@@ -1,9 +1,0 @@
-ERROR_USUARIO;NO_AUTORIZADO=El ejecutivo no se encuentra autentificado.;NO_PERMITIDO=No está autorizado a acceder a este módulo;RUT_NO_ENVIADO=Estimado cliente: Debes ingresar tu rut.;MEMBERID_NO_ENVIADO=Estimado cliente: Debes ingresar tu memberId.;
-ERROR_NEGOCIO;NO_ENCONTRADO=No se ha encontrado información del cliente.;
-ERROR_VALIDACION;RUT_INVALIDO=El rut es inválido;PERIODO_INI_INVALIDO=Periodo inicio inválido, debe ser en formato yyyyMM.;PERIODO_FIN_INVALIDO=Periodo fin inválido, debe ser en formato yyyyMM.;NO_TIENE_MEMBER_ID=Estimado cliente: No se ha encontrado un memberId asociado al rut.;MEMBERID_INVALIDO=Estimado cliente: El memberId no cumple con el formato valido.;
-ERROR_CAMPANA_CLIENTE;NO_VALIDO=Estimado cliente: Debes ingresar los datos obligatorios.;
-
-CONSULTA_ENROLAMIENTO;vista=AAdvantage;accion=consultaEnrolamientoCierreCuentas;
-FACTURACION_MILLAS;vista=AAdvantage;accion=consultaFacturacionMillas;
-CONSULTA_MILLAS;vista=AAdvantage;accion=consultaDetalleMillasAcumuladas;
-CUENTAS_UNIFICADAS;vista=AAdvantage;accion=consultaCuentasUnificadas;

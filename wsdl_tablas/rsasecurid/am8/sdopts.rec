@@ -1,5 +1,0 @@
-;sdopts AMBIENTE DE CERTIFICACION
-;servidor primario recibe poca carga de peticion de autentificacion.
-USESERVER=161.131.140.120, 1
-;servidor replica recibe la mayoría de las peticiones de autentificacion.
-USESERVER=161.131.140.119, 10

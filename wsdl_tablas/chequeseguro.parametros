@@ -1,7 +1,0 @@
-#
-# Estado de Cheque
-# ==============================================================================
-#
-
-CodGrales;I=Ingresado;O=Objetado;P=Pagado;R=Rechazado;F=Prueba;CHQ=Cheque Seguro;CTA=Cuenta Segura;000=Exitoso;001=Lacuenta informada no es valida;002=La cuenta informada no es una cuenta segura;003=Inconsistencia entra cuenta y rut informados;004=La cuenta informada no tiene clientevalido asignado;005=La cuenta informada presneta inconsistencia;006=El cheque informado para ingreso ya esta ingresado;007=El cheque informado para ingreso ya esta pagado;008=El cheque informado para ingreso ya esta objetado;009=El cheque informado para ingreso ya esta rechazado;010=El cheque informado para modificacion ya esta pagado;011=El cheque informado para modificacion ya esta objetado;012=El cheque informado para modificacion ya esta rechazado;013=El cheque informado para modificacion no existe;014=El modo de entrada informado no es valido;015=El serial del cheque no es valido;016=El cheque informado fue pagado antes de informarlo;H=NO ES NADA;
-valoresONP;motivo=06;solicitante=1;swPublicacion=0;indRatificacion=1;

@@ -1,9 +1,0 @@
-codigoEntidad;valor=DPS;
-codigoSubEntidad;valor=DBC;
-rutContratante;idc=97006000;dig=6;
-timeout;valor=3;
-glosaAceptacionCondiciones;desc=Confirmo la exactitud de esta Declaración Personal de Salud y declaro conocer y aceptar las condiciones allí expuestas;
-# urlDps;valor=http://alsb.bci.cl/servicios/productos/seguros/ventas/DpsService?wsdl
-urlDps;valor=http://161.131.184.71/servicios/productos/seguros/ventas/DpsService?wsdl
-aliasUyP;valor=wlsalsb;
-codigosJournal;evento=ACTUALIZA;subEvento=DPS;producto=SEG;

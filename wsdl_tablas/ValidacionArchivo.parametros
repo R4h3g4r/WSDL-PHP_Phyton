@@ -1,9 +1,0 @@
-#Integracion
-#SERVIDOR_FTP;ip=161.131.141.238;base=/EDW_PASO/;sistema=fsEDW;
-#Certificacion
-SERVIDOR_FTP;ip=161.131.232.185;base=/EDW_PASO/;sistema=fsEDW;
-#Produccion
-#SERVIDOR_FTP;ip=161.131.232.12;base=/EDW_PASO/;sistema=fsEDW;
-#MENSAJES_PREVALIDA;archivo_vacio=Se debe seleccionar un archivo;verifica_formato_nombre_archivo=Existe error en el formato del nombre del archivo;modelo_vacio=Se debe ingresar un modelo;peso_archivo=El tamaño del archivo excedo los 8 MB;obtiene_archivo_validacion=Se debe ingresar un modelo válido;columnas_no_coincidentes=Las columnas del archivo no coinciden con el modelo seleccionado;error_aplicacion=Ha ocurrido un error en la aplicación;exito=Validación y subida de archivo exitosa!;
-#PESO_ARCHIVO;bytes=8388608;
-#ARCHIVO_VALIDACION;numeroDivideFormato=2;cantidad_registros_erroneos=1000;

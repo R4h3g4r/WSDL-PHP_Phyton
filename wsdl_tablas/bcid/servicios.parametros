@@ -1,9 +1,0 @@
-#========================================================= 
-# Configuración JMS para mensajes de BCID
-#========================================================= 
-jms_config;JNDI_FACTORIA_QUEUE_MDB=jms.connection.bcid.Factory;JNDI_QUEUE_EPC=jms.connection.bcid.EPCQueue;JNDI_QUEUE_REPORTES=jms.connection.bcid.ReportesQueue;JNDI_FACTORIA_TOPIC_MDB=jms.connection.bcid.Factory;JNDI_TOPIC=jms.connection.bcid.MonitorClientes;
-
-#=================================================================== 
-# Configuración de los minutos para las ultimas lecturas registradas
-#=================================================================== 
-lecturas_minutos;minutos=30;

@@ -1,3 +1,0 @@
-function checkCancelButton(){
-	history.back();
-}

@@ -1,4 +1,0 @@
-function getOverloadMessage()
-{
-	return "<%getOverloadMessage()%>";
-}

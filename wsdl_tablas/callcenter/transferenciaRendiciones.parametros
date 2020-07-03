@@ -1,5 +1,0 @@
-ruta; nombre=/Envio_BE/;
-periodicidad; codigo=2,3,4; 2=Semanal;3=Quincenal;4=Mensual;
-impresion; folio=certificadoporfolio;benef=certificadoporbeneficiario;fecha=certificadoporfolio;pago=porformadepago;
-periodicidadProveedor; codigo=2,3,4; 2=Semanal;3=Quincenal;4=Mensual;
-erroresConsultarCertificados; codigoError=990011,990022; 990011=El folio posee fecha de pago menor a 01/01/2009; 990022=La emisión del certificado sólo se puede realizar 72 hrs después de la fecha de pago;

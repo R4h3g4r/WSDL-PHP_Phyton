@@ -1,7 +1,0 @@
-<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by Jose M Selman (Bee Mind S.A.) -->
-<!ELEMENT Mensaje (Formato?, Archivo*, CodRet)>
-<!ELEMENT Archivo (Nombre, Cuerpo)>
-<!ELEMENT Formato (#PCDATA)>
-<!ELEMENT Nombre (#PCDATA)>
-<!ELEMENT Cuerpo (#PCDATA)>
-<!ELEMENT CodRet (#PCDATA)>

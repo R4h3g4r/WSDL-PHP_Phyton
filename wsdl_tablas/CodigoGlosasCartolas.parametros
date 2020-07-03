@@ -1,9 +1,0 @@
-#
-# Identifica los movimiento a filtrar para las cartolas
-# esto es utilizado en el Objeto de Negocio wcorp.model.productos.CuentaCorriente
-#
-
-redbank;       codigosCartolaLinea=|68A|;                                       codigosMiniCartola=|68|;
-transferencias;codigosCartolaLinea=|7N|7NA|1X|1116|;				codigosMiniCartola=|7N|1X|1116|;
-pac;           codigosCartolaLinea=|90|91|92|94|95|97|98|99|9A|9B|9D|9H|9Z|;    codigosMiniCartola=|90|91|92|94|95|97|98|99|9A|9B|9D|9H|9Z|;
-pagoenlinea;   codigosCartolaLinea=|8A|1F|8AA|;                                 codigosMiniCartola=|8A|1F|;

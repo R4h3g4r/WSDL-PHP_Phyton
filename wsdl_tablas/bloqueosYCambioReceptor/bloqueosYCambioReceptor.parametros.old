@@ -1,5 +1,0 @@
-FTP_RBI;HOST=161.131.184.81;DIRECTORIO_CRE=/home/sipe/cborecepflex;DIRECTORIO_BLO=/home/sipe/bloqueospflex;USUARIO=sipe;PASSWORD=sipe01;
-
-DATA_SOURCES;SERV_PER_DATOS=t3://127.0.0.1:7001;
-
-JNDI_BLOQUEOS_Y_CAMBIO_RECEPTOR;JNDI_BLOQUEOS_Y_CAMBIO_RECEPTOR=wcorp.aplicaciones.productos.servicios.pagos.bloqueosycambioreceptor.BloqueosYCambioReceptor;

@@ -1,4 +1,0 @@
-function logoff()
-{
-//	window.close();
-}

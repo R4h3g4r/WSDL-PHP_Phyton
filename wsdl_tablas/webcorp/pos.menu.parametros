@@ -1,5 +1,0 @@
-CajasAsistidas;   Desc=POS Cajas Asistidas;                       Servicio=/poswls/common/Home.jsp;                            Mostrar=No;
-DeslizaTarjeta;   Desc=Tarjeta;                   Grupos=Menú;    Servicio=/poswls/cajasasistidas/CajasAsistidas;param1=a;     Mostrar=Si;
-#EntradaCaja;      Desc=Ingreso Caja;              Grupos=Menú;    Servicio=/poswls/cajasasistidas/CajasAsistidas;param1=m;
-#SalidaCaja;       Desc=Salida Caja;               Grupos=Menú;    Servicio=/poswls/cajasasistidas/CajasAsistidas;param1=n;
-CerrarSesion;     Desc=Cerrar Sesión;             Grupos=Menú;    Servicio=/poswls/cajasasistidas/CajasAsistidas;param1=z;     Mostrar=Si;
