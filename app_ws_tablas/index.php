@@ -7,9 +7,6 @@ define('EMPTY_FIELD_MESSAGE', 'El campo no puede estar vacio.');
 define('HOST', 'http://servicio-tablas.cl/');
 define('NOT_FOUND_CLAVE', 'La clave no fue encontrada.');
 define('NOT_FOUND_CODIGO', 'El campo codigo no fue encontrado en la tabla.');
-define('CAMBIAR_LOGICA', "files/");
-
-# ejemplo 54311;desc=http://www.afphabitat.cl/cgi-bin/bci/mdpbci.cgi;url2=https://www.afphabitat.cl/abonoWeb/notificacion/bci/notificacion.htm;
 
 $server = new soap_server();
 
@@ -44,14 +41,14 @@ $server->wsdl->addComplexType(
 );
 
 $server->register(
-      'get_url_from_file', // nombre del metodo o funcion
-      array('in_data' => 'tns:in_data'), // parametros de entrada
-      array('return' => 'tns:out_data'), // parametros de salida
-      'urn:server', // namespace
-      'urn:server#get_url_from_file', // soapaction debe ir asociado al nombre del metodo
-      'rpc', // style
-      'encoded', // use
-      'La siguiente funcion recibe parametro de id y retorna la url' // documentation
+      'get_url_from_file',
+      array('in_data' => 'tns:in_data'),
+      array('return' => 'tns:out_data'),
+      'urn:server',
+      'urn:server#get_url_from_file',
+      'rpc',
+      'encoded',
+      'La siguiente funcion recibe parametro de id y retorna la url'
 );
 
 function get_url_from_file($word_search)
@@ -62,15 +59,11 @@ function get_url_from_file($word_search)
                   'parametro' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
-      // solo si se encuentra el caracter en el archivo se hace la busqueda
-      // $file_path = $constants['user']['HOST'] . $constants['user']['CAMBIAR_LOGICA'] . $word_search['file'];
-
-      $file_path = recorrer_arbol('../wsdl_tablas/', $word_search['file']);
-      // var_dump($file_path);
-      exit();
+      $path = [];
+      recorrer_arbol('../wsdl_tablas/', $word_search['file'], $path);
+      $file_path = $path[0];
       try {
             $file_content = file_get_contents($file_path);
-            // TODO: aqui se debe implementar la logica de busqueda del archivo
             $find = strpos($file_content, strval($word_search['clave']));
             if ($find === false) {
                   return array(
@@ -80,15 +73,14 @@ function get_url_from_file($word_search)
                   return search_url($file_content, $word_search);
             }
       } catch (\Throwable $th) {
-            // TODO: mejorar la respuesta del try 
             var_dump($th);
       }
 }
 
 function search_url($texto_completo, $data)
 {
-      $palabra_buscada = $data['clave'].';'; // WSrecurso
-      $codigo_buscado = $data['codigo'].'='; // valor
+      $palabra_buscada = $data['clave'].';';
+      $codigo_buscado = $data['codigo'].'=';
       $largo_palabra_buscada = strlen($palabra_buscada);  
       $largo_codigo_buscado = strlen($codigo_buscado);
       $constants =  get_defined_constants(true);
@@ -121,25 +113,23 @@ function search_url($texto_completo, $data)
       );
 }
 
-function recorrer_arbol($directorio_base, $archivo_buscado)
+function recorrer_arbol($directorio_base, $archivo_buscado, &$path)
 {
-      $path = "";
       if (is_dir($directorio_base)) { // validando que sea directorio
             if ($lectura_directorio = opendir($directorio_base)) {
                   while (($archivo = readdir($lectura_directorio)) !== false) {
-                        // echo "nombre archivo: $archivo - tipo archivo: " . filetype($directorio_base . $archivo) . "\n";
                         if (is_dir($directorio_base . $archivo) && $archivo!="." && $archivo!=".."){
-                              recorrer_arbol($directorio_base . $archivo . "/", $archivo_buscado);
+                              recorrer_arbol($directorio_base . $archivo . "/", $archivo_buscado, $path);
                         } else {
                               if ($archivo == $archivo_buscado) {                                    
-                                    var_dump('archivo:'. $archivo,'buscado:'. $archivo_buscado, "tipo archivo: " . filetype($directorio_base . $archivo), $archivo == $archivo_buscado, $directorio_base.$archivo);
+                                    $dato = $directorio_base.$archivo;
+                                    array_push($path, $dato);
                               }
                         }
                   }
                   closedir($lectura_directorio);
             }
       }
-      // return $result;
 }
 
 @$server->service(file_get_contents('php://input'));
