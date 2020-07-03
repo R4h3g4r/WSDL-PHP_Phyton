@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 require_once('nusoap-0.9.5/lib/nusoap.php');
 # constantes
 define('DELIMITER_1', ';');
@@ -62,12 +65,11 @@ function get_url_from_file($word_search)
                   'parametro' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
-      // solo si se encuentra el caracter en el archivo se hace la busqueda
-      // $file_path = $constants['user']['HOST'] . $constants['user']['CAMBIAR_LOGICA'] . $word_search['file'];
 
-      $file_path = recorrer_arbol('../wsdl_tablas/', $word_search['file']);
-      // var_dump($file_path);
+      $file_path = buscar_ruta_archivo('../wsdl_tablas/', $word_search['file']);
+      var_dump($file_path);
       exit();
+      
       try {
             $file_content = file_get_contents($file_path);
             // TODO: aqui se debe implementar la logica de busqueda del archivo
@@ -121,25 +123,125 @@ function search_url($texto_completo, $data)
       );
 }
 
-function recorrer_arbol($directorio_base, $archivo_buscado)
+function listar_directorios($directorio_base)
 {
-      $path = "";
+      $listado_directorios = Array();
       if (is_dir($directorio_base)) { // validando que sea directorio
             if ($lectura_directorio = opendir($directorio_base)) {
                   while (($archivo = readdir($lectura_directorio)) !== false) {
-                        // echo "nombre archivo: $archivo - tipo archivo: " . filetype($directorio_base . $archivo) . "\n";
-                        if (is_dir($directorio_base . $archivo) && $archivo!="." && $archivo!=".."){
-                              recorrer_arbol($directorio_base . $archivo . "/", $archivo_buscado);
-                        } else {
-                              if ($archivo == $archivo_buscado) {                                    
-                                    var_dump('archivo:'. $archivo,'buscado:'. $archivo_buscado, "tipo archivo: " . filetype($directorio_base . $archivo), $archivo == $archivo_buscado, $directorio_base.$archivo);
-                              }
+                        $ruta = $directorio_base . $archivo;
+                        if (is_dir($ruta) && $archivo!="." && $archivo!=".."){
+                              // var_dump("carpeta -->".$ruta);   
+                              // var_dump(gettype($ruta));
+                              array_push($listado_directorios, $ruta);
+                        } 
+                  }
+                  closedir($lectura_directorio);
+            }
+      }
+      return $listado_directorios;
+}
+
+function buscar_en_archivos($directorio_base, $archivo_buscado)
+{
+      $listado_archivos = [];
+      if (is_dir($directorio_base)) {
+            if ($lectura_directorio = opendir($directorio_base)) {
+                  while (($archivo = readdir($lectura_directorio)) !== false) {
+                        $ruta = $directorio_base . $archivo;
+                        if (!is_dir($ruta) && $archivo!="." && $archivo!=".."){
+                              if ($archivo == $archivo_buscado) {
+                                    array_push($listado_archivos, $ruta);
+                              }   
                         }
                   }
                   closedir($lectura_directorio);
             }
       }
-      // return $result;
+      return $listado_archivos;
 }
+
+function buscar_ruta_archivo($directorio_base, $archivo_buscado)
+{
+      // aqui tengo que retornar solo el path del archivo
+      # code...
+      // $encontrados = buscar_directorios('../wsdl_tablas/');
+      $listado_archivos = buscar_en_archivos('../wsdl_tablas/', $archivo_buscado);
+
+      if (count($listado_archivos) > 0) {
+            // var_dump($listado_archivos[0]);
+            return $listado_archivos[0];
+            // esta retornando solo el primer path del archivo que coincidio el nombre
+      }
+
+      $listado_directorios = listar_directorios('../wsdl_tablas/');
+      
+      foreach ($listado_directorios as $directorio) {
+            $listado_archivos = buscar_en_archivos($directorio.'/', $archivo_buscado);
+            if (count($listado_archivos) > 0) {
+                  return $listado_archivos[0];
+            } else {
+                  $listado_sub_directorios = listar_directorios($directorio.'/');
+                  foreach ($listado_sub_directorios as $sub_directorio) {
+                        var_dump($sub_directorio.'/');
+                        $listado_archivos_subdirectorio = buscar_en_archivos($sub_directorio.'/', $archivo_buscado);
+                        var_dump($listado_archivos_subdirectorio);
+
+                        // if (count($listado_archivos_subdirectorio) > 0) {
+                        //       return $listado_archivos_subdirectorio[0];
+                        // } else {
+                        //       // var_dump($sub_directorio);
+                        //       // $listado_sub_directorio_2 = listar_directorios($sub_directorio.'/');
+                        //       // var_dump($listado_sub_directorio_2);
+                        //       // if (count($listado_sub_directorio_2) > 0) {
+                        //             // var_dump($listado_sub_directorio_2);
+                        //             // foreach ($listado_sub_directorio_2 as $sub_directorio_2) {
+                        //             //       var_dump($sub_directorio_2);
+                        //             //       $listado_archivos_subdirectorio_2 = buscar_en_archivos($sub_directorio_2.'/', $archivo_buscado);  
+                        //             //       // var_dump($listado_archivos_subdirectorio_2);                                        
+                        //             //       // if (count($listado_archivos_subdirectorio_2) > 0) {
+                        //             //       //       return $listado_archivos_subdirectorio_2[0];
+                        //             //       // }
+                        //             // }
+                        //       // }                              
+                        // }                              
+                  }
+            }
+      }
+      
+      
+      
+      
+      
+      
+      
+      // $listado_directorios = Array();
+      // $listado_archivos = [];
+      // $encontrados = "";
+      // if (is_dir($directorio_base)) { // validando que sea directorio
+      //       if ($lectura_directorio = opendir($directorio_base)) {
+      //             while (($archivo = readdir($lectura_directorio)) !== false) {
+      //                   // echo "nombre archivo: $archivo - tipo archivo: " . filetype($directorio_base . $archivo) . "\n";
+      //                   $ruta = $directorio_base . $archivo;
+      //                   if (is_dir($ruta) && $archivo!="." && $archivo!=".."){
+      //                         // son solo directorios
+      //                         // var_dump("carpeta -->".$ruta);   
+      //                         // var_dump(gettype($ruta));
+      //                         array_push($listado_directorios, $ruta);
+      //                   } else {
+      //                         // var_dump(gettype($ruta));
+      //                         // var_dump("archivo -->".$ruta);
+      //                         if ($archivo == $archivo_buscado) {
+      //                               array_push($listado_archivos, $ruta);
+      //                         }                              
+      //                   }
+      //             }
+      //             closedir($lectura_directorio);
+      //       }
+      // }
+      // return $listado_archivos;
+
+}
+
 
 @$server->service(file_get_contents('php://input'));
