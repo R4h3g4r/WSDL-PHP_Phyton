@@ -1,18 +1,18 @@
 import configparser
 import pymysql
 
+host = 'localhost'
+user = 'root'
+password = ''
+database = 'test'
+port = 3306
+
 def connect():
     result = False
     try:
         config = configparser.ConfigParser()
         config.read('config.ini')
-        db = pymysql.connect(
-            config['LOCAL']['DB_NEXUS_HOST'],
-            config['LOCAL']['DB_NEXUS_USER'], 
-            config['LOCAL']['DB_NEXUS_PASSWORD'], 
-            config['LOCAL']['DB_NEXUS_DATABASE'],
-            int(config['LOCAL']['DB_NEXUS_PORT'])
-            )
+        db = pymysql.connect(host, user, password, database, port)
         result = db 
     except pymysql.Error as identifier:
         print('[ERROR] ocurrio un error conectando la base de datos: {}'.format(identifier))
@@ -37,8 +37,9 @@ def executeQuery(db, query):
         cursor.execute(query)
         result = cursor.fetchall()
         cursor.close()
-    except pymysql.Error as identifier:
+    except pymysql.Error as error:
         print('[ERROR] ocurrio un error ejecutando la query: {}'.format(query))
+        print('[ERROR] Error: {}'.format(error))
     return result
 
 def executeUpdate(db, query):
@@ -51,6 +52,7 @@ def executeUpdate(db, query):
         db.commit()
         cursor.close()
         result = True
-    except pymysql.Error as identifier:
+    except pymysql.Error as error:
         print('[ERROR] ocurrio un error ejecutando la query: {}'.format(query))
+        print('[ERROR] Error: {}'.format(error))
     return result
