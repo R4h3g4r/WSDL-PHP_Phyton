@@ -2,8 +2,8 @@ from flask import Flask, render_template
 import mysql_db as connection
 import os
 
-ruta_raiz = "C:/Users/Sebastian/Desktop/Projects/BCI/WSDL-PHP_Phyton/arbol/dir1"
-tabla = 'tablas_parametros'
+ruta_raiz = "C:/Users/Sebastian/Desktop/Projects/BCI/WSDL-PHP_Phyton/arbol/dir1" #url raiz del arbol que contiene los archivos
+tabla = 'tablas_parametros' # tabla de la base de datos
 
 app =  Flask(__name__)
 
