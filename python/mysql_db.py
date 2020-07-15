@@ -35,7 +35,7 @@ def executeQuery(db, query):
             return result
         cursor = db.cursor()
         cursor.execute(query)
-        result = cursor.fetchall()
+        result = cursor
         cursor.close()
     except pymysql.Error as error:
         print('[ERROR] ocurrio un error ejecutando la query: {}'.format(query))
