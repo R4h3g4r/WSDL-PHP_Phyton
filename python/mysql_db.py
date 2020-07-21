@@ -4,7 +4,7 @@ import pymysql
 host = 'localhost'
 user = 'root'
 password = ''
-database = 'test'
+database = 'wsdl_tablas'
 port = 3306
 
 def connect():

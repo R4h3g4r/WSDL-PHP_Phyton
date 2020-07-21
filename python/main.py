@@ -21,26 +21,28 @@ def actualizar_tablas():
     db = connection.connect()
     truncate = connection.executeUpdate(db,'TRUNCATE TABLE {}'.format(tabla))
     if truncate:
+        print('Actualizando arbol de tablas en la bd')
         for dirpath, dirnames, filenames in os.walk(ruta_raiz):
-            # TODO: dirnames no se ocupa, verificar si se puede borrar
             if filenames:                
                 for file_name in filenames:   
                     if file_name.find('.parametros') > 0 and file_name.find('.parametros') + len('.parametros') == len(file_name):
-                        # print('file_name:', file_name)
-                        # print('dir_name:',dirnames)
-                        # print('dir_path_name:',dirpath)
-                        query = 'INSERT INTO test.tablas_parametros (tabla_nombre, tabla_path) VALUES ("{}", "{}")'.format(file_name, dirpath.replace('\\','/'))
+                        query = 'INSERT INTO tablas_parametros (tabla_path) VALUES ("{}")'.format(dirpath.replace('\\','/') + '/' + file_name)
                         connection.executeUpdate(db,query)
     connection.disconnect(db)
     return "Proceso de actualizacion de tablas realizado exitosamente."
 
-@app.route('/path_tabla/<nombre_tabla>')
-def path_table(nombre_tabla):
+@app.route('/path_tabla/<nombre_archivo>')
+def path_table(nombre_archivo):
+    print('buscando archivo: {} ...'.format(nombre_archivo))
+    if len(nombre_archivo) < 5:
+        return "El nombre del archivo no es válido."
     db = connection.connect()
-    cursor = connection.executeQuery(db,'SELECT concat(tabla_path,"/",tabla_nombre) AS url FROM {} WHERE tabla_nombre = "{}" LIMIT 1'.format(tabla, nombre_tabla))
+    cursor = connection.executeQuery(db,'SELECT tabla_path AS url FROM {} WHERE tabla_path like "%{}" LIMIT 1'.format(tabla, nombre_archivo))
     data = cursor.fetchone()
-    # print(cursor, data, 'SELECT concat(tabla_path,"/",tabla_nombre) AS url FROM {} WHERE tabla_nombre = "{}" LIMIT 1'.format(tabla, nombre_tabla))
-    return data[0]
+    if data is None:
+        return 'Archivo de tabla no existe'
+    else:
+        return data[0]
 
 if __name__== '__main__':
     app.run(

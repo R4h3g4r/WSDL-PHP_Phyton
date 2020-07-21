@@ -1,15 +1,14 @@
 # Proyecto para obtencion de info tablas
 
+## Esquema
+wsdl_tablas
+
 ## Definicion de la tabla
-CREATE TABLE test.tablas_parametros (
-	id INT auto_increment NOT NULL,
-	tabla_nombre varchar(500) NULL,
-	tabla_path varchar(3000) NULL,
-	creado_en DATETIME DEFAULT current_timestamp() NULL,
-	estado BOOL DEFAULT 1 NULL,
-	modificado_en DATETIME DEFAULT current_timestamp() NULL,
-	CONSTRAINT tablas_parametros_pk PRIMARY KEY (id)
-)
-ENGINE=InnoDB
-DEFAULT CHARSET=utf8
-COLLATE=utf8_general_ci;
+CREATE TABLE `tablas_parametros` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tabla_path` varchar(5000) DEFAULT NULL,
+  `creado_en` datetime DEFAULT current_timestamp(),
+  `estado` tinyint(1) DEFAULT 1,
+  `modificado_en` datetime DEFAULT current_timestamp(),
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1389 DEFAULT CHARSET=utf8;

@@ -1,12 +1,17 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 require_once('nusoap-0.9.5/lib/nusoap.php');
 # constantes
-define('DELIMITER_1', ';');
-define('DELIMITER_URL2', ';url2');
-define('EMPTY_FIELD_MESSAGE', 'El campo no puede estar vacio.');
 define('HOST', 'http://servicio-tablas.cl/');
+define('PYTHON_HOST', 'http://localhost:8080/');
 define('NOT_FOUND_CLAVE', 'La clave no fue encontrada.');
 define('NOT_FOUND_CODIGO', 'El campo codigo no fue encontrado en la tabla.');
+define('NOT_FOUND_SERVICE', 'El servicio para conseguir las tablas esta caido.');
+define('EMPTY_FIELD_MESSAGE', 'El campo no puede estar vacio.');
+define('DELIMITER_1', ';');
+define('DELIMITER_URL2', ';url2');
 
 $server = new soap_server();
 
@@ -25,7 +30,7 @@ $server->wsdl->addComplexType(
       array(
             'file'   => array('name' => 'file', 'type' => 'xsd:string'), # path del archivo
             'clave'   => array('name' => 'clave', 'type' => 'xsd:string'), # convenio clave o id
-            'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # el campo a traer despues del "="
+            'codigo'   => array('name' => 'codigo', 'type' => 'xsd:string') # el campo a traer despues del '='
       )
 );
 // Parametros de Salida
@@ -59,16 +64,51 @@ function get_url_from_file($word_search)
                   'parametro' => $constants['user']['EMPTY_FIELD_MESSAGE']
             );
       }
-      $path = [];
-      recorrer_arbol('../wsdl_tablas/', $word_search['file'], $path);
-      $file_path = $path[0];
+      
+      $cliente = curl_init();
+	curl_setopt($cliente, CURLOPT_URL, $constants['user']['PYTHON_HOST'].'path_tabla/'.$word_search['file']);
+      curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
+      $file_path = curl_exec($cliente);
+      curl_close($cliente);
+
+      if (!$file_path) {
+            return array(
+                  'parametro' => $constants['user']['NOT_FOUND_SERVICE']
+            );
+      } elseif ($file_path == 'Archivo de tabla no existe') {
+            #TODO: mejorar la respuesta cuando no encuentra el path del archivo
+            $cliente = curl_init();
+            curl_setopt($cliente, CURLOPT_URL, $constants['user']['PYTHON_HOST'].'actualizar_tablas');
+            curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($cliente, CURLOPT_TIMEOUT, 1); 
+            curl_setopt($cliente, CURLOPT_FORBID_REUSE, true);
+            curl_setopt($cliente, CURLOPT_CONNECTTIMEOUT, 1);
+            curl_setopt($cliente, CURLOPT_DNS_CACHE_TIMEOUT, 10);
+            curl_exec($cliente);
+            curl_close($cliente);
+            return array(
+                  'parametro' => $constants['user']['NOT_FOUND_CLAVE']
+            );
+      }
+
       try {
             $file_content = file_get_contents($file_path);
             $find = strpos($file_content, strval($word_search['clave']));
             if ($find === false) {
+                  // para que se refresque el arbol de las tablas en la bd
+                  $cliente = curl_init();
+                  curl_setopt($cliente, CURLOPT_URL, $constants['user']['PYTHON_HOST'].'actualizar_tablas');
+                  curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
+                  curl_setopt($cliente, CURLOPT_TIMEOUT, 1); 
+                  curl_setopt($cliente, CURLOPT_FORBID_REUSE, true);
+                  curl_setopt($cliente, CURLOPT_CONNECTTIMEOUT, 1);
+                  curl_setopt($cliente, CURLOPT_DNS_CACHE_TIMEOUT, 10);
+                  curl_exec($cliente);
+                  curl_close($cliente);
                   return array(
-                         'parametro' => $constants['user']['NOT_FOUND_CLAVE']
+                        'parametro' => $constants['user']['NOT_FOUND_CLAVE']
                   );
+                  
             } else {
                   return search_url($file_content, $word_search);
             }
@@ -89,27 +129,15 @@ function search_url($texto_completo, $data)
       $posicion_codigo = strpos($texto_completo, $codigo_buscado, $punto_de_partida);
       if (!$posicion_codigo) {
             return array(
-                  "parametro" => $constants['user']['NOT_FOUND_CODIGO']
+                  'parametro' => $constants['user']['NOT_FOUND_CODIGO']
             );
       }
       $posicion_inicio_url = $posicion_codigo + $largo_codigo_buscado;
       $posicion_fin_url = strpos($texto_completo, $constants['user']['DELIMITER_1'], $posicion_inicio_url);
       $largo_url = $posicion_fin_url - $posicion_inicio_url;
       $url = substr($texto_completo, $posicion_inicio_url,$largo_url);
-
-      // para debug
-      // var_dump("palabra buscada: ".$palabra_buscada);
-      // var_dump("largo palabra buscada: ".$largo_palabra_buscada);
-      // var_dump("posicion palabra buscada: ".$palabra_buscada_position);
-      // var_dump("clave buscada: ".$codigo_buscado);
-      // var_dump("largo clave buscada: ".$largo_codigo_buscado);
-      // var_dump("posicion clave buscada: ".$posicion_codigo);
-      // var_dump($posicion_codigo);
-      // var_dump("url: ".$url);
-      // die();
-      
       return array(
-            "parametro" => $url
+            'parametro' => $url
       );
 }
 
@@ -118,8 +146,8 @@ function recorrer_arbol($directorio_base, $archivo_buscado, &$path)
       if (is_dir($directorio_base)) { // validando que sea directorio
             if ($lectura_directorio = opendir($directorio_base)) {
                   while (($archivo = readdir($lectura_directorio)) !== false) {
-                        if (is_dir($directorio_base . $archivo) && $archivo!="." && $archivo!=".."){
-                              recorrer_arbol($directorio_base . $archivo . "/", $archivo_buscado, $path);
+                        if (is_dir($directorio_base . $archivo) && $archivo!='.' && $archivo!='..'){
+                              recorrer_arbol($directorio_base . $archivo . '/', $archivo_buscado, $path);
                         } else {
                               if ($archivo == $archivo_buscado) {                                    
                                     $dato = $directorio_base.$archivo;
