@@ -5,7 +5,7 @@ use function PHPSTORM_META\type;
 require_once('nusoap-0.9.5/lib/nusoap.php');
 # constantes
 define('HOST', 'http://servicio-tablas.cl/');
-define('PYTHON_HOST', 'http://localhost:8080/');
+define('PYTHON_HOST', 'http://localhost:8085/');
 define('NOT_FOUND_CLAVE', 'La clave no fue encontrada.');
 define('NOT_FOUND_CODIGO', 'El campo codigo no fue encontrado en la tabla.');
 define('NOT_FOUND_SERVICE', 'El servicio para conseguir las tablas esta caido.');
@@ -66,11 +66,12 @@ function get_url_from_file($word_search)
       }
       
       $cliente = curl_init();
-	curl_setopt($cliente, CURLOPT_URL, $constants['user']['PYTHON_HOST'].'path_tabla/'.$word_search['file']);
+	curl_setopt($cliente, CURLOPT_URL, $constants['user']['PYTHON_HOST'].'path_tabla/');
       curl_setopt($cliente, CURLOPT_RETURNTRANSFER, true);
+      curl_setopt($cliente, CURLOPT_POST, TRUE);
+      curl_setopt($cliente, CURLOPT_POSTFIELDS, "file=".$word_search['file']);
       $file_path = curl_exec($cliente);
       curl_close($cliente);
-
       if (!$file_path) {
             return array(
                   'parametro' => $constants['user']['NOT_FOUND_SERVICE']

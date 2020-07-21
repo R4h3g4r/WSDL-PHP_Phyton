@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import mysql_db as connection
 import os
 
@@ -31,8 +31,9 @@ def actualizar_tablas():
     connection.disconnect(db)
     return "Proceso de actualizacion de tablas realizado exitosamente."
 
-@app.route('/path_tabla/<nombre_archivo>')
-def path_table(nombre_archivo):
+@app.route('/path_tabla/', methods=['POST'])
+def path_table():
+    nombre_archivo = request.form['file']
     print('buscando archivo: {} ...'.format(nombre_archivo))
     if len(nombre_archivo) < 5:
         return "El nombre del archivo no es válido."
@@ -46,7 +47,7 @@ def path_table(nombre_archivo):
 
 if __name__== '__main__':
     app.run(
-        port = 8080,
+        port = 8085,
         debug = True,
         host = '0.0.0.0' 
     )
